@@ -3,7 +3,7 @@
 Registro automático de partidas de MTG Arena para Windows: manos iniciales, mulligans, sideboard,
 mazo del rival, estadísticas y overlay mientras juegas.
 
-- Web: https://eusebiog96.github.io/ManaLab/
+- Web: https://manalab.es/
 - Donativos: https://ko-fi.com/eusebiog96
 - Descargas: [Releases](https://github.com/EusebioG96/ManaLab/releases/latest)
 

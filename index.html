@@ -1,23 +1,33 @@
 <!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" type="image/png" href="img/icono.png">
-<title>ManaLab</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="ManaLab guarda cada match de MTG Arena: manos iniciales, mulligans, sideboard, mazo del rival y estadísticas. Gratis para Windows.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ManaLab · MTG Arena match logger">
-<meta property="og:description" content="Logs every MTG Arena match: opening hands, mulligans, sideboard, opponent's deck and stats. Free for Windows.">
-<meta property="og:url" content="https://eusebiog96.github.io/ManaLab/">
-<meta property="og:image" content="https://eusebiog96.github.io/ManaLab/img/en_panel.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://eusebiog96.github.io/ManaLab/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@500;600;700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<style>
+<html lang="en">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>ManaLab – Free MTG Arena Match Tracker &amp; Stats for Windows</title>
+<meta content="Free MTG Arena tracker for Windows: logs opening hands, mulligans, play/draw, sideboard, opponent decks and win rates by matchup. No ads." name="description"/>
+<link href="https://manalab.es/" rel="canonical"/>
+<link href="https://manalab.es/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<link href="img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="ManaLab · Free MTG Arena match tracker" property="og:title"/>
+<meta content="Free MTG Arena tracker for Windows: logs opening hands, mulligans, play/draw, sideboard, opponent decks and win rates by matchup. No ads." property="og:description"/>
+<meta content="https://manalab.es/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="ManaLab · Free MTG Arena match tracker" name="twitter:title"/>
+<meta content="Free MTG Arena tracker for Windows: logs opening hands, mulligans, play/draw, sideboard, opponent decks and win rates by matchup. No ads." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "ManaLab", "url": "https://manalab.es/", "description": "Free MTG Arena tracker for Windows: logs opening hands, mulligans, play/draw, sideboard, opponent decks and win rates by matchup. No ads.", "applicationCategory": "GameApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "2.0.0", "downloadUrl": "https://github.com/EusebioG96/ManaLab/releases/latest", "image": "https://manalab.es/img/og.jpg", "screenshot": ["https://manalab.es/img/en_panel.jpg", "https://manalab.es/img/en_partida.jpg", "https://manalab.es/img/en_estadisticas.jpg"], "inLanguage": ["en", "es", "fr", "de", "it", "pt", "ja", "ko", "zh"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "author": {"@type": "Person", "name": "EusebioG96"}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}, {"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Does it touch the game or give me an advantage in a match?", "acceptedAnswer": {"@type": "Answer", "text": "No. It only reads the log file that Arena itself writes on your PC. It doesn't modify Arena, doesn't read its memory and doesn't connect to its servers. The optional overlay is a separate window that shows only information the game itself makes public (your cards played and the opponent's cards revealed), never hidden information."}}, {"@type": "Question", "name": "What data does it send?", "acceptedAnswer": {"@type": "Answer", "text": "None. Your games, screenshots and statistics stay in a folder on your PC. The program only downloads: the updated meta deck list (every 3 days) and, if a card is missing from Arena's database, its name from Scryfall. You can turn both off in Settings."}}, {"@type": "Question", "name": "Windows says «Windows protected your PC». Is it safe?", "acceptedAnswer": {"@type": "Answer", "text": "That warning appears for programs without a paid code-signing certificate, which is common for small free tools. Click «More info» and then «Run anyway». Every version is checked on VirusTotal before it's published."}}, {"@type": "Question", "name": "Does it work on Mac or for Limited?", "acceptedAnswer": {"@type": "Answer", "text": "For now it's for Windows. It logs any Arena game, including Limited, although the opponent's deck detection uses the Standard meta."}}, {"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, completely, with no ads or accounts. If it's useful to you, you can support it with a donation, but every feature is available either way."}}]}]</script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@500;600;700&amp;family=Figtree:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><style>
 /* Concepto: la página es la propia app — paneles oscuros carmesí, el log de Arena convertido en un historial.
    Un solo mundo visual (oscuro, como el programa), por eso no hay versión clara. */
 :root {
@@ -178,52 +188,48 @@ footer .legal { max-width: 80ch; line-height: 1.6; }
   .cab .boton span { display: none; }
   .juegos { margin-left: 0; }
 }
-</style>
-</head>
+a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
+</style></head>
 <body>
-
-
 <header class="cab">
-  <div class="envoltura">
-    <a class="marca" href="#inicio"><img src="img/logo.png" alt=""><span><b>ManaLab</b></span></a>
-    <nav aria-label="Secciones">
-      <a href="#funciones" data-en="Features">Funciones</a>
-      <a href="#empezar" data-en="Get started">Cómo empezar</a>
-      <a href="#preguntas" data-en="FAQ">Preguntas</a>
-      <a href="#apoyo" data-en="Support">Apoyar</a>
-    </nav>
-    <button class="idioma" id="idioma" type="button" aria-label="Change language / Cambiar idioma">EN</button>
-    <a class="boton prim descarga" href="#descargar"><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg><span data-en="Download">Descargar</span></a>
-  </div>
+<div class="envoltura">
+<a class="marca" href="#inicio"><img alt="ManaLab logo" height="36" src="img/logo.png" width="36"/><span><b>ManaLab</b></span></a>
+<nav aria-label="Secciones">
+<a href="#funciones">Features</a>
+<a href="#empezar">Get started</a>
+<a href="#preguntas">FAQ</a>
+<a href="#apoyo">Support</a>
+</nav>
+<a class="idioma" href="es/" hreflang="es" id="idioma" lang="es" title="Ver en español">ES</a>
+<a class="boton prim descarga" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download</span></a>
+</div>
 </header>
-
 <main id="inicio">
-  <section class="portada">
-    <div class="envoltura">
-      <div>
-        <div class="eti" data-en="Free for Windows · MTG Arena">Gratis para Windows · MTG Arena</div>
-        <h1 data-en-html="Every Arena match, <em>logged on its own.</em>">Cada match de Arena, <em>registrado solo.</em></h1>
-        <p class="sub" data-en="ManaLab reads Arena's log while you play and keeps your opening hands, mulligans, play or draw, sideboard changes and the opponent's deck. Then it shows you where you win and where you lose.">ManaLab lee el log de Arena mientras juegas y guarda tus manos iniciales, mulligans, si ibas en play o en draw, los cambios de banquillo y el mazo del rival. Después te enseña dónde ganas y dónde pierdes.</p>
-        <div class="acciones">
-          <a class="boton prim descarga" href="#descargar"><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg><span data-en="Download for Windows">Descargar para Windows</span></a>
-          <a class="boton sec" href="#capturas" data-en="See the app">Ver la aplicación</a>
-        </div>
-        <div class="nota-desc"><span data-en="Free, no ads">Gratis, sin anuncios</span><span data-en="Your data stays on your PC">Tus datos se quedan en tu PC</span><span data-en="9 languages">9 idiomas</span></div>
-      </div>
-      <div class="ventana"><div class="barra"><i></i><i></i><i></i><span>ManaLab</span></div>
-        <img class="cap" data-cap="panel" src="img/es_panel.jpg" alt="Panel de ManaLab con los últimos matches" width="1366" height="860"></div>
-    </div>
-  </section>
-
-  <section class="seccion franja">
-    <div class="envoltura">
-      <div class="cab-sec">
-        <div class="eti" data-en="How it works">Cómo funciona</div>
-        <h2 data-en="From Arena's log to your history">Del log de Arena a tu historial</h2>
-        <p data-en="With «Detailed Logs» on, Arena writes every game to Player.log. ManaLab reads it as you play and turns it into matches you can review.">Con el «Registro detallado» activado, Arena escribe cada partida en el Player.log. ManaLab lo lee mientras juegas y lo convierte en matches que puedes revisar.</p>
-      </div>
-      <div class="conversion">
-        <div class="log"><span class="t">Player.log</span><pre><b>[UnityCrossThreadLogger]</b> GreToClientEvent
+<section class="portada">
+<div class="envoltura">
+<div>
+<div class="eti">Free for Windows · MTG Arena</div>
+<h1>Every Arena match, <em>logged on its own.</em></h1>
+<p class="sub">ManaLab reads Arena's log while you play and keeps your opening hands, mulligans, play or draw, sideboard changes and the opponent's deck. Then it shows you where you win and where you lose.</p>
+<div class="acciones">
+<a class="boton prim descarga" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download for Windows</span></a>
+<a class="boton sec" href="#capturas">See the app</a>
+</div>
+<div class="nota-desc"><span>Free, no ads</span><span>Your data stays on your PC</span><span>9 languages</span></div>
+</div>
+<div class="ventana"><div class="barra"><i></i><i></i><i></i><span>ManaLab</span></div>
+<img alt="ManaLab dashboard with the latest MTG Arena matches" class="cap" data-cap="panel" fetchpriority="high" height="860" src="img/en_panel.jpg" width="1366"/></div>
+</div>
+</section>
+<section class="seccion franja">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">How it works</div>
+<h2>From Arena's log to your history</h2>
+<p>With «Detailed Logs» on, Arena writes every game to Player.log. ManaLab reads it as you play and turns it into matches you can review.</p>
+</div>
+<div class="conversion">
+<div class="log"><span class="t">Player.log</span><pre><b>[UnityCrossThreadLogger]</b> GreToClientEvent
 { <span class="k">"type"</span>: "GREMessageType_MulliganReq",
   <span class="k">"systemSeatIds"</span>: [1] }
 <b>[UnityCrossThreadLogger]</b> GreToClientEvent
@@ -232,179 +238,149 @@ footer .legal { max-width: 80ch; line-height: 1.6; }
     <span class="k">"gameNumber"</span>: 3,
     <span class="k">"results"</span>: [{ <span class="k">"result"</span>: "ResultType_WinLoss",
                  <span class="k">"winningTeamId"</span>: 1 }] } }</pre></div>
-        <div class="flecha-c" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m0 0-5-5m5 5-5 5"/></svg></div>
-        <div class="match">
-          <div class="m-cab">
-            <span class="res" data-en="W">V</span>
-            <div style="min-width:0"><div class="m-nom">16/10/26_Landfall Verde_2</div><div class="m-sub">vs Dimir Midrange · 94 % · Ladder</div></div>
-            <div class="marcador"><span class="puntos"><i></i><i class="d"></i><i></i></span>2-1</div>
-          </div>
-          <div class="juegos">
-            <div class="juego"><span data-en="Game 1">Partida 1</span><span class="g">Play</span><span class="chip" data-en="Win">Victoria</span></div>
-            <div class="juego"><span data-en="Game 2">Partida 2</span><span class="g">Draw</span><span class="chip d" data-en="Loss">Derrota</span></div>
-            <div class="juego"><span data-en="Game 3">Partida 3</span><span class="g">Play</span><span class="chip" data-en="Win">Victoria</span></div>
-          </div>
-          <div class="mano"><span><b>3</b>Forest</span><span>Fabled Passage</span><span>Llanowar Elves</span><span>Icetill Explorer</span><span>Mightform Harmonizer</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion" id="funciones">
-    <div class="envoltura">
-      <div class="cab-sec">
-        <div class="eti" data-en="Features">Funciones</div>
-        <h2 data-en="Everything you'd note down after each match, done for you">Todo lo que apuntarías después de cada match, ya apuntado</h2>
-      </div>
-      <div class="funciones">
-        <div class="funcion"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18.5" cy="16.5" r="2.5"/></svg>
-          <h3 data-en="Matches and games">Matches y partidas</h3>
-          <p data-en="Each Bo3 is one row with its score (2-1, 1-2…) that opens to show every game: play or draw, result and mulligans.">Cada Bo3 es una fila con su marcador (2-1, 1-2…) que se despliega en sus partidas: play o draw, resultado y mulligans.</p></div>
-        <div class="funcion"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="m21 15-4.5-4.5L8 19"/></svg>
-          <h3 data-en="Hands and screenshots">Manos y capturas</h3>
-          <p data-en="Your opening hand, the hand you kept and a screenshot of each key moment, to review the game afterwards.">Tu mano inicial, la que te quedaste y una captura de cada momento clave para revisar la partida después.</p></div>
-        <div class="funcion"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2.5"/></svg>
-          <h3 data-en="Opponent's deck">Mazo del rival</h3>
-          <p data-en="It compares the opponent's cards with the most played Standard decks and names the closest one. The meta list updates every 3 days.">Compara las cartas del rival con los mazos más jugados del meta de Standard y le pone el que más coincide. La lista del meta se actualiza cada 3 días.</p></div>
-        <div class="funcion"><svg viewBox="0 0 24 24"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"/></svg>
-          <h3 data-en="Statistics">Estadísticas</h3>
-          <p data-en="Match and game win rates, streaks, last days, and breakdowns by mulligans, play/draw, deck and opponent archetype.">Winrate de matches y de partidas, rachas, últimos días y desgloses por mulligans, play/draw, mazo y arquetipo rival.</p></div>
-        <div class="funcion"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="13" height="16" rx="2"/><path d="M4 7v12a2 2 0 0 0 2 2h10"/></svg>
-          <h3 data-en="Your decks">Tus mazos</h3>
-          <p data-en="Each list you play with its win rate. Sideboard variants are grouped under the same deck, and you can rename them.">Cada lista que juegas con su winrate. Las variantes de banquillo se agrupan bajo el mismo mazo y puedes renombrarlas.</p></div>
-        <div class="funcion"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 10h6M9 13.5h4"/></svg>
-          <h3 data-en="Loss review">Análisis de derrotas</h3>
-          <p data-en="For each loss it builds a prompt with the summary and timeline of the game. Paste it into the AI you prefer: nothing is sent from the program.">De cada derrota prepara un prompt con el resumen y la cronología de la partida. Lo pegas en la IA que prefieras: el programa no envía nada.</p></div>
-        <div class="funcion"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7 9h5M7 12h8"/></svg>
-          <h3 data-en="Overlay while you play">Overlay mientras juegas</h3>
-          <p data-en="A separate window next to Arena with your deck's remaining cards, the opponent's cards seen so far and the turn. It only shows what the game already makes public.">Una ventana aparte junto a Arena con las cartas que te quedan por robar, las que has visto del rival y el turno. Solo muestra lo que el propio juego ya hace público.</p></div>
-        <div class="funcion"><svg viewBox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"/></svg>
-          <h3 data-en="Sideboard guide">Guía de sideboard</h3>
-          <p data-en="Per matchup, what you brought in and took out in your own games and how it went, so you stop sideboarding from memory.">Por matchup, qué metiste y qué sacaste en tus propias partidas y cómo te fue, para dejar de ir de memoria en el sideboard.</p></div>
-        <div class="funcion"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><path d="M17 11a3 3 0 1 0 0-6M21 20v-1a4 4 0 0 0-3-3.9"/></svg>
-          <h3 data-en="Coach and team">Coach y equipo</h3>
-          <p data-en="Error tags and notes on each game, matchup tables and a report for your coach. Team mode shares data through a common folder.">Etiquetas de error y notas en cada partida, tablas de matchups e informe para tu coach. El modo equipo comparte los datos a través de una carpeta común.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion franja" id="capturas">
-    <div class="envoltura">
-      <div class="cab-sec">
-        <div class="eti" data-en="The app">La aplicación</div>
-        <h2 data-en="Built to review, not to fill in">Pensada para revisar, no para rellenar</h2>
-      </div>
-      <div class="pestanas" role="tablist" aria-label="Capturas">
-        <button role="tab" aria-selected="true" data-tab="panel" id="t-panel" data-en="Dashboard">Panel</button>
-        <button role="tab" aria-selected="false" data-tab="partida" id="t-partida" data-en="Games">Partidas</button>
-        <button role="tab" aria-selected="false" data-tab="estadisticas" id="t-est" data-en="Statistics">Estadísticas</button>
-      </div>
-      <div class="ventana"><div class="barra"><i></i><i></i><i></i><span>ManaLab</span></div>
-        <img id="galeria" class="cap" data-cap="panel" src="img/es_panel.jpg" alt="" width="1366" height="860"></div>
-      <p class="pie-captura" data-en="Screenshots with sample data.">Capturas con datos de ejemplo.</p>
-    </div>
-  </section>
-
-  <section class="seccion" id="empezar">
-    <div class="envoltura">
-      <div class="cab-sec" id="descargar">
-        <div class="eti" data-en="Get started">Cómo empezar</div>
-        <h2 data-en="Three steps, once">Tres pasos, una sola vez</h2>
-      </div>
-      <div class="pasos">
-        <div class="paso"><h3 data-en="Download and install">Descarga e instala</h3>
-          <p data-en="Windows 10 or 11. The installer adds a shortcut and an uninstaller.">Windows 10 u 11. El instalador crea un acceso directo y un desinstalador.</p>
-          <p style="margin-top:14px"><a class="boton prim" id="enlace-descarga" href="https://github.com/EusebioG96/ManaLab/releases/latest" target="_blank" rel="noopener"><span data-en="Download for Windows">Descargar para Windows</span></a></p></div>
-        <div class="paso"><h3 data-en="Turn on Arena's log">Activa el log de Arena</h3>
-          <p data-en-html="In Arena: <span class='ruta'>Options › Account › Detailed Logs</span>. Without it, Arena doesn't write the games.">En Arena: <span class="ruta">Opciones › Cuenta › Registro detallado</span>. Sin esto, Arena no escribe las partidas.</p></div>
-        <div class="paso"><h3 data-en="Press «Start logging»">Pulsa «Iniciar registro»</h3>
-          <p data-en="Open ManaLab before playing and leave it running. Each match appears on the Dashboard when it ends.">Abre ManaLab antes de jugar y déjalo en marcha. Cada match aparece en el Panel al terminar.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion franja" id="preguntas">
-    <div class="envoltura">
-      <div class="cab-sec"><div class="eti" data-en="FAQ">Preguntas</div><h2 data-en="Before you install">Antes de instalarlo</h2></div>
-      <div class="preguntas">
-        <details><summary data-en="Does it touch the game or give me an advantage in a match?">¿Toca el juego o me da ventaja en la partida?</summary>
-          <p data-en="No. It only reads the log file that Arena itself writes on your PC. It doesn't modify Arena, doesn't read its memory and doesn't connect to its servers. The optional overlay is a separate window that shows only information the game itself makes public (your cards played and the opponent's cards revealed), never hidden information.">No. Solo lee el archivo de log que el propio Arena escribe en tu PC. No modifica Arena, no lee su memoria y no se conecta a sus servidores. El overlay opcional es una ventana aparte que solo muestra información que el propio juego hace pública (tus cartas jugadas y las del rival reveladas), nunca información oculta.</p></details>
-        <details><summary data-en="What data does it send?">¿Qué datos envía?</summary>
-          <p data-en="None. Your games, screenshots and statistics stay in a folder on your PC. The program only downloads: the updated meta deck list (every 3 days) and, if a card is missing from Arena's database, its name from Scryfall. You can turn both off in Settings.">Ninguno. Tus partidas, capturas y estadísticas se quedan en una carpeta de tu PC. El programa solo descarga: la lista actualizada de mazos del meta (cada 3 días) y, si a la base de datos de Arena le falta una carta, su nombre en Scryfall. Las dos cosas se pueden desactivar en Ajustes.</p></details>
-        <details><summary data-en="Windows says «Windows protected your PC». Is it safe?">Windows dice «Windows protegió su PC». ¿Es seguro?</summary>
-          <p data-en="That warning appears for programs without a paid code-signing certificate, which is common for small free tools. Click «More info» and then «Run anyway». Every version is checked on VirusTotal before it's published.">Ese aviso sale con los programas que no tienen un certificado de firma de pago, algo habitual en herramientas gratuitas pequeñas. Pulsa «Más información» y luego «Ejecutar de todas formas». Cada versión se comprueba en VirusTotal antes de publicarla.</p></details>
-        <details><summary data-en="Does it work on Mac or for Limited?">¿Funciona en Mac o en Limitado?</summary>
-          <p data-en="For now it's for Windows. It logs any Arena game, including Limited, although the opponent's deck detection uses the Standard meta.">De momento es para Windows. Registra cualquier partida de Arena, también de Limitado, aunque la detección del mazo rival usa el meta de Standard.</p></details>
-        <details><summary data-en="Is it free?">¿Es gratis?</summary>
-          <p data-en="Yes, completely, with no ads or accounts. If it's useful to you, you can support it with a donation, but every feature is available either way.">Sí, del todo, sin anuncios ni cuentas. Si te resulta útil puedes apoyarlo con un donativo, pero todas las funciones están disponibles igual.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion" id="apoyo">
-    <div class="envoltura">
-      <div class="apoyo">
-        <div>
-          <div class="eti" data-en="Support the project">Apoya el proyecto</div>
-          <h2 data-en="Free, and kept going with donations">Gratis, y se mantiene con donativos</h2>
-          <p data-en="ManaLab is made in spare time. Donations pay for what it costs to keep it running and to publish safer versions.">ManaLab se hace en ratos libres. Los donativos pagan lo que cuesta mantenerlo y publicar versiones más seguras.</p>
-          <p style="margin-top:18px"><a class="boton prim" id="enlace-donar" href="https://ko-fi.com/eusebiog96" target="_blank" rel="noopener"><span data-en="Donate on Ko-fi">Donar en Ko-fi</span></a></p>
-        </div>
-        <div class="gastos">
-          <div class="gasto"><span data-en="Code-signing certificate">Certificado de firma de código</span><span data-en="removes the Windows warning">quita el aviso de Windows</span></div>
-          <div class="gasto"><span data-en="Domain">Dominio propio</span><span data-en="a shorter address">una dirección más corta</span></div>
-          <div class="gasto"><span data-en="Time for new features">Tiempo para funciones nuevas</span><span data-en="game advisor, draft assistant">consejero de partida, asistente de draft</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+<div aria-hidden="true" class="flecha-c"><svg viewbox="0 0 24 24"><path d="M5 12h14m0 0-5-5m5 5-5 5"></path></svg></div>
+<div class="match">
+<div class="m-cab">
+<span class="res">W</span>
+<div style="min-width:0"><div class="m-nom">16/10/26_Landfall Verde_2</div><div class="m-sub">vs Dimir Midrange · 94 % · Ladder</div></div>
+<div class="marcador"><span class="puntos"><i></i><i class="d"></i><i></i></span>2-1</div>
+</div>
+<div class="juegos">
+<div class="juego"><span>Game 1</span><span class="g">Play</span><span class="chip">Win</span></div>
+<div class="juego"><span>Game 2</span><span class="g">Draw</span><span class="chip d">Loss</span></div>
+<div class="juego"><span>Game 3</span><span class="g">Play</span><span class="chip">Win</span></div>
+</div>
+<div class="mano"><span><b>3</b>Forest</span><span>Fabled Passage</span><span>Llanowar Elves</span><span>Icetill Explorer</span><span>Mightform Harmonizer</span></div>
+</div>
+</div>
+</div>
+</section>
+<section class="seccion" id="funciones">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Features</div>
+<h2>Everything you'd note down after each match, done for you</h2>
+</div>
+<div class="funciones">
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"></path><circle cx="18.5" cy="16.5" r="2.5"></circle></svg>
+<h3>Matches and games</h3>
+<p>Each Bo3 is one row with its score (2-1, 1-2…) that opens to show every game: play or draw, result and mulligans.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><circle cx="9" cy="11" r="2"></circle><path d="m21 15-4.5-4.5L8 19"></path></svg>
+<h3>Hands and screenshots</h3>
+<p>Your opening hand, the hand you kept and a screenshot of each key moment, to review the game afterwards.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l2.5 2.5"></path></svg>
+<h3>Opponent's deck</h3>
+<p>It compares the opponent's cards with the most played Standard decks and names the closest one. The meta list updates every 3 days.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"></path></svg>
+<h3>Statistics</h3>
+<p>Match and game win rates, streaks, last days, and breakdowns by mulligans, play/draw, deck and opponent archetype.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="16" rx="2" width="13" x="7" y="3"></rect><path d="M4 7v12a2 2 0 0 0 2 2h10"></path></svg>
+<h3>Your decks</h3>
+<p>Each list you play with its win rate. Sideboard variants are grouped under the same deck, and you can rename them.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path d="M9 10h6M9 13.5h4"></path></svg>
+<h3>Loss review</h3>
+<p>For each loss it builds a prompt with the summary and timeline of the game. Paste it into the AI you prefer: nothing is sent from the program.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="12" rx="2" width="18" x="3" y="4"></rect><path d="M8 20h8M12 16v4"></path><path d="M7 9h5M7 12h8"></path></svg>
+<h3>Overlay while you play</h3>
+<p>A separate window next to Arena with your deck's remaining cards, the opponent's cards seen so far and the turn. It only shows what the game already makes public.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"></path></svg>
+<h3>Sideboard guide</h3>
+<p>Per matchup, what you brought in and took out in your own games and how it went, so you stop sideboarding from memory.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"></path><path d="M17 11a3 3 0 1 0 0-6M21 20v-1a4 4 0 0 0-3-3.9"></path></svg>
+<h3>Coach and team</h3>
+<p>Error tags and notes on each game, matchup tables and a report for your coach. Team mode shares data through a common folder.</p></div>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="capturas">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">The app</div>
+<h2>Built to review, not to fill in</h2>
+</div>
+<div aria-label="Capturas" class="pestanas" role="tablist">
+<button aria-selected="true" data-tab="panel" id="t-panel" role="tab">Dashboard</button>
+<button aria-selected="false" data-tab="partida" id="t-partida" role="tab">Games</button>
+<button aria-selected="false" data-tab="estadisticas" id="t-est" role="tab">Statistics</button>
+</div>
+<div class="ventana"><div class="barra"><i></i><i></i><i></i><span>ManaLab</span></div>
+<img alt="ManaLab dashboard with the latest MTG Arena matches" class="cap" data-cap="panel" height="860" id="galeria" loading="lazy" src="img/en_panel.jpg" width="1366"/></div>
+<p class="pie-captura">Screenshots with sample data.</p>
+</div>
+</section>
+<section class="seccion" id="empezar">
+<div class="envoltura">
+<div class="cab-sec" id="descargar">
+<div class="eti">Get started</div>
+<h2>Three steps, once</h2>
+</div>
+<div class="pasos">
+<div class="paso"><h3>Download and install</h3>
+<p>Windows 10 or 11. The installer adds a shortcut and an uninstaller.</p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/latest" id="enlace-descarga" rel="noopener" target="_blank"><span>Download for Windows</span></a></p></div>
+<div class="paso"><h3>Turn on Arena's log</h3>
+<p>In Arena: <span class="ruta">Options › Account › Detailed Logs</span>. Without it, Arena doesn't write the games.</p></div>
+<div class="paso"><h3>Press «Start logging»</h3>
+<p>Open ManaLab before playing and leave it running. Each match appears on the Dashboard when it ends.</p></div>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="preguntas">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">FAQ</div><h2>Before you install</h2></div>
+<div class="preguntas">
+<details><summary>Does it touch the game or give me an advantage in a match?</summary>
+<p>No. It only reads the log file that Arena itself writes on your PC. It doesn't modify Arena, doesn't read its memory and doesn't connect to its servers. The optional overlay is a separate window that shows only information the game itself makes public (your cards played and the opponent's cards revealed), never hidden information.</p></details>
+<details><summary>What data does it send?</summary>
+<p>None. Your games, screenshots and statistics stay in a folder on your PC. The program only downloads: the updated meta deck list (every 3 days) and, if a card is missing from Arena's database, its name from Scryfall. You can turn both off in Settings.</p></details>
+<details><summary>Windows says «Windows protected your PC». Is it safe?</summary>
+<p>That warning appears for programs without a paid code-signing certificate, which is common for small free tools. Click «More info» and then «Run anyway». Every version is checked on VirusTotal before it's published.</p></details>
+<details><summary>Does it work on Mac or for Limited?</summary>
+<p>For now it's for Windows. It logs any Arena game, including Limited, although the opponent's deck detection uses the Standard meta.</p></details>
+<details><summary>Is it free?</summary>
+<p>Yes, completely, with no ads or accounts. If it's useful to you, you can support it with a donation, but every feature is available either way.</p></details>
+</div>
+</div>
+</section>
+<section class="seccion" id="apoyo">
+<div class="envoltura">
+<div class="apoyo">
+<div>
+<div class="eti">Support the project</div>
+<h2>Free, and kept going with donations</h2>
+<p>ManaLab is made in spare time. Donations pay for what it costs to keep it running and to publish safer versions.</p>
+<p style="margin-top:18px"><a class="boton prim" href="https://ko-fi.com/eusebiog96" id="enlace-donar" rel="noopener" target="_blank"><span>Donate on Ko-fi</span></a></p>
+</div>
+<div class="gastos">
+<div class="gasto"><span>Code-signing certificate</span><span>removes the Windows warning</span></div>
+<div class="gasto"><span>Domain</span><span>a shorter address</span></div>
+<div class="gasto"><span>Time for new features</span><span>game advisor, draft assistant</span></div>
+</div>
+</div>
+</div>
+</section>
 </main>
-
 <footer>
-  <div class="envoltura">
-    <div class="fila"><b style="color:var(--texto)">ManaLab</b><span id="version">v2.0.0</span>
-      <a href="https://github.com/EusebioG96/registro-mtga-meta" target="_blank" rel="noopener" data-en="Meta list">Lista del meta</a>
-      <a href="#preguntas" data-en="FAQ">Preguntas</a></div>
-    <p class="legal" data-en="ManaLab is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC. Meta data: MTGGoldfish. Card data: Scryfall.">ManaLab es contenido de fans no oficial permitido por la Política de contenido de fans. No está aprobado ni respaldado por Wizards. Partes de los materiales usados son propiedad de Wizards of the Coast. ©Wizards of the Coast LLC. Datos del meta: MTGGoldfish. Datos de cartas: Scryfall.</p>
-  </div>
+<div class="envoltura">
+<div class="fila"><b style="color:var(--texto)">ManaLab</b><span id="version">v2.0.0</span>
+<a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener" target="_blank">Meta list</a>
+<a href="#preguntas">FAQ</a></div>
+<p class="legal">ManaLab is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC. Meta data: MTGGoldfish. Card data: Scryfall.</p>
+</div>
 </footer>
 
 <script>
 (function () {
   "use strict";
-  var CAPTURAS = {
-    es: { panel: "img/es_panel.jpg", partida: "img/es_partida.jpg", estadisticas: "img/es_estadisticas.jpg" },
-    en: { panel: "img/en_panel.jpg", partida: "img/en_partida.jpg", estadisticas: "img/en_estadisticas.jpg" }
-  };
-  var idioma = "es";
-  try { idioma = localStorage.getItem("idioma") || ((navigator.language || "es").toLowerCase().indexOf("es") === 0 ? "es" : "en"); } catch (e) { /* sin almacenamiento */ }
-
-  function aplicar() {
-    document.documentElement.lang = idioma;
-    document.querySelectorAll("[data-en], [data-en-html]").forEach(function (el) {
-      if (el.dataset.es === undefined) el.dataset.es = el.innerHTML;
-      if (idioma === "en") el.innerHTML = el.dataset.enHtml || el.dataset.en.replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; });
-      else el.innerHTML = el.dataset.es;
-    });
-    document.querySelectorAll("img.cap").forEach(function (img) { img.src = CAPTURAS[idioma][img.dataset.cap]; });
-    document.getElementById("idioma").textContent = idioma === "es" ? "EN" : "ES";
-  }
-  document.getElementById("idioma").addEventListener("click", function () {
-    idioma = idioma === "es" ? "en" : "es";
-    try { localStorage.setItem("idioma", idioma); } catch (e) { /* sin almacenamiento */ }
-    aplicar();
-  });
+  var base = "img/en_";
   document.querySelectorAll(".pestanas button").forEach(function (b) {
     b.addEventListener("click", function () {
       document.querySelectorAll(".pestanas button").forEach(function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); });
       var img = document.getElementById("galeria");
       img.dataset.cap = b.dataset.tab;
-      img.src = CAPTURAS[idioma][b.dataset.tab];
+      img.src = base + b.dataset.tab + ".jpg";
     });
   });
-  aplicar();
 })();
-</script>
-
-</body>
+</script></body>
 </html>
