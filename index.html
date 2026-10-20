@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="img/icono.png">
+<title>ManaLab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="ManaLab guarda cada match de MTG Arena: manos iniciales, mulligans, sideboard, mazo del rival y estadísticas. Gratis para Windows.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@500;600;700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Concepto: la página es la propia app — paneles oscuros carmesí, el log de Arena convertido en un historial.
+   Un solo mundo visual (oscuro, como el programa), por eso no hay versión clara. */
+:root {
+  color-scheme: dark;
+  --fondo: #0d0304;
+  --fondo2: #150608;
+  --panel: #1c0b0e;
+  --panel2: #281215;
+  --linea: rgba(255, 214, 200, 0.09);
+  --linea2: rgba(255, 214, 200, 0.16);
+  --texto: #f3e8e2;
+  --texto2: #cbb6af;
+  --apagado: #957f79;
+  --carmesi: #c2363f;
+  --carmesi-h: #d6454f;
+  --oro: #e9b37f;
+  --oro-suave: rgba(233, 179, 127, 0.13);
+  --ko: #f06b74;
+  --ko-suave: rgba(240, 107, 116, 0.13);
+  --f-display: "Saira Semi Condensed", "Bahnschrift", "Arial Narrow", system-ui, sans-serif;
+  --f-texto: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "JetBrains Mono", "Cascadia Mono", Consolas, ui-monospace, monospace;
+  --ancho: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--fondo); color: var(--texto); font: 16px/1.6 var(--f-texto); -webkit-font-smoothing: antialiased; }
+a { color: var(--oro); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--oro); outline-offset: 3px; border-radius: 6px; }
+img { max-width: 100%; display: block; }
+.envoltura { max-width: var(--ancho); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; letter-spacing: 0.2px; text-wrap: balance; margin: 0; }
+.eti { font: 600 12px/1 var(--f-display); letter-spacing: 2.2px; text-transform: uppercase; color: var(--oro); }
+
+/* ---------------- cabecera */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(13, 3, 4, 0.92); }
+.cab { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: rgba(13, 3, 4, 0.82); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linea); }
+.cab .envoltura { display: flex; align-items: center; gap: 22px; padding-block: 12px; }
+.marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--texto); margin-right: auto; }
+.marca img { width: 36px; height: 36px; }
+.marca b { font: 600 19px/1 var(--f-display); letter-spacing: 0.3px; }
+.marca small { display: block; font: 500 10px/1 var(--f-display); letter-spacing: 2.4px; color: var(--apagado); margin-top: 4px; }
+.cab nav { display: flex; gap: 22px; }
+.cab nav a { color: var(--texto2); text-decoration: none; font-size: 14.5px; }
+.cab nav a:hover { color: var(--texto); }
+.idioma { border: 1px solid var(--linea2); background: none; color: var(--texto2); border-radius: 999px; padding: 5px 11px; font: 600 12px var(--f-display); letter-spacing: 1px; cursor: pointer; }
+.idioma:hover { color: var(--texto); border-color: var(--apagado); }
+.boton { display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; padding: 11px 22px; font: 600 15px var(--f-texto); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .15s, transform .1s; white-space: nowrap; }
+.boton:active { transform: translateY(1px); }
+.boton.prim { background: var(--carmesi); color: #fff5f0; box-shadow: 0 10px 28px -12px rgba(194, 54, 63, 0.9); }
+.boton.prim:hover { background: var(--carmesi-h); }
+.boton.sec { background: var(--panel2); border-color: var(--linea2); color: var(--texto); }
+.boton.sec:hover { background: #33171b; }
+.boton svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cab .boton { padding: 8px 16px; font-size: 14px; }
+
+/* ---------------- portada */
+.portada { padding-block: 72px 40px; position: relative; overflow: hidden; }
+.portada::before { content: ""; position: absolute; inset: -40% -10% auto 40%; height: 700px; background: radial-gradient(closest-side, rgba(194, 54, 63, 0.22), transparent 70%); pointer-events: none; }
+.portada .envoltura { position: relative; display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 48px; align-items: center; }
+.portada h1 { font-size: clamp(40px, 5.4vw, 64px); line-height: 1.02; margin: 16px 0 18px; }
+.portada h1 em { font-style: normal; color: var(--oro); }
+.portada p.sub { font-size: 18.5px; color: var(--texto2); max-width: 34em; margin: 0 0 28px; }
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.nota-desc { margin-top: 16px; font-size: 13.5px; color: var(--apagado); display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.nota-desc span::before { content: "✓"; color: var(--oro); margin-right: 6px; }
+.ventana { border-radius: 14px; border: 1px solid var(--linea2); background: var(--panel); box-shadow: 0 40px 90px -40px #000, 0 0 0 6px rgba(255, 214, 200, 0.025); overflow: hidden; }
+.ventana .barra { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--linea); align-items: center; }
+.ventana .barra i { width: 9px; height: 9px; border-radius: 50%; background: var(--panel2); }
+.ventana .barra span { margin-left: 8px; font: 500 11.5px var(--f-texto); color: var(--apagado); }
+.ventana img { width: 100%; height: auto; aspect-ratio: 1366 / 860; object-fit: cover; object-position: top left; }
+
+/* ---------------- del log al historial */
+.seccion { padding-block: 72px; }
+.seccion.franja { background: var(--fondo2); border-block: 1px solid var(--linea); }
+.cab-sec { max-width: 680px; margin-bottom: 36px; }
+.cab-sec h2 { font-size: clamp(30px, 3.6vw, 42px); line-height: 1.08; margin: 12px 0 12px; }
+.cab-sec p { color: var(--texto2); margin: 0; font-size: 17px; }
+.conversion { display: grid; grid-template-columns: minmax(0, 1.1fr) auto minmax(0, 1fr); gap: 22px; align-items: center; }
+.log { background: #080102; border: 1px solid var(--linea); border-radius: 14px; padding: 18px 18px 16px; font: 12.5px/1.7 var(--f-mono); color: #a99590; overflow-x: auto; min-width: 0; }
+.log .t { color: var(--apagado); display: block; margin-bottom: 8px; font-family: var(--f-texto); font-size: 12px; }
+.log b { color: var(--oro); font-weight: 500; }
+.log .k { color: #e7a1a6; }
+.log pre { margin: 0; white-space: pre; }
+.flecha-c { color: var(--carmesi); }
+.flecha-c svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.match { background: var(--panel); border: 1px solid var(--linea2); border-radius: 14px; padding: 16px; min-width: 0; }
+.m-cab { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+.res { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; font: 700 17px var(--f-display); background: var(--oro-suave); color: var(--oro); }
+.m-nom { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.m-sub { font-size: 13px; color: var(--apagado); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.marcador { font: 600 18px var(--f-display); font-variant-numeric: tabular-nums; display: flex; gap: 10px; align-items: center; }
+.puntos { display: flex; gap: 5px; } .puntos i { width: 9px; height: 9px; border-radius: 50%; background: var(--oro); } .puntos i.d { background: var(--ko); }
+.juegos { margin: 12px 0 0 52px; display: grid; gap: 4px; }
+.juego { display: grid; grid-template-columns: minmax(0, 1fr) 54px 74px; gap: 8px; font-size: 13.5px; padding: 6px 10px; border-radius: 9px; background: rgba(255, 255, 255, 0.022); align-items: center; }
+.juego .g { color: var(--apagado); font-size: 12.5px; }
+.chip { justify-self: start; font: 600 11.5px var(--f-texto); border-radius: 999px; padding: 2px 9px; background: var(--oro-suave); color: var(--oro); }
+.chip.d { background: var(--ko-suave); color: var(--ko); }
+.mano { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.mano span { font-size: 12px; background: var(--panel2); border: 1px solid var(--linea); border-radius: 7px; padding: 3px 8px; }
+.mano span b { color: var(--oro); font-weight: 600; margin-right: 3px; }
+
+/* ---------------- funciones */
+.funciones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--linea); border: 1px solid var(--linea); border-radius: 16px; overflow: hidden; }
+.funcion { background: var(--fondo); padding: 26px 24px 28px; }
+.funcion svg { width: 26px; height: 26px; fill: none; stroke: var(--oro); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.funcion h3 { font-size: 20px; margin: 14px 0 8px; }
+.funcion p { margin: 0; color: var(--texto2); font-size: 15px; }
+
+/* ---------------- capturas */
+.pestanas { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.pestanas button { border: 1px solid var(--linea2); background: none; color: var(--texto2); border-radius: 999px; padding: 7px 16px; font: 600 14px var(--f-texto); cursor: pointer; }
+.pestanas button[aria-selected="true"] { background: rgba(194, 54, 63, 0.16); border-color: rgba(194, 54, 63, 0.5); color: var(--oro); }
+.pie-captura { margin-top: 12px; font-size: 13px; color: var(--apagado); }
+
+/* ---------------- pasos */
+.pasos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; counter-reset: paso; }
+.paso { border-top: 2px solid var(--carmesi); padding-top: 18px; }
+.paso::before { counter-increment: paso; content: counter(paso); font: 700 44px/1 var(--f-display); color: var(--panel2); -webkit-text-stroke: 1px var(--linea2); }
+.paso h3 { font-size: 21px; margin: 10px 0 8px; }
+.paso p { margin: 0; color: var(--texto2); font-size: 15px; }
+.ruta { font: 13px var(--f-mono); background: var(--panel); border: 1px solid var(--linea); border-radius: 8px; padding: 2px 7px; color: var(--texto); white-space: nowrap; }
+
+/* ---------------- preguntas */
+.preguntas { display: grid; gap: 10px; max-width: 820px; }
+details { background: var(--panel); border: 1px solid var(--linea); border-radius: 14px; padding: 4px 20px; }
+details[open] { border-color: var(--linea2); }
+summary { cursor: pointer; list-style: none; padding: 14px 0; font-weight: 600; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--oro); font: 600 22px/1 var(--f-display); }
+details[open] summary::after { content: "–"; }
+details p { margin: 0 0 16px; color: var(--texto2); font-size: 15.5px; max-width: 70ch; }
+
+/* ---------------- apoyo */
+.apoyo { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: center; background: linear-gradient(135deg, #24090d, #150608 60%); border: 1px solid var(--linea2); border-radius: 22px; padding: 44px; }
+.apoyo h2 { font-size: clamp(28px, 3.2vw, 38px); margin: 12px 0 12px; }
+.apoyo p { color: var(--texto2); margin: 0 0 12px; }
+.gastos { display: grid; gap: 10px; }
+.gasto { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; border-radius: 12px; background: rgba(0, 0, 0, 0.25); border: 1px solid var(--linea); font-size: 14.5px; }
+.gasto span:last-child { color: var(--apagado); text-align: right; }
+
+/* ---------------- pie */
+footer { border-top: 1px solid var(--linea); padding-block: 36px; color: var(--apagado); font-size: 13.5px; }
+footer .envoltura { display: grid; gap: 14px; }
+footer .fila { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; }
+footer .legal { max-width: 80ch; line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .cab nav { display: none; }
+  .portada .envoltura, .apoyo, .conversion { grid-template-columns: minmax(0, 1fr); }
+  .flecha-c { justify-self: center; transform: rotate(90deg); }
+  .funciones, .pasos { grid-template-columns: minmax(0, 1fr); }
+  .portada { padding-block: 44px 24px; }
+  .apoyo { padding: 28px 22px; }
+}
+@media (max-width: 480px) {
+  .cab .boton span { display: none; }
+  .juegos { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+
+<header class="cab">
+  <div class="envoltura">
+    <a class="marca" href="#inicio"><img src="img/logo.png" alt=""><span><b>ManaLab</b></span></a>
+    <nav aria-label="Secciones">
+      <a href="#funciones" data-en="Features">Funciones</a>
+      <a href="#empezar" data-en="Get started">Cómo empezar</a>
+      <a href="#preguntas" data-en="FAQ">Preguntas</a>
+      <a href="#apoyo" data-en="Support">Apoyar</a>
+    </nav>
+    <button class="idioma" id="idioma" type="button" aria-label="Change language / Cambiar idioma">EN</button>
+    <a class="boton prim descarga" href="#descargar"><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg><span data-en="Download">Descargar</span></a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="portada">
+    <div class="envoltura">
+      <div>
+        <div class="eti" data-en="Free for Windows · MTG Arena">Gratis para Windows · MTG Arena</div>
+        <h1 data-en-html="Every Arena match, <em>logged on its own.</em>">Cada match de Arena, <em>registrado solo.</em></h1>
+        <p class="sub" data-en="ManaLab reads Arena's log while you play and keeps your opening hands, mulligans, play or draw, sideboard changes and the opponent's deck. Then it shows you where you win and where you lose.">ManaLab lee el log de Arena mientras juegas y guarda tus manos iniciales, mulligans, si ibas en play o en draw, los cambios de banquillo y el mazo del rival. Después te enseña dónde ganas y dónde pierdes.</p>
+        <div class="acciones">
+          <a class="boton prim descarga" href="#descargar"><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg><span data-en="Download for Windows">Descargar para Windows</span></a>
+          <a class="boton sec" href="#capturas" data-en="See the app">Ver la aplicación</a>
+        </div>
+        <div class="nota-desc"><span data-en="Free, no ads">Gratis, sin anuncios</span><span data-en="Your data stays on your PC">Tus datos se quedan en tu PC</span><span data-en="9 languages">9 idiomas</span></div>
+      </div>
+      <div class="ventana"><div class="barra"><i></i><i></i><i></i><span>ManaLab</span></div>
+        <img class="cap" data-cap="panel" src="img/es_panel.jpg" alt="Panel de ManaLab con los últimos matches" width="1366" height="860"></div>
+    </div>
+  </section>
+
+  <section class="seccion franja">
+    <div class="envoltura">
+      <div class="cab-sec">
+        <div class="eti" data-en="How it works">Cómo funciona</div>
+        <h2 data-en="From Arena's log to your history">Del log de Arena a tu historial</h2>
+        <p data-en="With «Detailed Logs» on, Arena writes every game to Player.log. ManaLab reads it as you play and turns it into matches you can review.">Con el «Registro detallado» activado, Arena escribe cada partida en el Player.log. ManaLab lo lee mientras juegas y lo convierte en matches que puedes revisar.</p>
+      </div>
+      <div class="conversion">
+        <div class="log"><span class="t">Player.log</span><pre><b>[UnityCrossThreadLogger]</b> GreToClientEvent
+{ <span class="k">"type"</span>: "GREMessageType_MulliganReq",
+  <span class="k">"systemSeatIds"</span>: [1] }
+<b>[UnityCrossThreadLogger]</b> GreToClientEvent
+{ <span class="k">"gameInfo"</span>: {
+    <span class="k">"matchState"</span>: "MatchState_GameComplete",
+    <span class="k">"gameNumber"</span>: 3,
+    <span class="k">"results"</span>: [{ <span class="k">"result"</span>: "ResultType_WinLoss",
+                 <span class="k">"winningTeamId"</span>: 1 }] } }</pre></div>
+        <div class="flecha-c" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m0 0-5-5m5 5-5 5"/></svg></div>
+        <div class="match">
+          <div class="m-cab">
+            <span class="res" data-en="W">V</span>
+            <div style="min-width:0"><div class="m-nom">16/10/26_Landfall Verde_2</div><div class="m-sub">vs Dimir Midrange · 94 % · Ladder</div></div>
+            <div class="marcador"><span class="puntos"><i></i><i class="d"></i><i></i></span>2-1</div>
+          </div>
+          <div class="juegos">
+            <div class="juego"><span data-en="Game 1">Partida 1</span><span class="g">Play</span><span class="chip" data-en="Win">Victoria</span></div>
+            <div class="juego"><span data-en="Game 2">Partida 2</span><span class="g">Draw</span><span class="chip d" data-en="Loss">Derrota</span></div>
+            <div class="juego"><span data-en="Game 3">Partida 3</span><span class="g">Play</span><span class="chip" data-en="Win">Victoria</span></div>
+          </div>
+          <div class="mano"><span><b>3</b>Forest</span><span>Fabled Passage</span><span>Llanowar Elves</span><span>Icetill Explorer</span><span>Mightform Harmonizer</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="funciones">
+    <div class="envoltura">
+      <div class="cab-sec">
+        <div class="eti" data-en="Features">Funciones</div>
+        <h2 data-en="Everything you'd note down after each match, done for you">Todo lo que apuntarías después de cada match, ya apuntado</h2>
+      </div>
+      <div class="funciones">
+        <div class="funcion"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18.5" cy="16.5" r="2.5"/></svg>
+          <h3 data-en="Matches and games">Matches y partidas</h3>
+          <p data-en="Each Bo3 is one row with its score (2-1, 1-2…) that opens to show every game: play or draw, result and mulligans.">Cada Bo3 es una fila con su marcador (2-1, 1-2…) que se despliega en sus partidas: play o draw, resultado y mulligans.</p></div>
+        <div class="funcion"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="m21 15-4.5-4.5L8 19"/></svg>
+          <h3 data-en="Hands and screenshots">Manos y capturas</h3>
+          <p data-en="Your opening hand, the hand you kept and a screenshot of each key moment, to review the game afterwards.">Tu mano inicial, la que te quedaste y una captura de cada momento clave para revisar la partida después.</p></div>
+        <div class="funcion"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2.5"/></svg>
+          <h3 data-en="Opponent's deck">Mazo del rival</h3>
+          <p data-en="It compares the opponent's cards with the most played Standard decks and names the closest one. The meta list updates every 3 days.">Compara las cartas del rival con los mazos más jugados del meta de Standard y le pone el que más coincide. La lista del meta se actualiza cada 3 días.</p></div>
+        <div class="funcion"><svg viewBox="0 0 24 24"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"/></svg>
+          <h3 data-en="Statistics">Estadísticas</h3>
+          <p data-en="Match and game win rates, streaks, last days, and breakdowns by mulligans, play/draw, deck and opponent archetype.">Winrate de matches y de partidas, rachas, últimos días y desgloses por mulligans, play/draw, mazo y arquetipo rival.</p></div>
+        <div class="funcion"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="13" height="16" rx="2"/><path d="M4 7v12a2 2 0 0 0 2 2h10"/></svg>
+          <h3 data-en="Your decks">Tus mazos</h3>
+          <p data-en="Each list you play with its win rate. Sideboard variants are grouped under the same deck, and you can rename them.">Cada lista que juegas con su winrate. Las variantes de banquillo se agrupan bajo el mismo mazo y puedes renombrarlas.</p></div>
+        <div class="funcion"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 10h6M9 13.5h4"/></svg>
+          <h3 data-en="Loss review">Análisis de derrotas</h3>
+          <p data-en="For each loss it builds a prompt with the summary and timeline of the game. Paste it into the AI you prefer: nothing is sent from the program.">De cada derrota prepara un prompt con el resumen y la cronología de la partida. Lo pegas en la IA que prefieras: el programa no envía nada.</p></div>
+        <div class="funcion"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7 9h5M7 12h8"/></svg>
+          <h3 data-en="Overlay while you play">Overlay mientras juegas</h3>
+          <p data-en="A separate window next to Arena with your deck's remaining cards, the opponent's cards seen so far and the turn. It only shows what the game already makes public.">Una ventana aparte junto a Arena con las cartas que te quedan por robar, las que has visto del rival y el turno. Solo muestra lo que el propio juego ya hace público.</p></div>
+        <div class="funcion"><svg viewBox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"/></svg>
+          <h3 data-en="Sideboard guide">Guía de sideboard</h3>
+          <p data-en="Per matchup, what you brought in and took out in your own games and how it went, so you stop sideboarding from memory.">Por matchup, qué metiste y qué sacaste en tus propias partidas y cómo te fue, para dejar de ir de memoria en el sideboard.</p></div>
+        <div class="funcion"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><path d="M17 11a3 3 0 1 0 0-6M21 20v-1a4 4 0 0 0-3-3.9"/></svg>
+          <h3 data-en="Coach and team">Coach y equipo</h3>
+          <p data-en="Error tags and notes on each game, matchup tables and a report for your coach. Team mode shares data through a common folder.">Etiquetas de error y notas en cada partida, tablas de matchups e informe para tu coach. El modo equipo comparte los datos a través de una carpeta común.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion franja" id="capturas">
+    <div class="envoltura">
+      <div class="cab-sec">
+        <div class="eti" data-en="The app">La aplicación</div>
+        <h2 data-en="Built to review, not to fill in">Pensada para revisar, no para rellenar</h2>
+      </div>
+      <div class="pestanas" role="tablist" aria-label="Capturas">
+        <button role="tab" aria-selected="true" data-tab="panel" id="t-panel" data-en="Dashboard">Panel</button>
+        <button role="tab" aria-selected="false" data-tab="partida" id="t-partida" data-en="Games">Partidas</button>
+        <button role="tab" aria-selected="false" data-tab="estadisticas" id="t-est" data-en="Statistics">Estadísticas</button>
+      </div>
+      <div class="ventana"><div class="barra"><i></i><i></i><i></i><span>ManaLab</span></div>
+        <img id="galeria" class="cap" data-cap="panel" src="img/es_panel.jpg" alt="" width="1366" height="860"></div>
+      <p class="pie-captura" data-en="Screenshots with sample data.">Capturas con datos de ejemplo.</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="empezar">
+    <div class="envoltura">
+      <div class="cab-sec" id="descargar">
+        <div class="eti" data-en="Get started">Cómo empezar</div>
+        <h2 data-en="Three steps, once">Tres pasos, una sola vez</h2>
+      </div>
+      <div class="pasos">
+        <div class="paso"><h3 data-en="Download and install">Descarga e instala</h3>
+          <p data-en="Windows 10 or 11. The installer adds a shortcut and an uninstaller.">Windows 10 u 11. El instalador crea un acceso directo y un desinstalador.</p>
+          <p style="margin-top:14px"><a class="boton prim" id="enlace-descarga" href="https://github.com/EusebioG96/ManaLab/releases/latest" target="_blank" rel="noopener"><span data-en="Download for Windows">Descargar para Windows</span></a></p></div>
+        <div class="paso"><h3 data-en="Turn on Arena's log">Activa el log de Arena</h3>
+          <p data-en-html="In Arena: <span class='ruta'>Options › Account › Detailed Logs</span>. Without it, Arena doesn't write the games.">En Arena: <span class="ruta">Opciones › Cuenta › Registro detallado</span>. Sin esto, Arena no escribe las partidas.</p></div>
+        <div class="paso"><h3 data-en="Press «Start logging»">Pulsa «Iniciar registro»</h3>
+          <p data-en="Open ManaLab before playing and leave it running. Each match appears on the Dashboard when it ends.">Abre ManaLab antes de jugar y déjalo en marcha. Cada match aparece en el Panel al terminar.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion franja" id="preguntas">
+    <div class="envoltura">
+      <div class="cab-sec"><div class="eti" data-en="FAQ">Preguntas</div><h2 data-en="Before you install">Antes de instalarlo</h2></div>
+      <div class="preguntas">
+        <details><summary data-en="Does it touch the game or give me an advantage in a match?">¿Toca el juego o me da ventaja en la partida?</summary>
+          <p data-en="No. It only reads the log file that Arena itself writes on your PC. It doesn't modify Arena, doesn't read its memory and doesn't connect to its servers. The optional overlay is a separate window that shows only information the game itself makes public (your cards played and the opponent's cards revealed), never hidden information.">No. Solo lee el archivo de log que el propio Arena escribe en tu PC. No modifica Arena, no lee su memoria y no se conecta a sus servidores. El overlay opcional es una ventana aparte que solo muestra información que el propio juego hace pública (tus cartas jugadas y las del rival reveladas), nunca información oculta.</p></details>
+        <details><summary data-en="What data does it send?">¿Qué datos envía?</summary>
+          <p data-en="None. Your games, screenshots and statistics stay in a folder on your PC. The program only downloads: the updated meta deck list (every 3 days) and, if a card is missing from Arena's database, its name from Scryfall. You can turn both off in Settings.">Ninguno. Tus partidas, capturas y estadísticas se quedan en una carpeta de tu PC. El programa solo descarga: la lista actualizada de mazos del meta (cada 3 días) y, si a la base de datos de Arena le falta una carta, su nombre en Scryfall. Las dos cosas se pueden desactivar en Ajustes.</p></details>
+        <details><summary data-en="Windows says «Windows protected your PC». Is it safe?">Windows dice «Windows protegió su PC». ¿Es seguro?</summary>
+          <p data-en="That warning appears for programs without a paid code-signing certificate, which is common for small free tools. Click «More info» and then «Run anyway». Every version is checked on VirusTotal before it's published.">Ese aviso sale con los programas que no tienen un certificado de firma de pago, algo habitual en herramientas gratuitas pequeñas. Pulsa «Más información» y luego «Ejecutar de todas formas». Cada versión se comprueba en VirusTotal antes de publicarla.</p></details>
+        <details><summary data-en="Does it work on Mac or for Limited?">¿Funciona en Mac o en Limitado?</summary>
+          <p data-en="For now it's for Windows. It logs any Arena game, including Limited, although the opponent's deck detection uses the Standard meta.">De momento es para Windows. Registra cualquier partida de Arena, también de Limitado, aunque la detección del mazo rival usa el meta de Standard.</p></details>
+        <details><summary data-en="Is it free?">¿Es gratis?</summary>
+          <p data-en="Yes, completely, with no ads or accounts. If it's useful to you, you can support it with a donation, but every feature is available either way.">Sí, del todo, sin anuncios ni cuentas. Si te resulta útil puedes apoyarlo con un donativo, pero todas las funciones están disponibles igual.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="apoyo">
+    <div class="envoltura">
+      <div class="apoyo">
+        <div>
+          <div class="eti" data-en="Support the project">Apoya el proyecto</div>
+          <h2 data-en="Free, and kept going with donations">Gratis, y se mantiene con donativos</h2>
+          <p data-en="ManaLab is made in spare time. Donations pay for what it costs to keep it running and to publish safer versions.">ManaLab se hace en ratos libres. Los donativos pagan lo que cuesta mantenerlo y publicar versiones más seguras.</p>
+          <p style="margin-top:18px"><a class="boton prim" id="enlace-donar" href="https://ko-fi.com/" target="_blank" rel="noopener"><span data-en="Donate on Ko-fi">Donar en Ko-fi</span></a></p>
+        </div>
+        <div class="gastos">
+          <div class="gasto"><span data-en="Code-signing certificate">Certificado de firma de código</span><span data-en="removes the Windows warning">quita el aviso de Windows</span></div>
+          <div class="gasto"><span data-en="Domain">Dominio propio</span><span data-en="a shorter address">una dirección más corta</span></div>
+          <div class="gasto"><span data-en="Time for new features">Tiempo para funciones nuevas</span><span data-en="game advisor, draft assistant">consejero de partida, asistente de draft</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="envoltura">
+    <div class="fila"><b style="color:var(--texto)">ManaLab</b><span id="version">v2.0</span>
+      <a href="https://github.com/EusebioG96/registro-mtga-meta" target="_blank" rel="noopener" data-en="Meta list">Lista del meta</a>
+      <a href="#preguntas" data-en="FAQ">Preguntas</a></div>
+    <p class="legal" data-en="ManaLab is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC. Meta data: MTGGoldfish. Card data: Scryfall.">ManaLab es contenido de fans no oficial permitido por la Política de contenido de fans. No está aprobado ni respaldado por Wizards. Partes de los materiales usados son propiedad de Wizards of the Coast. ©Wizards of the Coast LLC. Datos del meta: MTGGoldfish. Datos de cartas: Scryfall.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var CAPTURAS = {
+    es: { panel: "img/es_panel.jpg", partida: "img/es_partida.jpg", estadisticas: "img/es_estadisticas.jpg" },
+    en: { panel: "img/en_panel.jpg", partida: "img/en_partida.jpg", estadisticas: "img/en_estadisticas.jpg" }
+  };
+  var idioma = "es";
+  try { idioma = localStorage.getItem("idioma") || ((navigator.language || "es").toLowerCase().indexOf("es") === 0 ? "es" : "en"); } catch (e) { /* sin almacenamiento */ }
+
+  function aplicar() {
+    document.documentElement.lang = idioma;
+    document.querySelectorAll("[data-en], [data-en-html]").forEach(function (el) {
+      if (el.dataset.es === undefined) el.dataset.es = el.innerHTML;
+      if (idioma === "en") el.innerHTML = el.dataset.enHtml || el.dataset.en.replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; });
+      else el.innerHTML = el.dataset.es;
+    });
+    document.querySelectorAll("img.cap").forEach(function (img) { img.src = CAPTURAS[idioma][img.dataset.cap]; });
+    document.getElementById("idioma").textContent = idioma === "es" ? "EN" : "ES";
+  }
+  document.getElementById("idioma").addEventListener("click", function () {
+    idioma = idioma === "es" ? "en" : "es";
+    try { localStorage.setItem("idioma", idioma); } catch (e) { /* sin almacenamiento */ }
+    aplicar();
+  });
+  document.querySelectorAll(".pestanas button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".pestanas button").forEach(function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); });
+      var img = document.getElementById("galeria");
+      img.dataset.cap = b.dataset.tab;
+      img.src = CAPTURAS[idioma][b.dataset.tab];
+    });
+  });
+  aplicar();
+})();
+</script>
+
+</body>
+</html>
