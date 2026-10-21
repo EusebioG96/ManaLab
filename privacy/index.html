@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad · ManaLab</title>
+<meta name="description" content="Qué datos guarda ManaLab, qué sale de tu PC y cómo funciona la suscripción de IA.">
+<link rel="canonical" href="https://manalab.es/privacy/">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<meta name="theme-color" content="#0d0304">
+<meta name="robots" content="index, follow">
+<style>
+:root { --fondo:#0d0304; --panel:#1a0a0d; --texto:#f4eae4; --texto2:#c9b8b0; --oro:#e8b07c; --rojo:#c2363f; --linea:#3a1d22; }
+body { margin:0; background:var(--fondo); color:var(--texto); font:16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width:760px; margin:0 auto; padding:40px 20px 80px; }
+h1 { font-size:32px; margin:0 0 6px; }
+h2 { font-size:22px; margin:36px 0 10px; color:var(--oro); }
+h3 { font-size:17px; margin:22px 0 6px; }
+p, li { color:var(--texto2); }
+a { color:var(--oro); }
+.idiomas { display:flex; gap:14px; margin:14px 0 26px; font-size:14px; }
+.idiomas a { border:1px solid var(--linea); border-radius:999px; padding:4px 12px; text-decoration:none; }
+.aviso { background:var(--panel); border:1px solid var(--linea); border-left:4px solid var(--rojo); border-radius:10px; padding:14px 18px; }
+section[hidden] { display:none; }
+hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
+.volver { display:inline-block; margin-top:36px; font-size:14px; }
+</style>
+</head>
+<body>
+<main>
+  <p><a href="/">ManaLab</a></p>
+  <div class="idiomas" role="group" aria-label="Idioma">
+    <a href="#es">Español</a>
+    <a href="#en">English</a>
+  </div>
+
+  <section lang="es" id="es">
+    <h1>Política de privacidad</h1>
+    <p><strong>Última actualización:</strong> 21 de octubre de 2026</p>
+
+    <h2>1. Quién es el responsable</h2>
+    <p>ManaLab es un proyecto personal y gratuito. Para cualquier cuestión sobre privacidad, escribe a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>.</p>
+
+    <h2>2. Qué se queda en tu PC</h2>
+    <p>ManaLab no tiene cuentas ni registro. Tus partidas, capturas, estadísticas y ajustes se guardan solo en tu ordenador, en la carpeta <code>%LOCALAPPDATA%\ManaLab</code>. Lo único que sale de tu PC es lo que se describe en el apartado 3.</p>
+    <p>ManaLab lee el archivo de registro (log) que Arena escribe en tu PC. No modifica Arena, no lee su memoria y no se conecta a sus servidores.</p>
+
+    <h2>3. Conexiones del programa</h2>
+    <ul>
+      <li><strong>Lista de mazos del meta:</strong> cada 3 días se descarga desde GitHub. Como en cualquier descarga, GitHub puede registrar tu dirección IP.</li>
+      <li><strong>Nombres de cartas:</strong> si falta una carta en la base de datos de Arena, se consulta su nombre en Scryfall.</li>
+      <li><strong>Análisis con IA</strong> (solo si lo pides y tienes suscripción): se envían a nuestro servidor los datos de la partida que analizas (resultado, mazo, manos, cartas vistas y cronología). No se envían nombres de jugadores ni datos de tu cuenta de Arena. El servidor reenvía esos datos a <strong>DeepSeek</strong> para generar el análisis. DeepSeek tiene sus servidores en <strong>China</strong>; si no te parece bien, no uses el análisis.</li>
+    </ul>
+    <p>La lista del meta y los nombres de cartas se pueden desactivar en Ajustes.</p>
+
+    <h2>4. Suscripción y código de IA</h2>
+    <p>La suscripción de 5 € al mes se paga en <a href="https://ko-fi.com/eusebiog96" rel="noopener">Ko-fi</a>. Ko-fi nos avisa de cada pago con el correo y el nombre que aparece en tu cuenta de Ko-fi, y con eso generamos un código que te enviamos por correo electrónico. En nuestro servidor (Cloudflare Workers) guardamos:</p>
+    <ul>
+      <li>Tu nombre tal como aparece en Ko-fi y la fecha de caducidad de la suscripción.</li>
+      <li>Tu correo electrónico solo como huella criptográfica (SHA-256). No se guarda en claro.</li>
+      <li>El código solo como huella. No podemos leerlo.</li>
+      <li>Contadores de uso: cuántos análisis has hecho en el día (caducan a las 48 horas) y el gasto total del mes, sin datos personales.</li>
+    </ul>
+    <p>El código que pegas en ManaLab (Ajustes › IA) se guarda en tu PC en el archivo de ajustes, en texto plano. Si compartes tu ordenador, cualquiera con acceso a esa carpeta puede usarlo.</p>
+
+    <h2>5. Terceros</h2>
+    <ul>
+      <li><strong>Ko-fi:</strong> procesa el pago. Nosotros no vemos datos de tu tarjeta. Se aplica su política de privacidad.</li>
+      <li><strong>Resend:</strong> envía el correo con tu código.</li>
+      <li><strong>Cloudflare:</strong> aloja el servidor y puede registrar datos técnicos de las peticiones (como la IP), según su política.</li>
+      <li><strong>DeepSeek:</strong> genera el análisis a partir de los datos de la partida.</li>
+      <li><strong>GitHub y Scryfall:</strong> solo en las descargas del apartado 3.</li>
+    </ul>
+    <p>No vendemos datos, no mostramos publicidad y la web no usa cookies ni herramientas de analítica.</p>
+
+    <h2>6. Base legal</h2>
+    <ul>
+      <li><strong>Análisis con IA y código:</strong> tu petición expresa y la ejecución de la suscripción que contratas.</li>
+      <li><strong>Correo con el código:</strong> ejecución del contrato de suscripción.</li>
+      <li><strong>Uso local del programa:</strong> no supone tratamiento de datos por nuestra parte.</li>
+    </ul>
+
+    <h2>7. Cuánto tiempo guardamos los datos</h2>
+    <p>Los datos de la suscripción se guardan mientras esté activa. Si no renuevas en Ko-fi, el código caduca y deja de funcionar. Si quieres que borremos tus datos del servidor (nombre, huella del correo y contadores), escríbenos a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Lo haremos en un plazo máximo de 30 días.</p>
+
+    <h2>8. Tus derechos</h2>
+    <p>Puedes pedir acceso, rectificación, supresión, limitación, oposición y portabilidad de tus datos escribiendo a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Si consideras que no tratamos tus datos correctamente, puedes presentar una reclamación ante la <a href="https://www.aepd.es" rel="noopener">Agencia Española de Protección de Datos</a>.</p>
+
+    <h2>9. Menores</h2>
+    <p>El servicio no va dirigido a menores de 14 años.</p>
+
+    <h2>10. Cambios</h2>
+    <p>Si cambiamos esta política, lo indicaremos en esta página con la nueva fecha de actualización.</p>
+  </section>
+
+  <hr>
+
+  <section lang="en" id="en">
+    <h1>Privacy policy</h1>
+    <p><strong>Last updated:</strong> 21 October 2026</p>
+
+    <h2>1. Who is responsible</h2>
+    <p>ManaLab is a personal, free project. For any privacy question, write to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>.</p>
+
+    <h2>2. What stays on your PC</h2>
+    <p>ManaLab has no accounts or sign-up. Your matches, screenshots, statistics and settings are stored only on your computer, in <code>%LOCALAPPDATA%\ManaLab</code>. The only data that leaves your PC is described in section 3.</p>
+    <p>ManaLab reads the log file that Arena writes on your PC. It does not modify Arena, does not read its memory and does not connect to its servers.</p>
+
+    <h2>3. Connections made by the program</h2>
+    <ul>
+      <li><strong>Meta deck list:</strong> every 3 days it is downloaded from GitHub. As with any download, GitHub may log your IP address.</li>
+      <li><strong>Card names:</strong> if a card is missing from Arena's database, its name is looked up on Scryfall.</li>
+      <li><strong>AI analysis</strong> (only if you request it and have a subscription): the data of the game you analyse is sent to our server (result, deck, hands, cards seen and timeline). Player names and your Arena account details are not sent. The server forwards that data to <strong>DeepSeek</strong> to produce the analysis. DeepSeek's servers are in <strong>China</strong>; if that is not acceptable to you, do not use the analysis.</li>
+    </ul>
+    <p>The meta list and card-name lookups can be turned off in Settings.</p>
+
+    <h2>4. Subscription and AI code</h2>
+    <p>The subscription costs 5 € per month and is paid on <a href="https://ko-fi.com/eusebiog96" rel="noopener">Ko-fi</a>. Ko-fi notifies us of each payment with the email address and the name shown on your Ko-fi account, and we use them to generate a code that we email to you. On our server (Cloudflare Workers) we store:</p>
+    <ul>
+      <li>Your name as shown on Ko-fi, and the expiry date of the subscription.</li>
+      <li>Your email address only as a cryptographic hash (SHA-256). It is not stored in plain text.</li>
+      <li>The code only as a hash. We cannot read it.</li>
+      <li>Usage counters: how many analyses you ran that day (they expire after 48 hours) and the month's total spend, with no personal data.</li>
+    </ul>
+    <p>The code you paste into ManaLab (Settings › AI) is stored on your PC in the settings file, in plain text. If you share your computer, anyone with access to that folder can use it.</p>
+
+    <h2>5. Third parties</h2>
+    <ul>
+      <li><strong>Ko-fi:</strong> processes the payment. We never see your card details. Its privacy policy applies.</li>
+      <li><strong>Resend:</strong> sends the email with your code.</li>
+      <li><strong>Cloudflare:</strong> hosts the server and may log technical request data (such as IP addresses) under its own policy.</li>
+      <li><strong>DeepSeek:</strong> produces the analysis from the game data.</li>
+      <li><strong>GitHub and Scryfall:</strong> only for the downloads in section 3.</li>
+    </ul>
+    <p>We do not sell data, show advertising, or use cookies or analytics on this website.</p>
+
+    <h2>6. Legal basis</h2>
+    <ul>
+      <li><strong>AI analysis and code:</strong> your explicit request and the performance of the subscription you take out.</li>
+      <li><strong>Email with the code:</strong> performance of the subscription contract.</li>
+      <li><strong>Local use of the program:</strong> involves no processing of data by us.</li>
+    </ul>
+
+    <h2>7. How long we keep data</h2>
+    <p>Subscription data is kept while the subscription is active. If you do not renew on Ko-fi, the code expires and stops working. If you want us to delete your data from the server (name, email hash and counters), write to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. We will do it within 30 days at most.</p>
+
+    <h2>8. Your rights</h2>
+    <p>You can ask for access, rectification, erasure, restriction, objection and portability of your data by writing to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. If you believe we are not handling your data correctly, you can lodge a complaint with the <a href="https://www.aepd.es" rel="noopener">Spanish Data Protection Agency (AEPD)</a>.</p>
+
+    <h2>9. Children</h2>
+    <p>The service is not aimed at children under 14.</p>
+
+    <h2>10. Changes</h2>
+    <p>If we change this policy, we will say so on this page and update the date above.</p>
+  </section>
+
+  <a class="volver" href="/">← ManaLab</a>
+</main>
+</body>
+</html>

@@ -14,4 +14,8 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/"/>
   </url>
+  <url>
+    <loc>https://manalab.es/privacy/</loc>
+    <lastmod>2026-10-21</lastmod>
+  </url>
 </urlset>
