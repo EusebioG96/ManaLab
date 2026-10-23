@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ManaLab-Anleitung</title>
+<style>
+:root{--bg:#f7f6f2;--fg:#1d1d22;--muted:#5c5c66;--acc:#6b4fbb;--card:#fff;--line:#e3e1d9}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#16161b;--fg:#ecebf2;--muted:#a3a3b0;--acc:#a98bf0;--card:#1f1f26;--line:#33333d}}
+:root[data-theme="dark"]{--bg:#16161b;--fg:#ecebf2;--muted:#a3a3b0;--acc:#a98bf0;--card:#1f1f26;--line:#33333d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans CJK JP","Noto Sans CJK KR","Noto Sans CJK SC",sans-serif}
+main{max-width:820px;margin:0 auto;padding:32px 16px 48px}
+header{border-bottom:2px solid var(--acc);padding-bottom:16px;margin-bottom:24px}
+h1{margin:0 0 6px;font-size:2rem;color:var(--acc)}
+.sub{margin:0;color:var(--muted)}
+nav.indice{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 20px;margin-bottom:28px}
+nav.indice h2{margin:0 0 8px;font-size:1.1rem}
+nav.indice ol{margin:0;padding-left:20px;columns:2}
+nav.indice a{color:var(--acc);text-decoration:none}
+section{margin:0 0 32px;page-break-inside:avoid;break-inside:avoid}
+section h2{font-size:1.4rem;margin:0 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+p{margin:0 0 10px}
+ul,ol{margin:0 0 10px;padding-left:24px}
+li{margin-bottom:4px}
+figure{margin:14px 0 6px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px}
+figure img{display:block;width:100%;height:auto;border-radius:6px}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+@page{size:A4;margin:16mm 14mm}
+@media print{
+  body{background:#fff;color:#000}
+  main{max-width:none;padding:0}
+  h1{color:#4b2fa0}
+  section h2{color:#4b2fa0}
+  nav.indice{background:#fff}
+  figure{background:#fff}
+  a{color:inherit}
+}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>ManaLab-Anleitung</h1>
+<p class="sub">Was jeder Bereich der App macht und wie du ihn nutzt. Schwerpunkt auf den Hauptfunktionen und dem KI-Coach.</p>
+</header>
+<nav class="indice"><h2>Inhalt</h2><ol><li><a href="#intro">Was ist ManaLab</a></li><li><a href="#inicio">Erste Schritte</a></li><li><a href="#panel">Dashboard: Status der Aufzeichnung</a></li><li><a href="#partidas">Partien: dein Verlauf</a></li><li><a href="#destacados">Highlights</a></li><li><a href="#notas">Notizen und Fehler</a></li><li><a href="#mazos">Decks</a></li><li><a href="#estadisticas">Statistiken: deine Gewinnraten</a></li><li><a href="#sideboard">Sideboard: dein Plan pro Matchup</a></li><li><a href="#ia">KI-Coach: Analyse verlorener Partien</a></li><li><a href="#coach">Export für den Coach und Team</a></li><li><a href="#ajustes">Einstellungen</a></li><li><a href="#actualizar">ManaLab aktualisieren</a></li><li><a href="#privacidad">Datenschutz</a></li></ol></nav>
+<section id="intro"><h2>Was ist ManaLab</h2><p>ManaLab speichert jede Partie, die du in MTG Arena spielst, auf deinem PC und zeigt dir, was funktioniert: deine Gewinnraten nach Deck, Gegner und Matchup, deine Mulligans, deine Fehler und deine Sideboard-Änderungen.</p><p>Die App ist kostenlos. Nur die KI-Analyse verlorener Partien kostet etwas: 5 € pro Monat.</p></section>
+<section id="inicio"><h2>Erste Schritte</h2><ol><li>Lade die portable Version (ZIP) herunter, entpacke sie und öffne ManaLab. Keine Installation nötig.</li><li>Gehe in Arena zu Optionen › Konto und aktiviere «Detailed Logs (Plugin Support)». Starte Arena danach neu. Ohne das kann ManaLab deine Partien nicht lesen.</li><li>Beim ersten Start öffnet sich die Startanleitung. Du findest sie unter Einstellungen › Info wieder.</li><li>Drücke im Dashboard auf «Aufzeichnung starten». Ab dann wird jede Partie automatisch gespeichert.</li></ol></section>
+<section id="panel"><h2>Dashboard: Status der Aufzeichnung</h2><p>Das Dashboard zeigt, ob ManaLab richtig aufzeichnet. Es hat vier Karten:</p><ul><li>Aufzeichnung: aktiv oder gestoppt.</li><li>Arena-Fenster: ob ManaLab das Arena-Fenster sieht (für Screenshots nötig).</li><li>Kartendatenbank: ob die Kartendaten aktuell sind.</li><li>Aktuelles Match: die Partie, die gerade läuft.</li></ul><p>Darunter siehst du deine letzten Matches und die letzte Aktivität.</p><figure><img src="img/en_panel.jpg" alt="Dashboard: Status der Aufzeichnung" loading="lazy"></figure></section>
+<section id="partidas"><h2>Partien: dein Verlauf</h2><p>Hier steht dein gesamter Verlauf. Du kannst nach Gegner, Deck oder Event suchen und nach Alle, Siege oder Niederlagen filtern. Wenn du ein Match öffnest, siehst du diese Reiter:</p><ul><li>Match: die Zusammenfassung des Matches und seiner Partien.</li><li>Partie: Starthand, Startzug, Mulligans und was passiert ist.</li><li>Wiederholung: die Partie Schritt für Schritt, Zug für Zug.</li><li>Gegner: die Karten des Gegners, die du gesehen hast.</li><li>Analyse: die KI-Erklärung (nur für Abonnenten).</li><li>Notizen: deine Fehler und Notizen.</li></ul><figure><img src="img/en_partida.jpg" alt="Partien: dein Verlauf" loading="lazy"></figure></section>
+<section id="destacados"><h2>Highlights</h2><p>Während des Spiels kannst du einen Screenshot von jedem Moment speichern. Das funktioniert auch, wenn die automatischen Screenshots aus sind.</p><ol><li>Drücke F8 (die Taste lässt sich unter Einstellungen › Highlights ändern).</li><li>Oder drücke die Schaltfläche «Moment festhalten» oben links in Arena.</li><li>Oder drücke «Moment festhalten» in der Seitenleiste von ManaLab.</li></ol><p>Die Schaltflächen erscheinen nur während eines laufenden Spiels. Der Screenshot wird mit der Starthand und den Mulligans gespeichert.</p><p>Danach öffnest du ihn im Reiter Partie und schreibst eine Notiz zu diesem Moment.</p></section>
+<section id="notas"><h2>Notizen und Fehler</h2><p>Im Reiter Notizen jeder Partie kannst du die Fehler markieren, die du gemacht hast (mit Markierungen), und schreiben, was du dir merken willst. Diese Fehler bilden die Grundlage des Berichts für deinen Coach und der Statistik wiederholter Fehler.</p></section>
+<section id="mazos"><h2>Decks</h2><p>Hier stehen die Decks, die ManaLab erkannt hat. Von dort aus kannst du:</p><ul><li>Ein Deck umbenennen oder den Namen aus Arena verwenden.</li><li>Den Archetyp korrigieren, wenn ManaLab ihn falsch eingeordnet hat, und Partien neu zuordnen.</li><li>Prüfen, wie dein Deck in die Meta passt.</li></ul></section>
+<section id="estadisticas"><h2>Statistiken: deine Gewinnraten</h2><p>Deine Ergebnisse, geordnet nach:</p><ul><li>Deck.</li><li>Gegner.</li><li>Mulligans.</li><li>Play / Draw.</li><li>Letzten Tagen.</li></ul><p>Die Matchup-Tabelle zeigt, mit welchen Decks du gewinnst und mit welchen du verlierst. Von hier aus kannst du deine Daten auch für deinen Coach exportieren.</p><figure><img src="img/en_estadisticas.jpg" alt="Statistiken: deine Gewinnraten" loading="lazy"></figure></section>
+<section id="sideboard"><h2>Sideboard: dein Plan pro Matchup</h2><p>Für jedes Matchup kannst du notieren, was du hereinnimmst (Rein) und was du herausnimmst (Raus), und deinen Plan schreiben (Mein Plan). ManaLab zeigt auch, wie deine früheren Änderungen funktioniert haben.</p><p>Mit Abo schlägt dir «KI um einen Plan bitten» einen Sideboard-Plan vor, der auf deinen Partien in diesem Matchup beruht.</p></section>
+<section id="ia"><h2>KI-Coach: Analyse verlorener Partien</h2><p>Der KI-Coach erklärt, was bei einer Niederlage schiefging und was du beim nächsten Mal ausprobieren solltest. Nur für Abonnenten: 5 € pro Monat.</p><ol><li>Abonniere auf Ko-fi (Schaltfläche «Auf Ko-fi abonnieren» in den Einstellungen oder im Reiter Analyse). Du erhältst den Code per E-Mail.</li><li>Gehe zu Einstellungen › KI-Analyse, füge den Code bei «Abo-Code» ein und speichere.</li><li>Öffne eine Niederlage unter Partien und wechsle zum Reiter Analyse.</li><li>Wenn du willst, schreibe eine konkrete Frage, zum Beispiel: «Hätte ich mulligan machen sollen?» oder «Habe ich in Zug 5 falsch angegriffen?».</li><li>Drücke «Mit KI analysieren». Es dauert ein paar Sekunden. Die Antwort wird gespeichert, du zahlst also nie zweimal für dieselbe Partie.</li></ol><p>Jeder Code hat ein Tageslimit (standardmäßig 30 Analysen pro Tag). Der Reiter zeigt, wie viele dir noch bleiben.</p><p>Nur die Daten der analysierten Partie werden gesendet: Deck, Hände, Sideboard, gesehene Gegnerkarten und der Partieverlauf. Dein Name, der Name deines Gegners und die vollständige Logdatei werden nicht gesendet.</p></section>
+<section id="coach"><h2>Export für den Coach und Team</h2><p>«Für den Coach exportieren» (unter Statistiken) erstellt eine Seite mit deiner Zusammenfassung, deinen Matchups, deinen markierten Fehlern und deinen Partien mit Notizen. Sie öffnet sich im Browser: von dort kannst du sie drucken oder als PDF speichern und an deinen Coach schicken.</p><p>Unter Team kannst du Partien und Notizen mit deinem Team über einen gemeinsamen Ordner teilen (Google Drive, Dropbox oder OneDrive). Jeder schreibt nur in seinen eigenen Unterordner. Auch die Screenshots werden mit ihren Notizen geteilt (abschaltbar unter Einstellungen › Team), und du kannst die Namen deiner Gegner ausblenden.</p><p>Im Bildschirm Team siehst du jedes Spiel eines Mitspielers mit denselben Details wie deine: Hände, Screenshots mit Notizen, Wiederholung, Deck des Gegners und Notizen. Als Coach schreibst du deine Notiz im Reiter Notizen.</p></section>
+<section id="ajustes"><h2>Einstellungen</h2><ul><li>Sprache: ManaLab ist in 9 Sprachen verfügbar.</li><li>Overlay im Spiel: zeigt Informationen während du spielst.</li><li>Screenshots und Scryfall-Suche, wenn eine Karte fehlt.</li><li>Pfad zur Player.log, falls sie nicht automatisch gefunden wird.</li><li>KI-Analyse: hier fügst du deinen Abo-Code ein.</li><li>Auf Ko-fi unterstützen und die Startanleitung erneut öffnen.</li><li>Hinweis auf neue Versionen: ManaLab sagt dir, wenn eine neue Version erscheint, und zeigt die Neuerungen.</li></ul></section>
+<section id="actualizar"><h2>ManaLab aktualisieren</h2><p>Seit Version 2.1.0 prüft ManaLab beim Öffnen und einmal am Tag, ob eine neue Version verfügbar ist. Wenn ja, erscheint unten links ein Hinweis.</p><ol><li>Drücke im Hinweis auf «Neuerungen ansehen», um zu lesen, was neu ist, und auf «Herunterladen», um das neue ZIP zu holen.</li><li>Schließe ManaLab.</li><li>Entpacke das ZIP über den Ordner, in dem ManaLab bisher war (die Dateien werden ersetzt), und öffne es.</li></ol><p>Deine Partien, Screenshots, Einstellungen und dein Abo-Code werden getrennt in %LOCALAPPDATA%\ManaLab gespeichert und gehen beim Aktualisieren nicht verloren.</p><p>Unter Einstellungen › Über kannst du mit «Nach Updates suchen» selbst prüfen, und mit «Bei einer neuen Version Bescheid geben» den Hinweis abschalten.</p><p>Wenn du Version 2.0.1 oder älter hast, siehst du den Hinweis nicht: lade die neueste Version von manalab.es herunter.</p></section>
+<section id="privacidad"><h2>Datenschutz</h2><p>Deine Daten bleiben auf deinem PC. ManaLab liest nicht den Speicher von Arena und verbindet sich nicht mit dessen Servern.</p><p>Das Einzige, was deinen Computer verlässt, ist die KI-Analyse, und nur wenn du sie anforderst.</p></section>
+<footer>ManaLab ist inoffizieller Fan-Inhalt. Er ist nicht von Wizards of the Coast genehmigt oder unterstützt.</footer>
+</main>
+</body>
+</html>
