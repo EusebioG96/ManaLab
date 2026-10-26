@@ -2,20 +2,146 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://manalab.es/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/"/>
   </url>
   <url>
     <loc>https://manalab.es/es/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/"/>
   </url>
   <url>
+    <loc>https://manalab.es/guia/guia_manalab_en.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/guia/guia_manalab_en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/guia/guia_manalab_es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://manalab.es/guia/guia_manalab_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://manalab.es/guia/guia_manalab_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://manalab.es/guia/guia_manalab_it.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://manalab.es/guia/guia_manalab_pt.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://manalab.es/guia/guia_manalab_ja.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://manalab.es/guia/guia_manalab_ko.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://manalab.es/guia/guia_manalab_zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/guia/guia_manalab_en.html"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/guia/guia_manalab_es.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/guia/guia_manalab_en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/guia/guia_manalab_es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://manalab.es/guia/guia_manalab_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://manalab.es/guia/guia_manalab_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://manalab.es/guia/guia_manalab_it.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://manalab.es/guia/guia_manalab_pt.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://manalab.es/guia/guia_manalab_ja.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://manalab.es/guia/guia_manalab_ko.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://manalab.es/guia/guia_manalab_zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/guia/guia_manalab_en.html"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/guia/guia_manalab_fr.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/guia/guia_manalab_en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/guia/guia_manalab_es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://manalab.es/guia/guia_manalab_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://manalab.es/guia/guia_manalab_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://manalab.es/guia/guia_manalab_it.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://manalab.es/guia/guia_manalab_pt.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://manalab.es/guia/guia_manalab_ja.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://manalab.es/guia/guia_manalab_ko.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://manalab.es/guia/guia_manalab_zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/guia/guia_manalab_en.html"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/guia/guia_manalab_de.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/guia/guia_manalab_en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/guia/guia_manalab_es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://manalab.es/guia/guia_manalab_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://manalab.es/guia/guia_manalab_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://manalab.es/guia/guia_manalab_it.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://manalab.es/guia/guia_manalab_pt.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://manalab.es/guia/guia_manalab_ja.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://manalab.es/guia/guia_manalab_ko.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://manalab.es/guia/guia_manalab_zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/guia/guia_manalab_en.html"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/guia/guia_manalab_it.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/guia/guia_manalab_en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/guia/guia_manalab_es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://manalab.es/guia/guia_manalab_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://manalab.es/guia/guia_manalab_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://manalab.es/guia/guia_manalab_it.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://manalab.es/guia/guia_manalab_pt.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://manalab.es/guia/guia_manalab_ja.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://manalab.es/guia/guia_manalab_ko.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://manalab.es/guia/guia_manalab_zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/guia/guia_manalab_en.html"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/guia/guia_manalab_pt.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/guia/guia_manalab_en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/guia/guia_manalab_es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://manalab.es/guia/guia_manalab_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://manalab.es/guia/guia_manalab_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://manalab.es/guia/guia_manalab_it.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://manalab.es/guia/guia_manalab_pt.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://manalab.es/guia/guia_manalab_ja.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://manalab.es/guia/guia_manalab_ko.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://manalab.es/guia/guia_manalab_zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/guia/guia_manalab_en.html"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/guia/guia_manalab_ja.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/guia/guia_manalab_en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/guia/guia_manalab_es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://manalab.es/guia/guia_manalab_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://manalab.es/guia/guia_manalab_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://manalab.es/guia/guia_manalab_it.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://manalab.es/guia/guia_manalab_pt.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://manalab.es/guia/guia_manalab_ja.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://manalab.es/guia/guia_manalab_ko.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://manalab.es/guia/guia_manalab_zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/guia/guia_manalab_en.html"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/guia/guia_manalab_ko.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/guia/guia_manalab_en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/guia/guia_manalab_es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://manalab.es/guia/guia_manalab_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://manalab.es/guia/guia_manalab_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://manalab.es/guia/guia_manalab_it.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://manalab.es/guia/guia_manalab_pt.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://manalab.es/guia/guia_manalab_ja.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://manalab.es/guia/guia_manalab_ko.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://manalab.es/guia/guia_manalab_zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/guia/guia_manalab_en.html"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/guia/guia_manalab_zh.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/guia/guia_manalab_en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/guia/guia_manalab_es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://manalab.es/guia/guia_manalab_fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://manalab.es/guia/guia_manalab_de.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://manalab.es/guia/guia_manalab_it.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://manalab.es/guia/guia_manalab_pt.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://manalab.es/guia/guia_manalab_ja.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://manalab.es/guia/guia_manalab_ko.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://manalab.es/guia/guia_manalab_zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/guia/guia_manalab_en.html"/>
+  </url>
+  <url>
     <loc>https://manalab.es/privacy/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-26</lastmod>
   </url>
 </urlset>
