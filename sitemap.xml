@@ -144,4 +144,18 @@
     <loc>https://manalab.es/privacy/</loc>
     <lastmod>2026-10-26</lastmod>
   </url>
+  <url>
+    <loc>https://manalab.es/sorteo/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/sorteo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/sorteo/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/sorteo/"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/sorteo/en/</loc>
+    <lastmod>2026-10-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/sorteo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/sorteo/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/sorteo/"/>
+  </url>
 </urlset>
