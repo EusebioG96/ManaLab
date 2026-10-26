@@ -3,7 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ManaLab ガイド</title>
+<title>ManaLab ガイド – 無料のMTGアリーナ対戦トラッカーの使い方</title>
+<meta name="description" content="Windows用の無料MTGアリーナ対戦トラッカー「ManaLab」の使い方ガイド。ダッシュボード、対戦履歴、初手、マリガン、統計、サイドボード計画、コーチ向けエクスポートを解説します。">
+<link rel="canonical" href="https://manalab.es/guia/guia_manalab_ja.html">
+<link rel="alternate" hreflang="en" href="https://manalab.es/guia/guia_manalab_en.html">
+<link rel="alternate" hreflang="es" href="https://manalab.es/guia/guia_manalab_es.html">
+<link rel="alternate" hreflang="fr" href="https://manalab.es/guia/guia_manalab_fr.html">
+<link rel="alternate" hreflang="de" href="https://manalab.es/guia/guia_manalab_de.html">
+<link rel="alternate" hreflang="it" href="https://manalab.es/guia/guia_manalab_it.html">
+<link rel="alternate" hreflang="pt" href="https://manalab.es/guia/guia_manalab_pt.html">
+<link rel="alternate" hreflang="ja" href="https://manalab.es/guia/guia_manalab_ja.html">
+<link rel="alternate" hreflang="ko" href="https://manalab.es/guia/guia_manalab_ko.html">
+<link rel="alternate" hreflang="zh" href="https://manalab.es/guia/guia_manalab_zh.html">
+<link rel="alternate" hreflang="x-default" href="https://manalab.es/guia/guia_manalab_en.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ManaLab">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="ManaLab ガイド – MTGアリーナ対戦トラッカー">
+<meta property="og:description" content="Windows用の無料MTGアリーナ対戦トラッカー「ManaLab」の使い方ガイド。ダッシュボード、対戦履歴、初手、マリガン、統計、サイドボード計画、コーチ向けエクスポートを解説します。">
+<meta property="og:url" content="https://manalab.es/guia/guia_manalab_ja.html">
+<meta property="og:image" content="https://manalab.es/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <style>
 :root{--bg:#f7f6f2;--fg:#1d1d22;--muted:#5c5c66;--acc:#6b4fbb;--card:#fff;--line:#e3e1d9}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#16161b;--fg:#ecebf2;--muted:#a3a3b0;--acc:#a98bf0;--card:#1f1f26;--line:#33333d}}
@@ -25,6 +46,8 @@ ul,ol{margin:0 0 10px;padding-left:24px}
 li{margin-bottom:4px}
 figure{margin:14px 0 6px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px}
 figure img{display:block;width:100%;height:auto;border-radius:6px}
+nav.inicio{margin:0 0 14px;font-size:.9rem}nav.inicio a,footer nav a{color:var(--acc)}
+footer nav{margin-bottom:8px}
 footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 @page{size:A4;margin:16mm 14mm}
 @media print{
@@ -33,6 +56,7 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:v
   h1{color:#4b2fa0}
   section h2{color:#4b2fa0}
   nav.indice{background:#fff}
+  nav.inicio,footer nav{display:none}
   figure{background:#fff}
   a{color:inherit}
 }
@@ -40,6 +64,7 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:v
 </head>
 <body>
 <main>
+<nav class="inicio" aria-label="ManaLab"><a href="/">← ManaLab ホーム</a></nav>
 <header>
 <h1>ManaLab ガイド</h1>
 <p class="sub">アプリの各機能の役割と使い方です。主要な機能とAIコーチを中心に説明します。</p>
@@ -47,19 +72,21 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:v
 <nav class="indice"><h2>目次</h2><ol><li><a href="#intro">ManaLabとは</a></li><li><a href="#inicio">はじめに</a></li><li><a href="#panel">ダッシュボード：記録の状態</a></li><li><a href="#partidas">対戦：履歴</a></li><li><a href="#destacados">ハイライト</a></li><li><a href="#notas">メモとミス</a></li><li><a href="#mazos">デッキ</a></li><li><a href="#estadisticas">統計：勝率</a></li><li><a href="#sideboard">サイドボード：マッチアップごとの計画</a></li><li><a href="#ia">AIコーチ：敗戦の分析</a></li><li><a href="#coach">コーチへの書き出しとチーム</a></li><li><a href="#ajustes">設定</a></li><li><a href="#actualizar">ManaLab のアップデート</a></li><li><a href="#privacidad">プライバシー</a></li></ol></nav>
 <section id="intro"><h2>ManaLabとは</h2><p>ManaLabは、MTG Arenaで行ったすべての対戦をお使いのPCに保存し、結果を分析します。デッキ別、対戦相手別、マッチアップ別の勝率、マリガンの判断、ミス、サイドボードの変更を確認できます。</p><p>アプリは無料です。有料なのはAIによる敗戦分析だけで、月額5ユーロです。</p></section>
 <section id="inicio"><h2>はじめに</h2><ol><li>ポータブル版（ZIP）をダウンロードして展開し、ManaLabを開きます。インストールは不要です。</li><li>Arenaで「オプション」›「アカウント」を開き、「Detailed Logs (Plugin Support)」を有効にします。その後Arenaを再起動してください。これがないとManaLabは対戦を読み取れません。</li><li>初回起動時にスタートガイドが開きます。設定 › 概要 から再度開けます。</li><li>ダッシュボードで「記録を開始」を押します。以降の対戦は自動で保存されます。</li></ol></section>
-<section id="panel"><h2>ダッシュボード：記録の状態</h2><p>ダッシュボードでは、ManaLabが正しく記録しているかを確認できます。カードは4つあります：</p><ul><li>記録：動作中か停止中か。</li><li>Arenaのウィンドウ：ManaLabがArenaの画面を認識しているか（スクリーンショットに必要）。</li><li>カードデータベース：カード情報が最新か。</li><li>現在の対戦：いま進行中の対戦。</li></ul><p>その下に、直近の対戦と最近のアクティビティが表示されます。</p><figure><img src="img/en_panel.jpg" alt="ダッシュボード：記録の状態" loading="lazy"></figure></section>
-<section id="partidas"><h2>対戦：履歴</h2><p>すべての対戦履歴がここにあります。対戦相手、デッキ、イベントで検索でき、「すべて」「勝利」「敗北」で絞り込めます。対戦を開くと、次のタブがあります：</p><ul><li>対戦：対戦全体とその試合の概要。</li><li>試合：starting hand、先攻後攻、マリガン、経過。</li><li>リプレイ：試合をターンごとに再現。</li><li>相手：見た相手のカード。</li><li>分析：AIによる解説（購読者のみ）。</li><li>メモ：ミスと自分のメモ。</li></ul><figure><img src="img/en_partida.jpg" alt="対戦：履歴" loading="lazy"></figure></section>
+<section id="panel"><h2>ダッシュボード：記録の状態</h2><p>ダッシュボードでは、ManaLabが正しく記録しているかを確認できます。カードは4つあります：</p><ul><li>記録：動作中か停止中か。</li><li>Arenaのウィンドウ：ManaLabがArenaの画面を認識しているか（スクリーンショットに必要）。</li><li>カードデータベース：カード情報が最新か。</li><li>現在の対戦：いま進行中の対戦。</li></ul><p>その下に、直近の対戦と最近のアクティビティが表示されます。</p><figure><img src="img/en_panel.jpg" width="1366" height="860" alt="ダッシュボード：記録の状態" loading="lazy"></figure></section>
+<section id="partidas"><h2>対戦：履歴</h2><p>すべての対戦履歴がここにあります。対戦相手、デッキ、イベントで検索でき、「すべて」「勝利」「敗北」で絞り込めます。対戦を開くと、次のタブがあります：</p><ul><li>対戦：対戦全体とその試合の概要。</li><li>試合：starting hand、先攻後攻、マリガン、経過。</li><li>リプレイ：試合をターンごとに再現。</li><li>相手：見た相手のカード。</li><li>分析：AIによる解説（購読者のみ）。</li><li>メモ：ミスと自分のメモ。</li></ul><figure><img src="img/en_partida.jpg" width="1366" height="860" alt="対戦：履歴" loading="lazy"></figure></section>
 <section id="destacados"><h2>ハイライト</h2><p>対戦中、好きな瞬間のスクリーンショットを保存できます。自動スクリーンショットがオフでも使えます。</p><ol><li>F8 を押します（キーは 設定 › ハイライト で変更できます）。</li><li>または、Arena の左上に表示される「瞬間を撮る」ボタンを押します。</li><li>または、ManaLab のサイドバーの「瞬間を撮る」を押します。</li></ol><p>ボタンは対戦中だけ表示されます。スクリーンショットは初手やマリガンと一緒に保存されます。</p><p>あとで「試合」タブでスクリーンショットを開き、その瞬間についてメモを書けます。</p></section>
 <section id="notas"><h2>メモとミス</h2><p>各試合の「メモ」タブで、犯したミスをタグ付きで記録し、覚えておきたいことを書けます。このミスの記録は、コーチに送るレポートや、繰り返すミスの統計の元になります。</p></section>
 <section id="mazos"><h2>デッキ</h2><p>ManaLabが検出したデッキが一覧表示されます。ここからできること：</p><ul><li>デッキ名の変更、またはArenaで付いている名前の使用。</li><li>ManaLabが分類を間違えた場合のアーキタイプ修正と、対戦の再分類。</li><li>メタの中でのデッキの位置づけの確認。</li></ul></section>
-<section id="estadisticas"><h2>統計：勝率</h2><p>結果は次の項目ごとに整理されます：</p><ul><li>デッキ別。</li><li>相手別。</li><li>マリガン別。</li><li>先攻・後攻別。</li><li>最近の日別。</li></ul><p>マッチアップ表では、どのデッキで勝ち、どのデッキで負けているかがわかります。ここからコーチ向けにデータを書き出すこともできます。</p><figure><img src="img/en_estadisticas.jpg" alt="統計：勝率" loading="lazy"></figure></section>
+<section id="estadisticas"><h2>統計：勝率</h2><p>結果は次の項目ごとに整理されます：</p><ul><li>デッキ別。</li><li>相手別。</li><li>マリガン別。</li><li>先攻・後攻別。</li><li>最近の日別。</li></ul><p>マッチアップ表では、どのデッキで勝ち、どのデッキで負けているかがわかります。ここからコーチ向けにデータを書き出すこともできます。</p><figure><img src="img/en_estadisticas.jpg" width="1366" height="860" alt="統計：勝率" loading="lazy"></figure></section>
 <section id="sideboard"><h2>サイドボード：マッチアップごとの計画</h2><p>各マッチアップについて、入れるカード（IN）と抜くカード（OUT）を書き、自分の計画（マイプラン）を記入できます。以前の変更の結果も表示されます。</p><p>購読中であれば、「AIに計画を依頼」で、そのマッチアップの対戦に基づいたサイドボード計画が提案されます。</p></section>
 <section id="ia"><h2>AIコーチ：敗戦の分析</h2><p>AIコーチは、敗戦の原因と次に試すべきことを説明します。購読者専用で、月額5ユーロです。</p><ol><li>Ko-fiで購読します（設定または分析タブの「Ko-fiで購読」ボタン）。コードがメールで届きます。</li><li>設定 › AI分析 を開き、「購読コード」に貼り付けて保存します。</li><li>対戦から敗戦を開き、分析タブに移動します。</li><li>必要であれば、具体的な質問を書きます。例：「マリガンすべきだった？」「5ターン目の攻めは悪かった？」</li><li>「AIで分析」を押します。数秒かかります。回答は保存されるので、同じ対戦に二度課金されることはありません。</li></ol><p>各コードには1日の上限があります（既定では1日30回）。タブに残り回数が表示されます。</p><p>送信されるのは分析する対戦のデータだけです：デッキ、手札、サイドボード、見た相手のカード、試合の経過。名前、相手の名前、ログファイル全体は送信されません。</p></section>
 <section id="coach"><h2>コーチへの書き出しとチーム</h2><p>統計にある「コーチ用に書き出す」は、概要、マッチアップ、マークしたミス、メモ付きの対戦をまとめたページを作成します。ブラウザで開き、印刷またはPDFで保存してコーチに送れます。</p><p>チームでは、共有フォルダ（Google Drive、Dropbox、OneDrive）を通じて対戦とメモを共有できます。各自は自分のサブフォルダにだけ書き込みます。スクリーンショットもメモ付きで共有され（設定 › チームでオフにできます）、対戦相手の名前を隠すこともできます。</p><p>チーム画面では、仲間の各対戦を自分の対戦と同じ詳しさで見られます：手札、メモ付きスクリーンショット、リプレイ、相手のデッキ、メモ。コーチは「メモ」タブで自分のメモを書きます。</p></section>
 <section id="ajustes"><h2>設定</h2><ul><li>言語：ManaLabは9言語に対応しています。</li><li>対戦中のオーバーレイ：プレイ中に情報を表示します。</li><li>スクリーンショットと、カードが見つからないときのScryfall検索。</li><li>Player.logのパス（自動で見つからない場合）。</li><li>AI分析：購読コードをここに貼り付けます。</li><li>Ko-fiで応援することと、スタートガイドの再表示。</li><li>新しいバージョンのお知らせ：新しいバージョンが出ると ManaLab が知らせ、新機能を表示します。</li></ul></section>
 <section id="actualizar"><h2>ManaLab のアップデート</h2><p>バージョン 2.1.3 から、ManaLab は自動でアップデートできます。起動時と 1 日に 1 回、新しいバージョンがあるか確認し、あれば左下に通知が表示されます。</p><ol><li>通知の「新機能を見る」で、内容を確認できます。</li><li>「今すぐアップデート」を押します。ManaLab が新しいバージョンをダウンロードし、自動で閉じて、アップデート済みの状態で再起動します。Windows の警告は表示されません。</li></ol><p>ゲーム、スクリーンショット、設定、購読コードは %LOCALAPPDATA%\ManaLab に別に保存されているので、アップデートしても失われません。</p><p>2.1.0、2.1.1、2.1.2 をお使いの場合（ウィンドウが表示されずに閉じてしまうことがありました）は、最後にもう一度手動でアップデートしてください。manalab.es から ZIP をダウンロードし、右クリック › プロパティ › 「許可する」にチェック › OK、ManaLab を閉じて、ZIP をフォルダーに上書きで展開します。</p><p>設定 › このアプリについて › 「アップデートを確認」でいつでも確認でき、「新しいバージョンが出たら知らせる」で通知をオフにできます。</p><p>バージョン 2.0.1 以前をお使いの場合は通知が表示されません。manalab.es から最新版をダウンロードしてください。</p></section>
 <section id="privacidad"><h2>プライバシー</h2><p>データはお使いのPCに保存されたままです。ManaLabはArenaのメモリを読み取ったり、Arenaのサーバーに接続したりしません。</p><p>PCの外に出るのはAI分析だけで、それも依頼したときだけです。</p></section>
-<footer>ManaLabは非公式のファンコンテンツです。Wizards of the Coastによる承認や支援はありません。</footer>
+<footer>
+<nav aria-label="ガイド"><a href="guia_manalab_en.html" hreflang="en" lang="en">English</a> · <a href="guia_manalab_es.html" hreflang="es" lang="es">Español</a> · <a href="guia_manalab_fr.html" hreflang="fr" lang="fr">Français</a> · <a href="guia_manalab_de.html" hreflang="de" lang="de">Deutsch</a> · <a href="guia_manalab_it.html" hreflang="it" lang="it">Italiano</a> · <a href="guia_manalab_pt.html" hreflang="pt" lang="pt">Português</a> · <a href="guia_manalab_ja.html" hreflang="ja" lang="ja" aria-current="page">日本語</a> · <a href="guia_manalab_ko.html" hreflang="ko" lang="ko">한국어</a> · <a href="guia_manalab_zh.html" hreflang="zh" lang="zh">中文</a></nav>
+ManaLabは非公式のファンコンテンツです。Wizards of the Coastによる承認や支援はありません。</footer>
 </main>
 </body>
 </html>

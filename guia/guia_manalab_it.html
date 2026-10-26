@@ -3,7 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Guida di ManaLab</title>
+<title>Guida di ManaLab – Come usare il tracker gratuito per MTG Arena</title>
+<meta name="description" content="Guida passo passo a ManaLab, il tracker gratuito di partite di MTG Arena per Windows: pannello, storico, mani iniziali, mulligan, statistiche, piani di sideboard ed esportazione per il coach.">
+<link rel="canonical" href="https://manalab.es/guia/guia_manalab_it.html">
+<link rel="alternate" hreflang="en" href="https://manalab.es/guia/guia_manalab_en.html">
+<link rel="alternate" hreflang="es" href="https://manalab.es/guia/guia_manalab_es.html">
+<link rel="alternate" hreflang="fr" href="https://manalab.es/guia/guia_manalab_fr.html">
+<link rel="alternate" hreflang="de" href="https://manalab.es/guia/guia_manalab_de.html">
+<link rel="alternate" hreflang="it" href="https://manalab.es/guia/guia_manalab_it.html">
+<link rel="alternate" hreflang="pt" href="https://manalab.es/guia/guia_manalab_pt.html">
+<link rel="alternate" hreflang="ja" href="https://manalab.es/guia/guia_manalab_ja.html">
+<link rel="alternate" hreflang="ko" href="https://manalab.es/guia/guia_manalab_ko.html">
+<link rel="alternate" hreflang="zh" href="https://manalab.es/guia/guia_manalab_zh.html">
+<link rel="alternate" hreflang="x-default" href="https://manalab.es/guia/guia_manalab_en.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="ManaLab">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Guida di ManaLab – Tracker di partite MTG Arena">
+<meta property="og:description" content="Guida passo passo a ManaLab, il tracker gratuito di partite di MTG Arena per Windows: pannello, storico, mani iniziali, mulligan, statistiche, piani di sideboard ed esportazione per il coach.">
+<meta property="og:url" content="https://manalab.es/guia/guia_manalab_it.html">
+<meta property="og:image" content="https://manalab.es/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <style>
 :root{--bg:#f7f6f2;--fg:#1d1d22;--muted:#5c5c66;--acc:#6b4fbb;--card:#fff;--line:#e3e1d9}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#16161b;--fg:#ecebf2;--muted:#a3a3b0;--acc:#a98bf0;--card:#1f1f26;--line:#33333d}}
@@ -25,6 +46,8 @@ ul,ol{margin:0 0 10px;padding-left:24px}
 li{margin-bottom:4px}
 figure{margin:14px 0 6px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px}
 figure img{display:block;width:100%;height:auto;border-radius:6px}
+nav.inicio{margin:0 0 14px;font-size:.9rem}nav.inicio a,footer nav a{color:var(--acc)}
+footer nav{margin-bottom:8px}
 footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 @page{size:A4;margin:16mm 14mm}
 @media print{
@@ -33,6 +56,7 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:v
   h1{color:#4b2fa0}
   section h2{color:#4b2fa0}
   nav.indice{background:#fff}
+  nav.inicio,footer nav{display:none}
   figure{background:#fff}
   a{color:inherit}
 }
@@ -40,6 +64,7 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:v
 </head>
 <body>
 <main>
+<nav class="inicio" aria-label="ManaLab"><a href="/">← Home di ManaLab</a></nav>
 <header>
 <h1>Guida di ManaLab</h1>
 <p class="sub">Cosa fa ogni parte dell&#x27;app e come usarla. Attenzione alle funzioni principali e al coach IA.</p>
@@ -47,19 +72,21 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:v
 <nav class="indice"><h2>Indice</h2><ol><li><a href="#intro">Cos&#x27;è ManaLab</a></li><li><a href="#inicio">Primi passi</a></li><li><a href="#panel">Dashboard: stato della registrazione</a></li><li><a href="#partidas">Partite: la tua cronologia</a></li><li><a href="#destacados">Momenti salienti</a></li><li><a href="#notas">Note ed errori</a></li><li><a href="#mazos">Mazzi</a></li><li><a href="#estadisticas">Statistiche: le tue percentuali</a></li><li><a href="#sideboard">Sideboard: il tuo piano per matchup</a></li><li><a href="#ia">Coach IA: analisi delle sconfitte</a></li><li><a href="#coach">Esporta per il coach e Squadra</a></li><li><a href="#ajustes">Impostazioni</a></li><li><a href="#actualizar">Aggiornare ManaLab</a></li><li><a href="#privacidad">Privacy</a></li></ol></nav>
 <section id="intro"><h2>Cos&#x27;è ManaLab</h2><p>ManaLab salva ogni partita che giochi su MTG Arena sul tuo PC e ti mostra cosa funziona: le tue percentuali di vittoria per mazzo, per avversario e per matchup, i tuoi mulligan, i tuoi errori e i cambi di sideboard.</p><p>L&#x27;app è gratuita. L&#x27;unica parte a pagamento è l&#x27;analisi IA delle sconfitte: 5 € al mese.</p></section>
 <section id="inicio"><h2>Primi passi</h2><ol><li>Scarica la versione portable (ZIP), estraila e apri ManaLab. Non serve installazione.</li><li>In Arena vai su Opzioni › Account e attiva «Detailed Logs (Plugin Support)». Poi riavvia Arena. Senza questo ManaLab non può leggere le tue partite.</li><li>La prima volta si apre la guida introduttiva. Puoi rivederla in Impostazioni › Info.</li><li>Nella Dashboard premi «Avvia registrazione». Da quel momento ogni partita viene salvata da sola.</li></ol></section>
-<section id="panel"><h2>Dashboard: stato della registrazione</h2><p>La Dashboard ti dice se ManaLab registra correttamente. Ha quattro schede:</p><ul><li>Registrazione: attiva o ferma.</li><li>Finestra di Arena: se ManaLab vede la finestra di Arena (serve per gli screenshot).</li><li>Database delle carte: se i dati sono aggiornati.</li><li>Match attuale: la partita in corso.</li></ul><p>Sotto vedi gli ultimi match e l&#x27;attività recente.</p><figure><img src="img/en_panel.jpg" alt="Dashboard: stato della registrazione" loading="lazy"></figure></section>
-<section id="partidas"><h2>Partite: la tua cronologia</h2><p>Qui c&#x27;è tutta la cronologia. Puoi cercare per avversario, mazzo o evento, e filtrare per Tutte, Vittorie o Sconfitte. Aprendo un match trovi queste schede:</p><ul><li>Match: il riepilogo del match e delle sue partite.</li><li>Partita: mano iniziale, turno di partenza, mulligan e cosa è successo.</li><li>Replay: la partita passo dopo passo, turno per turno.</li><li>Avversario: le carte dell&#x27;avversario che hai visto.</li><li>Analisi: la spiegazione IA (solo abbonati).</li><li>Note: i tuoi errori e le tue note.</li></ul><figure><img src="img/en_partida.jpg" alt="Partite: la tua cronologia" loading="lazy"></figure></section>
+<section id="panel"><h2>Dashboard: stato della registrazione</h2><p>La Dashboard ti dice se ManaLab registra correttamente. Ha quattro schede:</p><ul><li>Registrazione: attiva o ferma.</li><li>Finestra di Arena: se ManaLab vede la finestra di Arena (serve per gli screenshot).</li><li>Database delle carte: se i dati sono aggiornati.</li><li>Match attuale: la partita in corso.</li></ul><p>Sotto vedi gli ultimi match e l&#x27;attività recente.</p><figure><img src="img/en_panel.jpg" width="1366" height="860" alt="Dashboard: stato della registrazione" loading="lazy"></figure></section>
+<section id="partidas"><h2>Partite: la tua cronologia</h2><p>Qui c&#x27;è tutta la cronologia. Puoi cercare per avversario, mazzo o evento, e filtrare per Tutte, Vittorie o Sconfitte. Aprendo un match trovi queste schede:</p><ul><li>Match: il riepilogo del match e delle sue partite.</li><li>Partita: mano iniziale, turno di partenza, mulligan e cosa è successo.</li><li>Replay: la partita passo dopo passo, turno per turno.</li><li>Avversario: le carte dell&#x27;avversario che hai visto.</li><li>Analisi: la spiegazione IA (solo abbonati).</li><li>Note: i tuoi errori e le tue note.</li></ul><figure><img src="img/en_partida.jpg" width="1366" height="860" alt="Partite: la tua cronologia" loading="lazy"></figure></section>
 <section id="destacados"><h2>Momenti salienti</h2><p>Durante la partita puoi salvare uno screenshot del momento che vuoi. Funziona anche se gli screenshot automatici sono disattivati.</p><ol><li>Premi F8 (puoi cambiare il tasto in Impostazioni › Momenti salienti).</li><li>Oppure premi il pulsante «Cattura momento» in alto a sinistra di Arena.</li><li>Oppure premi «Cattura momento» nella barra laterale di ManaLab.</li></ol><p>I pulsanti compaiono solo durante una partita. Lo screenshot viene salvato con la mano iniziale e i mulligan.</p><p>Dopo, nella scheda Partita, apri lo screenshot e scrivi una nota su quel momento.</p></section>
 <section id="notas"><h2>Note ed errori</h2><p>Nella scheda Note di ogni partita puoi segnare gli errori commessi (con etichette) e scrivere ciò che vuoi ricordare. Questi errori alimentano il report da inviare al tuo coach e le statistiche degli errori ripetuti.</p></section>
 <section id="mazos"><h2>Mazzi</h2><p>Qui compaiono i mazzi rilevati da ManaLab. Da questa schermata puoi:</p><ul><li>Rinominare un mazzo o usare il nome che ha su Arena.</li><li>Correggere l&#x27;archetipo se ManaLab lo ha classificato male, e riclassificare le partite.</li><li>Vedere come si inserisce il tuo mazzo nel meta.</li></ul></section>
-<section id="estadisticas"><h2>Statistiche: le tue percentuali</h2><p>I tuoi risultati organizzati per:</p><ul><li>Mazzo.</li><li>Avversario.</li><li>Mulligan.</li><li>Play / draw.</li><li>Ultimi giorni.</li></ul><p>La tabella dei matchup mostra con quali mazzi vinci e con quali perdi. Da qui puoi anche esportare i dati per il tuo coach.</p><figure><img src="img/en_estadisticas.jpg" alt="Statistiche: le tue percentuali" loading="lazy"></figure></section>
+<section id="estadisticas"><h2>Statistiche: le tue percentuali</h2><p>I tuoi risultati organizzati per:</p><ul><li>Mazzo.</li><li>Avversario.</li><li>Mulligan.</li><li>Play / draw.</li><li>Ultimi giorni.</li></ul><p>La tabella dei matchup mostra con quali mazzi vinci e con quali perdi. Da qui puoi anche esportare i dati per il tuo coach.</p><figure><img src="img/en_estadisticas.jpg" width="1366" height="860" alt="Statistiche: le tue percentuali" loading="lazy"></figure></section>
 <section id="sideboard"><h2>Sideboard: il tuo piano per matchup</h2><p>Per ogni matchup puoi annotare cosa inserisci (Entra) e cosa togli (Esce), e scrivere il tuo piano (Il mio piano). ManaLab mostra anche come sono andati i tuoi cambi precedenti.</p><p>Con l&#x27;abbonamento, «Chiedi un piano all&#x27;IA» propone un piano di sideboard basato sulle tue partite in quel matchup.</p></section>
 <section id="ia"><h2>Coach IA: analisi delle sconfitte</h2><p>Il coach IA spiega cosa è andato storto in una sconfitta e cosa provare la prossima volta. È solo per gli abbonati: 5 € al mese.</p><ol><li>Abbonati su Ko-fi (pulsante «Abbonati su Ko-fi» in Impostazioni o nella scheda Analisi). Riceverai un codice via email.</li><li>Vai su Impostazioni › Analisi IA, incolla il codice in «Codice di abbonamento» e salva.</li><li>Apri una sconfitta in Partite e vai alla scheda Analisi.</li><li>Se vuoi, scrivi una domanda precisa, per esempio: «Avrei dovuto fare mulligan?» o «Ho attaccato male al turno 5?».</li><li>Premi «Analizza con IA». Richiede pochi secondi. La risposta viene salvata: non paghi due volte per la stessa partita.</li></ol><p>Ogni codice ha un limite giornaliero (30 analisi al giorno di default). La scheda mostra quante te ne restano.</p><p>Vengono inviati solo i dati della partita analizzata: mazzo, mani, sideboard, carte avversarie viste e cronologia della partita. Non vengono inviati il tuo nome, quello dell&#x27;avversario né il file di log completo.</p></section>
 <section id="coach"><h2>Esporta per il coach e Squadra</h2><p>«Esporta per il coach» (in Statistiche) crea una pagina con il tuo riepilogo, i tuoi matchup, gli errori segnati e le tue partite con le note. Si apre nel browser: da lì puoi stamparla o salvarla in PDF e inviarla al tuo coach.</p><p>In Squadra puoi condividere partite e note con il tuo team tramite una cartella comune (Google Drive, Dropbox o OneDrive). Ognuno scrive solo nella propria sottocartella. Vengono condivisi anche gli screenshot con le loro note (puoi disattivarlo in Impostazioni › Squadra) e puoi nascondere il nome dei tuoi avversari.</p><p>Nella schermata Squadra, ogni partita di un compagno si vede con lo stesso dettaglio delle tue: mani, screenshot con le note, replay, mazzo avversario e note. Se sei coach, scrivi la tua nota nella scheda Note.</p></section>
 <section id="ajustes"><h2>Impostazioni</h2><ul><li>Lingua: ManaLab è disponibile in 9 lingue.</li><li>Overlay in partita: mostra informazioni mentre giochi.</li><li>Screenshot e ricerca su Scryfall quando manca una carta.</li><li>Percorso del Player.log, se non viene trovato automaticamente.</li><li>Analisi IA: qui incolli il tuo codice di abbonamento.</li><li>Sostieni su Ko-fi e rivedi la guida introduttiva.</li><li>Avviso di nuova versione: ManaLab ti avvisa quando esce una versione e ti mostra le novità.</li></ul></section>
 <section id="actualizar"><h2>Aggiornare ManaLab</h2><p>Dalla versione 2.1.3 ManaLab si aggiorna da solo. All&#x27;apertura e una volta al giorno controlla se c&#x27;è una nuova versione; se c&#x27;è, compare un avviso in basso a sinistra.</p><ol><li>Nell&#x27;avviso premi «Vedi le novità» se vuoi leggere cosa porta.</li><li>Premi «Aggiorna ora». ManaLab scarica la nuova versione, si chiude e si riapre già aggiornato. L&#x27;avviso di Windows non compare.</li></ol><p>Le tue partite, catture, impostazioni e il codice di abbonamento sono salvati a parte, in %LOCALAPPDATA%\ManaLab, quindi non si perdono con l&#x27;aggiornamento.</p><p>Se hai la 2.1.0, la 2.1.1 o la 2.1.2 (potevano aprirsi e chiudersi senza mostrare la finestra), aggiorna a mano un&#x27;ultima volta: scarica lo ZIP da manalab.es, tasto destro › Proprietà › spunta «Annulla blocco» › OK, chiudi ManaLab ed estrai lo ZIP sopra la sua cartella.</p><p>Puoi controllare quando vuoi in Impostazioni › Info › «Cerca aggiornamenti», e disattivare l&#x27;avviso con «Avvisami quando c&#x27;è una nuova versione».</p><p>Se hai la versione 2.0.1 o precedente non vedrai l&#x27;avviso: scarica l&#x27;ultima versione da manalab.es.</p></section>
 <section id="privacidad"><h2>Privacy</h2><p>I tuoi dati restano sul tuo PC. ManaLab non legge la memoria di Arena e non si collega ai suoi server.</p><p>L&#x27;unica cosa che esce dal computer è l&#x27;analisi IA, e solo quando la richiedi.</p></section>
-<footer>ManaLab è un contenuto di fan non ufficiale. Non è approvato né sostenuto da Wizards of the Coast.</footer>
+<footer>
+<nav aria-label="Guida"><a href="guia_manalab_en.html" hreflang="en" lang="en">English</a> · <a href="guia_manalab_es.html" hreflang="es" lang="es">Español</a> · <a href="guia_manalab_fr.html" hreflang="fr" lang="fr">Français</a> · <a href="guia_manalab_de.html" hreflang="de" lang="de">Deutsch</a> · <a href="guia_manalab_it.html" hreflang="it" lang="it" aria-current="page">Italiano</a> · <a href="guia_manalab_pt.html" hreflang="pt" lang="pt">Português</a> · <a href="guia_manalab_ja.html" hreflang="ja" lang="ja">日本語</a> · <a href="guia_manalab_ko.html" hreflang="ko" lang="ko">한국어</a> · <a href="guia_manalab_zh.html" hreflang="zh" lang="zh">中文</a></nav>
+ManaLab è un contenuto di fan non ufficiale. Non è approvato né sostenuto da Wizards of the Coast.</footer>
 </main>
 </body>
 </html>
