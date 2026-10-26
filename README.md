@@ -1,7 +1,7 @@
 # ManaLab
 
-Registro automático de partidas de MTG Arena para Windows: manos iniciales, mulligans, sideboard,
-mazo del rival, estadísticas y overlay mientras juegas.
+Tracker gratuito de MTG Arena: manos iniciales y mulligans con capturas, estadísticas por matchup y
+play/draw, mazo del rival, herramientas para coaches y equipos, sin anuncios ni cuentas.
 
 - Web: https://manalab.es/
 - Donativos: https://ko-fi.com/eusebiog96
