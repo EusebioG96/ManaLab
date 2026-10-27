@@ -136,6 +136,8 @@ def main():
             if not v or v.startswith(("mailto:", "tel:", "javascript:", "data:")):
                 continue
             p = urlparse(v)
+            if v.startswith("//") and p.netloc != "manalab.es":
+                continue  # URL con protocolo relativo a un dominio externo
             if p.scheme in ("http", "https") and p.netloc != "manalab.es":
                 continue
             if p.scheme in ("http", "https"):
