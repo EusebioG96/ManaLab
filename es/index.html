@@ -71,6 +71,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .aviso-version .envoltura { display: flex; align-items: center; justify-content: space-between; gap: 10px 18px; flex-wrap: wrap; padding-block: 9px; }
 .aviso-version b { color: var(--oro); }
 .aviso-version a { color: var(--oro); font-weight: 600; white-space: nowrap; }
+.aviso-version span a { white-space: normal; }
 .cab { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: rgba(13, 3, 4, 0.82); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linea); }
 .cab .envoltura { display: flex; align-items: center; gap: 22px; padding-block: 12px; }
 .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--texto); margin-right: auto; }
@@ -233,7 +234,7 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 <!-- aviso de la versión nueva: quitar o cambiar en la siguiente release -->
 <div class="aviso-version" role="note">
 <div class="envoltura">
-<span><b>ManaLab 2.2 ya está disponible:</b> repeticiones con las cartas reales, informes de sesión para coaches, etiquetas del coach y tendencias, overlay rediseñado.</span>
+<span><b>ManaLab 2.2 ya está disponible:</b> repeticiones con las cartas reales, informes de sesión para coaches, etiquetas del coach y tendencias, overlay rediseñado. <a href="/sorteo/">· 🎁 Sorteo: 3 meses gratis de análisis con IA, hasta el 3/11 →</a></span>
 <a href="https://github.com/EusebioG96/ManaLab/releases/latest" rel="noopener" target="_blank">Descargar la 2.2 →</a>
 </div>
 </div>
