@@ -1,0 +1,100 @@
+"""Pruebas del generador de version.json, del workflow que lo publica y del archivo publicado (sin red)."""
+import json
+import sys
+import unittest
+from pathlib import Path
+
+import yaml
+
+RAIZ = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(RAIZ / "tools"))
+import generar_version_json as G  # noqa: E402
+
+SHA = "a" * 64
+BASE = "https://github.com/EusebioG96/ManaLab/releases"
+RELEASE = {
+    "tag_name": "v2.3.0", "published_at": "2026-11-01T10:00:00Z", "html_url": f"{BASE}/tag/v2.3.0",
+    "body": "## ManaLab 2.3.0\r\n\r\nIntro.\r\n\r\n### Descarga / Download\r\nRequisitos: Windows 10\r\n\r\n"
+            "### Novedades / What's new\r\n\r\n- Cosa nueva\r\n- Compatible con Windows 11\r\n\r\n### Privacidad / Privacy\r\nsecreto\r\n",
+    "assets": [
+        {"name": "ManaLab-2.3.0-portable.zip", "browser_download_url": f"{BASE}/download/v2.3.0/ManaLab-2.3.0-portable.zip",
+         "digest": "sha256:" + SHA},
+        {"name": "ManaLab-2.3.0-portable.zip.sha256",
+         "browser_download_url": f"{BASE}/download/v2.3.0/ManaLab-2.3.0-portable.zip.sha256"}]}
+
+
+def leer(url):
+    return f"{SHA.upper()}  ManaLab-2.3.0-portable.zip\n"
+
+
+class TestGenerador(unittest.TestCase):
+    def test_construye_los_campos(self):
+        d = G.construir(RELEASE, leer)
+        self.assertEqual({k: d[k] for k in d if k != "notas"}, {
+            "esquema": 1, "tag": "v2.3.0", "version": "2.3.0", "fecha": "2026-11-01", "url": f"{BASE}/tag/v2.3.0",
+            "descarga": f"{BASE}/download/v2.3.0/ManaLab-2.3.0-portable.zip", "sha256": SHA})
+
+    def test_notas_solo_novedades_y_sin_windows(self):
+        n = G.construir(RELEASE, leer)["notas"]
+        self.assertIn("Cosa nueva", n)
+        self.assertIn("Intro.", n)
+        self.assertNotIn("secreto", n)
+        self.assertNotIn("Requisitos", n)
+        self.assertNotRegex(n, r"(?i)windows")
+
+    def test_sha_solo_del_digest_si_no_hay_archivo(self):
+        r = dict(RELEASE, assets=[RELEASE["assets"][0]])
+        self.assertEqual(G.construir(r, leer)["sha256"], SHA)
+
+    def test_rechaza_datos_malos(self):
+        otro = lambda url: "b" * 64  # noqa: E731
+        with self.assertRaises(ValueError):
+            G.construir(RELEASE, otro)  # .sha256 y digest no coinciden
+        with self.assertRaises(ValueError):
+            G.construir(dict(RELEASE, tag_name="latest"), leer)
+        with self.assertRaises(ValueError):
+            G.construir(dict(RELEASE, html_url="https://otro.example/x"), leer)
+        with self.assertRaises(ValueError):
+            G.construir(dict(RELEASE, assets=[]), leer)
+        sin_sha = dict(RELEASE, assets=[dict(RELEASE["assets"][0], digest="")])
+        with self.assertRaises(ValueError):
+            G.construir(sin_sha, leer)
+
+
+class TestWorkflow(unittest.TestCase):
+    def setUp(self):
+        self.wf = yaml.safe_load((RAIZ / ".github/workflows/version_json.yml").read_text(encoding="utf-8"))
+        self.on = self.wf.get("on", self.wf.get(True))  # PyYAML lee «on» como True
+
+    def test_disparadores(self):
+        self.assertEqual(self.on["release"]["types"], ["published"])
+        self.assertIn("workflow_dispatch", self.on)
+
+    def test_permisos_minimos(self):
+        self.assertEqual(self.wf["permissions"], {"contents": "write"})
+
+    def test_usa_token_y_hace_commit_a_main(self):
+        texto = (RAIZ / ".github/workflows/version_json.yml").read_text(encoding="utf-8")
+        self.assertIn("secrets.GITHUB_TOKEN", texto)
+        self.assertIn("generar_version_json.py", texto)
+        self.assertIn("git push origin HEAD:main", texto)
+        pasos = self.wf["jobs"]["version-json"]["steps"]
+        self.assertEqual(pasos[0]["with"]["ref"], "main")
+        self.assertNotRegex(texto, r"(?i)windows")
+
+
+class TestArchivoPublicado(unittest.TestCase):
+    def test_version_json_valido(self):
+        d = json.loads((RAIZ / "version.json").read_text(encoding="utf-8"))
+        self.assertEqual(d["esquema"], 1)
+        self.assertRegex(d["version"], r"^\d+\.\d+\.\d+$")
+        self.assertEqual(d["tag"], "v" + d["version"])
+        self.assertRegex(d["sha256"], r"^[0-9a-f]{64}$")
+        self.assertTrue(d["url"].startswith(BASE + "/"))
+        self.assertEqual(d["descarga"], f"{BASE}/download/{d['tag']}/ManaLab-{d['version']}-portable.zip")
+        self.assertRegex(d["fecha"], r"^\d{4}-\d{2}-\d{2}$")
+        self.assertNotRegex(json.dumps(d, ensure_ascii=False), r"(?i)windows")
+
+
+if __name__ == "__main__":
+    unittest.main()
