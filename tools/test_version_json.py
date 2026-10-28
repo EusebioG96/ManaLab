@@ -61,6 +61,39 @@ class TestGenerador(unittest.TestCase):
             G.construir(sin_sha, leer)
 
 
+class TestReescritura(unittest.TestCase):
+    NUEVO = f"{BASE}/download/v2.3.0/ManaLab-2.3.0-portable.zip"
+    HTML = ('<a class="boton" href="OLD" download data-descarga data-goatcounter-click="d" rel="noopener"><span>X</span></a>'
+            '<a href="/otra">no</a><a href="https://x.es/" data-descarga>y</a><p>V <span data-version>2.2.1</span></p>')
+
+    def test_reescribe_href_y_version(self):
+        h = G.reescribir_enlaces(self.HTML, "2.3.0", self.NUEVO)
+        self.assertEqual(h.count(f'href="{self.NUEVO}"'), 2)
+        self.assertNotIn("OLD", h)
+        self.assertIn('href="/otra"', h)
+        self.assertIn("<span data-version>2.3.0</span>", h)
+        self.assertIn("data-goatcounter-click", h)
+        self.assertEqual(G.reescribir_enlaces(h, "2.3.0", self.NUEVO), h)  # idempotente
+
+    def test_rechaza_enlace_ajeno(self):
+        with self.assertRaises(ValueError):
+            G.reescribir_enlaces(self.HTML, "2.3.0", "https://otro.example/a.zip")
+        with self.assertRaises(ValueError):
+            G.reescribir_enlaces(self.HTML, "x", self.NUEVO)
+
+    def test_paginas_publicadas_coinciden_con_version_json(self):
+        d = json.loads((RAIZ / "version.json").read_text(encoding="utf-8"))
+        for n in G.PAGINAS:
+            h = (RAIZ / n).read_text(encoding="utf-8")
+            self.assertEqual(G.reescribir_enlaces(h, d["version"], d["descarga"]), h, n)
+            self.assertGreaterEqual(h.count("data-descarga"), 2, n)
+            self.assertNotIn('href="https://github.com/EusebioG96/ManaLab/releases/latest"', h, n)
+
+    def test_workflow_incluye_paginas(self):
+        t = (RAIZ / ".github/workflows/version_json.yml").read_text(encoding="utf-8")
+        self.assertIn("git add version.json index.html es/index.html", t)
+
+
 class TestWorkflow(unittest.TestCase):
     def setUp(self):
         self.wf = yaml.safe_load((RAIZ / ".github/workflows/version_json.yml").read_text(encoding="utf-8"))

@@ -68,12 +68,39 @@ def construir(release, leer_texto):
             "sha256": candidatos[0], "notas": notas_publicas(release.get("body"))}
 
 
+PAGINAS = ("index.html", "es/index.html")
+
+
+def reescribir_enlaces(html, version, descarga):
+    """Pone la descarga directa en los enlaces con data-descarga y la versión en los span data-version."""
+    if not re.fullmatch(r"\d{1,4}\.\d{1,5}\.\d{1,6}", version) or not descarga.startswith(PREFIJO + "download/"):
+        raise ValueError("versión o enlace no válidos")
+
+    def enlace(m):
+        etiqueta = m.group(0)
+        if re.search(r'\shref="[^"]*"', etiqueta):
+            return re.sub(r'(\shref=")[^"]*(")', lambda h: h.group(1) + descarga + h.group(2), etiqueta, count=1)
+        return etiqueta.replace("<a", f'<a href="{descarga}"', 1)
+
+    html = re.sub(r"<a\b[^>]*\bdata-descarga\b[^>]*>", enlace, html)
+    return re.sub(r"(<span data-version>)[^<]*(</span>)", lambda m: m.group(1) + version + m.group(2), html)
+
+
+def actualizar_paginas(raiz, datos):
+    for nombre in PAGINAS:
+        ruta = Path(raiz) / nombre
+        ruta.write_text(reescribir_enlaces(ruta.read_text(encoding="utf-8"), datos["version"], datos["descarga"]),
+                        encoding="utf-8")
+
+
 def main(argv):
     token = os.environ.get("GITHUB_TOKEN") or None
     release = json.loads(_get(f"https://api.github.com/repos/{REPO}/releases/latest", token))
     datos = construir(release, lambda u: _get(u, token, 4096).decode("utf-8", "replace"))
     salida = Path(argv[1]) if len(argv) > 1 else Path(__file__).resolve().parent.parent / "version.json"
     salida.write_text(json.dumps(datos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if len(argv) <= 1:
+        actualizar_paginas(salida.parent, datos)
     print(f"{salida}: {datos['tag']}")
     return 0
 

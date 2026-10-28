@@ -65,6 +65,8 @@ h1, h2, h3 { font-family: var(--f-display); font-weight: 600; letter-spacing: 0.
 
 /* ---------------- cabecera */
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(13, 3, 4, 0.92); }
+.nota-descarga { margin-top: 10px; font-size: 13px; color: var(--texto2); }
+.nota-descarga a { color: inherit; text-decoration: underline; }
 .nota-smartscreen { margin-top: 12px; font-size: 13px; color: var(--texto2); }
 .nota-smartscreen b { color: var(--texto); }
 .aviso-version { background: var(--oro-suave); border-bottom: 1px solid rgba(233, 179, 127, 0.35); font-size: 14px; color: var(--texto); }
@@ -235,7 +237,7 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 <div class="aviso-version" role="note">
 <div class="envoltura">
 <span><b>ManaLab 2.2 is out:</b> replays with real cards, session reports for coaches, coach tags and trends, redesigned overlay. <a href="/sorteo/en/" data-goatcounter-click="aviso-sorteo" data-goatcounter-title="aviso-sorteo-en">· 🎁 Giveaway: 3 free months of AI analysis, until Nov 3 →</a></span>
-<a href="https://github.com/EusebioG96/ManaLab/releases/latest" data-goatcounter-click="descarga" data-goatcounter-title="descarga-aviso-en" rel="noopener" target="_blank">Download 2.2 →</a>
+<a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.2.1/ManaLab-2.2.1-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-aviso-en" rel="noopener">Download 2.2 →</a>
 </div>
 </div>
 <header class="cab">
@@ -425,7 +427,8 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 <div class="pasos">
 <div class="paso"><h3>Download and open</h3>
 <p>Windows 10 or 11. Unzip the file and open ManaLab.exe. Nothing to install.</p>
-<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/latest" data-goatcounter-click="descarga" data-goatcounter-title="descarga-portada-en" id="enlace-descarga" rel="noopener" target="_blank"><span>Download free</span></a></p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.2.1/ManaLab-2.2.1-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-portada-en" id="enlace-descarga" rel="noopener"><span>Download free</span></a></p>
+<p class="nota-descarga">Version <span data-version>2.2.1</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">other versions</a></p>
 <p class="nota-smartscreen">Before unzipping, right-click the ZIP › Properties › tick <b>Unblock</b> › OK: that way Windows neither shows «Windows protected your PC» nor blocks the program's files. If the warning still appears, click <b>More info › Run anyway</b>. Only needed on this first download: later versions install from inside the app with no warning.</p>
 <p class="nota-smartscreen">Already on 2.1.0, 2.1.1 or 2.1.2? Update by hand one last time: unblock the ZIP as described above and unzip it over your ManaLab folder (your games and settings are kept). Those versions could open and close without showing the window; from 2.2 on, new versions install from inside the app.</p></div>
 <div class="paso"><h3>Turn on Arena's log</h3>
@@ -517,6 +520,7 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 </footer>
 
 <script defer="" src="/contacto.js"></script>
+<script defer="" src="/descarga.js"></script>
 <script>
 (function () {
   "use strict";

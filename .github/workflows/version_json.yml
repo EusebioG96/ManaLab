@@ -20,20 +20,20 @@ jobs:
         with:
           ref: main
 
-      - name: Generar version.json desde la API (autenticada)
+      - name: Generar version.json y reescribir los enlaces de descarga
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 tools/generar_version_json.py version.json
+        run: python3 tools/generar_version_json.py
 
       - name: Commit a main si ha cambiado
         run: |
-          if git diff --quiet -- version.json; then
-            echo "version.json ya está al día"
+          if git diff --quiet -- version.json index.html es/index.html; then
+            echo "version.json y enlaces ya están al día"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add version.json
+          git add version.json index.html es/index.html
           git commit -m "version.json: última release publicada"
           git pull --rebase origin main
           git push origin HEAD:main
