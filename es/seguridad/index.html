@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>¿Es seguro ManaLab? Cómo comprobarlo tú mismo</title>
+<meta content="Qué lee ManaLab, todas las conexiones que hace y cómo comprobar el archivo que descargas. Una herramienta gratuita de una sola persona: compruébalo." name="description"/>
+<link href="https://manalab.es/es/seguridad/" rel="canonical"/>
+<link href="https://manalab.es/safety/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/seguridad/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/safety/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<meta content="index, follow" name="robots"/>
+<link href="../../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="../../img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="es_ES" property="og:locale"/>
+<meta content="¿Es seguro ManaLab? Cómo comprobarlo tú mismo" property="og:title"/>
+<meta content="Qué lee ManaLab, todas las conexiones que hace y cómo comprobar el archivo que descargas. Una herramienta gratuita de una sola persona: compruébalo." property="og:description"/>
+<meta content="https://manalab.es/es/seguridad/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="¿Es seguro ManaLab? Cómo comprobarlo tú mismo" name="twitter:title"/>
+<meta content="Qué lee ManaLab, todas las conexiones que hace y cómo comprobar el archivo que descargas. Una herramienta gratuita de una sola persona: compruébalo." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://manalab.es/es/seguridad/#webpage", "url": "https://manalab.es/es/seguridad/", "name": "¿Es seguro ManaLab? Cómo comprobarlo tú mismo", "description": "Qué lee ManaLab, todas las conexiones que hace y cómo comprobar el archivo que descargas. Una herramienta gratuita de una sola persona: compruébalo.", "inLanguage": "es", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "publisher": {"@id": "https://manalab.es/#org"}}</script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@500;600;700&amp;family=Figtree:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><style>
+/* Misma identidad que la portada: paneles oscuros carmesi, un solo mundo visual (oscuro, como el programa). */
+:root {
+  color-scheme: dark;
+  --fondo: #0d0304; --fondo2: #150608; --panel: #1c0b0e; --panel2: #281215;
+  --linea: rgba(255, 214, 200, 0.09); --linea2: rgba(255, 214, 200, 0.16);
+  --texto: #f3e8e2; --texto2: #cbb6af; --apagado: #957f79;
+  --carmesi: #c2363f; --carmesi-h: #d6454f; --oro: #e9b37f; --oro-suave: rgba(233, 179, 127, 0.13);
+  --f-display: "Saira Semi Condensed", "Bahnschrift", "Arial Narrow", system-ui, sans-serif;
+  --f-texto: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "JetBrains Mono", "Cascadia Mono", Consolas, ui-monospace, monospace;
+  --ancho: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--fondo); color: var(--texto); font: 16px/1.65 var(--f-texto); -webkit-font-smoothing: antialiased; }
+a { color: var(--oro); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--oro); outline-offset: 3px; border-radius: 6px; }
+img { max-width: 100%; display: block; }
+.envoltura { max-width: var(--ancho); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2 { font-family: var(--f-display); font-weight: 600; letter-spacing: 0.2px; text-wrap: balance; margin: 0; }
+.eti { font: 600 12px/1 var(--f-display); letter-spacing: 2.2px; text-transform: uppercase; color: var(--oro); }
+
+/* cabecera (la de la portada) */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(13, 3, 4, 0.92); }
+.cab { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: rgba(13, 3, 4, 0.82); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linea); }
+.cab .envoltura { display: flex; align-items: center; gap: 22px; padding-block: 12px; }
+.marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--texto); margin-right: auto; }
+.marca img { width: 36px; height: 36px; }
+.marca b { font: 600 19px/1 var(--f-display); letter-spacing: 0.3px; }
+.cab nav { display: flex; gap: 22px; }
+.cab nav a { color: var(--texto2); text-decoration: none; font-size: 14.5px; }
+.cab nav a:hover { color: var(--texto); }
+.idioma { border: 1px solid var(--linea2); background: none; color: var(--texto2); border-radius: 999px; padding: 5px 11px; font: 600 12px var(--f-display); letter-spacing: 1px; text-decoration: none; display: inline-grid; place-items: center; }
+.idioma:hover { color: var(--texto); border-color: var(--apagado); }
+.boton { display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; padding: 11px 22px; font: 600 15px var(--f-texto); text-decoration: none; border: 1px solid transparent; white-space: nowrap; transition: background .15s, transform .1s; }
+.boton:active { transform: translateY(1px); }
+.boton.prim { background: var(--carmesi); color: #fff5f0; box-shadow: 0 10px 28px -12px rgba(194, 54, 63, 0.9); }
+.boton.prim:hover { background: var(--carmesi-h); }
+.boton svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cab .boton { padding: 8px 16px; font-size: 14px; }
+
+/* pagina */
+.portada { position: relative; overflow: hidden; padding-block: 64px 12px; }
+.portada::before { content: ""; position: absolute; inset: -60% -10% auto 35%; height: 560px; background: radial-gradient(closest-side, rgba(194, 54, 63, 0.2), transparent 70%); pointer-events: none; }
+.pagina { position: relative; max-width: 760px; margin: 0 auto; }
+.portada h1 { font-size: clamp(34px, 5vw, 54px); line-height: 1.05; margin: 16px 0 18px; }
+.lead { font-size: 18.5px; color: var(--texto2); margin: 0; max-width: 36em; }
+.cuerpo { padding-block: 28px 80px; }
+.cuerpo .pagina { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.tarjeta { background: var(--panel); border: 1px solid var(--linea); border-radius: 18px; padding: 28px 30px 30px; scroll-margin-top: 84px; }
+.tarjeta h2 { font-size: clamp(24px, 3vw, 30px); line-height: 1.12; margin: 0 0 14px; }
+.tarjeta p { margin: 0 0 12px; color: var(--texto2); }
+.tarjeta p:last-child { margin-bottom: 0; }
+.tarjeta ul, .tarjeta ol { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; color: var(--texto2); }
+.tarjeta ul:last-child, .tarjeta ol:last-child { margin-bottom: 0; }
+.tarjeta li { position: relative; padding-left: 36px; }
+.tarjeta ul li::before { content: "✓"; position: absolute; left: 4px; top: 0; color: var(--oro); font-weight: 700; }
+.tarjeta ol { counter-reset: n; }
+.tarjeta ol li { counter-increment: n; }
+.tarjeta ol li::before { content: counter(n); position: absolute; left: 0; top: 2px; width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--linea2); background: var(--panel2); color: var(--oro); font: 600 13px/22px var(--f-display); text-align: center; }
+.tarjeta b { color: var(--texto); font-weight: 600; }
+code { font: 0.88em var(--f-mono); background: var(--fondo); border: 1px solid var(--linea); border-radius: 6px; padding: 1px 6px; color: var(--texto); }
+.cmd { margin: 10px 0 8px; background: #080102; border: 1px solid var(--linea); border-radius: 10px; padding: 12px 14px; overflow-x: auto; }
+.cmd code { background: none; border: 0; padding: 0; font-size: 13.5px; white-space: pre; }
+.firma { margin: 8px 4px 0; font: 600 18px var(--f-display); color: var(--oro); letter-spacing: 0.3px; }
+
+/* pie (el de la portada) */
+footer { border-top: 1px solid var(--linea); padding-block: 36px; color: var(--apagado); font-size: 13.5px; }
+footer .envoltura { display: grid; gap: 14px; }
+footer .fila { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; }
+footer .guias { gap: 6px 16px; }
+footer .guias a { color: inherit; }
+footer .guias b { color: var(--texto2); font-weight: 600; }
+footer .legal { max-width: 80ch; line-height: 1.6; margin: 0; }
+
+@media (max-width: 900px) { .cab nav { display: none; } .portada { padding-block: 40px 8px; } }
+@media (max-width: 480px) {
+  .cab .boton span { display: none; }
+  .tarjeta { padding: 22px 18px 24px; border-radius: 16px; }
+  .tarjeta li { padding-left: 32px; }
+  .lead { font-size: 17px; }
+  .cmd code { white-space: pre-wrap; overflow-wrap: anywhere; }
+}
+</style></head>
+<body>
+<header class="cab">
+<div class="envoltura">
+<a class="marca" href="/es/"><img alt="ManaLab logo" height="36" src="../../img/logo.png" width="36"/><span><b>ManaLab</b></span></a>
+<nav aria-label="Secciones">
+<a href="/es/#funciones">Funciones</a><a href="/es/#empezar">Cómo empezar</a><a href="/es/#preguntas">Preguntas</a>
+</nav>
+<a class="idioma" href="/safety/" hreflang="en" lang="en" title="View in English">EN</a>
+<a class="boton prim" href="/es/#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar</span></a>
+</div>
+</header>
+<main id="inicio">
+<section class="portada">
+<div class="envoltura"><div class="pagina">
+<div class="eti">Seguridad</div>
+<h1>¿Es seguro ManaLab? Cómo comprobarlo tú mismo</h1>
+<p class="lead">ManaLab es una herramienta gratuita hecha por una sola persona. Todavía no está firmada y el código no es público, así que tener cuidado es razonable. Esta página explica exactamente qué hace y cómo comprobarlo, para que no tengas que fiarte solo de mi palabra.</p>
+</div></div>
+</section>
+<div class="cuerpo">
+<div class="envoltura"><div class="pagina">
+<section class="tarjeta" id="lee">
+<h2>Qué lee y qué toca</h2>
+<ul><li>Solo lee el <code>Player.log</code>, el archivo que Arena escribe en tu PC cuando tienes activados los «Registros detallados».</li><li>No modifica Arena, no lee su memoria y no se conecta a los servidores de Wizards.</li><li>Las capturas son opcionales, con un interruptor en Ajustes. Cuando están activadas, solo captura la ventana de Arena (nunca tu escritorio), en unos pocos momentos como tu mano inicial y los mulligans.</li><li>Tus partidas, capturas y estadísticas se quedan en una carpeta de tu PC.</li></ul>
+</section>
+<section class="tarjeta" id="conexiones">
+<h2>Todas las conexiones que hace</h2>
+<ol><li>Una vez al día pregunta a GitHub si hay una versión nueva.</li><li>Cada 3 días descarga la lista actualizada del meta de Standard desde un repositorio público: <a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener">github.com/EusebioG96/registro-mtga-meta</a></li><li>Si falta el nombre de una carta en los datos de Arena, lo busca en Scryfall.</li></ol>
+<p>Las tres se pueden desactivar en Ajustes.</p>
+<p>La única otra vez que envía algo es cuando pulsas el botón de análisis con IA en una partida perdida. Entonces envía los datos de esa partida (resultado, mazo, manos, cartas vistas y cronología), nunca tu nombre ni el del rival.</p>
+</section>
+<section class="tarjeta" id="comprobar">
+<h2>Cómo comprobar el archivo que has descargado</h2>
+<ol><li>Cada versión tiene su <a href="https://github.com/EusebioG96/ManaLab/releases/latest" rel="noopener">SHA-256</a> y su <a href="https://github.com/EusebioG96/ManaLab/releases/latest" rel="noopener">análisis de VirusTotal</a>.</li><li>En PowerShell, desde la carpeta del ZIP:<div class="cmd"><code>Get-FileHash .\ManaLab.zip -Algorithm SHA256</code></div>El resultado debe coincidir con el que publico.</li><li>Si prefieres, sube tú mismo el ZIP a <a href="https://www.virustotal.com/" rel="noopener">virustotal.com</a>.</li></ol>
+</section>
+<section class="tarjeta" id="firma">
+<h2>Por qué todavía no está firmado</h2>
+<p>Un certificado de firma de código cuesta dinero cada año y este proyecto lo pago yo. Conseguir uno es mi primera prioridad, y las donaciones de <a href="https://www.patreon.com/ManaLab" rel="noopener">Patreon</a> y <a href="https://ko-fi.com/eusebiog96" rel="noopener">Ko-fi</a> van para eso. Mientras tanto, Windows muestra su aviso de «Windows protegió su PC» la primera vez que lo abres (<b>Más información</b>, luego <b>Ejecutar de todas formas</b>). Si antes de descomprimir haces clic derecho en el ZIP, <b>Propiedades</b> y marcas <b>Desbloquear</b>, no sale.</p>
+<p>Si prefieres esperar a la versión firmada, es totalmente razonable.</p>
+</section>
+<section class="tarjeta" id="codigo">
+<h2>Sobre el código</h2>
+<p>De momento el código es privado. Si eso cambia, lo diré aquí.</p>
+</section>
+<section class="tarjeta" id="dudas">
+<h2>Dudas</h2>
+<p>Escríbeme a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Respondo yo mismo, normalmente en unos días.</p>
+</section>
+<p class="firma">— Eusebio</p>
+</div></div>
+</div>
+</main>
+<footer>
+<div class="envoltura">
+<div class="fila"><b style="color:var(--texto)">ManaLab</b>
+<a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener" target="_blank">Lista del meta</a>
+<a href="/es/#preguntas">Preguntas</a>
+<a href="/privacy/">Privacidad</a>
+<a href="/es/#contacto">Contacto</a>
+<a href="https://x.com/ManaLabApp" rel="noopener" target="_blank">Síguenos en X</a></div>
+<nav class="fila guias" aria-label="Guías"><b>Guía de uso:</b><a href="/guia/guia_manalab_en.html" hreflang="en" lang="en">Guide (English)</a><a href="/guia/guia_manalab_es.html" hreflang="es" lang="es">Guía (español)</a><a href="/guia/guia_manalab_fr.html" hreflang="fr" lang="fr">Guide (français)</a><a href="/guia/guia_manalab_de.html" hreflang="de" lang="de">Anleitung (Deutsch)</a><a href="/guia/guia_manalab_it.html" hreflang="it" lang="it">Guida (italiano)</a><a href="/guia/guia_manalab_pt.html" hreflang="pt" lang="pt">Guia (português)</a><a href="/guia/guia_manalab_ja.html" hreflang="ja" lang="ja">ガイド (日本語)</a><a href="/guia/guia_manalab_ko.html" hreflang="ko" lang="ko">가이드 (한국어)</a><a href="/guia/guia_manalab_zh.html" hreflang="zh" lang="zh">指南 (中文)</a></nav>
+<p class="legal">ManaLab es contenido de fans no oficial permitido por la Política de contenido de fans. No está aprobado ni respaldado por Wizards. Partes de los materiales usados son propiedad de Wizards of the Coast. ©Wizards of the Coast LLC. Datos del meta: MTGGoldfish. Datos de cartas: Scryfall.</p>
+</div>
+</footer>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

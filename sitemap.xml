@@ -141,6 +141,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/guia/guia_manalab_en.html"/>
   </url>
   <url>
+    <loc>https://manalab.es/safety/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/safety/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/seguridad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/safety/"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/es/seguridad/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/safety/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/seguridad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/safety/"/>
+  </url>
+  <url>
     <loc>https://manalab.es/privacy/</loc>
     <lastmod>2026-10-26</lastmod>
   </url>

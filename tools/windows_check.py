@@ -78,6 +78,40 @@ class P(HTMLParser):
             self.dl_text += d
 
 
+# Páginas de seguridad: «Windows» solo puede salir en <section id="firma"> (donde hace falta), no en cabecera, título, entrada ni pie.
+SEGURIDAD = ("safety/index.html", "es/seguridad/index.html")
+
+
+class FueraDeFirma(HTMLParser):
+    """Texto visible de <body> que queda fuera de <section id="firma">."""
+    def __init__(self):
+        super().__init__()
+        self.fuera = ""
+        self._body = False
+        self._firma = None   # profundidad de la sección de la firma
+        self._d = 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag in ("meta", "link", "img", "br", "input", "path"):
+            return
+        self._d += 1
+        if tag == "body":
+            self._body = True
+        if tag == "section" and dict(attrs).get("id") == "firma":
+            self._firma = self._d
+
+    def handle_endtag(self, tag):
+        if tag in ("meta", "link", "img", "br", "input", "path"):
+            return
+        if self._firma == self._d:
+            self._firma = None
+        self._d -= 1
+
+    def handle_data(self, d):
+        if self._body and self._firma is None:
+            self.fuera += d
+
+
 def software_apps(node):
     if isinstance(node, dict):
         if node.get("@type") == "SoftwareApplication":
@@ -126,6 +160,15 @@ def main():
                 errors.append(f"{rel}: la sección de descarga ya no contiene el requisito «{req}»")
             if not pg.buttons:
                 errors.append(f"{rel}: no se encontraron botones de descarga")
+    for rel in SEGURIDAD:
+        f = root / rel
+        if not f.is_file():
+            errors.append(f"{rel}: falta la página de seguridad")
+            continue
+        fp = FueraDeFirma()
+        fp.feed(f.read_text(encoding="utf-8"))
+        if WIN.search(fp.fuera):
+            errors.append(f"{rel}: «Windows» fuera de la sección de la firma")
     # README
     rd = root / "README.md"
     if rd.is_file():
