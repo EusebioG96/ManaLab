@@ -72,7 +72,8 @@ PAGINAS = ("index.html", "es/index.html")
 
 
 def reescribir_enlaces(html, version, descarga):
-    """Pone la descarga directa en los enlaces con data-descarga y la versión en los span data-version."""
+    """Pone la descarga directa en los enlaces con data-descarga y la versión en los span data-version
+    (el pie «v2.2.2» y la etiqueta del botón del aviso son span data-version) y en el «softwareVersion» del JSON-LD."""
     if not re.fullmatch(r"\d{1,4}\.\d{1,5}\.\d{1,6}", version) or not descarga.startswith(PREFIJO + "download/"):
         raise ValueError("versión o enlace no válidos")
 
@@ -83,6 +84,7 @@ def reescribir_enlaces(html, version, descarga):
         return etiqueta.replace("<a", f'<a href="{descarga}"', 1)
 
     html = re.sub(r"<a\b[^>]*\bdata-descarga\b[^>]*>", enlace, html)
+    html = re.sub(r'("softwareVersion":\s*")[^"]*(")', lambda m: m.group(1) + version + m.group(2), html)
     return re.sub(r"(<span data-version>)[^<]*(</span>)", lambda m: m.group(1) + version + m.group(2), html)
 
 

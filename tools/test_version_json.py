@@ -1,5 +1,6 @@
 """Pruebas del generador de version.json, del workflow que lo publica y del archivo publicado (sin red)."""
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -64,7 +65,9 @@ class TestGenerador(unittest.TestCase):
 class TestReescritura(unittest.TestCase):
     NUEVO = f"{BASE}/download/v2.3.0/ManaLab-2.3.0-portable.zip"
     HTML = ('<a class="boton" href="OLD" download data-descarga data-goatcounter-click="d" rel="noopener"><span>X</span></a>'
-            '<a href="/otra">no</a><a href="https://x.es/" data-descarga>y</a><p>V <span data-version>2.2.1</span></p>')
+            '<a href="/otra">no</a><a href="https://x.es/" data-descarga>y</a><p>V <span data-version>2.2.1</span></p>'
+            '<script type="application/ld+json">{"@type": "SoftwareApplication", "softwareVersion": "2.2.1", "name": "X"}</script>'
+            '<footer><span id="version">v<span data-version>2.2.1</span></span></footer>')
 
     def test_reescribe_href_y_version(self):
         h = G.reescribir_enlaces(self.HTML, "2.3.0", self.NUEVO)
@@ -72,6 +75,10 @@ class TestReescritura(unittest.TestCase):
         self.assertNotIn("OLD", h)
         self.assertIn('href="/otra"', h)
         self.assertIn("<span data-version>2.3.0</span>", h)
+        self.assertIn('"softwareVersion": "2.3.0"', h)
+        self.assertIn('<span id="version">v<span data-version>2.3.0</span></span>', h)
+        self.assertNotIn("2.2.1", h)
+        self.assertEqual(json.loads(re.search(r">({.*})</script>", h).group(1))["name"], "X")  # el JSON-LD sigue siendo JSON
         self.assertIn("data-goatcounter-click", h)
         self.assertEqual(G.reescribir_enlaces(h, "2.3.0", self.NUEVO), h)  # idempotente
 
@@ -88,6 +95,18 @@ class TestReescritura(unittest.TestCase):
             self.assertEqual(G.reescribir_enlaces(h, d["version"], d["descarga"]), h, n)
             self.assertGreaterEqual(h.count("data-descarga"), 2, n)
             self.assertNotIn('href="https://github.com/EusebioG96/ManaLab/releases/latest"', h, n)
+
+    def test_pie_y_json_ld_coinciden_con_version_json(self):
+        """El pie estático (respaldo si falla el fetch de descarga.js) y el softwareVersion del JSON-LD no pueden quedarse viejos."""
+        v = json.loads((RAIZ / "version.json").read_text(encoding="utf-8"))["version"]
+        for n in G.PAGINAS:
+            h = (RAIZ / n).read_text(encoding="utf-8")
+            pie = re.findall(r'<span id="version">v<span data-version>([^<]*)</span></span>', h)
+            self.assertEqual(pie, [v], f"{n}: el pie estático debe ser v{v} (con el span data-version que rellena descarga.js)")
+            ld = re.findall(r'"softwareVersion":\s*"([^"]*)"', h)
+            self.assertEqual(ld, [v], f"{n}: softwareVersion del JSON-LD debe ser {v}")
+            versiones = {x for x in re.findall(r"<span data-version>([^<]*)</span>", h)}
+            self.assertEqual(versiones, {v}, f"{n}: todos los span data-version deben ser {v}")
 
     def test_workflow_incluye_paginas(self):
         t = (RAIZ / ".github/workflows/version_json.yml").read_text(encoding="utf-8")
