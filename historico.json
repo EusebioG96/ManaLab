@@ -1,0 +1,49 @@
+{
+ "esquema": 1,
+ "fotos": [
+  {
+   "fecha": "2026-10-30",
+   "versiones": {
+    "v2.2.2": {
+     "ManaLab-2.2.2-portable.zip": 2,
+     "ManaLab-2.2.2-portable.zip.sha256": 5,
+     "ManaLab-portable.zip": 2,
+     "ManaLab-portable.zip.sha256": 3
+    },
+    "v2.2.1": {
+     "ManaLab-2.2.1-portable.zip": 9,
+     "ManaLab-2.2.1-portable.zip.sha256": 7
+    },
+    "v2.2.0": {
+     "ManaLab-2.2.0-portable.zip": 3,
+     "ManaLab-2.2.0-portable.zip.sha256": 2
+    },
+    "v2.1.3": {
+     "ManaLab-2.1.3-portable.zip": 3,
+     "ManaLab-2.1.3-portable.zip.sha256": 1
+    },
+    "v2.1.2": {
+     "ManaLab-2.1.2-portable.zip": 2,
+     "ManaLab-2.1.2-portable.zip.sha256": 2
+    },
+    "v2.1.1": {
+     "ManaLab-2.1.1-portable.zip": 2,
+     "ManaLab-2.1.1-portable.zip.sha256": 1
+    },
+    "v2.1.0": {
+     "ManaLab-2.1.0-portable.zip": 3
+    },
+    "v2.0.1": {
+     "ManaLab-2.0.1-portable.zip": 4
+    }
+   },
+   "visitas": {
+    "TOTAL": 49,
+    "/": 39,
+    "/es/": 3,
+    "/privacy/": 1,
+    "/guia/guia_manalab_es.html": 1
+   }
+  }
+ ]
+}
