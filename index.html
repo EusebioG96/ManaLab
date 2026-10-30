@@ -104,6 +104,19 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .acciones { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .nota-desc { margin-top: 16px; font-size: 13.5px; color: var(--apagado); display: flex; flex-wrap: wrap; gap: 6px 16px; }
 .nota-desc span::before { content: "✓"; color: var(--oro); margin-right: 6px; }
+/* vídeo de cabecera (ML-058): 15 s sin sonido en bucle; con «reducir movimiento» o ahorro de datos solo se ve el póster */
+.hero-medio { display: grid; gap: 18px; justify-items: start; min-width: 0; }
+.hero-video { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; border: 1px solid var(--linea2); background: var(--fondo); box-shadow: 0 40px 90px -40px #000, 0 0 0 6px rgba(255, 214, 200, 0.025); }
+.hero-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.hero-pausa { position: absolute; right: 8px; top: 8px; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--linea2); background: rgba(13, 3, 4, 0.72); color: var(--texto2); display: grid; place-items: center; cursor: pointer; padding: 0; opacity: 0.75; }
+.hero-pausa:hover, .hero-pausa:focus-visible { opacity: 1; color: var(--texto); }
+.hero-pausa svg { width: 14px; height: 14px; fill: currentColor; }
+.hero-pausa .ico-play, .hero-pausa.pausado .ico-pausa { display: none; }
+.hero-pausa.pausado .ico-play { display: block; }
+.hero-video.solo-poster .hero-pausa { display: none; }
+.hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+.enlace-sec { color: var(--texto2); font-size: 14.5px; text-decoration: underline; text-decoration-color: var(--linea2); text-underline-offset: 3px; }
+.enlace-sec:hover { color: var(--texto); text-decoration-color: currentColor; }
 .ventana { border-radius: 14px; border: 1px solid var(--linea2); background: var(--panel); box-shadow: 0 40px 90px -40px #000, 0 0 0 6px rgba(255, 214, 200, 0.025); overflow: hidden; }
 .ventana .barra { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--linea); align-items: center; }
 .ventana .barra i { width: 9px; height: 9px; border-radius: 50%; background: var(--panel2); }
@@ -262,15 +275,40 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 <div class="eti">Free MTG Arena tracker · Players &amp; coaches</div>
 <h1>Every Arena match, <em>logged on its own.</em></h1>
 <p class="sub">ManaLab is an MTG Arena tracker that reads Arena's log while you play and keeps your opening hands, mulligans, play or draw, sideboard changes and the opponent's deck. Then it shows you where you win and where you lose.</p>
-<div class="acciones">
-<a class="boton prim descarga" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a>
-<a class="boton sec" href="#capturas">See the app</a>
-<a class="boton sec" href="#ia">AI analysis: 5 € a month</a>
-</div>
 <div class="nota-desc"><span>The app is free, no ads. Only the AI is paid</span><span>Your data stays on your PC unless you ask for AI</span><span>App in 9 languages</span></div>
 </div>
-<div class="ventana"><div class="barra"><i></i><i></i><i></i><span>ManaLab</span></div>
-<img alt="ManaLab dashboard with the latest MTG Arena matches" class="cap" data-cap="panel" fetchpriority="high" height="860" src="img/en_panel.jpg" width="1366"/></div>
+<div class="hero-medio">
+<div class="hero-video" id="hero-video">
+<video aria-label="Silent 15-second video of ManaLab with demo data: the match list with wins and losses logged on their own, a game with its opening hand, mulligans and screenshot, win rate by matchup and play/draw, and a step-by-step replay." autoplay="" height="720" loop="" muted="" playsinline="" poster="video/hero/manalab-hero-en-poster.jpg" preload="metadata" width="1280">
+<source src="video/hero/manalab-hero-en.webm" type="video/webm"/>
+<source src="video/hero/manalab-hero-en.mp4" type="video/mp4"/>
+</video>
+<button aria-label="Pause video" class="hero-pausa" data-pausa="Pause video" data-play="Play video" type="button"><svg aria-hidden="true" class="ico-pausa" viewbox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"></path></svg><svg aria-hidden="true" class="ico-play" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></button>
+</div>
+<script>
+(function () {
+  /* con «reducir movimiento» o ahorro de datos: solo el póster (no se descarga el vídeo) */
+  var caja = document.getElementById("hero-video"), v = caja.querySelector("video"), b = caja.querySelector(".hero-pausa");
+  var c = navigator.connection || {};
+  var quieto = (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) || c.saveData === true;
+  if (quieto) {
+    v.removeAttribute("autoplay"); v.autoplay = false; v.preload = "none";
+    v.querySelectorAll("source").forEach(function (s) { s.remove(); });
+    v.load(); caja.classList.add("solo-poster");
+    return;
+  }
+  b.addEventListener("click", function () {
+    if (v.paused) v.play(); else v.pause();
+  });
+  v.addEventListener("play", function () { b.classList.remove("pausado"); b.setAttribute("aria-label", b.dataset.pausa); });
+  v.addEventListener("pause", function () { b.classList.add("pausado"); b.setAttribute("aria-label", b.dataset.play); });
+})();
+</script>
+<div class="hero-cta">
+<a class="boton prim descarga" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a>
+<a class="enlace-sec" href="#capturas">See the app</a><a class="enlace-sec" href="#ia">AI analysis: 5 € a month</a>
+</div>
+</div>
 </div>
 </section>
 <section class="seccion" id="novedades">
