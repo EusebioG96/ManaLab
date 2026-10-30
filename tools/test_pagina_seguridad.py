@@ -57,6 +57,42 @@ class TestPaginaSeguridad(unittest.TestCase):
                 self.assertEqual(t.count('href="https://github.com/EusebioG96/ManaLab/releases/latest"'), 2)
                 self.assertIn('href="mailto:manalab.app@gmail.com"', t)
 
+    def test_comando_hash_con_comodin(self):
+        for lang in PAGINAS:
+            t = leer(lang)
+            with self.subTest(lang=lang):
+                self.assertIn(r"Get-FileHash .\ManaLab*.zip -Algorithm SHA256", t)
+                self.assertNotIn(r".\ManaLab.zip", t)
+
+    def test_menciona_deepseek_y_privacidad(self):
+        for lang in PAGINAS:
+            t = leer(lang)
+            with self.subTest(lang=lang):
+                self.assertIn("DeepSeek", t)
+                self.assertIn("China", t)
+                self.assertIn('href="/privacy/#%s"' % lang, t)
+
+    def test_enlaces_desde_portada_y_pie(self):
+        destino = {"en": "/safety/", "es": "/es/seguridad/"}
+        portadas = {"en": RAIZ / "index.html", "es": RAIZ / "es" / "index.html"}
+        for lang, ruta in portadas.items():
+            t = ruta.read_text(encoding="utf-8")
+            d = destino[lang]
+            with self.subTest(lang=lang):
+                # enlace bajo el botón de descarga, entre las notas de SmartScreen
+                self.assertRegex(t, r'<p class="nota-smartscreen"><a href="%s">[^<]+→</a></p>' % re.escape(d))
+                # pie con el enlace, junto a Privacidad
+                pie = t[t.index("<footer>"):]
+                self.assertIn('<a href="%s">' % d, pie)
+                # FAQ: «Más detalles» en las respuestas de datos y de aviso de Windows
+                self.assertEqual(t.count('<a href="%s">' % d), 4)
+                self.assertEqual(len(re.findall(r"<p>(?:More details|Más detalles): <a href=\"%s\">" % re.escape(d), t)), 2)
+        for lang in PAGINAS:
+            pie = leer(lang)
+            pie = pie[pie.index("<footer>"):]
+            with self.subTest(pie=lang):
+                self.assertIn('<a href="%s">' % destino[lang], pie)
+
 
 if __name__ == "__main__":
     unittest.main()

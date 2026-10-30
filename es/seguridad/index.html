@@ -137,17 +137,18 @@ footer .legal { max-width: 80ch; line-height: 1.6; margin: 0; }
 <div class="envoltura"><div class="pagina">
 <section class="tarjeta" id="lee">
 <h2>Qué lee y qué toca</h2>
-<ul><li>Solo lee el <code>Player.log</code>, el archivo que Arena escribe en tu PC cuando tienes activados los «Registros detallados».</li><li>No modifica Arena, no lee su memoria y no se conecta a los servidores de Wizards.</li><li>Las capturas son opcionales, con un interruptor en Ajustes. Cuando están activadas, solo captura la ventana de Arena (nunca tu escritorio), en unos pocos momentos como tu mano inicial y los mulligans.</li><li>Tus partidas, capturas y estadísticas se quedan en una carpeta de tu PC.</li></ul>
+<ul><li>Lee el <code>Player.log</code> y la base de cartas que Arena deja en tu PC, sin modificarlos. El <code>Player.log</code> es el archivo que Arena escribe cuando tienes activado «Detailed Logs (Plugin Support)» en sus ajustes.</li><li>No modifica Arena, no lee su memoria y no se conecta a los servidores de Wizards.</li><li>Las capturas son opcionales, con un interruptor en Ajustes. Cuando están activadas, solo captura la zona de la ventana de Arena (salvo que actives el «monitor de respaldo», apagado por defecto), en momentos como la mano inicial, los mulligans, el resultado y cuando pulsas F8.</li><li>Tus partidas, capturas y estadísticas se quedan en una carpeta de tu PC, salvo lo que tú compartas: modo equipo, exportar una partida o el análisis con IA.</li></ul>
 </section>
 <section class="tarjeta" id="conexiones">
 <h2>Todas las conexiones que hace</h2>
-<ol><li>Una vez al día pregunta a GitHub si hay una versión nueva.</li><li>Cada 3 días descarga la lista actualizada del meta de Standard desde un repositorio público: <a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener">github.com/EusebioG96/registro-mtga-meta</a></li><li>Si falta el nombre de una carta en los datos de Arena, lo busca en Scryfall.</li></ol>
+<ol><li>Una vez al día pregunta a GitHub si hay una versión nueva (si GitHub no responde, mira manalab.es).</li><li>Cada 3 días descarga la lista actualizada del meta de Standard desde un repositorio público: <a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener">github.com/EusebioG96/registro-mtga-meta</a></li><li>Consulta Scryfall con ids o nombres de carta para los nombres que falten, el overlay y las imágenes de la repetición.</li></ol>
 <p>Las tres se pueden desactivar en Ajustes.</p>
-<p>La única otra vez que envía algo es cuando pulsas el botón de análisis con IA en una partida perdida. Entonces envía los datos de esa partida (resultado, mazo, manos, cartas vistas y cronología), nunca tu nombre ni el del rival.</p>
+<p>Solo si lo usas: el análisis con IA y el modo equipo.</p>
+<p>Cuando pulsas el botón de análisis con IA en una partida perdida, envía los datos de esa partida (resultado, mazo, manos, cartas vistas y cronología), sin nombres de jugador (el nombre que le pones a tu mazo sí va). Nuestro servidor los reenvía a DeepSeek, en China, para el análisis. Más en la <a href="/privacy/#es">política de privacidad</a>.</p>
 </section>
 <section class="tarjeta" id="comprobar">
 <h2>Cómo comprobar el archivo que has descargado</h2>
-<ol><li>Cada versión tiene su <a href="https://github.com/EusebioG96/ManaLab/releases/latest" rel="noopener">SHA-256</a> y su <a href="https://github.com/EusebioG96/ManaLab/releases/latest" rel="noopener">análisis de VirusTotal</a>.</li><li>En PowerShell, desde la carpeta del ZIP:<div class="cmd"><code>Get-FileHash .\ManaLab.zip -Algorithm SHA256</code></div>El resultado debe coincidir con el que publico.</li><li>Si prefieres, sube tú mismo el ZIP a <a href="https://www.virustotal.com/" rel="noopener">virustotal.com</a>.</li></ol>
+<ol><li>Cada versión tiene su <a href="https://github.com/EusebioG96/ManaLab/releases/latest" rel="noopener">SHA-256</a> y su <a href="https://github.com/EusebioG96/ManaLab/releases/latest" rel="noopener">análisis de VirusTotal</a>.</li><li>En PowerShell, desde la carpeta del ZIP:<div class="cmd"><code>Get-FileHash .\ManaLab*.zip -Algorithm SHA256</code></div>El resultado debe coincidir con el que publico.</li><li>Si prefieres, sube tú mismo el ZIP a <a href="https://www.virustotal.com/" rel="noopener">virustotal.com</a>.</li></ol>
 </section>
 <section class="tarjeta" id="firma">
 <h2>Por qué todavía no está firmado</h2>
@@ -172,6 +173,7 @@ footer .legal { max-width: 80ch; line-height: 1.6; margin: 0; }
 <a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener" target="_blank">Lista del meta</a>
 <a href="/es/#preguntas">Preguntas</a>
 <a href="/privacy/">Privacidad</a>
+<a href="/es/seguridad/">Seguridad</a>
 <a href="/es/#contacto">Contacto</a>
 <a href="https://x.com/ManaLabApp" rel="noopener" target="_blank">Síguenos en X</a></div>
 <nav class="fila guias" aria-label="Guías"><b>Guía de uso:</b><a href="/guia/guia_manalab_en.html" hreflang="en" lang="en">Guide (English)</a><a href="/guia/guia_manalab_es.html" hreflang="es" lang="es">Guía (español)</a><a href="/guia/guia_manalab_fr.html" hreflang="fr" lang="fr">Guide (français)</a><a href="/guia/guia_manalab_de.html" hreflang="de" lang="de">Anleitung (Deutsch)</a><a href="/guia/guia_manalab_it.html" hreflang="it" lang="it">Guida (italiano)</a><a href="/guia/guia_manalab_pt.html" hreflang="pt" lang="pt">Guia (português)</a><a href="/guia/guia_manalab_ja.html" hreflang="ja" lang="ja">ガイド (日本語)</a><a href="/guia/guia_manalab_ko.html" hreflang="ko" lang="ko">가이드 (한국어)</a><a href="/guia/guia_manalab_zh.html" hreflang="zh" lang="zh">指南 (中文)</a></nav>

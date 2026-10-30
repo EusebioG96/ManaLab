@@ -137,17 +137,18 @@ footer .legal { max-width: 80ch; line-height: 1.6; margin: 0; }
 <div class="envoltura"><div class="pagina">
 <section class="tarjeta" id="lee">
 <h2>What it reads and what it touches</h2>
-<ul><li>It only reads <code>Player.log</code>, the file Arena writes on your PC when “Detailed Logs” is on.</li><li>It doesn't modify Arena, doesn't read its memory and doesn't connect to Wizards' servers.</li><li>Screenshots are optional, with a switch in Settings. When they're on, it captures only the Arena window (never your desktop), at a few moments like your opening hand and mulligans.</li><li>Your games, screenshots and stats stay in a folder on your PC.</li></ul>
+<ul><li>It reads <code>Player.log</code> and the card database Arena leaves on your PC, without changing them. <code>Player.log</code> is the file Arena writes when “Detailed Logs (Plugin Support)” is turned on in its settings.</li><li>It doesn't modify Arena, doesn't read its memory and doesn't connect to Wizards' servers.</li><li>Screenshots are optional, with a switch in Settings. When they're on, it captures only the area of the Arena window (unless you turn on the “backup monitor”, which is off by default), at moments like your opening hand, mulligans, the result and when you press F8.</li><li>Your games, screenshots and stats stay in a folder on your PC, except what you share yourself: team mode, exporting a game or the AI analysis.</li></ul>
 </section>
 <section class="tarjeta" id="conexiones">
 <h2>Every connection it makes</h2>
-<ol><li>Once a day it asks GitHub if there's a new version.</li><li>Every 3 days it downloads the updated Standard meta list from a public repository: <a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener">github.com/EusebioG96/registro-mtga-meta</a></li><li>If a card name is missing from Arena's data, it looks it up on Scryfall.</li></ol>
+<ol><li>Once a day it asks GitHub if there's a new version (if GitHub doesn't answer, it checks manalab.es).</li><li>Every 3 days it downloads the updated Standard meta list from a public repository: <a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener">github.com/EusebioG96/registro-mtga-meta</a></li><li>It queries Scryfall with card ids or names for missing names, the overlay and the replay images.</li></ol>
 <p>You can turn all three off in Settings.</p>
-<p>The only other time it sends anything is when you press the AI analysis button on a lost game. Then it sends that game's data (result, deck, hands, cards seen and timeline), never your name or your opponent's.</p>
+<p>Only if you use them: AI analysis and team mode.</p>
+<p>When you press the AI analysis button on a lost game, it sends that game's data (result, deck, hands, cards seen and timeline), with no player names (the name you give your deck is included). Our server forwards it to DeepSeek, in China, for the analysis. More in the <a href="/privacy/#en">privacy policy</a>.</p>
 </section>
 <section class="tarjeta" id="comprobar">
 <h2>How to check the file you downloaded</h2>
-<ol><li>Every release has its <a href="https://github.com/EusebioG96/ManaLab/releases/latest" rel="noopener">SHA-256</a> and a <a href="https://github.com/EusebioG96/ManaLab/releases/latest" rel="noopener">VirusTotal scan</a>.</li><li>In PowerShell, from the folder with the ZIP:<div class="cmd"><code>Get-FileHash .\ManaLab.zip -Algorithm SHA256</code></div>The result should match the one I publish.</li><li>If you prefer, upload the ZIP to <a href="https://www.virustotal.com/" rel="noopener">virustotal.com</a> yourself.</li></ol>
+<ol><li>Every release has its <a href="https://github.com/EusebioG96/ManaLab/releases/latest" rel="noopener">SHA-256</a> and a <a href="https://github.com/EusebioG96/ManaLab/releases/latest" rel="noopener">VirusTotal scan</a>.</li><li>In PowerShell, from the folder with the ZIP:<div class="cmd"><code>Get-FileHash .\ManaLab*.zip -Algorithm SHA256</code></div>The result should match the one I publish.</li><li>If you prefer, upload the ZIP to <a href="https://www.virustotal.com/" rel="noopener">virustotal.com</a> yourself.</li></ol>
 </section>
 <section class="tarjeta" id="firma">
 <h2>Why it isn't signed yet</h2>
@@ -172,6 +173,7 @@ footer .legal { max-width: 80ch; line-height: 1.6; margin: 0; }
 <a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener" target="_blank">Meta list</a>
 <a href="/#preguntas">FAQ</a>
 <a href="/privacy/">Privacy</a>
+<a href="/safety/">Safety</a>
 <a href="/#contacto">Contact</a>
 <a href="https://x.com/ManaLabApp" rel="noopener" target="_blank">Follow us on X</a></div>
 <nav class="fila guias" aria-label="Guides"><b>User guide:</b><a href="/guia/guia_manalab_en.html" hreflang="en" lang="en">Guide (English)</a><a href="/guia/guia_manalab_es.html" hreflang="es" lang="es">Guía (español)</a><a href="/guia/guia_manalab_fr.html" hreflang="fr" lang="fr">Guide (français)</a><a href="/guia/guia_manalab_de.html" hreflang="de" lang="de">Anleitung (Deutsch)</a><a href="/guia/guia_manalab_it.html" hreflang="it" lang="it">Guida (italiano)</a><a href="/guia/guia_manalab_pt.html" hreflang="pt" lang="pt">Guia (português)</a><a href="/guia/guia_manalab_ja.html" hreflang="ja" lang="ja">ガイド (日本語)</a><a href="/guia/guia_manalab_ko.html" hreflang="ko" lang="ko">가이드 (한국어)</a><a href="/guia/guia_manalab_zh.html" hreflang="zh" lang="zh">指南 (中文)</a></nav>
