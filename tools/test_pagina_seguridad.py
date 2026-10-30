@@ -64,13 +64,14 @@ class TestPaginaSeguridad(unittest.TestCase):
                 self.assertIn(r"Get-FileHash .\ManaLab*.zip -Algorithm SHA256", t)
                 self.assertNotIn(r".\ManaLab.zip", t)
 
-    def test_menciona_deepseek_y_privacidad(self):
+    def test_enlaza_privacidad_y_firma_manalab(self):
         for lang in PAGINAS:
             t = leer(lang)
             with self.subTest(lang=lang):
-                self.assertIn("DeepSeek", t)
-                self.assertIn("China", t)
                 self.assertIn('href="/privacy/#%s"' % lang, t)
+                self.assertIn("— ManaLab</p>", t)
+                self.assertNotIn("DeepSeek", t)
+                self.assertNotIn("monitor", t.split("<main")[1] if "<main" in t else t)
 
     def test_enlaces_desde_portada_y_pie(self):
         destino = {"en": "/safety/", "es": "/es/seguridad/"}
