@@ -20,6 +20,7 @@ PORTADAS = {"en": RAIZ / "index.html", "es": RAIZ / "es" / "index.html"}
 IDIOMAS_GUIA = ["es", "en", "de", "fr", "it", "pt", "ja", "ko", "zh"]
 PRIVACIDAD = RAIZ / "privacy" / "index.html"
 KOFI = "https://ko-fi.com/eusebiog96"
+KOFI_TIERS = "https://ko-fi.com/eusebiog96/tiers"   # suscribirse a la IA: directo a la membresía (no al perfil, que ofrece una donación)
 PATREON = "https://www.patreon.com/ManaLab"
 FECHA_PRIVACIDAD = {"es": "30 de octubre de 2026", "en": "30 October 2026"}
 
@@ -126,7 +127,8 @@ class TestApoyoPatreon(unittest.TestCase):
             with self.subTest(idioma=idioma):
                 lector = Lector()
                 lector.feed(ruta.read_text(encoding="utf-8"))
-                kofi, patreon = por_href(lector, KOFI), por_href(lector, PATREON)
+                kofi = [e for e in lector.enlaces if e[0].get("href") in (KOFI, KOFI_TIERS)]   # en orden del documento
+                patreon = por_href(lector, PATREON)
                 self.assertEqual(len(kofi), 3)
                 self.assertEqual(len(patreon), len(kofi))
                 for k, p in zip(kofi, patreon):
@@ -144,7 +146,7 @@ class TestApoyoPatreon(unittest.TestCase):
                     self.assertIn(palabra, texto)
                 fila = html[html.rindex('<div class="acciones"', 0, html.index(PATREON)):]
                 fila = fila[:fila.index("</div>")]
-                self.assertIn(KOFI, fila)
+                self.assertIn(KOFI_TIERS, fila)
                 self.assertIn(PATREON, fila)
                 self.assertEqual(len(por_href(leer(idioma, "ia"), PATREON)), 1)
 
@@ -183,3 +185,13 @@ class TestApoyoPatreon(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestSuscripcionIaVaALaMembresia(unittest.TestCase):
+    def test_los_botones_de_suscribirse_llevan_a_tiers_y_el_de_donar_al_perfil(self):
+        for idioma in PORTADAS:
+            with self.subTest(idioma=idioma):
+                lector = leer(idioma)
+                self.assertEqual(len(por_href(lector, KOFI_TIERS)), 2)
+                donar = por_href(lector, KOFI)
+                self.assertEqual([a.get("id") for a, _ in donar], ["enlace-donar"])
