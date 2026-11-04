@@ -13,7 +13,7 @@ from urllib.parse import unquote, urlparse
 
 SITE = "https://manalab.es"
 NS = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9", "xhtml": "http://www.w3.org/1999/xhtml"}
-DESC_MIN, DESC_MAX = 50, 190   # 190: las descripciones de marketing de la 2.3 (EN 171, ES 187) pasan de 170
+DESC_MIN, DESC_MAX = 50, 170
 SKIP_DIRS = {".git", "tools", "node_modules"}
 
 
