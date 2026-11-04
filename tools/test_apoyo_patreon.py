@@ -22,7 +22,7 @@ PRIVACIDAD = RAIZ / "privacy" / "index.html"
 KOFI = "https://ko-fi.com/eusebiog96"
 KOFI_TIERS = "https://ko-fi.com/eusebiog96/tiers"   # suscribirse a la IA: directo a la membresía (no al perfil, que ofrece una donación)
 PATREON = "https://www.patreon.com/ManaLab"
-FECHA_PRIVACIDAD = {"es": "30 de octubre de 2026", "en": "30 October 2026"}
+FECHA_PRIVACIDAD = {"es": "4 de noviembre de 2026", "en": "4 November 2026"}
 
 
 class Lector(HTMLParser):
