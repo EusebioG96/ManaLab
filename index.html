@@ -243,6 +243,8 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 .novedad { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 40px; align-items: center; }
 .novedad:nth-child(even) { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
 .novedad:nth-child(even) .ventana { order: 2; }
+.novedades.mtgo-capturas { margin-top: 28px; }
+details[id] { scroll-margin-top: 90px; }
 .novedad .ventana { align-self: center; }
 .novedad .ventana img { aspect-ratio: auto; height: auto; object-fit: contain; }
 .novedad .ventana.estrecha { justify-self: center; width: 100%; max-width: 440px; }
@@ -347,6 +349,20 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 <h3>User manual in English</h3>
 <p>A PDF manual that comes with every version.</p>
 <p><a class="enlace-man" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-manual-en.pdf" rel="noopener">Download the manual (PDF) →</a></p></div>
+</div>
+<div class="novedades mtgo-capturas">
+<div class="novedad">
+<div class="ventana"><img alt="ManaLab Dashboard with Arena listening and Magic Online in a game, reading mtgo.log, and the latest matches with an MTGO tag, shown with sample data" height="860" loading="lazy" src="img/en_mtgo_panel.jpg" width="1366"/></div>
+<div><div class="eti">Dashboard</div>
+<h3>Arena and Magic Online, side by side</h3>
+<p>The Dashboard shows the state of each game and your latest matches, with a small MTGO tag on the ones you played in Magic Online.</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><img alt="ManaLab sideboard notice over Magic Online between games: «Did you change your sideboard?» with the buttons «Use this change», «No changes» and «Edit», shown with sample data" height="440" loading="lazy" src="img/en_mtgo_banquillo.jpg" width="1000"/></div>
+<div><div class="eti">Sideboard</div>
+<h3>Confirm your sideboard in one click</h3>
+<p>Magic Online doesn't send your sideboarded list in time, so between games a small panel asks whether you changed it: use last time's change, say there were none, or open the editor.</p></div>
+</div>
 </div>
 <div class="mtgo-caja">
 <h3>Magic Online in ManaLab: what is the same and what is different</h3>
@@ -541,7 +557,7 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 <details><summary>Windows says «Windows protected your PC». Is it safe?</summary>
 <p>That warning appears for programs without a paid code-signing certificate, which is common for small free tools. Click «More info» and then «Run anyway». It only shows on the first download: new versions install with «Update now» from inside the app, with no warning. To avoid it the first time too, before unzipping right-click the ZIP › Properties › tick «Unblock» › OK. Every version is checked on VirusTotal before it's published.</p>
 <p>More details: <a href="/safety/">Is ManaLab safe?</a></p></details>
-<details><summary>Does it work with Magic Online?</summary>
+<details id="magic-online"><summary>Does it work with Magic Online?</summary>
 <p>Yes, from 2.3. ManaLab records your Magic Online (MTGO) games like Arena's: hands, mulligans, play or draw, the opponent's deck, statistics, replay and overlay. There is nothing to set up: it starts by itself when you open Magic Online, and you can import an mtgo.log file. What is different: Magic Online doesn't send turn phases or tapped cards, so ManaLab works them out from the log, and in the replay anything worked out is marked ≈ because it may not be exact. Magic Online doesn't give your sideboarded list in time either: ManaLab asks you to confirm your changes between games with one click, and until you do the overlay shows the list as unconfirmed. The overlay can show less than in Arena when the log has no table state. Your deck is named by its colors.</p></details>
 <details><summary>Does it work on Mac or for Limited?</summary>
 <p>For now it's for Windows. It logs any Arena or Magic Online game, including Limited. The opponent's deck is compared with the meta decks of the game's format (Standard, Pioneer, Modern, Legacy, Vintage and Pauper); if nothing clearly matches, as in Limited, it is named by its colors.</p></details>
@@ -630,6 +646,18 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
       img.src = base + b.dataset.tab + ".jpg";
     });
   });
+})();
+</script><script>
+(function () {
+  /* un <details> cerrado no se ve: al entrar por #magic-online (u otra pregunta con id) se abre sola */
+  function abrir() {
+    var d = null;
+    try { d = location.hash.length > 1 && document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (e) {}
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView({ behavior: "instant" }); }
+  }
+  abrir();
+  window.addEventListener("load", abrir);   /* otra vez con las imágenes ya cargadas: el desplazamiento cuadra */
+  window.addEventListener("hashchange", abrir);
 })();
 </script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
 </html>
