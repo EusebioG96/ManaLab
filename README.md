@@ -1,7 +1,7 @@
 # ManaLab
 
 Tracker gratuito de MTG Arena: manos iniciales y mulligans con capturas, estadísticas por matchup y
-play/draw, mazo del rival, herramientas para coaches y equipos, sin anuncios ni cuentas.
+play/draw, mazo del rival, herramientas para coaches y equipos, sin necesidad de cuenta.
 
 - Web: https://manalab.es/
 - Donativos: https://ko-fi.com/eusebiog96
