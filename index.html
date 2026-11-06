@@ -121,7 +121,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .ventana .barra { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--linea); align-items: center; }
 .ventana .barra i { width: 9px; height: 9px; border-radius: 50%; background: var(--panel2); }
 .ventana .barra span { margin-left: 8px; font: 500 11.5px var(--f-texto); color: var(--apagado); }
-.ventana img { width: 100%; height: auto; aspect-ratio: 1366 / 860; object-fit: cover; object-position: top left; }
+.ventana img { width: 100%; height: auto; object-fit: cover; object-position: top left; }
+.ventana img.cap { aspect-ratio: 1366 / 860; }
 
 /* ---------------- del log al historial */
 .seccion { padding-block: 72px; }
@@ -229,6 +230,16 @@ footer .legal { max-width: 80ch; line-height: 1.6; }
 }
 a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 
+/* ---------------- teléfono: en lugar del ZIP, «envíate el enlace» (lo monta descarga.js solo en pantalla estrecha y táctil) */
+.movil-caja { scroll-margin-top: 84px; margin-top: 14px; padding: 18px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 14px; }
+.movil-tit { margin: 0 0 6px; font: 600 20px/1.2 var(--f-display); letter-spacing: 0.2px; color: var(--texto); }
+.movil-txt { margin: 0 0 14px; color: var(--texto2); font-size: 15px; }
+.movil-caja .boton { white-space: normal; text-align: center; justify-content: center; }
+.movil-zip { margin: 14px 0 0; font-size: 14px; }
+.movil-zip a { color: var(--texto2); text-decoration-color: var(--linea2); text-underline-offset: 3px; }
+.movil-estado { margin: 10px 0 0; font-size: 14px; font-weight: 600; color: var(--oro); overflow-wrap: anywhere; }
+.movil-estado:empty { display: none; }
+
 /* ---------------- Magic Online (2.3) */
 .mtgo-caja { margin-top: 28px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 16px; padding: 28px; }
 .mtgo-caja h3 { font-size: 22px; margin: 0 0 14px; }
@@ -246,7 +257,8 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 .novedades.mtgo-capturas { margin-top: 28px; }
 details[id] { scroll-margin-top: 90px; }
 .novedad .ventana { align-self: center; }
-.novedad .ventana img { aspect-ratio: auto; height: auto; object-fit: contain; }
+/* sin «aspect-ratio: auto»: así el navegador reserva el alto de cada imagen con sus width/height y las imágenes perezosas no desplazan la página al cargar */
+.novedad .ventana img { height: auto; object-fit: contain; }
 .novedad .ventana.estrecha { justify-self: center; width: 100%; max-width: 440px; }
 .novedad h3 { font-size: clamp(24px, 2.6vw, 30px); line-height: 1.12; margin: 12px 0 10px; }
 .novedad p { margin: 0; color: var(--texto2); font-size: 17px; max-width: 34em; }
@@ -261,7 +273,7 @@ details[id] { scroll-margin-top: 90px; }
 <div class="aviso-version" role="note">
 <div class="envoltura">
 <span><b>ManaLab 2.3 is out: now for Arena and Magic Online</b> <a href="/sorteo/en/" data-goatcounter-click="aviso-sorteo" data-goatcounter-title="aviso-sorteo-en">· 🎁 Giveaway: 3 free months of AI analysis, until Sunday Nov 8 →</a></span>
-<a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-aviso-en" rel="noopener">Download <span data-version>2.3.0</span> →</a>
+<a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-aviso-en" rel="noopener">Download <span data-version>2.3.0</span> →</a>
 </div>
 </div>
 <header class="cab">
@@ -529,6 +541,13 @@ details[id] { scroll-margin-top: 90px; }
 <p>Windows 10 or 11. Unzip the file and open ManaLab.exe. Nothing to install.</p>
 <p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-portada-en" id="enlace-descarga" rel="noopener"><span>Download free</span></a></p>
 <p class="nota-descarga">Version <span data-version>2.3.0</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">other versions</a></p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">ManaLab runs on your computer</h4>
+<p class="movil-txt">Send yourself the link and download it there.</p>
+<p><button class="boton prim" data-compartir data-copiado="Link copied" data-titulo="compartir-movil-en" data-url="https://manalab.es/" type="button"><span>Send me the link</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-titulo="descarga-movil-en" rel="noopener">Download the ZIP anyway</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
 <p class="nota-smartscreen">Before unzipping, right-click the ZIP › Properties › tick <b>Unblock</b> › OK: that way Windows neither shows «Windows protected your PC» nor blocks the program's files. If the warning still appears, click <b>More info › Run anyway</b>. Only needed on this first download: later versions install from inside the app with no warning.</p>
 <p class="nota-smartscreen"><a href="/safety/">Is it safe? Check it yourself →</a></p>
 <p class="nota-smartscreen">Already on 2.1.0, 2.1.1 or 2.1.2? Update by hand one last time: unblock the ZIP as described above and unzip it over your ManaLab folder (your games and settings are kept). Those versions could open and close without showing the window; from 2.2 on, new versions install from inside the app.</p></div>
