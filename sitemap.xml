@@ -186,4 +186,28 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/sorteo/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/sorteo/"/>
   </url>
+  <url>
+    <loc>https://manalab.es/coaches/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/coaches/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/coaches/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://manalab.es/pt/coaches/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/coaches/"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/es/coaches/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/coaches/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/coaches/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://manalab.es/pt/coaches/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/coaches/"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/pt/coaches/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/coaches/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/coaches/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://manalab.es/pt/coaches/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/coaches/"/>
+  </url>
 </urlset>
