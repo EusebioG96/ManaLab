@@ -310,10 +310,13 @@ details[id] { scroll-margin-top: 90px; }
 .dos-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
 .sub-h { font-size: 22px; margin: 34px 0 14px; }
 .cap-ancha { margin-top: 26px; }
+.mtgo-caja ul + p { margin-top: 18px; }
+.lista-pasos + .ventana, .dos-col .ventana { margin-top: 0; }
+@media (max-width: 600px) { .ventana.desliza { overflow-x: auto; } .ventana.desliza img { width: 760px; max-width: none; } }
 .lang-sel { display: inline-flex; gap: 6px; }
 @media (max-width: 900px) {
   .funciones.cuatro, .formas, .dos-col { grid-template-columns: minmax(0, 1fr); }
-  .dos-col { gap: 8px; }
+  .dos-col { gap: 26px; }
 }
 @media (max-width: 480px) { .forma { padding: 18px; } }
 </style></head>
@@ -383,7 +386,7 @@ details[id] { scroll-margin-top: 90px; }
 <section class="seccion franja" id="antes">
 <div class="envoltura">
 <div class="cab-sec"><div class="eti">Antes de la clase</div><h2>Pásale estos pasos a tu alumno</h2><p>La preparación le lleva unos minutos si ya tiene partidas guardadas.</p></div>
-<ol class="lista-pasos"><li><b>Instalar ManaLab</b> desde <a href="https://manalab.es">manalab.es</a> y dejarlo abierto mientras juega.</li><li><b>Jugar con normalidad.</b> Si quiere marcar una decisión dudosa, pulsa F8 (la tecla por defecto): guarda una captura de ese momento.</li><li><b>Marcar sus errores.</b> En la pestaña Notas de cada partida, añade etiquetas y escribe qué duda tiene.</li><li><b>Elegir qué revisar.</b> En Partidas, abre «⋯» › «Preparar sesión» y marca las partidas.</li><li><b>Crear y enviar el informe.</b> Pulsa «Crear informe de sesión», guárdalo como PDF si quieres y envíatelo.</li></ol>
+<ol class="lista-pasos"><li><b>Instalar ManaLab</b> desde <a href="https://manalab.es">manalab.es</a> y dejarlo abierto mientras juega.</li><li><b>Jugar con normalidad.</b> Para marcar una decisión dudosa, pulsar F8 (la tecla por defecto): guarda una captura de ese momento.</li><li><b>Marcar sus errores.</b> En la pestaña Notas de cada partida, añadir etiquetas y escribir las dudas.</li><li><b>Elegir qué revisar.</b> En Partidas, abrir «⋯» › «Preparar sesión» y marcar las partidas.</li><li><b>Crear y enviar el informe.</b> Pulsar «Crear informe de sesión», guardarlo como PDF si quiere y enviárselo al coach.</li></ol>
 <div class="bloque-texto">
 <p>El informe incluye manos, mulligans, momentos clave, resumen por turnos, notas y momentos destacados. Funciona sin conexión, y el alumno puede ocultar el nombre de sus rivales.</p>
 <p><b>Para la primera clase,</b> pide también «Exportar para el coach», en el menú «⋯» de Estadísticas. Te da su resumen, sus matchups y sus errores marcados.</p>
@@ -397,7 +400,7 @@ details[id] { scroll-margin-top: 90px; }
 <div class="cab-sec"><div class="eti">Durante la clase</div><h2>Empieza por lo que se repite</h2><p>Después baja a las partidas concretas. Este orden funciona bien para una clase de una hora:</p></div>
 <div class="dos-col">
 <ol class="lista-pasos"><li><b>Tendencias.</b> Abre «Lo que más se repite» en Estadísticas para elegir un solo tema de trabajo.</li><li><b>Matchups.</b> La tabla separa la partida 1 de las partidas tras el sideboard. Un asterisco indica menos de 10 partidas, así que no saques conclusiones firmes de esas filas.</li><li><b>Manos y mulligans.</b> Revísalos antes que las jugadas: ¿era una mano para quedarse?</li><li><b>Repetición.</b> Salta a los momentos clave y comenta las decisiones del tema elegido.</li><li><b>Sideboard.</b> Compara su plan con lo que de verdad metió y sacó.</li></ol>
-<div><div class="ventana"><img alt="Tabla «Lo que más se repite» de Estadísticas de ManaLab: errores con partidas, porcentaje, decisivas, tendencia y fuente (jugador o coach), con datos de ejemplo" height="512" loading="lazy" src="../../img/coaches_tendencias_es.jpg" width="1400"/></div><p class="pie-captura">«Lo que más se repite» en Estadísticas, con datos de ejemplo.</p></div>
+<div><div class="ventana desliza"><img alt="Tabla «Lo que más se repite» de Estadísticas de ManaLab: errores con partidas, porcentaje, decisivas, tendencia y fuente (jugador o coach), con datos de ejemplo" height="512" loading="lazy" src="../../img/coaches_tendencias_es.jpg" width="1400"/></div><p class="pie-captura">«Lo que más se repite» en Estadísticas, con datos de ejemplo.</p></div>
 </div>
 <div class="bloque-texto"><p>Con el modo Equipo ves cada partida con el mismo detalle que el alumno: manos, capturas con notas (si las comparte), repetición y mazo del rival.</p></div>
 </div>

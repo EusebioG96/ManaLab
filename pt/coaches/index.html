@@ -310,10 +310,13 @@ details[id] { scroll-margin-top: 90px; }
 .dos-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
 .sub-h { font-size: 22px; margin: 34px 0 14px; }
 .cap-ancha { margin-top: 26px; }
+.mtgo-caja ul + p { margin-top: 18px; }
+.lista-pasos + .ventana, .dos-col .ventana { margin-top: 0; }
+@media (max-width: 600px) { .ventana.desliza { overflow-x: auto; } .ventana.desliza img { width: 760px; max-width: none; } }
 .lang-sel { display: inline-flex; gap: 6px; }
 @media (max-width: 900px) {
   .funciones.cuatro, .formas, .dos-col { grid-template-columns: minmax(0, 1fr); }
-  .dos-col { gap: 8px; }
+  .dos-col { gap: 26px; }
 }
 @media (max-width: 480px) { .forma { padding: 18px; } }
 </style></head>
@@ -397,7 +400,7 @@ details[id] { scroll-margin-top: 90px; }
 <div class="cab-sec"><div class="eti">Durante a aula</div><h2>Comece pelo que se repete</h2><p>Depois passe para partidas concretas. Esta ordem funciona bem em uma aula de uma hora:</p></div>
 <div class="dos-col">
 <ol class="lista-pasos"><li><b>Tendências.</b> Abra «O que mais se repete» em Estatísticas e escolha um único tema de trabalho.</li><li><b>Matchups.</b> A tabela separa a partida 1 das partidas depois do sideboard. Um asterisco indica menos de 10 partidas, então não tire conclusões firmes dessas linhas.</li><li><b>Mãos e mulligans.</b> Revise isso antes das jogadas: era uma mão para manter?</li><li><b>Replay.</b> Vá aos momentos-chave e comente as decisões ligadas ao tema escolhido.</li><li><b>Sideboard.</b> Compare o plano do aluno com o que ele realmente colocou e tirou.</li></ol>
-<div><div class="ventana"><img alt="Tabela «O que mais se repete» das Estatísticas do ManaLab: erros com partidas, porcentagem, decisivos, tendência e fonte (jogador ou coach), com dados de exemplo" height="512" loading="lazy" src="../../img/coaches_tendencias_pt.jpg" width="1400"/></div><p class="pie-captura">«O que mais se repete» em Estatísticas, com dados de exemplo.</p></div>
+<div><div class="ventana desliza"><img alt="Tabela «O que mais se repete» das Estatísticas do ManaLab: erros com partidas, porcentagem, decisivos, tendência e fonte (jogador ou coach), com dados de exemplo" height="512" loading="lazy" src="../../img/coaches_tendencias_pt.jpg" width="1400"/></div><p class="pie-captura">«O que mais se repete» em Estatísticas, com dados de exemplo.</p></div>
 </div>
 <div class="bloque-texto"><p>Com o modo Equipe você vê cada partida com o mesmo detalhe que o aluno: mãos, capturas com notas (se ele as compartilhar), replay e deck do adversário.</p></div>
 </div>

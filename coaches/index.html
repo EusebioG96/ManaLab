@@ -310,10 +310,13 @@ details[id] { scroll-margin-top: 90px; }
 .dos-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
 .sub-h { font-size: 22px; margin: 34px 0 14px; }
 .cap-ancha { margin-top: 26px; }
+.mtgo-caja ul + p { margin-top: 18px; }
+.lista-pasos + .ventana, .dos-col .ventana { margin-top: 0; }
+@media (max-width: 600px) { .ventana.desliza { overflow-x: auto; } .ventana.desliza img { width: 760px; max-width: none; } }
 .lang-sel { display: inline-flex; gap: 6px; }
 @media (max-width: 900px) {
   .funciones.cuatro, .formas, .dos-col { grid-template-columns: minmax(0, 1fr); }
-  .dos-col { gap: 8px; }
+  .dos-col { gap: 26px; }
 }
 @media (max-width: 480px) { .forma { padding: 18px; } }
 </style></head>
@@ -397,7 +400,7 @@ details[id] { scroll-margin-top: 90px; }
 <div class="cab-sec"><div class="eti">During the lesson</div><h2>Start with what repeats</h2><p>Then move to specific games. This order works well for a one-hour lesson:</p></div>
 <div class="dos-col">
 <ol class="lista-pasos"><li><b>Trends.</b> Open «What repeats the most» in Statistics and choose one theme to work on.</li><li><b>Matchups.</b> The table separates game 1 from post-sideboard games. An asterisk means fewer than 10 games, so don't draw firm conclusions from those rows.</li><li><b>Hands and mulligans.</b> Review these before the plays: was it a keep?</li><li><b>Replay.</b> Jump to the key moments and discuss the decisions tied to your theme.</li><li><b>Sideboard.</b> Compare their plan with what they really brought in and took out.</li></ol>
-<div><div class="ventana"><img alt="ManaLab Statistics table «What repeats the most»: mistakes with number of games, percentage, decisive ones, trend and source (player or coach), shown with sample data" height="512" loading="lazy" src="../img/coaches_tendencias_en.jpg" width="1400"/></div><p class="pie-captura">«What repeats the most» in Statistics, with sample data.</p></div>
+<div><div class="ventana desliza"><img alt="ManaLab Statistics table «What repeats the most»: mistakes with number of games, percentage, decisive ones, trend and source (player or coach), shown with sample data" height="512" loading="lazy" src="../img/coaches_tendencias_en.jpg" width="1400"/></div><p class="pie-captura">«What repeats the most» in Statistics, with sample data.</p></div>
 </div>
 <div class="bloque-texto"><p>With Team mode you see each game in the same detail as your student: hands, screenshots with notes (if they share them), replay and the opponent's deck.</p></div>
 </div>
