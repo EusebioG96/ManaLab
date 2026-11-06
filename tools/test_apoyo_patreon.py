@@ -78,7 +78,8 @@ def por_href(lector, href):
 
 
 def texto_plano(html):
-    return " ".join(re.sub(r"<[^>]+>", " ", html).split())
+    # un tag en línea seguido de puntuación («<a>email</a>.») no debe dejar un espacio antes del signo
+    return re.sub(r"\s+([.,;:!?])", r"\1", " ".join(re.sub(r"<[^>]+>", " ", html).split()))
 
 
 class TestApoyoPatreon(unittest.TestCase):

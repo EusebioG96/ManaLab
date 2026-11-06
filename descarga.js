@@ -82,6 +82,9 @@
   var ancla = document.getElementById("descargar");
   var avisos = document.querySelectorAll("a[data-a-bloque]");
   var caja = null;
+  // notas que solo valen en ordenador (desbloquear el ZIP, actualizar a mano): en teléfono se ocultan bajo la caja
+  var soloPc = document.querySelectorAll("[data-solo-pc]");
+  function ocultarSoloPc(v) { for (var k = 0; k < soloPc.length; k++) soloPc[k].hidden = v; }
 
   function modo(movil) {
     if (!enlace || !plantilla) return;
@@ -94,6 +97,7 @@
       if (ancla && ancla.id === "descargar") { ancla.removeAttribute("id"); caja.id = "descargar"; }
       aplicar(caja);
       montar(caja);
+      ocultarSoloPc(true);
       // el aviso superior lleva al bloque en lugar de bajar el ZIP
       for (var i = 0; i < avisos.length; i++) {
         var a = avisos[i];
@@ -105,6 +109,7 @@
       if (caja.id === "descargar" && ancla) { caja.removeAttribute("id"); ancla.id = "descargar"; }
       caja.parentNode.removeChild(caja); caja = null;
       p.hidden = false;
+      ocultarSoloPc(false);
       for (var j = 0; j < avisos.length; j++) {
         var b = avisos[j];
         b.setAttribute("href", b.getAttribute("data-original")); b.removeAttribute("data-original");
