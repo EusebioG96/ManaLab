@@ -41,8 +41,10 @@ class TestSorteoFechas(unittest.TestCase):
         self.assertIn("from 27 October to 8 November 2026", t)
 
     def test_avisos_portada(self):
-        self.assertIn("hasta el domingo 8/11", aviso_sorteo(leer(PORTADAS["es"])))
-        self.assertIn("until Sunday Nov 8", aviso_sorteo(leer(PORTADAS["en"])))
+        # ML-142: el sorteo cerró el 8/11 y el aviso se quitó de la portada (las bases siguen en /sorteo/)
+        for lang, r in PORTADAS.items():
+            with self.subTest(lang=lang):
+                self.assertNotIn('href="/sorteo/', leer(r))
 
     def test_hasta_si_existe(self):
         for lang, r in PORTADAS.items():
