@@ -248,7 +248,7 @@ class TestPaginaDeNovedades(unittest.TestCase):
                 self.assertIn("https://manalab.es/img/og.jpg", html)
                 self.assertEqual(html.count("<h1>"), 1)
                 self.assertIn(f"<loc>{URL[idioma]}</loc>", sitemap)
-        self.assertEqual(sitemap.count("<loc>"), 21)
+        self.assertEqual(sitemap.count("<loc>"), 23)
 
     def test_titulos_descripciones_y_h1(self):
         esperado = {"en": ("What&#x27;s new in ManaLab 2.3 · Release notes", "What&#x27;s new in ManaLab"),
