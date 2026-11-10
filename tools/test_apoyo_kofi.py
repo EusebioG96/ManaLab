@@ -162,6 +162,7 @@ class TestApoyoKofi(unittest.TestCase):
                 self.assertNotIn("Patreon", respuestas[0])
                 self.assertNotIn("Lab Partner", respuestas[0])
                 html = ruta.read_text(encoding="utf-8")
+                html = re.sub(r'<script type="application/ld\+json">.*?</script>', "", html, flags=re.S)   # solo el HTML visible
                 self.assertIn(" ".join(respuestas[0].split()), texto_plano(html.replace("&#x27;", "'")))
 
     def test_guias_ia_solo_ko_fi(self):
