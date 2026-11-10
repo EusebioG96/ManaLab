@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>ManaLab – MTGアリーナ・Magic Online対応の無料戦績トラッカー</title>
+<meta content="ManaLabはMTGアリーナとMagic Onlineの対戦を自動で記録する無料トラッカーです。初手、マリガン、先手・後手、相手のデッキを保存し、マッチアップ別の勝率がわかります。" name="description"/>
+<link href="https://manalab.es/ja/" rel="canonical"/>
+<link href="https://manalab.es/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/pt/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://manalab.es/ja/" hreflang="ja" rel="alternate"/>
+<link href="https://manalab.es/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<link href="/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="ManaLab – MTGアリーナ・Magic Online対応の無料戦績トラッカー" property="og:title"/>
+<meta content="ManaLabはMTGアリーナとMagic Onlineの対戦を自動で記録する無料トラッカーです。初手、マリガン、先手・後手、相手のデッキを保存し、マッチアップ別の勝率がわかります。" property="og:description"/>
+<meta content="https://manalab.es/ja/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="ManaLab – MTGアリーナ・Magic Online対応の無料戦績トラッカー" name="twitter:title"/>
+<meta content="ManaLabはMTGアリーナとMagic Onlineの対戦を自動で記録する無料トラッカーです。初手、マリガン、先手・後手、相手のデッキを保存し、マッチアップ別の勝率がわかります。" name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://manalab.es/ja/#website", "name": "ManaLab", "url": "https://manalab.es/ja/", "inLanguage": "ja", "publisher": {"@id": "https://manalab.es/#org"}}, {"@type": "Organization", "@id": "https://manalab.es/#org", "name": "ManaLab", "url": "https://manalab.es/", "logo": {"@type": "ImageObject", "url": "https://manalab.es/img/icono-192.png", "width": 192, "height": 192}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}, {"@type": "SoftwareApplication", "name": "ManaLab", "url": "https://manalab.es/ja/", "description": "ManaLabはMTGアリーナとMagic Onlineの対戦を自動で記録する無料トラッカーです。初手、マリガン、先手・後手、相手のデッキを保存し、マッチアップ別の勝率がわかります。", "applicationCategory": "GameApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "2.3.0", "downloadUrl": "https://github.com/EusebioG96/ManaLab/releases/latest", "image": "https://manalab.es/img/og.jpg", "screenshot": ["https://manalab.es/img/v22_repeticion.jpg", "https://manalab.es/img/en_panel.jpg", "https://manalab.es/img/en_partida.jpg", "https://manalab.es/img/en_estadisticas.jpg"], "inLanguage": "ja", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "@id": "https://manalab.es/ja/#app", "isPartOf": {"@id": "https://manalab.es/ja/#website"}, "publisher": {"@id": "https://manalab.es/#org"}, "mainEntityOfPage": "https://manalab.es/ja/", "applicationSubCategory": "MTGアリーナとMagic Onlineの戦績トラッカー"}, {"@type": "FAQPage", "inLanguage": "ja", "mainEntity": [{"@type": "Question", "name": "ゲームに干渉したり、対戦で有利になったりしませんか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。アリーナにもMagic Onlineにも干渉しません。読み取るのは、ゲームがPCに書き出すファイルだけです（アリーナのPlayer.log、Magic Onlineのmtgo.log、Match_GameLog_*.dat、mtgo_game_history、デッキをまとめた*.xmlファイル）。それらを書き換えることもありません。アリーナやMagic Onlineを改変せず、メモリを読み取らず、サーバーにも接続しません。任意のオーバーレイは別ウィンドウで、表示するのは公開情報と、プレイ済みの内容から導ける情報だけです。非公開の情報は表示しません。"}}, {"@type": "Question", "name": "どんなデータを送信しますか？", "acceptedAnswer": {"@type": "Answer", "text": "対戦、スクリーンショット、統計は、PC内のフォルダーに保存されます。プログラムが行うのは、フォーマットごとの最新メタデッキリストのダウンロード（3日ごと）、必要なときのScryfallでのカード名の検索（Magic OnlineのIDにも対応）、そして新しいバージョンがあるかどうかの1日1回のGitHubへの問い合わせだけです。この3つは設定でオフにできます。データを送信するのは、あなたが何かを求めたときだけです。AI分析では、そのゲームのデータ（結果、デッキ、手札、見えたカード、タイムライン）を送信し、あなたや相手の名前は送りません。バグ報告では、あなたが書いた内容、追加した場合はメールアドレス、ManaLabのバージョン、OSと言語、アリーナとMagic Onlineのどちらを使っているか、PCの匿名ID、そしてチェックした場合はユーザー名とコードを除いたregistro.logの末尾の行を送信します。対戦やデッキは送信しません。"}}, {"@type": "Question", "name": "「WindowsによってPCが保護されました」と表示されます。安全ですか？", "acceptedAnswer": {"@type": "Answer", "text": "この警告は、有料のコード署名証明書がないプログラムに表示されます。小規模な無料ツールではよくあることです。「詳細情報」をクリックし、「実行」を押してください。表示されるのは最初のダウンロードのときだけです。新しいバージョンはアプリ内の「今すぐアップデート」でインストールされ、警告は出ません。最初から警告を避けるには、展開する前にZIPを右クリック › プロパティ › 「ブロックの解除」にチェック › OKとします。公開前に、すべてのバージョンをVirusTotalで検査しています。"}}, {"@type": "Question", "name": "Magic Onlineに対応していますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、2.3からです。ManaLabはMagic Online（MTGO）の対戦を記録します。初手、マリガン、先攻・後攻、相手のデッキ、統計、リプレイ、オーバーレイに対応しています。設定は不要で、Magic Onlineを開くと自動で認識し、mtgo.logファイルのインポートもできます。違う点は次のとおりです。Magic Onlineはターンのフェイズやタップ状態を送ってこないため、ManaLabがログから推定します。リプレイでは、推定した内容に≈が付きます。正確とは限らないためです。また、Magic Onlineはサイドボード後のリストを間に合うように教えてくれません。そのため、ゲーム間の変更をワンクリックで確認してもらい、確認するまでオーバーレイにはリストが未確認と表示されます。ログにテーブルの状態がない場合、オーバーレイの表示はアリーナより少なくなることがあります。デッキには色で名前が付きます。"}}, {"@type": "Question", "name": "MacやLinuxで使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "今のところWindows 10 / 11向けです。ネイティブのLinux版はなく、WineやProtonでの動作も確認していないため、動くとはお約束できません。"}}, {"@type": "Question", "name": "ドラフトとシールド（リミテッド）も記録しますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。リミテッドを含め、アリーナとMagic Onlineのどんなゲームも記録します。相手のデッキは、そのゲームのフォーマット（Standard、Pioneer、Modern、Legacy、Vintage、Pauper）のメタデッキと比べます。リミテッドのように明確に一致するものがない場合は、色で名前が付きます。"}}, {"@type": "Question", "name": "無料ですか？", "acceptedAnswer": {"@type": "Answer", "text": "プログラムは無料で、アカウントも不要です。有料なのは、AIによる敗戦分析だけで、月額5ユーロです。利用するAIサービスの費用に充てています。それ以外の機能はすべて無料です。"}}, {"@type": "Question", "name": "AI分析はどうすれば使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "Ko-fiで購読します（月額5ユーロ）。支払い後、購読コードがメールで届きます。設定 › チームとAI に貼り付けると、負けたゲームの「分析」タブに分析が表示されます。先に試したい場合は、メールで無料トライアルを申し込めます。"}}]}]}</script>
+<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" as="image" href="/video/hero/manalab-hero-en-poster.jpg"><style>
+/* tipografías propias (ML-154): Saira Semi Condensed y Figtree, subconjuntos latin y latin-ext, licencia OFL en /fuentes/ */
+@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/figtree-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/figtree-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/figtree-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/figtree-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/figtree-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/figtree-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Concepto: la página es la propia app — paneles oscuros carmesí, el log de Arena convertido en un historial.
+   Un solo mundo visual (oscuro, como el programa), por eso no hay versión clara. */
+:root {
+  color-scheme: dark;
+  --fondo: #0d0304;
+  --fondo2: #150608;
+  --panel: #1c0b0e;
+  --panel2: #281215;
+  --linea: rgba(255, 214, 200, 0.09);
+  --linea2: rgba(255, 214, 200, 0.16);
+  --texto: #f3e8e2;
+  --texto2: #cbb6af;
+  --apagado: #957f79;
+  --carmesi: #c2363f;
+  --carmesi-h: #d6454f;
+  --oro: #e9b37f;
+  --oro-suave: rgba(233, 179, 127, 0.13);
+  --ko: #f06b74;
+  --ko-suave: rgba(240, 107, 116, 0.13);
+  --f-display: "Saira Semi Condensed", "Bahnschrift", "Arial Narrow", system-ui, sans-serif;
+  --f-texto: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --ancho: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--fondo); color: var(--texto); font: 16px/1.6 var(--f-texto); -webkit-font-smoothing: antialiased; }
+a { color: var(--oro); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--oro); outline-offset: 3px; border-radius: 6px; }
+img { max-width: 100%; display: block; }
+.envoltura { max-width: var(--ancho); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; letter-spacing: 0.2px; text-wrap: balance; margin: 0; }
+.eti { font: 600 12px/1 var(--f-display); letter-spacing: 2.2px; text-transform: uppercase; color: var(--oro); }
+
+/* ---------------- cabecera */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(13, 3, 4, 0.92); }
+.nota-descarga { margin-top: 10px; font-size: 14px; color: var(--texto2); }
+.nota-descarga a { color: inherit; text-decoration: underline; }
+.nota-smartscreen { margin-top: 12px; font-size: 14px; color: var(--texto2); }
+.nota-smartscreen b { color: var(--texto); }
+.aviso-version { background: var(--oro-suave); border-bottom: 1px solid rgba(233, 179, 127, 0.35); font-size: 14px; color: var(--texto); }
+.aviso-version .envoltura { display: flex; align-items: center; justify-content: space-between; gap: 10px 18px; flex-wrap: wrap; padding-block: 9px; }
+.aviso-version b { color: var(--oro); }
+.aviso-version a { color: var(--oro); font-weight: 600; white-space: nowrap; }
+.aviso-version span a { white-space: normal; }
+.cab { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: rgba(13, 3, 4, 0.82); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linea); }
+.cab .envoltura { display: flex; align-items: center; gap: 22px; padding-block: 12px; }
+.marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--texto); margin-right: auto; }
+.marca img { width: 36px; height: 36px; }
+.marca b { font: 600 19px/1 var(--f-display); letter-spacing: 0.3px; }
+.marca small { display: block; font: 500 10px/1 var(--f-display); letter-spacing: 2.4px; color: var(--apagado); margin-top: 4px; }
+.cab nav { display: flex; gap: 22px; }
+.cab nav a { color: var(--texto2); text-decoration: none; font-size: 14.5px; }
+.cab nav a:hover { color: var(--texto); }
+.idioma { border: 1px solid var(--linea2); background: none; color: var(--texto2); border-radius: 999px; padding: 5px 11px; font: 600 12px var(--f-display); letter-spacing: 1px; cursor: pointer; }
+.idioma:hover { color: var(--texto); border-color: var(--apagado); }
+.boton { display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; padding: 11px 22px; font: 600 15px var(--f-texto); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .15s, transform .1s; white-space: nowrap; }
+.boton:active { transform: translateY(1px); }
+.boton.prim { background: var(--carmesi); color: #fff5f0; box-shadow: 0 10px 28px -12px rgba(194, 54, 63, 0.9); }
+.boton.prim:hover { background: var(--carmesi-h); }
+.boton.sec { background: var(--panel2); border-color: var(--linea2); color: var(--texto); }
+.boton.sec:hover { background: #33171b; }
+.boton svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cab .boton { padding: 8px 16px; font-size: 14px; }
+
+/* ---------------- portada */
+.portada { padding-block: 36px 24px; position: relative; overflow: hidden; }
+.portada::before { content: ""; position: absolute; inset: -40% -10% auto 40%; height: 700px; background: radial-gradient(closest-side, rgba(194, 54, 63, 0.22), transparent 70%); pointer-events: none; }
+.portada .envoltura { position: relative; display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 48px; align-items: center; }
+.portada h1 { font-size: clamp(40px, 5vw, 60px); line-height: 1.02; margin: 14px 0 16px; }
+.portada h1 em { font-style: normal; color: var(--oro); }
+.portada p.sub { font-size: 18.5px; color: var(--texto2); max-width: 34em; margin: 0 0 24px; }
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.nota-desc { margin-top: 16px; font-size: 14px; color: var(--apagado); display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.nota-desc span::before { content: "✓"; color: var(--oro); margin-right: 6px; }
+/* vídeo de cabecera (ML-058): 15 s sin sonido en bucle; con «reducir movimiento» o ahorro de datos solo se ve el póster */
+.hero-medio { display: grid; gap: 18px; justify-items: start; min-width: 0; }
+.hero-video { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; border: 1px solid var(--linea2); background: var(--fondo); box-shadow: 0 40px 90px -40px #000, 0 0 0 6px rgba(255, 214, 200, 0.025); }
+.hero-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.hero-pausa { position: absolute; right: 8px; top: 8px; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--linea2); background: rgba(13, 3, 4, 0.72); color: var(--texto2); display: grid; place-items: center; cursor: pointer; padding: 0; opacity: 0.75; }
+.hero-pausa:hover, .hero-pausa:focus-visible { opacity: 1; color: var(--texto); }
+.hero-pausa svg { width: 14px; height: 14px; fill: currentColor; }
+.hero-pausa .ico-play, .hero-pausa.pausado .ico-pausa { display: none; }
+.hero-pausa.pausado .ico-play { display: block; }
+.hero-video.solo-poster .hero-pausa { display: none; }
+.hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+html.movil .aviso-version { display: none; }
+html.movil .hero-cta .boton { display: none; }
+.enlace-sec { color: var(--texto2); font-size: 14.5px; text-decoration: underline; text-decoration-color: var(--linea2); text-underline-offset: 3px; }
+.enlace-sec:hover { color: var(--texto); text-decoration-color: currentColor; }
+.ventana { border-radius: 14px; border: 1px solid var(--linea2); background: var(--panel); box-shadow: 0 40px 90px -40px #000, 0 0 0 6px rgba(255, 214, 200, 0.025); overflow: hidden; }
+.ventana .barra { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--linea); align-items: center; }
+.ventana .barra i { width: 9px; height: 9px; border-radius: 50%; background: var(--panel2); }
+.ventana .barra span { margin-left: 8px; font: 500 11.5px var(--f-texto); color: var(--apagado); }
+.ventana img { width: 100%; height: auto; object-fit: cover; object-position: top left; }
+.ventana img.cap { aspect-ratio: 1366 / 860; }
+
+/* ---------------- del log al historial */
+.seccion { padding-block: 40px; }
+.seccion.franja { background: var(--fondo2); border-block: 1px solid var(--linea); }
+.cab-sec { max-width: 680px; margin-bottom: 22px; }
+.cab-sec h2 { font-size: clamp(30px, 3.6vw, 42px); line-height: 1.08; margin: 12px 0 12px; }
+.cab-sec p { color: var(--texto2); margin: 0; font-size: 17px; }
+.conversion { display: grid; grid-template-columns: minmax(0, 1.1fr) auto minmax(0, 1fr); gap: 22px; align-items: center; }
+.log { background: #080102; border: 1px solid var(--linea); border-radius: 14px; padding: 18px 18px 16px; font: 12.5px/1.7 var(--f-mono); color: #a99590; overflow-x: auto; min-width: 0; }
+.log .t { color: var(--apagado); display: block; margin-bottom: 8px; font-family: var(--f-texto); font-size: 12px; }
+.log b { color: var(--oro); font-weight: 500; }
+.log .k { color: #e7a1a6; }
+.log pre { margin: 0; white-space: pre; }
+.flecha-c { color: var(--carmesi); }
+.flecha-c svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.match { background: var(--panel); border: 1px solid var(--linea2); border-radius: 14px; padding: 16px; min-width: 0; }
+.m-cab { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+.res { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; font: 700 17px var(--f-display); background: var(--oro-suave); color: var(--oro); }
+.m-nom { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.m-sub { font-size: 13px; color: var(--apagado); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.marcador { font: 600 18px var(--f-display); font-variant-numeric: tabular-nums; display: flex; gap: 10px; align-items: center; }
+.puntos { display: flex; gap: 5px; } .puntos i { width: 9px; height: 9px; border-radius: 50%; background: var(--oro); } .puntos i.d { background: var(--ko); }
+.juegos { margin: 12px 0 0 52px; display: grid; gap: 4px; }
+.juego { display: grid; grid-template-columns: minmax(0, 1fr) 54px 74px; gap: 8px; font-size: 13.5px; padding: 6px 10px; border-radius: 9px; background: rgba(255, 255, 255, 0.022); align-items: center; }
+.juego .g { color: var(--apagado); font-size: 12.5px; }
+.chip { justify-self: start; font: 600 11.5px var(--f-texto); border-radius: 999px; padding: 2px 9px; background: var(--oro-suave); color: var(--oro); }
+.chip.d { background: var(--ko-suave); color: var(--ko); }
+.mano { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.mano span { font-size: 12px; background: var(--panel2); border: 1px solid var(--linea); border-radius: 7px; padding: 3px 8px; }
+.mano span b { color: var(--oro); font-weight: 600; margin-right: 3px; }
+
+/* ---------------- funciones */
+.funciones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--linea); border: 1px solid var(--linea); border-radius: 16px; overflow: hidden; }
+.funcion { background: var(--fondo); padding: 26px 24px 28px; }
+.funcion svg { width: 26px; height: 26px; fill: none; stroke: var(--oro); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.funcion h3 { font-size: 20px; margin: 14px 0 8px; }
+.funcion p { margin: 0; color: var(--texto2); font-size: 15px; }
+
+/* ---------------- capturas */
+.pestanas { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.pestanas button { border: 1px solid var(--linea2); background: none; color: var(--texto2); border-radius: 999px; padding: 7px 16px; font: 600 14px var(--f-texto); cursor: pointer; }
+.pestanas button[aria-selected="true"] { background: rgba(194, 54, 63, 0.16); border-color: rgba(194, 54, 63, 0.5); color: var(--oro); }
+.pie-captura { margin-top: 12px; font-size: 14px; color: var(--apagado); }
+
+/* ---------------- pasos */
+.pasos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; counter-reset: paso; }
+.paso { border-top: 2px solid var(--carmesi); padding-top: 18px; }
+.paso::before { counter-increment: paso; content: counter(paso); font: 700 44px/1 var(--f-display); color: var(--panel2); -webkit-text-stroke: 1px var(--linea2); }
+.paso h3 { font-size: 21px; margin: 10px 0 8px; }
+.paso p { margin: 0; color: var(--texto2); font-size: 15px; }
+.ruta { font: 13px var(--f-mono); background: var(--panel); border: 1px solid var(--linea); border-radius: 8px; padding: 2px 7px; color: var(--texto); white-space: nowrap; }
+
+/* ---------------- preguntas */
+.preguntas { display: grid; gap: 10px; max-width: 820px; }
+details { background: var(--panel); border: 1px solid var(--linea); border-radius: 14px; padding: 4px 20px; }
+details[open] { border-color: var(--linea2); }
+summary { cursor: pointer; list-style: none; padding: 14px 0; font-weight: 600; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--oro); font: 600 22px/1 var(--f-display); }
+details[open] summary::after { content: "–"; }
+details p { margin: 0 0 16px; color: var(--texto2); font-size: 15.5px; max-width: 70ch; }
+
+/* ---------------- apoyo */
+.apoyo { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: center; background: linear-gradient(135deg, #24090d, #150608 60%); border: 1px solid var(--linea2); border-radius: 22px; padding: 44px; }
+.apoyo h3 { font-size: clamp(28px, 3.2vw, 38px); margin: 12px 0 12px; }
+.apoyo p { color: var(--texto2); margin: 0 0 12px; }
+.ia-caja { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: center; background: linear-gradient(135deg, #3d0d14, #1a0709 62%); border: 1px solid rgba(194, 54, 63, 0.6); border-radius: 22px; padding: 46px; box-shadow: 0 0 70px rgba(194, 54, 63, 0.2); }
+.ia-caja h2 { font-size: clamp(30px, 3.6vw, 44px); margin: 12px 0; }
+.ia-caja p { color: var(--texto2); margin: 0 0 12px; }
+.ia-precio { font: 700 clamp(56px, 7vw, 84px)/1 var(--f-display); color: var(--oro); font-variant-numeric: tabular-nums; }
+.ia-precio small { font-size: 0.3em; color: var(--texto2); font-weight: 500; margin-left: 6px; }
+.ia-lista { border-top: 1px solid var(--linea2); padding-top: 18px; margin-top: 18px; }
+.ia-lista p { font-size: 15px; }
+.contacto { max-width: 680px; display: grid; gap: 16px; }
+.contacto label { display: grid; gap: 6px; color: var(--texto2); font-size: 15px; }
+.contacto input, .contacto select, .contacto textarea { background: #1a0a0d; color: var(--texto); border: 1px solid var(--linea2); border-radius: 10px; padding: 10px 12px; font: inherit; }
+.contacto .casilla { display: flex; gap: 10px; align-items: flex-start; }
+.contacto .casilla input { margin-top: 5px; }
+.rejilla-contacto { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .rejilla-contacto { grid-template-columns: minmax(0, 1fr); } }
+.gastos { display: grid; gap: 10px; }
+.gasto { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; border-radius: 12px; background: rgba(0, 0, 0, 0.25); border: 1px solid var(--linea); font-size: 14.5px; }
+.gasto span:last-child { color: var(--apagado); text-align: right; }
+
+/* ---------------- pie */
+footer { border-top: 1px solid var(--linea); padding-block: 36px; color: var(--apagado); font-size: 13.5px; }
+footer .envoltura { display: grid; gap: 14px; }
+footer .fila { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; }
+footer .guias { gap: 6px 16px; }
+footer .guias a { color: inherit; }
+footer .guias b { color: var(--texto2); font-weight: 600; }
+footer .legal { max-width: 80ch; line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .cab nav { display: none; }
+  .portada .envoltura, .apoyo, .ia-caja, .conversion { grid-template-columns: minmax(0, 1fr); }
+  .flecha-c { justify-self: center; transform: rotate(90deg); }
+  .funciones, .pasos { grid-template-columns: minmax(0, 1fr); }
+  .portada { padding-block: 44px 24px; }
+  .apoyo { padding: 28px 22px; }
+}
+@media (max-width: 480px) {
+  .cab .boton span { display: none; }
+  .juegos { margin-left: 0; }
+}
+a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
+
+/* ---------------- teléfono: en lugar del ZIP, «envíate el enlace» (lo monta descarga.js solo en pantalla estrecha y táctil) */
+.movil-caja { scroll-margin-top: 84px; margin-top: 14px; padding: 18px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 14px; }
+.movil-tit { margin: 0 0 6px; font: 600 20px/1.2 var(--f-display); letter-spacing: 0.2px; color: var(--texto); }
+.movil-txt { margin: 0 0 14px; color: var(--texto2); font-size: 15px; }
+.movil-caja .boton { white-space: normal; text-align: center; justify-content: center; }
+.movil-zip { margin: 14px 0 0; font-size: 14px; }
+.movil-zip a { color: var(--texto2); text-decoration-color: var(--linea2); text-underline-offset: 3px; }
+.movil-estado { margin: 10px 0 0; font-size: 14px; font-weight: 600; color: var(--oro); overflow-wrap: anywhere; }
+.movil-estado:empty { display: none; }
+
+/* ---------------- Magic Online (2.3) */
+.mtgo-caja { margin-top: 28px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 16px; padding: 28px; }
+.mtgo-caja h3 { font-size: 22px; margin: 0 0 14px; }
+.mtgo-caja ul { margin: 0; padding-left: 20px; color: var(--texto2); display: grid; gap: 9px; font-size: 15.5px; max-width: 78ch; }
+.mtgo-caja li b { color: var(--texto); font-weight: 600; }
+.mtgo-caja code { font: 13px var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 6px; padding: 1px 6px; color: var(--texto); }
+.funcion .enlace-man { display: inline-block; margin-top: 10px; font-weight: 600; font-size: 15px; }
+@media (max-width: 480px) { .mtgo-caja { padding: 20px 18px; } }
+
+/* ---------------- novedades 2.2 */
+.novedades { display: grid; gap: 40px; }
+.novedad { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 40px; align-items: center; }
+.novedad:nth-child(even) { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
+.novedad:nth-child(even) .ventana { order: 2; }
+.novedades.mtgo-capturas { margin-top: 28px; }
+details[id] { scroll-margin-top: 90px; }
+.novedad .ventana { align-self: center; }
+/* sin «aspect-ratio: auto»: así el navegador reserva el alto de cada imagen con sus width/height y las imágenes perezosas no desplazan la página al cargar */
+.novedad .ventana img { height: auto; object-fit: contain; }
+.novedad .ventana.estrecha { justify-self: center; width: 100%; max-width: 440px; }
+.novedad h3 { font-size: clamp(24px, 2.6vw, 30px); line-height: 1.12; margin: 12px 0 10px; }
+.novedad p { margin: 0; color: var(--texto2); font-size: 17px; max-width: 34em; }
+@media (max-width: 900px) {
+  .novedades { gap: 44px; }
+  .novedad, .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .novedad:nth-child(even) .ventana { order: 0; }
+}
+/* ---------------- tanda 2A (ML-153): portada reordenada */
+.portada .hero-cta { margin-top: 0; }
+.nota-hero { margin-top: 14px; font-size: 14px; color: var(--texto2); display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.nota-hero a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.seccion.confianza { padding-block: 30px; }
+.confianza-lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px 32px; }
+.confianza-lista b { display: block; font: 600 16px/1.3 var(--f-display); letter-spacing: 0.2px; color: var(--texto); margin-bottom: 4px; }
+.confianza-lista b::before { content: "✓"; color: var(--oro); margin-right: 8px; }
+.confianza-lista span { display: block; font-size: 14px; line-height: 1.5; color: var(--texto2); overflow-wrap: anywhere; }
+.confianza-lista a { color: var(--oro); white-space: nowrap; }
+.novedad .ventana video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; }
+.novedad .ventana figure.video { margin: 0; }
+.enlace-seccion { margin: 36px 0 0; font-weight: 600; font-size: 16px; }
+.cta-seccion { margin-top: 40px; }
+.paso .destacado { margin-top: 14px; padding: 12px 14px; border: 1px solid rgba(233, 179, 127, 0.55); border-radius: 12px; background: var(--oro-suave); color: var(--texto); }
+.paso details { margin-top: 14px; padding: 0 14px; border-radius: 12px; }
+.paso details summary { padding: 11px 0; font-size: 15px; }
+.paso details p { font-size: 14px; margin: 0 0 12px; }
+.paso details p:last-child { margin-bottom: 14px; }
+.final-caja .nota-hero { margin-top: 16px; }
+.ia-caja + .apoyo { margin-top: 32px; }
+.paso > p + p { margin-top: 10px; }
+#descargar, .seccion[id] { scroll-margin-top: 76px; }
+.motivos .novedad, .motivos .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.motivos .novedad .ventana { max-width: 470px; }
+.motivos .novedad:nth-child(even) .ventana { justify-self: end; }
+.ia-caja { padding: 38px; }
+.apoyo { padding: 34px; }
+.funcion { padding: 22px 22px 24px; }
+.novedades.dos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; align-items: start; }
+.novedades.dos .novedad, .novedades.dos .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.novedades.dos .novedad:nth-child(even) .ventana { order: 0; }
+.novedades.dos .ventana.estrecha { max-width: 300px; }
+@media (max-width: 900px) {
+  .novedades.dos { grid-template-columns: minmax(0, 1fr); }
+  .motivos .novedad, .motivos .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
+  .confianza-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .motivos .novedad .ventana, .motivos .novedad:nth-child(even) .ventana { order: 2; max-width: none; justify-self: stretch; }
+}
+footer { padding-block: 28px; }
+@media (max-width: 767px) {
+  .seccion { padding-block: 30px; }
+  .cab-sec { margin-bottom: 18px; }
+  .portada { padding-block: 28px 16px; }
+  .portada p.sub { font-size: 17px; margin-bottom: 18px; }
+  .novedades { gap: 30px; }
+  .novedad, .novedad:nth-child(even) { gap: 14px; }
+  .novedad h3 { margin: 8px 0 6px; }
+  .novedad p { font-size: 16px; }
+  .novedades.dos .ventana.estrecha { max-width: 230px; }
+  .funcion svg { width: 22px; height: 22px; }
+  .funcion h3 { font-size: 19px; margin: 10px 0 5px; }
+  .funcion p { font-size: 14.5px; line-height: 1.5; }
+  details { padding: 2px 16px; }
+  summary { padding: 11px 0; }
+  footer { padding-block: 20px; }
+  .contacto { gap: 12px; }
+  .preguntas { gap: 8px; }
+  .ia-caja { padding: 26px 20px; gap: 24px; }
+  .apoyo { padding: 24px 20px; }
+  .funcion { padding: 16px 16px 18px; }
+  .movil-zip a { display: inline-flex; align-items: center; min-height: 44px; }
+  footer .fila { gap: 0 20px; }
+  footer .fila a, footer .guias a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
+/* ---------------- ML-156: portadas en japonés y portugués */
+.pie-captura-hero { margin: 0; font-size: 13.5px; color: var(--apagado); }
+.ventana .pie-captura { margin: 0; padding: 9px 14px 10px; font-size: 13px; border-top: 1px solid var(--linea); }
+.enlaces-extra { margin-top: 36px; display: grid; gap: 6px; }
+.enlaces-extra p { margin: 0; font-weight: 600; font-size: 16px; }
+.nota-trad { margin: 0; color: var(--texto2); }
+html[lang="ja"] { --f-texto: "Figtree", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans CJK JP", "Noto Sans JP", system-ui, sans-serif; --f-display: "Saira Semi Condensed", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans CJK JP", "Noto Sans JP", system-ui, sans-serif; }
+html[lang="ja"] body { line-break: strict; word-break: auto-phrase; }
+html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3, html[lang="ja"] .confianza-lista b { word-break: keep-all; overflow-wrap: anywhere; line-height: 1.25; }
+html[lang="ja"] .portada h1 { font-size: clamp(32px, 4vw, 48px); line-height: 1.2; }
+html[lang="ja"] .cab-sec h2 { font-size: clamp(26px, 3vw, 36px); }
+html[lang="ja"] .ia-caja h2 { font-size: clamp(26px, 3vw, 36px); }
+html[lang="ja"] .eti { letter-spacing: 1px; }
+html[lang="ja"] .ruta { white-space: normal; }
+@media (max-width: 600px) {
+  .cab .envoltura { gap: 8px; }
+  .idioma { padding: 5px 9px; }
+  .marca b { font-size: 17px; }
+}
+@media (max-width: 380px) { .marca span { display: none; } }
+html.movil .hero-cta { margin-top: 16px; }
+</style></head>
+<body>
+<header class="cab">
+<div class="envoltura">
+<a class="marca" href="#inicio"><img alt="ManaLabのロゴ" height="36" src="/img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
+<nav aria-label="セクション">
+<a href="#funciones">機能</a>
+<a href="#mtgo">Magic Online</a>
+<a href="#empezar">始め方</a>
+<a href="#preguntas">よくある質問</a>
+<a href="#ia">AI分析</a>
+</nav>
+<a class="idioma" href="/" hreflang="en" id="idioma" lang="en" title="View in English">EN</a>
+<a class="idioma" href="/es/" hreflang="es" lang="es" title="Ver en español">ES</a>
+<a class="idioma" href="/pt/" hreflang="pt-BR" lang="pt-BR" title="Ver em português">PT</a>
+<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-cabecera-ja" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>ダウンロード</span></a>
+</div>
+</header>
+<main id="inicio">
+<section class="portada">
+<div class="envoltura">
+<div>
+<div class="eti">MTGアリーナとMagic Onlineの無料トラッカー</div>
+<h1>アリーナとMagic Onlineの全対戦を、<wbr><em>自動で記録。</em></h1>
+<p class="sub">ManaLabはプレイ中にアリーナとMagic Onlineのログを読み取り、初手、マリガン、相手のデッキを保存します。どこで勝ち、どこで負けているかがわかります。</p>
+<div data-movil-aqui></div>
+<div class="hero-cta">
+<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-hero-ja" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a>
+<a class="enlace-sec" href="#funciones">機能を見る</a>
+</div>
+<p class="nota-hero"><span>バージョン <span data-version>2.3.0</span> · ZIP · インストール不要</span><a href="/safety/">安全ですか？ご自身で確認できます（英語）→</a></p>
+<div class="nota-desc"><span>アプリは無料。有料はAI分析のみ</span><span>AIを使わない限り、データはPC内に保存</span><span>アプリは9言語対応</span></div>
+</div>
+<div class="hero-medio">
+<div class="hero-video" id="hero-video">
+<video aria-label="ManaLabのデモデータによる15秒の無音動画：自動で記録された勝敗の対戦一覧、初手・マリガン・スクリーンショット付きのゲーム、マッチアップ別・先攻後攻別の勝率、ステップごとのリプレイ。" autoplay="" height="720" loop="" muted="" playsinline="" poster="/video/hero/manalab-hero-en-poster.jpg" preload="metadata" width="1280">
+<source src="/video/hero/manalab-hero-en.webm" type="video/webm"/>
+<source src="/video/hero/manalab-hero-en.mp4" type="video/mp4"/>
+</video>
+<button aria-label="動画を一時停止" class="hero-pausa" data-pausa="動画を一時停止" data-play="動画を再生" type="button"><svg aria-hidden="true" class="ico-pausa" viewbox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"></path></svg><svg aria-hidden="true" class="ico-play" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></button>
+</div>
+<p class="pie-captura-hero">画面は英語版です。アプリは日本語に対応しています。</p>
+<script>
+(function () {
+  /* con «reducir movimiento» o ahorro de datos: solo el póster (no se descarga el vídeo).
+     En teléfono (pantalla táctil estrecha) también: el póster con el botón de reproducir; el vídeo se descarga al tocarlo (ML-154) */
+  var caja = document.getElementById("hero-video"), v = caja.querySelector("video"), b = caja.querySelector(".hero-pausa");
+  var c = navigator.connection || {};
+  var quieto = (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) || c.saveData === true;
+  if (quieto) {
+    v.removeAttribute("autoplay"); v.autoplay = false; v.preload = "none";
+    v.querySelectorAll("source").forEach(function (s) { s.remove(); });
+    v.load(); caja.classList.add("solo-poster");
+    return;
+  }
+  var fuentes = null;
+  if (window.matchMedia && window.matchMedia("(max-width: 767px) and (pointer: coarse)").matches) {
+    v.removeAttribute("autoplay"); v.autoplay = false; v.preload = "none";
+    fuentes = Array.prototype.map.call(v.querySelectorAll("source"), function (s) { s.remove(); return s; });
+    v.load();
+    b.classList.add("pausado"); b.setAttribute("aria-label", b.dataset.play);
+    v.style.cursor = "pointer";
+    v.addEventListener("click", function () { b.click(); });   /* en teléfono, tocar cualquier parte del vídeo lo reproduce o pausa */
+  }
+  b.addEventListener("click", function () {
+    if (fuentes) {   /* primer toque en teléfono: ahora sí se añaden las fuentes */
+      fuentes.forEach(function (s) { v.appendChild(s); });
+      fuentes = null; v.preload = "auto"; v.load();
+    }
+    if (v.paused) v.play(); else v.pause();
+  });
+  v.addEventListener("play", function () { b.classList.remove("pausado"); b.setAttribute("aria-label", b.dataset.pausa); });
+  v.addEventListener("pause", function () { b.classList.add("pausado"); b.setAttribute("aria-label", b.dataset.play); });
+})();
+</script>
+</div>
+</div>
+</section>
+<section class="seccion franja confianza" id="confianza">
+<div class="envoltura">
+<ul class="confianza-lista">
+<li><b>無料・アカウント不要</b><span>アプリは無料です。有料なのはAI分析だけです。</span></li>
+<li><b>データはあなたのPCに</b><span>対戦、スクリーンショット、統計はPC内のフォルダーに保存されます。</span></li>
+<li><b>ログを読むだけ</b><span>ゲームを改変せず、メモリを読まず、サーバーにも接続しません。</span></li>
+<li><b>自分で確認できます</b><span>各バージョンは公開前にVirusTotalで検査しています。<a href="/safety/">確認方法（英語）→</a></span></li>
+</ul>
+</div>
+</section>
+<section class="seccion" id="motivos">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">ManaLabを使う理由</div>
+<h2>毎回のセッション後に見たくなる<wbr>3つのこと</h2>
+</div>
+<div class="novedades motivos">
+<div class="novedad">
+<div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="/video/funciones/03-opening-hand-mulligans.jpg" aria-label="ゲームごとに、初手、マリガン後にキープした手札、サイドボーディング、そしてマリガンの統計が保存されます。" title="ゲームごとに、初手、マリガン後にキープした手札、サイドボーディング、そしてマリガンの統計が保存されます。"><source src="/video/funciones/03-opening-hand-mulligans.mp4" type="video/mp4"><a href="/video/funciones/03-opening-hand-mulligans.mp4">MP4</a></video></figure><p class="pie-captura">画面は英語版です。アプリは日本語に対応しています。</p></div>
+<div><h3>初手とすべてのマリガンを、スクリーンショット付きで</h3>
+<p>配られた手札、キープした手札、それぞれの判断のスクリーンショットを保存します。メモは不要です。</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="/video/funciones/05-statistics.jpg" aria-label="統計：勝率、連勝・連敗、日別・マリガン別・デッキ別・対戦相手別・マッチアップ別の結果。" title="統計：勝率、連勝・連敗、日別・マリガン別・デッキ別・対戦相手別・マッチアップ別の結果。"><source src="/video/funciones/05-statistics.mp4" type="video/mp4"><a href="/video/funciones/05-statistics.mp4">MP4</a></video></figure></div>
+<div><h3>どこで勝ち、どこで負けているか</h3>
+<p>マッチアップ別、デッキ別、先手・後手別の勝率を、各対戦の実際のフォーマットで表示します。</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="/video/funciones/02-replay.jpg" aria-label="リプレイ：実際のカードでターンごとに対戦を振り返り、重要な場面へジャンプできます。" title="リプレイ：実際のカードでターンごとに対戦を振り返り、重要な場面へジャンプできます。"><source src="/video/funciones/02-replay.mp4" type="video/mp4"><a href="/video/funciones/02-replay.mp4">MP4</a></video></figure></div>
+<div><h3>すべての対戦をステップごとにリプレイ</h3>
+<p>実際のカードでターンごとに対戦を振り返り、重要な場面に印を付けられます。</p></div>
+</div>
+</div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-motivos-ja" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div>
+</div>
+</section>
+<section class="seccion franja" id="mtgo">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">アリーナとMagic Online</div>
+<h2>アリーナとMagic Onlineに<wbr>対応</h2>
+</div>
+<div class="novedades dos">
+<div class="novedad">
+<div class="ventana"><picture><source srcset="/img/en_mtgo_panel.webp" type="image/webp"><img alt="ManaLabのパネル。アリーナは監視中、Magic Onlineはゲーム中でmtgo.logを読み取っています。最新の対戦にはMTGOのタグが付いています（サンプルデータ）" height="860" loading="lazy" src="/img/en_mtgo_panel.jpg" width="1366"/></picture><p class="pie-captura">画面は英語版です。アプリは日本語に対応しています。</p></div>
+<div><div class="eti">パネル</div>
+<h3>アリーナとMagic Onlineを並べて表示</h3>
+<p>パネルには各ゲームの状態と最近の対戦が表示されます。Magic Onlineで遊んだ対戦には、小さな「MTGO」タグが付きます。</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><picture><source srcset="/img/en_mtgo_banquillo.webp" type="image/webp"><img alt="Magic Onlineのゲーム間に表示されるManaLabのサイドボード確認パネル。「この変更を使う」「変更なし」「編集」の3つのボタンがあります（サンプルデータ）" height="440" loading="lazy" src="/img/en_mtgo_banquillo.jpg" width="1000"/></picture></div>
+<div><div class="eti">サイドボード</div>
+<h3>サイドボードの確認はワンクリック</h3>
+<p>Magic Onlineはサイドボード後のリストを間に合うように送ってきません。そのためゲーム間に小さなパネルが表示され、前回の変更を使うか、変更なしにするか、エディターを開くかを選べます。</p></div>
+</div>
+</div>
+<p class="enlace-seccion"><a class="enlace-man" href="/magic-online/">Magic Onlineトラッカー：保存する内容と仕組み（英語）→</a></p>
+</div>
+</section>
+<section class="seccion" id="funciones">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">機能</div>
+<h2>対戦のたびにメモしていたことを、<wbr>すべて自動で</h2>
+</div>
+<div class="funciones">
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"></path><circle cx="18.5" cy="16.5" r="2.5"></circle></svg>
+<h3>対戦とゲーム</h3>
+<p>Bo3は1行で、スコア（2-1、1-2…）が表示されます。開くと各ゲームの先攻・後攻、結果、マリガンが見られます。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><circle cx="9" cy="11" r="2"></circle><path d="m21 15-4.5-4.5L8 19"></path></svg>
+<h3>初手とスクリーンショット</h3>
+<p>配られた初手、キープした手札、重要な場面のスクリーンショットを保存します。F8キーまたはゲーム画面上のボタンで好きな場面を保存し、メモを付けられます。スクリーンショットはPC内に保存され、設定でオフにできます。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l2.5 2.5"></path></svg>
+<h3>相手のデッキ</h3>
+<p>相手のカードを、そのフォーマットでよく使われているデッキと比べて、いちばん近いものの名前を付けます。メタのリストは3日ごとに更新されます。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"></path></svg>
+<h3>統計</h3>
+<p>対戦・ゲームごとの勝率、連勝・連敗、直近の日々、さらにマリガン別、先攻・後攻別、デッキ別、相手のアーキタイプ別の内訳。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="16" rx="2" width="13" x="7" y="3"></rect><path d="M4 7v12a2 2 0 0 0 2 2h10"></path></svg>
+<h3>自分のデッキ</h3>
+<p>使ったリストごとの勝率。サイドボードのバリエーションは同じデッキにまとめられ、名前も変えられます。Magic Onlineでは、デッキに色で名前が付きます。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path d="M9 10h6M9 13.5h4"></path></svg>
+<h3>AIによる敗戦分析（購読者向け）</h3>
+<p>購読者は、負けたゲームごとにAI分析を受けられます。何がうまくいかなかったか、どこをよりうまくプレイできたか、次に何を試すかがわかります。購読は月額5ユーロ、Ko-fiで。</p>
+<p style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 18px"><a href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-funciones-ja" rel="noopener" style="font-weight:600" target="_blank"><span>Ko-fi で登録する →</span></a></p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="12" rx="2" width="18" x="3" y="4"></rect><path d="M8 20h8M12 16v4"></path><path d="M7 9h5M7 12h8"></path></svg>
+<h3>プレイ中のオーバーレイ</h3>
+<p>ゲームの横に別ウィンドウで、デッキに残っているカード、相手がこれまでに見せたカード、ターンを表示します。表示するのは公開情報と、プレイ済みの内容から導ける情報だけです。Magic Onlineでは、ログにテーブルの状態がないと表示が少なくなることがあります。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"></path></svg>
+<h3>サイドボードガイド</h3>
+<p>マッチアップごとに、自分の対戦で何を入れて何を抜いたか、その結果がどうだったかを表示します。記憶に頼ったサイドボーディングをやめられます。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"></path><path d="M17 11a3 3 0 1 0 0-6M21 20v-1a4 4 0 0 0-3-3.9"></path></svg>
+<h3>コーチとチーム</h3>
+<p>ゲームごとのミスのタグとメモ、マッチアップの表、コーチ向けのレポート。チームモードでは共有フォルダーを通じて対戦、スクリーンショット、メモを共有し、コーチはリプレイを含む各ゲームの全体を見られます。</p></div>
+</div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-funciones-ja" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div>
+</div>
+</section>
+<section class="seccion" id="empezar">
+<div class="envoltura">
+<div class="cab-sec" id="descargar">
+<div class="eti">始め方</div>
+<h2>最初の一度だけ、<wbr>3ステップ</h2>
+</div>
+<div class="pasos">
+<div class="paso"><h3>ダウンロードして開く</h3>
+<p>Windows 10 / 11。ZIPを展開して、ManaLab.exeを開きます。インストールは不要です。</p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-portada-ja" id="enlace-descarga" rel="noopener"><span>無料ダウンロード</span></a></p>
+<p class="nota-descarga">バージョン <span data-version>2.3.0</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">他のバージョン</a></p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">ManaLabはパソコンで使います</h4>
+<p class="movil-txt">自分にリンクを送って、パソコンでダウンロードしてください。</p>
+<p><button class="boton prim" data-compartir data-copiado="リンクをコピーしました" data-titulo="compartir-movil-ja" data-url="https://manalab.es/ja/" type="button"><span>リンクを自分に送る</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-titulo="descarga-movil-ja" rel="noopener">それでもZIPをダウンロード</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen destacado" data-solo-pc>展開する前に、ZIPを右クリック › プロパティ › <b>ブロックの解除</b>にチェック › OK。こうすると、Windowsに「WindowsによってPCが保護されました」と表示されず、プログラムのファイルもブロックされません。それでも警告が出る場合は、<b>詳細情報 › 実行</b>をクリックしてください。</p>
+<details data-solo-pc><summary>すでにManaLabをお使いですか？</summary>
+<p>この初回ダウンロードのときだけ必要です。以降のバージョンはアプリ内からインストールされ、警告は表示されません。</p>
+<p>すでに2.1.0、2.1.1、2.1.2をお使いですか？最後に一度だけ手動で更新してください。上の手順でZIPのブロックを解除し、ManaLabのフォルダーの上に展開します（対戦と設定は残ります）。これらのバージョンはウィンドウを表示せずに起動して閉じることがありました。2.2以降は、新しいバージョンがアプリ内からインストールされます。</p>
+<p><a href="/safety/">安全ですか？ご自身で確認できます（英語）→</a></p></details></div>
+<div class="paso"><h3>ゲームを準備する</h3>
+<p><b>アリーナ：</b><span class="ruta">オプション › アカウント › Detailed Logs</span>をオンにします。オンにしないと、アリーナは対戦を書き出しません。</p>
+<p style="margin-top:10px"><b>Magic Online：</b>設定は不要です。Magic Onlineを開けば、ManaLabが自動で認識します。ログの場所は<span class="ruta">設定 › ゲーム</span>にあり、「既定」のままにしてください。</p></div>
+<div class="paso"><h3>プレイして見直す</h3>
+<p><b>「記録開始」を押します。</b>プレイする前にManaLabを開き、起動したままにしてください。各対戦は、終了するとパネルに表示されます。</p>
+<p>アリーナもMagic Onlineも、ウィンドウモードかボーダーレスでプレイし、対戦の見直しは「ゲーム」で行います。アプリは無料です。</p></div>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="preguntas">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">よくある質問</div><h2>始める前に</h2></div>
+<div class="preguntas">
+<details><summary>ゲームに干渉したり、対戦で有利になったりしませんか？</summary>
+<p>いいえ。アリーナにもMagic Onlineにも干渉しません。読み取るのは、ゲームがPCに書き出すファイルだけです（アリーナのPlayer.log、Magic Onlineのmtgo.log、Match_GameLog_*.dat、mtgo_game_history、デッキをまとめた*.xmlファイル）。それらを書き換えることもありません。アリーナやMagic Onlineを改変せず、メモリを読み取らず、サーバーにも接続しません。任意のオーバーレイは別ウィンドウで、表示するのは公開情報と、プレイ済みの内容から導ける情報だけです。非公開の情報は表示しません。</p></details>
+<details><summary>どんなデータを送信しますか？</summary>
+<p>対戦、スクリーンショット、統計は、PC内のフォルダーに保存されます。プログラムが行うのは、フォーマットごとの最新メタデッキリストのダウンロード（3日ごと）、必要なときのScryfallでのカード名の検索（Magic OnlineのIDにも対応）、そして新しいバージョンがあるかどうかの1日1回のGitHubへの問い合わせだけです。この3つは設定でオフにできます。データを送信するのは、あなたが何かを求めたときだけです。AI分析では、そのゲームのデータ（結果、デッキ、手札、見えたカード、タイムライン）を送信し、あなたや相手の名前は送りません。バグ報告では、あなたが書いた内容、追加した場合はメールアドレス、ManaLabのバージョン、OSと言語、アリーナとMagic Onlineのどちらを使っているか、PCの匿名ID、そしてチェックした場合はユーザー名とコードを除いたregistro.logの末尾の行を送信します。対戦やデッキは送信しません。</p>
+<p>詳細：<a href="/safety/">ManaLabは安全ですか？（英語）</a></p></details>
+<details><summary>「WindowsによってPCが保護されました」と表示されます。安全ですか？</summary>
+<p>この警告は、有料のコード署名証明書がないプログラムに表示されます。小規模な無料ツールではよくあることです。「詳細情報」をクリックし、「実行」を押してください。表示されるのは最初のダウンロードのときだけです。新しいバージョンはアプリ内の「今すぐアップデート」でインストールされ、警告は出ません。最初から警告を避けるには、展開する前にZIPを右クリック › プロパティ › 「ブロックの解除」にチェック › OKとします。公開前に、すべてのバージョンをVirusTotalで検査しています。</p>
+<p>詳細：<a href="/safety/">ManaLabは安全ですか？（英語）</a></p></details>
+<details id="magic-online"><summary>Magic Onlineに対応していますか？</summary>
+<p>はい、2.3からです。ManaLabはMagic Online（MTGO）の対戦を記録します。初手、マリガン、先攻・後攻、相手のデッキ、統計、リプレイ、オーバーレイに対応しています。設定は不要で、Magic Onlineを開くと自動で認識し、mtgo.logファイルのインポートもできます。違う点は次のとおりです。Magic Onlineはターンのフェイズやタップ状態を送ってこないため、ManaLabがログから推定します。リプレイでは、推定した内容に≈が付きます。正確とは限らないためです。また、Magic Onlineはサイドボード後のリストを間に合うように教えてくれません。そのため、ゲーム間の変更をワンクリックで確認してもらい、確認するまでオーバーレイにはリストが未確認と表示されます。ログにテーブルの状態がない場合、オーバーレイの表示はアリーナより少なくなることがあります。デッキには色で名前が付きます。</p>
+<p>サイトで：<a href="/magic-online/">Magic Onlineトラッカー：保存する内容と仕組み（英語）</a></p></details>
+<details><summary>MacやLinuxで使えますか？</summary>
+<p>今のところWindows 10 / 11向けです。ネイティブのLinux版はなく、WineやProtonでの動作も確認していないため、動くとはお約束できません。</p></details>
+<details><summary>ドラフトとシールド（リミテッド）も記録しますか？</summary>
+<p>はい。リミテッドを含め、アリーナとMagic Onlineのどんなゲームも記録します。相手のデッキは、そのゲームのフォーマット（Standard、Pioneer、Modern、Legacy、Vintage、Pauper）のメタデッキと比べます。リミテッドのように明確に一致するものがない場合は、色で名前が付きます。</p></details>
+<details><summary>無料ですか？</summary>
+<p>プログラムは無料で、アカウントも不要です。有料なのは、AIによる敗戦分析だけで、月額5ユーロです。利用するAIサービスの費用に充てています。それ以外の機能はすべて無料です。</p></details>
+<details><summary>AI分析はどうすれば使えますか？</summary>
+<p>Ko-fiで購読します（月額5ユーロ）。支払い後、購読コードがメールで届きます。設定 › チームとAI に貼り付けると、負けたゲームの「分析」タブに分析が表示されます。先に試したい場合は、<a href="mailto:manalab.app@gmail.com">メール</a>で無料トライアルを申し込めます。</p></details>
+</div>
+</div>
+</section>
+<section class="seccion" id="ia">
+<div class="envoltura">
+<div class="ia-caja">
+<div>
+<div class="eti">新機能 · AIによる敗戦分析</div>
+<h2>負けたゲームで、何が悪かったのかがわかる</h2>
+<p><strong style="color:var(--texto)">アプリは無料です。有料なのはAI分析だけです。</strong></p>
+<p>負けたゲームを開いてAIに尋ねると、何がうまくいかなかったか、どこをよりうまくプレイできたか、次回は何を試すかがわかります。AIが読み取るのはそのゲームのデータで、あなたや相手の名前は含まれません。</p>
+<p>先に試したい場合は、<a href="mailto:manalab.app@gmail.com">メール</a>で無料トライアルを申し込めます。</p>
+<div class="acciones" style="margin-top:24px"><a class="boton prim" href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-ia-ja" rel="noopener" target="_blank"><span>Ko-fi で登録する →</span></a></div>
+</div>
+<div>
+<div class="ia-precio">5 € <small>月額</small></div>
+<div class="ia-lista">
+<p>1日最大30回まで分析できます。Ko-fiで月額5ユーロで購読すると、購読後すぐにメールでコードが届きます。</p>
+<p>いつでも解約できます。Ko-fiで更新しなければ、コードは自動的に失効します。</p>
+<p><a href="/privacy/">プライバシーポリシー（英語）</a></p>
+</div>
+</div>
+</div>
+<div class="enlaces-extra">
+<p><a href="/coaches/">コーチの方へ：ManaLabで生徒を見直すガイド（英語）→</a></p>
+<p><a href="/#contacto">ご質問・不具合・購読のご相談：お問い合わせフォーム（英語）→</a></p>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="final">
+<div class="envoltura final-caja">
+<div class="cab-sec">
+<h2>今日から対戦を記録しましょう</h2>
+</div>
+<div class="acciones"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-final-ja" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div>
+<p class="nota-hero"><span>バージョン <span data-version>2.3.0</span> · ZIP · インストール不要</span></p>
+</div>
+</section>
+</main>
+<footer>
+<div class="envoltura">
+<div class="fila"><b style="color:var(--texto)">ManaLab</b><span id="version">v<span data-version>2.3.0</span></span>
+<a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener" target="_blank">メタデッキ一覧</a>
+<a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-manual-en.pdf" rel="noopener">ユーザーマニュアル（PDF、英語）</a>
+<a href="/novedades/">新機能（英語）</a>
+<a href="/magic-online/">Magic Onlineトラッカー（英語）</a>
+<a href="/coaches/">コーチ向けガイド（英語）</a>
+<a href="#preguntas">よくある質問</a>
+<a href="/privacy/">プライバシー（英語）</a>
+<a href="/safety/">安全性（英語）</a>
+<a href="/#contacto">お問い合わせ（英語）</a>
+<a href="https://x.com/ManaLabApp" rel="noopener" target="_blank">Xでフォロー</a></div>
+<nav class="fila guias" aria-label="ガイド"><b>使い方ガイド：</b><a href="/guia/guia_manalab_en.html" hreflang="en" lang="en">Guide (English)</a><a href="/guia/guia_manalab_es.html" hreflang="es" lang="es">Guía (español)</a><a href="/guia/guia_manalab_fr.html" hreflang="fr" lang="fr">Guide (français)</a><a href="/guia/guia_manalab_de.html" hreflang="de" lang="de">Anleitung (Deutsch)</a><a href="/guia/guia_manalab_it.html" hreflang="it" lang="it">Guida (italiano)</a><a href="/guia/guia_manalab_pt.html" hreflang="pt" lang="pt">Guia (português)</a><a href="/guia/guia_manalab_ja.html" hreflang="ja" lang="ja">ガイド (日本語)</a><a href="/guia/guia_manalab_ko.html" hreflang="ko" lang="ko">가이드 (한국어)</a><a href="/guia/guia_manalab_zh.html" hreflang="zh" lang="zh">指南 (中文)</a></nav>
+<p class="nota-trad">翻訳に誤りがあれば、<a href="https://x.com/ManaLabApp" rel="noopener" target="_blank">X（@ManaLabApp）</a>までお知らせください。</p>
+<p class="legal">ManaLabは非公式のファンコンテンツで、ファンコンテンツポリシーに基づいて許可されています。Wizardsの承認や支援を受けたものではありません。使用している素材の一部はWizards of the Coastの所有物です。©Wizards of the Coast LLC。メタデータ：MTGGoldfish。カードデータ：Scryfall。</p>
+</div>
+</footer>
+
+<script defer="" src="/descarga.js"></script>
+<script>
+(function () {
+  /* un <details> cerrado no se ve: al entrar por #magic-online (u otra pregunta con id) se abre sola */
+  function abrir() {
+    var d = null;
+    try { d = location.hash.length > 1 && document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (e) {}
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView({ behavior: "instant" }); }
+  }
+  abrir();
+  window.addEventListener("load", abrir);   /* otra vez con las imágenes ya cargadas: el desplazamiento cuadra */
+  window.addEventListener("hashchange", abrir);
+})();
+</script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
