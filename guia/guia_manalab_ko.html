@@ -52,7 +52,9 @@ figure.video figcaption{margin:8px 4px 2px;font-size:.9rem;color:var(--muted)}
 figure.video .idioma-video{display:inline-block;margin-left:6px;padding:0 7px;border:1px solid var(--line);border-radius:10px;font-size:.78rem;white-space:nowrap}
 .solo-pdf{display:none}
 figure img{display:block;width:100%;height:auto;border-radius:6px}
-nav.inicio{margin:0 0 14px;font-size:.9rem}nav.inicio a,footer nav a{color:var(--acc)}
+nav.inicio{margin:0 0 14px;font-size:.9rem;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}nav.inicio a,footer nav a{color:var(--acc)}
+nav.inicio a.descargar{background:var(--acc);color:var(--bg);font-weight:700;text-decoration:none;padding:6px 14px;border-radius:999px;white-space:nowrap}
+main>nav.inicio:last-of-type{margin:28px 0 0}
 footer nav{margin-bottom:8px}
 footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 @page{size:A4;margin:16mm 14mm}
@@ -73,7 +75,7 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:v
 </head>
 <body>
 <main>
-<nav class="inicio" aria-label="ManaLab"><a href="/">← ManaLab 홈</a></nav>
+<nav class="inicio" aria-label="ManaLab"><a href="/">← ManaLab 홈</a><a class="descargar" href="/#descargar" data-goatcounter-click="guia-descarga" data-goatcounter-title="guia-descarga-ko">무료 다운로드</a></nav>
 <header>
 <h1>ManaLab 가이드</h1>
 <p class="sub">앱의 각 기능이 하는 일과 사용법입니다. Arena와 Magic Online 모두 다룹니다. 주요 기능과 AI 코치를 중심으로 설명합니다.</p>
@@ -98,6 +100,7 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:v
 <section id="bug"><h2>버그 신고</h2><p>무언가 제대로 작동하지 않으면 앱 안에서 알려 주세요:</p><ol><li>설정 › 데이터 및 정보를 열고 «버그 신고»를 누릅니다.</li><li>«무슨 일이 있었나요?»에 문제를 적습니다. 원하면 기대했던 동작과 답장을 받을 이메일도 적으세요.</li><li>«registro.log 첨부 (권장)»를 켠 채로 «신고 보내기»를 누릅니다.</li></ol><p>전송되는 내용은 대화상자에 그대로 표시됩니다: ManaLab 버전, 운영 체제 버전, 인터페이스 언어, Arena와 Magic Online 중 무엇을 쓰는지, 하루 신고 횟수를 제한하기 위한 익명의 PC 식별자, 그리고 첨부를 켠 경우 registro.log의 마지막 줄(코드, 키, 사용자 이름은 제거됨). 경기와 덱은 전송되지 않습니다.</p><p>연결이 없으면 신고는 보관되었다가 나중에 전송됩니다. 최대 3건까지 저장되며 7일이 지나면 만료됩니다.</p></section>
 <section id="actualizar"><h2>ManaLab 업데이트</h2><p>2.1.3 버전부터 ManaLab은 스스로 업데이트됩니다. 실행할 때와 하루에 한 번 새 버전이 있는지 확인하며, 있으면 패널 위쪽에 알림이 나타납니다.</p><ol><li>알림에서 새 버전의 내용이 궁금하면 «새 기능 보기»를 누르세요.</li><li>«지금 업데이트»를 누릅니다. ManaLab이 새 버전을 내려받고 닫혔다가 업데이트된 상태로 다시 열립니다. Windows 경고는 나타나지 않습니다. 사용 중인 사본이 스스로 업데이트할 수 없으면 대화상자에 대신 «ZIP 직접 다운로드»가 표시됩니다.</li></ol><p>경기, 스크린샷, 설정, 구독 코드는 %LOCALAPPDATA%\ManaLab에 따로 저장되므로 업데이트해도 사라지지 않습니다.</p><p>2.1.0, 2.1.1, 2.1.2 버전이라면(창을 보여 주지 않고 실행됐다 닫힐 수 있었습니다) 마지막으로 한 번 직접 업데이트하세요. manalab.es에서 ZIP을 내려받아 마우스 오른쪽 버튼 › 속성 › «차단 해제» 체크 › 확인을 누르고, ManaLab을 닫은 뒤 ZIP을 기존 폴더 위에 압축 해제합니다.</p><p>설정 › 데이터 및 정보의 «업데이트 확인»으로 언제든 확인할 수 있고, 알림은 «새 버전이 나오면 알려 주기»로 끌 수 있습니다.</p><p>2.0.1 이하 버전이라면 알림이 보이지 않습니다. manalab.es에서 최신 버전을 내려받으세요.</p><figure class="video" id="video-in-app-updates"><video controls muted playsinline preload="none" width="1280" height="720" poster="../video/funciones/11-in-app-updates.jpg" aria-label="앱 내 업데이트: 알려 주고 새 기능을 보여 주며, 한 번 클릭으로 다운로드, 확인, 재실행합니다." title="앱 내 업데이트: 알려 주고 새 기능을 보여 주며, 한 번 클릭으로 다운로드, 확인, 재실행합니다."><source src="../video/funciones/11-in-app-updates.mp4" type="video/mp4"><a href="../video/funciones/11-in-app-updates.mp4">MP4</a></video><img class="solo-pdf" src="../video/funciones/11-in-app-updates.jpg" width="1280" height="720" alt="" loading="lazy"><figcaption>앱 내 업데이트: 알려 주고 새 기능을 보여 주며, 한 번 클릭으로 다운로드, 확인, 재실행합니다. <span class="idioma-video">영어 영상, 소리 없음</span><span class="solo-pdf"><br>웹에서 영상 보기: https://manalab.es/guia/guia_manalab_ko.html#video-in-app-updates</span></figcaption></figure></section>
 <section id="privacidad"><h2>개인정보</h2><p>경기, 스크린샷, 통계는 내 PC에 남습니다.</p><ul><li>ManaLab은 Arena나 Magic Online을 변경하지 않고, 메모리를 읽지 않으며, 서버에 연결하지 않습니다.</li><li>Arena에서는 Player.log를 읽습니다. Magic Online에서는 게임이 PC에 남기는 로그 파일(mtgo.log 등)만 읽으며, 창에 보이는 내용은 읽지 않습니다. 오버레이와 스크린샷을 위해 게임 창의 위치만 알면 됩니다.</li><li>스크린샷이 켜져 있는 동안(기본값은 켜짐이며, 설정 › 게임에 게임별 스위치가 있습니다) 게임 창의 이미지를 저장합니다.</li><li>하루에 한 번 GitHub에 새 버전이 있는지 묻습니다(응답이 없으면 manalab.es를 확인하며, 내 데이터는 포함되지 않습니다). 또한 메타 덱을 내려받고, 카드 이름과 이미지를 위해 Scryfall에 조회합니다. 설정에서 끌 수 있습니다.</li><li>내가 요청할 때만 데이터를 전송합니다: AI 분석(해당 경기의 데이터, 이름 제외), 버그 신고(위 참고), 팀과 경기 내보내기(내가 고른 내용을 공유). 내 기록 전체는 절대 전송되지 않습니다.</li></ul></section>
+<nav class="inicio" aria-label="ManaLab"><a class="descargar" href="/#descargar" data-goatcounter-click="guia-descarga" data-goatcounter-title="guia-descarga-ko">무료 다운로드</a></nav>
 <footer>
 <nav aria-label="가이드"><a href="guia_manalab_en.html" hreflang="en" lang="en">English</a> · <a href="guia_manalab_es.html" hreflang="es" lang="es">Español</a> · <a href="guia_manalab_fr.html" hreflang="fr" lang="fr">Français</a> · <a href="guia_manalab_de.html" hreflang="de" lang="de">Deutsch</a> · <a href="guia_manalab_it.html" hreflang="it" lang="it">Italiano</a> · <a href="guia_manalab_pt.html" hreflang="pt" lang="pt">Português</a> · <a href="guia_manalab_ja.html" hreflang="ja" lang="ja">日本語</a> · <a href="guia_manalab_ko.html" hreflang="ko" lang="ko" aria-current="page">한국어</a> · <a href="guia_manalab_zh.html" hreflang="zh" lang="zh">中文</a></nav>
 <nav aria-label="X"><a href="https://x.com/ManaLabApp" rel="noopener" target="_blank">X에서 팔로우</a></nav>

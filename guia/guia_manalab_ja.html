@@ -52,7 +52,9 @@ figure.video figcaption{margin:8px 4px 2px;font-size:.9rem;color:var(--muted)}
 figure.video .idioma-video{display:inline-block;margin-left:6px;padding:0 7px;border:1px solid var(--line);border-radius:10px;font-size:.78rem;white-space:nowrap}
 .solo-pdf{display:none}
 figure img{display:block;width:100%;height:auto;border-radius:6px}
-nav.inicio{margin:0 0 14px;font-size:.9rem}nav.inicio a,footer nav a{color:var(--acc)}
+nav.inicio{margin:0 0 14px;font-size:.9rem;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}nav.inicio a,footer nav a{color:var(--acc)}
+nav.inicio a.descargar{background:var(--acc);color:var(--bg);font-weight:700;text-decoration:none;padding:6px 14px;border-radius:999px;white-space:nowrap}
+main>nav.inicio:last-of-type{margin:28px 0 0}
 footer nav{margin-bottom:8px}
 footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 @page{size:A4;margin:16mm 14mm}
@@ -73,7 +75,7 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:v
 </head>
 <body>
 <main>
-<nav class="inicio" aria-label="ManaLab"><a href="/">← ManaLab ホーム</a></nav>
+<nav class="inicio" aria-label="ManaLab"><a href="/">← ManaLab ホーム</a><a class="descargar" href="/#descargar" data-goatcounter-click="guia-descarga" data-goatcounter-title="guia-descarga-ja">無料ダウンロード</a></nav>
 <header>
 <h1>ManaLab ガイド</h1>
 <p class="sub">無料トラッカー ManaLab の各機能の役割と使い方です。Arena と Magic Online の両方に対応し、戦績の記録と確認の方法を、主要な機能とAIコーチを中心に説明します。</p>
@@ -98,6 +100,7 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:v
 <section id="bug"><h2>バグの報告</h2><p>何かうまく動かないときは、アプリから知らせてください：</p><ol><li>設定 › データと情報 を開き、「バグを報告」を押します。</li><li>「何が起きましたか?」に問題を書きます。必要なら、期待していた動作と、返信を受け取るためのメールアドレスも入力します。</li><li>「registro.log を添付する(推奨)」をオンのままにして、「報告を送信」を押します。</li></ol><p>送信される内容は、ダイアログに正確に表示されます：ManaLabのバージョン、OSのバージョン、表示言語、ArenaとMagic Onlineのどちらを使っているか、1日あたりの報告数を制限するための匿名のPC識別子、そして添付がオンの場合はregistro.logの末尾の行（コード、キー、ユーザー名は除去されます）。対戦やデッキは送信されません。</p><p>オフラインの場合、報告は保存され、あとで送信されます。保存されるのは最大3件で、7日で期限切れになります。</p></section>
 <section id="actualizar"><h2>ManaLab のアップデート</h2><p>バージョン2.1.3以降、ManaLabは自動で更新されます。起動時と1日1回、新しいバージョンがないか確認し、ある場合はパネルの上部にお知らせが表示されます。</p><ol><li>お知らせで、内容を読みたい場合は「新機能を見る」を押します。</li><li>「今すぐアップデート」を押します。ManaLabは新しいバージョンをダウンロードして閉じ、更新された状態で再び開きます。Windowsの警告は表示されません。お使いのコピーが自動更新できない場合は、代わりに「ZIP を手動でダウンロード」が表示されます。</li></ol><p>対戦、スクリーンショット、設定、購読コードは %LOCALAPPDATA%\ManaLab に別に保存されているので、更新しても失われません。</p><p>2.1.0、2.1.1、2.1.2をお使いの場合（ウィンドウを表示せずに起動して閉じることがありました）は、最後に一度だけ手動で更新してください。manalab.es からZIPをダウンロードし、右クリック › プロパティ › 「ブロックの解除」にチェック › OK。ManaLabを閉じて、ZIPをそのフォルダーの上に展開します。</p><p>いつでも 設定 › データと情報 の「アップデートを確認」で確認でき、お知らせは「新しいバージョンが出たら知らせる」でオフにできます。</p><p>バージョン2.0.1以前の場合は、お知らせは表示されません。manalab.es から最新版をダウンロードしてください。</p><figure class="video" id="video-in-app-updates"><video controls muted playsinline preload="none" width="1280" height="720" poster="../video/funciones/11-in-app-updates.jpg" aria-label="アプリ内アップデート：通知し、新機能を表示。ワンクリックでダウンロード、検証、再起動します。" title="アプリ内アップデート：通知し、新機能を表示。ワンクリックでダウンロード、検証、再起動します。"><source src="../video/funciones/11-in-app-updates.mp4" type="video/mp4"><a href="../video/funciones/11-in-app-updates.mp4">MP4</a></video><img class="solo-pdf" src="../video/funciones/11-in-app-updates.jpg" width="1280" height="720" alt="" loading="lazy"><figcaption>アプリ内アップデート：通知し、新機能を表示。ワンクリックでダウンロード、検証、再起動します。 <span class="idioma-video">英語の動画（音声なし）</span><span class="solo-pdf"><br>ウェブで動画を見る: https://manalab.es/guia/guia_manalab_ja.html#video-in-app-updates</span></figcaption></figure></section>
 <section id="privacidad"><h2>プライバシー</h2><p>対戦、スクリーンショット、統計はお使いのPCに保存されます。</p><ul><li>ManaLabはArenaやMagic Onlineを改変せず、そのメモリを読み取らず、サーバーにも接続しません。</li><li>Arenaからは Player.log を読み取ります。Magic Onlineからは、ゲームがPCに残すログファイル（mtgo.logなど）だけを読み取り、ウィンドウに表示されている内容は読み取りません。オーバーレイとスクリーンショットのために、ゲームウィンドウの位置を知る必要があるだけです。</li><li>スクリーンショットがオンの間（既定でオンで、設定 › ゲーム にゲームごとのスイッチがあります）、ゲームウィンドウの画像を保存します。</li><li>1日1回、GitHubに新しいバージョンがあるか問い合わせます（応答がない場合は manalab.es を確認します。あなたのデータは含まれません）。また、メタデッキをダウンロードし、カード名と画像のためにScryfallに問い合わせます。これらは設定でオフにできます。</li><li>データを送信するのは、あなたが求めたときだけです：AI分析（その対戦のデータ。名前は含まれません）、バグ報告（上記を参照）、チームと対戦のエクスポート（あなたが選んだ内容を共有します）。履歴が送信されることはありません。</li></ul></section>
+<nav class="inicio" aria-label="ManaLab"><a class="descargar" href="/#descargar" data-goatcounter-click="guia-descarga" data-goatcounter-title="guia-descarga-ja">無料ダウンロード</a></nav>
 <footer>
 <nav aria-label="ガイド"><a href="guia_manalab_en.html" hreflang="en" lang="en">English</a> · <a href="guia_manalab_es.html" hreflang="es" lang="es">Español</a> · <a href="guia_manalab_fr.html" hreflang="fr" lang="fr">Français</a> · <a href="guia_manalab_de.html" hreflang="de" lang="de">Deutsch</a> · <a href="guia_manalab_it.html" hreflang="it" lang="it">Italiano</a> · <a href="guia_manalab_pt.html" hreflang="pt" lang="pt">Português</a> · <a href="guia_manalab_ja.html" hreflang="ja" lang="ja" aria-current="page">日本語</a> · <a href="guia_manalab_ko.html" hreflang="ko" lang="ko">한국어</a> · <a href="guia_manalab_zh.html" hreflang="zh" lang="zh">中文</a></nav>
 <nav aria-label="X"><a href="https://x.com/ManaLabApp" rel="noopener" target="_blank">Xでフォロー</a></nav>
