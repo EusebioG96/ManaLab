@@ -472,13 +472,13 @@ footer { padding-block: 28px; }
 </div>
 <div class="novedades dos">
 <div class="novedad">
-<div class="ventana"><img alt="ManaLab Dashboard with Arena listening and Magic Online in a game, reading mtgo.log, and the latest matches with an MTGO tag, shown with sample data" height="860" loading="lazy" src="img/en_mtgo_panel.jpg" width="1366"/></div>
+<div class="ventana"><picture><source srcset="img/en_mtgo_panel.webp" type="image/webp"><img alt="ManaLab Dashboard with Arena listening and Magic Online in a game, reading mtgo.log, and the latest matches with an MTGO tag, shown with sample data" height="860" loading="lazy" src="img/en_mtgo_panel.jpg" width="1366"/></picture></div>
 <div><div class="eti">Dashboard</div>
 <h3>Arena and Magic Online, side by side</h3>
 <p>The Dashboard shows the state of each game and your latest matches, with a small MTGO tag on the ones you played in Magic Online.</p></div>
 </div>
 <div class="novedad">
-<div class="ventana"><img alt="ManaLab sideboard notice over Magic Online between games: «Did you change your sideboard?» with the buttons «Use this change», «No changes» and «Edit», shown with sample data" height="440" loading="lazy" src="img/en_mtgo_banquillo.jpg" width="1000"/></div>
+<div class="ventana"><picture><source srcset="img/en_mtgo_banquillo.webp" type="image/webp"><img alt="ManaLab sideboard notice over Magic Online between games: «Did you change your sideboard?» with the buttons «Use this change», «No changes» and «Edit», shown with sample data" height="440" loading="lazy" src="img/en_mtgo_banquillo.jpg" width="1000"/></picture></div>
 <div><div class="eti">Sideboard</div>
 <h3>Confirm your sideboard in one click</h3>
 <p>Magic Online doesn't send your sideboarded list in time, so between games a small panel asks whether you changed it: use last time's change, say there were none, or open the editor.</p></div>
@@ -538,7 +538,7 @@ footer { padding-block: 28px; }
 <button aria-selected="false" data-tab="estadisticas" id="t-est" role="tab">Statistics</button>
 </div>
 <div class="ventana"><div class="barra"><i></i><i></i><i></i><span>ManaLab</span></div>
-<img alt="ManaLab dashboard with the latest matches, shown with Arena sample data" class="cap" data-cap="panel" height="860" id="galeria" loading="lazy" src="img/en_panel.jpg" width="1366"/></div>
+<picture><source srcset="img/en_panel.webp" type="image/webp"><img alt="ManaLab dashboard with the latest matches, shown with Arena sample data" class="cap" data-cap="panel" height="860" id="galeria" loading="lazy" src="img/en_panel.jpg" width="1366"/></picture></div>
 <p class="pie-captura">Screenshots with sample data.</p>
 </div>
 </section>
@@ -584,13 +584,13 @@ footer { padding-block: 28px; }
 </div>
 <div class="novedades dos">
 <div class="novedad">
-<div class="ventana estrecha"><img alt="The «Session report» dialog in ManaLab, where you pick options for a single file with the chosen games" height="672" loading="lazy" src="img/v22_informe_sesion.jpg" width="584"/></div>
+<div class="ventana estrecha"><picture><source srcset="img/v22_informe_sesion.webp" type="image/webp"><img alt="The «Session report» dialog in ManaLab, where you pick options for a single file with the chosen games" height="672" loading="lazy" src="img/v22_informe_sesion.jpg" width="584"/></picture></div>
 <div><div class="eti">Session report</div>
 <h3>A session report for your coach</h3>
 <p>Press «Prepare session» and pick the games: you get one file with hands, key moments and notes, to review or send to your coach.</p></div>
 </div>
 <div class="novedad">
-<div class="ventana"><img alt="ManaLab Statistics table of the most repeated mistakes with percentage of games and trend over the last 30 days" height="432" loading="lazy" src="img/v22_tendencias.jpg" width="1004"/></div>
+<div class="ventana"><picture><source srcset="img/v22_tendencias.webp" type="image/webp"><img alt="ManaLab Statistics table of the most repeated mistakes with percentage of games and trend over the last 30 days" height="432" loading="lazy" src="img/v22_tendencias.jpg" width="1004"/></picture></div>
 <div><div class="eti">Tags and trends</div>
 <h3>Coach tags and trends</h3>
 <p>Your coach tags mistakes per game or per step, and «What repeats the most» shows how each one evolves over 30 or 90 days, or your whole history.</p></div>
@@ -762,6 +762,10 @@ footer { padding-block: 28px; }
       var img = document.getElementById("galeria");
       img.dataset.cap = b.dataset.tab;
       img.src = base + b.dataset.tab + ".jpg";
+      var fuente = img.parentNode.querySelector("source");   /* la <picture> con WebP (ML-154) */
+      if (fuente) fuente.srcset = base + b.dataset.tab + ".webp";
+      var fuente = img.parentNode.querySelector("source");   /* la <picture> con WebP (ML-154) */
+      if (fuente) fuente.srcset = base + b.dataset.tab + ".webp";
     });
   });
 })();

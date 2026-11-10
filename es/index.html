@@ -472,13 +472,13 @@ footer { padding-block: 28px; }
 </div>
 <div class="novedades dos">
 <div class="novedad">
-<div class="ventana"><img alt="Panel de ManaLab con Arena escuchando y Magic Online en partida, leyendo mtgo.log, y los últimos matches con la etiqueta MTGO, con datos de ejemplo" height="860" loading="lazy" src="../img/es_mtgo_panel.jpg" width="1366"/></div>
+<div class="ventana"><picture><source srcset="../img/es_mtgo_panel.webp" type="image/webp"><img alt="Panel de ManaLab con Arena escuchando y Magic Online en partida, leyendo mtgo.log, y los últimos matches con la etiqueta MTGO, con datos de ejemplo" height="860" loading="lazy" src="../img/es_mtgo_panel.jpg" width="1366"/></picture></div>
 <div><div class="eti">Panel</div>
 <h3>Arena y Magic Online, lado a lado</h3>
 <p>El Panel muestra el estado de cada juego y tus últimos matches, con una pequeña etiqueta MTGO en los que jugaste en Magic Online.</p></div>
 </div>
 <div class="novedad">
-<div class="ventana"><img alt="Aviso de banquillo de ManaLab sobre Magic Online entre partidas: «¿Cambiaste el banquillo?» con los botones «Usar este cambio», «Sin cambios» y «Editar», con datos de ejemplo" height="440" loading="lazy" src="../img/es_mtgo_banquillo.jpg" width="1000"/></div>
+<div class="ventana"><picture><source srcset="../img/es_mtgo_banquillo.webp" type="image/webp"><img alt="Aviso de banquillo de ManaLab sobre Magic Online entre partidas: «¿Cambiaste el banquillo?» con los botones «Usar este cambio», «Sin cambios» y «Editar», con datos de ejemplo" height="440" loading="lazy" src="../img/es_mtgo_banquillo.jpg" width="1000"/></picture></div>
 <div><div class="eti">Banquillo</div>
 <h3>Confirma tu banquillo con un clic</h3>
 <p>Magic Online no envía a tiempo tu lista con el banquillo, así que entre partidas un panel pequeño te pregunta si la cambiaste: usa el cambio de la última vez, indica que no hubo cambios o abre el editor.</p></div>
@@ -538,7 +538,7 @@ footer { padding-block: 28px; }
 <button aria-selected="false" data-tab="estadisticas" id="t-est" role="tab">Estadísticas</button>
 </div>
 <div class="ventana"><div class="barra"><i></i><i></i><i></i><span>ManaLab</span></div>
-<img alt="Panel de ManaLab con los últimos matches, con datos de ejemplo de Arena" class="cap" data-cap="panel" height="860" id="galeria" loading="lazy" src="../img/es_panel.jpg" width="1366"/></div>
+<picture><source srcset="../img/es_panel.webp" type="image/webp"><img alt="Panel de ManaLab con los últimos matches, con datos de ejemplo de Arena" class="cap" data-cap="panel" height="860" id="galeria" loading="lazy" src="../img/es_panel.jpg" width="1366"/></picture></div>
 <p class="pie-captura">Capturas con datos de ejemplo.</p>
 </div>
 </section>
@@ -584,13 +584,13 @@ footer { padding-block: 28px; }
 </div>
 <div class="novedades dos">
 <div class="novedad">
-<div class="ventana estrecha"><img alt="Diálogo «Informe de sesión» de ManaLab, donde eliges las opciones de un único archivo con las partidas seleccionadas" height="672" loading="lazy" src="../img/v22_informe_sesion.jpg" width="584"/></div>
+<div class="ventana estrecha"><picture><source srcset="../img/v22_informe_sesion.webp" type="image/webp"><img alt="Diálogo «Informe de sesión» de ManaLab, donde eliges las opciones de un único archivo con las partidas seleccionadas" height="672" loading="lazy" src="../img/v22_informe_sesion.jpg" width="584"/></picture></div>
 <div><div class="eti">Informe de sesión</div>
 <h3>Un informe de sesión para tu coach</h3>
 <p>Pulsa «Preparar sesión» y elige las partidas: obtienes un solo archivo con manos, momentos clave y notas, para revisar o enviar a tu coach.</p></div>
 </div>
 <div class="novedad">
-<div class="ventana"><img alt="Tabla de Estadísticas de ManaLab con los errores que más se repiten, su porcentaje de partidas y su tendencia en los últimos 30 días" height="432" loading="lazy" src="../img/v22_tendencias.jpg" width="1004"/></div>
+<div class="ventana"><picture><source srcset="../img/v22_tendencias.webp" type="image/webp"><img alt="Tabla de Estadísticas de ManaLab con los errores que más se repiten, su porcentaje de partidas y su tendencia en los últimos 30 días" height="432" loading="lazy" src="../img/v22_tendencias.jpg" width="1004"/></picture></div>
 <div><div class="eti">Etiquetas y tendencias</div>
 <h3>Etiquetas del coach y tendencias</h3>
 <p>Tu coach etiqueta los errores por partida o por paso, y «Lo que más se repite» te enseña cómo evoluciona cada uno en 30 o 90 días, o en todo tu historial.</p></div>
@@ -762,6 +762,10 @@ footer { padding-block: 28px; }
       var img = document.getElementById("galeria");
       img.dataset.cap = b.dataset.tab;
       img.src = base + b.dataset.tab + ".jpg";
+      var fuente = img.parentNode.querySelector("source");   /* la <picture> con WebP (ML-154) */
+      if (fuente) fuente.srcset = base + b.dataset.tab + ".webp";
+      var fuente = img.parentNode.querySelector("source");   /* la <picture> con WebP (ML-154) */
+      if (fuente) fuente.srcset = base + b.dataset.tab + ".webp";
     });
   });
 })();
