@@ -413,6 +413,8 @@ footer { padding-block: 28px; }
     fuentes = Array.prototype.map.call(v.querySelectorAll("source"), function (s) { s.remove(); return s; });
     v.load();
     b.classList.add("pausado"); b.setAttribute("aria-label", b.dataset.play);
+    v.style.cursor = "pointer";
+    v.addEventListener("click", function () { b.click(); });   /* en teléfono, tocar cualquier parte del vídeo lo reproduce o pausa */
   }
   b.addEventListener("click", function () {
     if (fuentes) {   /* primer toque en teléfono: ahora sí se añaden las fuentes */
