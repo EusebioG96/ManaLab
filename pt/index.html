@@ -350,12 +350,22 @@ footer { padding-block: 28px; }
   footer .fila a, footer .guias a { display: inline-flex; align-items: center; min-height: 44px; }
 }
 
+/* ML-156: selector de idioma con cuatro idiomas (sin empujar el botón de descarga) y separación del enlace bajo la caja de móvil */
+@media (max-width: 600px) {
+  .cab .envoltura { gap: 8px; }
+  .idioma { padding: 5px 9px; }
+  .marca b { font-size: 17px; }
+}
+@media (max-width: 380px) { .marca span { display: none; } }
+html.movil .hero-cta { margin-top: 16px; }
+
 /* ---------------- ML-156: portadas en japonés y portugués */
 .pie-captura-hero { margin: 0; font-size: 13.5px; color: var(--apagado); }
 .ventana .pie-captura { margin: 0; padding: 9px 14px 10px; font-size: 13px; border-top: 1px solid var(--linea); }
 .enlaces-extra { margin-top: 36px; display: grid; gap: 6px; }
 .enlaces-extra p { margin: 0; font-weight: 600; font-size: 16px; }
 .nota-trad { margin: 0; color: var(--texto2); }
+.confianza-lista a { white-space: normal; }
 html[lang="ja"] { --f-texto: "Figtree", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans CJK JP", "Noto Sans JP", system-ui, sans-serif; --f-display: "Saira Semi Condensed", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans CJK JP", "Noto Sans JP", system-ui, sans-serif; }
 html[lang="ja"] body { line-break: strict; word-break: auto-phrase; }
 html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3, html[lang="ja"] .confianza-lista b { word-break: keep-all; overflow-wrap: anywhere; line-height: 1.25; }
@@ -378,7 +388,7 @@ html.movil .hero-cta { margin-top: 16px; }
 <a class="marca" href="#inicio"><img alt="Logo do ManaLab" height="36" src="/img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
 <nav aria-label="Seções">
 <a href="#funciones">Recursos</a>
-<a href="#mtgo">Magic Online</a>
+<a href="#mtgo"><span style="white-space:nowrap">Magic Online</span></a>
 <a href="#empezar">Como começar</a>
 <a href="#preguntas">Perguntas</a>
 <a href="#ia">Análise com IA</a>
@@ -395,7 +405,7 @@ html.movil .hero-cta { margin-top: 16px; }
 <div>
 <div class="eti">Tracker grátis para MTG Arena e Magic Online</div>
 <h1>Cada partida de Arena e Magic Online, <em>registrada sozinha.</em></h1>
-<p class="sub">O ManaLab lê o log do Arena e do Magic Online enquanto você joga e guarda suas mãos, mulligans e o deck do oponente. Depois mostra onde você ganha e onde perde.</p>
+<p class="sub">O ManaLab lê o log do Arena e do <span style="white-space:nowrap">Magic Online</span> enquanto você joga e guarda suas mãos, mulligans e o deck do oponente. Depois mostra onde você ganha e onde perde.</p>
 <div data-movil-aqui></div>
 <div class="hero-cta">
 <a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-hero-pt" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Baixar grátis</span></a>
@@ -488,24 +498,24 @@ html.movil .hero-cta { margin-top: 16px; }
 <section class="seccion franja" id="mtgo">
 <div class="envoltura">
 <div class="cab-sec">
-<div class="eti">Arena e Magic Online</div>
-<h2>Agora para Arena e Magic Online</h2>
+<div class="eti">Arena e <span style="white-space:nowrap">Magic Online</span></div>
+<h2>Agora para Arena e <span style="white-space:nowrap">Magic Online</span></h2>
 </div>
 <div class="novedades dos">
 <div class="novedad">
 <div class="ventana"><picture><source srcset="/img/en_mtgo_panel.webp" type="image/webp"><img alt="Painel do ManaLab com o Arena escutando e o Magic Online em partida, lendo o mtgo.log, e os últimos matches com a tag MTGO, com dados de exemplo" height="860" loading="lazy" src="/img/en_mtgo_panel.jpg" width="1366"/></picture><p class="pie-captura">As imagens mostram o app em inglês. O app está disponível em português.</p></div>
 <div><div class="eti">Painel</div>
-<h3>Arena e Magic Online, lado a lado</h3>
-<p>O Painel mostra o estado de cada partida e seus últimos matches, com uma pequena tag MTGO nos que você jogou no Magic Online.</p></div>
+<h3>Arena e <span style="white-space:nowrap">Magic Online</span>, lado a lado</h3>
+<p>O Painel mostra o estado de cada partida e seus últimos matches, com uma pequena tag MTGO nos que você jogou no <span style="white-space:nowrap">Magic Online</span>.</p></div>
 </div>
 <div class="novedad">
 <div class="ventana"><picture><source srcset="/img/en_mtgo_banquillo.webp" type="image/webp"><img alt="Painel de sideboard do ManaLab sobre o Magic Online entre partidas, com os botões «Usar esta mudança», «Sem mudanças» e «Editar», com dados de exemplo" height="440" loading="lazy" src="/img/en_mtgo_banquillo.jpg" width="1000"/></picture></div>
 <div><div class="eti">Sideboard</div>
 <h3>Confirme seu sideboard com um clique</h3>
-<p>O Magic Online não envia a lista com sideboard a tempo. Por isso, entre as partidas, um painel pequeno pergunta se você mudou algo: use a mudança da última vez, diga que não houve nenhuma ou abra o editor.</p></div>
+<p>O <span style="white-space:nowrap">Magic Online</span> não envia a lista com sideboard a tempo. Por isso, entre as partidas, um painel pequeno pergunta se você mudou algo: use a mudança da última vez, diga que não houve nenhuma ou abra o editor.</p></div>
 </div>
 </div>
-<p class="enlace-seccion"><a class="enlace-man" href="/magic-online/">Tracker para Magic Online: o que ele guarda e como funciona (em inglês) →</a></p>
+<p class="enlace-seccion"><a class="enlace-man" href="/magic-online/">Tracker para <span style="white-space:nowrap"><span style="white-space:nowrap">Magic Online</span></span>: o que ele guarda e como funciona (em inglês) →</a></p>
 </div>
 </section>
 <section class="seccion" id="funciones">
@@ -529,14 +539,14 @@ html.movil .hero-cta { margin-top: 16px; }
 <p>Winrate de matches e de partidas, sequências, últimos dias e detalhes por mulligans, por jogar primeiro ou segundo, por deck e por arquétipo do oponente.</p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><rect height="16" rx="2" width="13" x="7" y="3"></rect><path d="M4 7v12a2 2 0 0 0 2 2h10"></path></svg>
 <h3>Seus decks</h3>
-<p>Cada lista que você joga, com seu winrate. As variantes de sideboard ficam agrupadas no mesmo deck, e você pode renomeá-las. No Magic Online, os decks recebem o nome pelas cores.</p></div>
+<p>Cada lista que você joga, com seu winrate. As variantes de sideboard ficam agrupadas no mesmo deck, e você pode renomeá-las. No <span style="white-space:nowrap">Magic Online</span>, os decks recebem o nome pelas cores.</p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path d="M9 10h6M9 13.5h4"></path></svg>
 <h3>Análise de derrotas com IA (assinantes)</h3>
 <p>Os assinantes recebem uma análise com IA de cada partida perdida: o que deu errado, onde você poderia ter jogado melhor e o que tentar na próxima. Assinatura: 5 € por mês no Ko-fi.</p>
 <p style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 18px"><a href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-funciones-pt" rel="noopener" style="font-weight:600" target="_blank"><span>Assinar no Ko-fi →</span></a></p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><rect height="12" rx="2" width="18" x="3" y="4"></rect><path d="M8 20h8M12 16v4"></path><path d="M7 9h5M7 12h8"></path></svg>
 <h3>Overlay enquanto você joga</h3>
-<p>Uma janela separada ao lado do jogo, no Arena ou no Magic Online, com as cartas que restam no seu deck, as que o oponente já mostrou e o turno. Ela só mostra informações públicas ou o que dá para deduzir do que já foi jogado. No Magic Online pode mostrar menos quando o log não traz o estado da mesa.</p></div>
+<p>Uma janela separada ao lado do jogo, no Arena ou no <span style="white-space:nowrap">Magic Online</span>, com as cartas que restam no seu deck, as que o oponente já mostrou e o turno. Ela só mostra informações públicas ou o que dá para deduzir do que já foi jogado. No <span style="white-space:nowrap">Magic Online</span> pode mostrar menos quando o log não traz o estado da mesa.</p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"></path></svg>
 <h3>Guia de sideboard</h3>
 <p>Por matchup, o que você colocou e tirou nas suas próprias partidas e como foi, para você parar de fazer sideboard de memória.</p></div>
@@ -572,10 +582,10 @@ html.movil .hero-cta { margin-top: 16px; }
 <p><a href="/safety/">É seguro? Confira você mesmo (em inglês) →</a></p></details></div>
 <div class="paso"><h3>Prepare seu jogo</h3>
 <p><b>Arena:</b> ative <span class="ruta">Opções › Conta › Detailed Logs</span>. Sem isso, o Arena não grava as partidas.</p>
-<p style="margin-top:10px"><b>Magic Online:</b> não precisa configurar nada. Abra o Magic Online e o ManaLab o detecta sozinho. O caminho do log está em <span class="ruta">Configurações › Partidas</span>, deixado em Padrão.</p></div>
+<p style="margin-top:10px"><b><span style="white-space:nowrap">Magic Online</span>:</b> não precisa configurar nada. Abra o <span style="white-space:nowrap">Magic Online</span> e o ManaLab o detecta sozinho. O caminho do log está em <span class="ruta">Configurações › Partidas</span>, deixado em Padrão.</p></div>
 <div class="paso"><h3>Jogue e reveja</h3>
 <p><b>Clique em «Iniciar registro».</b> Abra o ManaLab antes de jogar e deixe-o aberto. Cada match aparece no Painel quando termina.</p>
-<p>Jogue o Arena ou o Magic Online em janela ou em janela sem bordas e reveja suas partidas em Partidas. O app é grátis.</p></div>
+<p>Jogue o Arena ou o <span style="white-space:nowrap">Magic Online</span> em janela ou em janela sem bordas e reveja suas partidas em Partidas. O app é grátis.</p></div>
 </div>
 </div>
 </section>
@@ -584,20 +594,20 @@ html.movil .hero-cta { margin-top: 16px; }
 <div class="cab-sec"><div class="eti">Perguntas</div><h2>Antes de começar</h2></div>
 <div class="preguntas">
 <details><summary>Ele mexe no jogo ou me dá alguma vantagem em uma partida?</summary>
-<p>Não, nem no Arena nem no Magic Online. Ele só lê os arquivos que os jogos gravam no seu PC (o Player.log do Arena; o mtgo.log, os Match_GameLog_*.dat, o mtgo_game_history e os arquivos *.xml de agrupamento de decks do Magic Online), sem modificá-los. Ele não modifica o Arena nem o Magic Online, não lê a memória deles e não se conecta aos servidores. O overlay, que é opcional, é uma janela separada que mostra apenas informações públicas ou o que dá para deduzir do que já foi jogado, nunca informações ocultas.</p></details>
+<p>Não, nem no Arena nem no <span style="white-space:nowrap">Magic Online</span>. Ele só lê os arquivos que os jogos gravam no seu PC (o Player.log do Arena; o mtgo.log, os Match_GameLog_*.dat, o mtgo_game_history e os arquivos *.xml de agrupamento de decks do <span style="white-space:nowrap">Magic Online</span>), sem modificá-los. Ele não modifica o Arena nem o <span style="white-space:nowrap">Magic Online</span>, não lê a memória deles e não se conecta aos servidores. O overlay, que é opcional, é uma janela separada que mostra apenas informações públicas ou o que dá para deduzir do que já foi jogado, nunca informações ocultas.</p></details>
 <details><summary>Que dados ele envia?</summary>
-<p>Suas partidas, capturas e estatísticas ficam em uma pasta do seu PC. O programa só baixa as listas atualizadas de decks do meta, uma por formato (a cada 3 dias), consulta nomes de cartas no Scryfall (também com ids do Magic Online) quando precisa e pergunta ao GitHub uma vez por dia se há uma versão nova. Você pode desativar as três coisas em Configurações. Ele só envia dados quando você pede algo. A análise com IA envia os dados daquela partida (resultado, deck, mãos, cartas vistas e cronologia), nunca o seu nome nem o do oponente. Um relatório de bug envia o que você escrever, seu e-mail se você informar, a versão do ManaLab, seu sistema e idioma, se você usa o Arena ou o Magic Online, um identificador anônimo do seu PC e, se você marcar, as últimas linhas do registro.log sem seu nome de usuário e sem códigos. Ele não envia partidas nem decks.</p>
+<p>Suas partidas, capturas e estatísticas ficam em uma pasta do seu PC. O programa só baixa as listas atualizadas de decks do meta, uma por formato (a cada 3 dias), consulta nomes de cartas no Scryfall (também com ids do <span style="white-space:nowrap">Magic Online</span>) quando precisa e pergunta ao GitHub uma vez por dia se há uma versão nova. Você pode desativar as três coisas em Configurações. Ele só envia dados quando você pede algo. A análise com IA envia os dados daquela partida (resultado, deck, mãos, cartas vistas e cronologia), nunca o seu nome nem o do oponente. Um relatório de bug envia o que você escrever, seu e-mail se você informar, a versão do ManaLab, seu sistema e idioma, se você usa o Arena ou o <span style="white-space:nowrap">Magic Online</span>, um identificador anônimo do seu PC e, se você marcar, as últimas linhas do registro.log sem seu nome de usuário e sem códigos. Ele não envia partidas nem decks.</p>
 <p>Mais detalhes: <a href="/safety/">O ManaLab é seguro? (em inglês)</a></p></details>
 <details><summary>O Windows mostra «O Windows protegeu seu computador». É seguro?</summary>
 <p>Esse aviso aparece para programas sem certificado de assinatura de código pago, o que é comum em ferramentas gratuitas pequenas. Clique em «Mais informações» e depois em «Executar assim mesmo». Ele só aparece no primeiro download: as versões novas são instaladas com «Atualizar agora», dentro do app, sem aviso. Para evitá-lo também na primeira vez, antes de extrair, clique com o botão direito no ZIP › Propriedades › marque «Desbloquear» › OK. Cada versão é analisada no VirusTotal antes de ser publicada.</p>
 <p>Mais detalhes: <a href="/safety/">O ManaLab é seguro? (em inglês)</a></p></details>
 <details id="magic-online"><summary>Funciona com o Magic Online?</summary>
-<p>Sim, a partir da 2.3. O ManaLab registra suas partidas do Magic Online (MTGO): mãos, mulligans, quem começa, o deck do oponente, estatísticas, repetição e overlay. Não há nada para configurar: ele detecta o Magic Online sozinho quando você o abre, e você pode importar um arquivo mtgo.log. O que muda: o Magic Online não envia as fases do turno nem as cartas viradas, então o ManaLab as deduz do log, e na repetição tudo o que é deduzido leva ≈ porque pode não ser exato. O Magic Online também não informa a tempo a sua lista depois do sideboard: o ManaLab pede que você confirme suas mudanças entre as partidas com um clique e, até você confirmar, o overlay mostra a lista como não confirmada. O overlay pode mostrar menos do que no Arena quando o log não traz o estado da mesa. Seu deck recebe o nome pelas cores.</p>
-<p>No site: <a href="/magic-online/">Tracker para Magic Online: o que ele guarda e como funciona (em inglês)</a></p></details>
+<p>Sim, a partir da 2.3. O ManaLab registra suas partidas do <span style="white-space:nowrap">Magic Online</span> (MTGO): mãos, mulligans, quem começa, o deck do oponente, estatísticas, repetição e overlay. Não há nada para configurar: ele detecta o <span style="white-space:nowrap">Magic Online</span> sozinho quando você o abre, e você pode importar um arquivo mtgo.log. O que muda: o <span style="white-space:nowrap">Magic Online</span> não envia as fases do turno nem as cartas viradas, então o ManaLab as deduz do log, e na repetição tudo o que é deduzido leva ≈ porque pode não ser exato. O <span style="white-space:nowrap">Magic Online</span> também não informa a tempo a sua lista depois do sideboard: o ManaLab pede que você confirme suas mudanças entre as partidas com um clique e, até você confirmar, o overlay mostra a lista como não confirmada. O overlay pode mostrar menos do que no Arena quando o log não traz o estado da mesa. Seu deck recebe o nome pelas cores.</p>
+<p>No site: <a href="/magic-online/">Tracker para <span style="white-space:nowrap">Magic Online</span>: o que ele guarda e como funciona (em inglês)</a></p></details>
 <details><summary>Funciona no Mac ou no Linux?</summary>
 <p>Por enquanto, só para Windows 10 e 11. Não existe versão nativa para Linux, e ela não foi testada com Wine nem Proton, então não podemos prometer que funcione.</p></details>
 <details><summary>Ele registra Draft e Sealed (Limitado)?</summary>
-<p>Sim. Ele registra qualquer partida do Arena ou do Magic Online, inclusive Limitado. O deck do oponente é comparado com os decks do meta do formato da partida (Standard, Pioneer, Modern, Legacy, Vintage e Pauper); se nada combinar com clareza, como no Limitado, ele recebe o nome pelas cores.</p></details>
+<p>Sim. Ele registra qualquer partida do Arena ou do <span style="white-space:nowrap">Magic Online</span>, inclusive Limitado. O deck do oponente é comparado com os decks do meta do formato da partida (Standard, Pioneer, Modern, Legacy, Vintage e Pauper); se nada combinar com clareza, como no Limitado, ele recebe o nome pelas cores.</p></details>
 <details><summary>É grátis?</summary>
 <p>O programa é grátis e não precisa de conta. A única parte paga é a análise de derrotas com IA: 5 € por mês, que cobrem o serviço de IA usado. Todos os outros recursos são grátis.</p></details>
 <details><summary>Como consigo a análise com IA?</summary>
@@ -647,7 +657,7 @@ html.movil .hero-cta { margin-top: 16px; }
 <a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener" target="_blank">Lista do meta</a>
 <a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-manual-en.pdf" rel="noopener">Manual do usuário (PDF, em inglês)</a>
 <a href="/novedades/">Novidades (em inglês)</a>
-<a href="/magic-online/">Tracker para Magic Online (em inglês)</a>
+<a href="/magic-online/">Tracker para <span style="white-space:nowrap">Magic Online</span> (em inglês)</a>
 <a href="/pt/coaches/">Guia para coaches</a>
 <a href="#preguntas">Perguntas</a>
 <a href="/privacy/">Privacidade (em inglês)</a>
