@@ -177,6 +177,34 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/magic-online/"/>
   </url>
   <url>
+    <loc>https://manalab.es/detailed-logs/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/detailed-logs/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/registro-detallado/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/detailed-logs/"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/es/registro-detallado/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/detailed-logs/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/registro-detallado/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/detailed-logs/"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/overlay/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/overlay/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/overlay/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/overlay/"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/es/overlay/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/overlay/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/overlay/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/overlay/"/>
+  </url>
+  <url>
     <loc>https://manalab.es/novedades/</loc>
     <lastmod>2026-11-10</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/novedades/"/>
