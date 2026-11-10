@@ -87,8 +87,8 @@ class TestPuntos1y9Descarga(unittest.TestCase):
             self.assertTrue(zip_.endswith("-portable.zip"))
             botones = [e for e in enlaces(ruta) if "descarga" in e["attrs"].get("class", "").split()
                        and "boton" in e["attrs"].get("class", "").split()]
-            self.assertEqual(len(botones), 2, "cabecera y hero")
-            for lugar, e in zip(("cabecera", "hero"), botones):
+            self.assertEqual(len(botones), 5, "cabecera, hero, motivos, funciones y franja final (ML-153)")
+            for lugar, e in zip(("cabecera", "hero", "motivos", "funciones", "final"), botones):
                 with self.subTest(idioma=idioma, lugar=lugar):
                     a = e["attrs"]
                     self.assertEqual(a["href"], zip_)
@@ -126,12 +126,12 @@ class TestPuntos1y9Descarga(unittest.TestCase):
 
 
 class TestPunto2CajaMovil(unittest.TestCase):
-    def test_hueco_entre_sub_y_nota_desc(self):
+    def test_hueco_entre_sub_y_boton_del_hero(self):
         for idioma, ruta in PORTADAS.items():
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 self.assertEqual(html.count("data-movil-aqui"), 1)
-                self.assertRegex(html, r'<p class="sub">[^<]*</p>\s*<div data-movil-aqui></div>\s*<div class="nota-desc">')
+                self.assertRegex(html, r'<p class="sub">[^<]*</p>\s*<div data-movil-aqui></div>\s*<div class="hero-cta">')
 
     def test_css_y_js(self):
         for idioma, ruta in PORTADAS.items():
@@ -206,7 +206,7 @@ class TestPunto4Logo(unittest.TestCase):
             for m in re.finditer(r'<a class="marca"[^>]*><img[^>]*src="([^"]*)"', html):
                 usadas += 1
                 self.assertTrue(m.group(1).endswith("img/logo-claro.png"), f"{ruta}: {m.group(1)}")
-        self.assertEqual(usadas, 9)
+        self.assertEqual(usadas, 12)   # 9 páginas + las dos de novedades (ML-153) + la 404 (ML-154)
         self.assertTrue((RAIZ / "img" / "logo.png").exists())
 
 
@@ -272,7 +272,7 @@ class TestPunto7SorteoYSitemap(unittest.TestCase):
                 self.assertIn('<meta name="robots" content="noindex, follow">', leer(ruta))
         sitemap = leer(RAIZ / "sitemap.xml")
         self.assertNotIn("/sorteo", sitemap)
-        self.assertEqual(sitemap.count("<loc>"), 19)
+        self.assertEqual(sitemap.count("<loc>"), 21)   # 19 + las dos páginas de novedades (ML-153)
 
     def test_cada_url_del_sitemap_tiene_su_archivo(self):
         import actualizar_sitemap as u

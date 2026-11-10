@@ -105,7 +105,8 @@ class TestPortadas(unittest.TestCase):
         for idioma, (ruta, _) in PORTADAS.items():
             with self.subTest(idioma):
                 t = ruta.read_text(encoding="utf-8")
-                bloque = t[t.index('id="hero-video"'):t.index('class="hero-cta"')]
+                inicio = t.index('id="hero-video"')
+                bloque = t[inicio:t.index("</section>", inicio)]   # el botón (.hero-cta) pasó a la columna izquierda (ML-153)
                 self.assertIn("prefers-reduced-motion: reduce", bloque)
                 self.assertIn("saveData", bloque)
                 self.assertRegex(bloque, r'removeAttribute\("autoplay"\)')
