@@ -7,6 +7,8 @@
 <link href="https://manalab.es/es/" rel="canonical"/>
 <link href="https://manalab.es/" hreflang="en" rel="alternate"/>
 <link href="https://manalab.es/es/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/pt/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://manalab.es/ja/" hreflang="ja" rel="alternate"/>
 <link href="https://manalab.es/" hreflang="x-default" rel="alternate"/>
 <meta content="#0d0304" name="theme-color"/>
 <link href="../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
@@ -347,6 +349,15 @@ footer { padding-block: 28px; }
   footer .fila { gap: 0 20px; }
   footer .fila a, footer .guias a { display: inline-flex; align-items: center; min-height: 44px; }
 }
+
+/* ML-156: selector de idioma con cuatro idiomas (sin empujar el botón de descarga) y separación del enlace bajo la caja de móvil */
+@media (max-width: 600px) {
+  .cab .envoltura { gap: 8px; }
+  .idioma { padding: 5px 9px; }
+  .marca b { font-size: 17px; }
+}
+@media (max-width: 380px) { .marca span { display: none; } }
+html.movil .hero-cta { margin-top: 16px; }
 </style></head>
 <body>
 <!-- aviso de la versión nueva: quitar o cambiar en la siguiente release -->
@@ -367,7 +378,9 @@ footer { padding-block: 28px; }
 <a href="#preguntas">Preguntas</a>
 <a href="#ia">Análisis IA</a>
 </nav>
-<a class="idioma" href="../" hreflang="en" id="idioma" lang="en" title="View in English">EN</a>
+<a class="idioma" href="/" hreflang="en" id="idioma" lang="en" title="View in English">EN</a>
+<a class="idioma" href="/pt/" hreflang="pt-BR" lang="pt-BR" title="Ver em português">PT</a>
+<a class="idioma" href="/ja/" hreflang="ja" lang="ja" title="日本語で見る">日本語</a>
 <a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-cabecera-es" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar</span></a>
 </div>
 </header>
@@ -517,7 +530,8 @@ footer { padding-block: 28px; }
 <p style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 18px"><a href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-funciones-es" rel="noopener" style="font-weight:600" target="_blank"><span>Suscribirme en Ko-fi →</span></a></p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><rect height="12" rx="2" width="18" x="3" y="4"></rect><path d="M8 20h8M12 16v4"></path><path d="M7 9h5M7 12h8"></path></svg>
 <h3>Overlay mientras juegas</h3>
-<p>Una ventana aparte junto al juego, en Arena o en Magic Online, con las cartas que te quedan por robar, las que has visto del rival y el turno. Solo muestra información pública o deducible de lo jugado. En Magic Online puede mostrar menos si el registro no trae el estado de la mesa.</p></div>
+<p>Una ventana aparte junto al juego, en Arena o en Magic Online, con las cartas que te quedan por robar, las que has visto del rival y el turno. Solo muestra información pública o deducible de lo jugado. En Magic Online puede mostrar menos si el registro no trae el estado de la mesa.</p>
+<p style="margin-top:10px"><a class="enlace-man" href="/es/overlay/">Overlay y deck tracker: qué muestra →</a></p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"></path></svg>
 <h3>Guía de sideboard</h3>
 <p>Por matchup, qué metiste y qué sacaste en tus propias partidas y cómo te fue, para dejar de ir de memoria en el sideboard.</p></div>
@@ -626,7 +640,7 @@ footer { padding-block: 28px; }
 <p>¿Tienes la 2.1.0, 2.1.1 o 2.1.2? Actualiza a mano por última vez: desbloquea el ZIP como se explica arriba y descomprímelo encima de tu carpeta de ManaLab (tus partidas y ajustes se conservan). Esas versiones podían abrirse y cerrarse sin mostrar la ventana; desde la 2.2 las siguientes se instalan solas desde la app.</p>
 <p><a href="/es/seguridad/">¿Es seguro? Compruébalo →</a></p></details></div>
 <div class="paso"><h3>Prepara tu juego</h3>
-<p><b>Arena:</b> activa <span class="ruta">Opciones › Cuenta › Registro detallado</span>. Sin esto, Arena no escribe las partidas.</p>
+<p><b>Arena:</b> activa <span class="ruta">Opciones › Cuenta › Registro detallado</span>. Sin esto, Arena no escribe las partidas. <a href="/es/registro-detallado/">Cómo activarlo, paso a paso →</a></p>
 <p style="margin-top:10px"><b>Magic Online:</b> no hay que configurar nada. Abre Magic Online y ManaLab lo detecta solo. La ruta del registro está en <span class="ruta">Ajustes › Juegos</span>, en Predeterminado.</p></div>
 <div class="paso"><h3>Juega y revisa</h3>
 <p><b>Pulsa «Iniciar registro».</b> Abre ManaLab antes de jugar y déjalo en marcha. Cada match aparece en el Panel al terminar.</p>
@@ -741,6 +755,8 @@ footer { padding-block: 28px; }
 <a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-manual-en.pdf" rel="noopener">Manual (PDF, en inglés)</a>
 <a href="/es/novedades/">Novedades</a>
 <a href="/es/magic-online/">Tracker para Magic Online</a>
+<a href="/es/registro-detallado/">Cómo activar el registro detallado</a>
+<a href="/es/overlay/">Overlay y deck tracker</a>
 <a href="/es/coaches/">Guía para coaches</a>
 <a href="#preguntas">Preguntas</a>
 <a href="/privacy/">Privacidad</a>

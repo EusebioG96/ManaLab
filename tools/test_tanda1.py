@@ -153,7 +153,7 @@ class TestPunto3Guias(unittest.TestCase):
                 botones = [e for e in lista if "descargar" in e["attrs"].get("class", "").split()]
                 self.assertEqual(len(botones), 2)
                 for e in botones:
-                    self.assertEqual(e["attrs"]["href"], "/es/#descargar" if idioma == "es" else "/#descargar")
+                    self.assertEqual(e["attrs"]["href"], {"es": "/es/#descargar", "ja": "/ja/#descargar", "pt": "/pt/#descargar"}.get(idioma, "/#descargar"))
                     self.assertEqual(e["attrs"].get("data-goatcounter-click"), "guia-descarga")
                     self.assertEqual(e["attrs"].get("data-goatcounter-title"), f"guia-descarga-{idioma}")
                     self.assertEqual(e["texto"], TEXTO_GUIA[idioma])
@@ -173,6 +173,8 @@ class TestPunto3Guias(unittest.TestCase):
     def test_inicio_en_espanol_va_a_es(self):
         html = leer(RAIZ / "guia" / "guia_manalab_es.html")
         self.assertIn('<a href="/es/">← Inicio de ManaLab</a>', html)
+        for idioma, texto in (("ja", "← ManaLab ホーム"), ("pt", "← Início do ManaLab")):
+            self.assertIn(f'<a href="/{idioma}/">{texto}</a>', leer(RAIZ / "guia" / f"guia_manalab_{idioma}.html"))
 
     def test_el_boton_no_sale_al_imprimir(self):
         for idioma in IDIOMAS_GUIA:
@@ -206,7 +208,7 @@ class TestPunto4Logo(unittest.TestCase):
             for m in re.finditer(r'<a class="marca"[^>]*><img[^>]*src="([^"]*)"', html):
                 usadas += 1
                 self.assertTrue(m.group(1).endswith("img/logo-claro.png"), f"{ruta}: {m.group(1)}")
-        self.assertEqual(usadas, 12)   # 9 páginas + las dos de novedades (ML-153) + la 404 (ML-154)
+        self.assertEqual(usadas, 18)   # 9 páginas + las dos de novedades (ML-153) + la 404 (ML-154) + las portadas ja y pt (ML-156) + 4 páginas de búsquedas (ML-157)
         self.assertTrue((RAIZ / "img" / "logo.png").exists())
 
 
@@ -272,7 +274,7 @@ class TestPunto7SorteoYSitemap(unittest.TestCase):
                 self.assertIn('<meta name="robots" content="noindex, follow">', leer(ruta))
         sitemap = leer(RAIZ / "sitemap.xml")
         self.assertNotIn("/sorteo", sitemap)
-        self.assertEqual(sitemap.count("<loc>"), 21)   # 19 + las dos páginas de novedades (ML-153)
+        self.assertEqual(sitemap.count("<loc>"), 27)   # 19 + novedades (ML-153) + las portadas ja y pt (ML-156) + 4 páginas de búsquedas (ML-157)
 
     def test_cada_url_del_sitemap_tiene_su_archivo(self):
         import actualizar_sitemap as u

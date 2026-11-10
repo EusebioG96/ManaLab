@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>ManaLab: tracker grátis para MTG Arena e Magic Online</title>
+<meta content="ManaLab é um tracker grátis que registra sozinho suas partidas de MTG Arena e Magic Online: mãos iniciais, mulligans, quem começa, deck do oponente e winrate por matchup." name="description"/>
+<link href="https://manalab.es/pt/" rel="canonical"/>
+<link href="https://manalab.es/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/pt/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://manalab.es/ja/" hreflang="ja" rel="alternate"/>
+<link href="https://manalab.es/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<link href="/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="pt_BR" property="og:locale"/>
+<meta content="ManaLab: tracker grátis para MTG Arena e Magic Online" property="og:title"/>
+<meta content="ManaLab é um tracker grátis que registra sozinho suas partidas de MTG Arena e Magic Online: mãos iniciais, mulligans, quem começa, deck do oponente e winrate por matchup." property="og:description"/>
+<meta content="https://manalab.es/pt/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="ManaLab: tracker grátis para MTG Arena e Magic Online" name="twitter:title"/>
+<meta content="ManaLab é um tracker grátis que registra sozinho suas partidas de MTG Arena e Magic Online: mãos iniciais, mulligans, quem começa, deck do oponente e winrate por matchup." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://manalab.es/pt/#website", "name": "ManaLab", "url": "https://manalab.es/pt/", "inLanguage": "pt-BR", "publisher": {"@id": "https://manalab.es/#org"}}, {"@type": "Organization", "@id": "https://manalab.es/#org", "name": "ManaLab", "url": "https://manalab.es/", "logo": {"@type": "ImageObject", "url": "https://manalab.es/img/icono-192.png", "width": 192, "height": 192}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}, {"@type": "SoftwareApplication", "name": "ManaLab", "url": "https://manalab.es/pt/", "description": "ManaLab é um tracker grátis que registra sozinho suas partidas de MTG Arena e Magic Online: mãos iniciais, mulligans, quem começa, deck do oponente e winrate por matchup.", "applicationCategory": "GameApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "2.3.0", "downloadUrl": "https://github.com/EusebioG96/ManaLab/releases/latest", "image": "https://manalab.es/img/og.jpg", "screenshot": ["https://manalab.es/img/v22_repeticion.jpg", "https://manalab.es/img/en_panel.jpg", "https://manalab.es/img/en_partida.jpg", "https://manalab.es/img/en_estadisticas.jpg"], "inLanguage": "pt-BR", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "@id": "https://manalab.es/pt/#app", "isPartOf": {"@id": "https://manalab.es/pt/#website"}, "publisher": {"@id": "https://manalab.es/#org"}, "mainEntityOfPage": "https://manalab.es/pt/", "applicationSubCategory": "Tracker de partidas para MTG Arena e Magic Online"}, {"@type": "FAQPage", "inLanguage": "pt-BR", "mainEntity": [{"@type": "Question", "name": "Ele mexe no jogo ou me dá alguma vantagem em uma partida?", "acceptedAnswer": {"@type": "Answer", "text": "Não, nem no Arena nem no Magic Online. Ele só lê os arquivos que os jogos gravam no seu PC (o Player.log do Arena; o mtgo.log, os Match_GameLog_*.dat, o mtgo_game_history e os arquivos de deck grouping *.xml do Magic Online), sem modificá-los. Ele não modifica o Arena nem o Magic Online, não lê a memória deles e não se conecta aos servidores. O overlay, que é opcional, é uma janela separada que mostra apenas informações públicas ou o que dá para deduzir do que já foi jogado, nunca informações ocultas."}}, {"@type": "Question", "name": "Que dados ele envia?", "acceptedAnswer": {"@type": "Answer", "text": "Suas partidas, capturas e estatísticas ficam em uma pasta do seu PC. O programa só baixa as listas atualizadas de decks do meta, uma por formato (a cada 3 dias), consulta nomes de cartas no Scryfall (também com ids do Magic Online) quando precisa e pergunta ao GitHub uma vez por dia se há uma versão nova. Você pode desativar as três coisas em Configurações. Ele só envia dados quando você pede algo. A análise com IA envia os dados daquela partida (resultado, deck, mãos, cartas vistas e cronologia), nunca o seu nome nem o do oponente. Um relatório de bug envia o que você escrever, seu e-mail se você informar, a versão do ManaLab, seu sistema e idioma, se você usa o Arena ou o Magic Online, um identificador anônimo do seu PC e, se você marcar, as últimas linhas do registro.log sem seu nome de usuário e sem códigos. Ele não envia partidas nem decks."}}, {"@type": "Question", "name": "O Windows mostra «O Windows protegeu o computador». É seguro?", "acceptedAnswer": {"@type": "Answer", "text": "Esse aviso aparece para programas sem certificado de assinatura de código pago, o que é comum em ferramentas gratuitas pequenas. Clique em «Mais informações» e depois em «Executar assim mesmo». Ele só aparece no primeiro download: as versões novas são instaladas com «Atualizar agora», dentro do app, sem aviso. Para evitá-lo também na primeira vez, antes de extrair, clique com o botão direito no ZIP › Propriedades › marque «Desbloquear» › OK. Cada versão é analisada no VirusTotal antes de ser publicada."}}, {"@type": "Question", "name": "Funciona com o Magic Online?", "acceptedAnswer": {"@type": "Answer", "text": "Sim, a partir da 2.3. O ManaLab registra suas partidas do Magic Online (MTGO): mãos, mulligans, quem começa, o deck do oponente, estatísticas, repetição e overlay. Não há nada para configurar: ele detecta o Magic Online sozinho quando você o abre, e você pode importar um arquivo mtgo.log. O que muda: o Magic Online não envia as fases do turno nem as cartas viradas, então o ManaLab as deduz do log, e na repetição tudo o que é deduzido leva ≈ porque pode não ser exato. O Magic Online também não informa a tempo a sua lista depois do sideboard: o ManaLab pede que você confirme suas mudanças entre as partidas com um clique e, até você confirmar, o overlay mostra a lista como não confirmada. O overlay pode mostrar menos do que no Arena quando o log não traz o estado da mesa. Seu deck recebe o nome pelas cores."}}, {"@type": "Question", "name": "Funciona no Mac ou no Linux?", "acceptedAnswer": {"@type": "Answer", "text": "Por enquanto, só para Windows 10 e 11. Não existe versão nativa para Linux, e ela não foi testada com Wine nem Proton, então não podemos prometer que funcione."}}, {"@type": "Question", "name": "Ele registra Draft e Selado (Limitado)?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Ele registra qualquer partida do Arena ou do Magic Online, inclusive Limitado. O deck do oponente é comparado com os decks do meta do formato da partida (Standard, Pioneer, Modern, Legacy, Vintage e Pauper); se nada combinar com clareza, como no Limitado, ele recebe o nome pelas cores."}}, {"@type": "Question", "name": "É grátis?", "acceptedAnswer": {"@type": "Answer", "text": "O programa é grátis e não precisa de conta. A única parte paga é a análise de derrotas com IA: 5 € por mês, que cobrem o serviço de IA usado. Todos os outros recursos são grátis."}}, {"@type": "Question", "name": "Como consigo a análise com IA?", "acceptedAnswer": {"@type": "Answer", "text": "Assine no Ko-fi (5 € por mês). Depois de pagar, você recebe um código de assinatura por e-mail. Cole-o em Configurações › Equipe e IA e a análise aparece na aba Análise de cada partida perdida. Quer testar antes? Peça um teste grátis por e-mail."}}]}]}</script>
+<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" as="image" href="/video/hero/manalab-hero-en-poster.jpg"><style>
+/* tipografías propias (ML-154): Saira Semi Condensed y Figtree, subconjuntos latin y latin-ext, licencia OFL en /fuentes/ */
+@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/figtree-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/figtree-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/figtree-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/figtree-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/figtree-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/figtree-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Concepto: la página es la propia app — paneles oscuros carmesí, el log de Arena convertido en un historial.
+   Un solo mundo visual (oscuro, como el programa), por eso no hay versión clara. */
+:root {
+  color-scheme: dark;
+  --fondo: #0d0304;
+  --fondo2: #150608;
+  --panel: #1c0b0e;
+  --panel2: #281215;
+  --linea: rgba(255, 214, 200, 0.09);
+  --linea2: rgba(255, 214, 200, 0.16);
+  --texto: #f3e8e2;
+  --texto2: #cbb6af;
+  --apagado: #957f79;
+  --carmesi: #c2363f;
+  --carmesi-h: #d6454f;
+  --oro: #e9b37f;
+  --oro-suave: rgba(233, 179, 127, 0.13);
+  --ko: #f06b74;
+  --ko-suave: rgba(240, 107, 116, 0.13);
+  --f-display: "Saira Semi Condensed", "Bahnschrift", "Arial Narrow", system-ui, sans-serif;
+  --f-texto: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --ancho: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--fondo); color: var(--texto); font: 16px/1.6 var(--f-texto); -webkit-font-smoothing: antialiased; }
+a { color: var(--oro); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--oro); outline-offset: 3px; border-radius: 6px; }
+img { max-width: 100%; display: block; }
+.envoltura { max-width: var(--ancho); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; letter-spacing: 0.2px; text-wrap: balance; margin: 0; }
+.eti { font: 600 12px/1 var(--f-display); letter-spacing: 2.2px; text-transform: uppercase; color: var(--oro); }
+
+/* ---------------- cabecera */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(13, 3, 4, 0.92); }
+.nota-descarga { margin-top: 10px; font-size: 14px; color: var(--texto2); }
+.nota-descarga a { color: inherit; text-decoration: underline; }
+.nota-smartscreen { margin-top: 12px; font-size: 14px; color: var(--texto2); }
+.nota-smartscreen b { color: var(--texto); }
+.aviso-version { background: var(--oro-suave); border-bottom: 1px solid rgba(233, 179, 127, 0.35); font-size: 14px; color: var(--texto); }
+.aviso-version .envoltura { display: flex; align-items: center; justify-content: space-between; gap: 10px 18px; flex-wrap: wrap; padding-block: 9px; }
+.aviso-version b { color: var(--oro); }
+.aviso-version a { color: var(--oro); font-weight: 600; white-space: nowrap; }
+.aviso-version span a { white-space: normal; }
+.cab { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: rgba(13, 3, 4, 0.82); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linea); }
+.cab .envoltura { display: flex; align-items: center; gap: 22px; padding-block: 12px; }
+.marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--texto); margin-right: auto; }
+.marca img { width: 36px; height: 36px; }
+.marca b { font: 600 19px/1 var(--f-display); letter-spacing: 0.3px; }
+.marca small { display: block; font: 500 10px/1 var(--f-display); letter-spacing: 2.4px; color: var(--apagado); margin-top: 4px; }
+.cab nav { display: flex; gap: 22px; }
+.cab nav a { color: var(--texto2); text-decoration: none; font-size: 14.5px; }
+.cab nav a:hover { color: var(--texto); }
+.idioma { border: 1px solid var(--linea2); background: none; color: var(--texto2); border-radius: 999px; padding: 5px 11px; font: 600 12px var(--f-display); letter-spacing: 1px; cursor: pointer; }
+.idioma:hover { color: var(--texto); border-color: var(--apagado); }
+.boton { display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; padding: 11px 22px; font: 600 15px var(--f-texto); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .15s, transform .1s; white-space: nowrap; }
+.boton:active { transform: translateY(1px); }
+.boton.prim { background: var(--carmesi); color: #fff5f0; box-shadow: 0 10px 28px -12px rgba(194, 54, 63, 0.9); }
+.boton.prim:hover { background: var(--carmesi-h); }
+.boton.sec { background: var(--panel2); border-color: var(--linea2); color: var(--texto); }
+.boton.sec:hover { background: #33171b; }
+.boton svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cab .boton { padding: 8px 16px; font-size: 14px; }
+
+/* ---------------- portada */
+.portada { padding-block: 36px 24px; position: relative; overflow: hidden; }
+.portada::before { content: ""; position: absolute; inset: -40% -10% auto 40%; height: 700px; background: radial-gradient(closest-side, rgba(194, 54, 63, 0.22), transparent 70%); pointer-events: none; }
+.portada .envoltura { position: relative; display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 48px; align-items: center; }
+.portada h1 { font-size: clamp(40px, 5vw, 60px); line-height: 1.02; margin: 14px 0 16px; }
+.portada h1 em { font-style: normal; color: var(--oro); }
+.portada p.sub { font-size: 18.5px; color: var(--texto2); max-width: 34em; margin: 0 0 24px; }
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.nota-desc { margin-top: 16px; font-size: 14px; color: var(--apagado); display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.nota-desc span::before { content: "✓"; color: var(--oro); margin-right: 6px; }
+/* vídeo de cabecera (ML-058): 15 s sin sonido en bucle; con «reducir movimiento» o ahorro de datos solo se ve el póster */
+.hero-medio { display: grid; gap: 18px; justify-items: start; min-width: 0; }
+.hero-video { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; border: 1px solid var(--linea2); background: var(--fondo); box-shadow: 0 40px 90px -40px #000, 0 0 0 6px rgba(255, 214, 200, 0.025); }
+.hero-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.hero-pausa { position: absolute; right: 8px; top: 8px; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--linea2); background: rgba(13, 3, 4, 0.72); color: var(--texto2); display: grid; place-items: center; cursor: pointer; padding: 0; opacity: 0.75; }
+.hero-pausa:hover, .hero-pausa:focus-visible { opacity: 1; color: var(--texto); }
+.hero-pausa svg { width: 14px; height: 14px; fill: currentColor; }
+.hero-pausa .ico-play, .hero-pausa.pausado .ico-pausa { display: none; }
+.hero-pausa.pausado .ico-play { display: block; }
+.hero-video.solo-poster .hero-pausa { display: none; }
+.hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+html.movil .aviso-version { display: none; }
+html.movil .hero-cta .boton { display: none; }
+.enlace-sec { color: var(--texto2); font-size: 14.5px; text-decoration: underline; text-decoration-color: var(--linea2); text-underline-offset: 3px; }
+.enlace-sec:hover { color: var(--texto); text-decoration-color: currentColor; }
+.ventana { border-radius: 14px; border: 1px solid var(--linea2); background: var(--panel); box-shadow: 0 40px 90px -40px #000, 0 0 0 6px rgba(255, 214, 200, 0.025); overflow: hidden; }
+.ventana .barra { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--linea); align-items: center; }
+.ventana .barra i { width: 9px; height: 9px; border-radius: 50%; background: var(--panel2); }
+.ventana .barra span { margin-left: 8px; font: 500 11.5px var(--f-texto); color: var(--apagado); }
+.ventana img { width: 100%; height: auto; object-fit: cover; object-position: top left; }
+.ventana img.cap { aspect-ratio: 1366 / 860; }
+
+/* ---------------- del log al historial */
+.seccion { padding-block: 40px; }
+.seccion.franja { background: var(--fondo2); border-block: 1px solid var(--linea); }
+.cab-sec { max-width: 680px; margin-bottom: 22px; }
+.cab-sec h2 { font-size: clamp(30px, 3.6vw, 42px); line-height: 1.08; margin: 12px 0 12px; }
+.cab-sec p { color: var(--texto2); margin: 0; font-size: 17px; }
+.conversion { display: grid; grid-template-columns: minmax(0, 1.1fr) auto minmax(0, 1fr); gap: 22px; align-items: center; }
+.log { background: #080102; border: 1px solid var(--linea); border-radius: 14px; padding: 18px 18px 16px; font: 12.5px/1.7 var(--f-mono); color: #a99590; overflow-x: auto; min-width: 0; }
+.log .t { color: var(--apagado); display: block; margin-bottom: 8px; font-family: var(--f-texto); font-size: 12px; }
+.log b { color: var(--oro); font-weight: 500; }
+.log .k { color: #e7a1a6; }
+.log pre { margin: 0; white-space: pre; }
+.flecha-c { color: var(--carmesi); }
+.flecha-c svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.match { background: var(--panel); border: 1px solid var(--linea2); border-radius: 14px; padding: 16px; min-width: 0; }
+.m-cab { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+.res { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; font: 700 17px var(--f-display); background: var(--oro-suave); color: var(--oro); }
+.m-nom { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.m-sub { font-size: 13px; color: var(--apagado); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.marcador { font: 600 18px var(--f-display); font-variant-numeric: tabular-nums; display: flex; gap: 10px; align-items: center; }
+.puntos { display: flex; gap: 5px; } .puntos i { width: 9px; height: 9px; border-radius: 50%; background: var(--oro); } .puntos i.d { background: var(--ko); }
+.juegos { margin: 12px 0 0 52px; display: grid; gap: 4px; }
+.juego { display: grid; grid-template-columns: minmax(0, 1fr) 54px 74px; gap: 8px; font-size: 13.5px; padding: 6px 10px; border-radius: 9px; background: rgba(255, 255, 255, 0.022); align-items: center; }
+.juego .g { color: var(--apagado); font-size: 12.5px; }
+.chip { justify-self: start; font: 600 11.5px var(--f-texto); border-radius: 999px; padding: 2px 9px; background: var(--oro-suave); color: var(--oro); }
+.chip.d { background: var(--ko-suave); color: var(--ko); }
+.mano { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.mano span { font-size: 12px; background: var(--panel2); border: 1px solid var(--linea); border-radius: 7px; padding: 3px 8px; }
+.mano span b { color: var(--oro); font-weight: 600; margin-right: 3px; }
+
+/* ---------------- funciones */
+.funciones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--linea); border: 1px solid var(--linea); border-radius: 16px; overflow: hidden; }
+.funcion { background: var(--fondo); padding: 26px 24px 28px; }
+.funcion svg { width: 26px; height: 26px; fill: none; stroke: var(--oro); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.funcion h3 { font-size: 20px; margin: 14px 0 8px; }
+.funcion p { margin: 0; color: var(--texto2); font-size: 15px; }
+
+/* ---------------- capturas */
+.pestanas { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.pestanas button { border: 1px solid var(--linea2); background: none; color: var(--texto2); border-radius: 999px; padding: 7px 16px; font: 600 14px var(--f-texto); cursor: pointer; }
+.pestanas button[aria-selected="true"] { background: rgba(194, 54, 63, 0.16); border-color: rgba(194, 54, 63, 0.5); color: var(--oro); }
+.pie-captura { margin-top: 12px; font-size: 14px; color: var(--apagado); }
+
+/* ---------------- pasos */
+.pasos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; counter-reset: paso; }
+.paso { border-top: 2px solid var(--carmesi); padding-top: 18px; }
+.paso::before { counter-increment: paso; content: counter(paso); font: 700 44px/1 var(--f-display); color: var(--panel2); -webkit-text-stroke: 1px var(--linea2); }
+.paso h3 { font-size: 21px; margin: 10px 0 8px; }
+.paso p { margin: 0; color: var(--texto2); font-size: 15px; }
+.ruta { font: 13px var(--f-mono); background: var(--panel); border: 1px solid var(--linea); border-radius: 8px; padding: 2px 7px; color: var(--texto); white-space: nowrap; }
+
+/* ---------------- preguntas */
+.preguntas { display: grid; gap: 10px; max-width: 820px; }
+details { background: var(--panel); border: 1px solid var(--linea); border-radius: 14px; padding: 4px 20px; }
+details[open] { border-color: var(--linea2); }
+summary { cursor: pointer; list-style: none; padding: 14px 0; font-weight: 600; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--oro); font: 600 22px/1 var(--f-display); }
+details[open] summary::after { content: "–"; }
+details p { margin: 0 0 16px; color: var(--texto2); font-size: 15.5px; max-width: 70ch; }
+
+/* ---------------- apoyo */
+.apoyo { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: center; background: linear-gradient(135deg, #24090d, #150608 60%); border: 1px solid var(--linea2); border-radius: 22px; padding: 44px; }
+.apoyo h3 { font-size: clamp(28px, 3.2vw, 38px); margin: 12px 0 12px; }
+.apoyo p { color: var(--texto2); margin: 0 0 12px; }
+.ia-caja { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: center; background: linear-gradient(135deg, #3d0d14, #1a0709 62%); border: 1px solid rgba(194, 54, 63, 0.6); border-radius: 22px; padding: 46px; box-shadow: 0 0 70px rgba(194, 54, 63, 0.2); }
+.ia-caja h2 { font-size: clamp(30px, 3.6vw, 44px); margin: 12px 0; }
+.ia-caja p { color: var(--texto2); margin: 0 0 12px; }
+.ia-precio { font: 700 clamp(56px, 7vw, 84px)/1 var(--f-display); color: var(--oro); font-variant-numeric: tabular-nums; }
+.ia-precio small { font-size: 0.3em; color: var(--texto2); font-weight: 500; margin-left: 6px; }
+.ia-lista { border-top: 1px solid var(--linea2); padding-top: 18px; margin-top: 18px; }
+.ia-lista p { font-size: 15px; }
+.contacto { max-width: 680px; display: grid; gap: 16px; }
+.contacto label { display: grid; gap: 6px; color: var(--texto2); font-size: 15px; }
+.contacto input, .contacto select, .contacto textarea { background: #1a0a0d; color: var(--texto); border: 1px solid var(--linea2); border-radius: 10px; padding: 10px 12px; font: inherit; }
+.contacto .casilla { display: flex; gap: 10px; align-items: flex-start; }
+.contacto .casilla input { margin-top: 5px; }
+.rejilla-contacto { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 600px) { .rejilla-contacto { grid-template-columns: minmax(0, 1fr); } }
+.gastos { display: grid; gap: 10px; }
+.gasto { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; border-radius: 12px; background: rgba(0, 0, 0, 0.25); border: 1px solid var(--linea); font-size: 14.5px; }
+.gasto span:last-child { color: var(--apagado); text-align: right; }
+
+/* ---------------- pie */
+footer { border-top: 1px solid var(--linea); padding-block: 36px; color: var(--apagado); font-size: 13.5px; }
+footer .envoltura { display: grid; gap: 14px; }
+footer .fila { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; }
+footer .guias { gap: 6px 16px; }
+footer .guias a { color: inherit; }
+footer .guias b { color: var(--texto2); font-weight: 600; }
+footer .legal { max-width: 80ch; line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .cab nav { display: none; }
+  .portada .envoltura, .apoyo, .ia-caja, .conversion { grid-template-columns: minmax(0, 1fr); }
+  .flecha-c { justify-self: center; transform: rotate(90deg); }
+  .funciones, .pasos { grid-template-columns: minmax(0, 1fr); }
+  .portada { padding-block: 44px 24px; }
+  .apoyo { padding: 28px 22px; }
+}
+@media (max-width: 480px) {
+  .cab .boton span { display: none; }
+  .juegos { margin-left: 0; }
+}
+a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
+
+/* ---------------- teléfono: en lugar del ZIP, «envíate el enlace» (lo monta descarga.js solo en pantalla estrecha y táctil) */
+.movil-caja { scroll-margin-top: 84px; margin-top: 14px; padding: 18px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 14px; }
+.movil-tit { margin: 0 0 6px; font: 600 20px/1.2 var(--f-display); letter-spacing: 0.2px; color: var(--texto); }
+.movil-txt { margin: 0 0 14px; color: var(--texto2); font-size: 15px; }
+.movil-caja .boton { white-space: normal; text-align: center; justify-content: center; }
+.movil-zip { margin: 14px 0 0; font-size: 14px; }
+.movil-zip a { color: var(--texto2); text-decoration-color: var(--linea2); text-underline-offset: 3px; }
+.movil-estado { margin: 10px 0 0; font-size: 14px; font-weight: 600; color: var(--oro); overflow-wrap: anywhere; }
+.movil-estado:empty { display: none; }
+
+/* ---------------- Magic Online (2.3) */
+.mtgo-caja { margin-top: 28px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 16px; padding: 28px; }
+.mtgo-caja h3 { font-size: 22px; margin: 0 0 14px; }
+.mtgo-caja ul { margin: 0; padding-left: 20px; color: var(--texto2); display: grid; gap: 9px; font-size: 15.5px; max-width: 78ch; }
+.mtgo-caja li b { color: var(--texto); font-weight: 600; }
+.mtgo-caja code { font: 13px var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 6px; padding: 1px 6px; color: var(--texto); }
+.funcion .enlace-man { display: inline-block; margin-top: 10px; font-weight: 600; font-size: 15px; }
+@media (max-width: 480px) { .mtgo-caja { padding: 20px 18px; } }
+
+/* ---------------- novedades 2.2 */
+.novedades { display: grid; gap: 40px; }
+.novedad { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 40px; align-items: center; }
+.novedad:nth-child(even) { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
+.novedad:nth-child(even) .ventana { order: 2; }
+.novedades.mtgo-capturas { margin-top: 28px; }
+details[id] { scroll-margin-top: 90px; }
+.novedad .ventana { align-self: center; }
+/* sin «aspect-ratio: auto»: así el navegador reserva el alto de cada imagen con sus width/height y las imágenes perezosas no desplazan la página al cargar */
+.novedad .ventana img { height: auto; object-fit: contain; }
+.novedad .ventana.estrecha { justify-self: center; width: 100%; max-width: 440px; }
+.novedad h3 { font-size: clamp(24px, 2.6vw, 30px); line-height: 1.12; margin: 12px 0 10px; }
+.novedad p { margin: 0; color: var(--texto2); font-size: 17px; max-width: 34em; }
+@media (max-width: 900px) {
+  .novedades { gap: 44px; }
+  .novedad, .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .novedad:nth-child(even) .ventana { order: 0; }
+}
+/* ---------------- tanda 2A (ML-153): portada reordenada */
+.portada .hero-cta { margin-top: 0; }
+.nota-hero { margin-top: 14px; font-size: 14px; color: var(--texto2); display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.nota-hero a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.seccion.confianza { padding-block: 30px; }
+.confianza-lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px 32px; }
+.confianza-lista b { display: block; font: 600 16px/1.3 var(--f-display); letter-spacing: 0.2px; color: var(--texto); margin-bottom: 4px; }
+.confianza-lista b::before { content: "✓"; color: var(--oro); margin-right: 8px; }
+.confianza-lista span { display: block; font-size: 14px; line-height: 1.5; color: var(--texto2); overflow-wrap: anywhere; }
+.confianza-lista a { color: var(--oro); white-space: nowrap; }
+.novedad .ventana video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; }
+.novedad .ventana figure.video { margin: 0; }
+.enlace-seccion { margin: 36px 0 0; font-weight: 600; font-size: 16px; }
+.cta-seccion { margin-top: 40px; }
+.paso .destacado { margin-top: 14px; padding: 12px 14px; border: 1px solid rgba(233, 179, 127, 0.55); border-radius: 12px; background: var(--oro-suave); color: var(--texto); }
+.paso details { margin-top: 14px; padding: 0 14px; border-radius: 12px; }
+.paso details summary { padding: 11px 0; font-size: 15px; }
+.paso details p { font-size: 14px; margin: 0 0 12px; }
+.paso details p:last-child { margin-bottom: 14px; }
+.final-caja .nota-hero { margin-top: 16px; }
+.ia-caja + .apoyo { margin-top: 32px; }
+.paso > p + p { margin-top: 10px; }
+#descargar, .seccion[id] { scroll-margin-top: 76px; }
+.motivos .novedad, .motivos .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.motivos .novedad .ventana { max-width: 470px; }
+.motivos .novedad:nth-child(even) .ventana { justify-self: end; }
+.ia-caja { padding: 38px; }
+.apoyo { padding: 34px; }
+.funcion { padding: 22px 22px 24px; }
+.novedades.dos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; align-items: start; }
+.novedades.dos .novedad, .novedades.dos .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.novedades.dos .novedad:nth-child(even) .ventana { order: 0; }
+.novedades.dos .ventana.estrecha { max-width: 300px; }
+@media (max-width: 900px) {
+  .novedades.dos { grid-template-columns: minmax(0, 1fr); }
+  .motivos .novedad, .motivos .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
+  .confianza-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .motivos .novedad .ventana, .motivos .novedad:nth-child(even) .ventana { order: 2; max-width: none; justify-self: stretch; }
+}
+footer { padding-block: 28px; }
+@media (max-width: 767px) {
+  .seccion { padding-block: 30px; }
+  .cab-sec { margin-bottom: 18px; }
+  .portada { padding-block: 28px 16px; }
+  .portada p.sub { font-size: 17px; margin-bottom: 18px; }
+  .novedades { gap: 30px; }
+  .novedad, .novedad:nth-child(even) { gap: 14px; }
+  .novedad h3 { margin: 8px 0 6px; }
+  .novedad p { font-size: 16px; }
+  .novedades.dos .ventana.estrecha { max-width: 230px; }
+  .funcion svg { width: 22px; height: 22px; }
+  .funcion h3 { font-size: 19px; margin: 10px 0 5px; }
+  .funcion p { font-size: 14.5px; line-height: 1.5; }
+  details { padding: 2px 16px; }
+  summary { padding: 11px 0; }
+  footer { padding-block: 20px; }
+  .contacto { gap: 12px; }
+  .preguntas { gap: 8px; }
+  .ia-caja { padding: 26px 20px; gap: 24px; }
+  .apoyo { padding: 24px 20px; }
+  .funcion { padding: 16px 16px 18px; }
+  .movil-zip a { display: inline-flex; align-items: center; min-height: 44px; }
+  footer .fila { gap: 0 20px; }
+  footer .fila a, footer .guias a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
+/* ML-156: selector de idioma con cuatro idiomas (sin empujar el botón de descarga) y separación del enlace bajo la caja de móvil */
+@media (max-width: 600px) {
+  .cab .envoltura { gap: 8px; }
+  .idioma { padding: 5px 9px; }
+  .marca b { font-size: 17px; }
+}
+@media (max-width: 380px) { .marca span { display: none; } }
+html.movil .hero-cta { margin-top: 16px; }
+
+/* ---------------- ML-156: portadas en japonés y portugués */
+.pie-captura-hero { margin: 0; font-size: 13.5px; color: var(--apagado); }
+.ventana .pie-captura { margin: 0; padding: 9px 14px 10px; font-size: 13px; border-top: 1px solid var(--linea); }
+.enlaces-extra { margin-top: 36px; display: grid; gap: 6px; }
+.enlaces-extra p { margin: 0; font-weight: 600; font-size: 16px; }
+.nota-trad { margin: 0; color: var(--texto2); }
+.confianza-lista a { white-space: normal; }
+html[lang="ja"] { --f-texto: "Figtree", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans CJK JP", "Noto Sans JP", system-ui, sans-serif; --f-display: "Saira Semi Condensed", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans CJK JP", "Noto Sans JP", system-ui, sans-serif; }
+html[lang="ja"] body { line-break: strict; word-break: auto-phrase; }
+html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3, html[lang="ja"] .confianza-lista b { word-break: keep-all; overflow-wrap: anywhere; line-height: 1.25; }
+html[lang="ja"] .portada h1 { font-size: clamp(32px, 4vw, 48px); line-height: 1.2; }
+html[lang="ja"] .cab-sec h2 { font-size: clamp(26px, 3vw, 36px); }
+html[lang="ja"] .ia-caja h2 { font-size: clamp(26px, 3vw, 36px); }
+html[lang="ja"] .eti { letter-spacing: 1px; }
+html[lang="ja"] .ruta { white-space: normal; }
+@media (max-width: 600px) {
+  .cab .envoltura { gap: 8px; }
+  .idioma { padding: 5px 9px; }
+  .marca b { font-size: 17px; }
+}
+@media (max-width: 380px) { .marca span { display: none; } }
+html.movil .hero-cta { margin-top: 16px; }
+</style></head>
+<body>
+<header class="cab">
+<div class="envoltura">
+<a class="marca" href="#inicio"><img alt="Logo do ManaLab" height="36" src="/img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
+<nav aria-label="Seções">
+<a href="#funciones">Recursos</a>
+<a href="#mtgo"><span style="white-space:nowrap">Magic Online</span></a>
+<a href="#empezar">Como começar</a>
+<a href="#preguntas">Perguntas</a>
+<a href="#ia">Análise com IA</a>
+</nav>
+<a class="idioma" href="/" hreflang="en" id="idioma" lang="en" title="View in English">EN</a>
+<a class="idioma" href="/es/" hreflang="es" lang="es" title="Ver en español">ES</a>
+<a class="idioma" href="/ja/" hreflang="ja" lang="ja" title="日本語で見る">日本語</a>
+<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-cabecera-pt" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Baixar</span></a>
+</div>
+</header>
+<main id="inicio">
+<section class="portada">
+<div class="envoltura">
+<div>
+<div class="eti">Tracker grátis para MTG Arena e Magic Online</div>
+<h1>Cada partida de Arena e Magic Online, <em>registrada sozinha.</em></h1>
+<p class="sub">O ManaLab lê o log do Arena e do <span style="white-space:nowrap">Magic Online</span> enquanto você joga e guarda suas mãos, mulligans e o deck do oponente. Depois mostra onde você ganha e onde perde.</p>
+<div data-movil-aqui></div>
+<div class="hero-cta">
+<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-hero-pt" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Baixar grátis</span></a>
+<a class="enlace-sec" href="#funciones">Ver recursos</a>
+</div>
+<p class="nota-hero"><span>Versão <span data-version>2.3.0</span> · ZIP · não precisa instalar nada</span><a href="/safety/">É seguro? Confira você mesmo (em inglês) →</a></p>
+<div class="nota-desc"><span>O app é grátis. Só a IA é paga</span><span>Seus dados ficam no seu PC, a menos que você peça a IA</span><span>App em 9 idiomas</span></div>
+</div>
+<div class="hero-medio">
+<div class="hero-video" id="hero-video">
+<video aria-label="Vídeo de 15 segundos, sem som, do ManaLab com dados de exemplo: a lista de partidas com vitórias e derrotas registradas sozinhas, uma partida com sua mão inicial, mulligans e captura, winrate por matchup e por jogar primeiro ou segundo, e uma repetição passo a passo." autoplay="" height="720" loop="" muted="" playsinline="" poster="/video/hero/manalab-hero-en-poster.jpg" preload="metadata" width="1280">
+<source src="/video/hero/manalab-hero-en.webm" type="video/webm"/>
+<source src="/video/hero/manalab-hero-en.mp4" type="video/mp4"/>
+</video>
+<button aria-label="Pausar vídeo" class="hero-pausa" data-pausa="Pausar vídeo" data-play="Reproduzir vídeo" type="button"><svg aria-hidden="true" class="ico-pausa" viewbox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"></path></svg><svg aria-hidden="true" class="ico-play" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></button>
+</div>
+<p class="pie-captura-hero">As imagens mostram o app em inglês. O app está disponível em português.</p>
+<script>
+(function () {
+  /* con «reducir movimiento» o ahorro de datos: solo el póster (no se descarga el vídeo).
+     En teléfono (pantalla táctil estrecha) también: el póster con el botón de reproducir; el vídeo se descarga al tocarlo (ML-154) */
+  var caja = document.getElementById("hero-video"), v = caja.querySelector("video"), b = caja.querySelector(".hero-pausa");
+  var c = navigator.connection || {};
+  var quieto = (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) || c.saveData === true;
+  if (quieto) {
+    v.removeAttribute("autoplay"); v.autoplay = false; v.preload = "none";
+    v.querySelectorAll("source").forEach(function (s) { s.remove(); });
+    v.load(); caja.classList.add("solo-poster");
+    return;
+  }
+  var fuentes = null;
+  if (window.matchMedia && window.matchMedia("(max-width: 767px) and (pointer: coarse)").matches) {
+    v.removeAttribute("autoplay"); v.autoplay = false; v.preload = "none";
+    fuentes = Array.prototype.map.call(v.querySelectorAll("source"), function (s) { s.remove(); return s; });
+    v.load();
+    b.classList.add("pausado"); b.setAttribute("aria-label", b.dataset.play);
+    v.style.cursor = "pointer";
+    v.addEventListener("click", function () { b.click(); });   /* en teléfono, tocar cualquier parte del vídeo lo reproduce o pausa */
+  }
+  b.addEventListener("click", function () {
+    if (fuentes) {   /* primer toque en teléfono: ahora sí se añaden las fuentes */
+      fuentes.forEach(function (s) { v.appendChild(s); });
+      fuentes = null; v.preload = "auto"; v.load();
+    }
+    if (v.paused) v.play(); else v.pause();
+  });
+  v.addEventListener("play", function () { b.classList.remove("pausado"); b.setAttribute("aria-label", b.dataset.pausa); });
+  v.addEventListener("pause", function () { b.classList.add("pausado"); b.setAttribute("aria-label", b.dataset.play); });
+})();
+</script>
+</div>
+</div>
+</section>
+<section class="seccion franja confianza" id="confianza">
+<div class="envoltura">
+<ul class="confianza-lista">
+<li><b>Grátis e sem conta</b><span>O app é grátis. Só a análise com IA é paga.</span></li>
+<li><b>Seus dados, no seu PC</b><span>Partidas, capturas e estatísticas ficam em uma pasta do seu computador.</span></li>
+<li><b>Só lê os logs</b><span>Não modifica o jogo, não lê a memória dele e não se conecta aos servidores.</span></li>
+<li><b>Você pode conferir</b><span>Cada versão é analisada no VirusTotal antes de ser publicada. <a href="/safety/">Como conferir (em inglês) →</a></span></li>
+</ul>
+</div>
+</section>
+<section class="seccion" id="motivos">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Por que o ManaLab</div>
+<h2>Três coisas que você vai olhar depois de cada sessão</h2>
+</div>
+<div class="novedades motivos">
+<div class="novedad">
+<div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="/video/funciones/03-opening-hand-mulligans.jpg" aria-label="Cada partida guarda sua mão inicial, a mão que você mantém após um mulligan e seu sideboard, além das estatísticas de mulligan." title="Cada partida guarda sua mão inicial, a mão que você mantém após um mulligan e seu sideboard, além das estatísticas de mulligan."><source src="/video/funciones/03-opening-hand-mulligans.mp4" type="video/mp4"><a href="/video/funciones/03-opening-hand-mulligans.mp4">MP4</a></video></figure><p class="pie-captura">As imagens mostram o app em inglês. O app está disponível em português.</p></div>
+<div><h3>Sua mão inicial e cada mulligan, com captura</h3>
+<p>O ManaLab guarda a mão que você recebeu, a que você manteve e uma captura de cada decisão. Sem anotar nada.</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="/video/funciones/05-statistics.jpg" aria-label="Estatísticas: winrate, sequências e resultados por dia, por mulligans, por deck, por oponente e por matchup." title="Estatísticas: winrate, sequências e resultados por dia, por mulligans, por deck, por oponente e por matchup."><source src="/video/funciones/05-statistics.mp4" type="video/mp4"><a href="/video/funciones/05-statistics.mp4">MP4</a></video></figure></div>
+<div><h3>Onde você ganha e onde perde</h3>
+<p>Winrate por matchup, por deck e por jogar primeiro ou segundo, com o formato real de cada partida.</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="/video/funciones/02-replay.jpg" aria-label="Repetição: a partida turno a turno, com as cartas reais e saltos para os momentos-chave." title="Repetição: a partida turno a turno, com as cartas reais e saltos para os momentos-chave."><source src="/video/funciones/02-replay.mp4" type="video/mp4"><a href="/video/funciones/02-replay.mp4">MP4</a></video></figure></div>
+<div><h3>Cada partida, repetida passo a passo</h3>
+<p>Reveja a partida turno a turno com as cartas reais e marque os momentos-chave.</p></div>
+</div>
+</div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-motivos-pt" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Baixar grátis</span></a></div>
+</div>
+</section>
+<section class="seccion franja" id="mtgo">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Arena e <span style="white-space:nowrap">Magic Online</span></div>
+<h2>Agora para Arena e <span style="white-space:nowrap">Magic Online</span></h2>
+</div>
+<div class="novedades dos">
+<div class="novedad">
+<div class="ventana"><picture><source srcset="/img/en_mtgo_panel.webp" type="image/webp"><img alt="Painel do ManaLab com o Arena escutando e o Magic Online em partida, lendo o mtgo.log, e os últimos matches com a tag MTGO, com dados de exemplo" height="860" loading="lazy" src="/img/en_mtgo_panel.jpg" width="1366"/></picture><p class="pie-captura">As imagens mostram o app em inglês. O app está disponível em português.</p></div>
+<div><div class="eti">Painel</div>
+<h3>Arena e <span style="white-space:nowrap">Magic Online</span>, lado a lado</h3>
+<p>O Painel mostra o estado de cada partida e seus últimos matches, com uma pequena tag MTGO nos que você jogou no <span style="white-space:nowrap">Magic Online</span>.</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><picture><source srcset="/img/en_mtgo_banquillo.webp" type="image/webp"><img alt="Painel de sideboard do ManaLab sobre o Magic Online entre partidas, com os botões «Usar esta mudança», «Sem mudanças» e «Editar», com dados de exemplo" height="440" loading="lazy" src="/img/en_mtgo_banquillo.jpg" width="1000"/></picture></div>
+<div><div class="eti">Sideboard</div>
+<h3>Confirme seu sideboard com um clique</h3>
+<p>O <span style="white-space:nowrap">Magic Online</span> não envia a lista com sideboard a tempo. Por isso, entre as partidas, um painel pequeno pergunta se você mudou algo: use a mudança da última vez, diga que não houve nenhuma ou abra o editor.</p></div>
+</div>
+</div>
+<p class="enlace-seccion"><a class="enlace-man" href="/magic-online/">Tracker para <span style="white-space:nowrap"><span style="white-space:nowrap">Magic Online</span></span>: o que ele guarda e como funciona (em inglês) →</a></p>
+</div>
+</section>
+<section class="seccion" id="funciones">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Recursos</div>
+<h2>Tudo o que você anotaria depois de cada match, já anotado</h2>
+</div>
+<div class="funciones">
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"></path><circle cx="18.5" cy="16.5" r="2.5"></circle></svg>
+<h3>Matches e partidas</h3>
+<p>Cada Bo3 é uma linha com seu placar (2-1, 1-2…) que se abre e mostra cada partida: se você jogou primeiro ou segundo, o resultado e os mulligans.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><circle cx="9" cy="11" r="2"></circle><path d="m21 15-4.5-4.5L8 19"></path></svg>
+<h3>Mãos e capturas</h3>
+<p>Sua mão inicial, a mão que você manteve e capturas dos momentos-chave. Pressione F8 ou o botão sobre o jogo para salvar qualquer momento e adicionar uma nota. As capturas ficam no seu PC e podem ser desativadas em Configurações.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l2.5 2.5"></path></svg>
+<h3>Deck do oponente</h3>
+<p>Ele compara as cartas do oponente com os decks mais jogados do formato da partida e dá o nome do mais parecido. As listas do meta são atualizadas a cada 3 dias.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"></path></svg>
+<h3>Estatísticas</h3>
+<p>Winrate de matches e de partidas, sequências, últimos dias e detalhes por mulligans, por jogar primeiro ou segundo, por deck e por arquétipo do oponente.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="16" rx="2" width="13" x="7" y="3"></rect><path d="M4 7v12a2 2 0 0 0 2 2h10"></path></svg>
+<h3>Seus decks</h3>
+<p>Cada lista que você joga, com seu winrate. As variantes de sideboard ficam agrupadas no mesmo deck, e você pode renomeá-las. No <span style="white-space:nowrap">Magic Online</span>, os decks recebem o nome pelas cores.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path d="M9 10h6M9 13.5h4"></path></svg>
+<h3>Análise de derrotas com IA (assinantes)</h3>
+<p>Os assinantes recebem uma análise com IA de cada partida perdida: o que deu errado, onde você poderia ter jogado melhor e o que tentar na próxima. Assinatura: 5 € por mês no Ko-fi.</p>
+<p style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 18px"><a href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-funciones-pt" rel="noopener" style="font-weight:600" target="_blank"><span>Assinar no Ko-fi →</span></a></p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="12" rx="2" width="18" x="3" y="4"></rect><path d="M8 20h8M12 16v4"></path><path d="M7 9h5M7 12h8"></path></svg>
+<h3>Overlay enquanto você joga</h3>
+<p>Uma janela separada ao lado do jogo, no Arena ou no <span style="white-space:nowrap">Magic Online</span>, com as cartas que restam no seu deck, as que o oponente já mostrou e o turno. Ela só mostra informações públicas ou o que dá para deduzir do que já foi jogado. No <span style="white-space:nowrap">Magic Online</span> pode mostrar menos quando o log não traz o estado da mesa.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"></path></svg>
+<h3>Guia de sideboard</h3>
+<p>Por matchup, o que você colocou e tirou nas suas próprias partidas e como foi, para você parar de fazer sideboard de memória.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"></path><path d="M17 11a3 3 0 1 0 0-6M21 20v-1a4 4 0 0 0-3-3.9"></path></svg>
+<h3>Coach e equipe</h3>
+<p>Etiquetas de erros e notas em cada partida, tabelas de matchups e um relatório para o seu coach. O modo Equipe compartilha suas partidas, capturas e notas por uma pasta comum, e seu coach vê cada partida completa, com a repetição.</p></div>
+</div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-funciones-pt" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Baixar grátis</span></a></div>
+</div>
+</section>
+<section class="seccion" id="empezar">
+<div class="envoltura">
+<div class="cab-sec" id="descargar">
+<div class="eti">Como começar</div>
+<h2>Três passos, uma única vez</h2>
+</div>
+<div class="pasos">
+<div class="paso"><h3>Baixe e abra</h3>
+<p>Windows 10 ou 11. Extraia o arquivo e abra o ManaLab.exe. Não precisa instalar nada.</p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-portada-pt" id="enlace-descarga" rel="noopener"><span>Baixar grátis</span></a></p>
+<p class="nota-descarga">Versão <span data-version>2.3.0</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">outras versões</a></p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">O ManaLab funciona no computador</h4>
+<p class="movil-txt">Envie o link para você e baixe por lá.</p>
+<p><button class="boton prim" data-compartir data-copiado="Link copiado" data-titulo="compartir-movil-pt" data-url="https://manalab.es/pt/" type="button"><span>Enviar o link para mim</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-titulo="descarga-movil-pt" rel="noopener">Baixar o ZIP mesmo assim</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen destacado" data-solo-pc>Antes de extrair, clique com o botão direito no ZIP › Propriedades › marque <b>Desbloquear</b> › OK: assim o Windows não mostra «O Windows protegeu o computador» nem bloqueia os arquivos do programa. Se o aviso ainda aparecer, clique em <b>Mais informações › Executar assim mesmo</b>.</p>
+<details data-solo-pc><summary>Já usa o ManaLab?</summary>
+<p>Só é necessário neste primeiro download: as versões seguintes são instaladas de dentro do app, sem aviso.</p>
+<p>Já está na 2.1.0, 2.1.1 ou 2.1.2? Atualize manualmente uma última vez: desbloqueie o ZIP como descrito acima e extraia por cima da sua pasta do ManaLab (suas partidas e configurações são mantidas). Essas versões podiam abrir e fechar sem mostrar a janela; a partir da 2.2, as versões novas são instaladas de dentro do app.</p>
+<p><a href="/safety/">É seguro? Confira você mesmo (em inglês) →</a></p></details></div>
+<div class="paso"><h3>Prepare seu jogo</h3>
+<p><b>Arena:</b> ative <span class="ruta">Opções › Conta › Detailed Logs</span>. Sem isso, o Arena não grava as partidas.</p>
+<p style="margin-top:10px"><b><span style="white-space:nowrap">Magic Online</span>:</b> não precisa configurar nada. Abra o <span style="white-space:nowrap">Magic Online</span> e o ManaLab o detecta sozinho. O caminho do log está em <span class="ruta">Configurações › Jogos</span>, deixado em Padrão.</p></div>
+<div class="paso"><h3>Jogue e reveja</h3>
+<p><b>Clique em «Iniciar registro».</b> Abra o ManaLab antes de jogar e deixe-o aberto. Cada match aparece no Painel quando termina.</p>
+<p>Jogue o Arena ou o <span style="white-space:nowrap">Magic Online</span> em janela ou em janela sem bordas e reveja suas partidas em Partidas. O app é grátis.</p></div>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="preguntas">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">Perguntas</div><h2>Antes de começar</h2></div>
+<div class="preguntas">
+<details><summary>Ele mexe no jogo ou me dá alguma vantagem em uma partida?</summary>
+<p>Não, nem no Arena nem no <span style="white-space:nowrap">Magic Online</span>. Ele só lê os arquivos que os jogos gravam no seu PC (o Player.log do Arena; o mtgo.log, os Match_GameLog_*.dat, o mtgo_game_history e os arquivos de deck grouping *.xml do <span style="white-space:nowrap">Magic Online</span>), sem modificá-los. Ele não modifica o Arena nem o <span style="white-space:nowrap">Magic Online</span>, não lê a memória deles e não se conecta aos servidores. O overlay, que é opcional, é uma janela separada que mostra apenas informações públicas ou o que dá para deduzir do que já foi jogado, nunca informações ocultas.</p></details>
+<details><summary>Que dados ele envia?</summary>
+<p>Suas partidas, capturas e estatísticas ficam em uma pasta do seu PC. O programa só baixa as listas atualizadas de decks do meta, uma por formato (a cada 3 dias), consulta nomes de cartas no Scryfall (também com ids do <span style="white-space:nowrap">Magic Online</span>) quando precisa e pergunta ao GitHub uma vez por dia se há uma versão nova. Você pode desativar as três coisas em Configurações. Ele só envia dados quando você pede algo. A análise com IA envia os dados daquela partida (resultado, deck, mãos, cartas vistas e cronologia), nunca o seu nome nem o do oponente. Um relatório de bug envia o que você escrever, seu e-mail se você informar, a versão do ManaLab, seu sistema e idioma, se você usa o Arena ou o <span style="white-space:nowrap">Magic Online</span>, um identificador anônimo do seu PC e, se você marcar, as últimas linhas do registro.log sem seu nome de usuário e sem códigos. Ele não envia partidas nem decks.</p>
+<p>Mais detalhes: <a href="/safety/">O ManaLab é seguro? (em inglês)</a></p></details>
+<details><summary>O Windows mostra «O Windows protegeu o computador». É seguro?</summary>
+<p>Esse aviso aparece para programas sem certificado de assinatura de código pago, o que é comum em ferramentas gratuitas pequenas. Clique em «Mais informações» e depois em «Executar assim mesmo». Ele só aparece no primeiro download: as versões novas são instaladas com «Atualizar agora», dentro do app, sem aviso. Para evitá-lo também na primeira vez, antes de extrair, clique com o botão direito no ZIP › Propriedades › marque «Desbloquear» › OK. Cada versão é analisada no VirusTotal antes de ser publicada.</p>
+<p>Mais detalhes: <a href="/safety/">O ManaLab é seguro? (em inglês)</a></p></details>
+<details id="magic-online"><summary>Funciona com o Magic Online?</summary>
+<p>Sim, a partir da 2.3. O ManaLab registra suas partidas do <span style="white-space:nowrap">Magic Online</span> (MTGO): mãos, mulligans, quem começa, o deck do oponente, estatísticas, repetição e overlay. Não há nada para configurar: ele detecta o <span style="white-space:nowrap">Magic Online</span> sozinho quando você o abre, e você pode importar um arquivo mtgo.log. O que muda: o <span style="white-space:nowrap">Magic Online</span> não envia as fases do turno nem as cartas viradas, então o ManaLab as deduz do log, e na repetição tudo o que é deduzido leva ≈ porque pode não ser exato. O <span style="white-space:nowrap">Magic Online</span> também não informa a tempo a sua lista depois do sideboard: o ManaLab pede que você confirme suas mudanças entre as partidas com um clique e, até você confirmar, o overlay mostra a lista como não confirmada. O overlay pode mostrar menos do que no Arena quando o log não traz o estado da mesa. Seu deck recebe o nome pelas cores.</p>
+<p>No site: <a href="/magic-online/">Tracker para <span style="white-space:nowrap">Magic Online</span>: o que ele guarda e como funciona (em inglês)</a></p></details>
+<details><summary>Funciona no Mac ou no Linux?</summary>
+<p>Por enquanto, só para Windows 10 e 11. Não existe versão nativa para Linux, e ela não foi testada com Wine nem Proton, então não podemos prometer que funcione.</p></details>
+<details><summary>Ele registra Draft e Selado (Limitado)?</summary>
+<p>Sim. Ele registra qualquer partida do Arena ou do <span style="white-space:nowrap">Magic Online</span>, inclusive Limitado. O deck do oponente é comparado com os decks do meta do formato da partida (Standard, Pioneer, Modern, Legacy, Vintage e Pauper); se nada combinar com clareza, como no Limitado, ele recebe o nome pelas cores.</p></details>
+<details><summary>É grátis?</summary>
+<p>O programa é grátis e não precisa de conta. A única parte paga é a análise de derrotas com IA: 5 € por mês, que cobrem o serviço de IA usado. Todos os outros recursos são grátis.</p></details>
+<details><summary>Como consigo a análise com IA?</summary>
+<p>Assine no Ko-fi (5 € por mês). Depois de pagar, você recebe um código de assinatura por e-mail. Cole-o em Configurações › Equipe e IA e a análise aparece na aba Análise de cada partida perdida. Quer testar antes? Peça um teste grátis por <a href="mailto:manalab.app@gmail.com">e-mail</a>.</p></details>
+</div>
+</div>
+</section>
+<section class="seccion" id="ia">
+<div class="envoltura">
+<div class="ia-caja">
+<div>
+<div class="eti">Novo · Análise de derrotas com IA</div>
+<h2>Saiba o que deu errado em cada partida perdida</h2>
+<p><strong style="color:var(--texto)">O app é grátis. Só a análise com IA é paga.</strong></p>
+<p>Abra qualquer partida perdida e pergunte à IA o que deu errado, onde você poderia ter jogado melhor e o que tentar na próxima vez. Ela lê os dados da partida, não o seu nome nem o do oponente.</p>
+<p>Quer testar antes? Peça um teste grátis por <a href="mailto:manalab.app@gmail.com">e-mail</a>.</p>
+<div class="acciones" style="margin-top:24px"><a class="boton prim" href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-ia-pt" rel="noopener" target="_blank"><span>Assinar no Ko-fi →</span></a></div>
+</div>
+<div>
+<div class="ia-precio">5 € <small>por mês</small></div>
+<div class="ia-lista">
+<p>Até 30 análises por dia. Assine por 5 € por mês no Ko-fi e você recebe seu código por e-mail assim que assinar.</p>
+<p>Cancele quando quiser: se você não renovar no Ko-fi, o código expira sozinho.</p>
+<p><a href="/privacy/">Política de privacidade (em inglês)</a></p>
+</div>
+</div>
+</div>
+<div class="enlaces-extra">
+<p><a href="/pt/coaches/">Para coaches: guia de como revisar um aluno com o ManaLab →</a></p>
+<p><a href="/#contacto">Dúvidas, bugs ou problemas com a assinatura: fale com a gente (em inglês) →</a></p>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="final">
+<div class="envoltura final-caja">
+<div class="cab-sec">
+<h2>Comece a registrar suas partidas hoje</h2>
+</div>
+<div class="acciones"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-final-pt" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Baixar grátis</span></a></div>
+<p class="nota-hero"><span>Versão <span data-version>2.3.0</span> · ZIP · não precisa instalar nada</span></p>
+</div>
+</section>
+</main>
+<footer>
+<div class="envoltura">
+<div class="fila"><b style="color:var(--texto)">ManaLab</b><span id="version">v<span data-version>2.3.0</span></span>
+<a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener" target="_blank">Lista do meta</a>
+<a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-manual-en.pdf" rel="noopener">Manual do usuário (PDF, em inglês)</a>
+<a href="/novedades/">Novidades (em inglês)</a>
+<a href="/magic-online/">Tracker para <span style="white-space:nowrap">Magic Online</span> (em inglês)</a>
+<a href="/pt/coaches/">Guia para coaches</a>
+<a href="#preguntas">Perguntas</a>
+<a href="/privacy/">Privacidade (em inglês)</a>
+<a href="/safety/">Segurança (em inglês)</a>
+<a href="/#contacto">Contato (em inglês)</a>
+<a href="https://x.com/ManaLabApp" rel="noopener" target="_blank">Siga a gente no X</a></div>
+<nav class="fila guias" aria-label="Guias"><b>Guia de uso:</b><a href="/guia/guia_manalab_en.html" hreflang="en" lang="en">Guide (English)</a><a href="/guia/guia_manalab_es.html" hreflang="es" lang="es">Guía (español)</a><a href="/guia/guia_manalab_fr.html" hreflang="fr" lang="fr">Guide (français)</a><a href="/guia/guia_manalab_de.html" hreflang="de" lang="de">Anleitung (Deutsch)</a><a href="/guia/guia_manalab_it.html" hreflang="it" lang="it">Guida (italiano)</a><a href="/guia/guia_manalab_pt.html" hreflang="pt" lang="pt">Guia (português)</a><a href="/guia/guia_manalab_ja.html" hreflang="ja" lang="ja">ガイド (日本語)</a><a href="/guia/guia_manalab_ko.html" hreflang="ko" lang="ko">가이드 (한국어)</a><a href="/guia/guia_manalab_zh.html" hreflang="zh" lang="zh">指南 (中文)</a></nav>
+<p class="nota-trad">Encontrou um erro de tradução? Avise a gente no <a href="https://x.com/ManaLabApp" rel="noopener" target="_blank">X (@ManaLabApp)</a>.</p>
+<p class="legal">O ManaLab é conteúdo de fãs não oficial, permitido pela Política de Conteúdo de Fãs. Não é aprovado nem endossado pela Wizards. Partes dos materiais usados são propriedade da Wizards of the Coast. ©Wizards of the Coast LLC. Dados do meta: MTGGoldfish. Dados de cartas: Scryfall.</p>
+</div>
+</footer>
+
+<script defer="" src="/descarga.js"></script>
+<script>
+(function () {
+  /* un <details> cerrado no se ve: al entrar por #magic-online (u otra pregunta con id) se abre sola */
+  function abrir() {
+    var d = null;
+    try { d = location.hash.length > 1 && document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (e) {}
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView({ behavior: "instant" }); }
+  }
+  abrir();
+  window.addEventListener("load", abrir);   /* otra vez con las imágenes ya cargadas: el desplazamiento cuadra */
+  window.addEventListener("hashchange", abrir);
+})();
+</script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>

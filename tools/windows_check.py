@@ -18,7 +18,7 @@ from pathlib import Path
 SKIP_DIRS = {".git", "tools", "node_modules"}
 WIN = re.compile(r"windows", re.I)
 # Requisito en la sección de descarga, por idioma de la portada.
-REQ = {"en": "Windows 10 or 11", "es": "Windows 10 u 11"}
+REQ = {"en": "Windows 10 or 11", "es": "Windows 10 u 11", "ja": "Windows 10 / 11", "pt-br": "Windows 10 ou 11", "pt": "Windows 10 ou 11"}
 
 
 class P(HTMLParser):
@@ -32,7 +32,7 @@ class P(HTMLParser):
         self._ld = None
         self.buttons = []     # textos de los botones de descarga
         self._stack = []      # (tag, es_boton, texto acumulado)
-        self.dl_text = ""     # texto de los pasos de descarga (div.pasos, bajo #descargar)
+        self.dl_text = ""     # texto de la descarga: div.pasos (portadas) o el bloque #descargar (Magic Online, coaches)
         self._dl_depth = None
         self._depth = 0
 
@@ -49,7 +49,7 @@ class P(HTMLParser):
                 self.meta[k] = a.get("content", "")
         elif tag == "script" and a.get("type") == "application/ld+json":
             self._ld = ""
-        if self._dl_depth is None and "pasos" in a.get("class", "").split():
+        if self._dl_depth is None and ("pasos" in a.get("class", "").split() or a.get("id") == "descargar"):
             self._dl_depth = self._depth
         cls = a.get("class", "").split()
         if tag == "a" and ("descarga" in cls or a.get("id") == "enlace-descarga"):
