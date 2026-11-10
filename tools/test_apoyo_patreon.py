@@ -192,7 +192,9 @@ class TestSuscripcionIaVaALaMembresia(unittest.TestCase):
     def test_los_botones_de_suscribirse_llevan_a_tiers_y_el_de_donar_al_perfil(self):
         for idioma in PORTADAS:
             with self.subTest(idioma=idioma):
-                lector = leer(idioma)
-                self.assertEqual(len(por_href(lector, KOFI_TIERS)), 2)
+                # los botones de suscribirse están en las secciones de IA y de funciones, no en «apoyo» (cambió con la 2.3)
+                lector = Lector()
+                lector.feed(PORTADAS[idioma].read_text(encoding="utf-8"))
+                self.assertGreaterEqual(len(por_href(lector, KOFI_TIERS)), 2)
                 donar = por_href(lector, KOFI)
                 self.assertEqual([a.get("id") for a, _ in donar], ["enlace-donar"])
