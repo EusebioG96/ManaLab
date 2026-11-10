@@ -306,7 +306,8 @@ details[id] { scroll-margin-top: 90px; }
 .pasos-reg li { counter-increment: pr; display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 14px; align-items: center; background: var(--panel); border: 1px solid var(--linea2); border-radius: 14px; padding: 11px 18px; font-size: 18px; }
 .pasos-reg li::before { content: counter(pr); width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--oro-suave); color: var(--oro); font: 700 18px var(--f-display); }
 .ruta-completa { margin: 16px 0 0; color: var(--texto2); font-size: 15px; }
-.ruta-completa .ruta { white-space: normal; }
+.ruta-completa .ruta { white-space: normal; overflow-wrap: anywhere; }
+@media (max-width: 640px) { .ruta, .mtgo-caja ul li code { white-space: normal; overflow-wrap: anywhere; } }
 .dos-col { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 40px; align-items: center; }
 .dos-col .ventana.estrecha { justify-self: center; width: 100%; max-width: 380px; }
 .dos-col .ventana img { height: auto; object-fit: contain; }
@@ -373,7 +374,7 @@ figure.video .idioma-video { display: inline-block; margin-left: 6px; padding: 0
 <ul>
 <li>El <code>Player.log</code> y la base de cartas que Arena deja en tu PC, sin modificarlos. El <code>Player.log</code> es el archivo que Arena escribe cuando tienes activado «Detailed Logs (Plugin Support)» en sus ajustes.</li>
 <li>Arena lo escribe en <code>C:\Users\&lt;tu usuario&gt;\AppData\LocalLow\Wizards Of The Coast\MTGA\Player.log</code>.</li>
-<li>ManaLab encuentra el registro solo. En Ajustes › Partidas puedes indicar la ruta del <code>Player.log</code> de Arena, solo si no se encuentra sola.</li>
+<li>ManaLab encuentra el registro solo. En Ajustes › Juegos puedes indicar la ruta del <code>Player.log</code> de Arena, solo si no se encuentra sola.</li>
 </ul>
 <h3>Lo que no hace</h3>
 <ul>

@@ -306,7 +306,8 @@ details[id] { scroll-margin-top: 90px; }
 .pasos-reg li { counter-increment: pr; display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 14px; align-items: center; background: var(--panel); border: 1px solid var(--linea2); border-radius: 14px; padding: 11px 18px; font-size: 18px; }
 .pasos-reg li::before { content: counter(pr); width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--oro-suave); color: var(--oro); font: 700 18px var(--f-display); }
 .ruta-completa { margin: 16px 0 0; color: var(--texto2); font-size: 15px; }
-.ruta-completa .ruta { white-space: normal; }
+.ruta-completa .ruta { white-space: normal; overflow-wrap: anywhere; }
+@media (max-width: 640px) { .ruta, .mtgo-caja ul li code { white-space: normal; overflow-wrap: anywhere; } }
 .dos-col { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 40px; align-items: center; }
 .dos-col .ventana.estrecha { justify-self: center; width: 100%; max-width: 380px; }
 .dos-col .ventana img { height: auto; object-fit: contain; }
