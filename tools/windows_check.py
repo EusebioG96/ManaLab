@@ -18,7 +18,7 @@ from pathlib import Path
 SKIP_DIRS = {".git", "tools", "node_modules"}
 WIN = re.compile(r"windows", re.I)
 # Requisito en la sección de descarga, por idioma de la portada.
-REQ = {"en": "Windows 10 or 11", "es": "Windows 10 u 11"}
+REQ = {"en": "Windows 10 or 11", "es": "Windows 10 u 11", "ja": "Windows 10 / 11", "pt-br": "Windows 10 ou 11", "pt": "Windows 10 ou 11"}
 
 
 class P(HTMLParser):

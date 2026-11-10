@@ -7,6 +7,8 @@
 <link href="https://manalab.es/es/" rel="canonical"/>
 <link href="https://manalab.es/" hreflang="en" rel="alternate"/>
 <link href="https://manalab.es/es/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/pt/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://manalab.es/ja/" hreflang="ja" rel="alternate"/>
 <link href="https://manalab.es/" hreflang="x-default" rel="alternate"/>
 <meta content="#0d0304" name="theme-color"/>
 <link href="../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
@@ -347,6 +349,15 @@ footer { padding-block: 28px; }
   footer .fila { gap: 0 20px; }
   footer .fila a, footer .guias a { display: inline-flex; align-items: center; min-height: 44px; }
 }
+
+/* ML-156: selector de idioma con cuatro idiomas (sin empujar el botón de descarga) y separación del enlace bajo la caja de móvil */
+@media (max-width: 600px) {
+  .cab .envoltura { gap: 8px; }
+  .idioma { padding: 5px 9px; }
+  .marca b { font-size: 17px; }
+}
+@media (max-width: 380px) { .marca span { display: none; } }
+html.movil .hero-cta { margin-top: 16px; }
 </style></head>
 <body>
 <!-- aviso de la versión nueva: quitar o cambiar en la siguiente release -->
@@ -367,7 +378,9 @@ footer { padding-block: 28px; }
 <a href="#preguntas">Preguntas</a>
 <a href="#ia">Análisis IA</a>
 </nav>
-<a class="idioma" href="../" hreflang="en" id="idioma" lang="en" title="View in English">EN</a>
+<a class="idioma" href="/" hreflang="en" id="idioma" lang="en" title="View in English">EN</a>
+<a class="idioma" href="/pt/" hreflang="pt-BR" lang="pt-BR" title="Ver em português">PT</a>
+<a class="idioma" href="/ja/" hreflang="ja" lang="ja" title="日本語で見る">日本語</a>
 <a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-cabecera-es" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar</span></a>
 </div>
 </header>

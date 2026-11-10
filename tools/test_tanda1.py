@@ -153,7 +153,7 @@ class TestPunto3Guias(unittest.TestCase):
                 botones = [e for e in lista if "descargar" in e["attrs"].get("class", "").split()]
                 self.assertEqual(len(botones), 2)
                 for e in botones:
-                    self.assertEqual(e["attrs"]["href"], "/es/#descargar" if idioma == "es" else "/#descargar")
+                    self.assertEqual(e["attrs"]["href"], {"es": "/es/#descargar", "ja": "/ja/#descargar", "pt": "/pt/#descargar"}.get(idioma, "/#descargar"))
                     self.assertEqual(e["attrs"].get("data-goatcounter-click"), "guia-descarga")
                     self.assertEqual(e["attrs"].get("data-goatcounter-title"), f"guia-descarga-{idioma}")
                     self.assertEqual(e["texto"], TEXTO_GUIA[idioma])
@@ -173,6 +173,8 @@ class TestPunto3Guias(unittest.TestCase):
     def test_inicio_en_espanol_va_a_es(self):
         html = leer(RAIZ / "guia" / "guia_manalab_es.html")
         self.assertIn('<a href="/es/">← Inicio de ManaLab</a>', html)
+        for idioma, texto in (("ja", "← ManaLab ホーム"), ("pt", "← Início do ManaLab")):
+            self.assertIn(f'<a href="/{idioma}/">{texto}</a>', leer(RAIZ / "guia" / f"guia_manalab_{idioma}.html"))
 
     def test_el_boton_no_sale_al_imprimir(self):
         for idioma in IDIOMAS_GUIA:
