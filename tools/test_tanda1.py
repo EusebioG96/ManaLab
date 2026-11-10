@@ -206,7 +206,7 @@ class TestPunto4Logo(unittest.TestCase):
             for m in re.finditer(r'<a class="marca"[^>]*><img[^>]*src="([^"]*)"', html):
                 usadas += 1
                 self.assertTrue(m.group(1).endswith("img/logo-claro.png"), f"{ruta}: {m.group(1)}")
-        self.assertEqual(usadas, 11)   # 9 páginas + las dos de novedades (ML-153)
+        self.assertEqual(usadas, 12)   # 9 páginas + las dos de novedades (ML-153) + la 404 (ML-154)
         self.assertTrue((RAIZ / "img" / "logo.png").exists())
 
 
