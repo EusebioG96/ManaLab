@@ -86,13 +86,31 @@
   var soloPc = document.querySelectorAll("[data-solo-pc]");
   function ocultarSoloPc(v) { for (var k = 0; k < soloPc.length; k++) soloPc[k].hidden = v; }
 
+  // en ordenador, al pulsar un enlace de descarga la página baja a los pasos de «Cómo empezar» (en teléfono el enlace ya es #descargar)
+  function bajarALosPasos() {
+    if (caja) return;
+    setTimeout(function () {
+      try {
+        var destino = document.getElementById("descargar");
+        if (!destino) return;
+        var quieta = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        destino.scrollIntoView({ behavior: quieta ? "auto" : "smooth", block: "start" });
+      } catch (e) {}
+    }, 400);
+  }
+  for (var q = 0; q < avisos.length; q++) avisos[q].addEventListener("click", bajarALosPasos);
+
   function modo(movil) {
     if (!enlace || !plantilla) return;
     var p = enlace.parentNode;
     if (movil && !caja) {
       caja = plantilla.content.firstElementChild.cloneNode(true);
-      p.parentNode.insertBefore(caja, p.nextSibling);
+      // en las portadas hay un hueco en la primera pantalla; en el resto de páginas, junto al enlace de descarga
+      var hueco = document.querySelector("[data-movil-aqui]");
+      if (hueco) hueco.appendChild(caja);
+      else p.parentNode.insertBefore(caja, p.nextSibling);
       p.hidden = true;
+      document.documentElement.classList.add("movil");
       // el ancla #descargar pasa al bloque para que el botón «Descargar» deje a la vista justo lo que importa
       if (ancla && ancla.id === "descargar") { ancla.removeAttribute("id"); caja.id = "descargar"; }
       aplicar(caja);
@@ -108,6 +126,7 @@
     } else if (!movil && caja) {
       if (caja.id === "descargar" && ancla) { caja.removeAttribute("id"); ancla.id = "descargar"; }
       caja.parentNode.removeChild(caja); caja = null;
+      document.documentElement.classList.remove("movil");
       p.hidden = false;
       ocultarSoloPc(false);
       for (var j = 0; j < avisos.length; j++) {
