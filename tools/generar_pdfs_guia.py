@@ -30,6 +30,10 @@ def main(raiz):
                 imgs.forEach(i => { i.loading = "eager"; });
                 await Promise.all(imgs.map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })));
             }""")
+            # dentro de un PDF un enlace «/coaches/» no lleva a ningún sitio: se hacen absolutos a manalab.es
+            pagina.evaluate("""() => document.querySelectorAll('a[href^="/"]').forEach(a => {
+                a.setAttribute("href", "https://manalab.es" + a.getAttribute("href"));
+            })""")
             pagina.pdf(path=str(guia / f"guia_manalab_{idioma}.pdf"), prefer_css_page_size=True, print_background=True)
             print("PDF", idioma)
         nav.close()
