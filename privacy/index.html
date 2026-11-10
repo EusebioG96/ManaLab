@@ -62,7 +62,7 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     <ul>
       <li>Tu nombre tal como aparece en Ko-fi y la fecha de caducidad de la suscripción.</li>
       <li>Si pagas en Ko-fi, tu correo electrónico solo como huella criptográfica (SHA-256). No se guarda en claro.</li>
-      <li>Como huella (SHA-256), un registro de cada cobro ya procesado para no contarlo dos veces (se conserva hasta 400 días).</li>
+      <li>Un registro de cada cobro de Ko-fi ya procesado, para no contarlo dos veces: el identificador de la transacción de Ko-fi o, si el aviso no lo trae, una huella (SHA-256) del correo, la fecha y el importe. Se conserva hasta 400 días.</li>
       <li>El código solo como huella, más sus 4 últimos caracteres para reconocerlo en nuestro resumen. No podemos leerlo.</li>
       <li>Contadores de uso: cuántos análisis has hecho en el día (caducan a las 48 horas) y el gasto total del mes, sin datos personales.</li>
     </ul>
@@ -133,7 +133,7 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     <ul>
       <li>Your name as shown on Ko-fi, and the expiry date of the subscription.</li>
       <li>If you pay on Ko-fi, your email address only as a cryptographic hash (SHA-256). It is not stored in plain text.</li>
-      <li>As a hash (SHA-256), a record of each payment already processed so it is not counted twice (kept for up to 400 days).</li>
+      <li>A record of each Ko-fi payment already processed, so it is not counted twice: the Ko-fi transaction ID or, if the notification does not include one, a hash (SHA-256) of the email, date and amount. It is kept for up to 400 days.</li>
       <li>The code only as a hash, plus its last 4 characters to recognise it in our overview. We cannot read it.</li>
       <li>Usage counters: how many analyses you ran that day (they expire after 48 hours) and the month's total spend, with no personal data.</li>
     </ul>
