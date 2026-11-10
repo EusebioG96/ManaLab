@@ -155,6 +155,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/magic-online/"/>
   </url>
   <url>
+    <loc>https://manalab.es/novedades/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/novedades/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/novedades/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/novedades/"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/es/novedades/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/novedades/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/novedades/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/novedades/"/>
+  </url>
+  <url>
     <loc>https://manalab.es/safety/</loc>
     <lastmod>2026-11-10</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/safety/"/>

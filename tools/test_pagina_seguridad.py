@@ -80,13 +80,15 @@ class TestPaginaSeguridad(unittest.TestCase):
             t = ruta.read_text(encoding="utf-8")
             d = destino[lang]
             with self.subTest(lang=lang):
-                # enlace bajo el botón de descarga, entre las notas de SmartScreen
-                self.assertRegex(t, r'<p class="nota-smartscreen"><a href="%s">[^<]+→</a></p>' % re.escape(d))
+                # enlace bajo el botón de la cabecera y, dentro de «Cómo empezar», en el <details> del paso 1 (ML-153)
+                self.assertRegex(t, r'(?s)<p class="nota-hero">.*?<a href="%s">[^<]+→</a></p>' % re.escape(d))
+                self.assertRegex(t, r'(?s)<details data-solo-pc><summary>.*?<p><a href="%s">[^<]+→</a></p></details>' % re.escape(d))
                 # pie con el enlace, junto a Privacidad
                 pie = t[t.index("<footer>"):]
                 self.assertIn('<a href="%s">' % d, pie)
                 # FAQ: «Más detalles» en las respuestas de datos y de aviso de Windows
-                self.assertEqual(t.count('<a href="%s">' % d), 4)
+                # cabecera, franja de confianza, paso 1, dos de la FAQ y el pie
+                self.assertEqual(t.count('<a href="%s">' % d), 6)
                 self.assertEqual(len(re.findall(r"<p>(?:More details|Más detalles): <a href=\"%s\">" % re.escape(d), t)), 2)
         for lang in PAGINAS:
             pie = leer(lang)
