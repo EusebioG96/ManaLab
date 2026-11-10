@@ -65,8 +65,11 @@ RE_IDIOMA = re.compile(r"^(.+)-(" + "|".join(IDIOMAS) + r")$")
 EVENTOS_RUTA = ["descarga", "compartir-movil", "descarga-movil", "aviso-sorteo"]
 # Prefijos de título/ruta con idioma (descarga-*, compartir-movil*, descarga-mtgo-*, descarga-coaches-*).
 EVENTOS_PREFIJOS = ["descarga-portada", "descarga-aviso", "descarga-mtgo", "descarga-coaches", "descarga-movil",
-                    "descarga-movil-coaches", "compartir-movil", "compartir-movil-coaches"]
-EVENTOS_IDIOMAS = ("en", "es", "pt")
+                    "descarga-movil-coaches", "compartir-movil", "compartir-movil-coaches",
+                    # web, tandas 1-3 (10/11): botones de portada, guías y páginas nuevas
+                    "descarga-cabecera", "descarga-hero", "descarga-motivos", "descarga-funciones", "descarga-final",
+                    "guia-descarga", "descarga-logs", "descarga-overlay"]
+EVENTOS_IDIOMAS = ("en", "es", "pt", "ja")
 
 
 def eventos_candidatos():
