@@ -115,6 +115,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .hero-pausa.pausado .ico-play { display: block; }
 .hero-video.solo-poster .hero-pausa { display: none; }
 .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+html.movil .aviso-version { display: none; }
+html.movil .hero-cta .boton { display: none; }
 .enlace-sec { color: var(--texto2); font-size: 14.5px; text-decoration: underline; text-decoration-color: var(--linea2); text-underline-offset: 3px; }
 .enlace-sec:hover { color: var(--texto); text-decoration-color: currentColor; }
 .ventana { border-radius: 14px; border: 1px solid var(--linea2); background: var(--panel); box-shadow: 0 40px 90px -40px #000, 0 0 0 6px rgba(255, 214, 200, 0.025); overflow: hidden; }
@@ -298,6 +300,7 @@ details[id] { scroll-margin-top: 90px; }
 <div class="eti">Free tracker for Arena and Magic Online (MTGO) · Players &amp; coaches</div>
 <h1>Every Arena and Magic Online match, <em>logged on its own.</em></h1>
 <p class="sub">ManaLab is a tracker that reads the Arena and Magic Online logs while you play and keeps your opening hands, mulligans, play or draw, sideboard changes and the opponent's deck. Then it shows where you win and lose.</p>
+<div data-movil-aqui></div>
 <div class="nota-desc"><span>The app is free. Only the AI is paid</span><span>Your data stays on your PC unless you ask for AI</span><span>App in 9 languages</span></div>
 </div>
 <div class="hero-medio">

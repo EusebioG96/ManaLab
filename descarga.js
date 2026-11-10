@@ -105,8 +105,12 @@
     var p = enlace.parentNode;
     if (movil && !caja) {
       caja = plantilla.content.firstElementChild.cloneNode(true);
-      p.parentNode.insertBefore(caja, p.nextSibling);
+      // en las portadas hay un hueco en la primera pantalla; en el resto de páginas, junto al enlace de descarga
+      var hueco = document.querySelector("[data-movil-aqui]");
+      if (hueco) hueco.appendChild(caja);
+      else p.parentNode.insertBefore(caja, p.nextSibling);
       p.hidden = true;
+      document.documentElement.classList.add("movil");
       // el ancla #descargar pasa al bloque para que el botón «Descargar» deje a la vista justo lo que importa
       if (ancla && ancla.id === "descargar") { ancla.removeAttribute("id"); caja.id = "descargar"; }
       aplicar(caja);
@@ -122,6 +126,7 @@
     } else if (!movil && caja) {
       if (caja.id === "descargar" && ancla) { caja.removeAttribute("id"); ancla.id = "descargar"; }
       caja.parentNode.removeChild(caja); caja = null;
+      document.documentElement.classList.remove("movil");
       p.hidden = false;
       ocultarSoloPc(false);
       for (var j = 0; j < avisos.length; j++) {
