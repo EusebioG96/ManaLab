@@ -86,6 +86,20 @@
   var soloPc = document.querySelectorAll("[data-solo-pc]");
   function ocultarSoloPc(v) { for (var k = 0; k < soloPc.length; k++) soloPc[k].hidden = v; }
 
+  // en ordenador, al pulsar un enlace de descarga la página baja a los pasos de «Cómo empezar» (en teléfono el enlace ya es #descargar)
+  function bajarALosPasos() {
+    if (caja) return;
+    setTimeout(function () {
+      try {
+        var destino = document.getElementById("descargar");
+        if (!destino) return;
+        var quieta = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        destino.scrollIntoView({ behavior: quieta ? "auto" : "smooth", block: "start" });
+      } catch (e) {}
+    }, 400);
+  }
+  for (var q = 0; q < avisos.length; q++) avisos[q].addEventListener("click", bajarALosPasos);
+
   function modo(movil) {
     if (!enlace || !plantilla) return;
     var p = enlace.parentNode;
