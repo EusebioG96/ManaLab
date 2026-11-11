@@ -170,6 +170,8 @@ def main():
                 loc = u.findtext("sm:loc", namespaces=NS).strip()
                 alts = {x.get("hreflang").lower(): x.get("href") for x in u.findall("xhtml:link", NS)}
                 sm_urls[loc] = alts
+                if "pt" in alts:
+                    err(f"sitemap: {loc} usa hreflang=\"pt\"; el portugués es pt-BR (ML-174)")
         except ET.ParseError as e:
             err(f"sitemap.xml no es XML válido: {e}")
     if len(sm_urls) and len(sm_urls) != len(set(sm_urls)):
@@ -225,6 +227,8 @@ def main():
         # lang
         if not pg.lang:
             err(f"{n}: falta atributo lang en <html>")
+        elif pg.lang.lower() == "pt":
+            err(f"{n}: lang=\"pt\"; el portugués es pt-BR (ML-174)")
         # JSON-LD
         for blob in pg.jsonld:
             try:
@@ -237,6 +241,8 @@ def main():
         if alts:
             if "x-default" not in alts:
                 err(f"{n}: hreflang sin x-default")
+            if "pt" in alts:
+                err(f"{n}: hreflang=\"pt\"; el portugués es pt-BR (ML-174)")
             selfl = [h for h, href in alts.items() if href == url and h != "x-default"]
             if len(selfl) != 1:
                 err(f"{n}: el conjunto hreflang debe incluir un idioma que apunte a sí misma")
