@@ -77,6 +77,25 @@ def generar_pagina(carpeta: Path, fuente: str) -> str:
     return _DIRECTIVA.sub(lambda m: _expandir_directiva(carpeta, m), fuente)
 
 
+def fuentes_de_pagina(raiz: Path, relativa: Path) -> list[Path]:
+    """Archivos fuente que dan el texto de la página ``relativa`` (un .html): su .pagina y las variantes de hueco que cita.
+
+    No incluye las partes fijas de las plantillas (.tpl), porque las comparten otras páginas.
+    """
+    carpeta = raiz / CARPETA_PLANTILLAS
+    pagina = carpeta / CARPETA_PAGINAS / relativa.with_suffix(SUFIJO_PAGINA)
+    fuentes = [pagina]
+    for directiva in _DIRECTIVA.finditer(_leer(pagina)):
+        nombre = directiva.group(1)
+        variantes = dict(par.split("=") for par in directiva.group(2).split())
+        for linea in _lineas_con_salto(_leer(carpeta / (nombre + SUFIJO_PLANTILLA))):
+            hueco = _HUECO.fullmatch(linea)
+            if hueco is not None:
+                variante = variantes.get(hueco.group(1), VARIANTE_POR_DEFECTO)
+                fuentes.append(carpeta / nombre / f"{hueco.group(1)}.{variante}.txt")
+    return fuentes
+
+
 def listar_paginas(raiz: Path) -> list[Path]:
     """Rutas (relativas a la raíz) de los .html que se generan, ordenadas."""
     base = raiz / CARPETA_PLANTILLAS / CARPETA_PAGINAS

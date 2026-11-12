@@ -14,6 +14,8 @@ import sys
 import urllib.request
 from pathlib import Path
 
+import construir_web
+
 REPO = os.environ.get("GITHUB_REPOSITORY") or "EusebioG96/ManaLab"
 PREFIJO = f"https://github.com/{REPO}/releases/"
 MAX_NOTAS = 8000
@@ -89,10 +91,20 @@ def reescribir_enlaces(html, version, descarga):
 
 
 def actualizar_paginas(raiz, datos):
+    """Aplica versión y enlaces a la FUENTE de cada página de PAGINAS (su .pagina y las variantes de hueco que usa)
+    y regenera los .html con construir_web; los .html ya no se editan a mano (ML-197).
+    Devuelve las rutas (relativas a la raíz) de las fuentes que han cambiado."""
+    raiz = Path(raiz)
+    cambiadas = []
     for nombre in PAGINAS:
-        ruta = Path(raiz) / nombre
-        ruta.write_text(reescribir_enlaces(ruta.read_text(encoding="utf-8"), datos["version"], datos["descarga"]),
-                        encoding="utf-8")
+        for fuente in construir_web.fuentes_de_pagina(raiz, Path(nombre)):
+            antes = construir_web._leer(fuente)
+            despues = reescribir_enlaces(antes, datos["version"], datos["descarga"])
+            if despues != antes:
+                fuente.write_text(despues, encoding="utf-8", newline="")
+                cambiadas.append(fuente.relative_to(raiz))
+    construir_web.construir(raiz, raiz)
+    return cambiadas
 
 
 def main(argv):

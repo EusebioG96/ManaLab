@@ -27,6 +27,12 @@ la variante con `{{> pie_es 2=b}}` (sin indicar nada, la `a`).
 
 `python3 tools/construir_web.py --comprobar` dice qué páginas están desactualizadas sin escribir nada.
 
+### Versión y enlaces de descarga
+
+`tools/generar_version_json.py` (workflow `version_json.yml`, al publicar una release) aplica la versión y el enlace de
+descarga a la **fuente** de `index.html` y `es/index.html` (su `.pagina` y las variantes de hueco que usa) y después
+regenera los `.html`. El workflow hace commit de `version.json`, `plantillas/` y esos dos `.html`.
+
 ## Comprobaciones
 
 `python3 tools/seo_check.py` y `for t in tools/test_*.py; do python3 "$t"; done`.

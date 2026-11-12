@@ -1,7 +1,9 @@
 """Pruebas del generador de version.json, del workflow que lo publica y del archivo publicado (sin red)."""
 import json
 import re
+import shutil
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -9,6 +11,7 @@ import yaml
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "tools"))
+import construir_web as W  # noqa: E402
 import generar_version_json as G  # noqa: E402
 
 SHA = "a" * 64
@@ -110,7 +113,50 @@ class TestReescritura(unittest.TestCase):
 
     def test_workflow_incluye_paginas(self):
         t = (RAIZ / ".github/workflows/version_json.yml").read_text(encoding="utf-8")
-        self.assertIn("git add version.json index.html es/index.html", t)
+        self.assertIn("git add version.json plantillas index.html es/index.html", t)
+        self.assertIn("git diff --quiet -- version.json plantillas index.html es/index.html", t)
+
+
+class TestFlujoDesdePlantillas(unittest.TestCase):
+    """ML-197: la release cambia la FUENTE y el generador produce los .html (sin editarlos a mano)."""
+    DATOS = {"version": "9.8.7", "descarga": f"{BASE}/download/v9.8.7/ManaLab-9.8.7-portable.zip"}
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, self.tmp, True)
+        shutil.copytree(RAIZ / "plantillas", self.tmp / "plantillas")
+        for n in W.listar_paginas(RAIZ):
+            (self.tmp / n).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(RAIZ / n, self.tmp / n)
+
+    def test_cambia_las_fuentes_y_los_html_coinciden_con_el_generador(self):
+        cambiadas = {c.as_posix() for c in G.actualizar_paginas(self.tmp, self.DATOS)}
+        self.assertIn("plantillas/paginas/index.pagina", cambiadas)
+        self.assertIn("plantillas/paginas/es/index.pagina", cambiadas)
+        self.assertTrue(any(c.startswith("plantillas/pie_") for c in cambiadas), cambiadas)
+        self.assertEqual(W.paginas_distintas(self.tmp, self.tmp), [])  # --comprobar seguiría en verde
+        for n in G.PAGINAS:
+            h = (self.tmp / n).read_text(encoding="utf-8")
+            self.assertEqual(set(re.findall(r"<span data-version>([^<]*)</span>", h)), {"9.8.7"}, n)
+            self.assertIn(self.DATOS["descarga"], h)
+            self.assertEqual(re.findall(r'"softwareVersion":\s*"([^"]*)"', h), ["9.8.7"], n)
+
+    def test_regenerar_no_deshace_el_cambio(self):
+        G.actualizar_paginas(self.tmp, self.DATOS)
+        antes = (self.tmp / "index.html").read_bytes()
+        W.construir(self.tmp, self.tmp)
+        self.assertEqual((self.tmp / "index.html").read_bytes(), antes)
+        self.assertIn(b"9.8.7", antes)
+
+    def test_no_toca_las_demas_paginas(self):
+        G.actualizar_paginas(self.tmp, self.DATOS)
+        for n in W.listar_paginas(RAIZ):
+            if n.as_posix() not in G.PAGINAS:
+                self.assertEqual((self.tmp / n).read_bytes(), (RAIZ / n).read_bytes(), n.as_posix())
+
+    def test_idempotente(self):
+        G.actualizar_paginas(self.tmp, self.DATOS)
+        self.assertEqual(G.actualizar_paginas(self.tmp, self.DATOS), [])
 
 
 class TestWorkflow(unittest.TestCase):
