@@ -1,0 +1,2 @@
+<a href="/">Home</a>
+<a href="/magic-online/">Magic Online tracker</a>

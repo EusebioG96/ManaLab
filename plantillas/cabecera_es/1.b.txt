@@ -1,0 +1,13 @@
+<a class="marca" href="#inicio"><img alt="Logo de ManaLab" height="36" src="../img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
+<nav aria-label="Secciones">
+<a href="#funciones">Funciones</a>
+<a href="#mtgo">Magic Online</a>
+<a href="#coaches">Coaches</a>
+<a href="#empezar">Cómo empezar</a>
+<a href="#preguntas">Preguntas</a>
+<a href="#ia">Análisis IA</a>
+</nav>
+<a class="idioma" href="/" hreflang="en" id="idioma" lang="en" title="View in English">EN</a>
+<a class="idioma" href="/pt/" hreflang="pt-BR" lang="pt-BR" title="Ver em português">PT</a>
+<a class="idioma" href="/ja/" hreflang="ja" lang="ja" title="日本語で見る">日本語</a>
+<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-cabecera-es" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar</span></a>

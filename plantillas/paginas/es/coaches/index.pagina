@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Cómo revisar a un alumno con ManaLab · Coaches</title>
+<meta content="Tu alumno te envía un solo informe con manos, mulligans y momentos clave. Guía gratis para coaches de MTG Arena y Magic Online." name="description"/>
+<link href="https://manalab.es/es/coaches/" rel="canonical"/>
+<link href="https://manalab.es/coaches/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/coaches/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/pt/coaches/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://manalab.es/coaches/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<link href="../../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="../../img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="es_ES" property="og:locale"/>
+<meta content="Cómo revisar a un alumno con ManaLab · Coaches" property="og:title"/>
+<meta content="Tu alumno te envía un solo informe con manos, mulligans y momentos clave. Guía gratis para coaches de MTG Arena y Magic Online." property="og:description"/>
+<meta content="https://manalab.es/es/coaches/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="Cómo revisar a un alumno con ManaLab · Coaches" name="twitter:title"/>
+<meta content="Tu alumno te envía un solo informe con manos, mulligans y momentos clave. Guía gratis para coaches de MTG Arena y Magic Online." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/es/coaches/#webpage", "url": "https://manalab.es/es/coaches/", "name": "Cómo revisar a un alumno con ManaLab · Coaches", "description": "Tu alumno te envía un solo informe con manos, mulligans y momentos clave. Guía gratis para coaches de MTG Arena y Magic Online.", "inLanguage": "es", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/coaches_informe_es.jpg"}}, {"@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Cuesta algo?", "acceptedAnswer": {"@type": "Answer", "text": "El programa es gratis. Lo único de pago es el análisis de derrotas con IA, que no hace falta para nada de esta guía."}}, {"@type": "Question", "name": "¿Mi alumno comparte todo su historial?", "acceptedAnswer": {"@type": "Answer", "text": "En el informe y en el archivo .manalab comparte solo lo que elige. En el modo Equipo, ManaLab publica todas sus partidas en vuestra carpeta compartida salvo que deje de compartir; puede ocultar los nombres de los rivales y desactivar que se compartan las capturas."}}, {"@type": "Question", "name": "¿Cuentan sus partidas en mis estadísticas?", "acceptedAnswer": {"@type": "Answer", "text": "No. Las partidas de otro jugador se quedan marcadas y no cuentan en las tuyas."}}, {"@type": "Question", "name": "¿Qué no incluye una partida importada?", "acceptedAnswer": {"@type": "Answer", "text": "Capturas y análisis con IA. Sí trae repetición, manos, mulligans, mazo, notas y etiquetas."}}, {"@type": "Question", "name": "¿Qué necesito?", "acceptedAnswer": {"@type": "Answer", "text": "ManaLab funciona en Windows 10 y 11. Los informes se abren en cualquier navegador, así que para leerlos no necesitas instalar nada."}}, {"@type": "Question", "name": "¿Y si echo algo de menos?", "acceptedAnswer": {"@type": "Answer", "text": "Escribe a manalab.app@gmail.com. Las herramientas para coaches se están construyendo con lo que nos pidáis."}}]}]}</script>
+<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>{{> css_sitio 16=b}}</style></head>
+<body>
+{{> cabecera_es}}
+<main id="inicio">
+<section class="portada">
+<div class="envoltura">
+<div>
+<div class="eti">Guía gratis para coaches</div>
+<h1>Cómo revisar a un alumno <em>con ManaLab</em></h1>
+<p class="sub">Tu alumno juega como siempre y llega a la clase con sus partidas ya guardadas. Así dedicas la sesión a sus decisiones, no a pedirle capturas ni a reconstruir lo que pasó.</p>
+<div class="nota-desc"><span>El programa es gratis. Solo el análisis con IA es de pago</span><span>Los informes se abren en cualquier navegador</span><span>No hace falta cuenta</span></div>
+<div class="desc-bloque" id="descargar">
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-coaches-es" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></p>
+<p class="nota-descarga">Versión <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">otras versiones</a></p>
+<p class="nota-descarga">Tu alumno necesita ManaLab para crear el informe. Tú no lo necesitas para leerlo.</p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">ManaLab se usa en el ordenador</h4>
+<p class="movil-txt">Envíate el enlace y descárgalo allí.</p>
+<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="compartir-movil-coaches-es" data-url="https://manalab.es/es/coaches/" type="button"><span>Enviarme el enlace</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="descarga-movil-coaches-es" rel="noopener">Descargar el ZIP igualmente</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen">Requisitos: Windows 10 u 11. Descomprime el ZIP y abre ManaLab.exe. No hace falta instalar nada.</p>
+<p class="nota-smartscreen" data-solo-pc>Antes de descomprimir, botón derecho en el ZIP › Propiedades › marca <b>Desbloquear</b> › Aceptar. Si aun así sale un aviso, pulsa <b>Más información › Ejecutar de todas formas</b>.</p>
+<p class="nota-smartscreen"><a href="/es/seguridad/">¿Es seguro? Compruébalo tú mismo →</a></p>
+</div>
+<div class="enlaces-video"><span class="enlace-sec">Mira los vídeos:</span><a href="/guia/guia_manalab_es.html#video-prepare-session">Preparar una sesión</a><a href="/guia/guia_manalab_es.html#video-coach-tags-trends-team">Etiquetas de coach, tendencias y equipo</a></div>
+</div>
+<div class="hero-medio">
+<div class="ventana"><picture><source srcset="../../img/coaches_informe_es.webp" type="image/webp"><img alt="Informe de sesión de ManaLab abierto en un navegador: resumen, objetivo de la sesión y una partida perdida con manos, mulligan y sideboard, con datos de ejemplo" height="1153" src="../../img/coaches_informe_es.jpg" width="1000"/></picture></div>
+<p class="pie-captura" style="margin:0">Informe de sesión con datos de ejemplo.</p>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="que-hace">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">Para qué sirve</div><h2>Más clase dedicada a las decisiones, menos preparación</h2><p>ManaLab es un tracker gratis para MTG Arena y Magic Online. Guarda solo las manos iniciales, los mulligans, si empezó primero o segundo, el mazo del rival y una repetición de cada partida.</p></div>
+<div class="funciones cuatro">
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"></path></svg><h3>Menos preparación</h3><p>El alumno elige las partidas y te envía un solo informe.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M12 4v16M4 12h16"></path></svg><h3>Decisiones visibles</h3><p>Ves la mano, el mulligan y los momentos clave de cada partida.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"></path></svg><h3>Errores que se repiten</h3><p>Las etiquetas muestran qué falla una y otra vez, y cómo evoluciona en 30 o 90 días.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M12 8v4l2.5 2.5M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16z"></path></svg><h3>Sideboard con datos</h3><p>El alumno guarda su plan por matchup y ves qué cambios hizo de verdad.</p></div>
+</div>
+<p class="nota-pie">El programa es gratis y no necesita cuenta. Tu alumno lo necesita para crear cualquiera de estos archivos; tú solo necesitas instalarlo si quieres usar el modo Equipo o abrir partidas exportadas.</p>
+</div>
+</section>
+<section class="seccion" id="formas">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">Formas de trabajar</div><h2>Elige cómo trabajar</h2></div>
+<div class="formas">
+<div class="forma"><h3>Informe de sesión</h3><dl><div><dt>Qué recibes</dt><dd>Un archivo con las partidas elegidas</dd></div><div><dt>¿Necesitas ManaLab?</dt><dd>No, se abre en el navegador</dd></div><div><dt>Mejor para</dt><dd>Clases sueltas</dd></div></dl></div>
+<div class="forma"><h3>Exportar para el coach</h3><dl><div><dt>Qué recibes</dt><dd>Resumen, matchups, errores y partidas con notas</dd></div><div><dt>¿Necesitas ManaLab?</dt><dd>No, se abre en el navegador</dd></div><div><dt>Mejor para</dt><dd>Primera clase o revisión general</dd></div></dl></div>
+<div class="forma"><h3>Archivo <code>.manalab</code></h3><dl><div><dt>Qué recibes</dt><dd>Un match completo, con todas sus partidas y su repetición</dd></div><div><dt>¿Necesitas ManaLab?</dt><dd>Sí</dd></div><div><dt>Mejor para</dt><dd>Estudiar un match a fondo</dd></div></dl></div>
+<div class="forma"><h3>Modo Equipo</h3><dl><div><dt>Qué recibes</dt><dd>Partidas, capturas y notas en una carpeta compartida</dd></div><div><dt>¿Necesitas ManaLab?</dt><dd>Sí</dd></div><div><dt>Mejor para</dt><dd>Alumnos habituales</dd></div></dl></div>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="antes">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">Antes de la clase</div><h2>Pásale estos pasos a tu alumno</h2><p>La preparación le lleva unos minutos si ya tiene partidas guardadas.</p></div>
+<ol class="lista-pasos"><li><b>Instalar ManaLab</b> desde <a href="https://manalab.es">manalab.es</a> y dejarlo abierto mientras juega.</li><li><b>Jugar con normalidad.</b> Para marcar una decisión dudosa, pulsar F8 (la tecla por defecto): guarda una captura de ese momento.</li><li><b>Marcar sus errores.</b> En la pestaña Notas de cada partida, añadir etiquetas y escribir las dudas.</li><li><b>Elegir qué revisar.</b> En Partidas, abrir «⋯» › «Preparar sesión» y marcar las partidas.</li><li><b>Crear y enviar el informe.</b> Pulsar «Crear informe de sesión», guardarlo como PDF si quiere y enviárselo al coach.</li></ol>
+<div class="bloque-texto">
+<p>El informe incluye manos, mulligans, momentos clave, resumen por turnos, notas y momentos destacados. Funciona sin conexión, y el alumno puede ocultar el nombre de sus rivales.</p>
+<p><b>Para la primera clase,</b> pide también «Exportar para el coach», en el menú «⋯» de Estadísticas. Te da su resumen, sus matchups y sus errores marcados.</p>
+</div>
+<div class="mensaje"><span class="eti">Mensaje para enviar a tu alumno</span><p>Antes de la clase, instala ManaLab (manalab.es), gratis y sin cuenta. Juega con él abierto y pulsa F8 en cualquier jugada que te haga dudar. Luego, en Partidas, abre ⋯ › Preparar sesión, elige 3 partidas y envíame el informe.</p></div>
+<div class="enlaces-video"><a href="/guia/guia_manalab_es.html#video-prepare-session">Vídeo: preparar una sesión →</a></div>
+</div>
+</section>
+<section class="seccion" id="durante">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">Durante la clase</div><h2>Empieza por lo que se repite</h2><p>Después baja a las partidas concretas. Este orden funciona bien para una clase de una hora:</p></div>
+<div class="dos-col">
+<ol class="lista-pasos"><li><b>Tendencias.</b> Abre «Lo que más se repite» en Estadísticas para elegir un solo tema de trabajo.</li><li><b>Matchups.</b> La tabla separa la partida 1 de las partidas tras el sideboard. Un asterisco indica menos de 10 partidas, así que no saques conclusiones firmes de esas filas.</li><li><b>Manos y mulligans.</b> Revísalos antes que las jugadas: ¿era una mano para quedarse?</li><li><b>Repetición.</b> Salta a los momentos clave y comenta las decisiones del tema elegido.</li><li><b>Sideboard.</b> Compara su plan con lo que de verdad metió y sacó.</li></ol>
+<div><div class="ventana desliza"><picture><source srcset="../../img/coaches_tendencias_es.webp" type="image/webp"><img alt="Tabla «Lo que más se repite» de Estadísticas de ManaLab: errores con partidas, porcentaje, decisivas, tendencia y fuente (jugador o coach), con datos de ejemplo" height="512" loading="lazy" src="../../img/coaches_tendencias_es.jpg" width="1400"/></picture></div><p class="pie-captura">«Lo que más se repite» en Estadísticas, con datos de ejemplo.</p></div>
+</div>
+<div class="bloque-texto"><p>Con el modo Equipo ves cada partida con el mismo detalle que el alumno: manos, capturas con notas (si las comparte), repetición y mazo del rival.</p></div>
+</div>
+</section>
+<section class="seccion franja" id="despues">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">Después de la clase</div><h2>Deja uno o dos objetivos, no una lista larga</h2><p>Así la próxima clase puede empezar comprobando si mejoró.</p></div>
+<div class="mtgo-caja sola"><ul><li><b>Etiquetas:</b> usa siempre los mismos nombres para que «Lo que más se repite» mida bien la evolución.</li><li><b>Notas:</b> en el modo Equipo, escribe tu nota en la pestaña Notas de la partida.</li><li><b>Seguimiento:</b> en la siguiente clase, mira ese error a 30 días antes de abrir partidas nuevas.</li></ul></div>
+<h3 class="sub-h" id="equipo">Cómo activar el modo Equipo</h3>
+<ol class="lista-pasos"><li>Crea una carpeta en Google Drive, Dropbox u OneDrive y compártela con tu alumno con permiso de edición (Editor), porque los dos escribís en ella.</li><li>Cada uno abre Ajustes › Equipo e IA y elige la carpeta, su nombre y su rol: jugador o coach.</li><li>Pulsad «Sincronizar ahora».</li></ol>
+<div class="bloque-texto"><p>En Google Drive, la carpeta que te comparten aparece en «Compartido conmigo», que no se sincroniza con el ordenador. Quien la recibe debe añadirla a Mi unidad (botón derecho › Organizar › Añadir acceso directo) y marcarla como disponible sin conexión; si no, ManaLab no la ve. Con Dropbox u OneDrive, comprobad que la carpeta está sincronizada en el ordenador.</p></div>
+<div class="bloque-texto"><p>Cada persona escribe solo en su propia subcarpeta. Por defecto, ManaLab publica todas las partidas de tu alumno en la carpeta compartida; él puede ocultar los nombres de los rivales, desactivar que se compartan las capturas o dejar de compartir del todo.</p></div>
+<h3 class="sub-h">Cómo le llega tu nota al alumno</h3>
+<div class="bloque-texto" style="margin-top:-8px"><p>Abre la pantalla Equipo, elige a tu alumno y una partida, y escribe en la caja «Tu nota de coach para esta partida…» de su pestaña Notas. La nota se guarda en la carpeta compartida al salir de la caja; para eso no hace falta «Sincronizar ahora». Tu alumno la ve en la pestaña Notas de esa partida cuando su servicio de carpetas (Google Drive, Dropbox u OneDrive) haya sincronizado el archivo y abra la pestaña.</p></div>
+<div class="enlaces-video"><a href="/guia/guia_manalab_es.html#video-coach-tags-trends-team">Vídeo: etiquetas de coach, tendencias y equipo →</a></div>
+</div>
+</section>
+<section class="seccion" id="mtgo">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">Arena y Magic Online</div><h2>Qué tener en cuenta con Magic Online</h2><p>Revisar a un alumno funciona con los dos juegos. En Magic Online conviene tener en cuenta cuatro cosas:</p></div>
+<div class="mtgo-caja sola"><ul><li><b>Sideboard:</b> el alumno debe confirmar sus cambios entre partidas con un clic («Usar este cambio», «Sin cambios» o «Editar»). Las partidas que nunca se confirman no cuentan en los cambios de sideboard que se ven en Sideboard.</li><li><b>Repetición:</b> las fases y las cartas giradas que no están confirmadas llevan la marca ≈, porque pueden no ser exactas.</li><li><b>Nombres de mazo:</b> un mazo de Magic Online normalmente sale con el nombre que el alumno le puso en Magic Online; si la lista no coincide exactamente, sale por sus colores.</li><li><b>Importaciones:</b> importar un registro no corrige el sideboard de las partidas ya guardadas.</li></ul><p>En Arena hay que activar Opciones › Cuenta › «Detailed Logs (Plugin Support)» una vez y reiniciar el juego. En Magic Online no hay nada que activar.</p></div>
+</div>
+</section>
+<section class="seccion franja" id="preguntas">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">Preguntas</div><h2>Antes de empezar</h2></div>
+<div class="preguntas">
+<details><summary>¿Cuesta algo?</summary><p>El programa es gratis. Lo único de pago es el análisis de derrotas con IA, que no hace falta para nada de esta guía.</p></details>
+<details><summary>¿Mi alumno comparte todo su historial?</summary><p>En el informe y en el archivo <code>.manalab</code> comparte solo lo que elige. En el modo Equipo, ManaLab publica todas sus partidas en vuestra carpeta compartida salvo que deje de compartir; puede ocultar los nombres de los rivales y desactivar que se compartan las capturas.</p></details>
+<details><summary>¿Cuentan sus partidas en mis estadísticas?</summary><p>No. Las partidas de otro jugador se quedan marcadas y no cuentan en las tuyas.</p></details>
+<details><summary>¿Qué no incluye una partida importada?</summary><p>Capturas y análisis con IA. Sí trae repetición, manos, mulligans, mazo, notas y etiquetas.</p></details>
+<details><summary>¿Qué necesito?</summary><p>ManaLab funciona en Windows 10 y 11. Los informes se abren en cualquier navegador, así que para leerlos no necesitas instalar nada.</p></details>
+<details><summary>¿Y si echo algo de menos?</summary><p>Escribe a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Las herramientas para coaches se están construyendo con lo que nos pidáis.</p></details>
+</div>
+</div>
+</section>
+<section class="seccion" id="apoyo">
+<div class="envoltura">
+<div class="apoyo uno">
+<div>
+<div class="eti">Descarga gratuita</div>
+<h2>El programa es gratis. Solo el análisis con IA es de pago</h2>
+<p>El análisis con IA de tus derrotas cuesta 5 € al mes y paga el servicio de IA que usa. Todo lo demás, incluido todo lo de esta página, es gratis. ¿Quieres probarlo antes? Pide una prueba gratis por <a href="mailto:manalab.app@gmail.com">correo</a>.</p>
+<div class="acciones" style="margin-top:18px"><a class="boton prim" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a><a class="enlace-sec" href="/es/#ia">Sobre el análisis con IA</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+{{> pie_es}}
+
+<script defer="" src="/descarga.js"></script>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

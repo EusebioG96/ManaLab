@@ -1,0 +1,34 @@
+/* ---------------- página de coaches */
+.funciones.cuatro { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.nota-pie { margin: 22px 0 0; color: var(--texto2); font-size: 15.5px; max-width: 78ch; }
+.formas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.forma { background: var(--panel); border: 1px solid var(--linea2); border-radius: 16px; padding: 22px 24px; }
+.forma h3 { font-size: 21px; margin: 0 0 12px; }
+.forma h3 code, .tabla-dato code, .faq-code code { font: 0.85em var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 6px; padding: 1px 6px; }
+.forma dl { margin: 0; display: grid; gap: 10px; }
+.forma dt { font: 600 11.5px/1 var(--f-display); letter-spacing: 1.8px; text-transform: uppercase; color: var(--oro); margin-bottom: 3px; }
+.forma dd { margin: 0; color: var(--texto2); font-size: 15px; }
+.lista-pasos { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; counter-reset: p; max-width: 78ch; }
+.lista-pasos li { counter-increment: p; position: relative; padding: 2px 0 2px 46px; color: var(--texto2); font-size: 16px; }
+.lista-pasos li::before { content: counter(p); position: absolute; left: 0; top: 0; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font: 700 15px var(--f-display); color: var(--oro); background: var(--oro-suave); }
+.lista-pasos li b { color: var(--texto); font-weight: 600; }
+.bloque-texto p { margin: 18px 0 0; color: var(--texto2); font-size: 16px; max-width: 78ch; }
+.bloque-texto p b { color: var(--texto); font-weight: 600; }
+.mensaje { margin: 22px 0 0; max-width: 78ch; background: var(--panel); border: 1px solid var(--linea2); border-left: 3px solid var(--carmesi); border-radius: 12px; padding: 16px 20px; }
+.mensaje .eti { display: block; margin-bottom: 8px; }
+.mensaje p { margin: 0; color: var(--texto); font-size: 15.5px; }
+.enlaces-video { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.enlaces-video a { font-weight: 600; font-size: 15px; }
+.dos-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+.sub-h { font-size: 22px; margin: 34px 0 14px; }
+.cap-ancha { margin-top: 26px; }
+.mtgo-caja ul + p { margin-top: 18px; }
+.lista-pasos + .ventana, .dos-col .ventana { margin-top: 0; }
+@media (max-width: 600px) { .ventana.desliza { overflow-x: auto; } .ventana.desliza img { width: 760px; max-width: none; } }
+.lang-sel { display: inline-flex; gap: 6px; }
+@media (max-width: 900px) {
+  .funciones.cuatro, .formas, .dos-col { grid-template-columns: minmax(0, 1fr); }
+  .dos-col { gap: 26px; }
+}
+@media (max-width: 480px) { .forma { padding: 18px; } }
+

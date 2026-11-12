@@ -1,0 +1,2 @@
+<a href="/es/">Inicio</a>
+<a href="/es/magic-online/">Tracker para Magic Online</a>

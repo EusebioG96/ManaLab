@@ -1,0 +1,2 @@
+html.movil .aviso-version { display: none; }
+html.movil .hero-cta .boton { display: none; }

@@ -1,0 +1,37 @@
+/* ---------------- páginas para búsquedas concretas (ML-157) */
+.portada.solo { padding-block: 44px 28px; }
+.portada.solo .envoltura { grid-template-columns: minmax(0, 1fr); max-width: 900px; }
+.portada.solo h1 { font-size: clamp(34px, 5vw, 58px); }
+.portada.solo p.sub { margin-bottom: 0; max-width: 42em; }
+.pasos-reg { list-style: none; counter-reset: pr; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; }
+.pasos-reg li { counter-increment: pr; display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 14px; align-items: center; background: var(--panel); border: 1px solid var(--linea2); border-radius: 14px; padding: 11px 18px; font-size: 18px; }
+.pasos-reg li::before { content: counter(pr); width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--oro-suave); color: var(--oro); font: 700 18px var(--f-display); }
+.ruta-completa { margin: 16px 0 0; color: var(--texto2); font-size: 15px; }
+.ruta-completa .ruta { white-space: normal; overflow-wrap: anywhere; }
+@media (max-width: 640px) { .ruta, .mtgo-caja ul li code { white-space: normal; overflow-wrap: anywhere; } }
+.dos-col { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 40px; align-items: center; }
+.dos-col .ventana.estrecha { justify-self: center; width: 100%; max-width: 380px; }
+.dos-col .ventana img { height: auto; object-fit: contain; }
+.mtgo-caja h3 { margin-top: 0; }
+.mtgo-caja ul + h3, .mtgo-caja p + h3 { margin-top: 22px; }
+.mtgo-caja a { color: var(--oro); }
+.mtgo-caja ul + p:first-of-type { margin-top: 16px; }
+figure.video { margin: 0; width: 100%; }
+figure.video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; }
+figure.video figcaption { margin: 0; padding: 10px 14px; font-size: 13px; color: var(--apagado); }
+figure.video .idioma-video { display: inline-block; margin-left: 6px; padding: 0 7px; border: 1px solid var(--linea2); border-radius: 10px; font-size: 12px; white-space: nowrap; }
+.hero-medio .ventana { width: 100%; }
+@media (max-width: 900px) { .dos-col { grid-template-columns: minmax(0, 1fr); gap: 24px; } .portada.solo { padding-block: 28px 20px; } .pasos-reg li { font-size: 17px; padding: 10px 14px; } }
+@media (max-width: 600px) {
+  .portada:not(.solo) { padding-block: 22px 12px; }
+  .portada:not(.solo) h1 { font-size: 34px; margin: 10px 0 10px; }
+  .portada:not(.solo) p.sub { font-size: 16px; line-height: 1.5; margin-bottom: 12px; }
+  .portada:not(.solo) .nota-desc { margin-top: 0; }
+  .portada:not(.solo) .nota-desc span:nth-child(n+2) { display: none; }
+  .portada:not(.solo) .desc-bloque { margin-top: 12px; }
+  .portada:not(.solo) .desc-bloque > p:first-child { margin-top: 0 !important; }
+  .movil-caja { margin-top: 10px; padding: 14px; }
+  .movil-txt { margin-bottom: 10px; }
+  .movil-zip { margin-top: 10px; }
+}
+

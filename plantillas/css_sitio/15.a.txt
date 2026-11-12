@@ -1,0 +1,15 @@
+/* ---------------- página de Magic Online */
+.portada .sub { margin-bottom: 22px; }
+.desc-bloque { margin-top: 26px; max-width: 34em; }
+.desc-bloque .nota-descarga { margin-top: 10px; }
+.desc-bloque .nota-descarga + .nota-smartscreen { margin-top: 10px; }
+.funciones.cinco .funcion:last-child { grid-column: span 2; }
+.novedades.uno { margin-top: 0; }
+.novedad .cuerpo p + p { margin-top: 12px; }
+.novedad .boton-txt { font-weight: 600; color: var(--texto); }
+.mtgo-caja.sola { margin-top: 0; }
+.mtgo-caja ul li code { white-space: nowrap; }
+.mtgo-caja p { margin: 14px 0 0; color: var(--texto2); font-size: 15.5px; max-width: 78ch; }
+.mtgo-caja p:first-of-type { margin-top: 0; }
+.apoyo.uno { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 900px) { .funciones.cinco .funcion:last-child { grid-column: auto; } .desc-bloque { max-width: none; } }

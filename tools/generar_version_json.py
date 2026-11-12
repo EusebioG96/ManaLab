@@ -14,6 +14,8 @@ import sys
 import urllib.request
 from pathlib import Path
 
+import construir_web
+
 REPO = os.environ.get("GITHUB_REPOSITORY") or "EusebioG96/ManaLab"
 PREFIJO = f"https://github.com/{REPO}/releases/"
 MAX_NOTAS = 8000
@@ -68,31 +70,13 @@ def construir(release, leer_texto):
             "sha256": candidatos[0], "notas": notas_publicas(release.get("body"))}
 
 
-PAGINAS = ("index.html", "es/index.html")
-
-
-def reescribir_enlaces(html, version, descarga):
-    """Pone la descarga directa en los enlaces con data-descarga y la versión en los span data-version
-    (el pie «v2.2.2» y la etiqueta del botón del aviso son span data-version) y en el «softwareVersion» del JSON-LD."""
-    if not re.fullmatch(r"\d{1,4}\.\d{1,5}\.\d{1,6}", version) or not descarga.startswith(PREFIJO + "download/"):
-        raise ValueError("versión o enlace no válidos")
-
-    def enlace(m):
-        etiqueta = m.group(0)
-        if re.search(r'\shref="[^"]*"', etiqueta):
-            return re.sub(r'(\shref=")[^"]*(")', lambda h: h.group(1) + descarga + h.group(2), etiqueta, count=1)
-        return etiqueta.replace("<a", f'<a href="{descarga}"', 1)
-
-    html = re.sub(r"<a\b[^>]*\bdata-descarga\b[^>]*>", enlace, html)
-    html = re.sub(r'("softwareVersion":\s*")[^"]*(")', lambda m: m.group(1) + version + m.group(2), html)
-    return re.sub(r"(<span data-version>)[^<]*(</span>)", lambda m: m.group(1) + version + m.group(2), html)
-
-
-def actualizar_paginas(raiz, datos):
-    for nombre in PAGINAS:
-        ruta = Path(raiz) / nombre
-        ruta.write_text(reescribir_enlaces(ruta.read_text(encoding="utf-8"), datos["version"], datos["descarga"]),
-                        encoding="utf-8")
+def regenerar_web(raiz):
+    """Regenera todos los .html de ``raiz`` con la versión de su version.json (única fuente, ML-197).
+    Devuelve las rutas (relativas a la raíz) de los .html cuyo contenido ha cambiado."""
+    raiz = Path(raiz)
+    antes = {n: (raiz / n).read_bytes() if (raiz / n).is_file() else None for n in construir_web.listar_paginas(raiz)}
+    construir_web.construir(raiz, raiz)
+    return [n for n, datos in antes.items() if (raiz / n).read_bytes() != datos]
 
 
 def main(argv):
@@ -102,7 +86,7 @@ def main(argv):
     salida = Path(argv[1]) if len(argv) > 1 else Path(__file__).resolve().parent.parent / "version.json"
     salida.write_text(json.dumps(datos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if len(argv) <= 1:
-        actualizar_paginas(salida.parent, datos)
+        regenerar_web(salida.parent)
     print(f"{salida}: {datos['tag']}")
     return 0
 

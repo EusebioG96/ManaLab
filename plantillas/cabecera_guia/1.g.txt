@@ -1,0 +1,2 @@
+<h1>ManaLab 가이드</h1>
+<p class="sub">앱의 각 기능이 하는 일과 사용법입니다. Arena와 Magic Online 모두 다룹니다. 주요 기능과 AI 코치를 중심으로 설명합니다.</p>

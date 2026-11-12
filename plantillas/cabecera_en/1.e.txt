@@ -1,0 +1,9 @@
+<a class="marca" href="/"><img alt="ManaLab logo" height="36" src="../img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
+<nav aria-label="Sections">
+<a href="#guarda">What it saves</a>
+<a href="#banquillo">Sideboard</a>
+<a href="#lee">What it reads</a>
+<a href="#preguntas">FAQ</a>
+</nav>
+<a class="idioma" href="/es/magic-online/" hreflang="es" id="idioma" lang="es" title="Ver en español">ES</a>
+<a class="boton prim descarga" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download</span></a>

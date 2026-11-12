@@ -1,0 +1,1 @@
+.pie-captura { margin-top: 12px; font-size: 14px; color: var(--apagado); }

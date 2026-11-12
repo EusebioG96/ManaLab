@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>¿Es seguro ManaLab? Cómo comprobarlo tú mismo</title>
+<meta content="Qué lee ManaLab, todas las conexiones que hace y cómo comprobar el archivo que descargas. Una herramienta gratuita de una sola persona: compruébalo." name="description"/>
+<link href="https://manalab.es/es/seguridad/" rel="canonical"/>
+<link href="https://manalab.es/safety/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/seguridad/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/safety/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<meta content="index, follow" name="robots"/>
+<link href="../../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="../../img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="es_ES" property="og:locale"/>
+<meta content="¿Es seguro ManaLab? Cómo comprobarlo tú mismo" property="og:title"/>
+<meta content="Qué lee ManaLab, todas las conexiones que hace y cómo comprobar el archivo que descargas. Una herramienta gratuita de una sola persona: compruébalo." property="og:description"/>
+<meta content="https://manalab.es/es/seguridad/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="¿Es seguro ManaLab? Cómo comprobarlo tú mismo" name="twitter:title"/>
+<meta content="Qué lee ManaLab, todas las conexiones que hace y cómo comprobar el archivo que descargas. Una herramienta gratuita de una sola persona: compruébalo." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://manalab.es/es/seguridad/#webpage", "url": "https://manalab.es/es/seguridad/", "name": "¿Es seguro ManaLab? Cómo comprobarlo tú mismo", "description": "Qué lee ManaLab, todas las conexiones que hace y cómo comprobar el archivo que descargas. Una herramienta gratuita de una sola persona: compruébalo.", "inLanguage": "es", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "publisher": {"@id": "https://manalab.es/#org"}}</script>
+<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_seguridad}}</style></head>
+<body>
+{{> cabecera_es 1=g}}
+<main id="inicio">
+<section class="portada">
+<div class="envoltura"><div class="pagina">
+<div class="eti">Seguridad</div>
+<h1>¿Es seguro ManaLab? Cómo comprobarlo tú mismo</h1>
+<p class="lead">ManaLab es una herramienta gratuita hecha por una sola persona. Todavía no está firmada y el código no es público, así que tener cuidado es razonable. Esta página explica exactamente qué hace y cómo comprobarlo, para que no tengas que fiarte solo de mi palabra.</p>
+</div></div>
+</section>
+<div class="cuerpo">
+<div class="envoltura"><div class="pagina">
+<section class="tarjeta" id="lee">
+<h2>Qué lee y qué toca</h2>
+<ul><li>Lee el <code>Player.log</code> y la base de cartas que Arena deja en tu PC, sin modificarlos. El <code>Player.log</code> es el archivo que Arena escribe cuando tienes activado «Detailed Logs (Plugin Support)» en sus ajustes.</li><li>De Magic Online lee el <code>mtgo.log</code>, los archivos <code>Match_GameLog_*.dat</code>, <code>mtgo_game_history</code> y los archivos <code>grouping *.xml</code> que deja en tu PC, también sin modificarlos.</li><li>No modifica Arena ni Magic Online, no lee su memoria y no se conecta a los servidores de Wizards.</li><li>Las capturas son opcionales, con un interruptor en Ajustes para Arena y otro para Magic Online (vienen activadas por defecto). Cuando están activadas, guarda imágenes de la ventana del juego, en momentos como la mano inicial, los mulligans, el resultado y cuando pulsas F8.</li><li>Tus partidas, capturas y estadísticas se quedan en una carpeta de tu PC, salvo lo que tú compartas: modo equipo, exportar una partida o el análisis con IA.</li></ul>
+</section>
+<section class="tarjeta" id="conexiones">
+<h2>Todas las conexiones que hace</h2>
+<ol><li>Una vez al día pregunta a GitHub si hay una versión nueva (si GitHub no responde, mira manalab.es).</li><li>Cada 3 días descarga las listas actualizadas del meta de mazos, una por formato, desde un repositorio público: <a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener">github.com/EusebioG96/registro-mtga-meta</a></li><li>Consulta Scryfall con ids (de Arena y de Magic Online) o nombres de carta para los nombres que falten, el overlay y las imágenes de la repetición.</li></ol>
+<p>Las tres se pueden desactivar en Ajustes.</p>
+<p>Solo si lo usas: el análisis con IA, el reporte de bugs y el modo equipo.</p>
+<p>Cuando pulsas el botón de análisis con IA en una partida perdida, envía los datos de esa partida (resultado, mazo, manos, cartas vistas y cronología), sin nombres de jugador (el nombre que le pones a tu mazo sí va).</p>
+<p>Cuando envías un reporte de bug desde Ajustes, nuestro servidor recibe lo que escribes, tu correo si lo pones, la versión de la app, tu sistema e idioma, si usas Arena y Magic Online, un identificador anónimo de tu equipo y, si lo marcas, las últimas líneas de <code>registro.log</code> sin tu nombre de usuario ni códigos. No se envían partidas ni mazos. El servidor lo reenvía por correo y no lo guarda. Más en la <a href="/privacy/#es">política de privacidad</a>.</p>
+</section>
+<section class="tarjeta" id="comprobar">
+<h2>Cómo comprobar el archivo que has descargado</h2>
+<ol><li>Cada versión tiene su <a href="https://github.com/EusebioG96/ManaLab/releases/latest" rel="noopener">SHA-256</a> y su <a href="https://github.com/EusebioG96/ManaLab/releases/latest" rel="noopener">análisis de VirusTotal</a>.</li><li>En PowerShell, desde la carpeta del ZIP:<div class="cmd"><code>Get-FileHash .\ManaLab*.zip -Algorithm SHA256</code></div>El resultado debe coincidir con el que publico.</li><li>Si prefieres, sube tú mismo el ZIP a <a href="https://www.virustotal.com/" rel="noopener">virustotal.com</a>.</li></ol>
+</section>
+<section class="tarjeta" id="firma">
+<h2>Por qué todavía no está firmado</h2>
+<p>Un certificado de firma de código cuesta dinero cada año y este proyecto lo pago yo. Conseguir uno es mi primera prioridad, y las donaciones de <a href="https://ko-fi.com/eusebiog96" rel="noopener">Ko-fi</a> van para eso. Mientras tanto, Windows muestra su aviso de «Windows protegió su PC» la primera vez que lo abres (<b>Más información</b>, luego <b>Ejecutar de todas formas</b>). Si antes de descomprimir haces clic derecho en el ZIP, <b>Propiedades</b> y marcas <b>Desbloquear</b>, no sale.</p>
+<p>Si prefieres esperar a la versión firmada, es totalmente razonable.</p>
+</section>
+<section class="tarjeta" id="codigo">
+<h2>Sobre el código</h2>
+<p>De momento el código es privado. Si eso cambia, lo diré aquí.</p>
+</section>
+<section class="tarjeta" id="dudas">
+<h2>Dudas</h2>
+<p>Escríbeme a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Respondo yo mismo, normalmente en unos días.</p>
+</section>
+<p class="firma">— ManaLab</p>
+</div></div>
+</div>
+</main>
+{{> pie_es 1=c 2=e 3=c}}
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

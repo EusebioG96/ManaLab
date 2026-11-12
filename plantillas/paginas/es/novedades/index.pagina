@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Novedades de ManaLab 2.3 · Historial de versiones</title>
+<meta content="Qué cambió en ManaLab 2.3 y 2.2: Magic Online, lista de tierras en el overlay, estadísticas con el formato real, repeticiones, informes de sesión y herramientas de coach." name="description"/>
+<link href="https://manalab.es/es/novedades/" rel="canonical"/>
+<link href="https://manalab.es/novedades/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/novedades/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/novedades/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<link href="../../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="../../img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="es_ES" property="og:locale"/>
+<meta content="Novedades de ManaLab 2.3 · Historial de versiones" property="og:title"/>
+<meta content="Qué cambió en ManaLab 2.3 y 2.2: Magic Online, lista de tierras en el overlay, estadísticas con el formato real, repeticiones, informes de sesión y herramientas de coach." property="og:description"/>
+<meta content="https://manalab.es/es/novedades/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="Novedades de ManaLab 2.3 · Historial de versiones" name="twitter:title"/>
+<meta content="Qué cambió en ManaLab 2.3 y 2.2: Magic Online, lista de tierras en el overlay, estadísticas con el formato real, repeticiones, informes de sesión y herramientas de coach." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/es/novedades/#webpage", "url": "https://manalab.es/es/novedades/", "name": "Novedades de ManaLab 2.3 · Historial de versiones", "description": "Qué cambió en ManaLab 2.3 y 2.2: Magic Online, lista de tierras en el overlay, estadísticas con el formato real, repeticiones, informes de sesión y herramientas de coach.", "inLanguage": "es", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}}]}</script>
+<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 10=b 16=d}}</style></head>
+<body>
+{{> cabecera_es 1=d}}
+<main id="inicio">
+<section class="portada simple">
+<div class="envoltura">
+<div>
+<h1>Novedades de ManaLab</h1>
+<div class="hero-cta"><a class="boton prim" href="/es/#descargar" data-goatcounter-click="novedades-descarga" data-goatcounter-title="novedades-descarga-es"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></div>
+</div>
+</div>
+</section>
+<section class="seccion" id="novedades">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Novedades de la 2.3</div>
+<h2>Ahora para Arena y Magic Online</h2>
+<p>La versión 2.3 trae Magic Online a ManaLab, con manos, estadísticas, repeticiones y overlay, y añade algunas cosas para todos.</p>
+</div>
+<div class="funciones">
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="12" rx="2" width="18" x="3" y="4"></rect><path d="M8 20h8M12 16v4"></path><path d="M8 9h8M8 12h5"></path></svg>
+<h3>Magic Online, registrado solo</h3>
+<p>Las partidas de MTGO se guardan con sus manos, mulligans, primero/segundo y el mazo del rival, y el overlay también funciona ahí. Tu mazo toma el nombre con el que lo guardaste en Magic Online cuando la lista coincide exactamente; si no, se nombra por sus colores.</p>
+<p><a class="enlace-man" href="/es/magic-online/">Todo lo que hace ManaLab con Magic Online →</a></p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M3 20h18M5 20l5-9 3 5 2-3 4 7"></path><circle cx="17" cy="6" r="2"></circle></svg>
+<h3>Lista de tierras en el overlay</h3>
+<p>Pasa el ratón por «Tierras» en el overlay y se abre la lista de las tierras de tu mazo con las copias que quedan y la probabilidad de robar cada una. Se desactiva en Ajustes › Overlay › Mi panel.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="11" rx="4" width="8" x="8" y="9"></rect><path d="M9 9a3 3 0 0 1 6 0M4 13h4M16 13h4M5 19l3-2M19 19l-3-2M5 7l3 2M19 7l-3 2"></path></svg>
+<h3>Reportar un bug</h3>
+<p>Un botón «Reportar un bug» dentro de la app te permite contarnos qué ha fallado, con las últimas líneas del registro si decides adjuntarlas.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"></path></svg>
+<h3>Estadísticas con el formato real</h3>
+<p>Cada partida cuenta en su formato real y puedes filtrar las estadísticas por formato.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="4"></rect><path d="M3 9h18M9 9v11"></path></svg>
+<h3>Interfaz rediseñada</h3>
+<p>Toda la app estrena aspecto.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"></path><path d="M9 8h5M9 12h5"></path></svg>
+<h3>Manual de usuario en inglés</h3>
+<p>Un manual en PDF que llega con cada versión.</p>
+<p><a class="enlace-man" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-manual-en.pdf" rel="noopener">Descargar el manual (PDF, en inglés) →</a></p></div>
+</div>
+<div class="novedades mtgo-capturas">
+<div class="novedad">
+<div class="ventana"><picture><source srcset="../../img/es_mtgo_panel.webp" type="image/webp"><img alt="Panel de ManaLab con Arena escuchando y Magic Online en partida, leyendo mtgo.log, y los últimos matches con la etiqueta MTGO, con datos de ejemplo" height="860" loading="lazy" src="../../img/es_mtgo_panel.jpg" width="1366"/></picture></div>
+<div><div class="eti">Panel</div>
+<h3>Arena y Magic Online, lado a lado</h3>
+<p>El Panel muestra el estado de cada juego y tus últimos matches, con una pequeña etiqueta MTGO en los que jugaste en Magic Online.</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><picture><source srcset="../../img/es_mtgo_banquillo.webp" type="image/webp"><img alt="Aviso de banquillo de ManaLab sobre Magic Online entre partidas: «¿Cambiaste el banquillo?» con los botones «Usar este cambio», «Sin cambios» y «Editar», con datos de ejemplo" height="440" loading="lazy" src="../../img/es_mtgo_banquillo.jpg" width="1000"/></picture></div>
+<div><div class="eti">Banquillo</div>
+<h3>Confirma tu banquillo con un clic</h3>
+<p>Magic Online no envía a tiempo tu lista con el banquillo, así que entre partidas un panel pequeño te pregunta si la cambiaste: usa el cambio de la última vez, indica que no hubo cambios o abre el editor.</p></div>
+</div>
+</div>
+<div class="mtgo-caja">
+<h3>Magic Online en ManaLab: qué es igual y qué cambia</h3>
+<ul>
+<li><b>No hay que configurar nada.</b> ManaLab empieza a registrar solo cuando abres Magic Online. También puedes importar un archivo <code>mtgo.log</code> para traer partidas que jugaste con ManaLab cerrado.</li>
+<li><b>Tus herramientas principales, en Magic Online.</b> Manos, mulligans, primero/segundo, mazo del rival, estadísticas, repetición y overlay.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="anteriores">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Antes · Versión 2.2</div>
+<h2>Estudia tus partidas y trabaja con tu coach</h2>
+<p>La versión 2.2 iba de revisar: repeticiones, informes y tendencias.</p>
+</div>
+<div class="novedades">
+<div class="novedad">
+<div class="ventana"><picture><source srcset="../../img/v22_repeticion.webp" type="image/webp"><img alt="Repetición de una partida perdida en ManaLab, con Arena de ejemplo: tablero con las imágenes reales de las cartas, línea de tiempo por turnos y momentos clave" height="782" loading="lazy" src="../../img/v22_repeticion.jpg" width="1041"/></picture></div>
+<div><div class="eti">Repetición</div>
+<h3>Cada partida, repetida con las cartas reales</h3>
+<p>Un tablero con las imágenes reales de las cartas, momentos clave y los comentarios de tu coach en cada paso. En Magic Online, las fases y las cartas giradas se deducen y llevan la marca ≈.</p></div>
+</div>
+<div class="novedad">
+<div class="ventana estrecha"><picture><source srcset="../../img/v22_informe_sesion.webp" type="image/webp"><img alt="Diálogo «Informe de sesión» de ManaLab, donde eliges las opciones de un único archivo con las partidas seleccionadas" height="672" loading="lazy" src="../../img/v22_informe_sesion.jpg" width="584"/></picture></div>
+<div><div class="eti">Informe de sesión</div>
+<h3>Un informe de sesión para tu coach</h3>
+<p>Pulsa «Preparar sesión» y elige las partidas: obtienes un solo archivo con manos, momentos clave y notas, para revisar o enviar a tu coach.</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><picture><source srcset="../../img/v22_tendencias.webp" type="image/webp"><img alt="Tabla de Estadísticas de ManaLab con los errores que más se repiten, su porcentaje de partidas y su tendencia en los últimos 30 días" height="432" loading="lazy" src="../../img/v22_tendencias.jpg" width="1004"/></picture></div>
+<div><div class="eti">Etiquetas y tendencias</div>
+<h3>Etiquetas del coach y tendencias</h3>
+<p>Tu coach etiqueta los errores por partida o por paso, y «Lo que más se repite» te enseña cómo evoluciona cada uno en 30 o 90 días, o en todo tu historial.</p></div>
+</div>
+<div class="novedad">
+<div class="ventana estrecha"><picture><source srcset="../../img/v22_overlay.webp" type="image/webp"><img alt="Overlay rediseñado de ManaLab, visto sobre Arena, con nombres de cartas, costes de maná y la probabilidad de robar cada carta" height="820" loading="lazy" src="../../img/v22_overlay.jpg" width="684"/></picture></div>
+<div><div class="eti">Overlay</div>
+<h3>Un overlay rediseñado</h3>
+<p>Estilo nuevo, nombres de las cartas en tu idioma y la probabilidad de robar cada carta en tus próximos 1, 2 o 3 robos.</p></div>
+</div>
+</div>
+<p class="pie-captura">Capturas con datos de ejemplo de Arena (interfaz en inglés).</p>
+</div>
+</section>
+</main>
+{{> pie_es 2=d}}
+
+<script defer="" src="/descarga.js"></script>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>

@@ -1,0 +1,5 @@
+/* ---------------- página de novedades */
+.portada.simple { padding-block: 40px 8px; }
+.portada.simple .envoltura { grid-template-columns: minmax(0, 1fr); }
+.portada.simple h1 { margin: 0 0 22px; }
+

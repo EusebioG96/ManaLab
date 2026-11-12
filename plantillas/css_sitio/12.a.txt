@@ -1,0 +1,1 @@
+.apoyo h2 { font-size: clamp(28px, 3.2vw, 38px); margin: 12px 0 12px; }

@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>ManaLab: Free MTG Arena &amp; Magic Online Tracker</title>
+<meta content="Free tracker for MTG Arena and Magic Online: opening hands and mulligans with screenshots, win rates by matchup, opponent deck, coach tools." name="description"/>
+<link href="https://manalab.es/" rel="canonical"/>
+<link href="https://manalab.es/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/pt/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://manalab.es/ja/" hreflang="ja" rel="alternate"/>
+<link href="https://manalab.es/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<link href="img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="ManaLab: Free MTG Arena &amp; Magic Online Tracker" property="og:title"/>
+<meta content="Free tracker for MTG Arena and Magic Online: opening hands and mulligans with screenshots, win rates by matchup, opponent deck, coach tools." property="og:description"/>
+<meta content="https://manalab.es/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="ManaLab: Free MTG Arena &amp; Magic Online Tracker" name="twitter:title"/>
+<meta content="Free tracker for MTG Arena and Magic Online: opening hands and mulligans with screenshots, win rates by matchup, opponent deck, coach tools." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://manalab.es/#website", "name": "ManaLab", "url": "https://manalab.es/", "inLanguage": ["en", "es"], "publisher": {"@id": "https://manalab.es/#org"}}, {"@type": "Organization", "@id": "https://manalab.es/#org", "name": "ManaLab", "url": "https://manalab.es/", "logo": {"@type": "ImageObject", "url": "https://manalab.es/img/icono-192.png", "width": 192, "height": 192}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}, {"@type": "SoftwareApplication", "name": "ManaLab", "url": "https://manalab.es/", "description": "Free tracker for MTG Arena and Magic Online: opening hands and mulligans with screenshots, win rates by matchup, opponent deck, coach tools.", "applicationCategory": "GameApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "{{VERSION}}", "downloadUrl": "https://github.com/EusebioG96/ManaLab/releases/latest", "image": "https://manalab.es/img/og.jpg", "screenshot": ["https://manalab.es/img/v22_repeticion.jpg", "https://manalab.es/img/en_panel.jpg", "https://manalab.es/img/en_partida.jpg", "https://manalab.es/img/en_estadisticas.jpg"], "inLanguage": ["en", "es", "fr", "de", "it", "pt-BR", "ja", "ko", "zh"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "@id": "https://manalab.es/#app", "isPartOf": {"@id": "https://manalab.es/#website"}, "publisher": {"@id": "https://manalab.es/#org"}, "mainEntityOfPage": "https://manalab.es/", "applicationSubCategory": "MTG Arena and Magic Online match tracker"}, {"@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Does it touch the game or give me an advantage in a match?", "acceptedAnswer": {"@type": "Answer", "text": "No, neither in Arena nor in Magic Online. It only reads the files the games write on your PC (Arena's Player.log; Magic Online's mtgo.log, Match_GameLog_*.dat, mtgo_game_history and grouping *.xml deck files), without modifying them. It doesn't modify Arena or Magic Online, doesn't read their memory and doesn't connect to their servers. The optional overlay is a separate window that only shows public information or what can be worked out from what has been played, never hidden information."}}, {"@type": "Question", "name": "What data does it send?", "acceptedAnswer": {"@type": "Answer", "text": "Your games, screenshots and statistics stay in a folder on your PC. The program only downloads the updated meta deck lists, one per format (every 3 days), looks up card names on Scryfall (also with Magic Online ids) when it needs them, and asks GitHub once a day whether there's a new version. You can turn all three off in Settings. It sends data out only when you ask for something. The AI analysis sends that game's data (result, deck, hands, cards seen and timeline), never your name or the opponent's. A bug report sends what you write, your email if you add one, the ManaLab version, your system and language, whether you use Arena or Magic Online, an anonymous ID of your PC and, if you tick it, the last lines of registro.log with your user name and codes removed. It sends no games or decks."}}, {"@type": "Question", "name": "Windows says «Windows protected your PC». Is it safe?", "acceptedAnswer": {"@type": "Answer", "text": "That warning appears for programs without a paid code-signing certificate, which is common for small free tools. Click «More info» and then «Run anyway». It only shows on the first download: new versions install with «Update now» from inside the app, with no warning. To avoid it the first time too, before unzipping right-click the ZIP › Properties › tick «Unblock» › OK. Every version is checked on VirusTotal before it's published."}}, {"@type": "Question", "name": "Does it work with Magic Online?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, from 2.3. ManaLab records your Magic Online (MTGO) games: hands, mulligans, play or draw, the opponent's deck, statistics, replay and overlay. There is nothing to set up: it starts by itself when you open Magic Online, and you can import an mtgo.log file. What is different: Magic Online doesn't send turn phases or tapped cards, so ManaLab works them out from the log, and in the replay anything worked out is marked ≈ because it may not be exact. Magic Online doesn't give your sideboarded list in time either: ManaLab asks you to confirm your changes between games with one click, and until you do the overlay shows the list as unconfirmed. The overlay can show less than in Arena when the log has no table state. Your deck takes the name you saved it with in Magic Online when the list matches exactly; otherwise it is named by its colors."}}, {"@type": "Question", "name": "Does it work on Mac or Linux?", "acceptedAnswer": {"@type": "Answer", "text": "For now it's for Windows 10 and 11. There is no native Linux version, and it has not been tested with Wine or Proton, so we can't promise it will work."}}, {"@type": "Question", "name": "Does it log Draft and Sealed (Limited)?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It logs any Arena or Magic Online game, including Limited. The opponent's deck is compared with the meta decks of the game's format (Standard, Pioneer, Modern, Legacy, Vintage and Pauper); if nothing clearly matches, as in Limited, it is named by its colors."}}, {"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "The program is free and needs no account. The only paid part is the AI loss analysis: 5 € per month, which pays for the AI service it uses. Every other feature is free."}}, {"@type": "Question", "name": "How do I get the AI analysis?", "acceptedAnswer": {"@type": "Answer", "text": "Subscribe on Ko-fi (5 € per month). After paying you receive a subscription code by email. Paste it in Settings › Team and AI and the analysis appears in each lost game's Analysis tab. Want to try it first? Ask for a free trial by email."}}]}]}</script>
+<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" as="image" href="video/hero/manalab-hero-en-poster.jpg"><style>{{> css_sitio 1=b 2=b 3=b 4=b 5=b 6=b 7=b 8=b 9=b 11=b 12=b 13=b 14=b 15=b}}</style></head>
+<body>
+<!-- aviso de la versión nueva: quitar o cambiar en la siguiente release -->
+<div class="aviso-version" role="note">
+<div class="envoltura">
+<span><b>ManaLab 2.3 is out: now for Arena and Magic Online</b></span>
+<a href="/novedades/">See what's new →</a>
+</div>
+</div>
+{{> cabecera_en 1=d}}
+<main id="inicio">
+<section class="portada">
+<div class="envoltura">
+<div>
+<div class="eti">Free tracker for MTG Arena and Magic Online</div>
+<h1>Every Arena and Magic Online match, <em>logged on its own.</em></h1>
+<p class="sub">ManaLab reads the Arena and Magic Online logs while you play and keeps your hands, mulligans and the opponent's deck. Then it shows where you win and lose.</p>
+<div data-movil-aqui></div>
+<div class="hero-cta">
+<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-hero-en" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a>
+<a class="enlace-sec" href="#capturas">See the app</a>
+</div>
+<p class="nota-hero"><span>Version <span data-version>{{VERSION}}</span> · ZIP · nothing to install</span><a href="/safety/">Is it safe? Check it yourself →</a></p>
+<div class="nota-desc"><span>The app is free. Only the AI is paid</span><span>Your data stays on your PC unless you ask for AI</span><span>App in 9 languages</span></div>
+</div>
+<div class="hero-medio">
+<div class="hero-video" id="hero-video">
+<video aria-label="Silent 15-second video of ManaLab with demo data: the match list with wins and losses logged on their own, a game with its opening hand, mulligans and screenshot, win rate by matchup and play/draw, and a step-by-step replay." autoplay="" height="720" loop="" muted="" playsinline="" poster="video/hero/manalab-hero-en-poster.jpg" preload="metadata" width="1280">
+<source src="video/hero/manalab-hero-en.webm" type="video/webm"/>
+<source src="video/hero/manalab-hero-en.mp4" type="video/mp4"/>
+</video>
+<button aria-label="Pause video" class="hero-pausa" data-pausa="Pause video" data-play="Play video" type="button"><svg aria-hidden="true" class="ico-pausa" viewbox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"></path></svg><svg aria-hidden="true" class="ico-play" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></button>
+</div>
+<script>
+(function () {
+  /* con «reducir movimiento» o ahorro de datos: solo el póster (no se descarga el vídeo).
+     En teléfono (pantalla táctil estrecha) también: el póster con el botón de reproducir; el vídeo se descarga al tocarlo (ML-154) */
+  var caja = document.getElementById("hero-video"), v = caja.querySelector("video"), b = caja.querySelector(".hero-pausa");
+  var c = navigator.connection || {};
+  var quieto = (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) || c.saveData === true;
+  if (quieto) {
+    v.removeAttribute("autoplay"); v.autoplay = false; v.preload = "none";
+    v.querySelectorAll("source").forEach(function (s) { s.remove(); });
+    v.load(); caja.classList.add("solo-poster");
+    return;
+  }
+  var fuentes = null;
+  if (window.matchMedia && window.matchMedia("(max-width: 767px) and (pointer: coarse)").matches) {
+    v.removeAttribute("autoplay"); v.autoplay = false; v.preload = "none";
+    fuentes = Array.prototype.map.call(v.querySelectorAll("source"), function (s) { s.remove(); return s; });
+    v.load();
+    b.classList.add("pausado"); b.setAttribute("aria-label", b.dataset.play);
+    v.style.cursor = "pointer";
+    v.addEventListener("click", function () { b.click(); });   /* en teléfono, tocar cualquier parte del vídeo lo reproduce o pausa */
+  }
+  b.addEventListener("click", function () {
+    if (fuentes) {   /* primer toque en teléfono: ahora sí se añaden las fuentes */
+      fuentes.forEach(function (s) { v.appendChild(s); });
+      fuentes = null; v.preload = "auto"; v.load();
+    }
+    if (v.paused) v.play(); else v.pause();
+  });
+  v.addEventListener("play", function () { b.classList.remove("pausado"); b.setAttribute("aria-label", b.dataset.pausa); });
+  v.addEventListener("pause", function () { b.classList.add("pausado"); b.setAttribute("aria-label", b.dataset.play); });
+})();
+</script>
+</div>
+</div>
+</section>
+<section class="seccion franja confianza" id="confianza">
+<div class="envoltura">
+<ul class="confianza-lista">
+<li><b>Free, no account</b><span>The app is free. Only the AI analysis is paid.</span></li>
+<li><b>Your data, on your PC</b><span>Games, screenshots and statistics stay in a folder on your computer.</span></li>
+<li><b>It only reads the logs</b><span>It doesn't modify the game, read its memory or connect to its servers.</span></li>
+<li><b>You can check it</b><span>Every version is scanned on VirusTotal before release. <a href="/safety/">How to check it →</a></span></li>
+</ul>
+</div>
+</section>
+<section class="seccion" id="motivos">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Why ManaLab</div>
+<h2>Three things you'll check after every session</h2>
+</div>
+<div class="novedades motivos">
+<div class="novedad">
+<div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="video/funciones/03-opening-hand-mulligans.jpg" aria-label="Every game keeps your opening hand, the hand you keep after a mulligan and your sideboarding, plus mulligan stats." title="Every game keeps your opening hand, the hand you keep after a mulligan and your sideboarding, plus mulligan stats."><source src="video/funciones/03-opening-hand-mulligans.mp4" type="video/mp4"><a href="video/funciones/03-opening-hand-mulligans.mp4">MP4</a></video></figure></div>
+<div><h3>Your opening hand and every mulligan, with a screenshot</h3>
+<p>ManaLab keeps the hand you were dealt, the one you kept and a screenshot of each decision. Nothing to write down.</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="video/funciones/05-statistics.jpg" aria-label="Statistics: win rate, streaks and results by day, by mulligans, by deck, by opponent and by matchup." title="Statistics: win rate, streaks and results by day, by mulligans, by deck, by opponent and by matchup."><source src="video/funciones/05-statistics.mp4" type="video/mp4"><a href="video/funciones/05-statistics.mp4">MP4</a></video></figure></div>
+<div><h3>Where you win and where you lose</h3>
+<p>Win rate by matchup, by deck and by going first or second, with each game's real format.</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="video/funciones/02-replay.jpg" aria-label="Replay: the game turn by turn, with the real cards and jumps to the key moments." title="Replay: the game turn by turn, with the real cards and jumps to the key moments."><source src="video/funciones/02-replay.mp4" type="video/mp4"><a href="video/funciones/02-replay.mp4">MP4</a></video></figure></div>
+<div><h3>Every game, replayed step by step</h3>
+<p>Go through the game turn by turn with the real cards and mark the key moments.</p></div>
+</div>
+</div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-motivos-en" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></div>
+</div>
+</section>
+<section class="seccion franja" id="mtgo">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Arena and Magic Online</div>
+<h2>Now for Arena and Magic Online</h2>
+</div>
+<div class="novedades dos">
+<div class="novedad">
+<div class="ventana"><picture><source srcset="img/en_mtgo_panel.webp" type="image/webp"><img alt="ManaLab Dashboard with Arena listening and Magic Online in a game, reading mtgo.log, and the latest matches with an MTGO tag, shown with sample data" height="860" loading="lazy" src="img/en_mtgo_panel.jpg" width="1366"/></picture></div>
+<div><div class="eti">Dashboard</div>
+<h3>Arena and Magic Online, side by side</h3>
+<p>The Dashboard shows the state of each game and your latest matches, with a small MTGO tag on the ones you played in Magic Online.</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><picture><source srcset="img/en_mtgo_banquillo.webp" type="image/webp"><img alt="ManaLab sideboard notice over Magic Online between games: «Did you change your sideboard?» with the buttons «Use this change», «No changes» and «Edit», shown with sample data" height="440" loading="lazy" src="img/en_mtgo_banquillo.jpg" width="1000"/></picture></div>
+<div><div class="eti">Sideboard</div>
+<h3>Confirm your sideboard in one click</h3>
+<p>Magic Online doesn't send your sideboarded list in time, so between games a small panel asks whether you changed it: use last time's change, say there were none, or open the editor.</p></div>
+</div>
+</div>
+<p class="enlace-seccion"><a class="enlace-man" href="/magic-online/">Magic Online tracker: what it saves and how it works →</a></p>
+</div>
+</section>
+<section class="seccion" id="funciones">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Features</div>
+<h2>Everything you'd note down after each match, done for you</h2>
+</div>
+<div class="funciones">
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"></path><circle cx="18.5" cy="16.5" r="2.5"></circle></svg>
+<h3>Matches and games</h3>
+<p>Each Bo3 is one row with its score (2-1, 1-2…) that opens to show every game: play or draw, result and mulligans.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><circle cx="9" cy="11" r="2"></circle><path d="m21 15-4.5-4.5L8 19"></path></svg>
+<h3>Hands and screenshots</h3>
+<p>Your opening hand, the hand you kept and screenshots of the key moments. Press F8 or the button over the game to save any moment you want and add a note to it. Screenshots are saved on your PC and can be turned off in Settings.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l2.5 2.5"></path></svg>
+<h3>Opponent's deck</h3>
+<p>It compares the opponent's cards with the most played decks of the game's format and names the closest one. The meta lists update every 3 days.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"></path></svg>
+<h3>Statistics</h3>
+<p>Match and game win rates, streaks, last days, and breakdowns by mulligans, play/draw, deck and opponent archetype.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="16" rx="2" width="13" x="7" y="3"></rect><path d="M4 7v12a2 2 0 0 0 2 2h10"></path></svg>
+<h3>Your decks</h3>
+<p>Each list you play with its win rate. Sideboard variants are grouped under the same deck, and you can rename them. In Magic Online, a deck takes the name you saved it with when the list matches exactly; otherwise it is named by its colors.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path d="M9 10h6M9 13.5h4"></path></svg>
+<h3>AI loss review (subscribers)</h3>
+<p>Subscribers get an AI analysis of every lost game: what went wrong, where you could have played better and what to try next. Subscription: 5 € per month on Ko-fi.</p>
+<p style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 18px"><a href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-funciones-en" rel="noopener" style="font-weight:600" target="_blank"><span>Subscribe on Ko-fi →</span></a></p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="12" rx="2" width="18" x="3" y="4"></rect><path d="M8 20h8M12 16v4"></path><path d="M7 9h5M7 12h8"></path></svg>
+<h3>Overlay while you play</h3>
+<p>A separate window next to the game, in Arena or Magic Online, with your deck's remaining cards, the opponent's cards seen so far and the turn. It only shows public information or what can be worked out from what has been played. In Magic Online it can show less when the log has no table state.</p>
+<p style="margin-top:10px"><a class="enlace-man" href="/overlay/">Overlay and deck tracker: what it shows →</a></p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"></path></svg>
+<h3>Sideboard guide</h3>
+<p>Per matchup, what you brought in and took out in your own games and how it went, so you stop sideboarding from memory.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"></path><path d="M17 11a3 3 0 1 0 0-6M21 20v-1a4 4 0 0 0-3-3.9"></path></svg>
+<h3>Coach and team</h3>
+<p>Error tags and notes on each game, matchup tables and a report for your coach. Team mode shares your games, screenshots and notes through a common folder, and your coach sees each game in full, replay included.</p></div>
+</div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-funciones-en" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></div>
+</div>
+</section>
+<section class="seccion franja" id="capturas">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">The app</div>
+<h2>Built to review, not to fill in</h2>
+</div>
+<div aria-label="Capturas" class="pestanas" role="tablist">
+<button aria-selected="true" data-tab="panel" id="t-panel" role="tab">Dashboard</button>
+<button aria-selected="false" data-tab="partida" id="t-partida" role="tab">Games</button>
+<button aria-selected="false" data-tab="estadisticas" id="t-est" role="tab">Statistics</button>
+</div>
+<div class="ventana"><div class="barra"><i></i><i></i><i></i><span>ManaLab</span></div>
+<picture><source srcset="img/en_panel.webp" type="image/webp"><img alt="ManaLab dashboard with the latest matches, shown with Arena sample data" class="cap" data-cap="panel" height="860" id="galeria" loading="lazy" src="img/en_panel.jpg" width="1366"/></picture></div>
+<p class="pie-captura">Screenshots with sample data.</p>
+</div>
+</section>
+<section class="seccion" id="como-funciona">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">How it works</div>
+<h2>From the Arena and Magic Online logs to your history</h2>
+<p>With «Detailed Logs» on, Arena writes every game to Player.log. Magic Online writes its own log, mtgo.log, with nothing to turn on. ManaLab reads them as you play and turns them into matches you can review.</p>
+</div>
+<div class="conversion">
+<div class="log"><span class="t">Player.log (Arena)</span><pre><b>[UnityCrossThreadLogger]</b> GreToClientEvent
+{ <span class="k">"type"</span>: "GREMessageType_MulliganReq",
+  <span class="k">"systemSeatIds"</span>: [1] }
+<b>[UnityCrossThreadLogger]</b> GreToClientEvent
+{ <span class="k">"gameInfo"</span>: {
+    <span class="k">"matchState"</span>: "MatchState_GameComplete",
+    <span class="k">"gameNumber"</span>: 3,
+    <span class="k">"results"</span>: [{ <span class="k">"result"</span>: "ResultType_WinLoss",
+                 <span class="k">"winningTeamId"</span>: 1 }] } }</pre></div>
+<div aria-hidden="true" class="flecha-c"><svg viewbox="0 0 24 24"><path d="M5 12h14m0 0-5-5m5 5-5 5"></path></svg></div>
+<div class="match">
+<div class="m-cab">
+<span class="res">W</span>
+<div style="min-width:0"><div class="m-nom">16/10/26_Landfall Verde_2</div><div class="m-sub">vs Dimir Midrange · 94 % · Ladder</div></div>
+<div class="marcador"><span class="puntos"><i></i><i class="d"></i><i></i></span>2-1</div>
+</div>
+<div class="juegos">
+<div class="juego"><span>Game 1</span><span class="g">Play</span><span class="chip">Win</span></div>
+<div class="juego"><span>Game 2</span><span class="g">Draw</span><span class="chip d">Loss</span></div>
+<div class="juego"><span>Game 3</span><span class="g">Play</span><span class="chip">Win</span></div>
+</div>
+<div class="mano"><span><b>3</b>Forest</span><span>Fabled Passage</span><span>Llanowar Elves</span><span>Icetill Explorer</span><span>Mightform Harmonizer</span></div>
+</div>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="coaches">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">For coaches</div>
+<h2>Study your games and work with your coach</h2>
+</div>
+<div class="novedades dos">
+<div class="novedad">
+<div class="ventana estrecha"><picture><source srcset="img/v22_informe_sesion.webp" type="image/webp"><img alt="The «Session report» dialog in ManaLab, where you pick options for a single file with the chosen games" height="672" loading="lazy" src="img/v22_informe_sesion.jpg" width="584"/></picture></div>
+<div><div class="eti">Session report</div>
+<h3>A session report for your coach</h3>
+<p>Press «Prepare session» and pick the games: you get one file with hands, key moments and notes, to review or send to your coach.</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><picture><source srcset="img/v22_tendencias.webp" type="image/webp"><img alt="ManaLab Statistics table of the most repeated mistakes with percentage of games and trend over the last 30 days" height="432" loading="lazy" src="img/v22_tendencias.jpg" width="1004"/></picture></div>
+<div><div class="eti">Tags and trends</div>
+<h3>Coach tags and trends</h3>
+<p>Your coach tags mistakes per game or per step, and «What repeats the most» shows how each one evolves over 30 or 90 days, or your whole history.</p></div>
+</div>
+</div>
+<p class="pie-captura">Screenshots with sample data from Arena.</p>
+<p class="enlace-seccion"><a class="enlace-man" href="/coaches/">Guide for coaches: how to review a student →</a></p>
+</div>
+</section>
+<section class="seccion" id="empezar">
+<div class="envoltura">
+<div class="cab-sec" id="descargar">
+<div class="eti">Get started</div>
+<h2>Three steps, just once</h2>
+</div>
+<div class="pasos">
+<div class="paso"><h3>Download and open</h3>
+<p>Windows 10 or 11. Unzip the file and open ManaLab.exe. Nothing to install.</p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-portada-en" id="enlace-descarga" rel="noopener"><span>Download free</span></a></p>
+<p class="nota-descarga">Version <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">other versions</a></p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">ManaLab runs on your computer</h4>
+<p class="movil-txt">Send yourself the link and download it there.</p>
+<p><button class="boton prim" data-compartir data-copiado="Link copied" data-titulo="compartir-movil-en" data-url="https://manalab.es/" type="button"><span>Send me the link</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="descarga-movil-en" rel="noopener">Download the ZIP anyway</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen destacado" data-solo-pc>Before unzipping, right-click the ZIP › Properties › tick <b>Unblock</b> › OK: that way Windows neither shows «Windows protected your PC» nor blocks the program's files. If the warning still appears, click <b>More info › Run anyway</b>.</p>
+<details data-solo-pc><summary>Already have ManaLab?</summary>
+<p>Only needed on this first download: later versions install from inside the app with no warning.</p>
+<p>Already on 2.1.0, 2.1.1 or 2.1.2? Update by hand one last time: unblock the ZIP as described above and unzip it over your ManaLab folder (your games and settings are kept). Those versions could open and close without showing the window; from 2.2 on, new versions install from inside the app.</p>
+<p><a href="/safety/">Is it safe? Check it yourself →</a></p></details></div>
+<div class="paso"><h3>Get your game ready</h3>
+<p><b>Arena:</b> turn on <span class="ruta">Options › Account › Detailed Logs</span>. Without it, Arena doesn't write the games. <a href="/detailed-logs/">How to turn it on, step by step →</a></p>
+<p style="margin-top:10px"><b>Magic Online:</b> nothing to set up. Open Magic Online and ManaLab picks it up on its own. The log path is in <span class="ruta">Settings › Games</span>, left on Default.</p></div>
+<div class="paso"><h3>Play and review</h3>
+<p><b>Press «Start logging».</b> Open ManaLab before playing and leave it running. Each match appears on the Dashboard when it ends.</p>
+<p>Play Arena or Magic Online in windowed or borderless mode and review your games in Games. The app is free.</p></div>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="preguntas">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">FAQ</div><h2>Before you start</h2></div>
+<div class="preguntas">
+<details><summary>Does it touch the game or give me an advantage in a match?</summary>
+<p>No, neither in Arena nor in Magic Online. It only reads the files the games write on your PC (Arena's Player.log; Magic Online's mtgo.log, Match_GameLog_*.dat, mtgo_game_history and grouping *.xml deck files), without modifying them. It doesn't modify Arena or Magic Online, doesn't read their memory and doesn't connect to their servers. The optional overlay is a separate window that only shows public information or what can be worked out from what has been played, never hidden information.</p></details>
+<details><summary>What data does it send?</summary>
+<p>Your games, screenshots and statistics stay in a folder on your PC. The program only downloads the updated meta deck lists, one per format (every 3 days), looks up card names on Scryfall (also with Magic Online ids) when it needs them, and asks GitHub once a day whether there's a new version. You can turn all three off in Settings. It sends data out only when you ask for something. The AI analysis sends that game's data (result, deck, hands, cards seen and timeline), never your name or the opponent's. A bug report sends what you write, your email if you add one, the ManaLab version, your system and language, whether you use Arena or Magic Online, an anonymous ID of your PC and, if you tick it, the last lines of registro.log with your user name and codes removed. It sends no games or decks.</p>
+<p>More details: <a href="/safety/">Is ManaLab safe?</a></p></details>
+<details><summary>Windows says «Windows protected your PC». Is it safe?</summary>
+<p>That warning appears for programs without a paid code-signing certificate, which is common for small free tools. Click «More info» and then «Run anyway». It only shows on the first download: new versions install with «Update now» from inside the app, with no warning. To avoid it the first time too, before unzipping right-click the ZIP › Properties › tick «Unblock» › OK. Every version is checked on VirusTotal before it's published.</p>
+<p>More details: <a href="/safety/">Is ManaLab safe?</a></p></details>
+<details id="magic-online"><summary>Does it work with Magic Online?</summary>
+<p>Yes, from 2.3. ManaLab records your Magic Online (MTGO) games: hands, mulligans, play or draw, the opponent's deck, statistics, replay and overlay. There is nothing to set up: it starts by itself when you open Magic Online, and you can import an mtgo.log file. What is different: Magic Online doesn't send turn phases or tapped cards, so ManaLab works them out from the log, and in the replay anything worked out is marked ≈ because it may not be exact. Magic Online doesn't give your sideboarded list in time either: ManaLab asks you to confirm your changes between games with one click, and until you do the overlay shows the list as unconfirmed. The overlay can show less than in Arena when the log has no table state. Your deck takes the name you saved it with in Magic Online when the list matches exactly; otherwise it is named by its colors.</p>
+<p>On the website: <a href="/magic-online/">Magic Online tracker: what it saves and how it works</a></p></details>
+<details><summary>Does it work on Mac or Linux?</summary>
+<p>For now it's for Windows 10 and 11. There is no native Linux version, and it has not been tested with Wine or Proton, so we can't promise it will work.</p></details>
+<details><summary>Does it log Draft and Sealed (Limited)?</summary>
+<p>Yes. It logs any Arena or Magic Online game, including Limited. The opponent's deck is compared with the meta decks of the game's format (Standard, Pioneer, Modern, Legacy, Vintage and Pauper); if nothing clearly matches, as in Limited, it is named by its colors.</p></details>
+<details><summary>Is it free?</summary>
+<p>The program is free and needs no account. The only paid part is the AI loss analysis: 5 € per month, which pays for the AI service it uses. Every other feature is free.</p></details>
+<details><summary>How do I get the AI analysis?</summary>
+<p>Subscribe on Ko-fi (5 € per month). After paying you receive a subscription code by email. Paste it in Settings › Team and AI and the analysis appears in each lost game's Analysis tab. Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com">email</a>.</p></details>
+</div>
+</div>
+</section>
+<section class="seccion" id="ia">
+<div class="envoltura">
+<div class="ia-caja">
+<div>
+<div class="eti">New · AI loss analysis</div>
+<h2>Know what went wrong in every lost game</h2>
+<p><strong style="color:var(--texto)">The app is free. Only the AI analysis is paid.</strong></p>
+<p>Open any lost game and ask the AI what went wrong, where you could have played better and what to try next time. It reads the game's data, not your name or the opponent's.</p>
+<p>Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com">email</a>.</p>
+<div class="acciones" style="margin-top:24px"><a class="boton prim" href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-ia-en" rel="noopener" target="_blank"><span>Subscribe on Ko-fi →</span></a></div>
+</div>
+<div>
+<div class="ia-precio">5 € <small>per month</small></div>
+<div class="ia-lista">
+<p>Up to 30 analyses a day. Subscribe with 5 € per month on Ko-fi and you get your code by email as soon as you subscribe.</p>
+<p>Cancel any time: if you don't renew on Ko-fi, the code expires by itself.</p>
+<p><a href="/privacy/">Privacy policy</a></p>
+</div>
+</div>
+</div>
+<div class="apoyo" id="apoyo">
+<div>
+<div class="eti">Support the project</div>
+<h3>Free, with AI analysis by subscription</h3>
+<p>ManaLab is made in spare time. The program stays free. The subscription (5 € per month on Ko-fi) pays for the AI service; donations on Ko-fi help with everything else.</p>
+<p>Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com">email</a>.</p>
+<div class="acciones" style="margin-top:18px"><a class="boton prim" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-apoyo-en" href="https://ko-fi.com/eusebiog96" id="enlace-donar" rel="noopener" target="_blank"><span>Subscribe or donate on Ko-fi</span></a></div>
+</div>
+<div class="gastos">
+<div class="gasto"><span>Code-signing certificate</span><span>removes the Windows warning</span></div>
+<div class="gasto"><span>Time for new features</span><span>game advisor, draft assistant</span></div>
+</div>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="final">
+<div class="envoltura final-caja">
+<div class="cab-sec">
+<h2>Start logging your games today</h2>
+</div>
+<div class="acciones"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-final-en" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></div>
+<p class="nota-hero"><span>Version <span data-version>{{VERSION}}</span> · ZIP · nothing to install</span></p>
+</div>
+</section>
+<section class="seccion" id="contacto">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Contact</div>
+<h2>Write to us</h2>
+<p>Questions, bugs or subscription problems. We reply by email, usually within a few days.</p>
+</div>
+<form class="contacto" id="form-contacto">
+<div class="rejilla-contacto">
+<label><span>Name (optional)</span><input autocomplete="name" maxlength="80" name="nombre"/></label>
+<label><span>Email</span><input autocomplete="email" maxlength="120" name="correo" required="" type="email"/></label>
+</div>
+<label><span>Topic</span>
+<select name="tipo">
+<option value="pregunta">Question</option>
+<option value="error">Bug or error</option>
+<option value="suscripcion">Subscription or AI code</option>
+<option value="otro">Other</option>
+</select></label>
+<label><span>Message</span>
+<textarea maxlength="3000" minlength="10" name="mensaje" required="" rows="6"></textarea></label>
+<div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Web <input autocomplete="off" name="web" tabindex="-1"/></label></div>
+<label class="casilla"><input name="privacidad" required="" type="checkbox"/>
+<span><span>I have read the</span> <a href="/privacy/">privacy policy</a> <span>and agree that my email is used to reply to me.</span></span></label>
+<div><button class="boton prim" id="contacto-enviar" type="submit"><span>Send message</span></button></div>
+<p aria-live="polite" id="contacto-estado" role="status" style="margin:0"></p>
+</form>
+</div>
+</section>
+</main>
+{{> pie_en 1=b 2=d 3=b}}
+
+<script defer="" src="/contacto.js"></script>
+<script defer="" src="/descarga.js"></script>
+<script>
+(function () {
+  "use strict";
+  var base = "img/en_";
+  document.querySelectorAll(".pestanas button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".pestanas button").forEach(function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); });
+      var img = document.getElementById("galeria");
+      img.dataset.cap = b.dataset.tab;
+      img.src = base + b.dataset.tab + ".jpg";
+      var fuente = img.parentNode.querySelector("source");   /* la <picture> con WebP (ML-154) */
+      if (fuente) fuente.srcset = base + b.dataset.tab + ".webp";
+      var fuente = img.parentNode.querySelector("source");   /* la <picture> con WebP (ML-154) */
+      if (fuente) fuente.srcset = base + b.dataset.tab + ".webp";
+    });
+  });
+})();
+</script><script>
+(function () {
+  /* un <details> cerrado no se ve: al entrar por #magic-online (u otra pregunta con id) se abre sola */
+  function abrir() {
+    var d = null;
+    try { d = location.hash.length > 1 && document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (e) {}
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView({ behavior: "instant" }); }
+  }
+  abrir();
+  window.addEventListener("load", abrir);   /* otra vez con las imágenes ya cargadas: el desplazamiento cuadra */
+  window.addEventListener("hashchange", abrir);
+})();
+</script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

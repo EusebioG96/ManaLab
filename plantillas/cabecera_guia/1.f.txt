@@ -1,0 +1,2 @@
+<h1>ManaLab ガイド</h1>
+<p class="sub">無料トラッカー ManaLab の各機能の役割と使い方です。Arena と Magic Online の両方に対応し、戦績の記録と確認の方法を、主要な機能とAIコーチを中心に説明します。</p>

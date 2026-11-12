@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Overlay y deck tracker gratis para MTG Arena · ManaLab</title>
+<meta content="El overlay de ManaLab muestra qué queda en tu biblioteca y la probabilidad de robar cada carta al jugar en MTG Arena o Magic Online. Gratis, solo información pública." name="description"/>
+<link href="https://manalab.es/es/overlay/" rel="canonical"/>
+<link href="https://manalab.es/overlay/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/overlay/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/overlay/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<link href="../../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="../../img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="es_ES" property="og:locale"/>
+<meta content="Overlay y deck tracker gratis para MTG Arena · ManaLab" property="og:title"/>
+<meta content="El overlay de ManaLab muestra qué queda en tu biblioteca y la probabilidad de robar cada carta al jugar en MTG Arena o Magic Online. Gratis, solo información pública." property="og:description"/>
+<meta content="https://manalab.es/es/overlay/" property="og:url"/>
+<meta content="https://manalab.es/img/v22_overlay.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="Overlay y deck tracker gratis para MTG Arena · ManaLab" name="twitter:title"/>
+<meta content="El overlay de ManaLab muestra qué queda en tu biblioteca y la probabilidad de robar cada carta al jugar en MTG Arena o Magic Online. Gratis, solo información pública." name="twitter:description"/>
+<meta content="https://manalab.es/img/v22_overlay.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/es/overlay/#webpage", "url": "https://manalab.es/es/overlay/", "name": "Overlay y deck tracker gratis para MTG Arena · ManaLab", "description": "El overlay de ManaLab muestra qué queda en tu biblioteca y la probabilidad de robar cada carta al jugar en MTG Arena o Magic Online. Gratis, solo información pública.", "inLanguage": "es", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/v22_overlay.jpg"}}]}</script>
+<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=e}}</style></head>
+<body>
+{{> cabecera_es 1=e}}
+<main id="inicio">
+<section class="portada">
+<div class="envoltura">
+<div>
+<div class="eti">Overlay gratis para MTG Arena</div>
+<h1>Overlay y deck tracker gratis para MTG Arena</h1>
+<p class="sub">El overlay de ManaLab muestra qué queda en tu biblioteca y la probabilidad de robar cada carta mientras juegas en MTG Arena o Magic Online.</p>
+<div class="nota-desc"><span>La app es gratis. Solo el análisis con IA es de pago</span><span>Tus datos se quedan en tu PC salvo que pidas IA</span><span>Solo información pública</span></div>
+<div class="desc-bloque" id="descargar">
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-overlay-es" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></p>
+<p class="nota-descarga">Versión <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">otras versiones</a></p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">ManaLab se usa en el ordenador</h4>
+<p class="movil-txt">Envíate el enlace y descárgalo allí.</p>
+<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="compartir-movil-es" data-url="https://manalab.es/es/overlay/" type="button"><span>Enviarme el enlace</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="descarga-movil-es" rel="noopener">Descargar el ZIP igualmente</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen">Requisitos: Windows 10 u 11. Descomprime el ZIP y abre ManaLab.exe. No hace falta instalar nada.</p>
+<p class="nota-smartscreen" data-solo-pc>Antes de descomprimir, botón derecho en el ZIP › Propiedades › marca <b>Desbloquear</b> › Aceptar. Si aun así sale un aviso, pulsa <b>Más información › Ejecutar de todas formas</b>.</p>
+<p class="nota-smartscreen"><a href="/es/seguridad/">¿Es seguro? Compruébalo tú mismo →</a></p>
+</div>
+</div>
+<div class="hero-medio">
+<div class="ventana"><figure class="video" id="video-in-game-overlay"><video controls muted playsinline preload="none" width="1280" height="720" poster="../../video/funciones/09-in-game-overlay.jpg" aria-label="Overlay en partida: cartas que quedan en el mazo, probabilidad de robar cada una y cartas que ha enseñado el rival." title="Overlay en partida: cartas que quedan en el mazo, probabilidad de robar cada una y cartas que ha enseñado el rival."><source src="../../video/funciones/09-in-game-overlay.mp4" type="video/mp4"><a href="../../video/funciones/09-in-game-overlay.mp4">MP4</a></video><figcaption>Overlay en partida: cartas que quedan en el mazo, probabilidad de robar cada una y cartas que ha enseñado el rival. <span class="idioma-video">Vídeo en inglés, sin sonido</span></figcaption></figure></div>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="muestra">
+<div class="envoltura">
+<div class="dos-col">
+<div>
+<div class="cab-sec">
+<div class="eti">Qué muestra</div>
+<h2>Qué muestra el overlay</h2>
+<p>El overlay son dos paneles sobre la ventana del juego, en Arena y en Magic Online.</p>
+</div>
+<div class="mtgo-caja sola"><ul>
+<li><b>Mi panel</b> muestra las cartas que te quedan en la biblioteca, la probabilidad de robar cada una y una fila de Tierras.</li>
+<li><b>El panel del rival</b> muestra las cartas que ha jugado o enseñado y cuántas copias has visto.</li>
+<li><b>Lista de tierras</b> (novedad de la 2.3): pasa el ratón por la fila «Tierras» de Mi panel y se abre una lista con cada tierra que te queda, sus copias sobre el total y la probabilidad de robarla a continuación. Funciona en Arena y en Magic Online. Viene activada por defecto y se cambia en Ajustes › Overlay › Qué mostrar › Mi panel.</li>
+</ul></div>
+</div>
+<div class="ventana estrecha"><picture><source srcset="../../img/v22_overlay.webp" type="image/webp"><img alt="Overlay de ManaLab sobre Arena, con nombres de cartas, costes de maná y la probabilidad de robar cada carta" height="820" loading="lazy" src="../../img/v22_overlay.jpg" width="684"/></picture></div>
+</div>
+</div>
+</section>
+<section class="seccion" id="no-hace">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Qué no hace</div>
+<h2>Solo información pública</h2>
+</div>
+<div class="mtgo-caja sola"><ul>
+<li>El overlay solo enseña información pública o lo que se puede deducir de lo jugado, nunca información oculta.</li>
+<li>Es opcional. ManaLab no modifica Arena ni Magic Online, no lee su memoria y no se conecta a sus servidores.</li>
+</ul>
+<p><a href="/es/seguridad/">¿Es seguro ManaLab? Qué lee y cómo comprobarlo →</a></p></div>
+</div>
+</section>
+<section class="seccion franja" id="mtgo">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Magic Online</div>
+<h2>El overlay en Magic Online</h2>
+</div>
+<div class="mtgo-caja sola"><ul>
+<li>El overlay muestra las cartas que te quedan en el mazo y las que ha enseñado el rival, sobre Magic Online.</li>
+<li>Cuando el registro trae líneas de la mesa, ManaLab deduce tu mano y tu biblioteca y enseña sus probabilidades. Cuando no trae ninguna, el overlay enseña menos: solo la lista del mazo, con las copias que quedan y las totales, sin mano, sin número de cartas en la biblioteca y sin probabilidad de robo. Nunca enseña números inventados.</li>
+<li>Magic Online no envía a tiempo tu lista tras el banquillo, así que ManaLab te pide confirmar tus cambios entre partidas con un clic. Hasta que lo hagas, el overlay muestra «Lista sin confirmar» y las probabilidades de robar cada carta son aproximadas (llevan ≈).</li>
+</ul>
+<p><a href="/es/magic-online/">ManaLab para Magic Online: qué guarda y cómo funciona →</a></p></div>
+</div>
+</section>
+<section class="seccion" id="activar">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Cómo activarlo</div>
+<h2>Cómo activar el overlay</h2>
+</div>
+<div class="mtgo-caja sola"><ul>
+<li>El overlay viene activado por defecto: «Mostrar el overlay» en Ajustes › Overlay. «Probar sobre Arena» lo enseña 10 segundos.</li>
+<li>Aparece cuando el juego es la ventana activa, en ventana o en ventana sin bordes (no en pantalla completa exclusiva). Si el Panel dice «Ventana no detectada», abre el juego en ventana o en ventana sin bordes.</li>
+<li>En Ajustes › Overlay también puedes elegir el formato (completo, compacto o minimalista), los colores (con una paleta para daltónicos) y el alto contraste; su tamaño, su opacidad y su posición; cuándo se muestra (siempre, o solo al pasar el ratón por una zona); y qué mostrar en cada panel, con un interruptor para cada elemento.</li>
+<li>En Arena, el «Registro detallado» tiene que estar activado; sin él ManaLab no puede leer tus partidas de Arena. <a href="/es/registro-detallado/">Cómo activarlo, paso a paso →</a></li>
+</ul></div>
+</div>
+</section>
+<section class="seccion franja" id="apoyo">
+<div class="envoltura">
+<div class="apoyo uno">
+<div>
+<div class="eti">Descarga gratis</div>
+<h2>La app es gratis. Solo el análisis con IA es de pago</h2>
+<p>El análisis con IA de tus derrotas cuesta 5 € al mes y paga el servicio de IA que usa. Todo lo demás, incluido todo lo de esta página, es gratis.</p>
+<p>¿Quieres probarlo antes? Pide una prueba gratis <a href="mailto:manalab.app@gmail.com">por correo</a>.</p>
+<div class="acciones" style="margin-top:18px"><a class="boton prim" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a><a class="enlace-sec" href="/es/#ia">Sobre el análisis con IA</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+{{> pie_es 2=b}}
+
+<script defer="" src="/descarga.js"></script>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

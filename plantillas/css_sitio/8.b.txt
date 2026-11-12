@@ -1,0 +1,1 @@
+.seccion { padding-block: 40px; }
