@@ -1,8 +1,8 @@
 <footer>
 <div class="envoltura">
-<div class="fila"><b style="color:var(--texto)">ManaLab</b><span id="version">v<span data-version>2.3.0</span></span>
+<div class="fila"><b style="color:var(--texto)">ManaLab</b><span id="version">v<span data-version>{{VERSION}}</span></span>
 <a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener" target="_blank">メタデッキ一覧</a>
-<a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-manual-en.pdf" rel="noopener">ユーザーマニュアル（PDF、英語）</a>
+<a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-manual-en.pdf" rel="noopener">ユーザーマニュアル（PDF、英語）</a>
 <a href="/novedades/">更新情報（英語）</a>
 <a href="/magic-online/"><span style="white-space:nowrap">Magic Online</span>トラッカー（英語）</a>
 <a href="/coaches/">コーチ向けガイド（英語）</a>

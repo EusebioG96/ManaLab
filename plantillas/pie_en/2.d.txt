@@ -1,4 +1,4 @@
-<a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-manual-en.pdf" rel="noopener">User manual (PDF, English)</a>
+<a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-manual-en.pdf" rel="noopener">User manual (PDF, English)</a>
 <a href="/novedades/">What's new</a>
 <a href="/magic-online/">Magic Online tracker</a>
 <a href="/detailed-logs/">How to enable detailed logs</a>

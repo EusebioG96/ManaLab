@@ -1,6 +1,6 @@
 <footer>
 <div class="envoltura">
-<div class="fila"><b style="color:var(--texto)">ManaLab</b><span id="version">v<span data-version>2.3.0</span></span>
+<div class="fila"><b style="color:var(--texto)">ManaLab</b><span id="version">v<span data-version>{{VERSION}}</span></span>
 <a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener" target="_blank">Lista do meta</a>
 {{@1}}
 <a href="#preguntas">Perguntas</a>

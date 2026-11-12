@@ -41,6 +41,7 @@ class TestWebGeneradaDesdePlantillas(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporal:
             copia = Path(temporal) / "repo"
             shutil.copytree(RAIZ / construir_web.CARPETA_PLANTILLAS, copia / construir_web.CARPETA_PLANTILLAS)
+            shutil.copy(RAIZ / construir_web.ARCHIVO_VERSION, copia / construir_web.ARCHIVO_VERSION)
             plantilla = copia / construir_web.CARPETA_PLANTILLAS / (PIE_ES + ".tpl")
             texto = plantilla.read_text(encoding="utf-8")
             self.assertIn(ENLACE_PRIVACIDAD, texto)

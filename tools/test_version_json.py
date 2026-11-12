@@ -65,98 +65,31 @@ class TestGenerador(unittest.TestCase):
             G.construir(sin_sha, leer)
 
 
-class TestReescritura(unittest.TestCase):
-    NUEVO = f"{BASE}/download/v2.3.0/ManaLab-2.3.0-portable.zip"
-    HTML = ('<a class="boton" href="OLD" download data-descarga data-goatcounter-click="d" rel="noopener"><span>X</span></a>'
-            '<a href="/otra">no</a><a href="https://x.es/" data-descarga>y</a><p>V <span data-version>2.2.1</span></p>'
-            '<script type="application/ld+json">{"@type": "SoftwareApplication", "softwareVersion": "2.2.1", "name": "X"}</script>'
-            '<footer><span id="version">v<span data-version>2.2.1</span></span></footer>')
-
-    def test_reescribe_href_y_version(self):
-        h = G.reescribir_enlaces(self.HTML, "2.3.0", self.NUEVO)
-        self.assertEqual(h.count(f'href="{self.NUEVO}"'), 2)
-        self.assertNotIn("OLD", h)
-        self.assertIn('href="/otra"', h)
-        self.assertIn("<span data-version>2.3.0</span>", h)
-        self.assertIn('"softwareVersion": "2.3.0"', h)
-        self.assertIn('<span id="version">v<span data-version>2.3.0</span></span>', h)
-        self.assertNotIn("2.2.1", h)
-        self.assertEqual(json.loads(re.search(r">({.*})</script>", h).group(1))["name"], "X")  # el JSON-LD sigue siendo JSON
-        self.assertIn("data-goatcounter-click", h)
-        self.assertEqual(G.reescribir_enlaces(h, "2.3.0", self.NUEVO), h)  # idempotente
-
-    def test_rechaza_enlace_ajeno(self):
-        with self.assertRaises(ValueError):
-            G.reescribir_enlaces(self.HTML, "2.3.0", "https://otro.example/a.zip")
-        with self.assertRaises(ValueError):
-            G.reescribir_enlaces(self.HTML, "x", self.NUEVO)
-
-    def test_paginas_publicadas_coinciden_con_version_json(self):
-        d = json.loads((RAIZ / "version.json").read_text(encoding="utf-8"))
-        for n in G.PAGINAS:
-            h = (RAIZ / n).read_text(encoding="utf-8")
-            self.assertEqual(G.reescribir_enlaces(h, d["version"], d["descarga"]), h, n)
-            self.assertGreaterEqual(h.count("data-descarga"), 2, n)
-            self.assertNotIn('href="https://github.com/EusebioG96/ManaLab/releases/latest"', h, n)
-
-    def test_pie_y_json_ld_coinciden_con_version_json(self):
-        """El pie estático (respaldo si falla el fetch de descarga.js) y el softwareVersion del JSON-LD no pueden quedarse viejos."""
-        v = json.loads((RAIZ / "version.json").read_text(encoding="utf-8"))["version"]
-        for n in G.PAGINAS:
-            h = (RAIZ / n).read_text(encoding="utf-8")
-            pie = re.findall(r'<span id="version">v<span data-version>([^<]*)</span></span>', h)
-            self.assertEqual(pie, [v], f"{n}: el pie estático debe ser v{v} (con el span data-version que rellena descarga.js)")
-            ld = re.findall(r'"softwareVersion":\s*"([^"]*)"', h)
-            self.assertEqual(ld, [v], f"{n}: softwareVersion del JSON-LD debe ser {v}")
-            versiones = {x for x in re.findall(r"<span data-version>([^<]*)</span>", h)}
-            self.assertEqual(versiones, {v}, f"{n}: todos los span data-version deben ser {v}")
-
-    def test_workflow_incluye_paginas(self):
-        t = (RAIZ / ".github/workflows/version_json.yml").read_text(encoding="utf-8")
-        self.assertIn("git add version.json plantillas index.html es/index.html", t)
-        self.assertIn("git diff --quiet -- version.json plantillas index.html es/index.html", t)
-
-
-class TestFlujoDesdePlantillas(unittest.TestCase):
-    """ML-197: la release cambia la FUENTE y el generador produce los .html (sin editarlos a mano)."""
-    DATOS = {"version": "9.8.7", "descarga": f"{BASE}/download/v9.8.7/ManaLab-9.8.7-portable.zip"}
+class TestRegenerarWeb(unittest.TestCase):
+    """ML-197: la release escribe version.json y el generador rehace los .html; no se reescriben plantillas."""
 
     def setUp(self):
         self.tmp = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, self.tmp, True)
         shutil.copytree(RAIZ / "plantillas", self.tmp / "plantillas")
+        shutil.copy(RAIZ / "version.json", self.tmp / "version.json")
         for n in W.listar_paginas(RAIZ):
             (self.tmp / n).parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(RAIZ / n, self.tmp / n)
 
-    def test_cambia_las_fuentes_y_los_html_coinciden_con_el_generador(self):
-        cambiadas = {c.as_posix() for c in G.actualizar_paginas(self.tmp, self.DATOS)}
-        self.assertIn("plantillas/paginas/index.pagina", cambiadas)
-        self.assertIn("plantillas/paginas/es/index.pagina", cambiadas)
-        self.assertTrue(any(c.startswith("plantillas/pie_") for c in cambiadas), cambiadas)
-        self.assertEqual(W.paginas_distintas(self.tmp, self.tmp), [])  # --comprobar seguiría en verde
-        for n in G.PAGINAS:
-            h = (self.tmp / n).read_text(encoding="utf-8")
-            self.assertEqual(set(re.findall(r"<span data-version>([^<]*)</span>", h)), {"9.8.7"}, n)
-            self.assertIn(self.DATOS["descarga"], h)
-            self.assertEqual(re.findall(r'"softwareVersion":\s*"([^"]*)"', h), ["9.8.7"], n)
+    def test_las_paginas_publicadas_estan_al_dia(self):
+        self.assertEqual(G.regenerar_web(self.tmp), [])
 
-    def test_regenerar_no_deshace_el_cambio(self):
-        G.actualizar_paginas(self.tmp, self.DATOS)
-        antes = (self.tmp / "index.html").read_bytes()
-        W.construir(self.tmp, self.tmp)
-        self.assertEqual((self.tmp / "index.html").read_bytes(), antes)
-        self.assertIn(b"9.8.7", antes)
-
-    def test_no_toca_las_demas_paginas(self):
-        G.actualizar_paginas(self.tmp, self.DATOS)
-        for n in W.listar_paginas(RAIZ):
-            if n.as_posix() not in G.PAGINAS:
-                self.assertEqual((self.tmp / n).read_bytes(), (RAIZ / n).read_bytes(), n.as_posix())
+    def test_no_modifica_las_plantillas(self):
+        antes = {p: p.read_bytes() for p in (self.tmp / "plantillas").rglob("*") if p.is_file()}
+        datos = json.loads((self.tmp / "version.json").read_text(encoding="utf-8"))
+        (self.tmp / "version.json").write_text(json.dumps(dict(datos, version="9.8.7")), encoding="utf-8")
+        self.assertTrue(G.regenerar_web(self.tmp))
+        self.assertEqual(antes, {p: p.read_bytes() for p in antes})
 
     def test_idempotente(self):
-        G.actualizar_paginas(self.tmp, self.DATOS)
-        self.assertEqual(G.actualizar_paginas(self.tmp, self.DATOS), [])
+        G.regenerar_web(self.tmp)
+        self.assertEqual(G.regenerar_web(self.tmp), [])
 
 
 class TestWorkflow(unittest.TestCase):
@@ -170,6 +103,11 @@ class TestWorkflow(unittest.TestCase):
 
     def test_permisos_minimos(self):
         self.assertEqual(self.wf["permissions"], {"contents": "write"})
+
+    def test_workflow_incluye_todas_las_paginas(self):
+        texto = (RAIZ / ".github/workflows/version_json.yml").read_text(encoding="utf-8")
+        self.assertIn("git add version.json '*.html'", texto)
+        self.assertIn("git diff --quiet -- version.json '*.html'", texto)
 
     def test_usa_token_y_hace_commit_a_main(self):
         texto = (RAIZ / ".github/workflows/version_json.yml").read_text(encoding="utf-8")

@@ -29,9 +29,14 @@ la variante con `{{> pie_es 2=b}}` (sin indicar nada, la `a`).
 
 ### Versión y enlaces de descarga
 
-`tools/generar_version_json.py` (workflow `version_json.yml`, al publicar una release) aplica la versión y el enlace de
-descarga a la **fuente** de `index.html` y `es/index.html` (su `.pagina` y las variantes de hueco que usa) y después
-regenera los `.html`. El workflow hace commit de `version.json`, `plantillas/` y esos dos `.html`.
+`version.json` es la única fuente de la versión actual. Las plantillas y páginas no llevan números de versión: donde
+hace falta «la versión actual» (texto `<span data-version>`, enlaces `releases/download/vX.Y.Z/ManaLab-X.Y.Z-portable.zip`,
+manual `ManaLab-manual-en.pdf`, `softwareVersion` del JSON-LD) escriben `{{VERSION}}`, y `construir_web.py` lo sustituye
+por el campo `version` de `version.json`. Las menciones a versiones pasadas (historial de novedades) se escriben tal cual.
+
+`tools/generar_version_json.py` (workflow `version_json.yml`, al publicar una release) escribe `version.json` y regenera
+las 31 páginas; el workflow hace commit de `version.json` y de los `.html` que cambian. Nunca se editan plantillas para
+subir de versión. `tools/test_version_unica.py` falla si alguna página trae una versión de descarga distinta de la actual.
 
 ## Comprobaciones
 

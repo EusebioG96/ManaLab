@@ -6,6 +6,10 @@ Uso:
     python3 tools/construir_web.py --comprobar  no escribe; sale con 1 si algún .html no coincide con lo generado
     python3 tools/construir_web.py --salida DIR genera en DIR en vez de en la raíz
 
+Versión: version.json (raíz) es la única fuente de la versión actual. Donde una plantilla o página dice ``{{VERSION}}``
+se escribe su campo "version" (p. ej. 2.3.2) al generar. Solo se usa para lo que es «la versión actual / la descarga»;
+las menciones a versiones pasadas (historial) se escriben tal cual.
+
 Disposición (todo bajo plantillas/, que no es HTML y por eso no se indexa):
     plantillas/paginas/<ruta>.pagina   contenido de cada página; se publica en <ruta>.html
     plantillas/<nombre>.tpl            plantilla común (cabecera, pie o CSS); una línea ``{{@N}}`` es el hueco N
@@ -15,6 +19,7 @@ En una página, ``{{> nombre N=v N=v}}`` inserta la plantilla ``nombre``. Los hu
 toman la variante ``a``. Más detalle en tools/README.md.
 """
 import argparse
+import json
 import re
 import sys
 import tempfile
@@ -30,6 +35,9 @@ VARIANTE_POR_DEFECTO = "a"  # la variante que no hace falta citar en la página
 # {{> nombre 3=b 7=c }}: inserta una plantilla con las variantes elegidas
 _DIRECTIVA = re.compile(r"\{\{> (\w+)((?: \d+=\w+)*)\}\}")
 _HUECO = re.compile(r"\{\{@(\d+)\}\}")
+MARCA_VERSION = "{{VERSION}}"  # se sustituye por la versión de version.json en cada página generada
+ARCHIVO_VERSION = "version.json"  # fuente única de la versión actual (lo escribe generar_version_json.py)
+_VERSION_VALIDA = re.compile(r"\d{1,4}\.\d{1,5}\.\d{1,6}")
 
 
 def _leer(ruta: Path) -> str:
@@ -96,6 +104,18 @@ def fuentes_de_pagina(raiz: Path, relativa: Path) -> list[Path]:
     return fuentes
 
 
+def leer_version(raiz: Path) -> str:
+    """Versión actual (p. ej. ``2.3.2``) según version.json de ``raiz``. Lanza ValueError si falta o no es válida."""
+    ruta = raiz / ARCHIVO_VERSION
+    try:
+        version = str(json.loads(_leer(ruta)).get("version", ""))
+    except (OSError, ValueError, AttributeError) as error:
+        raise ValueError(f"no se puede leer la versión de {ruta}: {error}") from error
+    if not _VERSION_VALIDA.fullmatch(version):
+        raise ValueError(f"versión no válida en {ruta}: {version!r}")
+    return version
+
+
 def listar_paginas(raiz: Path) -> list[Path]:
     """Rutas (relativas a la raíz) de los .html que se generan, ordenadas."""
     base = raiz / CARPETA_PLANTILLAS / CARPETA_PAGINAS
@@ -108,10 +128,11 @@ def construir(raiz: Path, destino: Path) -> list[Path]:
     No reescribe un archivo cuyo contenido ya es idéntico (así no cambian las fechas ni se ensucia git).
     """
     carpeta = raiz / CARPETA_PLANTILLAS
+    version = leer_version(raiz)
     escritas = []
     for relativa in listar_paginas(raiz):
         fuente = _leer(carpeta / CARPETA_PAGINAS / relativa.with_suffix(SUFIJO_PAGINA))
-        datos = generar_pagina(carpeta, fuente).encode("utf-8")
+        datos = generar_pagina(carpeta, fuente).replace(MARCA_VERSION, version).encode("utf-8")
         salida = destino / relativa
         if salida.is_file() and salida.read_bytes() == datos:
             escritas.append(relativa)

@@ -1,4 +1,4 @@
-<a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-manual-en.pdf" rel="noopener">Manual (PDF, en inglés)</a>
+<a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-manual-en.pdf" rel="noopener">Manual (PDF, en inglés)</a>
 <a href="/es/novedades/">Novedades</a>
 <a href="/es/magic-online/">Tracker para Magic Online</a>
 <a href="/es/registro-detallado/">Cómo activar el registro detallado</a>

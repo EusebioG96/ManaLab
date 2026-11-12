@@ -70,41 +70,13 @@ def construir(release, leer_texto):
             "sha256": candidatos[0], "notas": notas_publicas(release.get("body"))}
 
 
-PAGINAS = ("index.html", "es/index.html")
-
-
-def reescribir_enlaces(html, version, descarga):
-    """Pone la descarga directa en los enlaces con data-descarga y la versión en los span data-version
-    (el pie «v2.2.2» y la etiqueta del botón del aviso son span data-version) y en el «softwareVersion» del JSON-LD."""
-    if not re.fullmatch(r"\d{1,4}\.\d{1,5}\.\d{1,6}", version) or not descarga.startswith(PREFIJO + "download/"):
-        raise ValueError("versión o enlace no válidos")
-
-    def enlace(m):
-        etiqueta = m.group(0)
-        if re.search(r'\shref="[^"]*"', etiqueta):
-            return re.sub(r'(\shref=")[^"]*(")', lambda h: h.group(1) + descarga + h.group(2), etiqueta, count=1)
-        return etiqueta.replace("<a", f'<a href="{descarga}"', 1)
-
-    html = re.sub(r"<a\b[^>]*\bdata-descarga\b[^>]*>", enlace, html)
-    html = re.sub(r'("softwareVersion":\s*")[^"]*(")', lambda m: m.group(1) + version + m.group(2), html)
-    return re.sub(r"(<span data-version>)[^<]*(</span>)", lambda m: m.group(1) + version + m.group(2), html)
-
-
-def actualizar_paginas(raiz, datos):
-    """Aplica versión y enlaces a la FUENTE de cada página de PAGINAS (su .pagina y las variantes de hueco que usa)
-    y regenera los .html con construir_web; los .html ya no se editan a mano (ML-197).
-    Devuelve las rutas (relativas a la raíz) de las fuentes que han cambiado."""
+def regenerar_web(raiz):
+    """Regenera todos los .html de ``raiz`` con la versión de su version.json (única fuente, ML-197).
+    Devuelve las rutas (relativas a la raíz) de los .html cuyo contenido ha cambiado."""
     raiz = Path(raiz)
-    cambiadas = []
-    for nombre in PAGINAS:
-        for fuente in construir_web.fuentes_de_pagina(raiz, Path(nombre)):
-            antes = construir_web._leer(fuente)
-            despues = reescribir_enlaces(antes, datos["version"], datos["descarga"])
-            if despues != antes:
-                fuente.write_text(despues, encoding="utf-8", newline="")
-                cambiadas.append(fuente.relative_to(raiz))
+    antes = {n: (raiz / n).read_bytes() if (raiz / n).is_file() else None for n in construir_web.listar_paginas(raiz)}
     construir_web.construir(raiz, raiz)
-    return cambiadas
+    return [n for n, datos in antes.items() if (raiz / n).read_bytes() != datos]
 
 
 def main(argv):
@@ -114,7 +86,7 @@ def main(argv):
     salida = Path(argv[1]) if len(argv) > 1 else Path(__file__).resolve().parent.parent / "version.json"
     salida.write_text(json.dumps(datos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if len(argv) <= 1:
-        actualizar_paginas(salida.parent, datos)
+        regenerar_web(salida.parent)
     print(f"{salida}: {datos['tag']}")
     return 0
 
