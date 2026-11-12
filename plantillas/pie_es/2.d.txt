@@ -1,0 +1,2 @@
+<a href="/es/">Inicio</a>
+<a href="/es/#preguntas">Preguntas</a>

@@ -3,7 +3,7 @@
 
 El punto 10 (quitar Patreon) se comprueba en tools/test_apoyo_kofi.py.
 
-Uso:  python3 tools/test_tanda1.py
+Uso:  python3 tools/test_portada_descargas_y_faq.py
 """
 import json
 import re

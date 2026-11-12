@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>How to Review a Student with ManaLab · Coaches</title>
+<meta content="Your student sends one report with hands, mulligans and key moments. A free guide for MTG Arena and Magic Online coaches." name="description"/>
+<link href="https://manalab.es/coaches/" rel="canonical"/>
+<link href="https://manalab.es/coaches/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/coaches/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/pt/coaches/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://manalab.es/coaches/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<link href="../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="../img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="How to Review a Student with ManaLab · Coaches" property="og:title"/>
+<meta content="Your student sends one report with hands, mulligans and key moments. A free guide for MTG Arena and Magic Online coaches." property="og:description"/>
+<meta content="https://manalab.es/coaches/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="How to Review a Student with ManaLab · Coaches" name="twitter:title"/>
+<meta content="Your student sends one report with hands, mulligans and key moments. A free guide for MTG Arena and Magic Online coaches." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/coaches/#webpage", "url": "https://manalab.es/coaches/", "name": "How to Review a Student with ManaLab · Coaches", "description": "Your student sends one report with hands, mulligans and key moments. A free guide for MTG Arena and Magic Online coaches.", "inLanguage": "en", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/coaches_informe_en.jpg"}}, {"@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Does it cost anything?", "acceptedAnswer": {"@type": "Answer", "text": "The app is free. The only paid part is the AI loss analysis, which you don't need for anything in this guide."}}, {"@type": "Question", "name": "Does my student share their whole history?", "acceptedAnswer": {"@type": "Answer", "text": "With a report or a .manalab file they share only what they choose. In Team mode, ManaLab publishes all their games to your shared folder unless they stop sharing; they can hide opponents' names and turn off screenshot sharing."}}, {"@type": "Question", "name": "Do their games count in my statistics?", "acceptedAnswer": {"@type": "Answer", "text": "No. Games from another player stay marked and don't count in yours."}}, {"@type": "Question", "name": "What does an imported game leave out?", "acceptedAnswer": {"@type": "Answer", "text": "Screenshots and AI analysis. It keeps the replay, hands, mulligans, deck, notes and tags."}}, {"@type": "Question", "name": "What do I need?", "acceptedAnswer": {"@type": "Answer", "text": "ManaLab runs on Windows 10 and 11. Reports open in any browser, so you don't need to install anything to read them."}}, {"@type": "Question", "name": "What if something's missing?", "acceptedAnswer": {"@type": "Answer", "text": "Write to manalab.app@gmail.com. The coaching tools are being built around what you ask for."}}]}]}</script>
+<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>{{> css_sitio 16=b}}</style></head>
+<body>
+{{> cabecera_en 1=b}}
+<main id="inicio">
+<section class="portada">
+<div class="envoltura">
+<div>
+<div class="eti">Free guide for coaches</div>
+<h1>How to review a student <em>with ManaLab</em></h1>
+<p class="sub">Your student plays as usual and arrives with their games already saved. You spend the lesson on their decisions, not on asking for screenshots or rebuilding what happened.</p>
+<div class="nota-desc"><span>The app is free. Only the AI analysis is paid</span><span>Reports open in any browser</span><span>No account needed</span></div>
+<div class="desc-bloque" id="descargar">
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-coaches-en" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></p>
+<p class="nota-descarga">Version <span data-version>2.3.0</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">other versions</a></p>
+<p class="nota-descarga">Your student needs ManaLab to create the report. You don't need it to read it.</p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">ManaLab runs on your computer</h4>
+<p class="movil-txt">Send yourself the link and download it there.</p>
+<p><button class="boton prim" data-compartir data-copiado="Link copied" data-titulo="compartir-movil-coaches-en" data-url="https://manalab.es/coaches/" type="button"><span>Send me the link</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-titulo="descarga-movil-coaches-en" rel="noopener">Download the ZIP anyway</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen">Requirements: Windows 10 or 11. Unzip the file and open ManaLab.exe. Nothing to install.</p>
+<p class="nota-smartscreen" data-solo-pc>Before unzipping, right-click the ZIP › Properties › tick <b>Unblock</b> › OK. If a warning still appears, click <b>More info › Run anyway</b>.</p>
+<p class="nota-smartscreen"><a href="/safety/">Is it safe? Check it yourself →</a></p>
+</div>
+<div class="enlaces-video"><span class="enlace-sec">Watch the videos:</span><a href="/guia/guia_manalab_en.html#video-prepare-session">Prepare a session</a><a href="/guia/guia_manalab_en.html#video-coach-tags-trends-team">Coach tags, trends and team</a></div>
+</div>
+<div class="hero-medio">
+<div class="ventana"><picture><source srcset="../img/coaches_informe_en.webp" type="image/webp"><img alt="ManaLab session report opened in a browser: summary, session goal and one lost game with hands, mulligan and sideboard, shown with sample data" height="1153" src="../img/coaches_informe_en.jpg" width="1000"/></picture></div>
+<p class="pie-captura" style="margin:0">Session report with sample data.</p>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="que-hace">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">What it does</div><h2>More of the lesson on decisions, less on prep</h2><p>ManaLab is a free tracker for MTG Arena and Magic Online. It saves opening hands, mulligans, play or draw, the opponent's deck and a replay of every game on its own.</p></div>
+<div class="funciones cuatro">
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"></path></svg><h3>Less prep</h3><p>Your student picks the games and sends you one report.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M12 4v16M4 12h16"></path></svg><h3>Visible decisions</h3><p>You see the hand, the mulligan and the key moments of each game.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"></path></svg><h3>Repeated mistakes</h3><p>Tags show what keeps going wrong and how it changes over 30 or 90 days.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M12 8v4l2.5 2.5M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16z"></path></svg><h3>Sideboarding with data</h3><p>Your student keeps a plan per matchup, and you see the changes they really made.</p></div>
+</div>
+<p class="nota-pie">The app is free and needs no account. Your student needs it to create any of these files; you only need to install it for Team mode or to open exported games.</p>
+</div>
+</section>
+<section class="seccion" id="formas">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">Ways to work</div><h2>Pick how you want to work</h2></div>
+<div class="formas">
+<div class="forma"><h3>Session report</h3><dl><div><dt>What you get</dt><dd>One file with the chosen games</dd></div><div><dt>Do you need ManaLab?</dt><dd>No, it opens in a browser</dd></div><div><dt>Best for</dt><dd>One-off lessons</dd></div></dl></div>
+<div class="forma"><h3>Export for my coach</h3><dl><div><dt>What you get</dt><dd>Summary, matchups, mistakes and games with notes</dd></div><div><dt>Do you need ManaLab?</dt><dd>No, it opens in a browser</dd></div><div><dt>Best for</dt><dd>First lesson or a general review</dd></div></dl></div>
+<div class="forma"><h3><code>.manalab</code> file</h3><dl><div><dt>What you get</dt><dd>A full match, with all its games and their replay</dd></div><div><dt>Do you need ManaLab?</dt><dd>Yes</dd></div><div><dt>Best for</dt><dd>Studying one match in depth</dd></div></dl></div>
+<div class="forma"><h3>Team mode</h3><dl><div><dt>What you get</dt><dd>Games, screenshots and notes in a shared folder</dd></div><div><dt>Do you need ManaLab?</dt><dd>Yes</dd></div><div><dt>Best for</dt><dd>Regular students</dd></div></dl></div>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="antes">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">Before the lesson</div><h2>Send these steps to your student</h2><p>It takes a few minutes if they already have saved games.</p></div>
+<ol class="lista-pasos"><li><b>Install ManaLab</b> from <a href="https://manalab.es">manalab.es</a> and keep it open while playing.</li><li><b>Play as usual.</b> To flag a doubtful decision, press F8 (the default key): it saves a screenshot of that moment.</li><li><b>Tag mistakes.</b> In each game's Notes tab, add tags and write down any questions.</li><li><b>Choose what to review.</b> In Games, open «⋯» › «Prepare session» and tick the games.</li><li><b>Create and send the report.</b> Press «Create session report», save it as PDF if you like, and send it to the coach.</li></ol>
+<div class="bloque-texto">
+<p>The report includes hands, mulligans, key moments, a turn summary, notes and highlights. It works offline, and your student can hide their opponents' names.</p>
+<p><b>For the first lesson,</b> also ask for «Export for my coach», in the «⋯» menu of Statistics. It gives you their summary, matchups and tagged mistakes.</p>
+</div>
+<div class="mensaje"><span class="eti">Message to send your student</span><p>Before our lesson, install ManaLab (manalab.es). It&#x27;s free and needs no account. Keep it open while you play and press F8 on any play you&#x27;re unsure about. Then, in Games, open ⋯ › Prepare session, choose 3 games and send me the report.</p></div>
+<div class="enlaces-video"><a href="/guia/guia_manalab_en.html#video-prepare-session">Video: prepare a session →</a></div>
+</div>
+</section>
+<section class="seccion" id="durante">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">During the lesson</div><h2>Start with what repeats</h2><p>Then move to specific games. This order works well for a one-hour lesson:</p></div>
+<div class="dos-col">
+<ol class="lista-pasos"><li><b>Trends.</b> Open «What repeats the most» in Statistics and choose one theme to work on.</li><li><b>Matchups.</b> The table separates game 1 from post-sideboard games. An asterisk means fewer than 10 games, so don't draw firm conclusions from those rows.</li><li><b>Hands and mulligans.</b> Review these before the plays: was it a keep?</li><li><b>Replay.</b> Jump to the key moments and discuss the decisions tied to your theme.</li><li><b>Sideboard.</b> Compare their plan with what they really brought in and took out.</li></ol>
+<div><div class="ventana desliza"><picture><source srcset="../img/coaches_tendencias_en.webp" type="image/webp"><img alt="ManaLab Statistics table «What repeats the most»: mistakes with number of games, percentage, decisive ones, trend and source (player or coach), shown with sample data" height="512" loading="lazy" src="../img/coaches_tendencias_en.jpg" width="1400"/></picture></div><p class="pie-captura">«What repeats the most» in Statistics, with sample data.</p></div>
+</div>
+<div class="bloque-texto"><p>With Team mode you see each game in the same detail as your student: hands, screenshots with notes (if they share them), replay and the opponent's deck.</p></div>
+</div>
+</section>
+<section class="seccion franja" id="despues">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">After the lesson</div><h2>Leave one or two goals, not a long list</h2><p>The next lesson can then start by checking whether they improved.</p></div>
+<div class="mtgo-caja sola"><ul><li><b>Tags:</b> always use the same names, so «What repeats the most» tracks progress properly.</li><li><b>Notes:</b> in Team mode, write your note in the game's Notes tab.</li><li><b>Follow-up:</b> next lesson, check that mistake over 30 days before opening new games.</li></ul></div>
+<h3 class="sub-h" id="equipo">How to turn on Team mode</h3>
+<ol class="lista-pasos"><li>Create a folder in Google Drive, Dropbox or OneDrive and share it with your student with edit access, because you both write to it.</li><li>Each of you opens Settings › Team and AI and sets the folder, your name and your role: player or coach.</li><li>Press «Sync now».</li></ol>
+<div class="bloque-texto"><p>In Google Drive, a folder shared with you shows up under «Shared with me», which doesn't sync to your computer. Whoever receives it must add it to My Drive (right-click › Organize › Add shortcut) and make it available offline; otherwise ManaLab can't see it. With Dropbox or OneDrive, check that the folder is synced to the computer.</p></div>
+<div class="bloque-texto"><p>Each person writes only in their own subfolder. By default ManaLab publishes all of your student's games to the shared folder; they can hide opponents' names, turn off screenshot sharing or stop sharing altogether.</p></div>
+<h3 class="sub-h">How your note reaches your student</h3>
+<div class="bloque-texto" style="margin-top:-8px"><p>Open the Team screen, choose your student and a game, and write in the box «Your coach note for this game…» of its Notes tab. The note is saved to the shared folder when you leave the box; you don't need «Sync now» for it. Your student sees it in that game's Notes tab once their folder service has synced the file and they open the tab.</p></div>
+<div class="enlaces-video"><a href="/guia/guia_manalab_en.html#video-coach-tags-trends-team">Video: coach tags, trends and team →</a></div>
+</div>
+</section>
+<section class="seccion" id="mtgo">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">Arena and Magic Online</div><h2>What to keep in mind for Magic Online</h2><p>Reviewing a student works with both games. For Magic Online, keep four things in mind:</p></div>
+<div class="mtgo-caja sola"><ul><li><b>Sideboard:</b> your student must confirm their changes between games with one click («Use this change», «No changes» or «Edit»). Games never confirmed don't count in the sideboard changes shown under Sideboard.</li><li><b>Replay:</b> phases and tapped cards that aren't confirmed are marked ≈, because they may not be exact.</li><li><b>Deck names:</b> a Magic Online deck usually comes out with the name your student gave it in Magic Online; if the list doesn't match exactly, it is named by its colors.</li><li><b>Imports:</b> importing a log doesn't correct the sideboard of games already saved.</li></ul><p>In Arena, turn on Options › Account › “Detailed Logs (Plugin Support)” once and restart the game. Magic Online needs no setting.</p></div>
+</div>
+</section>
+<section class="seccion franja" id="preguntas">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">FAQ</div><h2>Before you start</h2></div>
+<div class="preguntas">
+<details><summary>Does it cost anything?</summary><p>The app is free. The only paid part is the AI loss analysis, which you don't need for anything in this guide.</p></details>
+<details><summary>Does my student share their whole history?</summary><p>With a report or a <code>.manalab</code> file they share only what they choose. In Team mode, ManaLab publishes all their games to your shared folder unless they stop sharing; they can hide opponents' names and turn off screenshot sharing.</p></details>
+<details><summary>Do their games count in my statistics?</summary><p>No. Games from another player stay marked and don't count in yours.</p></details>
+<details><summary>What does an imported game leave out?</summary><p>Screenshots and AI analysis. It keeps the replay, hands, mulligans, deck, notes and tags.</p></details>
+<details><summary>What do I need?</summary><p>ManaLab runs on Windows 10 and 11. Reports open in any browser, so you don't need to install anything to read them.</p></details>
+<details><summary>What if something's missing?</summary><p>Write to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. The coaching tools are being built around what you ask for.</p></details>
+</div>
+</div>
+</section>
+<section class="seccion" id="apoyo">
+<div class="envoltura">
+<div class="apoyo uno">
+<div>
+<div class="eti">Free to download</div>
+<h2>The app is free. Only the AI analysis is paid</h2>
+<p>The AI analysis of your lost games costs 5 € a month and pays for the AI service it uses. Everything else, including everything on this page, is free. Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com">email</a>.</p>
+<div class="acciones" style="margin-top:18px"><a class="boton prim" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a><a class="enlace-sec" href="/#ia">About the AI analysis</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+{{> pie_en 2=b}}
+
+<script defer="" src="/descarga.js"></script>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

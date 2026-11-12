@@ -1,0 +1,2 @@
+<h1>Guia do ManaLab</h1>
+<p class="sub">O que cada parte do app faz e como usar, no Arena e no Magic Online. Foco nas funções principais e no coach IA.</p>

@@ -2,7 +2,7 @@
 """ML-157, tanda 3B de la auditoría web: dos páginas para búsquedas concretas, cada una en inglés y en español.
 Registro detallado de Arena (/detailed-logs/, /es/registro-detallado/) y overlay (/overlay/, /es/overlay/). Sin red.
 
-Uso:  python3 tools/test_tanda3b.py
+Uso:  python3 tools/test_paginas_busqueda.py
 """
 import json
 import re

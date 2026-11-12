@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>How to Enable Detailed Logs in MTG Arena · ManaLab</title>
+<meta content="Turn on Detailed Logs (Plugin Support) in MTG Arena in three steps, so a tracker can save your games. With what the log contains and where it is." name="description"/>
+<link href="https://manalab.es/detailed-logs/" rel="canonical"/>
+<link href="https://manalab.es/detailed-logs/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/registro-detallado/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/detailed-logs/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<link href="../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="../img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="How to Enable Detailed Logs in MTG Arena · ManaLab" property="og:title"/>
+<meta content="Turn on Detailed Logs (Plugin Support) in MTG Arena in three steps, so a tracker can save your games. With what the log contains and where it is." property="og:description"/>
+<meta content="https://manalab.es/detailed-logs/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="How to Enable Detailed Logs in MTG Arena · ManaLab" name="twitter:title"/>
+<meta content="Turn on Detailed Logs (Plugin Support) in MTG Arena in three steps, so a tracker can save your games. With what the log contains and where it is." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/detailed-logs/#webpage", "url": "https://manalab.es/detailed-logs/", "name": "How to Enable Detailed Logs in MTG Arena · ManaLab", "description": "Turn on Detailed Logs (Plugin Support) in MTG Arena in three steps, so a tracker can save your games. With what the log contains and where it is.", "inLanguage": "en", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/og.jpg"}}, {"@type": "HowTo", "@id": "https://manalab.es/detailed-logs/#howto", "name": "How to enable detailed logs in MTG Arena", "inLanguage": "en", "description": "Turn on Detailed Logs (Plugin Support) in MTG Arena in three steps, so a tracker can save your games. With what the log contains and where it is.", "step": [{"@type": "HowToStep", "position": 1, "name": "In Arena, go to Options › Account.", "text": "In Arena, go to Options › Account."}, {"@type": "HowToStep", "position": 2, "name": "Turn on «Detailed Logs (Plugin Support)».", "text": "Turn on «Detailed Logs (Plugin Support)»."}, {"@type": "HowToStep", "position": 3, "name": "Restart Arena.", "text": "Restart Arena."}]}]}</script>
+<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=c}}</style></head>
+<body>
+{{> cabecera_en 1=c}}
+<main id="inicio">
+<section class="portada solo">
+<div class="envoltura">
+<div>
+<div class="eti">MTG Arena · Detailed Logs</div>
+<h1>How to enable detailed logs in MTG Arena</h1>
+<p class="sub">Detailed Logs is a setting in Arena. With it on, Arena writes every game to Player.log. Without it, Arena doesn&#x27;t write the games and a tracker cannot read your matches.</p>
+<ol class="pasos-reg" id="pasos">
+<li>In Arena, go to Options › Account.</li>
+<li>Turn on «Detailed Logs (Plugin Support)».</li>
+<li>Restart Arena.</li>
+</ol>
+<p class="ruta-completa">The option is at <span class="ruta">Options › Account › Detailed Logs (Plugin Support)</span></p>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="lee">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">What it reads</div>
+<h2>What ManaLab reads from the log, and what it doesn&#x27;t</h2>
+</div>
+<div class="mtgo-caja sola">
+<h3>It reads</h3>
+<ul>
+<li><code>Player.log</code> and the card database Arena leaves on your PC, without changing them. <code>Player.log</code> is the file Arena writes when «Detailed Logs (Plugin Support)» is turned on in its settings.</li>
+<li>Arena writes it to <code>C:\Users\&lt;your user&gt;\AppData\LocalLow\Wizards Of The Coast\MTGA\Player.log</code>.</li>
+<li>ManaLab finds the log by itself. In Settings › Games you can set the path of Arena&#x27;s <code>Player.log</code>, only if it is not found automatically.</li>
+</ul>
+<h3>It doesn&#x27;t</h3>
+<ul>
+<li>It doesn&#x27;t modify Arena, doesn&#x27;t read its memory and doesn&#x27;t connect to Wizards&#x27; servers.</li>
+<li>The optional overlay is a separate window that only shows public information or what can be worked out from what has been played, never hidden information.</li>
+<li>Your games, screenshots and statistics stay in a folder on your PC, except what you share yourself: team mode, exporting a game or the AI analysis.</li>
+</ul>
+<p><a href="/safety/">Is ManaLab safe? What it reads and how to check it →</a></p>
+</div>
+</div>
+</section>
+<section class="seccion" id="mtgo">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Magic Online</div>
+<h2>And in Magic Online?</h2>
+</div>
+<div class="mtgo-caja sola">
+<p>Magic Online needs no setting. It writes its own log, <code>mtgo.log</code>, with nothing to turn on: open Magic Online and ManaLab picks it up by itself.</p>
+<p><a href="/magic-online/">ManaLab for Magic Online: what it saves and how it works →</a></p>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="siguiente">
+<div class="envoltura">
+<div class="apoyo uno">
+<div>
+<div class="eti">Next step</div>
+<h2>Let ManaLab save your games</h2>
+<p>ManaLab saves every match you play in MTG Arena and Magic Online on your PC and shows what works: your win rates by deck, by opponent and by matchup, your mulligans, your mistakes and your sideboard changes.</p>
+<p>The app is free. Only the AI analysis is paid.</p>
+<div class="desc-bloque" id="descargar">
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-logs-en" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></p>
+<p class="nota-descarga">Version <span data-version>2.3.0</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">other versions</a></p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">ManaLab runs on your computer</h4>
+<p class="movil-txt">Send yourself the link and download it there.</p>
+<p><button class="boton prim" data-compartir data-copiado="Link copied" data-titulo="compartir-movil-en" data-url="https://manalab.es/detailed-logs/" type="button"><span>Send me the link</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-titulo="descarga-movil-en" rel="noopener">Download the ZIP anyway</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen">Requirements: Windows 10 or 11. Unzip the file and open ManaLab.exe. Nothing to install.</p>
+<p class="nota-smartscreen" data-solo-pc>Before unzipping, right-click the ZIP › Properties › tick <b>Unblock</b> › OK. If a warning still appears, click <b>More info › Run anyway</b>.</p>
+<p class="nota-smartscreen"><a href="/safety/">Is it safe? Check it yourself →</a></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+{{> pie_en 2=c}}
+
+<script defer="" src="/descarga.js"></script>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

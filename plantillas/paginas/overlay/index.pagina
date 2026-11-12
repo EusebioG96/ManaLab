@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Free MTG Arena Overlay and Deck Tracker · ManaLab</title>
+<meta content="ManaLab&#x27;s overlay shows what is left in your library and the odds of drawing each card while you play MTG Arena or Magic Online. Free, public information only." name="description"/>
+<link href="https://manalab.es/overlay/" rel="canonical"/>
+<link href="https://manalab.es/overlay/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/overlay/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/overlay/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<link href="../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="../img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="Free MTG Arena Overlay and Deck Tracker · ManaLab" property="og:title"/>
+<meta content="ManaLab&#x27;s overlay shows what is left in your library and the odds of drawing each card while you play MTG Arena or Magic Online. Free, public information only." property="og:description"/>
+<meta content="https://manalab.es/overlay/" property="og:url"/>
+<meta content="https://manalab.es/img/v22_overlay.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="Free MTG Arena Overlay and Deck Tracker · ManaLab" name="twitter:title"/>
+<meta content="ManaLab&#x27;s overlay shows what is left in your library and the odds of drawing each card while you play MTG Arena or Magic Online. Free, public information only." name="twitter:description"/>
+<meta content="https://manalab.es/img/v22_overlay.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/overlay/#webpage", "url": "https://manalab.es/overlay/", "name": "Free MTG Arena Overlay and Deck Tracker · ManaLab", "description": "ManaLab's overlay shows what is left in your library and the odds of drawing each card while you play MTG Arena or Magic Online. Free, public information only.", "inLanguage": "en", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/v22_overlay.jpg"}}]}</script>
+<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=e}}</style></head>
+<body>
+{{> cabecera_en 1=g}}
+<main id="inicio">
+<section class="portada">
+<div class="envoltura">
+<div>
+<div class="eti">Free MTG Arena overlay</div>
+<h1>A free overlay and deck tracker for MTG Arena</h1>
+<p class="sub">ManaLab&#x27;s overlay shows what is left in your library and the odds of drawing each card while you play MTG Arena or Magic Online.</p>
+<div class="nota-desc"><span>The app is free. Only the AI analysis is paid</span><span>Your data stays on your PC unless you ask for AI</span><span>Only public information</span></div>
+<div class="desc-bloque" id="descargar">
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-overlay-en" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></p>
+<p class="nota-descarga">Version <span data-version>2.3.0</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">other versions</a></p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">ManaLab runs on your computer</h4>
+<p class="movil-txt">Send yourself the link and download it there.</p>
+<p><button class="boton prim" data-compartir data-copiado="Link copied" data-titulo="compartir-movil-en" data-url="https://manalab.es/overlay/" type="button"><span>Send me the link</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-titulo="descarga-movil-en" rel="noopener">Download the ZIP anyway</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen">Requirements: Windows 10 or 11. Unzip the file and open ManaLab.exe. Nothing to install.</p>
+<p class="nota-smartscreen" data-solo-pc>Before unzipping, right-click the ZIP › Properties › tick <b>Unblock</b> › OK. If a warning still appears, click <b>More info › Run anyway</b>.</p>
+<p class="nota-smartscreen"><a href="/safety/">Is it safe? Check it yourself →</a></p>
+</div>
+</div>
+<div class="hero-medio">
+<div class="ventana"><figure class="video" id="video-in-game-overlay"><video controls muted playsinline preload="none" width="1280" height="720" poster="../video/funciones/09-in-game-overlay.jpg" aria-label="In-game overlay: cards left in your deck, the chance to draw each one and the cards your opponent has shown." title="In-game overlay: cards left in your deck, the chance to draw each one and the cards your opponent has shown."><source src="../video/funciones/09-in-game-overlay.mp4" type="video/mp4"><a href="../video/funciones/09-in-game-overlay.mp4">MP4</a></video><figcaption>In-game overlay: cards left in your deck, the chance to draw each one and the cards your opponent has shown. <span class="idioma-video">Silent video</span></figcaption></figure></div>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="muestra">
+<div class="envoltura">
+<div class="dos-col">
+<div>
+<div class="cab-sec">
+<div class="eti">What it shows</div>
+<h2>What the overlay shows</h2>
+<p>The overlay is two panels over the game window, in Arena and in Magic Online.</p>
+</div>
+<div class="mtgo-caja sola"><ul>
+<li><b>My panel</b> shows the cards left in your library, the chance to draw each one and a Lands row.</li>
+<li><b>The opponent&#x27;s panel</b> shows the cards they have played or revealed, and how many copies you have seen.</li>
+<li><b>Lands list</b> (new in 2.3): move the mouse over the «Lands» row of My panel and a list opens with each land you have left, its copies out of the total and the chance of drawing it next. It works in Arena and in Magic Online. It is on by default and you can switch it in Settings › Overlay › What to show › My panel.</li>
+</ul></div>
+</div>
+<div class="ventana estrecha"><picture><source srcset="../img/v22_overlay.webp" type="image/webp"><img alt="ManaLab overlay over Arena, with card names, mana costs and the chance of drawing each card" height="820" loading="lazy" src="../img/v22_overlay.jpg" width="684"/></picture></div>
+</div>
+</div>
+</section>
+<section class="seccion" id="no-hace">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">What it doesn&#x27;t do</div>
+<h2>Public information only</h2>
+</div>
+<div class="mtgo-caja sola"><ul>
+<li>The overlay only shows public information or what can be worked out from what has been played, never hidden information.</li>
+<li>It is optional. ManaLab doesn&#x27;t modify Arena or Magic Online, doesn&#x27;t read their memory and doesn&#x27;t connect to their servers.</li>
+</ul>
+<p><a href="/safety/">Is ManaLab safe? What it reads and how to check it →</a></p></div>
+</div>
+</section>
+<section class="seccion franja" id="mtgo">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Magic Online</div>
+<h2>The overlay in Magic Online</h2>
+</div>
+<div class="mtgo-caja sola"><ul>
+<li>The overlay shows the cards left in your deck and the ones your opponent has shown, over Magic Online.</li>
+<li>When the log has table lines, ManaLab works out your hand and your library and shows their probabilities. When it has none, the overlay shows less: only the deck list, with copies left and total copies, and no hand, no library count and no draw chance. It never shows made-up numbers.</li>
+<li>Magic Online doesn&#x27;t give your sideboarded list in time, so ManaLab asks you to confirm your changes between games with one click. Until you do, the overlay shows «Unconfirmed list» and the chances of drawing each card are approximate (marked ≈).</li>
+</ul>
+<p><a href="/magic-online/">ManaLab for Magic Online: what it saves and how it works →</a></p></div>
+</div>
+</section>
+<section class="seccion" id="activar">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">How to turn it on</div>
+<h2>How to turn the overlay on</h2>
+</div>
+<div class="mtgo-caja sola"><ul>
+<li>The overlay is on by default: «Show the overlay» in Settings › Overlay. «Try it over Arena» shows it for 10 seconds.</li>
+<li>It appears while the game is the active window, in windowed or borderless mode (not in exclusive full screen). If the Dashboard says «Window not detected», open the game in windowed or borderless mode.</li>
+<li>In Settings › Overlay you can also set the layout (full, compact or minimalist), the colors (with a colorblind palette) and high contrast; its size, opacity and position; when it is shown (always, or only when the mouse is over a zone); and what to show in each panel, with a switch for every element.</li>
+<li>In Arena, «Detailed Logs» must be on; without it ManaLab cannot read your Arena matches. <a href="/detailed-logs/">How to turn it on, step by step →</a></li>
+</ul></div>
+</div>
+</section>
+<section class="seccion franja" id="apoyo">
+<div class="envoltura">
+<div class="apoyo uno">
+<div>
+<div class="eti">Free to download</div>
+<h2>The app is free. Only the AI analysis is paid</h2>
+<p>The AI analysis of your lost games costs 5 € a month and pays for the AI service it uses. Everything else, including everything on this page, is free.</p>
+<p>Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com">email</a>.</p>
+<div class="acciones" style="margin-top:18px"><a class="boton prim" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a><a class="enlace-sec" href="/#ia">About the AI analysis</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+{{> pie_en 2=c}}
+
+<script defer="" src="/descarga.js"></script>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

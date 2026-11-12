@@ -1,0 +1,1 @@
+.nota-desc { margin-top: 16px; font-size: 13.5px; color: var(--apagado); display: flex; flex-wrap: wrap; gap: 6px 16px; }

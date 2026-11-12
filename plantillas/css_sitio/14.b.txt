@@ -1,0 +1,65 @@
+/* ---------------- tanda 2A (ML-153): portada reordenada */
+.portada .hero-cta { margin-top: 0; }
+.nota-hero { margin-top: 14px; font-size: 14px; color: var(--texto2); display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.nota-hero a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.seccion.confianza { padding-block: 30px; }
+.confianza-lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px 32px; }
+.confianza-lista b { display: block; font: 600 16px/1.3 var(--f-display); letter-spacing: 0.2px; color: var(--texto); margin-bottom: 4px; }
+.confianza-lista b::before { content: "✓"; color: var(--oro); margin-right: 8px; }
+.confianza-lista span { display: block; font-size: 14px; line-height: 1.5; color: var(--texto2); overflow-wrap: anywhere; }
+.confianza-lista a { color: var(--oro); white-space: nowrap; }
+.novedad .ventana video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; }
+.novedad .ventana figure.video { margin: 0; }
+.enlace-seccion { margin: 36px 0 0; font-weight: 600; font-size: 16px; }
+.cta-seccion { margin-top: 40px; }
+.paso .destacado { margin-top: 14px; padding: 12px 14px; border: 1px solid rgba(233, 179, 127, 0.55); border-radius: 12px; background: var(--oro-suave); color: var(--texto); }
+.paso details { margin-top: 14px; padding: 0 14px; border-radius: 12px; }
+.paso details summary { padding: 11px 0; font-size: 15px; }
+.paso details p { font-size: 14px; margin: 0 0 12px; }
+.paso details p:last-child { margin-bottom: 14px; }
+.final-caja .nota-hero { margin-top: 16px; }
+.ia-caja + .apoyo { margin-top: 32px; }
+.paso > p + p { margin-top: 10px; }
+#descargar, .seccion[id] { scroll-margin-top: 76px; }
+.motivos .novedad, .motivos .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.motivos .novedad .ventana { max-width: 470px; }
+.motivos .novedad:nth-child(even) .ventana { justify-self: end; }
+.ia-caja { padding: 38px; }
+.apoyo { padding: 34px; }
+.funcion { padding: 22px 22px 24px; }
+.novedades.dos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; align-items: start; }
+.novedades.dos .novedad, .novedades.dos .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.novedades.dos .novedad:nth-child(even) .ventana { order: 0; }
+.novedades.dos .ventana.estrecha { max-width: 300px; }
+@media (max-width: 900px) {
+  .novedades.dos { grid-template-columns: minmax(0, 1fr); }
+  .motivos .novedad, .motivos .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
+  .confianza-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .motivos .novedad .ventana, .motivos .novedad:nth-child(even) .ventana { order: 2; max-width: none; justify-self: stretch; }
+}
+footer { padding-block: 28px; }
+@media (max-width: 767px) {
+  .seccion { padding-block: 30px; }
+  .cab-sec { margin-bottom: 18px; }
+  .portada { padding-block: 28px 16px; }
+  .portada p.sub { font-size: 17px; margin-bottom: 18px; }
+  .novedades { gap: 30px; }
+  .novedad, .novedad:nth-child(even) { gap: 14px; }
+  .novedad h3 { margin: 8px 0 6px; }
+  .novedad p { font-size: 16px; }
+  .novedades.dos .ventana.estrecha { max-width: 230px; }
+  .funcion svg { width: 22px; height: 22px; }
+  .funcion h3 { font-size: 19px; margin: 10px 0 5px; }
+  .funcion p { font-size: 14.5px; line-height: 1.5; }
+  details { padding: 2px 16px; }
+  summary { padding: 11px 0; }
+  footer { padding-block: 20px; }
+  .contacto { gap: 12px; }
+  .preguntas { gap: 8px; }
+  .ia-caja { padding: 26px 20px; gap: 24px; }
+  .apoyo { padding: 24px 20px; }
+  .funcion { padding: 16px 16px 18px; }
+  .movil-zip a { display: inline-flex; align-items: center; min-height: 44px; }
+  footer .fila { gap: 0 20px; }
+  footer .fila a, footer .guias a { display: inline-flex; align-items: center; min-height: 44px; }
+}

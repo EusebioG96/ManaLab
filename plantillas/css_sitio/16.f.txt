@@ -1,0 +1,23 @@
+/* ---------------- ML-156: portadas en japonés y portugués */
+.pie-captura-hero { margin: 0; font-size: 13.5px; color: var(--apagado); }
+.ventana .pie-captura { margin: 0; padding: 9px 14px 10px; font-size: 13px; border-top: 1px solid var(--linea); }
+.enlaces-extra { margin-top: 36px; display: grid; gap: 6px; }
+.enlaces-extra p { margin: 0; font-weight: 600; font-size: 16px; }
+.nota-trad { margin: 0; color: var(--texto2); }
+.confianza-lista a { white-space: normal; }
+html[lang="ja"] { --f-texto: "Figtree", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans CJK JP", "Noto Sans JP", system-ui, sans-serif; --f-display: "Saira Semi Condensed", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", "Meiryo", "Noto Sans CJK JP", "Noto Sans JP", system-ui, sans-serif; }
+html[lang="ja"] body { line-break: strict; word-break: auto-phrase; }
+html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3, html[lang="ja"] .confianza-lista b { word-break: keep-all; overflow-wrap: anywhere; line-height: 1.25; }
+html[lang="ja"] .portada h1 { font-size: clamp(32px, 4vw, 48px); line-height: 1.2; }
+html[lang="ja"] .cab-sec h2 { font-size: clamp(26px, 3vw, 36px); }
+html[lang="ja"] .ia-caja h2 { font-size: clamp(26px, 3vw, 36px); }
+html[lang="ja"] .eti { letter-spacing: 1px; }
+html[lang="ja"] .ruta { white-space: normal; }
+@media (max-width: 600px) {
+  .cab .envoltura { gap: 8px; }
+  .idioma { padding: 5px 9px; }
+  .marca b { font-size: 17px; }
+}
+@media (max-width: 380px) { .marca span { display: none; } }
+html.movil .hero-cta { margin-top: 16px; }
+

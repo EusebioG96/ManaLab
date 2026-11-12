@@ -1,0 +1,1 @@
+.portada { padding-block: 72px 40px; position: relative; overflow: hidden; }

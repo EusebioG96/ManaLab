@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Tanda 2B (ML-154): tipografías propias, vídeo del hero en teléfono, WebP y página 404. Sin red.
 
-Uso:  python3 -m unittest tools/test_tanda2b.py
+Uso:  python3 -m unittest tools/test_rendimiento.py
 """
 import re
 import unittest

@@ -1,0 +1,8 @@
+/* ML-156: selector de idioma con cuatro idiomas (sin empujar el botón de descarga) y separación del enlace bajo la caja de móvil */
+@media (max-width: 600px) {
+  .cab .envoltura { gap: 8px; }
+  .idioma { padding: 5px 9px; }
+  .marca b { font-size: 17px; }
+}
+@media (max-width: 380px) { .marca span { display: none; } }
+html.movil .hero-cta { margin-top: 16px; }

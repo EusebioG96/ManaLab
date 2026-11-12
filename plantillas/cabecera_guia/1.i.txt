@@ -1,0 +1,2 @@
+<h1>ManaLab 指南</h1>
+<p class="sub">介绍应用各部分的作用和使用方法，适用于 Arena 和 Magic Online。重点讲解主要功能和 AI 教练。</p>

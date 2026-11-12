@@ -1,0 +1,4 @@
+<a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-manual-en.pdf" rel="noopener">Manual do usuário (PDF, em inglês)</a>
+<a href="/novedades/">Novidades (em inglês)</a>
+<a href="/magic-online/">Tracker para <span style="white-space:nowrap">Magic Online</span> (em inglês)</a>
+<a href="/pt/coaches/">Guia para coaches</a>

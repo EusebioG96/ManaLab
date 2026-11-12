@@ -1,0 +1,1 @@
+<div class="fila"><b style="color:var(--texto)">ManaLab</b><span id="version">v<span data-version>2.3.0</span></span>

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ML-156, tanda 3A de la auditoría web: portadas en japonés y portugués de Brasil. Comprueba sobre los archivos (sin red).
 
-Uso:  python3 tools/test_tanda3a.py
+Uso:  python3 tools/test_portadas_ja_pt.py
 """
 import json
 import re

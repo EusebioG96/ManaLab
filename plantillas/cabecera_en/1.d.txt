@@ -1,0 +1,13 @@
+<a class="marca" href="#inicio"><img alt="ManaLab logo" height="36" src="img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
+<nav aria-label="Secciones">
+<a href="#funciones">Features</a>
+<a href="#mtgo">Magic Online</a>
+<a href="#coaches">Coaches</a>
+<a href="#empezar">Get started</a>
+<a href="#preguntas">FAQ</a>
+<a href="#ia">AI analysis</a>
+</nav>
+<a class="idioma" href="/es/" hreflang="es" id="idioma" lang="es" title="Ver en español">ES</a>
+<a class="idioma" href="/pt/" hreflang="pt-BR" lang="pt-BR" title="Ver em português">PT</a>
+<a class="idioma" href="/ja/" hreflang="ja" lang="ja" title="日本語で見る">日本語</a>
+<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.2/ManaLab-2.3.2-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-cabecera-en" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download</span></a>

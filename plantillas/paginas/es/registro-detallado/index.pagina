@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Cómo activar el registro detallado en MTG Arena · ManaLab</title>
+<meta content="Activa el registro detallado en MTG Arena en tres pasos para que un tracker pueda guardar tus partidas. Con qué contiene el registro y dónde está." name="description"/>
+<link href="https://manalab.es/es/registro-detallado/" rel="canonical"/>
+<link href="https://manalab.es/detailed-logs/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/registro-detallado/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/detailed-logs/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<link href="../../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="../../img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="es_ES" property="og:locale"/>
+<meta content="Cómo activar el registro detallado en MTG Arena · ManaLab" property="og:title"/>
+<meta content="Activa el registro detallado en MTG Arena en tres pasos para que un tracker pueda guardar tus partidas. Con qué contiene el registro y dónde está." property="og:description"/>
+<meta content="https://manalab.es/es/registro-detallado/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="Cómo activar el registro detallado en MTG Arena · ManaLab" name="twitter:title"/>
+<meta content="Activa el registro detallado en MTG Arena en tres pasos para que un tracker pueda guardar tus partidas. Con qué contiene el registro y dónde está." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/es/registro-detallado/#webpage", "url": "https://manalab.es/es/registro-detallado/", "name": "Cómo activar el registro detallado en MTG Arena · ManaLab", "description": "Activa el registro detallado en MTG Arena en tres pasos para que un tracker pueda guardar tus partidas. Con qué contiene el registro y dónde está.", "inLanguage": "es", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/og.jpg"}}, {"@type": "HowTo", "@id": "https://manalab.es/es/registro-detallado/#howto", "name": "Cómo activar el registro detallado en MTG Arena", "inLanguage": "es", "description": "Activa el registro detallado en MTG Arena en tres pasos para que un tracker pueda guardar tus partidas. Con qué contiene el registro y dónde está.", "step": [{"@type": "HowToStep", "position": 1, "name": "En Arena, ve a Opciones › Cuenta.", "text": "En Arena, ve a Opciones › Cuenta."}, {"@type": "HowToStep", "position": 2, "name": "Activa «Registro detallado» («Detailed Logs (Plugin Support)», en inglés).", "text": "Activa «Registro detallado» («Detailed Logs (Plugin Support)», en inglés)."}, {"@type": "HowToStep", "position": 3, "name": "Reinicia Arena.", "text": "Reinicia Arena."}]}]}</script>
+<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=c}}</style></head>
+<body>
+{{> cabecera_es 1=f}}
+<main id="inicio">
+<section class="portada solo">
+<div class="envoltura">
+<div>
+<div class="eti">MTG Arena · Registro detallado</div>
+<h1>Cómo activar el registro detallado en MTG Arena</h1>
+<p class="sub">El registro detallado es un ajuste de Arena. Con él activado, Arena escribe cada partida en el Player.log. Sin él, Arena no escribe las partidas y un tracker no puede leer tus matches.</p>
+<ol class="pasos-reg" id="pasos">
+<li>En Arena, ve a Opciones › Cuenta.</li>
+<li>Activa «Registro detallado» («Detailed Logs (Plugin Support)», en inglés).</li>
+<li>Reinicia Arena.</li>
+</ol>
+<p class="ruta-completa">La opción está en <span class="ruta">Opciones › Cuenta › Registro detallado</span></p>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="lee">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Qué lee</div>
+<h2>Qué lee ManaLab de ese registro y qué no</h2>
+</div>
+<div class="mtgo-caja sola">
+<h3>Lo que lee</h3>
+<ul>
+<li>El <code>Player.log</code> y la base de cartas que Arena deja en tu PC, sin modificarlos. El <code>Player.log</code> es el archivo que Arena escribe cuando tienes activado «Detailed Logs (Plugin Support)» en sus ajustes.</li>
+<li>Arena lo escribe en <code>C:\Users\&lt;tu usuario&gt;\AppData\LocalLow\Wizards Of The Coast\MTGA\Player.log</code>.</li>
+<li>ManaLab encuentra el registro solo. En Ajustes › Juegos puedes indicar la ruta del <code>Player.log</code> de Arena, solo si no se encuentra sola.</li>
+</ul>
+<h3>Lo que no hace</h3>
+<ul>
+<li>No modifica Arena, no lee su memoria y no se conecta a los servidores de Wizards.</li>
+<li>El overlay opcional es una ventana aparte que solo muestra información pública o deducible de lo jugado, nunca información oculta.</li>
+<li>Tus partidas, capturas y estadísticas se quedan en una carpeta de tu PC, salvo lo que tú compartas: modo equipo, exportar una partida o el análisis con IA.</li>
+</ul>
+<p><a href="/es/seguridad/">¿Es seguro ManaLab? Qué lee y cómo comprobarlo →</a></p>
+</div>
+</div>
+</section>
+<section class="seccion" id="mtgo">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Magic Online</div>
+<h2>¿Y en Magic Online?</h2>
+</div>
+<div class="mtgo-caja sola">
+<p>Magic Online no necesita ningún ajuste. Escribe su propio registro, <code>mtgo.log</code>, sin que tengas que activar nada: abre Magic Online y ManaLab lo recoge solo.</p>
+<p><a href="/es/magic-online/">ManaLab para Magic Online: qué guarda y cómo funciona →</a></p>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="siguiente">
+<div class="envoltura">
+<div class="apoyo uno">
+<div>
+<div class="eti">Siguiente paso</div>
+<h2>Deja que ManaLab guarde tus partidas</h2>
+<p>ManaLab guarda en tu PC cada partida que juegas en MTG Arena y Magic Online y te enseña qué funciona: tus porcentajes por mazo, por rival y por matchup, tus mulligans, tus errores y tus cambios de sideboard.</p>
+<p>La app es gratis. Solo el análisis con IA es de pago.</p>
+<div class="desc-bloque" id="descargar">
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-logs-es" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></p>
+<p class="nota-descarga">Versión <span data-version>2.3.0</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">otras versiones</a></p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">ManaLab se usa en el ordenador</h4>
+<p class="movil-txt">Envíate el enlace y descárgalo allí.</p>
+<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="compartir-movil-es" data-url="https://manalab.es/es/registro-detallado/" type="button"><span>Enviarme el enlace</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-titulo="descarga-movil-es" rel="noopener">Descargar el ZIP igualmente</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen">Requisitos: Windows 10 u 11. Descomprime el ZIP y abre ManaLab.exe. No hace falta instalar nada.</p>
+<p class="nota-smartscreen" data-solo-pc>Antes de descomprimir, botón derecho en el ZIP › Propiedades › marca <b>Desbloquear</b> › Aceptar. Si aun así sale un aviso, pulsa <b>Más información › Ejecutar de todas formas</b>.</p>
+<p class="nota-smartscreen"><a href="/es/seguridad/">¿Es seguro? Compruébalo tú mismo →</a></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+{{> pie_es 2=b}}
+
+<script defer="" src="/descarga.js"></script>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

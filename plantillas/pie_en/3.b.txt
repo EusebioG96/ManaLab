@@ -1,0 +1,2 @@
+<a href="#contacto">Contact</a>
+<a href="https://x.com/ManaLabApp" rel="noopener" target="_blank">Follow us on X</a></div>

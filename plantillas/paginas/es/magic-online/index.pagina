@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Tracker gratis de Magic Online (MTGO): estadísticas · ManaLab</title>
+<meta content="Tracker gratis para Magic Online: guarda cada match desde los registros de MTGO, con manos iniciales, mulligans, winrate por matchup y repetición turno a turno." name="description"/>
+<link href="https://manalab.es/es/magic-online/" rel="canonical"/>
+<link href="https://manalab.es/magic-online/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/magic-online/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/magic-online/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<link href="../../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="../../img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="es_ES" property="og:locale"/>
+<meta content="Tracker gratis de Magic Online (MTGO): estadísticas · ManaLab" property="og:title"/>
+<meta content="Tracker gratis para Magic Online: guarda cada match desde los registros de MTGO, con manos iniciales, mulligans, winrate por matchup y repetición turno a turno." property="og:description"/>
+<meta content="https://manalab.es/es/magic-online/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="Tracker gratis de Magic Online (MTGO): estadísticas · ManaLab" name="twitter:title"/>
+<meta content="Tracker gratis para Magic Online: guarda cada match desde los registros de MTGO, con manos iniciales, mulligans, winrate por matchup y repetición turno a turno." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/es/magic-online/#webpage", "url": "https://manalab.es/es/magic-online/", "name": "Tracker gratis para Magic Online (MTGO) · ManaLab", "description": "Tracker gratis para Magic Online: guarda cada match desde los registros de MTGO, con manos iniciales, mulligans, winrate por matchup y repetición turno a turno.", "inLanguage": "es", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/es_mtgo_panel.jpg"}}, {"@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Funciona con Magic Online?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, desde la 2.3. ManaLab guarda tus partidas de Magic Online (MTGO): manos, mulligans, primero/segundo, mazo del rival, estadísticas, repetición y overlay. No hay que configurar nada: empieza solo cuando abres Magic Online, y puedes importar un archivo mtgo.log. Magic Online no envía las fases ni las cartas giradas, así que ManaLab las deduce del registro, y en la repetición lo deducido lleva la marca ≈ porque puede no ser exacto. Magic Online tampoco da a tiempo tu lista tras el banquillo: ManaLab te pide confirmar tus cambios entre partidas con un clic y, hasta entonces, el overlay marca la lista como sin confirmar. El overlay puede mostrar menos información cuando el registro no trae el estado de la mesa. Tu mazo toma el nombre con el que lo guardaste en Magic Online cuando la lista coincide exactamente; si no, se nombra por sus colores."}}, {"@type": "Question", "name": "¿Toca el juego o me da ventaja en la partida?", "acceptedAnswer": {"@type": "Answer", "text": "No. Solo lee los archivos que Magic Online escribe en tu PC (mtgo.log, Match_GameLog_*.dat, mtgo_game_history y los archivos de mazo grouping *.xml), sin modificarlos. No modifica Magic Online, no lee su memoria y no se conecta a sus servidores. El overlay opcional es una ventana aparte que solo muestra información pública o deducible de lo jugado, nunca información oculta."}}, {"@type": "Question", "name": "¿Qué datos envía?", "acceptedAnswer": {"@type": "Answer", "text": "Tus partidas, capturas y estadísticas se quedan en una carpeta de tu PC. El programa solo descarga las listas actualizadas de mazos del meta, una por formato (cada 3 días), consulta nombres de cartas en Scryfall (también con ids de Magic Online) cuando los necesita, y pregunta a GitHub una vez al día si hay una versión nueva. Las tres cosas se pueden desactivar en Ajustes. Solo envía datos cuando pides algo. El análisis con IA envía los datos de esa partida (resultado, mazo, manos, cartas vistas y cronología), nunca tu nombre ni el del rival. Un reporte de bug envía lo que escribes, tu correo si lo pones, la versión de ManaLab, tu sistema e idioma, si usas Arena o Magic Online, un identificador anónimo de tu equipo y, si lo marcas, las últimas líneas de registro.log sin tu nombre de usuario ni códigos. No envía partidas ni mazos."}}, {"@type": "Question", "name": "Windows dice «Windows protegió su PC». ¿Es seguro?", "acceptedAnswer": {"@type": "Answer", "text": "Ese aviso sale con los programas que no tienen un certificado de firma de pago, algo habitual en herramientas gratuitas pequeñas. Pulsa «Más información» y luego «Ejecutar de todas formas». Solo sale en la primera descarga: las versiones nuevas se instalan con «Actualizar ahora» desde la propia app, sin aviso. Para evitarlo también la primera vez, antes de descomprimir haz botón derecho en el ZIP › Propiedades › marca «Desbloquear» › Aceptar. Cada versión se comprueba en VirusTotal antes de publicarla."}}, {"@type": "Question", "name": "¿Funciona en Mac o en Linux?", "acceptedAnswer": {"@type": "Answer", "text": "De momento es para Windows 10 y 11. No hay versión nativa para Linux y no se ha probado con Wine ni Proton, así que no podemos prometer que funcione."}}, {"@type": "Question", "name": "¿Es gratis?", "acceptedAnswer": {"@type": "Answer", "text": "El programa es gratis y no necesita cuenta. Lo único de pago es el análisis de derrotas con IA: 5 € al mes, que pagan el servicio de IA que usa. Todas las demás funciones son gratis."}}, {"@type": "Question", "name": "¿Cómo consigo el análisis con IA?", "acceptedAnswer": {"@type": "Answer", "text": "Suscríbete en Ko-fi (5 € al mes). Tras el pago recibes un código de suscripción por correo. Pégalo en Ajustes › Equipo e IA y el análisis aparece en la pestaña Análisis de cada derrota. ¿Quieres probarlo antes? Pide una prueba gratis por correo."}}]}]}</script>
+<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 10=b}}</style></head>
+<body>
+{{> cabecera_es 1=c}}
+<main id="inicio">
+<section class="portada">
+<div class="envoltura">
+<div>
+<div class="eti">Tracker gratis para Magic Online (MTGO)</div>
+<h1>Tus partidas de Magic Online, <em>guardadas solas.</em></h1>
+<p class="sub">ManaLab lee el registro de Magic Online mientras juegas y guarda tus manos iniciales, mulligans, primero/segundo, el mazo del rival y tus cambios de banquillo. Luego te enseña dónde ganas y dónde pierdes.</p>
+<div class="nota-desc"><span>La app es gratis. Solo el análisis con IA es de pago</span><span>Tus datos se quedan en tu PC salvo que pidas IA</span><span>No hay nada que configurar</span></div>
+<div class="desc-bloque" id="descargar">
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-mtgo-es" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></p>
+<p class="nota-descarga">Versión <span data-version>2.3.0</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">otras versiones</a></p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">ManaLab se usa en el ordenador</h4>
+<p class="movil-txt">Envíate el enlace y descárgalo allí.</p>
+<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="compartir-movil-es" data-url="https://manalab.es/es/magic-online/" type="button"><span>Enviarme el enlace</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-titulo="descarga-movil-es" rel="noopener">Descargar el ZIP igualmente</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen">Requisitos: Windows 10 u 11. Descomprime el ZIP y abre ManaLab.exe. No hace falta instalar nada.</p>
+<p class="nota-smartscreen" data-solo-pc>Antes de descomprimir, botón derecho en el ZIP › Propiedades › marca <b>Desbloquear</b> › Aceptar. Si aun así sale un aviso, pulsa <b>Más información › Ejecutar de todas formas</b>.</p>
+<p class="nota-smartscreen"><a href="/es/seguridad/">¿Es seguro? Compruébalo tú mismo →</a></p>
+</div>
+</div>
+<div class="hero-medio">
+<div class="ventana"><picture><source srcset="../../img/es_mtgo_panel.webp" type="image/webp"><img alt="Panel de ManaLab con Arena escuchando y Magic Online en partida, leyendo mtgo.log, y los últimos matches con una etiqueta MTGO, con datos de ejemplo" class="cap" height="860" src="../../img/es_mtgo_panel.jpg" width="1366"/></picture></div>
+<p class="pie-captura" style="margin:0">Captura con datos de ejemplo.</p>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="guarda">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Qué guarda</div>
+<h2>Cada partida de Magic Online, con lo que la explica</h2>
+<p>No tienes que apuntar nada: todo sale del registro mientras juegas.</p>
+</div>
+<div class="funciones cinco">
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"></path></svg>
+<h3>Manos iniciales</h3>
+<p>La mano que te dieron y la que te quedaste, en cada partida.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M12 4v16M4 12h16"></path></svg>
+<h3>Mulligans</h3>
+<p>Cuántos hiciste en cada partida.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"></path></svg>
+<h3>Primero o segundo</h3>
+<p>Quién empezó cada partida, para separar tus estadísticas entre ir primero e ir segundo.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M12 8v4l2.5 2.5M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16z"></path></svg>
+<h3>Mazo del rival</h3>
+<p>Compara las cartas del rival con los mazos más jugados del formato de la partida y nombra el más parecido. Si ninguno encaja con claridad, lo nombra por sus colores.</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+<h3>Repetición</h3>
+<p>Cada partida paso a paso, con las cartas reales. Las fases y las cartas giradas se deducen y llevan la marca ≈.</p></div>
+</div>
+</div>
+</section>
+<section class="seccion" id="banquillo">
+<div class="envoltura">
+<div class="novedades uno">
+<div class="novedad">
+<div class="ventana"><picture><source srcset="../../img/es_mtgo_banquillo.webp" type="image/webp"><img alt="Aviso de banquillo de ManaLab para Magic Online entre partidas: «¿Cambiaste el banquillo?» con los botones «Usar este cambio», «Sin cambios» y «Editar», con datos de ejemplo" height="440" loading="lazy" src="../../img/es_mtgo_banquillo.jpg" width="1000"/></picture></div>
+<div class="cuerpo"><div class="eti">Banquillo</div>
+<h2 style="font-size:clamp(26px,3vw,36px);line-height:1.12;margin:12px 0 12px">Confirma tu banquillo con un clic</h2>
+<p>Magic Online no envía a tiempo tu lista tras el banquillo, así que entre partidas aparece un aviso pequeño que pregunta «¿Cambiaste el banquillo?» con tres botones: «Usar este cambio» repite lo que hiciste la vez anterior, «Sin cambios» deja tu lista como está y «Editar» abre el editor.</p>
+<p>Hasta que confirmes, el overlay muestra «Lista sin confirmar» y las probabilidades de robar cada carta son aproximadas (llevan ≈).</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="lee">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Qué lee</div>
+<h2>Solo lee archivos de tu PC</h2>
+</div>
+<div class="mtgo-caja sola">
+<p>Estos son los archivos que lee ManaLab. No los modifica:</p>
+<ul>
+<li><code>mtgo.log</code>: el registro que Magic Online escribe mientras juegas. No hay que activar nada.</li>
+<li><code>Match_GameLog_*.dat</code>: el registro de cada partida.</li>
+<li><code>mtgo_game_history</code>: el historial de partidas del propio Magic Online.</li>
+<li><code>grouping *.xml</code>: los archivos de mazo.</li>
+</ul>
+<p>No modifica Magic Online, no lee su memoria y no se conecta a sus servidores. <a href="/es/seguridad/#lee">Qué lee y cómo comprobarlo →</a></p>
+<p>Las capturas de tu mano inicial, los mulligans y el resultado vienen activadas por defecto y se quedan en tu PC. Puedes desactivarlas en Ajustes, con un interruptor propio para Magic Online. Si jugaste con ManaLab cerrado, puedes importar un archivo <code>mtgo.log</code>.</p>
+</div>
+</div>
+</section>
+<section class="seccion" id="tener-en-cuenta">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">A tener en cuenta</div>
+<h2>Qué tener en cuenta</h2>
+</div>
+<div class="mtgo-caja sola">
+<ul>
+<li><b>El mazo toma su nombre de Magic Online</b> cuando la lista coincide exactamente; si no, se nombra por sus colores.</li>
+<li><b>Las fases y las cartas giradas se deducen.</b> Magic Online no las envía, así que ManaLab las calcula del registro. En la repetición llevan la marca ≈ porque pueden no ser exactas.</li>
+<li><b>El overlay puede mostrar menos información</b> cuando el registro no trae el estado de la mesa.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="preguntas">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">Preguntas</div><h2>Antes de empezar</h2></div>
+<div class="preguntas">
+<details><summary>¿Funciona con Magic Online?</summary>
+<p>Sí, desde la 2.3. ManaLab guarda tus partidas de Magic Online (MTGO): manos, mulligans, primero/segundo, mazo del rival, estadísticas, repetición y overlay. No hay que configurar nada: empieza solo cuando abres Magic Online, y puedes importar un archivo mtgo.log. Magic Online no envía las fases ni las cartas giradas, así que ManaLab las deduce del registro, y en la repetición lo deducido lleva la marca ≈ porque puede no ser exacto. Magic Online tampoco da a tiempo tu lista tras el banquillo: ManaLab te pide confirmar tus cambios entre partidas con un clic y, hasta entonces, el overlay marca la lista como sin confirmar. El overlay puede mostrar menos información cuando el registro no trae el estado de la mesa. Tu mazo toma el nombre con el que lo guardaste en Magic Online cuando la lista coincide exactamente; si no, se nombra por sus colores.</p></details>
+<details><summary>¿Toca el juego o me da ventaja en la partida?</summary>
+<p>No. Solo lee los archivos que Magic Online escribe en tu PC (mtgo.log, Match_GameLog_*.dat, mtgo_game_history y los archivos de mazo grouping *.xml), sin modificarlos. No modifica Magic Online, no lee su memoria y no se conecta a sus servidores. El overlay opcional es una ventana aparte que solo muestra información pública o deducible de lo jugado, nunca información oculta.</p><p>Más detalles: <a href="/es/seguridad/#lee">¿Es seguro ManaLab?</a></p></details>
+<details><summary>¿Qué datos envía?</summary>
+<p>Tus partidas, capturas y estadísticas se quedan en una carpeta de tu PC. El programa solo descarga las listas actualizadas de mazos del meta, una por formato (cada 3 días), consulta nombres de cartas en Scryfall (también con ids de Magic Online) cuando los necesita, y pregunta a GitHub una vez al día si hay una versión nueva. Las tres cosas se pueden desactivar en Ajustes. Solo envía datos cuando pides algo. El análisis con IA envía los datos de esa partida (resultado, mazo, manos, cartas vistas y cronología), nunca tu nombre ni el del rival. Un reporte de bug envía lo que escribes, tu correo si lo pones, la versión de ManaLab, tu sistema e idioma, si usas Arena o Magic Online, un identificador anónimo de tu equipo y, si lo marcas, las últimas líneas de registro.log sin tu nombre de usuario ni códigos. No envía partidas ni mazos.</p><p>Más detalles: <a href="/es/seguridad/">¿Es seguro ManaLab?</a></p></details>
+<details><summary>Windows dice «Windows protegió su PC». ¿Es seguro?</summary>
+<p>Ese aviso sale con los programas que no tienen un certificado de firma de pago, algo habitual en herramientas gratuitas pequeñas. Pulsa «Más información» y luego «Ejecutar de todas formas». Solo sale en la primera descarga: las versiones nuevas se instalan con «Actualizar ahora» desde la propia app, sin aviso. Para evitarlo también la primera vez, antes de descomprimir haz botón derecho en el ZIP › Propiedades › marca «Desbloquear» › Aceptar. Cada versión se comprueba en VirusTotal antes de publicarla.</p><p>Más detalles: <a href="/es/seguridad/">¿Es seguro ManaLab?</a></p></details>
+<details><summary>¿Funciona en Mac o en Linux?</summary>
+<p>De momento es para Windows 10 y 11. No hay versión nativa para Linux y no se ha probado con Wine ni Proton, así que no podemos prometer que funcione.</p></details>
+<details><summary>¿Es gratis?</summary>
+<p>El programa es gratis y no necesita cuenta. Lo único de pago es el análisis de derrotas con IA: 5 € al mes, que pagan el servicio de IA que usa. Todas las demás funciones son gratis.</p></details>
+<details><summary>¿Cómo consigo el análisis con IA?</summary>
+<p>Suscríbete en Ko-fi (5 € al mes). Tras el pago recibes un código de suscripción por correo. Pégalo en Ajustes › Equipo e IA y el análisis aparece en la pestaña Análisis de cada derrota. ¿Quieres probarlo antes? Pide una prueba gratis <a href="mailto:manalab.app@gmail.com">por correo</a>.</p></details>
+</div>
+</div>
+</section>
+<section class="seccion" id="apoyo">
+<div class="envoltura">
+<div class="apoyo uno">
+<div>
+<div class="eti">Descarga gratis</div>
+<h2>La app es gratis. Solo el análisis con IA es de pago</h2>
+<p>El análisis con IA de tus derrotas cuesta 5 € al mes y paga el servicio de IA que usa. Todo lo demás, incluido todo lo de esta página, es gratis.</p>
+<p>¿Quieres probarlo antes? Pide una prueba gratis <a href="mailto:manalab.app@gmail.com">por correo</a>.</p>
+<div class="acciones" style="margin-top:18px"><a class="boton prim" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a><a class="enlace-sec" href="/es/#ia">Sobre el análisis con IA</a></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+{{> pie_es}}
+
+<script defer="" src="/descarga.js"></script>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

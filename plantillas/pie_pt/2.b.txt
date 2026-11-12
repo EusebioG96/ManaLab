@@ -1,0 +1,4 @@
+<a href="/privacy/">Privacidade (em inglês)</a>
+<a href="/safety/">Segurança (em inglês)</a>
+<a href="/#contacto">Contato (em inglês)</a>
+<a href="https://x.com/ManaLabApp" rel="noopener" target="_blank">Siga a gente no X</a></div>

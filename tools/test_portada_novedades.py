@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ML-153, tanda 2A de la auditoría web: portada reordenada y página de novedades. Comprueba sobre los archivos (sin red).
 
-Uso:  python3 tools/test_tanda2.py
+Uso:  python3 tools/test_portada_novedades.py
 """
 import re
 import unittest

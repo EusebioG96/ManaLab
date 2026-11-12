@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>ManaLab – MTGアリーナ・Magic Online対応の無料戦績トラッカー</title>
+<meta content="ManaLabはMTGアリーナとMagic Onlineの対戦を自動で記録する無料トラッカーです。初手、マリガン、先攻・後攻、相手のデッキを保存し、マッチアップ別の勝率がわかります。" name="description"/>
+<link href="https://manalab.es/ja/" rel="canonical"/>
+<link href="https://manalab.es/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/pt/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://manalab.es/ja/" hreflang="ja" rel="alternate"/>
+<link href="https://manalab.es/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d0304" name="theme-color"/>
+<link href="/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="ManaLab – MTGアリーナ・Magic Online対応の無料戦績トラッカー" property="og:title"/>
+<meta content="ManaLabはMTGアリーナとMagic Onlineの対戦を自動で記録する無料トラッカーです。初手、マリガン、先攻・後攻、相手のデッキを保存し、マッチアップ別の勝率がわかります。" property="og:description"/>
+<meta content="https://manalab.es/ja/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="ManaLab – MTGアリーナ・Magic Online対応の無料戦績トラッカー" name="twitter:title"/>
+<meta content="ManaLabはMTGアリーナとMagic Onlineの対戦を自動で記録する無料トラッカーです。初手、マリガン、先攻・後攻、相手のデッキを保存し、マッチアップ別の勝率がわかります。" name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://manalab.es/ja/#website", "name": "ManaLab", "url": "https://manalab.es/ja/", "inLanguage": "ja", "publisher": {"@id": "https://manalab.es/#org"}}, {"@type": "Organization", "@id": "https://manalab.es/#org", "name": "ManaLab", "url": "https://manalab.es/", "logo": {"@type": "ImageObject", "url": "https://manalab.es/img/icono-192.png", "width": 192, "height": 192}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}, {"@type": "SoftwareApplication", "name": "ManaLab", "url": "https://manalab.es/ja/", "description": "ManaLabはMTGアリーナとMagic Onlineの対戦を自動で記録する無料トラッカーです。初手、マリガン、先攻・後攻、相手のデッキを保存し、マッチアップ別の勝率がわかります。", "applicationCategory": "GameApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "2.3.0", "downloadUrl": "https://github.com/EusebioG96/ManaLab/releases/latest", "image": "https://manalab.es/img/og.jpg", "screenshot": ["https://manalab.es/img/v22_repeticion.jpg", "https://manalab.es/img/en_panel.jpg", "https://manalab.es/img/en_partida.jpg", "https://manalab.es/img/en_estadisticas.jpg"], "inLanguage": "ja", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "@id": "https://manalab.es/ja/#app", "isPartOf": {"@id": "https://manalab.es/ja/#website"}, "publisher": {"@id": "https://manalab.es/#org"}, "mainEntityOfPage": "https://manalab.es/ja/", "applicationSubCategory": "MTGアリーナとMagic Onlineの戦績トラッカー"}, {"@type": "FAQPage", "inLanguage": "ja", "mainEntity": [{"@type": "Question", "name": "ゲームに干渉したり、対戦で有利になったりしませんか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。アリーナにもMagic Onlineにも干渉しません。読み取るのは、ゲームがPCに書き出すファイルだけです（アリーナのPlayer.log、Magic Onlineのmtgo.log、Match_GameLog_*.dat、mtgo_game_history、デッキファイル（grouping *.xml））。それらを書き換えることもありません。アリーナやMagic Onlineを改変せず、メモリを読み取らず、サーバーにも接続しません。任意のオーバーレイは別ウィンドウで、表示するのは公開情報と、プレイ済みの内容から導ける情報だけです。非公開の情報は表示しません。"}}, {"@type": "Question", "name": "どんなデータを送信しますか？", "acceptedAnswer": {"@type": "Answer", "text": "対戦、スクリーンショット、統計は、PC内のフォルダーに保存されます。プログラムが行うのは、フォーマットごとの最新メタデッキリストのダウンロード（3日ごと）、必要なときのScryfallでのカード名の検索（Magic OnlineのIDにも対応）、そして新しいバージョンがあるかどうかの1日1回のGitHubへの問い合わせだけです。この3つは設定でオフにできます。データを送信するのは、あなたが何かを求めたときだけです。AI分析では、そのゲームのデータ（結果、デッキ、手札、見えたカード、タイムライン）を送信し、あなたや相手の名前は送りません。バグ報告では、あなたが書いた内容、追加した場合はメールアドレス、ManaLabのバージョン、OSと言語、アリーナとMagic Onlineのどちらを使っているか、PCの匿名ID、そしてチェックした場合はユーザー名とコードを除いたregistro.logの末尾の行を送信します。対戦やデッキは送信しません。"}}, {"@type": "Question", "name": "「WindowsによってPCが保護されました」と表示されます。安全ですか？", "acceptedAnswer": {"@type": "Answer", "text": "この警告は、有料のコード署名証明書がないプログラムに表示されます。小規模な無料ツールではよくあることです。「詳細情報」をクリックし、「実行」を押してください。表示されるのは最初のダウンロードのときだけです。新しいバージョンはアプリ内の「今すぐアップデート」でインストールされ、警告は出ません。最初から警告を避けるには、展開する前にZIPを右クリック › プロパティ › 「ブロックの解除」にチェック › OKとします。公開前に、すべてのバージョンをVirusTotalで検査しています。"}}, {"@type": "Question", "name": "Magic Onlineに対応していますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、2.3からです。ManaLabはMagic Online（MTGO）の対戦を記録します。初手、マリガン、先攻・後攻、相手のデッキ、統計、リプレイ、オーバーレイに対応しています。設定は不要で、Magic Onlineを開くと自動で認識し、mtgo.logファイルのインポートもできます。違う点は次のとおりです。Magic Onlineはターンのフェイズやタップ状態を送ってこないため、ManaLabがログから推定します。リプレイでは、推定した内容に≈が付きます。正確とは限らないためです。また、Magic Onlineはサイドボード後のリストを間に合うように教えてくれません。そのため、ゲーム間の変更をワンクリックで確認してもらい、確認するまでオーバーレイには「リスト未確認」と表示されます。ログにテーブルの状態がない場合、オーバーレイの表示はアリーナより少なくなることがあります。デッキには、リストが完全に一致する場合はMagic Onlineで保存した名前が付き、一致しない場合は色で名前が付きます。"}}, {"@type": "Question", "name": "MacやLinuxで使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "今のところWindows 10 / 11向けです。ネイティブのLinux版はなく、WineやProtonでの動作も確認していないため、動くとはお約束できません。"}}, {"@type": "Question", "name": "ドラフトとシールド（リミテッド）も記録しますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。リミテッドを含め、アリーナとMagic Onlineのどんなゲームも記録します。相手のデッキは、そのゲームのフォーマット（Standard、Pioneer、Modern、Legacy、Vintage、Pauper）のメタデッキと比べます。リミテッドのように明確に一致するものがない場合は、色で名前が付きます。"}}, {"@type": "Question", "name": "無料ですか？", "acceptedAnswer": {"@type": "Answer", "text": "プログラムは無料で、アカウントも不要です。有料なのは、AIによる敗戦分析だけで、月額5ユーロです。利用するAIサービスの費用に充てています。それ以外の機能はすべて無料です。"}}, {"@type": "Question", "name": "AI分析はどうすれば使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "Ko-fiで購読します（月額5ユーロ）。支払い後、購読コードがメールで届きます。設定 › チームとAI に貼り付けると、負けたゲームの「分析」タブに分析が表示されます。先に試したい場合は、メールで無料トライアルを申し込めます。"}}]}]}</script>
+<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" as="image" href="/video/hero/manalab-hero-en-poster.jpg"><style>{{> css_sitio 1=b 2=b 3=b 4=b 5=b 6=b 7=b 8=b 9=b 11=b 12=b 13=b 14=b 15=b 16=f}}</style></head>
+<body>
+{{> cabecera_ja}}
+<main id="inicio">
+<section class="portada">
+<div class="envoltura">
+<div>
+<div class="eti">MTGアリーナとMagic Onlineの無料トラッカー</div>
+<h1>アリーナと<wbr><span style="white-space:nowrap">Magic Onlineの</span><wbr>全対戦を、<wbr><em>自動で記録。</em></h1>
+<p class="sub">ManaLabはプレイ中にアリーナと<span style="white-space:nowrap">Magic Online</span>のログを読み取り、初手、マリガン、相手のデッキを保存します。どこで勝ち、どこで負けているかがわかります。</p>
+<div data-movil-aqui></div>
+<div class="hero-cta">
+<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-hero-ja" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a>
+<a class="enlace-sec" href="#funciones">機能を見る</a>
+</div>
+<p class="nota-hero"><span>バージョン <span data-version>2.3.0</span> · ZIP · インストール不要</span><a href="/safety/">安全ですか？ご自身で確認できます（英語）→</a></p>
+<div class="nota-desc"><span>アプリは無料。有料はAI分析のみ</span><span>AIを使わない限り、データはPC内に保存</span><span>アプリは9言語対応</span></div>
+</div>
+<div class="hero-medio">
+<div class="hero-video" id="hero-video">
+<video aria-label="ManaLabのデモデータによる15秒の無音動画：自動で記録された勝敗の対戦一覧、初手・マリガン・スクリーンショット付きのゲーム、マッチアップ別・先攻・後攻別の勝率、ステップごとのリプレイ。" autoplay="" height="720" loop="" muted="" playsinline="" poster="/video/hero/manalab-hero-en-poster.jpg" preload="metadata" width="1280">
+<source src="/video/hero/manalab-hero-en.webm" type="video/webm"/>
+<source src="/video/hero/manalab-hero-en.mp4" type="video/mp4"/>
+</video>
+<button aria-label="動画を一時停止" class="hero-pausa" data-pausa="動画を一時停止" data-play="動画を再生" type="button"><svg aria-hidden="true" class="ico-pausa" viewbox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"></path></svg><svg aria-hidden="true" class="ico-play" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></button>
+</div>
+<p class="pie-captura-hero">画面は英語版です。アプリは日本語に対応しています。</p>
+<script>
+(function () {
+  /* con «reducir movimiento» o ahorro de datos: solo el póster (no se descarga el vídeo).
+     En teléfono (pantalla táctil estrecha) también: el póster con el botón de reproducir; el vídeo se descarga al tocarlo (ML-154) */
+  var caja = document.getElementById("hero-video"), v = caja.querySelector("video"), b = caja.querySelector(".hero-pausa");
+  var c = navigator.connection || {};
+  var quieto = (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) || c.saveData === true;
+  if (quieto) {
+    v.removeAttribute("autoplay"); v.autoplay = false; v.preload = "none";
+    v.querySelectorAll("source").forEach(function (s) { s.remove(); });
+    v.load(); caja.classList.add("solo-poster");
+    return;
+  }
+  var fuentes = null;
+  if (window.matchMedia && window.matchMedia("(max-width: 767px) and (pointer: coarse)").matches) {
+    v.removeAttribute("autoplay"); v.autoplay = false; v.preload = "none";
+    fuentes = Array.prototype.map.call(v.querySelectorAll("source"), function (s) { s.remove(); return s; });
+    v.load();
+    b.classList.add("pausado"); b.setAttribute("aria-label", b.dataset.play);
+    v.style.cursor = "pointer";
+    v.addEventListener("click", function () { b.click(); });   /* en teléfono, tocar cualquier parte del vídeo lo reproduce o pausa */
+  }
+  b.addEventListener("click", function () {
+    if (fuentes) {   /* primer toque en teléfono: ahora sí se añaden las fuentes */
+      fuentes.forEach(function (s) { v.appendChild(s); });
+      fuentes = null; v.preload = "auto"; v.load();
+    }
+    if (v.paused) v.play(); else v.pause();
+  });
+  v.addEventListener("play", function () { b.classList.remove("pausado"); b.setAttribute("aria-label", b.dataset.pausa); });
+  v.addEventListener("pause", function () { b.classList.add("pausado"); b.setAttribute("aria-label", b.dataset.play); });
+})();
+</script>
+</div>
+</div>
+</section>
+<section class="seccion franja confianza" id="confianza">
+<div class="envoltura">
+<ul class="confianza-lista">
+<li><b>無料・アカウント不要</b><span>アプリは無料です。有料なのはAI分析だけです。</span></li>
+<li><b>データはあなたのPCに</b><span>対戦、スクリーンショット、統計はPC内のフォルダーに保存されます。</span></li>
+<li><b>ログを読むだけ</b><span>ゲームを改変せず、メモリを読まず、サーバーにも接続しません。</span></li>
+<li><b>自分で確認できます</b><span>各バージョンは公開前にVirusTotalで検査しています。<a href="/safety/">確認方法（英語）→</a></span></li>
+</ul>
+</div>
+</section>
+<section class="seccion" id="motivos">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">ManaLabを使う理由</div>
+<h2>毎回のセッション後に見たくなる<wbr>3つのこと</h2>
+</div>
+<div class="novedades motivos">
+<div class="novedad">
+<div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="/video/funciones/03-opening-hand-mulligans.jpg" aria-label="ゲームごとに、初手、マリガン後にキープした手札、サイドボーディング、そしてマリガンの統計が保存されます。" title="ゲームごとに、初手、マリガン後にキープした手札、サイドボーディング、そしてマリガンの統計が保存されます。"><source src="/video/funciones/03-opening-hand-mulligans.mp4" type="video/mp4"><a href="/video/funciones/03-opening-hand-mulligans.mp4">MP4</a></video></figure><p class="pie-captura">画面は英語版です。アプリは日本語に対応しています。</p></div>
+<div><h3>初手とすべてのマリガンを、スクリーンショット付きで</h3>
+<p>配られた手札、キープした手札、それぞれの判断のスクリーンショットを保存します。メモは不要です。</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="/video/funciones/05-statistics.jpg" aria-label="統計：勝率、連勝・連敗、日別・マリガン別・デッキ別・対戦相手別・マッチアップ別の結果。" title="統計：勝率、連勝・連敗、日別・マリガン別・デッキ別・対戦相手別・マッチアップ別の結果。"><source src="/video/funciones/05-statistics.mp4" type="video/mp4"><a href="/video/funciones/05-statistics.mp4">MP4</a></video></figure></div>
+<div><h3>どこで勝ち、どこで負けているか</h3>
+<p>マッチアップ別、デッキ別、先攻・後攻別の勝率を、各対戦の実際のフォーマットで表示します。</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="/video/funciones/02-replay.jpg" aria-label="リプレイ：実際のカードでターンごとに対戦を振り返り、重要な場面へジャンプできます。" title="リプレイ：実際のカードでターンごとに対戦を振り返り、重要な場面へジャンプできます。"><source src="/video/funciones/02-replay.mp4" type="video/mp4"><a href="/video/funciones/02-replay.mp4">MP4</a></video></figure></div>
+<div><h3>すべての対戦をステップごとにリプレイ</h3>
+<p>実際のカードでターンごとに対戦を振り返り、重要な場面に印を付けられます。</p></div>
+</div>
+</div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-motivos-ja" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div>
+</div>
+</section>
+<section class="seccion franja" id="mtgo">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">アリーナと<span style="white-space:nowrap">Magic Online</span></div>
+<h2>アリーナと<span style="white-space:nowrap">Magic Online</span>に<wbr>対応</h2>
+</div>
+<div class="novedades dos">
+<div class="novedad">
+<div class="ventana"><picture><source srcset="/img/en_mtgo_panel.webp" type="image/webp"><img alt="ManaLabのパネル。アリーナは監視中、Magic Onlineはゲーム中でmtgo.logを読み取っています。最新の対戦にはMTGOのタグが付いています（サンプルデータ）" height="860" loading="lazy" src="/img/en_mtgo_panel.jpg" width="1366"/></picture><p class="pie-captura">画面は英語版です。アプリは日本語に対応しています。</p></div>
+<div><div class="eti">パネル</div>
+<h3>アリーナと<span style="white-space:nowrap">Magic Online</span>を並べて表示</h3>
+<p>パネルには各ゲームの状態と最近の対戦が表示されます。<span style="white-space:nowrap">Magic Online</span>で遊んだ対戦には、小さな「MTGO」タグが付きます。</p></div>
+</div>
+<div class="novedad">
+<div class="ventana"><picture><source srcset="/img/en_mtgo_banquillo.webp" type="image/webp"><img alt="Magic Onlineのゲーム間に表示されるManaLabのサイドボード確認パネル。「この変更を使う」「変更なし」「編集」の3つのボタンがあります（サンプルデータ）" height="440" loading="lazy" src="/img/en_mtgo_banquillo.jpg" width="1000"/></picture></div>
+<div><div class="eti">サイドボード</div>
+<h3>サイドボードの確認はワンクリック</h3>
+<p><span style="white-space:nowrap">Magic Online</span>はサイドボード後のリストを間に合うように送ってきません。そのためゲーム間に小さなパネルが表示され、前回の変更を使うか、変更なしにするか、エディターを開くかを選べます。</p></div>
+</div>
+</div>
+<p class="enlace-seccion"><a class="enlace-man" href="/magic-online/"><span style="white-space:nowrap"><span style="white-space:nowrap">Magic Online</span></span>トラッカー：保存する内容と仕組み（英語）→</a></p>
+</div>
+</section>
+<section class="seccion" id="funciones">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">機能</div>
+<h2>対戦のたびにメモしていたことを、<wbr>すべて自動で</h2>
+</div>
+<div class="funciones">
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"></path><circle cx="18.5" cy="16.5" r="2.5"></circle></svg>
+<h3>マッチとゲーム</h3>
+<p>Bo3は1行で、スコア（2-1、1-2…）が表示されます。開くと各ゲームの先攻・後攻、結果、マリガンが見られます。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><circle cx="9" cy="11" r="2"></circle><path d="m21 15-4.5-4.5L8 19"></path></svg>
+<h3>初手とスクリーンショット</h3>
+<p>配られた初手、キープした手札、重要な場面のスクリーンショットを保存します。F8キーまたはゲーム画面上のボタンで好きな場面を保存し、メモを付けられます。スクリーンショットはPC内に保存され、設定でオフにできます。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l2.5 2.5"></path></svg>
+<h3>相手のデッキ</h3>
+<p>相手のカードを、そのフォーマットでよく使われているデッキと比べて、いちばん近いものの名前を付けます。メタのリストは3日ごとに更新されます。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2"></path></svg>
+<h3>統計</h3>
+<p>対戦・ゲームごとの勝率、連勝・連敗、直近の日々、さらにマリガン別、先攻・後攻別、デッキ別、相手のアーキタイプ別の内訳。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="16" rx="2" width="13" x="7" y="3"></rect><path d="M4 7v12a2 2 0 0 0 2 2h10"></path></svg>
+<h3>自分のデッキ</h3>
+<p>使ったリストごとの勝率。サイドボードのバリエーションは同じデッキにまとめられ、名前も変えられます。<span style="white-space:nowrap">Magic Online</span>では、リストが完全に一致すればMagic Onlineで保存した名前が、そうでなければ色で名前がデッキに付きます。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path d="M9 10h6M9 13.5h4"></path></svg>
+<h3>AIによる敗戦分析（購読者向け）</h3>
+<p>購読者は、負けたゲームごとにAI分析を受けられます。何がうまくいかなかったか、どこをよりうまくプレイできたか、次に何を試すかがわかります。購読は月額5ユーロ、Ko-fiで。</p>
+<p style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 18px"><a href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-funciones-ja" rel="noopener" style="font-weight:600" target="_blank"><span>Ko-fi で登録する →</span></a></p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><rect height="12" rx="2" width="18" x="3" y="4"></rect><path d="M8 20h8M12 16v4"></path><path d="M7 9h5M7 12h8"></path></svg>
+<h3>プレイ中のオーバーレイ</h3>
+<p>ゲームの横に別ウィンドウで、デッキに残っているカード、相手がこれまでに見せたカード、ターンを表示します。表示するのは公開情報と、プレイ済みの内容から導ける情報だけです。<span style="white-space:nowrap">Magic Online</span>では、ログにテーブルの状態がないと表示が少なくなることがあります。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 7h13l-3-3M20 17H7l3 3"></path></svg>
+<h3>サイドボードガイド</h3>
+<p>マッチアップごとに、自分の対戦で何を入れて何を抜いたか、その結果がどうだったかを表示します。記憶に頼ったサイドボーディングをやめられます。</p></div>
+<div class="funcion"><svg viewbox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"></path><path d="M17 11a3 3 0 1 0 0-6M21 20v-1a4 4 0 0 0-3-3.9"></path></svg>
+<h3>コーチとチーム</h3>
+<p>ゲームごとのミスのタグとメモ、マッチアップの表、コーチ向けのレポート。チームモードでは共有フォルダーを通じて対戦、スクリーンショット、メモを共有し、コーチはリプレイを含む各ゲームの全体を見られます。</p></div>
+</div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-funciones-ja" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div>
+</div>
+</section>
+<section class="seccion" id="empezar">
+<div class="envoltura">
+<div class="cab-sec" id="descargar">
+<div class="eti">始め方</div>
+<h2>最初の一度だけ、<wbr>3ステップ</h2>
+</div>
+<div class="pasos">
+<div class="paso"><h3>ダウンロードして開く</h3>
+<p>Windows 10 / 11。ZIPを展開して、ManaLab.exeを開きます。インストールは不要です。</p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-portada-ja" id="enlace-descarga" rel="noopener"><span>無料ダウンロード</span></a></p>
+<p class="nota-descarga">バージョン <span data-version>2.3.0</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">他のバージョン</a></p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">ManaLabはパソコンで使います</h4>
+<p class="movil-txt">自分にリンクを送って、パソコンでダウンロードしてください。</p>
+<p><button class="boton prim" data-compartir data-copiado="リンクをコピーしました" data-titulo="compartir-movil-ja" data-url="https://manalab.es/ja/" type="button"><span>リンクを自分に送る</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-descarga data-titulo="descarga-movil-ja" rel="noopener">それでもZIPをダウンロード</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen destacado" data-solo-pc>展開する前に、ZIPを右クリック › プロパティ › <b>ブロックの解除</b>にチェック › OK。こうすると、Windowsに「WindowsによってPCが保護されました」と表示されず、プログラムのファイルもブロックされません。それでも警告が出る場合は、<b>詳細情報 › 実行</b>をクリックしてください。</p>
+<details data-solo-pc><summary>すでにManaLabをお使いですか？</summary>
+<p>この初回ダウンロードのときだけ必要です。以降のバージョンはアプリ内からインストールされ、警告は表示されません。</p>
+<p>すでに2.1.0、2.1.1、2.1.2をお使いですか？最後に一度だけ手動で更新してください。上の手順でZIPのブロックを解除し、ManaLabのフォルダーの上に展開します（対戦と設定は残ります）。これらのバージョンはウィンドウを表示せずに起動して閉じることがありました。2.2以降は、新しいバージョンがアプリ内からインストールされます。</p>
+<p><a href="/safety/">安全ですか？ご自身で確認できます（英語）→</a></p></details></div>
+<div class="paso"><h3>ゲームを準備する</h3>
+<p><b>アリーナ：</b><span class="ruta">オプション › アカウント › Detailed Logs</span>をオンにします。オンにしないと、アリーナは対戦を書き出しません。</p>
+<p style="margin-top:10px"><b><span style="white-space:nowrap">Magic Online</span>：</b>設定は不要です。<span style="white-space:nowrap">Magic Online</span>を開けば、ManaLabが自動で認識します。ログの場所は<span class="ruta">設定 › ゲーム</span>にあり、「既定」のままにしてください。</p></div>
+<div class="paso"><h3>プレイして見直す</h3>
+<p><b>「記録開始」を押します。</b>プレイする前にManaLabを開き、起動したままにしてください。各対戦は、終了するとパネルに表示されます。</p>
+<p>アリーナも<span style="white-space:nowrap">Magic Online</span>も、ウィンドウモードかボーダーレスでプレイし、対戦の見直しは「ゲーム」で行います。アプリは無料です。</p></div>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="preguntas">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">よくある質問</div><h2>始める前に</h2></div>
+<div class="preguntas">
+<details><summary>ゲームに干渉したり、対戦で有利になったりしませんか？</summary>
+<p>いいえ。アリーナにも<span style="white-space:nowrap">Magic Online</span>にも干渉しません。読み取るのは、ゲームがPCに書き出すファイルだけです（アリーナのPlayer.log、<span style="white-space:nowrap">Magic Online</span>のmtgo.log、Match_GameLog_*.dat、mtgo_game_history、デッキファイル（grouping *.xml））。それらを書き換えることもありません。アリーナや<span style="white-space:nowrap">Magic Online</span>を改変せず、メモリを読み取らず、サーバーにも接続しません。任意のオーバーレイは別ウィンドウで、表示するのは公開情報と、プレイ済みの内容から導ける情報だけです。非公開の情報は表示しません。</p></details>
+<details><summary>どんなデータを送信しますか？</summary>
+<p>対戦、スクリーンショット、統計は、PC内のフォルダーに保存されます。プログラムが行うのは、フォーマットごとの最新メタデッキリストのダウンロード（3日ごと）、必要なときのScryfallでのカード名の検索（<span style="white-space:nowrap">Magic Online</span>のIDにも対応）、そして新しいバージョンがあるかどうかの1日1回のGitHubへの問い合わせだけです。この3つは設定でオフにできます。データを送信するのは、あなたが何かを求めたときだけです。AI分析では、そのゲームのデータ（結果、デッキ、手札、見えたカード、タイムライン）を送信し、あなたや相手の名前は送りません。バグ報告では、あなたが書いた内容、追加した場合はメールアドレス、ManaLabのバージョン、OSと言語、アリーナと<span style="white-space:nowrap">Magic Online</span>のどちらを使っているか、PCの匿名ID、そしてチェックした場合はユーザー名とコードを除いたregistro.logの末尾の行を送信します。対戦やデッキは送信しません。</p>
+<p>詳細：<a href="/safety/">ManaLabは安全ですか？（英語）</a></p></details>
+<details><summary>「WindowsによってPCが保護されました」と表示されます。安全ですか？</summary>
+<p>この警告は、有料のコード署名証明書がないプログラムに表示されます。小規模な無料ツールではよくあることです。「詳細情報」をクリックし、「実行」を押してください。表示されるのは最初のダウンロードのときだけです。新しいバージョンはアプリ内の「今すぐアップデート」でインストールされ、警告は出ません。最初から警告を避けるには、展開する前にZIPを右クリック › プロパティ › 「ブロックの解除」にチェック › OKとします。公開前に、すべてのバージョンをVirusTotalで検査しています。</p>
+<p>詳細：<a href="/safety/">ManaLabは安全ですか？（英語）</a></p></details>
+<details id="magic-online"><summary>Magic Onlineに対応していますか？</summary>
+<p>はい、2.3からです。ManaLabは<span style="white-space:nowrap">Magic Online</span>（MTGO）の対戦を記録します。初手、マリガン、先攻・後攻、相手のデッキ、統計、リプレイ、オーバーレイに対応しています。設定は不要で、<span style="white-space:nowrap">Magic Online</span>を開くと自動で認識し、mtgo.logファイルのインポートもできます。違う点は次のとおりです。<span style="white-space:nowrap">Magic Online</span>はターンのフェイズやタップ状態を送ってこないため、ManaLabがログから推定します。リプレイでは、推定した内容に≈が付きます。正確とは限らないためです。また、<span style="white-space:nowrap">Magic Online</span>はサイドボード後のリストを間に合うように教えてくれません。そのため、ゲーム間の変更をワンクリックで確認してもらい、確認するまでオーバーレイには「リスト未確認」と表示されます。ログにテーブルの状態がない場合、オーバーレイの表示はアリーナより少なくなることがあります。デッキには、リストが完全に一致する場合はMagic Onlineで保存した名前が付き、一致しない場合は色で名前が付きます。</p>
+<p>サイトで：<a href="/magic-online/"><span style="white-space:nowrap">Magic Online</span>トラッカー：保存する内容と仕組み（英語）</a></p></details>
+<details><summary>MacやLinuxで使えますか？</summary>
+<p>今のところWindows 10 / 11向けです。ネイティブのLinux版はなく、WineやProtonでの動作も確認していないため、動くとはお約束できません。</p></details>
+<details><summary>ドラフトとシールド（リミテッド）も記録しますか？</summary>
+<p>はい。リミテッドを含め、アリーナと<span style="white-space:nowrap">Magic Online</span>のどんなゲームも記録します。相手のデッキは、そのゲームのフォーマット（Standard、Pioneer、Modern、Legacy、Vintage、Pauper）のメタデッキと比べます。リミテッドのように明確に一致するものがない場合は、色で名前が付きます。</p></details>
+<details><summary>無料ですか？</summary>
+<p>プログラムは無料で、アカウントも不要です。有料なのは、AIによる敗戦分析だけで、月額5ユーロです。利用するAIサービスの費用に充てています。それ以外の機能はすべて無料です。</p></details>
+<details><summary>AI分析はどうすれば使えますか？</summary>
+<p>Ko-fiで購読します（月額5ユーロ）。支払い後、購読コードがメールで届きます。設定 › チームとAI に貼り付けると、負けたゲームの「分析」タブに分析が表示されます。先に試したい場合は、<a href="mailto:manalab.app@gmail.com">メール</a>で無料トライアルを申し込めます。</p></details>
+</div>
+</div>
+</section>
+<section class="seccion" id="ia">
+<div class="envoltura">
+<div class="ia-caja">
+<div>
+<div class="eti">新機能 · AIによる敗戦分析</div>
+<h2>負けたゲームで、何が悪かったのかがわかる</h2>
+<p><strong style="color:var(--texto)">アプリは無料です。有料なのはAI分析だけです。</strong></p>
+<p>負けたゲームを開いてAIに尋ねると、何がうまくいかなかったか、どこをよりうまくプレイできたか、次回は何を試すかがわかります。AIが読み取るのはそのゲームのデータで、あなたや相手の名前は含まれません。</p>
+<p>先に試したい場合は、<a href="mailto:manalab.app@gmail.com">メール</a>で無料トライアルを申し込めます。</p>
+<div class="acciones" style="margin-top:24px"><a class="boton prim" href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-ia-ja" rel="noopener" target="_blank"><span>Ko-fi で登録する →</span></a></div>
+</div>
+<div>
+<div class="ia-precio">5 € <small>月額</small></div>
+<div class="ia-lista">
+<p>1日最大30回まで分析できます。Ko-fiで月額5ユーロで購読すると、購読後すぐにメールでコードが届きます。</p>
+<p>いつでも解約できます。Ko-fiで更新しなければ、コードは自動的に失効します。</p>
+<p><a href="/privacy/">プライバシーポリシー（英語）</a></p>
+</div>
+</div>
+</div>
+<div class="enlaces-extra">
+<p><a href="/coaches/">コーチの方へ：ManaLabで生徒を見直すガイド（英語）→</a></p>
+<p><a href="/#contacto">ご質問・不具合・購読のご相談：お問い合わせフォーム（英語）→</a></p>
+</div>
+</div>
+</section>
+<section class="seccion franja" id="final">
+<div class="envoltura final-caja">
+<div class="cab-sec">
+<h2>今日から対戦を記録しましょう</h2>
+</div>
+<div class="acciones"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.0/ManaLab-2.3.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-final-ja" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div>
+<p class="nota-hero"><span>バージョン <span data-version>2.3.0</span> · ZIP · インストール不要</span></p>
+</div>
+</section>
+</main>
+{{> pie_ja}}
+
+<script defer="" src="/descarga.js"></script>
+<script>
+(function () {
+  /* un <details> cerrado no se ve: al entrar por #magic-online (u otra pregunta con id) se abre sola */
+  function abrir() {
+    var d = null;
+    try { d = location.hash.length > 1 && document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (e) {}
+    if (d && d.tagName === "DETAILS") { d.open = true; d.scrollIntoView({ behavior: "instant" }); }
+  }
+  abrir();
+  window.addEventListener("load", abrir);   /* otra vez con las imágenes ya cargadas: el desplazamiento cuadra */
+  window.addEventListener("hashchange", abrir);
+})();
+</script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>

@@ -1,0 +1,13 @@
+/* ---------------- página 404 (ML-154) */
+.p404 { padding-block: 88px 96px; position: relative; overflow: hidden; }
+.p404::before { content: ""; position: absolute; inset: -40% -10% auto 40%; height: 700px; background: radial-gradient(closest-side, rgba(194, 54, 63, 0.22), transparent 70%); pointer-events: none; }
+.p404 .envoltura { position: relative; }
+.p404 .num { font: 700 clamp(88px, 16vw, 176px)/1 var(--f-display); letter-spacing: 1px; color: var(--oro); margin: 14px 0 6px; }
+.p404 h1 { font-size: clamp(30px, 4.6vw, 52px); line-height: 1.08; margin: 0 0 28px; }
+.p404 h1 span { display: block; }
+.p404 h1 span + span { color: var(--texto2); }
+.p404 .botones { display: flex; flex-wrap: wrap; gap: 12px 16px; margin: 0 0 40px; }
+.p404 ul.enlaces { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 16px; color: var(--apagado); }
+.p404 ul.enlaces a { color: var(--texto2); text-underline-offset: 3px; text-decoration-color: var(--linea2); }
+.p404 ul.enlaces a:hover { color: var(--texto); }
+

@@ -1,0 +1,2 @@
+<p class="nota-trad">Encontrou um erro de tradução? Avise a gente no <a href="https://x.com/ManaLabApp" rel="noopener" target="_blank">X (@ManaLabApp)</a>.</p>
+<p class="legal">O ManaLab é conteúdo de fãs não oficial, permitido pela Política de Conteúdo de Fãs. Não é aprovado nem endossado pela Wizards. Partes dos materiais usados são propriedade da Wizards of the Coast. ©Wizards of the Coast LLC. Dados do meta: MTGGoldfish. Dados de cartas: Scryfall.</p>

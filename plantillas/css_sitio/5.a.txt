@@ -1,0 +1,1 @@
+.portada p.sub { font-size: 18.5px; color: var(--texto2); max-width: 34em; margin: 0 0 28px; }
