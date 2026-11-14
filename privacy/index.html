@@ -36,7 +36,7 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
 
   <section lang="es" id="es">
     <h1>Política de privacidad</h1>
-    <p><strong>Última actualización:</strong> 10 de noviembre de 2026</p>
+    <p><strong>Última actualización:</strong> 14 de noviembre de 2026</p>
 
     <h2>1. Quién es el responsable</h2>
     <p>ManaLab es un proyecto personal y gratuito. Para cualquier cuestión sobre privacidad, escribe a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>.</p>
@@ -49,8 +49,10 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     <h2>3. Conexiones del programa</h2>
     <ul>
       <li><strong>Listas de mazos del meta:</strong> una por formato; cada 3 días se descargan desde GitHub. Como en cualquier descarga, GitHub puede registrar tu dirección IP.</li>
-      <li><strong>Nombres de cartas:</strong> si falta una carta en la base de datos de Arena, se consulta su nombre en Scryfall. En Magic Online la consulta se hace con el id de la carta de Magic Online.</li>
+      <li><strong>Nombres de cartas:</strong> si falta una carta en la base de datos de Arena, se consulta su nombre en Scryfall. En Magic Online la consulta se hace con el id de la carta de Magic Online. Las imágenes de cartas que faltan también se descargan de Scryfall.</li>
       <li><strong>Aviso de versión nueva:</strong> al abrir el programa y una vez al día, se pregunta a GitHub cuál es la última versión publicada. Si GitHub no responde, se consulta el archivo <code>manalab.es/version.json</code> de esta web (alojada también en GitHub), sin enviar ningún dato tuyo. Como en cualquier consulta, GitHub puede registrar tu dirección IP.</li>
+      <li><strong>Contenido de ManaLab:</strong> al abrir el programa y cada 6 horas, la app descarga un pequeño archivo de manalab.es con datos (como el enlace de apoyo o qué funciones mostrar). No envía nada tuyo; como en cualquier descarga, el servidor puede registrar tu dirección IP.</li>
+      <li><strong>Banner de Metafy:</strong> al final del Panel, la app carga <code>manalab.es/anuncio/</code>, que muestra un anuncio de la red de Metafy (<code>mdn.metafy.gg</code>). Metafy recibe la petición como cualquier web (IP, navegador). ManaLab no le pasa ningún dato de tus partidas ni sabe qué ves o pulsas. Se quita con la X o en Ajustes › Datos.</li>
       <li><strong>Modo equipo</strong> (solo si lo configuras): tus partidas, notas, cronologías y, si no lo desactivas, tus capturas y sus notas se copian a la carpeta compartida que elijas tú (por ejemplo de Google Drive, Dropbox u OneDrive). No pasan por nuestros servidores: se aplica la política del servicio que uses. Las capturas pueden mostrar el nombre del rival aunque actives «Ocultar el nombre de mis rivales».</li>
       <li><strong>Análisis con IA</strong> (solo si lo pides y tienes suscripción o un código de prueba): se envían a nuestro servidor los datos de la partida que analizas (resultado, mazo, manos, cartas vistas y cronología). No se envían nombres de jugadores ni datos de tu cuenta de Arena o de Magic Online. El servidor reenvía esos datos a <strong>DeepSeek</strong> para generar el análisis. DeepSeek tiene sus servidores en <strong>China</strong>; si no te parece bien, no uses el análisis.</li>
       <li><strong>Reportar un bug</strong> (solo si lo usas, desde Ajustes › Datos y acerca de ManaLab): se envían a nuestro servidor lo que escribes, tu correo si lo pones, la versión de ManaLab, el sistema operativo, el idioma de la interfaz, si hay Arena o Magic Online en uso o configurados, un identificador anónimo de tu equipo y, si lo marcas, las últimas líneas de <code>registro.log</code> (hasta 300), saneadas: sin el nombre de usuario de Windows ni códigos. No se envían partidas ni mazos. El identificador es un número aleatorio que ManaLab crea y guarda en tu PC; no cambia entre sesiones y no caduca en tu equipo. El servidor lo reenvía por correo a nuestra bandeja con <strong>Resend</strong> y no lo guarda: solo guarda contadores por día (usa una huella del identificador para limitar los reportes por equipo; el contador caduca a las 48 horas). Sin conexión, el reporte queda pendiente en tu PC hasta 7 días (hasta 3 reportes a la vez).</li>
@@ -79,8 +81,9 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
       <li><strong>Cloudflare:</strong> aloja el servidor y puede registrar datos técnicos de las peticiones (como la IP), según su política.</li>
       <li><strong>DeepSeek:</strong> genera el análisis a partir de los datos de la partida.</li>
       <li><strong>GitHub y Scryfall:</strong> solo en las descargas y consultas del apartado 3.</li>
+      <li><strong>Metafy:</strong> la red de anuncios del banner del apartado 3 (<code>mdn.metafy.gg</code>); se aplica su política de privacidad.</li>
     </ul>
-    <p>No vendemos datos ni mostramos publicidad, y la web no usa cookies.</p>
+    <p>No vendemos datos. La app muestra un anuncio de Metafy al final del Panel, que puedes quitar. La web no usa cookies.</p>
     <p>Estadísticas de visitas: esta web (no la aplicación) usa <a href="https://www.goatcounter.com" rel="noopener">GoatCounter</a> para contar las visitas de forma anónima. No usa cookies ni hace seguimiento entre sitios, y no se recogen datos personales. La aplicación ManaLab no envía estadísticas.</p>
 
     <h2>6. Base legal</h2>
@@ -107,7 +110,7 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
 
   <section lang="en" id="en">
     <h2 class="titulo">Privacy policy</h2>
-    <p><strong>Last updated:</strong> 10 November 2026</p>
+    <p><strong>Last updated:</strong> 14 November 2026</p>
 
     <h2>1. Who is responsible</h2>
     <p>ManaLab is a personal, free project. For any privacy question, write to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>.</p>
@@ -120,8 +123,10 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     <h2>3. Connections made by the program</h2>
     <ul>
       <li><strong>Meta deck lists:</strong> one per format; every 3 days they are downloaded from GitHub. As with any download, GitHub may log your IP address.</li>
-      <li><strong>Card names:</strong> if a card is missing from Arena's database, its name is looked up on Scryfall. In Magic Online the lookup uses the card's Magic Online id.</li>
+      <li><strong>Card names:</strong> if a card is missing from Arena's database, its name is looked up on Scryfall. In Magic Online the lookup uses the card's Magic Online id. Missing card images are also downloaded from Scryfall.</li>
       <li><strong>New version notice:</strong> when the program opens and once a day, it asks GitHub for the latest published version. If GitHub doesn't respond, it reads the file <code>manalab.es/version.json</code> from this website (also hosted on GitHub), without sending any of your data. As with any request, GitHub may log your IP address.</li>
+      <li><strong>ManaLab content:</strong> when the program opens and every 6 hours, the app downloads a small file from manalab.es with data (such as the support link or which features to show). It sends nothing of yours; as with any download, the server may log your IP address.</li>
+      <li><strong>Metafy banner:</strong> at the end of the Dashboard, the app loads <code>manalab.es/anuncio/</code>, which shows an ad from the Metafy network (<code>mdn.metafy.gg</code>). Metafy receives the request like any website (IP, browser). ManaLab passes it no data from your games and does not know what you see or click. It is removed with the X or in Settings › Data.</li>
       <li><strong>Team mode</strong> (only if you set it up): your games, notes, timelines and, unless you turn it off, your screenshots and their notes are copied to the shared folder you choose (for example on Google Drive, Dropbox or OneDrive). They don't go through our servers: the policy of the service you use applies. Screenshots may show the opponent's name even if you turn on «Hide my opponents' names».</li>
       <li><strong>AI analysis</strong> (only if you request it and have a subscription or a trial code): the data of the game you analyse is sent to our server (result, deck, hands, cards seen and timeline). Player names and your Arena or Magic Online account details are not sent. The server forwards that data to <strong>DeepSeek</strong> to produce the analysis. DeepSeek's servers are in <strong>China</strong>; if that is not acceptable to you, do not use the analysis.</li>
       <li><strong>Report a bug</strong> (only if you use it, from Settings › Data and about ManaLab): our server receives what you write, your email address if you add one, the ManaLab version, the operating system, the interface language, whether Arena or Magic Online are in use or set up, an anonymous ID of your PC and, if you tick it, the last lines of <code>registro.log</code> (up to 300), cleaned: without your Windows username or codes. No games or decks are sent. The ID is a random number that ManaLab creates and stores on your PC; it does not change between sessions and does not expire on your computer. The server forwards the report by email to our inbox with <strong>Resend</strong> and does not store it: it only keeps counters per day (it uses a hash of the ID to limit reports per computer; that counter expires after 48 hours). Without a connection, the report stays pending on your PC for up to 7 days (up to 3 reports at a time).</li>
@@ -150,8 +155,9 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
       <li><strong>Cloudflare:</strong> hosts the server and may log technical request data (such as IP addresses) under its own policy.</li>
       <li><strong>DeepSeek:</strong> produces the analysis from the game data.</li>
       <li><strong>GitHub and Scryfall:</strong> only for the downloads and requests in section 3.</li>
+      <li><strong>Metafy:</strong> the ad network behind the banner in section 3 (<code>mdn.metafy.gg</code>); its privacy policy applies.</li>
     </ul>
-    <p>We do not sell data or show advertising, and this website does not use cookies.</p>
+    <p>We do not sell data. The app shows a Metafy ad at the end of the Dashboard, which you can remove. This website does not use cookies.</p>
     <p>Visit statistics: this website (not the app) uses <a href="https://www.goatcounter.com" rel="noopener">GoatCounter</a> to count visits anonymously. It uses no cookies and does no cross-site tracking, and no personal data is collected. The ManaLab app does not send statistics.</p>
 
     <h2>6. Legal basis</h2>

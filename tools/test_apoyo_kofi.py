@@ -22,7 +22,7 @@ IDIOMAS_GUIA = ["es", "en", "de", "fr", "it", "pt", "ja", "ko", "zh"]
 PRIVACIDAD = RAIZ / "privacy" / "index.html"
 KOFI = "https://ko-fi.com/eusebiog96"
 KOFI_TIERS = "https://ko-fi.com/eusebiog96/tiers"   # suscribirse a la IA: directo a la membresía (no al perfil, que ofrece una donación)
-FECHA_PRIVACIDAD = {"es": "10 de noviembre de 2026", "en": "10 November 2026"}   # día del cambio de ML-148
+FECHA_PRIVACIDAD = {"es": "14 de noviembre de 2026", "en": "14 November 2026"}   # día del cambio de ML-271
 MAGIC_ONLINE = {"en": RAIZ / "magic-online" / "index.html", "es": RAIZ / "es" / "magic-online" / "index.html"}
 BARRA_LATERAL = re.compile(r"♥\s*Patreon")   # frase que describe la barra lateral de la app publicada (2.3.0)
 
