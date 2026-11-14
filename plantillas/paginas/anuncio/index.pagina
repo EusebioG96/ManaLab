@@ -4,10 +4,11 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="noindex, nofollow" name="robots"/>
 <title>ManaLab · Metafy</title>
-<style>html,body{margin:0;padding:0;background:transparent;overflow:hidden}body{display:flex;justify-content:center;align-items:center;min-height:90px}</style>
+<style>html,body{margin:0;padding:0;background:transparent;overflow:hidden}body{display:flex;justify-content:center;align-items:center;min-height:90px}[data-mdn]{width:100%}</style>
 </head>
 <body>
-<!-- Hueco de MDN (Metafy) que la app de ManaLab enseña al final del Panel. No se enlaza desde la web. -->
+<!-- Hueco de MDN (Metafy) que la app de ManaLab enseña al final del Panel. No se enlaza desde la web.
+     Ocupa todo el ancho: MDN no pone nada en un hueco de menos de 728 px y, centrado en flex, el hueco medía 0. -->
 <div data-mdn="leaderboard" data-mdn-hint="sessions" data-mdn-fallback-scope="same_game" data-mdn-theme="dark"></div>
 <script async src="https://mdn.metafy.gg/embed.js" data-mdn-site="mdn_obNMYPWbbmMClWCpy3Pss6JY"></script>
 </body>
