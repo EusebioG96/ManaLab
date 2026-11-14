@@ -37,7 +37,7 @@
 <div class="eti">Free MTG Arena overlay</div>
 <h1>A free overlay and deck tracker for MTG Arena</h1>
 <p class="sub">ManaLab&#x27;s overlay shows what is left in your library and the odds of drawing each card while you play MTG Arena or Magic Online.</p>
-<div class="nota-desc"><span>The app is free. Only the AI analysis is paid</span><span>Your data stays on your PC unless you ask for AI</span><span>Only public information</span></div>
+<div class="nota-desc"><span>The app is free. Only the AI analysis is paid</span><span>Only public information</span></div>
 <div class="desc-bloque" id="descargar">
 <p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-overlay-en" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></p>
 <p class="nota-descarga">Version <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">other versions</a></p>

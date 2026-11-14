@@ -40,6 +40,7 @@ def _versiones_de(html: str) -> set[str]:
 def _copiar_repositorio(destino: Path) -> None:
     shutil.copytree(RAIZ / construir_web.CARPETA_PLANTILLAS, destino / construir_web.CARPETA_PLANTILLAS)
     shutil.copy(RAIZ / construir_web.ARCHIVO_VERSION, destino / construir_web.ARCHIVO_VERSION)
+    shutil.copy(RAIZ / construir_web.ARCHIVO_CONTENIDO, destino / construir_web.ARCHIVO_CONTENIDO)
 
 
 def _generar(raiz: Path, salida: Path) -> dict[Path, bytes]:

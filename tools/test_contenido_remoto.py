@@ -11,7 +11,8 @@ from urllib.parse import urlparse
 RAIZ = Path(__file__).resolve().parent.parent
 ARCHIVO = RAIZ / "contenido.json"
 MAX_BYTES = 64 * 1024  # tope de tamaño que acepta la app
-MAX_ENLACE = 300  # tope de caracteres del enlace de apoyo
+MAX_ENLACE = 300  # tope de caracteres de un enlace
+CAMPOS_ENLACE = ("enlace_apoyo_metafy", "enlace_suscripcion_ia")  # los dos enlaces de Metafy
 HOSTS = ("metafy.gg", "manalab.es")  # el propio host o cualquier subdominio (www incluido)
 VERSION = re.compile(r"^\d+\.\d+\.\d+$")
 
@@ -52,8 +53,7 @@ def validar(datos, tamano):
     problemas = []
     if datos.get("v") != 1 or isinstance(datos.get("v"), bool):
         problemas.append("v debe ser 1")
-    if not _enlace_valido(datos.get("enlace_apoyo_metafy")):
-        problemas.append("enlace_apoyo_metafy no válido")
+    problemas += ["%s no válido" % c for c in CAMPOS_ENLACE if not _enlace_valido(datos.get(c))]
     interruptores = datos.get("interruptores")
     if not isinstance(interruptores, dict):
         problemas.append("interruptores debe ser un objeto")
@@ -63,7 +63,7 @@ def validar(datos, tamano):
 
 
 def _con(**cambios):
-    base = {"v": 1, "enlace_apoyo_metafy": "", "interruptores": {"banner_mdn": True}}
+    base = {"v": 1, "enlace_apoyo_metafy": "", "enlace_suscripcion_ia": "", "interruptores": {"banner_mdn": True}}
     base.update(cambios)
     return base
 
@@ -87,6 +87,13 @@ class ContenidoRemotoTest(unittest.TestCase):
                   _con(interruptores={"banner_mdn": {"valor": False, "desde": "2.3.3", "hasta": "2.3.3"}}),
                   _con(interruptores={"a": {"valor": True}})):
             self.assertEqual(validar(d, 100), [], d)
+
+    def test_el_enlace_de_suscripcion_sigue_las_mismas_reglas(self):
+        self.assertEqual(validar(_con(enlace_suscripcion_ia="https://metafy.gg/@manalab/ia"), 100), [])
+        for malo in ("http://metafy.gg/x", "https://evil.com/metafy.gg", "https://user@metafy.gg/x", "https://metafy.gg:8443/x",
+                     "https://metafy.gg/" + "a" * 300, 5):
+            self.assertNotEqual(validar(_con(enlace_suscripcion_ia=malo), 100), [], malo)
+        self.assertNotEqual(validar({"v": 1, "enlace_apoyo_metafy": "", "interruptores": {}}, 100), [], "falta el campo")
 
     def test_rechaza_ejemplos_malos(self):
         malos = [
@@ -112,6 +119,9 @@ class ContenidoRemotoTest(unittest.TestCase):
         self.assertNotEqual(validar(d, 100), [])
         d["v"] = 1
         d["enlace_apoyo_metafy"] = "http://metafy.gg/x"
+        self.assertNotEqual(validar(d, 100), [])
+        d["enlace_apoyo_metafy"] = ""
+        d["enlace_suscripcion_ia"] = "http://metafy.gg/x"
         self.assertNotEqual(validar(d, 100), [])
 
 

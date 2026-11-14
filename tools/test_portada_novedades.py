@@ -60,14 +60,15 @@ class TestOrdenDeLaPortada(unittest.TestCase):
                     self.assertNotIn(f'id="{id_}"', html)
                     self.assertNotIn(f'href="#{id_}"', html)
 
-    def test_apoyo_dentro_de_ia_y_con_h3(self):
+    def test_sin_enlace_de_apoyo_no_queda_bloque_de_apoyo(self):
+        """Con contenido.json sin enlace de apoyo, la sección de IA no lleva ningún bloque «Apoya el proyecto» (ni vacío)."""
         for idioma, ruta in PORTADAS.items():
             with self.subTest(idioma=idioma):
-                ia = seccion(leer(ruta), "ia")
+                html = leer(ruta)
+                ia = seccion(html, "ia")
                 self.assertEqual(ia.count("<h2>"), 1)
-                self.assertIn('<div class="apoyo" id="apoyo">', ia)
-                self.assertEqual(len(re.findall(r'id="enlace-donar"', ia)), 1)
-                self.assertRegex(ia[ia.index('id="apoyo"'):], r"<h3>")
+                self.assertNotIn('id="apoyo"', html)
+                self.assertNotIn("<h3>", ia)
 
     def test_menu(self):
         esperado = {"en": ["#funciones", "#mtgo", "#coaches", "#empezar", "#preguntas", "#ia"], "es": ["#funciones", "#mtgo", "#coaches", "#empezar", "#preguntas", "#ia"]}
@@ -227,7 +228,7 @@ class TestLegibilidad(unittest.TestCase):
     def test_zonas_tactiles_de_44px_en_telefono(self):
         for ruta in PORTADAS.values():
             css = leer(ruta)
-            bloque = css[css.index("@media (max-width: 767px) {\n  .seccion"):]
+            bloque = css[css.index("@media (max-width: 767px) {\n"):]
             bloque = bloque[:bloque.index("\n}\n")]
             self.assertIn(".movil-zip a { display: inline-flex; align-items: center; min-height: 44px; }", bloque)
             self.assertIn("footer .fila a, footer .guias a { display: inline-flex; align-items: center; min-height: 44px; }", bloque)

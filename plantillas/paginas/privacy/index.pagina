@@ -45,11 +45,10 @@
     <p>Las listas del meta, los nombres de cartas y el aviso de versión nueva se pueden desactivar en Ajustes.</p>
 
     <h2>4. Suscripción y código de IA</h2>
-    <p>La suscripción de IA se paga en <a href="https://ko-fi.com/eusebiog96/tiers" rel="noopener">Ko-fi</a> (5 € al mes). Ko-fi nos avisa de cada pago con el correo y el nombre que aparecen en tu cuenta, y con eso generamos un código que te enviamos por correo electrónico. En nuestro servidor (Cloudflare Workers) guardamos:</p>
+    <p>El análisis con IA se paga con una suscripción de 5 € al mes en Metafy. Metafy recibe tus datos de pago según su política de privacidad; nosotros no los vemos. ManaLab solo recibe tu correo electrónico, y con él generamos un código que te enviamos por correo electrónico. En nuestro servidor (Cloudflare Workers) guardamos:</p>
     <ul>
-      <li>Tu nombre tal como aparece en Ko-fi y la fecha de caducidad de la suscripción.</li>
-      <li>Si pagas en Ko-fi, tu correo electrónico solo como huella criptográfica (SHA-256). No se guarda en claro.</li>
-      <li>Un registro de cada cobro de Ko-fi ya procesado, para no contarlo dos veces: el identificador de la transacción de Ko-fi o, si el aviso no lo trae, una huella (SHA-256) del correo, la fecha y el importe. Se conserva hasta 400 días.</li>
+      <li>La fecha de caducidad de la suscripción.</li>
+      <li>Tu correo electrónico solo como huella criptográfica (SHA-256). No se guarda en claro.</li>
       <li>El código solo como huella, más sus 4 últimos caracteres para reconocerlo en nuestro resumen. No podemos leerlo.</li>
       <li>Contadores de uso: cuántos análisis has hecho en el día (caducan a las 48 horas) y el gasto total del mes, sin datos personales.</li>
     </ul>
@@ -61,12 +60,12 @@
 
     <h2>5. Terceros</h2>
     <ul>
-      <li><strong>Ko-fi:</strong> procesa el pago. Nosotros no vemos datos de tu tarjeta. Se aplica su política de privacidad.</li>
+      <li><strong>Metafy (suscripción):</strong> procesa el pago de la suscripción y recibe tus datos de pago. Nosotros no vemos datos de tu tarjeta. Se aplica su política de privacidad.</li>
       <li><strong>Resend:</strong> envía el correo con tu código, los reportes de bug y los mensajes del formulario de contacto.</li>
       <li><strong>Cloudflare:</strong> aloja el servidor y puede registrar datos técnicos de las peticiones (como la IP), según su política.</li>
       <li><strong>DeepSeek:</strong> genera el análisis a partir de los datos de la partida.</li>
       <li><strong>GitHub y Scryfall:</strong> solo en las descargas y consultas del apartado 3.</li>
-      <li><strong>Metafy:</strong> la red de anuncios del banner del apartado 3 (<code>mdn.metafy.gg</code>); se aplica su política de privacidad.</li>
+      <li><strong>Metafy (anuncio):</strong> la red de anuncios del banner del apartado 3 (<code>mdn.metafy.gg</code>); se aplica su política de privacidad.</li>
     </ul>
     <p>No vendemos datos. La app muestra un anuncio de Metafy al final del Panel, que puedes quitar. La web no usa cookies.</p>
     <p>Estadísticas de visitas: esta web (no la aplicación) usa <a href="https://www.goatcounter.com" rel="noopener">GoatCounter</a> para contar las visitas de forma anónima. No usa cookies ni hace seguimiento entre sitios, y no se recogen datos personales. La aplicación ManaLab no envía estadísticas.</p>
@@ -79,7 +78,7 @@
     </ul>
 
     <h2>7. Cuánto tiempo guardamos los datos</h2>
-    <p>Los datos de la suscripción se guardan mientras esté activa. Si no renuevas en Ko-fi, el código caduca y deja de funcionar. Si quieres que borremos tus datos del servidor (nombre, huella del correo y contadores), escríbenos a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Lo haremos en un plazo máximo de 30 días.</p>
+    <p>Los datos de la suscripción se guardan mientras esté activa. Si no renuevas en Metafy, el código caduca y deja de funcionar. Si quieres que borremos tus datos del servidor (huella del correo y contadores), escríbenos a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Lo haremos en un plazo máximo de 30 días.</p>
 
     <h2>8. Tus derechos</h2>
     <p>Puedes pedir acceso, rectificación, supresión, limitación, oposición y portabilidad de tus datos escribiendo a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Si consideras que no tratamos tus datos correctamente, puedes presentar una reclamación ante la <a href="https://www.aepd.es" rel="noopener">Agencia Española de Protección de Datos</a>.</p>
@@ -119,11 +118,10 @@
     <p>The meta lists, card-name lookups and the new version notice can be turned off in Settings.</p>
 
     <h2>4. Subscription and AI code</h2>
-    <p>The AI subscription is paid on <a href="https://ko-fi.com/eusebiog96/tiers" rel="noopener">Ko-fi</a> (5 € per month). Ko-fi notifies us of each payment with the email address and the name shown on your account there, and we use them to generate a code that we email to you. On our server (Cloudflare Workers) we store:</p>
+    <p>The AI analysis is paid with a subscription of 5 € per month on Metafy. Metafy receives your payment details under its privacy policy; we do not see them. ManaLab only receives your email address, and we use it to generate a code that we email to you. On our server (Cloudflare Workers) we store:</p>
     <ul>
-      <li>Your name as shown on Ko-fi, and the expiry date of the subscription.</li>
-      <li>If you pay on Ko-fi, your email address only as a cryptographic hash (SHA-256). It is not stored in plain text.</li>
-      <li>A record of each Ko-fi payment already processed, so it is not counted twice: the Ko-fi transaction ID or, if the notification does not include one, a hash (SHA-256) of the email, date and amount. It is kept for up to 400 days.</li>
+      <li>The expiry date of the subscription.</li>
+      <li>Your email address only as a cryptographic hash (SHA-256). It is not stored in plain text.</li>
       <li>The code only as a hash, plus its last 4 characters to recognise it in our overview. We cannot read it.</li>
       <li>Usage counters: how many analyses you ran that day (they expire after 48 hours) and the month's total spend, with no personal data.</li>
     </ul>
@@ -135,12 +133,12 @@
 
     <h2>5. Third parties</h2>
     <ul>
-      <li><strong>Ko-fi:</strong> processes the payment. We never see your card details. Its privacy policy applies.</li>
+      <li><strong>Metafy (subscription):</strong> processes the subscription payment and receives your payment details. We never see your card details. Its privacy policy applies.</li>
       <li><strong>Resend:</strong> sends the email with your code, bug reports and the messages from the contact form.</li>
       <li><strong>Cloudflare:</strong> hosts the server and may log technical request data (such as IP addresses) under its own policy.</li>
       <li><strong>DeepSeek:</strong> produces the analysis from the game data.</li>
       <li><strong>GitHub and Scryfall:</strong> only for the downloads and requests in section 3.</li>
-      <li><strong>Metafy:</strong> the ad network behind the banner in section 3 (<code>mdn.metafy.gg</code>); its privacy policy applies.</li>
+      <li><strong>Metafy (ad):</strong> the ad network behind the banner in section 3 (<code>mdn.metafy.gg</code>); its privacy policy applies.</li>
     </ul>
     <p>We do not sell data. The app shows a Metafy ad at the end of the Dashboard, which you can remove. This website does not use cookies.</p>
     <p>Visit statistics: this website (not the app) uses <a href="https://www.goatcounter.com" rel="noopener">GoatCounter</a> to count visits anonymously. It uses no cookies and does no cross-site tracking, and no personal data is collected. The ManaLab app does not send statistics.</p>
@@ -153,7 +151,7 @@
     </ul>
 
     <h2>7. How long we keep data</h2>
-    <p>Subscription data is kept while the subscription is active. If you do not renew on Ko-fi, the code expires and stops working. If you want us to delete your data from the server (name, hash of your email, and counters), write to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. We will do it within 30 days at most.</p>
+    <p>Subscription data is kept while the subscription is active. If you do not renew on Metafy, the code expires and stops working. If you want us to delete your data from the server (hash of your email and counters), write to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. We will do it within 30 days at most.</p>
 
     <h2>8. Your rights</h2>
     <p>You can ask for access, rectification, erasure, restriction, objection and portability of your data by writing to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. If you believe we are not handling your data correctly, you can lodge a complaint with the <a href="https://www.aepd.es" rel="noopener">Spanish Data Protection Agency (AEPD)</a>.</p>

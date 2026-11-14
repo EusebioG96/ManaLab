@@ -34,6 +34,18 @@ la fila de escritorio y, al final, el menú de teléfono `<details class="menu">
 900 px). Si cambias un enlace, cámbialo en las dos copias de la misma variante; `tools/test_linea_visual_base.py` falla si
 no coinciden. La copia del menú no lleva `id`.
 
+### Enlaces de Metafy (ML-274)
+
+Los enlaces de Metafy salen solo de `contenido.json` (`enlace_suscripcion_ia` y `enlace_apoyo_metafy`; ver `docs/contenido_remoto.md`).
+En una página se escriben como bloques, no como enlaces:
+
+- `{{SUSCRIPCION_IA clase="" estilo="" medicion="metafy-ia-es" texto="…" pronto="…"}}`: con enlace, el botón de suscripción;
+  sin enlace, el texto `pronto` (sin enlace, nunca un botón muerto).
+- `{{APOYO_METAFY eti="…" titulo="…" texto="…" boton="…" medicion="…"}}`: el bloque «Apoya el proyecto» con el botón grande
+  `.b-metafy` y el logotipo `img/metafy.svg`; sin enlace no genera nada.
+
+Para poner un enlace: edita `contenido.json`, ejecuta `python3 tools/construir_web.py` y haz commit de los `.html`.
+
 ### Versión y enlaces de descarga
 
 `version.json` es la única fuente de la versión actual. Las plantillas y páginas no llevan números de versión: donde

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ML-148, tanda 1 de la auditoría web: comprueba sobre los archivos (sin red) los puntos 1 a 9.
 
-El punto 10 (quitar Patreon) se comprueba en tools/test_apoyo_kofi.py.
+El punto 10 (quitar Patreon y Ko-fi) se comprueba en tools/test_enlaces_metafy.py.
 
 Uso:  python3 tools/test_portada_descargas_y_faq.py
 """
@@ -19,8 +19,6 @@ PORTADAS = {"en": RAIZ / "index.html", "es": RAIZ / "es" / "index.html"}
 IDIOMAS_GUIA = ["en", "es", "fr", "de", "it", "pt", "ja", "ko", "zh"]
 TEXTO_GUIA = {"en": "Download free", "es": "Descargar gratis", "fr": "Télécharger gratuitement", "de": "Kostenlos herunterladen",
               "it": "Scarica gratis", "pt": "Baixar grátis", "ja": "無料ダウンロード", "ko": "무료 다운로드", "zh": "免费下载"}
-KOFI_TIERS = "https://ko-fi.com/eusebiog96/tiers"
-KOFI = "https://ko-fi.com/eusebiog96"
 
 
 def leer(ruta):
@@ -110,19 +108,6 @@ class TestPuntos1y9Descarga(unittest.TestCase):
         self.assertIn("bajarALosPasos", js)
         self.assertIn("400", js)
         self.assertIn('addEventListener("click", bajarALosPasos)', js)
-
-    def test_kofi_con_medicion(self):
-        esperado = {"kofi-ia": KOFI_TIERS, "kofi-funciones": KOFI_TIERS, "kofi-apoyo": KOFI}
-        for idioma, ruta in PORTADAS.items():
-            todos = [e["attrs"] for e in enlaces(ruta) if e["attrs"].get("href") in (KOFI, KOFI_TIERS)]
-            self.assertEqual(len(todos), 3)
-            for base, href in esperado.items():
-                with self.subTest(idioma=idioma, enlace=base):
-                    a = [x for x in todos if x.get("data-goatcounter-title") == f"{base}-{idioma}"]
-                    self.assertEqual(len(a), 1)
-                    self.assertEqual(a[0]["href"], href)
-                    self.assertEqual(a[0].get("data-goatcounter-click"), "apoyo")
-            self.assertEqual([x.get("id") for x in todos if x.get("id")], ["enlace-donar"])
 
 
 class TestPunto2CajaMovil(unittest.TestCase):

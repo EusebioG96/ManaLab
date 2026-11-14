@@ -19,11 +19,13 @@ En una página, ``{{> nombre N=v N=v}}`` inserta la plantilla ``nombre``. Los hu
 toman la variante ``a``. Más detalle en tools/README.md.
 """
 import argparse
+import html
 import json
 import re
 import sys
 import tempfile
 from pathlib import Path
+from urllib.parse import urlparse
 
 RAIZ = Path(__file__).resolve().parent.parent
 CARPETA_PLANTILLAS = "plantillas"
@@ -38,6 +40,14 @@ _HUECO = re.compile(r"\{\{@(\d+)\}\}")
 MARCA_VERSION = "{{VERSION}}"  # se sustituye por la versión de version.json en cada página generada
 ARCHIVO_VERSION = "version.json"  # fuente única de la versión actual (lo escribe generar_version_json.py)
 _VERSION_VALIDA = re.compile(r"\d{1,4}\.\d{1,5}\.\d{1,6}")
+ARCHIVO_CONTENIDO = "contenido.json"  # fuente única de los enlaces de Metafy (lo lee también la app)
+CAMPOS_ENLACE = ("enlace_apoyo_metafy", "enlace_suscripcion_ia")
+HOSTS_ENLACE = ("metafy.gg", "manalab.es")  # el propio host o un subdominio, como valida la app
+MAX_ENLACE = 300  # tope de caracteres de un enlace
+RUTA_LOGO_METAFY = "/img/metafy.svg"  # logotipo de Metafy sin retocar
+# {{SUSCRIPCION_IA clave="valor" ...}} y {{APOYO_METAFY clave="valor" ...}}: bloques que dependen de contenido.json
+_BLOQUE_ENLACE = re.compile(r'\{\{(SUSCRIPCION_IA|APOYO_METAFY)((?: \w+="[^"]*")*)\}\}')
+_PARAMETRO = re.compile(r'(\w+)="([^"]*)"')
 
 
 def _leer(ruta: Path) -> str:
@@ -116,6 +126,74 @@ def leer_version(raiz: Path) -> str:
     return version
 
 
+def enlace_valido(valor: object) -> bool:
+    """Un enlace de contenido.json: vacío, o https a metafy.gg / manalab.es (o subdominio), sin usuario ni puerto, de 300 como mucho."""
+    if valor == "":
+        return True
+    if not isinstance(valor, str) or len(valor) > MAX_ENLACE or not valor.startswith("https://"):
+        return False
+    try:
+        partes = urlparse(valor)
+        host = partes.hostname or ""
+        return any(host == h or host.endswith("." + h) for h in HOSTS_ENLACE) \
+            and partes.username is None and partes.password is None and partes.port is None
+    except ValueError:
+        return False
+
+
+def leer_enlaces(raiz: Path) -> dict[str, str]:
+    """Los enlaces de Metafy de contenido.json de ``raiz`` (``""`` = sin enlace). Lanza ValueError si falta el archivo o un enlace no vale."""
+    ruta = raiz / ARCHIVO_CONTENIDO
+    try:
+        datos = json.loads(_leer(ruta))
+    except (OSError, ValueError) as error:
+        raise ValueError(f"no se puede leer {ruta}: {error}") from error
+    enlaces = {}
+    for campo in CAMPOS_ENLACE:
+        valor = datos.get(campo, "") if isinstance(datos, dict) else None
+        if not enlace_valido(valor):
+            raise ValueError(f"{ruta}: {campo} no es válido: {valor!r}")
+        enlaces[campo] = valor
+    return enlaces
+
+
+def _atributos(texto: str) -> dict[str, str]:
+    """Los ``clave="valor"`` de un bloque de enlace."""
+    return dict(_PARAMETRO.findall(texto))
+
+
+def _bloque_suscripcion_ia(parametros: dict[str, str], enlace: str) -> str:
+    """Botón «Suscribirme en Metafy» con el enlace de suscripción; sin enlace, el texto «muy pronto» (nunca un botón muerto)."""
+    if not enlace:
+        return f'<span class="pronto">{parametros["pronto"]}</span>'
+    estilo = f' style="{parametros["estilo"]}"' if parametros.get("estilo") else ""
+    clase = f' class="{parametros["clase"]}"' if parametros.get("clase") else ""
+    return (f'<a{clase} href="{html.escape(enlace, quote=True)}" data-goatcounter-click="apoyo" '
+            f'data-goatcounter-title="{parametros["medicion"]}" rel="noopener"{estilo} target="_blank"><span>{parametros["texto"]}</span></a>')
+
+
+def _bloque_apoyo_metafy(parametros: dict[str, str], enlace: str) -> str:
+    """Bloque «Apoya el proyecto» con el botón grande «Apoyar en Metafy»; sin enlace no se genera nada."""
+    if not enlace:
+        return ""
+    return ('<div class="apoyo uno" id="apoyo">\n<div>\n'
+            f'<div class="eti">{parametros["eti"]}</div>\n<h3>{parametros["titulo"]}</h3>\n<p>{parametros["texto"]}</p>\n'
+            f'<div class="acciones" style="margin-top:18px"><a class="b-metafy" data-goatcounter-click="apoyo" '
+            f'data-goatcounter-title="{parametros["medicion"]}" href="{html.escape(enlace, quote=True)}" rel="noopener" target="_blank">'
+            f'<img src="{RUTA_LOGO_METAFY}" alt="" width="39" height="30"/><span>{parametros["boton"]}</span></a></div>\n'
+            '</div>\n</div>')
+
+
+def aplicar_enlaces(fuente: str, enlaces: dict[str, str]) -> str:
+    """Resuelve los bloques ``{{SUSCRIPCION_IA ...}}`` y ``{{APOYO_METAFY ...}}`` de una página con los enlaces de contenido.json."""
+    def resolver(coincidencia: re.Match) -> str:
+        parametros = _atributos(coincidencia.group(2))
+        if coincidencia.group(1) == "SUSCRIPCION_IA":
+            return _bloque_suscripcion_ia(parametros, enlaces["enlace_suscripcion_ia"])
+        return _bloque_apoyo_metafy(parametros, enlaces["enlace_apoyo_metafy"])
+    return _BLOQUE_ENLACE.sub(resolver, fuente)
+
+
 def listar_paginas(raiz: Path) -> list[Path]:
     """Rutas (relativas a la raíz) de los .html que se generan, ordenadas."""
     base = raiz / CARPETA_PLANTILLAS / CARPETA_PAGINAS
@@ -129,10 +207,12 @@ def construir(raiz: Path, destino: Path) -> list[Path]:
     """
     carpeta = raiz / CARPETA_PLANTILLAS
     version = leer_version(raiz)
+    enlaces = leer_enlaces(raiz)
     escritas = []
     for relativa in listar_paginas(raiz):
         fuente = _leer(carpeta / CARPETA_PAGINAS / relativa.with_suffix(SUFIJO_PAGINA))
-        datos = generar_pagina(carpeta, fuente).replace(MARCA_VERSION, version).encode("utf-8")
+        pagina = aplicar_enlaces(generar_pagina(carpeta, fuente), enlaces)
+        datos = pagina.replace(MARCA_VERSION, version).encode("utf-8")
         salida = destino / relativa
         if salida.is_file() and salida.read_bytes() == datos:
             escritas.append(relativa)

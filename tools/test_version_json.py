@@ -73,6 +73,7 @@ class TestRegenerarWeb(unittest.TestCase):
         self.addCleanup(shutil.rmtree, self.tmp, True)
         shutil.copytree(RAIZ / "plantillas", self.tmp / "plantillas")
         shutil.copy(RAIZ / "version.json", self.tmp / "version.json")
+        shutil.copy(RAIZ / "contenido.json", self.tmp / "contenido.json")
         for n in W.listar_paginas(RAIZ):
             (self.tmp / n).parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(RAIZ / n, self.tmp / n)

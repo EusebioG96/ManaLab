@@ -13,7 +13,7 @@
 .dos-col .ventana img { height: auto; object-fit: contain; }
 .mtgo-caja h3 { margin-top: 0; }
 .mtgo-caja ul + h3, .mtgo-caja p + h3 { margin-top: 22px; }
-.mtgo-caja a { color: var(--oro); }
+.mtgo-caja a { color: var(--texto); }
 .mtgo-caja ul + p:first-of-type { margin-top: 16px; }
 figure.video { margin: 0; width: 100%; }
 figure.video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; }

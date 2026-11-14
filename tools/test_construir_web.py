@@ -42,6 +42,7 @@ class TestWebGeneradaDesdePlantillas(unittest.TestCase):
             copia = Path(temporal) / "repo"
             shutil.copytree(RAIZ / construir_web.CARPETA_PLANTILLAS, copia / construir_web.CARPETA_PLANTILLAS)
             shutil.copy(RAIZ / construir_web.ARCHIVO_VERSION, copia / construir_web.ARCHIVO_VERSION)
+            shutil.copy(RAIZ / construir_web.ARCHIVO_CONTENIDO, copia / construir_web.ARCHIVO_CONTENIDO)
             plantilla = copia / construir_web.CARPETA_PLANTILLAS / (PIE_ES + ".tpl")
             texto = plantilla.read_text(encoding="utf-8")
             self.assertIn(ENLACE_PRIVACIDAD, texto)
