@@ -27,7 +27,7 @@
 <meta content="ManaLab&#x27;s overlay shows what is left in your library and the odds of drawing each card while you play MTG Arena or Magic Online. Free, public information only." name="twitter:description"/>
 <meta content="https://manalab.es/img/v22_overlay.jpg" name="twitter:image"/>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/overlay/#webpage", "url": "https://manalab.es/overlay/", "name": "Free MTG Arena Overlay and Deck Tracker · ManaLab", "description": "ManaLab's overlay shows what is left in your library and the odds of drawing each card while you play MTG Arena or Magic Online. Free, public information only.", "inLanguage": "en", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/v22_overlay.jpg"}}]}</script>
-<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=e}}</style></head>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=e}}</style></head>
 <body>
 {{> cabecera_en 1=g}}
 <main id="inicio">

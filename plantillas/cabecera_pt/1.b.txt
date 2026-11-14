@@ -10,3 +10,17 @@
 <a class="idioma" href="/es/" hreflang="es" lang="es" title="Ver en español">ES</a>
 <a class="idioma" href="/ja/" hreflang="ja" lang="ja" title="日本語で見る">日本語</a>
 <a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-cabecera-pt" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Baixar</span></a>
+<details class="menu"><summary aria-label="Menu"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary><div class="menu-caja">
+<nav aria-label="Seções">
+<a href="#funciones">Recursos</a>
+<a href="#mtgo"><span style="white-space:nowrap">Magic Online</span></a>
+<a href="#empezar">Como começar</a>
+<a href="#preguntas">Perguntas</a>
+<a href="#ia">Análise com IA</a>
+</nav>
+<div class="menu-idiomas">
+<a class="idioma" href="/" hreflang="en" lang="en" title="View in English">EN</a>
+<a class="idioma" href="/es/" hreflang="es" lang="es" title="Ver en español">ES</a>
+<a class="idioma" href="/ja/" hreflang="ja" lang="ja" title="日本語で見る">日本語</a>
+</div>
+</div></details>

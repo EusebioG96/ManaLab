@@ -62,7 +62,7 @@ class TestTipografias(unittest.TestCase):
     def test_fuentes_pesan_menos_de_400_kb_y_llevan_licencia(self):
         d = RAIZ / "fuentes"
         self.assertLess(sum(x.stat().st_size for x in d.iterdir()), 400_000)
-        self.assertTrue(list(d.glob("OFL-Saira*")) and list(d.glob("OFL-Figtree*")))
+        self.assertTrue(list(d.glob("OFL-Marcellus*")) and list(d.glob("OFL-Geist*")))
 
 
 class TestHeroTelefono(unittest.TestCase):

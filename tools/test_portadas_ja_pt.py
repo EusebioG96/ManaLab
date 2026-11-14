@@ -89,7 +89,9 @@ class TestPortadasNuevas(unittest.TestCase):
             html = leer(ruta)
             with self.subTest(c=c):
                 cab = html[html.index('<header class="cab">'):html.index("</header>")]
-                self.assertEqual(re.findall(r'<a class="idioma"[^>]*>([^<]*)</a>', cab), esperado[c])
+                fila, menu = cab.split('<details class="menu">')  # la fila de escritorio y la copia del menú de teléfono (ML-272)
+                self.assertEqual(re.findall(r'<a class="idioma"[^>]*>([^<]*)</a>', fila), esperado[c])
+                self.assertEqual(re.findall(r'<a class="idioma"[^>]*>([^<]*)</a>', menu), esperado[c])
 
     def test_faq_igual_en_html_y_json_ld(self):
         for c, ruta in NUEVAS.items():

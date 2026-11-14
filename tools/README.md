@@ -27,6 +27,13 @@ la variante con `{{> pie_es 2=b}}` (sin indicar nada, la `a`).
 
 `python3 tools/construir_web.py --comprobar` dice qué páginas están desactualizadas sin escribir nada.
 
+### Cambiar un enlace de la cabecera (ML-272)
+
+La cabecera (`cabecera_es`, `_en`, `_pt`, `_ja`) lleva dos copias de los enlaces de sección y de los botones de idioma:
+la fila de escritorio y, al final, el menú de teléfono `<details class="menu">` (sin JavaScript, solo visible por debajo de
+900 px). Si cambias un enlace, cámbialo en las dos copias de la misma variante; `tools/test_linea_visual_base.py` falla si
+no coinciden. La copia del menú no lleva `id`.
+
 ### Versión y enlaces de descarga
 
 `version.json` es la única fuente de la versión actual. Las plantillas y páginas no llevan números de versión: donde

@@ -27,7 +27,7 @@
 <meta content="Qué cambió en ManaLab 2.3 y 2.2: Magic Online, lista de tierras en el overlay, estadísticas con el formato real, repeticiones, informes de sesión y herramientas de coach." name="twitter:description"/>
 <meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/es/novedades/#webpage", "url": "https://manalab.es/es/novedades/", "name": "Novedades de ManaLab 2.3 · Historial de versiones", "description": "Qué cambió en ManaLab 2.3 y 2.2: Magic Online, lista de tierras en el overlay, estadísticas con el formato real, repeticiones, informes de sesión y herramientas de coach.", "inLanguage": "es", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}}]}</script>
-<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 10=b 16=d}}</style></head>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 10=b 16=d}}</style></head>
 <body>
 {{> cabecera_es 1=d}}
 <main id="inicio">

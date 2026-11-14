@@ -6,3 +6,13 @@
 </nav>
 <a class="idioma" href="/overlay/" hreflang="en" id="idioma" lang="en" title="View in English">EN</a>
 <a class="boton prim descarga" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar</span></a>
+<details class="menu"><summary aria-label="Menú"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary><div class="menu-caja">
+<nav aria-label="Secciones">
+<a href="#muestra">Qué muestra</a>
+<a href="#mtgo">Magic Online</a>
+<a href="#activar">Activarlo</a>
+</nav>
+<div class="menu-idiomas">
+<a class="idioma" href="/overlay/" hreflang="en" lang="en" title="View in English">EN</a>
+</div>
+</div></details>
