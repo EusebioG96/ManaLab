@@ -7,8 +7,9 @@
 <meta name="description" content="Qué datos guarda ManaLab, qué sale de tu PC y cómo funciona la suscripción de IA.">
 <link rel="canonical" href="https://manalab.es/privacy/">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
-<meta name="theme-color" content="#0d0304">
+<meta name="theme-color" content="#0d100f">
 <meta name="robots" content="index, follow">
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>{{> css_privacidad}}</style>
 </head>
 <body>

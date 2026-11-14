@@ -69,21 +69,23 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .portada h1 { font-size: clamp(34px, 5vw, 54px); line-height: 1.05; margin: 16px 0 18px; }
 .lead { font-size: 18.5px; color: var(--texto2); margin: 0; max-width: 36em; }
 .cuerpo { padding-block: 28px 80px; }
-.cuerpo .pagina { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
-.tarjeta { background: var(--panel); border: 1px solid var(--linea); border-radius: 18px; padding: 28px 30px 30px; scroll-margin-top: 84px; }
-.tarjeta h2 { font-size: clamp(24px, 3vw, 30px); line-height: 1.12; margin: 0 0 14px; }
+.cuerpo .pagina { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+/* sin caja: cada tarjeta se separa de la anterior por una línea */
+.tarjeta { background: none; border: 0; border-top: 1px solid var(--linea); border-radius: 0; padding: 36px 0; scroll-margin-top: 84px; }
+.tarjeta h2 { font-size: clamp(24px, 3vw, 32px); line-height: 1.12; margin: 0 0 16px; }
+.tarjeta p, .tarjeta li { font-size: 17px; line-height: 1.6; }
 .tarjeta p { margin: 0 0 12px; color: var(--texto2); }
 .tarjeta p:last-child { margin-bottom: 0; }
 .tarjeta ul, .tarjeta ol { list-style: none; margin: 0 0 14px; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; color: var(--texto2); }
 .tarjeta ul:last-child, .tarjeta ol:last-child { margin-bottom: 0; }
 .tarjeta li { position: relative; padding-left: 36px; }
-.tarjeta ul li::before { content: "✓"; position: absolute; left: 4px; top: 0; color: var(--oro); font-weight: 700; }
+.tarjeta ul li::before { content: ""; position: absolute; left: 6px; top: 10px; width: 8px; height: 8px; transform: rotate(45deg); background: var(--hueso); }
 .tarjeta ol { counter-reset: n; }
 .tarjeta ol li { counter-increment: n; }
-.tarjeta ol li::before { content: counter(n); position: absolute; left: 0; top: 2px; width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--linea2); background: var(--panel2); color: var(--oro); font: 600 13px/22px var(--f-mono); text-align: center; }
+.tarjeta ol li::before { content: counter(n); position: absolute; left: 0; top: 2px; width: 24px; height: 24px; border-radius: 50%; border: 0; background: var(--hueso); color: var(--fondo); font: 600 13px/22px var(--f-mono); text-align: center; }
 .tarjeta b { color: var(--texto); font-weight: 600; }
 code { font: 0.88em var(--f-mono); background: var(--fondo); border: 1px solid var(--linea); border-radius: 6px; padding: 1px 6px; color: var(--texto); }
-.cmd { margin: 10px 0 8px; background: #0a0c0b; border: 1px solid var(--linea); border-radius: 10px; padding: 12px 14px; overflow-x: auto; }
+.cmd { margin: 10px 0 8px; background: #0a0c0b; border: 1px solid var(--linea); border-radius: 6px; padding: 12px 14px; overflow-x: auto; }
 .cmd code { background: none; border: 0; padding: 0; font-size: 13.5px; white-space: pre; }
 .firma { margin: 8px 4px 0; font: 400 20px var(--f-display); color: var(--texto); }
 
@@ -110,7 +112,7 @@ footer .legal { max-width: 80ch; line-height: 1.6; margin: 0; }
 /* a 380 px o menos no cabe el nombre junto a «Descargar» y el menú: queda el logotipo */
 @media (max-width: 380px) { .marca span { display: none; } }
 @media (max-width: 480px) {
-  .tarjeta { padding: 22px 18px 24px; border-radius: 16px; }
+  .tarjeta { padding: 28px 0; }
   .tarjeta li { padding-left: 32px; }
   .lead { font-size: 17px; }
   .cmd code { white-space: pre-wrap; overflow-wrap: anywhere; }

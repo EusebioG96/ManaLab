@@ -10,7 +10,7 @@
 <link href="https://manalab.es/pt/" hreflang="pt-BR" rel="alternate"/>
 <link href="https://manalab.es/ja/" hreflang="ja" rel="alternate"/>
 <link href="https://manalab.es/" hreflang="x-default" rel="alternate"/>
-<meta content="#0d0304" name="theme-color"/>
+<meta content="#0d100f" name="theme-color"/>
 <link href="/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="/img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="/img/apple-touch-icon.png" rel="apple-touch-icon"/>
@@ -305,6 +305,14 @@ details[id] { scroll-margin-top: 90px; }
   .novedades { gap: 56px; }
   .novedad, .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .novedad:nth-child(even) .ventana { order: 0; }
+}
+
+/* capturas inclinadas (WEB-04): solo imágenes fijas marcadas con .inclinable en bloques alternos, solo con ratón y con sitio; nunca vídeos ni teléfono */
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .novedad:has(> .ventana.inclinable) { perspective: 1400px; }
+  .novedad > .ventana.inclinable { transform: rotateY(-14deg) rotateX(5deg); transform-origin: left center; transition: transform .5s ease; }
+  .novedad:nth-child(even) > .ventana.inclinable { transform: rotateY(14deg) rotateX(5deg); transform-origin: right center; }
+  .novedad:hover > .ventana.inclinable, .novedad:focus-within > .ventana.inclinable { transform: none; }
 }
 /* ---------------- tanda 2A (ML-153): portada reordenada */
 .portada .hero-cta { margin-top: 0; }

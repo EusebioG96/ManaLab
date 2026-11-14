@@ -8,7 +8,7 @@
 <link href="https://manalab.es/magic-online/" hreflang="en" rel="alternate"/>
 <link href="https://manalab.es/es/magic-online/" hreflang="es" rel="alternate"/>
 <link href="https://manalab.es/magic-online/" hreflang="x-default" rel="alternate"/>
-<meta content="#0d0304" name="theme-color"/>
+<meta content="#0d100f" name="theme-color"/>
 <link href="../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="../img/apple-touch-icon.png" rel="apple-touch-icon"/>
@@ -89,7 +89,7 @@
 <div class="envoltura">
 <div class="novedades uno">
 <div class="novedad">
-<div class="ventana"><picture><source srcset="../img/en_mtgo_banquillo.webp" type="image/webp"><img alt="ManaLab sideboard notice for Magic Online between games: «Did you change your sideboard?» with the buttons «Use this change», «No changes» and «Edit», shown with sample data" height="440" loading="lazy" src="../img/en_mtgo_banquillo.jpg" width="1000"/></picture></div>
+<div class="ventana inclinable"><picture><source srcset="../img/en_mtgo_banquillo.webp" type="image/webp"><img alt="ManaLab sideboard notice for Magic Online between games: «Did you change your sideboard?» with the buttons «Use this change», «No changes» and «Edit», shown with sample data" height="440" loading="lazy" src="../img/en_mtgo_banquillo.jpg" width="1000"/></picture></div>
 <div class="cuerpo"><div class="eti">Sideboard</div>
 <h2 style="font-size:clamp(26px,3vw,36px);line-height:1.12;margin:12px 0 12px">Confirm your sideboard in one click</h2>
 <p>Magic Online doesn&#x27;t send your sideboarded list in time, so between games a small notice asks «Did you change your sideboard?» with three buttons: «Use this change» repeats what you did last time, «No changes» keeps your list as it is and «Edit» opens the editor.</p>

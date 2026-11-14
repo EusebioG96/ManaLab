@@ -274,6 +274,14 @@ details[id] { scroll-margin-top: 90px; }
   .novedad, .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .novedad:nth-child(even) .ventana { order: 0; }
 }
+
+/* capturas inclinadas (WEB-04): solo imágenes fijas marcadas con .inclinable en bloques alternos, solo con ratón y con sitio; nunca vídeos ni teléfono */
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .novedad:has(> .ventana.inclinable) { perspective: 1400px; }
+  .novedad > .ventana.inclinable { transform: rotateY(-14deg) rotateX(5deg); transform-origin: left center; transition: transform .5s ease; }
+  .novedad:nth-child(even) > .ventana.inclinable { transform: rotateY(14deg) rotateX(5deg); transform-origin: right center; }
+  .novedad:hover > .ventana.inclinable, .novedad:focus-within > .ventana.inclinable { transform: none; }
+}
 {{@14}}
 
 {{@15}}
