@@ -63,7 +63,8 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     <p>El análisis con IA se paga con una suscripción de 5 € al mes en Metafy. Metafy recibe tus datos de pago según su política de privacidad; nosotros no los vemos. ManaLab solo recibe tu correo electrónico, y con él generamos un código que te enviamos por correo electrónico. En nuestro servidor (Cloudflare Workers) guardamos:</p>
     <ul>
       <li>La fecha de caducidad de la suscripción.</li>
-      <li>Tu correo electrónico solo como huella criptográfica (SHA-256). No se guarda en claro.</li>
+      <li>El nombre con el que se crea tu código (por ejemplo, el de tu cuenta de Metafy) y la fecha de caducidad de la suscripción.</li>
+      <li>Tu correo electrónico, como mucho, solo como huella criptográfica (SHA-256). No se guarda en claro.</li>
       <li>El código solo como huella, más sus 4 últimos caracteres para reconocerlo en nuestro resumen. No podemos leerlo.</li>
       <li>Contadores de uso: cuántos análisis has hecho en el día (caducan a las 48 horas) y el gasto total del mes, sin datos personales.</li>
     </ul>
@@ -93,7 +94,7 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     </ul>
 
     <h2>7. Cuánto tiempo guardamos los datos</h2>
-    <p>Los datos de la suscripción se guardan mientras esté activa. Si no renuevas en Metafy, el código caduca y deja de funcionar. Si quieres que borremos tus datos del servidor (huella del correo y contadores), escríbenos a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Lo haremos en un plazo máximo de 30 días.</p>
+    <p>Los datos de la suscripción se guardan mientras esté activa. Si no renuevas en Metafy, el código caduca y deja de funcionar. Si quieres que borremos tus datos del servidor (nombre, huella del correo y contadores), escríbenos a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Lo haremos en un plazo máximo de 30 días.</p>
 
     <h2>8. Tus derechos</h2>
     <p>Puedes pedir acceso, rectificación, supresión, limitación, oposición y portabilidad de tus datos escribiendo a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Si consideras que no tratamos tus datos correctamente, puedes presentar una reclamación ante la <a href="https://www.aepd.es" rel="noopener">Agencia Española de Protección de Datos</a>.</p>
@@ -136,7 +137,8 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     <p>The AI analysis is paid with a subscription of 5 € per month on Metafy. Metafy receives your payment details under its privacy policy; we do not see them. ManaLab only receives your email address, and we use it to generate a code that we email to you. On our server (Cloudflare Workers) we store:</p>
     <ul>
       <li>The expiry date of the subscription.</li>
-      <li>Your email address only as a cryptographic hash (SHA-256). It is not stored in plain text.</li>
+      <li>The name your code is created with (for example, your Metafy account name) and the subscription's expiry date.</li>
+      <li>Your email address, at most, only as a cryptographic hash (SHA-256). It is not stored in plain text.</li>
       <li>The code only as a hash, plus its last 4 characters to recognise it in our overview. We cannot read it.</li>
       <li>Usage counters: how many analyses you ran that day (they expire after 48 hours) and the month's total spend, with no personal data.</li>
     </ul>
@@ -166,7 +168,7 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     </ul>
 
     <h2>7. How long we keep data</h2>
-    <p>Subscription data is kept while the subscription is active. If you do not renew on Metafy, the code expires and stops working. If you want us to delete your data from the server (hash of your email and counters), write to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. We will do it within 30 days at most.</p>
+    <p>Subscription data is kept while the subscription is active. If you do not renew on Metafy, the code expires and stops working. If you want us to delete your data from the server (name, hash of your email, and counters), write to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. We will do it within 30 days at most.</p>
 
     <h2>8. Your rights</h2>
     <p>You can ask for access, rectification, erasure, restriction, objection and portability of your data by writing to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. If you believe we are not handling your data correctly, you can lodge a complaint with the <a href="https://www.aepd.es" rel="noopener">Spanish Data Protection Agency (AEPD)</a>.</p>
