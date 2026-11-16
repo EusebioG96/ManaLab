@@ -71,8 +71,8 @@ class TestPortadasNuevas(unittest.TestCase):
                 titulos = re.findall(r'data-a-bloque[^>]*data-goatcounter-title="([^"]*)"', html)
                 self.assertEqual(len(titulos), 5)
                 for t in titulos + re.findall(r'data-goatcounter-title="(descarga-portada-[^"]*)"', html):
-                    self.assertTrue(t.endswith(f"-{c}"), t)
-                self.assertIn(f'data-titulo="compartir-movil-{c}"', html)
+                    self.assertTrue(t.startswith(f"descarga-portada-{c}-"), t)
+                self.assertIn(f'data-titulo="compartir-movil-portada-{c}"', html)
                 self.assertIn('data-movil-aqui', html)
                 self.assertIn('id="bloque-movil"', html)
 

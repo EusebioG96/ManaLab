@@ -48,7 +48,7 @@
 <p class="sub">ManaLab lee el registro de Arena y de Magic Online mientras juegas y guarda tus manos, mulligans y el mazo del rival. Luego te enseña dónde ganas y dónde pierdes.</p>
 <div data-movil-aqui></div>
 <div class="hero-cta">
-<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-hero-es" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a>
+<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:hero}}" data-goatcounter-title="{{EVENTO:descarga:hero}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a>
 <a class="enlace-sec" href="#capturas">Ver la aplicación</a>
 </div>
 <p class="nota-hero"><span>Versión <span data-version>{{VERSION}}</span> · ZIP · no hace falta instalar nada</span><a href="/es/seguridad/">¿Es seguro? Compruébalo tú mismo →</a></p>
@@ -131,7 +131,7 @@
 <p>Revisa la partida turno a turno con las cartas reales y marca los momentos clave.</p></div>
 </div>
 </div>
-<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-motivos-es" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:motivos}}" data-goatcounter-title="{{EVENTO:descarga:motivos}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></div>
 </div>
 </section>
 <section class="seccion franja" id="mtgo">
@@ -194,7 +194,7 @@
 <h3>Coach y equipo</h3>
 <p>Etiquetas de error y notas en cada partida, tablas de matchups e informe para tu coach. El modo equipo comparte partidas, capturas y notas a través de una carpeta común, y tu coach ve cada partida completa, con su repetición.</p></div>
 </div>
-<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-funciones-es" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:funciones}}" data-goatcounter-title="{{EVENTO:descarga:funciones}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></div>
 </div>
 </section>
 <section class="seccion franja" id="capturas">
@@ -280,13 +280,13 @@
 <div class="pasos">
 <div class="paso"><h3>Descarga y abre</h3>
 <p>Windows 10 u 11. Descomprime el ZIP y abre ManaLab.exe. No hace falta instalar nada.</p>
-<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-portada-es" id="enlace-descarga" rel="noopener"><span>Descargar gratis</span></a></p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="{{EVENTO:descarga:descargar}}" data-goatcounter-title="{{EVENTO:descarga:descargar}}" id="enlace-descarga" rel="noopener"><span>Descargar gratis</span></a></p>
 <p class="nota-descarga">Versión <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">otras versiones</a></p>
 <template id="bloque-movil"><div class="movil-caja">
 <h4 class="movil-tit">ManaLab se usa en el ordenador</h4>
 <p class="movil-txt">Envíate el enlace y descárgalo allí.</p>
-<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="compartir-movil-es" data-url="https://manalab.es/es/" type="button"><span>Enviarme el enlace</span></button></p>
-<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="descarga-movil-es" rel="noopener">Descargar el ZIP igualmente</a></p>
+<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="{{EVENTO:compartir-movil}}" data-url="https://manalab.es/es/" type="button"><span>Enviarme el enlace</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="{{EVENTO:descarga-movil}}" rel="noopener">Descargar el ZIP igualmente</a></p>
 <p aria-live="polite" class="movil-estado" role="status"></p>
 </div></template>
 <p class="nota-smartscreen destacado" data-solo-pc>Antes de descomprimir, botón derecho en el ZIP › Propiedades › marca <b>Desbloquear</b> › Aceptar: así Windows no muestra «Windows protegió su PC» ni bloquea los archivos del programa. Si aun así sale el aviso, pulsa <b>Más información › Ejecutar de todas formas</b>.</p>
@@ -357,7 +357,7 @@
 <div class="cab-sec">
 <h2>Empieza a registrar tus partidas hoy</h2>
 </div>
-<div class="acciones"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-final-es" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></div>
+<div class="acciones"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:final}}" data-goatcounter-title="{{EVENTO:descarga:final}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></div>
 <p class="nota-hero"><span>Versión <span data-version>{{VERSION}}</span> · ZIP · no hace falta instalar nada</span></p>
 </div>
 </section>

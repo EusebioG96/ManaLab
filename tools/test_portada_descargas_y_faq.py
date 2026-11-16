@@ -93,8 +93,8 @@ class TestPuntos1y9Descarga(unittest.TestCase):
                     self.assertEqual(a["class"].split(), ["boton", "prim", "descarga"])
                     for atributo in ("download", "data-a-bloque", "data-descarga"):
                         self.assertIn(atributo, a)
-                    self.assertEqual(a.get("data-goatcounter-click"), "descarga")
-                    self.assertEqual(a.get("data-goatcounter-title"), f"descarga-{lugar}-{idioma}")
+                    self.assertEqual(a.get("data-goatcounter-click"), f"descarga-portada-{idioma}-{lugar}")
+                    self.assertEqual(a.get("data-goatcounter-title"), f"descarga-portada-{idioma}-{lugar}")
                     self.assertIn("noopener", a.get("rel", "").split())
 
     def test_el_hero_sigue_teniendo_un_solo_boton(self):
@@ -137,10 +137,10 @@ class TestPunto3Guias(unittest.TestCase):
                 lista = enlaces(RAIZ / "guia" / f"guia_manalab_{idioma}.html")
                 botones = [e for e in lista if "descargar" in e["attrs"].get("class", "").split()]
                 self.assertEqual(len(botones), 2)
-                for e in botones:
+                for sitio, e in zip(("arriba", "abajo"), botones):
                     self.assertEqual(e["attrs"]["href"], {"es": "/es/#descargar", "ja": "/ja/#descargar", "pt": "/pt/#descargar"}.get(idioma, "/#descargar"))
-                    self.assertEqual(e["attrs"].get("data-goatcounter-click"), "guia-descarga")
-                    self.assertEqual(e["attrs"].get("data-goatcounter-title"), f"guia-descarga-{idioma}")
+                    self.assertEqual(e["attrs"].get("data-goatcounter-click"), f"descarga-guia-{idioma}-{sitio}")
+                    self.assertEqual(e["attrs"].get("data-goatcounter-title"), f"descarga-guia-{idioma}-{sitio}")
                     self.assertEqual(e["texto"], TEXTO_GUIA[idioma])
                     self.assertIn("nav.inicio", e["ctx"])
 

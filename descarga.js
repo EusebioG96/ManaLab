@@ -68,14 +68,14 @@
       copiar(url).then(function () { decir(boton.getAttribute("data-copiado")); }, function () { decir(url); });
     }
     boton.addEventListener("click", function () {
-      contar("compartir-movil", boton.getAttribute("data-titulo"));
+      contar(boton.getAttribute("data-titulo"), boton.getAttribute("data-titulo"));
       var url = boton.getAttribute("data-url"), p;
       try { p = navigator.share ? navigator.share({ title: "ManaLab", url: url }) : null; } catch (e) { p = Promise.reject(e); }
       if (!p) { copiado(); return; }
       // cancelar el menú de compartir (AbortError) no es un error: ni se copia ni se avisa
       p.then(function () {}, function (e) { if (!e || e.name !== "AbortError") copiado(); });
     });
-    zip.addEventListener("click", function () { contar("descarga-movil", zip.getAttribute("data-titulo")); });
+    zip.addEventListener("click", function () { contar(zip.getAttribute("data-titulo"), zip.getAttribute("data-titulo")); });
   }
 
   var enlace = document.getElementById("enlace-descarga"), plantilla = document.getElementById("bloque-movil");
@@ -121,6 +121,8 @@
         var a = avisos[i];
         a.setAttribute("data-original", a.getAttribute("href"));
         a.setAttribute("href", "#descargar");
+        // el nombre del evento de cada botón (descarga-<página>-<idioma>-<posición>) se guarda para devolverlo al volver a ordenador
+        a.setAttribute("data-evento-original", a.getAttribute("data-goatcounter-click") || "");
         a.removeAttribute("download"); a.removeAttribute("data-descarga"); a.removeAttribute("data-goatcounter-click");
       }
     } else if (!movil && caja) {
@@ -132,7 +134,8 @@
       for (var j = 0; j < avisos.length; j++) {
         var b = avisos[j];
         b.setAttribute("href", b.getAttribute("data-original")); b.removeAttribute("data-original");
-        b.setAttribute("download", ""); b.setAttribute("data-descarga", ""); b.setAttribute("data-goatcounter-click", "descarga");
+        b.setAttribute("download", ""); b.setAttribute("data-descarga", ""); b.setAttribute("data-goatcounter-click", b.getAttribute("data-evento-original") || b.getAttribute("data-goatcounter-title") || "");
+        b.removeAttribute("data-evento-original");
       }
       aplicar(document);
     }

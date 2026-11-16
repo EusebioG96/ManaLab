@@ -41,7 +41,7 @@
 <p class="sub">ManaLabはプレイ中にアリーナと<span style="white-space:nowrap">Magic Online</span>のログを読み取り、初手、マリガン、相手のデッキを保存します。どこで勝ち、どこで負けているかがわかります。</p>
 <div data-movil-aqui></div>
 <div class="hero-cta">
-<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-hero-ja" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a>
+<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:hero}}" data-goatcounter-title="{{EVENTO:descarga:hero}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a>
 <a class="enlace-sec" href="#funciones">機能を見る</a>
 </div>
 <p class="nota-hero"><span>バージョン <span data-version>{{VERSION}}</span> · ZIP · インストール不要</span><a href="/safety/">安全ですか？ご自身で確認できます（英語）→</a></p>
@@ -125,7 +125,7 @@
 <p>実際のカードでターンごとに対戦を振り返り、重要な場面に印を付けられます。</p></div>
 </div>
 </div>
-<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-motivos-ja" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:motivos}}" data-goatcounter-title="{{EVENTO:descarga:motivos}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div>
 </div>
 </section>
 <section class="seccion franja" id="mtgo">
@@ -187,7 +187,7 @@
 <h3>コーチとチーム</h3>
 <p>ゲームごとのミスのタグとメモ、マッチアップの表、コーチ向けのレポート。チームモードでは共有フォルダーを通じて対戦、スクリーンショット、メモを共有し、コーチはリプレイを含む各ゲームの全体を見られます。</p></div>
 </div>
-<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-funciones-ja" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:funciones}}" data-goatcounter-title="{{EVENTO:descarga:funciones}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div>
 </div>
 </section>
 <section class="seccion" id="empezar">
@@ -199,13 +199,13 @@
 <div class="pasos">
 <div class="paso"><h3>ダウンロードして開く</h3>
 <p>Windows 10 / 11。ZIPを展開して、ManaLab.exeを開きます。インストールは不要です。</p>
-<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-portada-ja" id="enlace-descarga" rel="noopener"><span>無料ダウンロード</span></a></p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="{{EVENTO:descarga:descargar}}" data-goatcounter-title="{{EVENTO:descarga:descargar}}" id="enlace-descarga" rel="noopener"><span>無料ダウンロード</span></a></p>
 <p class="nota-descarga">バージョン <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">他のバージョン</a></p>
 <template id="bloque-movil"><div class="movil-caja">
 <h4 class="movil-tit">ManaLabはパソコンで使います</h4>
 <p class="movil-txt">自分にリンクを送って、パソコンでダウンロードしてください。</p>
-<p><button class="boton prim" data-compartir data-copiado="リンクをコピーしました" data-titulo="compartir-movil-ja" data-url="https://manalab.es/ja/" type="button"><span>リンクを自分に送る</span></button></p>
-<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="descarga-movil-ja" rel="noopener">それでもZIPをダウンロード</a></p>
+<p><button class="boton prim" data-compartir data-copiado="リンクをコピーしました" data-titulo="{{EVENTO:compartir-movil}}" data-url="https://manalab.es/ja/" type="button"><span>リンクを自分に送る</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="{{EVENTO:descarga-movil}}" rel="noopener">それでもZIPをダウンロード</a></p>
 <p aria-live="polite" class="movil-estado" role="status"></p>
 </div></template>
 <p class="nota-smartscreen destacado" data-solo-pc>展開する前に、ZIPを右クリック › プロパティ › <b>ブロックの解除</b>にチェック › OK。こうすると、Windowsに「WindowsによってPCが保護されました」と表示されず、プログラムのファイルもブロックされません。それでも警告が出る場合は、<b>詳細情報 › 実行</b>をクリックしてください。</p>
@@ -279,7 +279,7 @@
 <div class="cab-sec">
 <h2>今日から対戦を記録しましょう</h2>
 </div>
-<div class="acciones"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-final-ja" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div>
+<div class="acciones"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:final}}" data-goatcounter-title="{{EVENTO:descarga:final}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div>
 <p class="nota-hero"><span>バージョン <span data-version>{{VERSION}}</span> · ZIP · インストール不要</span></p>
 </div>
 </section>

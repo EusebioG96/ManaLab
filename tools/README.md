@@ -46,6 +46,13 @@ En una página se escriben como bloques, no como enlaces:
 
 Para poner un enlace: edita `contenido.json`, ejecuta `python3 tools/construir_web.py` y haz commit de los `.html`.
 
+### Eventos de descarga de GoatCounter (ML-280)
+
+Cada botón de descarga envía un evento propio: `<tipo>-<página>-<idioma>[-<posición>]` (tipo `descarga`, `descarga-movil` o
+`compartir-movil`; p. ej. `descarga-portada-es-hero`, `descarga-magic-online-en`, `compartir-movil-coaches-pt`). En las plantillas no
+se escribe el nombre: se pone `{{EVENTO:descarga}}` o `{{EVENTO:descarga:hero}}` (con posición si la página tiene varios botones) y
+`construir_web.py` lo completa con la página y el idioma de la ruta. `tools/test_eventos_descarga.py` vigila el patrón y que no se repita ningún nombre.
+
 ### Versión y enlaces de descarga
 
 `version.json` es la única fuente de la versión actual. Las plantillas y páginas no llevan números de versión: donde

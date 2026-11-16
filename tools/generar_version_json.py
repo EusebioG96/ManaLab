@@ -15,6 +15,7 @@ import urllib.request
 from pathlib import Path
 
 import construir_web
+import textos_vetados
 
 REPO = os.environ.get("GITHUB_REPOSITORY") or "EusebioG96/ManaLab"
 PREFIJO = f"https://github.com/{REPO}/releases/"
@@ -30,12 +31,25 @@ def _get(url, token=None, limite=2_000_000):
         return r.read(limite)
 
 
+def sin_vetados(texto):
+    """Quita los puntos de lista (con sus líneas de continuación sangradas) que contienen una frase vetada (ML-280, RED-03)."""
+    bloques, actual = [], []
+    for linea in texto.split("\n"):
+        if actual and linea[:1].isspace():
+            actual.append(linea)  # continuación del punto anterior (p. ej. su traducción en cursiva)
+            continue
+        bloques.append(actual)
+        actual = [linea]
+    bloques.append(actual)
+    return "\n".join("\n".join(b) for b in bloques if b and not textos_vetados.buscar("\n".join(b)))
+
+
 def notas_publicas(cuerpo):
     """Solo la cabecera y «Novedades / What's new» de la release; sin descarga, privacidad ni avisos del sistema."""
     trozos = re.split(r"\n(?=### )", str(cuerpo or "").replace("\r\n", "\n"))
     quedan = [trozos[0]] + [t for t in trozos[1:] if re.match(r"### (Novedades|What's new)", t, re.I)]
     texto = "\n\n".join("\n".join(ln for ln in t.splitlines() if not re.search(r"windows", ln, re.I)) for t in quedan)
-    return re.sub(r"\n{3,}", "\n\n", texto).strip()[:MAX_NOTAS]
+    return re.sub(r"\n{3,}", "\n\n", sin_vetados(texto)).strip()[:MAX_NOTAS]
 
 
 def construir(release, leer_texto):

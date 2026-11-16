@@ -115,11 +115,11 @@ class TestBotonesDeDescarga(unittest.TestCase):
                 botones = re.findall(r'<a class="boton prim descarga"[^>]*>', html)
                 self.assertEqual(len(botones), 5)
                 titulos = [re.search(r'data-goatcounter-title="([^"]*)"', b).group(1) for b in botones]
-                self.assertEqual(titulos, [f"descarga-{l}-{idioma}" for l in ("cabecera", "hero", "motivos", "funciones", "final")])
+                self.assertEqual(titulos, [f"descarga-portada-{idioma}-{l}" for l in ("cabecera", "hero", "motivos", "funciones", "final")])
                 zips = {re.search(r'href="([^"]*)"', b).group(1) for b in botones}
                 self.assertEqual(len(zips), 1)
                 for b in botones:
-                    for atributo in ("download", "data-a-bloque", "data-descarga", 'data-goatcounter-click="descarga"', 'rel="noopener"'):
+                    for atributo in ("download", "data-a-bloque", "data-descarga", f'data-goatcounter-click="descarga-portada-{idioma}-', 'rel="noopener"'):
                         self.assertIn(atributo, b)
 
     def test_botones_de_motivos_funciones_y_final_en_su_sitio(self):
@@ -127,7 +127,7 @@ class TestBotonesDeDescarga(unittest.TestCase):
             html = leer(ruta)
             for id_, lugar in (("motivos", "motivos"), ("funciones", "funciones"), ("final", "final")):
                 with self.subTest(idioma=idioma, seccion=id_):
-                    self.assertIn(f'data-goatcounter-title="descarga-{lugar}-{idioma}"', seccion(html, id_))
+                    self.assertIn(f'data-goatcounter-title="descarga-portada-{idioma}-{lugar}"', seccion(html, id_))
 
     def test_franja_final(self):
         titulo = {"en": "Start logging your games today", "es": "Empieza a registrar tus partidas hoy"}

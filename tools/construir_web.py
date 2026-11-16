@@ -49,6 +49,13 @@ RUTA_LOGO_METAFY = "/img/metafy.svg"  # logotipo de Metafy sin retocar
 _BLOQUE_ENLACE = re.compile(r'\{\{(SUSCRIPCION_IA|APOYO_METAFY)((?: \w+="[^"]*")*)\}\}')
 _PARAMETRO = re.compile(r'(\w+)="([^"]*)"')
 
+# {{EVENTO:tipo}} o {{EVENTO:tipo:posicion}}: nombre del evento de GoatCounter de un botón (ML-280).
+# Esquema único: <tipo>-<pagina>-<idioma>[-<posicion>]; página e idioma salen de la ruta de la página que se genera.
+TIPOS_EVENTO = ("descarga", "descarga-movil", "compartir-movil")
+IDIOMAS_RUTA = ("es", "pt", "ja")  # carpetas de idioma; el resto de rutas son inglés
+_EVENTO = re.compile(r"\{\{EVENTO:([a-z-]+)(?::([a-z0-9]+))?\}\}")
+_PAGINA_DE_RUTA = {"": "portada", "detailed-logs": "logs", "registro-detallado": "logs"}  # lo demás: su carpeta
+
 
 def _leer(ruta: Path) -> str:
     """Lee un archivo de texto UTF-8 sin tocar los saltos de línea."""
@@ -194,6 +201,32 @@ def aplicar_enlaces(fuente: str, enlaces: dict[str, str]) -> str:
     return _BLOQUE_ENLACE.sub(resolver, fuente)
 
 
+def pagina_e_idioma(relativa: Path) -> tuple[str, str]:
+    """(página, idioma) de una ruta generada, p. ej. es/coaches/index.html -> ("coaches", "es"); guia/guia_manalab_ja.html -> ("guia", "ja")."""
+    partes = list(relativa.with_suffix("").parts)
+    if partes[0] == "guia" and len(partes) == 2 and partes[1].startswith("guia_manalab_"):
+        return "guia", partes[1].removeprefix("guia_manalab_")
+    idioma = "en"
+    if partes[0] in IDIOMAS_RUTA:
+        idioma = partes.pop(0)
+    if partes and partes[-1] == "index":
+        partes.pop()
+    clave = "-".join(partes)
+    return _PAGINA_DE_RUTA.get(clave, clave), idioma
+
+
+def aplicar_eventos(fuente: str, relativa: Path) -> str:
+    """Resuelve los ``{{EVENTO:tipo[:posicion]}}`` de una página con su nombre de evento (tipo-pagina-idioma[-posicion])."""
+    pagina, idioma = pagina_e_idioma(relativa)
+
+    def resolver(coincidencia: re.Match) -> str:
+        tipo, posicion = coincidencia.group(1), coincidencia.group(2)
+        if tipo not in TIPOS_EVENTO:
+            raise ValueError(f"{relativa.as_posix()}: tipo de evento desconocido: {tipo!r}")
+        return "-".join([tipo, pagina, idioma] + ([posicion] if posicion else []))
+    return _EVENTO.sub(resolver, fuente)
+
+
 def listar_paginas(raiz: Path) -> list[Path]:
     """Rutas (relativas a la raíz) de los .html que se generan, ordenadas."""
     base = raiz / CARPETA_PLANTILLAS / CARPETA_PAGINAS
@@ -211,7 +244,7 @@ def construir(raiz: Path, destino: Path) -> list[Path]:
     escritas = []
     for relativa in listar_paginas(raiz):
         fuente = _leer(carpeta / CARPETA_PAGINAS / relativa.with_suffix(SUFIJO_PAGINA))
-        pagina = aplicar_enlaces(generar_pagina(carpeta, fuente), enlaces)
+        pagina = aplicar_eventos(aplicar_enlaces(generar_pagina(carpeta, fuente), enlaces), relativa)
         datos = pagina.replace(MARCA_VERSION, version).encode("utf-8")
         salida = destino / relativa
         if salida.is_file() and salida.read_bytes() == datos:

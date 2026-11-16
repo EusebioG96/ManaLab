@@ -82,9 +82,10 @@ class TestPaginas(unittest.TestCase):
 
     def test_un_boton_de_descarga_con_su_titulo_de_goatcounter(self):
         for k, p, html in self.paginas():
-            botones = re.findall(r'<a [^>]*data-goatcounter-click="descarga"[^>]*>', html)
+            botones = re.findall(r'<a [^>]*data-goatcounter-click="descarga-[^"]*"[^>]*>', html)
             self.assertEqual(len(botones), 1)
             self.assertIn('data-goatcounter-title="%s"' % p["evento"], botones[0])
+            self.assertIn('data-goatcounter-click="%s"' % p["evento"], botones[0])
             self.assertIn('id="enlace-descarga"', botones[0])
             self.assertIn("data-descarga", botones[0])
             self.assertIn('<template id="bloque-movil">', html)                       # caja de móvil de descarga.js
