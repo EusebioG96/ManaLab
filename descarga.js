@@ -67,7 +67,8 @@
       var url = boton.getAttribute("data-url");
       copiar(url).then(function () { decir(boton.getAttribute("data-copiado")); }, function () { decir(url); });
     }
-    boton.addEventListener("click", function () {
+    // con el campo de correo activo el bloque no trae el botón de compartir (ML-296)
+    if (boton) boton.addEventListener("click", function () {
       contar(boton.getAttribute("data-titulo"), boton.getAttribute("data-titulo"));
       var url = boton.getAttribute("data-url"), p;
       try { p = navigator.share ? navigator.share({ title: "ManaLab", url: url }) : null; } catch (e) { p = Promise.reject(e); }

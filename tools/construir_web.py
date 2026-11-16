@@ -101,7 +101,8 @@ TEXTOS_CORREO = {
            "red": "送信できませんでした。接続を確認して、もう一度お試しください。"},
 }
 # {{CORREO_MOVIL txt="…"}}: en la plantilla del bloque móvil de las portadas; sin servidor, el párrafo de siempre (txt); con él, el campo.
-_BLOQUE_CORREO = re.compile(r'\{\{CORREO_MOVIL((?: \w+="[^"]*")*)\}\}')
+# La marca y, justo debajo, el botón «Enviarme el enlace» (compartir) de la plantilla: con el campo de correo activo sobra (ML-296).
+_BLOQUE_CORREO = re.compile(r'\{\{CORREO_MOVIL((?: \w+="[^"]*")*)\}\}(\n<p><button class="boton prim" data-compartir [^\n]*</button></p>)?')
 
 
 def _leer(ruta: Path) -> str:
@@ -283,10 +284,11 @@ def bloque_correo(idioma: str, url: str, texto_actual: str) -> str:
 
 def aplicar_correo(fuente: str, relativa: Path, url: str | None = None) -> str:
     """Resuelve los ``{{CORREO_MOVIL txt="…"}}`` de una portada (ver ``bloque_correo``); el idioma sale de la ruta.
-    Sin ``url`` se usa ``URL_ENLACE_CORREO`` (leída al llamar, para que los tests puedan cambiarla)."""
+    Sin ``url`` se usa ``URL_ENLACE_CORREO`` (leída al llamar, para que los tests puedan cambiarla). Con dirección, el formulario sustituye
+    también al botón de compartir que sigue a la marca (ML-296); sin ella queda todo como estaba, el botón incluido."""
     _, idioma = pagina_e_idioma(relativa)
     url = URL_ENLACE_CORREO if url is None else url
-    return _BLOQUE_CORREO.sub(lambda m: bloque_correo(idioma, url, _atributos(m.group(1))["txt"]), fuente)
+    return _BLOQUE_CORREO.sub(lambda m: bloque_correo(idioma, url, _atributos(m.group(1))["txt"]) + ("" if url else m.group(2) or ""), fuente)
 
 
 def aplicar_eventos(fuente: str, relativa: Path) -> str:

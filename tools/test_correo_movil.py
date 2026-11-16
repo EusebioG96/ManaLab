@@ -71,6 +71,37 @@ class TestCorreoMovil(unittest.TestCase):
                 self.assertIn('data-idioma="%s"' % idioma, _plantilla(html))
                 self.assertNotIn("{{", html)
 
+    def test_con_valor_no_hay_boton_de_compartir_en_el_bloque_movil_y_si_campo_y_descarga(self):
+        for idioma, ruta in PORTADAS.items():
+            with self.subTest(idioma=idioma):
+                html = (self.con_url / ruta).read_text(encoding="utf-8")
+                bloque = _plantilla(html)
+                self.assertNotIn("data-compartir", bloque)
+                self.assertNotIn("compartir-movil", html)          # ni el evento queda huérfano en la portada
+                self.assertIn("data-correo-url", bloque)
+                self.assertIn('type="email"', bloque)
+                self.assertIn('class="movil-zip"', bloque)         # «Descargar el ZIP igualmente»
+                self.assertIn("data-descarga", bloque[bloque.index('class="movil-zip"'):])
+                self.assertEqual(bloque.count("<button"), 1)       # solo el «Enviar» del formulario
+                self.assertNotIn("{{", html)
+
+    def test_con_la_constante_vacia_el_boton_de_compartir_sigue_en_las_cuatro_portadas(self):
+        for idioma, ruta in PORTADAS.items():
+            with self.subTest(idioma=idioma):
+                bloque = _plantilla((self.vacia / ruta).read_text(encoding="utf-8"))
+                self.assertEqual(bloque.count("data-compartir"), 1)
+                self.assertIn("compartir-movil-portada-%s" % idioma, bloque)
+                if not construir_web.URL_ENLACE_CORREO:   # lo publicado es la constante vacía
+                    self.assertEqual((self.vacia / ruta).read_bytes(), (RAIZ / ruta).read_bytes())   # byte a byte lo publicado
+
+    def test_otras_paginas_con_valor_conservan_su_boton_de_compartir(self):
+        for ruta in ("magic-online/index.html", "coaches/index.html", "es/overlay/index.html"):
+            with self.subTest(ruta=ruta):
+                self.assertIn("data-compartir", (self.con_url / ruta).read_text(encoding="utf-8"))
+
+    def test_descarga_js_tolera_un_bloque_sin_boton_de_compartir(self):
+        self.assertIn("if (boton) boton.addEventListener", (RAIZ / "descarga.js").read_text(encoding="utf-8"))
+
     def test_los_textos_w5_en_ingles_y_espanol_y_hay_los_cuatro_idiomas_completos(self):
         for idioma, (txt, boton, nota) in W5.items():
             html = _plantilla((self.con_url / PORTADAS[idioma]).read_text(encoding="utf-8"))

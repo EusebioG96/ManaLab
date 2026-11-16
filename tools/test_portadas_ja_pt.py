@@ -9,6 +9,10 @@ import unittest
 from html.parser import HTMLParser
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import construir_web  # noqa: E402
+
 RAIZ = Path(__file__).resolve().parent.parent
 NUEVAS = {"ja": RAIZ / "ja" / "index.html", "pt": RAIZ / "pt" / "index.html"}
 CUATRO = {"en": RAIZ / "index.html", "es": RAIZ / "es" / "index.html", **NUEVAS}
@@ -72,7 +76,8 @@ class TestPortadasNuevas(unittest.TestCase):
                 self.assertEqual(len(titulos), 5)
                 for t in titulos + re.findall(r'data-goatcounter-title="(descarga-portada-[^"]*)"', html):
                     self.assertTrue(t.startswith(f"descarga-portada-{c}-"), t)
-                self.assertIn(f'data-titulo="compartir-movil-portada-{c}"', html)
+                if not construir_web.URL_ENLACE_CORREO:   # ML-296: con el campo de correo activo el bloque no trae el botón de compartir
+                    self.assertIn(f'data-titulo="compartir-movil-portada-{c}"', html)
                 self.assertIn('data-movil-aqui', html)
                 self.assertIn('id="bloque-movil"', html)
 

@@ -276,7 +276,7 @@ class PruebasML139(unittest.TestCase):
 
     def test_candidatos_incluyen_los_eventos_por_pagina_idioma_y_posicion(self):
         c = M.eventos_candidatos()
-        for n in ("descarga-portada-es-hero", "descarga-magic-online-en", "descarga-guia-ja-arriba", "compartir-movil-portada-pt"):
+        for n in ("descarga-portada-es-hero", "descarga-magic-online-en", "descarga-guia-ja-arriba", "compartir-movil-coaches-pt"):   # ML-296: la portada pierde su botón de compartir con el campo de correo activo
             self.assertIn(n, c)
 
     def test_eventos_con_posicion_se_agrupan_por_pagina_e_idioma(self):
