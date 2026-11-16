@@ -221,7 +221,7 @@ class TestTextosDeLaIa(unittest.TestCase):
 
     def test_privacidad_cuenta_la_suscripcion_con_metafy(self):
         html = _texto(RAIZ / "privacy" / "index.html")
-        for idioma, fecha in {"es": "14 de noviembre de 2026", "en": "14 November 2026"}.items():
+        for idioma, fecha in {"es": "16 de noviembre de 2026", "en": "16 November 2026"}.items():
             with self.subTest(idioma=idioma):
                 bloque = html[html.index(f'<section lang="{idioma}"'):]
                 bloque = bloque[:bloque.index("</section>")]
