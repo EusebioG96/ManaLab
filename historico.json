@@ -96,6 +96,164 @@
     "/privacy/": 1,
     "/guia/guia_manalab_es.html": 2
    }
+  },
+  {
+   "fecha": "2026-11-16",
+   "versiones": {
+    "v2.3.2": {
+     "ManaLab-2.3.2-portable.zip": 13,
+     "ManaLab-2.3.2-portable.zip.sha256": 9,
+     "ManaLab-manual-en.pdf": 2,
+     "ManaLab-portable.zip": 1,
+     "ManaLab-portable.zip.sha256": 1
+    },
+    "v2.3.1": {
+     "ManaLab-2.3.1-portable.zip": 7,
+     "ManaLab-2.3.1-portable.zip.sha256": 7,
+     "ManaLab-portable.zip": 2,
+     "ManaLab-portable.zip.sha256": 2
+    },
+    "v2.3.0": {
+     "ManaLab-2.3.0-portable.zip": 35,
+     "ManaLab-2.3.0-portable.zip.sha256": 11,
+     "ManaLab-manual-en.pdf": 12,
+     "ManaLab-portable.zip": 2,
+     "ManaLab-portable.zip.sha256": 1
+    },
+    "v2.2.2": {
+     "ManaLab-2.2.2-portable.zip": 21,
+     "ManaLab-2.2.2-portable.zip.sha256": 8,
+     "ManaLab-portable.zip": 2,
+     "ManaLab-portable.zip.sha256": 4
+    },
+    "v2.2.1": {
+     "ManaLab-2.2.1-portable.zip": 9,
+     "ManaLab-2.2.1-portable.zip.sha256": 7
+    },
+    "v2.2.0": {
+     "ManaLab-2.2.0-portable.zip": 3,
+     "ManaLab-2.2.0-portable.zip.sha256": 2
+    },
+    "v2.1.3": {
+     "ManaLab-2.1.3-portable.zip": 5,
+     "ManaLab-2.1.3-portable.zip.sha256": 1
+    },
+    "v2.1.2": {
+     "ManaLab-2.1.2-portable.zip": 2,
+     "ManaLab-2.1.2-portable.zip.sha256": 2
+    },
+    "v2.1.1": {
+     "ManaLab-2.1.1-portable.zip": 2,
+     "ManaLab-2.1.1-portable.zip.sha256": 1
+    },
+    "v2.1.0": {
+     "ManaLab-2.1.0-portable.zip": 3
+    },
+    "v2.0.1": {
+     "ManaLab-2.0.1-portable.zip": 4
+    }
+   },
+   "visitas": {
+    "TOTAL": 273,
+    "/": 189,
+    "/es/": 20,
+    "/safety/": 3,
+    "/es/seguridad/": 0,
+    "/privacy/": 2,
+    "/sorteo/": 0,
+    "/pt/": 3,
+    "/ja/": 3,
+    "/guia/guia_manalab_en.html": 0,
+    "/guia/guia_manalab_es.html": 2,
+    "/guia/guia_manalab_fr.html": 0,
+    "/guia/guia_manalab_de.html": 0,
+    "/guia/guia_manalab_it.html": 0,
+    "/guia/guia_manalab_pt.html": 0,
+    "/guia/guia_manalab_ja.html": 0,
+    "/guia/guia_manalab_ko.html": 1,
+    "/guia/guia_manalab_zh.html": 0,
+    "/magic-online/": 5,
+    "/es/magic-online/": 1,
+    "/detailed-logs/": 0,
+    "/es/registro-detallado/": 0,
+    "/overlay/": 0,
+    "/es/overlay/": 0,
+    "/novedades/": 0,
+    "/es/novedades/": 0,
+    "/coaches/": 2,
+    "/es/coaches/": 5,
+    "/pt/coaches/": 2
+   },
+   "eventos": {
+    "descarga": 28,
+    "compartir-movil": 3,
+    "descarga-movil": 1,
+    "aviso-sorteo": 1,
+    "descarga-portada-en": 0,
+    "descarga-portada-es": 0,
+    "descarga-portada-pt": 0,
+    "descarga-portada-ja": 0,
+    "descarga-aviso-en": 0,
+    "descarga-aviso-es": 0,
+    "descarga-aviso-pt": 0,
+    "descarga-aviso-ja": 0,
+    "descarga-mtgo-en": 0,
+    "descarga-mtgo-es": 0,
+    "descarga-mtgo-pt": 0,
+    "descarga-mtgo-ja": 0,
+    "descarga-coaches-en": 0,
+    "descarga-coaches-es": 0,
+    "descarga-coaches-pt": 0,
+    "descarga-coaches-ja": 0,
+    "descarga-movil-en": 0,
+    "descarga-movil-es": 0,
+    "descarga-movil-pt": 0,
+    "descarga-movil-ja": 0,
+    "descarga-movil-coaches-en": 0,
+    "descarga-movil-coaches-es": 0,
+    "descarga-movil-coaches-pt": 0,
+    "descarga-movil-coaches-ja": 0,
+    "compartir-movil-en": 0,
+    "compartir-movil-es": 0,
+    "compartir-movil-pt": 0,
+    "compartir-movil-ja": 0,
+    "compartir-movil-coaches-en": 0,
+    "compartir-movil-coaches-es": 0,
+    "compartir-movil-coaches-pt": 0,
+    "compartir-movil-coaches-ja": 0,
+    "descarga-cabecera-en": 0,
+    "descarga-cabecera-es": 0,
+    "descarga-cabecera-pt": 0,
+    "descarga-cabecera-ja": 0,
+    "descarga-hero-en": 0,
+    "descarga-hero-es": 0,
+    "descarga-hero-pt": 0,
+    "descarga-hero-ja": 0,
+    "descarga-motivos-en": 0,
+    "descarga-motivos-es": 0,
+    "descarga-motivos-pt": 0,
+    "descarga-motivos-ja": 0,
+    "descarga-funciones-en": 0,
+    "descarga-funciones-es": 0,
+    "descarga-funciones-pt": 0,
+    "descarga-funciones-ja": 0,
+    "descarga-final-en": 0,
+    "descarga-final-es": 0,
+    "descarga-final-pt": 0,
+    "descarga-final-ja": 0,
+    "guia-descarga-en": 0,
+    "guia-descarga-es": 0,
+    "guia-descarga-pt": 0,
+    "guia-descarga-ja": 0,
+    "descarga-logs-en": 0,
+    "descarga-logs-es": 0,
+    "descarga-logs-pt": 0,
+    "descarga-logs-ja": 0,
+    "descarga-overlay-en": 0,
+    "descarga-overlay-es": 0,
+    "descarga-overlay-pt": 0,
+    "descarga-overlay-ja": 0
+   }
   }
  ]
 }
