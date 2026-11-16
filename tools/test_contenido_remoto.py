@@ -4,6 +4,7 @@ Uso:  python3 -m pytest tools/test_contenido_remoto.py     (o python3 tools/test
 """
 import json
 import re
+import unicodedata
 import unittest
 from pathlib import Path
 from urllib.parse import urlparse
@@ -15,6 +16,23 @@ MAX_ENLACE = 300  # tope de caracteres de un enlace
 CAMPOS_ENLACE = ("enlace_apoyo_metafy", "enlace_suscripcion_ia")  # los dos enlaces de Metafy
 HOSTS = ("metafy.gg", "manalab.es")  # el propio host o cualquier subdominio (www incluido)
 VERSION = re.compile(r"^\d+\.\d+\.\d+$")
+
+# Reglas de coaches y destacados (ML-278). Copiadas de /home/claude/wt-vis/manalab_aprender_validar.py de la app (la web no importa
+# código de la app): si allí cambian, hay que cambiarlas aquí.
+DOCUMENTO = RAIZ / "docs" / "contenido_remoto.md"
+CARPETA_FOTOS = RAIZ / "coaches" / "fotos"  # donde se suben las fotos; si no existe, no se comprueban los archivos
+MAX_NOMBRE = 60  # MAX_NOMBRE de la app: caracteres del nombre
+MAX_LINEA = 80  # MAX_LINEA de la app: caracteres de la línea
+MAX_COACHES = 100  # MAX_COACHES de la app
+MAX_DESTACADOS = 10  # MAX_DESTACADOS de la app
+MAX_FOTO_BYTES = 20 * 1024  # tamaño acordado de una foto (160x160 WebP, 20 kB); no lo comprueba la app
+DOMINIOS_METAFY = ("metafy.gg",)  # DOMINIOS_METAFY de la app: el host o un subdominio
+DOMINIOS_FOTO = ("manalab.es",)  # DOMINIOS_FOTO de la app
+EXTENSIONES_FOTO = (".webp", ".png", ".jpg")  # EXTENSIONES_FOTO de la app
+PROHIBIDOS_ENLACE = frozenset("\"'<>\\")  # PROHIBIDOS_ENLACE de la app: comillas, ángulos y barra invertida
+HOST = re.compile(r"[a-z0-9.-]+")  # HOST de la app
+BIDI = frozenset(chr(c) for c in (*range(0x202A, 0x202F), *range(0x2066, 0x206A), 0x200E, 0x200F, 0x061C))  # BIDI de la app
+EXTRAS_DESTACADO = ("academia", "guias", "sesiones")  # enlaces opcionales de un destacado
 
 
 def _host_valido(host):
@@ -44,6 +62,66 @@ def _interruptor_valido(valor):
         all(isinstance(valor[k], str) for k in ("desde", "hasta") if k in valor)
 
 
+def _texto_valido(valor, maximo):
+    """1 a `maximo` caracteres, sin control, invisibles ni inversión del sentido, con algo visible."""
+    if not isinstance(valor, str) or not 0 < len(valor.strip()) <= maximo or len(valor) > maximo:
+        return False
+    return not any(c in BIDI or unicodedata.category(c) in ("Cc", "Cf", "Zl", "Zp", "Cs", "Co", "Cn") for c in valor)
+
+
+def _enlace_https(valor, dominios):
+    """https a un dominio (o subdominio) sin usuario, contraseña ni puerto, de hasta MAX_ENLACE caracteres."""
+    if not isinstance(valor, str) or not valor.startswith("https://") or not valor.isascii() or not 0 < len(valor) <= MAX_ENLACE:
+        return False
+    if any(c.isspace() or ord(c) < 32 or c in PROHIBIDOS_ENLACE for c in valor):
+        return False
+    try:
+        u = urlparse(valor)
+        host = u.hostname or ""
+        if u.username is not None or u.password is not None or ":" in u.netloc or not HOST.fullmatch(host) or "" in host.split("."):
+            return False
+    except ValueError:
+        return False
+    return any(host == d or host.endswith("." + d) for d in dominios)
+
+
+def _foto_valida(valor):
+    if not _enlace_https(valor, DOMINIOS_FOTO):
+        return False
+    u = urlparse(valor)
+    return not u.query and not u.fragment and u.path.lower().endswith(EXTENSIONES_FOTO)
+
+
+def _problemas_perfil(e, extras):
+    if not isinstance(e, dict):
+        return ["no es un objeto"]
+    p = []
+    if not _texto_valido(e.get("nombre"), MAX_NOMBRE):
+        p.append("nombre no válido")
+    if not _texto_valido(e.get("linea"), MAX_LINEA):
+        p.append("línea no válida")
+    if not _enlace_https(e.get("enlace"), DOMINIOS_METAFY):
+        p.append("enlace no válido")
+    if e.get("foto") not in (None, "") and not _foto_valida(e["foto"]):
+        p.append("foto no válida")  # la app enseña al coach sin foto, pero en el archivo publicado no debe haberla mala
+    for c in extras:
+        if e.get(c) not in (None, "") and not _enlace_https(e[c], DOMINIOS_METAFY):
+            p.append("%s no válido" % c)
+    return p
+
+
+def _problemas_lista(datos, campo, maximo, extras):
+    if campo not in datos:
+        return []
+    lista = datos[campo]
+    if not isinstance(lista, list):
+        return ["%s debe ser una lista" % campo]
+    p = ["%s: más de %d" % (campo, maximo)] if len(lista) > maximo else []
+    for i, e in enumerate(lista):
+        p += ["%s[%d]: %s" % (campo, i, m) for m in _problemas_perfil(e, extras)]
+    return p
+
+
 def validar(datos, tamano):
     """Devuelve la lista de problemas del contenido (vacía si cumple el esquema v1)."""
     if tamano > MAX_BYTES:
@@ -59,7 +137,31 @@ def validar(datos, tamano):
         problemas.append("interruptores debe ser un objeto")
     else:
         problemas += ["interruptor %s no válido" % k for k, v in interruptores.items() if not _interruptor_valido(v)]
+    problemas += _problemas_lista(datos, "coaches", MAX_COACHES, ())
+    problemas += _problemas_lista(datos, "destacados", MAX_DESTACADOS, EXTRAS_DESTACADO)
     return problemas
+
+
+def problemas_fotos(datos):
+    """Fotos citadas que no existen o pesan más de 20 kB. Solo si existe CARPETA_FOTOS (si no, no se comprueba nada)."""
+    if not CARPETA_FOTOS.is_dir():
+        return []
+    p = []
+    for campo in ("coaches", "destacados"):
+        for e in datos.get(campo, []) if isinstance(datos.get(campo), list) else []:
+            foto = e.get("foto") if isinstance(e, dict) else None
+            if foto and _foto_valida(foto):
+                ruta = RAIZ / urlparse(foto).path.lstrip("/")
+                if not ruta.is_file():
+                    p.append("falta la foto %s" % foto)
+                elif ruta.stat().st_size > MAX_FOTO_BYTES:
+                    p.append("la foto %s pesa más de 20 kB" % foto)
+    return p
+
+
+def ejemplos_del_documento():
+    """Los bloques ```json de docs/contenido_remoto.md, como texto."""
+    return re.findall(r"```json\n(.*?)\n```", DOCUMENTO.read_text(encoding="utf-8"), re.S)
 
 
 def _con(**cambios):
@@ -123,6 +225,85 @@ class ContenidoRemotoTest(unittest.TestCase):
         d["enlace_apoyo_metafy"] = ""
         d["enlace_suscripcion_ia"] = "http://metafy.gg/x"
         self.assertNotEqual(validar(d, 100), [])
+
+    def test_archivo_real_con_coaches_o_destacados_cumple_las_reglas_y_sus_fotos(self):
+        datos = json.loads(ARCHIVO.read_text(encoding="utf-8"))  # hoy no lleva coaches ni destacados: pasa igual
+        self.assertEqual(problemas_fotos(datos), [])
+
+    def test_cada_ejemplo_del_documento_es_json_valido_y_cumple_las_reglas(self):
+        ejemplos = ejemplos_del_documento()
+        self.assertGreaterEqual(len(ejemplos), 5)
+        claves = set()
+        for texto in ejemplos:
+            datos = json.loads(texto)
+            self.assertEqual(validar(datos, len(texto.encode("utf-8"))), [], texto)
+            claves |= set(datos)
+        self.assertLessEqual({"coaches", "destacados"}, claves, "el documento debe tener un ejemplo de cada uno")
+
+    def test_acepta_coaches_y_destacados_buenos(self):
+        coach = {"nombre": "Ana Ejemplo", "linea": "Standard · ES", "enlace": "https://metafy.gg/@ana"}
+        con_todo = dict(coach, foto="https://manalab.es/coaches/fotos/ana.webp", academia="https://sub.metafy.gg/a", guias="", sesiones=None)
+        self.assertEqual(validar(_con(coaches=[], destacados=[]), 100), [])
+        self.assertEqual(validar(_con(coaches=[coach, con_todo] * 50), 100), [])
+        self.assertEqual(validar(_con(destacados=[con_todo] * 10), 100), [])
+
+    def test_rechaza_coaches_malos(self):
+        coach = {"nombre": "Ana", "linea": "Standard", "enlace": "https://metafy.gg/@ana"}
+        malos = [dict(coach, foto="https://evil.com/ana.webp"), dict(coach, foto="https://manalab.es/a.gif"),
+                 dict(coach, foto="https://manalab.es/a.webp?x=1"), dict(coach, foto="http://manalab.es/a.webp"),
+                 dict(coach, enlace="http://metafy.gg/@ana"), dict(coach, enlace="https://evil.com/metafy.gg"),
+                 dict(coach, enlace="https://metafy.gg:8443/x"), dict(coach, enlace="https://metafy.gg/a\"b"),
+                 dict(coach, nombre="a" * 61), dict(coach, nombre=""), dict(coach, nombre="Ana\u202eEva"),
+                 dict(coach, nombre="Ana\u200bEva"), dict(coach, nombre="Ana\nEva"), dict(coach, linea="a" * 81),
+                 "no soy un objeto"]
+        for malo in malos:
+            self.assertNotEqual(validar(_con(coaches=[malo]), 100), [], malo)
+        self.assertNotEqual(validar(_con(coaches=[coach] * 101), 100), [])
+        self.assertNotEqual(validar(_con(coaches="x"), 100), [])
+
+    def test_rechaza_destacados_malos(self):
+        d = {"nombre": "Marta", "linea": "Standard", "enlace": "https://metafy.gg/@m"}
+        for campo in EXTRAS_DESTACADO:
+            self.assertNotEqual(validar(_con(destacados=[dict(d, **{campo: "https://evil.com/x"})]), 100), [], campo)
+            self.assertNotEqual(validar(_con(destacados=[dict(d, **{campo: "http://metafy.gg/x"})]), 100), [], campo)
+        self.assertNotEqual(validar(_con(destacados=[d] * 11), 100), [])
+        self.assertNotEqual(validar(_con(destacados={}), 100), [])
+
+    def test_mutaciones_de_un_archivo_con_coaches_fallan(self):
+        base = {"nombre": "Ana", "linea": "Standard", "enlace": "https://metafy.gg/@ana", "foto": "https://manalab.es/coaches/fotos/a.webp"}
+        self.assertEqual(validar(_con(coaches=[base]), 100), [])
+        for cambio in ({"foto": "https://otro.com/a.webp"}, {"enlace": "http://metafy.gg/x"}, {"nombre": "n" * 61}):
+            self.assertNotEqual(validar(_con(coaches=[dict(base, **cambio)]), 100), [], cambio)
+        self.assertNotEqual(validar(_con(coaches=[base] * 101), 100), [])
+
+    def test_un_ejemplo_roto_del_documento_se_detecta(self):
+        roto = [t for t in ejemplos_del_documento() if "destacados" in t][0].replace("https://manalab.es", "https://otro.com")
+        mal = [t for t in (roto, roto.replace("https://metafy.gg", "http://metafy.gg"), roto[:-1])]
+        for texto in mal:
+            try:
+                problemas = validar(json.loads(texto), 100)
+            except ValueError:
+                continue  # JSON roto
+            self.assertNotEqual(problemas, [], texto)
+
+    def test_las_fotos_citadas_existen_y_pesan_poco(self):
+        # una foto que no existe o pesa de más debe dar problema (se simula con una carpeta temporal)
+        import tempfile
+        global CARPETA_FOTOS, RAIZ
+        guardado = (CARPETA_FOTOS, RAIZ)
+        with tempfile.TemporaryDirectory() as t:
+            RAIZ, CARPETA_FOTOS = Path(t), Path(t) / "coaches" / "fotos"
+            CARPETA_FOTOS.mkdir(parents=True)
+            try:
+                datos = _con(coaches=[{"nombre": "A", "linea": "B", "enlace": "https://metafy.gg/@a",
+                                       "foto": "https://manalab.es/coaches/fotos/a.webp"}])
+                self.assertNotEqual(problemas_fotos(datos), [], "falta la foto")
+                (CARPETA_FOTOS / "a.webp").write_bytes(b"x" * 100)
+                self.assertEqual(problemas_fotos(datos), [])
+                (CARPETA_FOTOS / "a.webp").write_bytes(b"x" * (MAX_FOTO_BYTES + 1))
+                self.assertNotEqual(problemas_fotos(datos), [], "pesa más de 20 kB")
+            finally:
+                CARPETA_FOTOS, RAIZ = guardado
 
 
 if __name__ == "__main__":
