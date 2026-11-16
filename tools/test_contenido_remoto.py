@@ -240,6 +240,17 @@ class ContenidoRemotoTest(unittest.TestCase):
             claves |= set(datos)
         self.assertLessEqual({"coaches", "destacados"}, claves, "el documento debe tener un ejemplo de cada uno")
 
+    def test_el_documento_dice_que_la_app_3_0_no_ensena_los_coaches(self):
+        """ML-283: solo los destacados (los que pagan) se ven; el documento no puede sugerir que un coach sale en la app."""
+        doc = DOCUMENTO.read_text(encoding="utf-8")
+        linea_coaches = [l for l in doc.splitlines() if l.startswith("- `coaches`")][0]
+        self.assertIn("no los enseña", linea_coaches)
+        self.assertIn("no lo hace visible", linea_coaches)
+        linea_destacados = [l for l in doc.splitlines() if l.startswith("- `destacados`")][0]
+        self.assertIn("única lista que se ve", linea_destacados)
+        self.assertNotIn("Poner un coach (", doc)
+        self.assertNotIn("la lista de coaches de la pantalla Aprender", doc)
+
     def test_acepta_coaches_y_destacados_buenos(self):
         coach = {"nombre": "Ana Ejemplo", "linea": "Standard · ES", "enlace": "https://metafy.gg/@ana"}
         con_todo = dict(coach, foto="https://manalab.es/coaches/fotos/ana.webp", academia="https://sub.metafy.gg/a", guias="", sesiones=None)

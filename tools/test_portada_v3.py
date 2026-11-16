@@ -127,6 +127,40 @@ class TestPreguntaNueva(unittest.TestCase):
                 self.assertEqual(self.en_json(pagina, pregunta), [respuesta])
 
 
+FRASE_DATOS = {
+    "en": "The Learn section asks a ManaLab server for the list of guides and loads covers from Metafy and photos from manalab.es, "
+          "sending nothing of yours except the ManaLab version; the Metafy banner loads Metafy's ad script and turns off in Settings.",
+    "es": "Aprender pide la lista de guías a un servidor de ManaLab y carga portadas de Metafy y fotos de manalab.es, sin enviar nada "
+          "tuyo salvo la versión de ManaLab; el banner de Metafy carga el script de anuncios de Metafy y se apaga en Ajustes.",
+    "pt": "A seção Aprender pede a lista de guias a um servidor do ManaLab e carrega capas da Metafy e fotos do manalab.es, sem enviar "
+          "nada seu além da versão do ManaLab; o banner da Metafy carrega o script de anúncios da Metafy e se desliga em Configurações.",
+    "ja": "「学ぶ」画面は、ガイド一覧をManaLabのサーバーに問い合わせ、Metafyからガイドの表紙を、manalab.esから写真を読み込みますが、"
+          "ManaLabのバージョン以外は何も送信しません。Metafyのバナーは、Metafyの広告スクリプトを読み込み、設定でオフにできます。",
+}
+PREGUNTA_DATOS = {"en": "What data does it send?", "es": "¿Qué datos envía?", "pt": "Que dados ele envia?", "ja": "どんなデータを送信しますか？"}
+
+
+class TestPreguntaDeDatos(unittest.TestCase):
+    """ML-283: la respuesta de «¿qué datos envía?» nombra Aprender y el script de anuncios de Metafy, en el HTML y en el JSON-LD."""
+
+    @staticmethod
+    def respuestas(pagina, idioma):
+        ld = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', pagina, re.S).group(1))
+        en_json = [q["acceptedAnswer"]["text"] for n in ld["@graph"] if n["@type"] == "FAQPage" for q in n["mainEntity"]
+                   if q["name"] == PREGUNTA_DATOS[idioma]]
+        m = re.search(r"<summary>%s</summary>\s*<p>(.*?)</p>" % re.escape(PREGUNTA_DATOS[idioma]), pagina, re.S)
+        return (html.unescape(re.sub(r"<[^>]+>", "", m.group(1))) if m else None), en_json
+
+    def test_la_frase_esta_en_el_html_y_en_el_json_ld_de_cada_idioma(self):
+        for idioma, ruta in PORTADAS.items():
+            with self.subTest(idioma=idioma):
+                en_html, en_json = self.respuestas(leer(ruta), idioma)
+                self.assertEqual(len(en_json), 1)
+                self.assertIn(FRASE_DATOS[idioma], en_html)
+                self.assertIn(FRASE_DATOS[idioma], en_json[0])
+                self.assertEqual(en_html, en_json[0])
+
+
 class TestCitaDeSalvatto(unittest.TestCase):
     def test_apagada_no_hay_rastro_en_ningun_html(self):
         self.assertFalse(construir_web.MOSTRAR_CITA_SALVATTO, "el interruptor debe estar apagado hasta que Eusebio lo decida")

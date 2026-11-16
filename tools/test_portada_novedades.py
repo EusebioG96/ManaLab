@@ -252,14 +252,14 @@ class TestPaginaDeNovedades(unittest.TestCase):
         self.assertEqual(sitemap.count("<loc>"), 27)
 
     def test_titulos_descripciones_y_h1(self):
-        esperado = {"en": ("What&#x27;s new in ManaLab 2.3 · Release notes", "What&#x27;s new in ManaLab"),
-                    "es": ("Novedades de ManaLab 2.3 · Historial de versiones", "Novedades de ManaLab")}
+        esperado = {"en": ("What&#x27;s new in ManaLab 3.0 · Release notes", "What&#x27;s new in ManaLab"),
+                    "es": ("Novedades de ManaLab 3.0 · Historial de versiones", "Novedades de ManaLab")}
         for idioma, ruta in NOVEDADES.items():
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 self.assertIn(f"<title>{esperado[idioma][0]}</title>", html)
                 self.assertIn(f"<h1>{esperado[idioma][1]}</h1>", html)
-                self.assertRegex(html, r'<meta content="(What changed in ManaLab 2.3 and 2.2|Qué cambió en ManaLab 2.3 y 2.2):[^"]*" name="description"/>')
+                self.assertRegex(html, r'<meta content="(What changed in ManaLab 3\.0|Qué cambió en ManaLab 3\.0):[^"]*" name="description"/>')
 
     def test_contenido_identico_al_de_main_y_boton_arriba(self):
         for idioma, ruta in NOVEDADES.items():
