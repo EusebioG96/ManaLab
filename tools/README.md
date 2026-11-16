@@ -53,6 +53,13 @@ Cada botón de descarga envía un evento propio: `<tipo>-<página>-<idioma>[-<po
 se escribe el nombre: se pone `{{EVENTO:descarga}}` o `{{EVENTO:descarga:hero}}` (con posición si la página tiene varios botones) y
 `construir_web.py` lo completa con la página y el idioma de la ruta. `tools/test_eventos_descarga.py` vigila el patrón y que no se repita ningún nombre.
 
+### Enlace por correo en el teléfono (ML-295)
+
+Las cuatro portadas llevan en su `<template id="bloque-movil">` la marca `{{CORREO_MOVIL txt="…"}}`. Con `URL_ENLACE_CORREO = ""` en
+`tools/construir_web.py` (el valor actual) genera el párrafo de siempre; con la dirección del servidor (`POST /enlace-descarga`, ver
+`servidor_ia/LEEME.txt` del repositorio de la app) genera el campo de correo con los textos de `TEXTOS_CORREO`. Para activarlo: pon la
+dirección, `python3 tools/construir_web.py` y commit de los `.html`. Evento: `correo-movil-portada-<idioma>`. Lo vigila `tools/test_correo_movil.py`.
+
 ### Versión y enlaces de descarga
 
 `version.json` es la única fuente de la versión actual. Las plantillas y páginas no llevan números de versión: donde

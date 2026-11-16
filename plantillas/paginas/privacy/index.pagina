@@ -60,11 +60,13 @@
     <p>El código que pegas en ManaLab (Ajustes › Equipo e IA) se guarda en tu PC en el archivo de ajustes, en texto plano. Si compartes tu ordenador, cualquiera con acceso a esa carpeta puede usarlo.</p>
     <h3>Formulario de contacto</h3>
     <p>Si nos escribes desde el formulario de la web, enviamos tu nombre (si lo pones), tu correo y tu mensaje por correo electrónico a nuestra bandeja, con <strong>Resend</strong> como intermediario. El mensaje no se guarda en el servidor. Para evitar abusos, el servidor (Cloudflare) cuenta cuántos mensajes envía cada persona al día usando una huella criptográfica de su IP (SHA-256), que caduca a las 48 horas. Usamos tus datos solo para responderte.</p>
+    <h3>Enlace de descarga por correo</h3>
+    <p>Si en el móvil pides el enlace de descarga por correo, tu dirección se usa solo para ese envío, a través de <strong>Resend</strong>, y no se guarda. Para evitar abusos, el servidor (Cloudflare) guarda durante unos minutos (10 como máximo) una huella anónima de tu conexión (un SHA-256 de tu IP mezclada con una sal que cambia cada día), solo para limitar cuántos correos puede pedir cada conexión. No guardamos tu dirección ni tu IP.</p>
 
     <h2>5. Terceros</h2>
     <ul>
       <li><strong>Metafy (suscripción):</strong> procesa el pago de la suscripción y recibe tus datos de pago. Nosotros no vemos datos de tu tarjeta. Se aplica su política de privacidad.</li>
-      <li><strong>Resend:</strong> envía el correo con tu código, los reportes de bug y los mensajes del formulario de contacto.</li>
+      <li><strong>Resend:</strong> envía el correo con tu código, los reportes de bug y los mensajes del formulario de contacto y el enlace de descarga que pides por correo.</li>
       <li><strong>Cloudflare:</strong> aloja el servidor y puede registrar datos técnicos de las peticiones (como la IP), según su política.</li>
       <li><strong>DeepSeek:</strong> genera el análisis a partir de los datos de la partida.</li>
       <li><strong>GitHub y Scryfall:</strong> solo en las descargas y consultas del apartado 3.</li>
@@ -135,11 +137,13 @@
     <p>The code you paste into ManaLab (Settings › Team and AI) is stored on your PC in the settings file, in plain text. If you share your computer, anyone with access to that folder can use it.</p>
     <h3>Contact form</h3>
     <p>If you write to us through the contact form on the website, we send your name (if you give it), your email address and your message by email to our inbox, with <strong>Resend</strong> as the intermediary. The message is not stored on the server. To prevent abuse, the server (Cloudflare) counts how many messages each person sends per day, using a cryptographic hash of their IP address (SHA-256) that expires after 48 hours. We use your data only to reply to you.</p>
+    <h3>Download link by email</h3>
+    <p>If you ask for the download link by email on your phone, your address is used only for that one email, sent through <strong>Resend</strong>, and it is not stored. To prevent abuse, the server (Cloudflare) keeps an anonymous fingerprint of your connection for a few minutes (10 at most): a SHA-256 of your IP mixed with a salt that changes every day, used only to limit how many emails each connection can request. We do not store your address or your IP.</p>
 
     <h2>5. Third parties</h2>
     <ul>
       <li><strong>Metafy (subscription):</strong> processes the subscription payment and receives your payment details. We never see your card details. Its privacy policy applies.</li>
-      <li><strong>Resend:</strong> sends the email with your code, bug reports and the messages from the contact form.</li>
+      <li><strong>Resend:</strong> sends the email with your code, bug reports and the messages from the contact form and the download link you ask for by email.</li>
       <li><strong>Cloudflare:</strong> hosts the server and may log technical request data (such as IP addresses) under its own policy.</li>
       <li><strong>DeepSeek:</strong> produces the analysis from the game data.</li>
       <li><strong>GitHub and Scryfall:</strong> only for the downloads and requests in section 3.</li>

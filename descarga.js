@@ -76,6 +76,33 @@
       p.then(function () {}, function (e) { if (!e || e.name !== "AbortError") copiado(); });
     });
     zip.addEventListener("click", function () { contar(zip.getAttribute("data-titulo"), zip.getAttribute("data-titulo")); });
+    var formulario = caja.querySelector("form[data-correo-url]");
+    if (formulario) montarCorreo(formulario);
+  }
+
+  // «Envíate el enlace por correo»: el servidor manda un único correo y no guarda la dirección. Aquí la dirección solo viaja en el
+  // cuerpo de esa petición: nunca va a GoatCounter, a la URL ni a ningún registro.
+  var CORREO_VALIDO = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function montarCorreo(f) {
+    var campo = f.querySelector("input"), boton = f.querySelector("button"), estado = f.querySelector(".movil-correo-estado");
+    var enviando = false;
+    function decir(clave, error) {
+      estado.textContent = f.getAttribute(clave);
+      estado.className = "movil-correo-estado" + (error ? " error" : "");
+    }
+    f.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (enviando) return;
+      var correo = campo.value.trim();
+      if (correo.length > 120 || !CORREO_VALIDO.test(correo)) { decir("data-e-correo", true); return; }
+      enviando = true; boton.disabled = true; estado.textContent = ""; estado.className = "movil-correo-estado";
+      var cuerpo = JSON.stringify({ correo: correo, idioma: f.getAttribute("data-idioma") });
+      fetch(f.getAttribute("data-correo-url"), { method: "POST", headers: { "Content-Type": "application/json" }, body: cuerpo,
+        credentials: "omit", referrerPolicy: "no-referrer" }).then(function (r) {
+        if (r.ok) { campo.value = ""; decir("data-ok", false); contar(f.getAttribute("data-evento"), f.getAttribute("data-evento")); }
+        else decir(r.status === 400 ? "data-e-correo" : r.status === 429 ? "data-e-limite" : "data-e-red", true);
+      }, function () { decir("data-e-red", true); }).then(function () { enviando = false; boton.disabled = false; });
+    });
   }
 
   var enlace = document.getElementById("enlace-descarga"), plantilla = document.getElementById("bloque-movil");

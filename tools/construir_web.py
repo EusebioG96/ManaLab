@@ -51,7 +51,7 @@ _PARAMETRO = re.compile(r'(\w+)="([^"]*)"')
 
 # {{EVENTO:tipo}} o {{EVENTO:tipo:posicion}}: nombre del evento de GoatCounter de un botón (ML-280).
 # Esquema único: <tipo>-<pagina>-<idioma>[-<posicion>]; página e idioma salen de la ruta de la página que se genera.
-TIPOS_EVENTO = ("descarga", "descarga-movil", "compartir-movil")
+TIPOS_EVENTO = ("descarga", "descarga-movil", "compartir-movil", "correo-movil")
 IDIOMAS_RUTA = ("es", "pt", "ja")  # carpetas de idioma; el resto de rutas son inglés
 _EVENTO = re.compile(r"\{\{EVENTO:([a-z-]+)(?::([a-z0-9]+))?\}\}")
 _PAGINA_DE_RUTA = {"": "portada", "detailed-logs": "logs", "registro-detallado": "logs"}  # lo demás: su carpeta
@@ -76,6 +76,32 @@ CITAS_SALVATTO = {
            "Luis Salvatto, campe\u00f3n de Pro Tour y Jugador del A\u00f1o 2017-18."),
 }
 _MARCA_CITA = re.compile(r"\{\{CITA_SALVATTO\}\}\n?")  # en la plantilla, en una línea propia
+
+# «Envíame el enlace por correo» en el teléfono (ML-295). El campo lo envía a un servidor propio (Cloudflare Worker, POST /enlace-descarga).
+# Mientras la dirección esté vacía NO se pinta el campo y las portadas se quedan con el bloque de siempre. Cuando el servidor esté
+# desplegado, se pone aquí (https, p. ej. "https://registro-ia.eusebiog76.workers.dev/enlace-descarga") y se regenera la web.
+URL_ENLACE_CORREO = ""
+# Textos del campo por idioma (W5: no se cambian sin OK de Eusebio; pt y ja, traducidos con el mismo tono y pendientes de su revisión).
+TEXTOS_CORREO = {
+    "en": {"txt": "ManaLab runs on your PC. Email yourself the download link.", "boton": "Send", "marcador": "you@example.com",
+           "nota": "One email, nothing else. We don't keep your address.", "ok": "Sent! Check your inbox.",
+           "correo": "That email address doesn't look right.", "limite": "Too many requests. Try again in a few minutes.",
+           "red": "Couldn't send it. Check your connection and try again."},
+    "es": {"txt": "ManaLab funciona en tu PC. Envíate el enlace de descarga por correo.", "boton": "Enviar", "marcador": "tu@correo.com",
+           "nota": "Un solo correo y nada más. No guardamos tu dirección.", "ok": "¡Enviado! Revisa tu bandeja de entrada.",
+           "correo": "Ese correo no parece válido.", "limite": "Demasiados envíos. Inténtalo de nuevo en unos minutos.",
+           "red": "No se pudo enviar. Revisa tu conexión e inténtalo de nuevo."},
+    "pt": {"txt": "O ManaLab funciona no seu PC. Receba o link de download por e-mail.", "boton": "Enviar", "marcador": "voce@email.com",
+           "nota": "Um único e-mail e nada mais. Não guardamos o seu endereço.", "ok": "Enviado! Confira sua caixa de entrada.",
+           "correo": "Esse e-mail não parece válido.", "limite": "Muitos envios. Tente de novo em alguns minutos.",
+           "red": "Não foi possível enviar. Verifique sua conexão e tente de novo."},
+    "ja": {"txt": "ManaLabはPCで動きます。ダウンロードリンクをメールで送りましょう。", "boton": "送信", "marcador": "you@example.com",
+           "nota": "メールは1通だけ送ります。アドレスは保存しません。", "ok": "送信しました。受信トレイをご確認ください。",
+           "correo": "メールアドレスが正しくないようです。", "limite": "送信回数が多すぎます。数分後にもう一度お試しください。",
+           "red": "送信できませんでした。接続を確認して、もう一度お試しください。"},
+}
+# {{CORREO_MOVIL txt="…"}}: en la plantilla del bloque móvil de las portadas; sin servidor, el párrafo de siempre (txt); con él, el campo.
+_BLOQUE_CORREO = re.compile(r'\{\{CORREO_MOVIL((?: \w+="[^"]*")*)\}\}')
 
 
 def _leer(ruta: Path) -> str:
@@ -236,6 +262,33 @@ def pagina_e_idioma(relativa: Path) -> tuple[str, str]:
     return _PAGINA_DE_RUTA.get(clave, clave), idioma
 
 
+def bloque_correo(idioma: str, url: str, texto_actual: str) -> str:
+    """El bloque del teléfono para pedir el enlace por correo: sin ``url`` es el párrafo de siempre (``texto_actual``); con ella, el
+    formulario con los textos de ``idioma``. Lanza ValueError si la dirección no es https o el idioma no tiene textos."""
+    if not url:
+        return f'<p class="movil-txt">{texto_actual}</p>'
+    if not url.startswith("https://") or len(url) > MAX_ENLACE or any(c in url for c in ' "<>\r\n'):
+        raise ValueError(f"URL_ENLACE_CORREO no es una dirección https válida: {url!r}")
+    t = {k: html.escape(v, quote=True) for k, v in TEXTOS_CORREO[idioma].items()}
+    return (f'<form class="movil-correo" data-correo-url="{html.escape(url, quote=True)}" data-idioma="{idioma}" '
+            f'data-evento="{{{{EVENTO:correo-movil}}}}" data-ok="{t["ok"]}" data-e-correo="{t["correo"]}" '
+            f'data-e-limite="{t["limite"]}" data-e-red="{t["red"]}" novalidate>\n'
+            f'<p class="movil-txt" id="movil-correo-txt">{t["txt"]}</p>\n'
+            f'<div class="movil-correo-fila"><input aria-labelledby="movil-correo-txt" autocapitalize="off" autocomplete="email" '
+            f'inputmode="email" maxlength="120" name="correo" placeholder="{t["marcador"]}" required type="email"/>'
+            f'<button class="boton prim" type="submit"><span>{t["boton"]}</span></button></div>\n'
+            f'<p class="movil-correo-nota">{t["nota"]}</p>\n'
+            '<p aria-live="polite" class="movil-correo-estado" role="status"></p>\n</form>')
+
+
+def aplicar_correo(fuente: str, relativa: Path, url: str | None = None) -> str:
+    """Resuelve los ``{{CORREO_MOVIL txt="…"}}`` de una portada (ver ``bloque_correo``); el idioma sale de la ruta.
+    Sin ``url`` se usa ``URL_ENLACE_CORREO`` (leída al llamar, para que los tests puedan cambiarla)."""
+    _, idioma = pagina_e_idioma(relativa)
+    url = URL_ENLACE_CORREO if url is None else url
+    return _BLOQUE_CORREO.sub(lambda m: bloque_correo(idioma, url, _atributos(m.group(1))["txt"]), fuente)
+
+
 def aplicar_eventos(fuente: str, relativa: Path) -> str:
     """Resuelve los ``{{EVENTO:tipo[:posicion]}}`` de una página con su nombre de evento (tipo-pagina-idioma[-posicion])."""
     pagina, idioma = pagina_e_idioma(relativa)
@@ -300,7 +353,7 @@ def construir(raiz: Path, destino: Path) -> list[Path]:
     escritas = []
     for relativa in listar_paginas(raiz):
         fuente = _leer(carpeta / CARPETA_PAGINAS / relativa.with_suffix(SUFIJO_PAGINA))
-        pagina = aplicar_eventos(aplicar_enlaces(generar_pagina(carpeta, fuente), enlaces), relativa)
+        pagina = aplicar_eventos(aplicar_correo(aplicar_enlaces(generar_pagina(carpeta, fuente), enlaces), relativa), relativa)
         pagina = aplicar_video_lanzamiento(aplicar_cita(pagina, relativa), relativa, raiz)
         datos = pagina.replace(MARCA_VERSION, version).encode("utf-8")
         salida = destino / relativa

@@ -274,6 +274,17 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 .movil-zip a { color: var(--texto2); text-decoration-color: var(--linea2); text-underline-offset: 3px; }
 .movil-estado { margin: 10px 0 0; font-size: 14px; font-weight: 600; color: var(--oro); overflow-wrap: anywhere; }
 .movil-estado:empty { display: none; }
+/* campo «envíate el enlace por correo» (solo si hay servidor; ML-295): 16 px en el campo para que iOS no amplíe la página al enfocarlo */
+.movil-correo { margin: 0 0 14px; }
+.movil-correo .movil-txt { margin-bottom: 10px; }
+.movil-correo-fila { display: flex; gap: 8px; align-items: stretch; }
+.movil-correo-fila input { flex: 1 1 auto; min-width: 0; font: 16px var(--f-texto); color: var(--texto); background: var(--panel2); border: 1px solid var(--linea2); border-radius: 8px; padding: 10px 12px; }
+.movil-correo-fila input:focus-visible { outline: 2px solid var(--oro); outline-offset: 1px; }
+.movil-caja .movil-correo-fila .boton { width: auto; flex: 0 0 auto; }
+.movil-correo-nota { margin: 8px 0 0; font-size: 13.5px; color: var(--texto2); }
+.movil-correo-estado { margin: 8px 0 0; font-size: 14px; font-weight: 600; color: var(--oro); overflow-wrap: anywhere; }
+.movil-correo-estado.error { color: #ff9b9b; }
+.movil-correo-estado:empty { display: none; }
 
 /* ---------------- Magic Online (2.3) */
 .mtgo-caja { margin-top: 28px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 8px; padding: 28px; }
