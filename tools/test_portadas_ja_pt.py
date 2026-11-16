@@ -48,7 +48,7 @@ class TestPortadasNuevas(unittest.TestCase):
             with self.subTest(c=c):
                 for id_ in ("capturas", "como-funciona", "coaches", "contacto", "apoyo"):
                     self.assertNotIn(f'id="{id_}"', html)
-                self.assertNotIn("aviso-version", html.split("</style>")[1])
+                self.assertEqual(html.split("</style>")[1].count('class="aviso-version"'), 1)   # el aviso de la 3.0 (RED-06)
 
     def test_lang_y_textos_fijados(self):
         for c, ruta in NUEVAS.items():
@@ -101,8 +101,8 @@ class TestPortadasNuevas(unittest.TestCase):
                 faq = [x for x in ld["@graph"] if x["@type"] == "FAQPage"][0]
                 self.assertEqual(faq["inLanguage"], "ja" if c == "ja" else "pt-BR")
                 det = re.findall(r"<details[^>]*><summary>(.*?)</summary>\s*<p>(.*?)</p>", html[html.index('id="preguntas"'):], re.S)
-                self.assertEqual(len(det), 8)
-                self.assertEqual(len(faq["mainEntity"]), 8)
+                self.assertEqual(len(det), 9)
+                self.assertEqual(len(faq["mainEntity"]), 9)
                 for (q, a), e in zip(det, faq["mainEntity"]):
                     self.assertEqual(texto(q), e["name"])
                     self.assertEqual(texto(a), e["acceptedAnswer"]["text"])
@@ -135,6 +135,7 @@ class TestPortadasNuevas(unittest.TestCase):
         marca = {"ja": "（英語）", "pt": "(em inglês)"}
         for c, ruta in NUEVAS.items():
             html = leer(ruta)
+            html = html[html.index("<header"):]   # el aviso de la 3.0 (arriba del todo) lleva el texto aprobado del plan de redes, sin la marca
             with self.subTest(c=c):
                 for m in re.finditer(r'<a [^>]*href="(/safety/|/magic-online/|/novedades/|/privacy/|/#contacto|/coaches/)"[^>]*>(.*?)</a>', html, re.S):
                     self.assertIn(marca[c], texto(m.group(2)), m.group(0)[:120])

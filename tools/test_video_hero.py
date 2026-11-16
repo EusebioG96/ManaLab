@@ -4,11 +4,14 @@
 Uso:  python3 -m unittest tools/test_video_hero.py   (o python3 tools/test_video_hero.py)
 """
 import re
+import sys
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(RAIZ / "tools"))
+import construir_web  # noqa: E402
 HERO = RAIZ / "video" / "hero"
 MAX_BYTES = 1_500_000            # 1,5 MB por archivo (vídeos y pósters)
 PORTADAS = {"en": (RAIZ / "index.html", ""), "es": (RAIZ / "es" / "index.html", "../")}
@@ -84,12 +87,17 @@ class TestPortadas(unittest.TestCase):
                 for attr in ("autoplay", "muted", "loop", "playsinline"):
                     self.assertIn(attr, v, f"falta {attr}")
                 self.assertEqual(v.get("preload"), "metadata")
-                self.assertEqual(v.get("poster"), f"{pre}video/hero/manalab-hero-{idioma}-poster.jpg")
                 self.assertGreater(len(v.get("aria-label", "")), 40, "falta una descripción accesible (aria-label)")
                 self.assertNotRegex(v.get("aria-label", ""), r"(?i)windows")
-                self.assertEqual([(s.get("type"), s.get("src")) for s in h.fuentes],
-                                 [("video/webm", f"{pre}video/hero/manalab-hero-{idioma}.webm"),
-                                  ("video/mp4", f"{pre}video/hero/manalab-hero-{idioma}.mp4")], "primero WebM y luego MP4")
+                if construir_web.hay_video_lanzamiento(RAIZ):   # ML-281: con el vídeo de la 3.0 subido, las portadas lo usan (solo MP4)
+                    self.assertEqual(v.get("poster"), f"{pre}{construir_web.POSTER_LANZAMIENTO}")
+                    self.assertEqual([(s.get("type"), s.get("src")) for s in h.fuentes],
+                                     [("video/mp4", f"{pre}{construir_web.VIDEO_LANZAMIENTO}")])
+                else:
+                    self.assertEqual(v.get("poster"), f"{pre}video/hero/manalab-hero-{idioma}-poster.jpg")
+                    self.assertEqual([(s.get("type"), s.get("src")) for s in h.fuentes],
+                                     [("video/webm", f"{pre}video/hero/manalab-hero-{idioma}.webm"),
+                                      ("video/mp4", f"{pre}video/hero/manalab-hero-{idioma}.mp4")], "primero WebM y luego MP4")
                 for f in [v["poster"]] + [s["src"] for s in h.fuentes]:
                     self.assertTrue((ruta.parent / f).resolve().is_file(), f"{f} no existe")
 

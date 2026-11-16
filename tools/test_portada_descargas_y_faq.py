@@ -231,7 +231,7 @@ class TestPunto6Faq(unittest.TestCase):
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 en_html, en_json = self.faq_html(html), self.faq_json(html)
-                self.assertEqual(len(en_json), 8)
+                self.assertEqual(len(en_json), 9)
                 for q in self.NUEVAS[idioma]:
                     r_html = [a for n, a in en_html if n == q]
                     r_json = [a for n, a in en_json if n == q]

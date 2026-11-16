@@ -266,7 +266,7 @@ class TestPaginaDeNovedades(unittest.TestCase):
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 self.assertEqual(html.count('class="novedad"'), 6)   # las 2 de Arena y Magic Online + las 4 de la 2.2, también las que siguen en la portada
-                self.assertEqual(html.count('class="funcion"'), 6)
+                self.assertEqual(html.count('class="funcion"'), 13)   # 7 de la 3.0 (test_portada_v3) + 6 de la 2.3
                 self.assertIn('class="mtgo-caja"', html)
                 self.assertIn('id="novedades"', html)
                 self.assertIn('id="anteriores"', html)

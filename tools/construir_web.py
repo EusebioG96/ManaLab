@@ -56,6 +56,27 @@ IDIOMAS_RUTA = ("es", "pt", "ja")  # carpetas de idioma; el resto de rutas son i
 _EVENTO = re.compile(r"\{\{EVENTO:([a-z-]+)(?::([a-z0-9]+))?\}\}")
 _PAGINA_DE_RUTA = {"": "portada", "detailed-logs": "logs", "registro-detallado": "logs"}  # lo demás: su carpeta
 
+# Vídeo del lanzamiento de la 3.0 (ML-281). Cuando existan los dos archivos, las cuatro portadas lo usan en el héroe en lugar del vídeo
+# actual (sin tocar plantillas); mientras falte alguno, se queda el de ahora. Para activarlo basta con subir los dos archivos.
+VIDEO_LANZAMIENTO = "video/manalab-3.0.mp4"
+POSTER_LANZAMIENTO = "video/manalab-3.0-poster.jpg"
+PORTADAS_CON_VIDEO = ("index.html", "es/index.html", "pt/index.html", "ja/index.html")
+_POSTER_HERO = re.compile(r"((?:\.\./|/)?)video/hero/manalab-hero-\w+-poster\.jpg")
+_FUENTE_WEBM_HERO = re.compile(r'<source src="(?:\.\./|/)?video/hero/manalab-hero-\w+\.webm" type="video/webm"/>\n')
+_FUENTE_MP4_HERO = re.compile(r"((?:\.\./|/)?)video/hero/manalab-hero-\w+\.mp4")
+
+# Cita de Luis Salvatto junto al botón de descarga de las portadas en inglés y español (ML-281). Interruptor APAGADO: apagado, la cita
+# no existe en el HTML generado (no se oculta con CSS: no se escribe). Para encenderla, ponlo en True y rellena el enlace a su post.
+MOSTRAR_CITA_SALVATTO = False
+ENLACE_CITA_SALVATTO = ""  # https del post de Luis Salvatto; vacío = la firma sale sin enlace
+CITAS_SALVATTO = {
+    "en": ("\u201cI already started to use ManaLab and I really like it.\u201d",
+           "Luis Salvatto, Pro Tour champion and 2017\u201318 Player of the Year"),
+    "es": ("\u00abYa he empezado a usar ManaLab y me gusta mucho.\u00bb",
+           "Luis Salvatto, campe\u00f3n de Pro Tour y Jugador del A\u00f1o 2017-18."),
+}
+_MARCA_CITA = re.compile(r"\{\{CITA_SALVATTO\}\}\n?")  # en la plantilla, en una línea propia
+
 
 def _leer(ruta: Path) -> str:
     """Lee un archivo de texto UTF-8 sin tocar los saltos de línea."""
@@ -227,6 +248,41 @@ def aplicar_eventos(fuente: str, relativa: Path) -> str:
     return _EVENTO.sub(resolver, fuente)
 
 
+def bloque_cita(idioma: str, encendida: bool, enlace: str) -> str:
+    """El HTML de la cita de Luis Salvatto (en o es), o ``""`` si el interruptor está apagado o la página no es en/es."""
+    if not encendida or idioma not in CITAS_SALVATTO:
+        return ""
+    if enlace and not enlace.startswith("https://"):
+        raise ValueError(f"el enlace de la cita no es https: {enlace!r}")
+    frase, firma = CITAS_SALVATTO[idioma]
+    firma = f'<a href="{html.escape(enlace, quote=True)}" rel="noopener" target="_blank">{firma}</a>' if enlace else firma
+    return ('<figure class="cita-hero" style="margin:16px 0 0;max-width:46ch">'
+            f'<blockquote style="margin:0;font-style:italic;color:var(--texto)">{frase}</blockquote>'
+            f'<figcaption style="margin-top:6px;font-size:14px;color:var(--texto2)">{firma}</figcaption></figure>\n')
+
+
+def aplicar_cita(fuente: str, relativa: Path) -> str:
+    """Resuelve la marca ``{{CITA_SALVATTO}}`` de una portada: la cita si el interruptor está encendido y, si no, nada."""
+    _, idioma = pagina_e_idioma(relativa)
+    cita = bloque_cita(idioma, MOSTRAR_CITA_SALVATTO, ENLACE_CITA_SALVATTO)
+    return _MARCA_CITA.sub(lambda _: cita, fuente)
+
+
+def hay_video_lanzamiento(raiz: Path) -> bool:
+    """¿Están el vídeo del lanzamiento y su póster en ``raiz``?"""
+    return (raiz / VIDEO_LANZAMIENTO).is_file() and (raiz / POSTER_LANZAMIENTO).is_file()
+
+
+def aplicar_video_lanzamiento(pagina: str, relativa: Path, raiz: Path) -> str:
+    """En las cuatro portadas, cambia el vídeo y el póster del héroe por los del lanzamiento si existen (y quita la fuente WebM, que
+    solo hay del vídeo actual). Conserva el prefijo de ruta de cada página («», «../» o «/»)."""
+    if relativa.as_posix() not in PORTADAS_CON_VIDEO or not hay_video_lanzamiento(raiz):
+        return pagina
+    pagina = _POSTER_HERO.sub(lambda m: m.group(1) + POSTER_LANZAMIENTO, pagina)
+    pagina = _FUENTE_WEBM_HERO.sub("", pagina)
+    return _FUENTE_MP4_HERO.sub(lambda m: m.group(1) + VIDEO_LANZAMIENTO, pagina)
+
+
 def listar_paginas(raiz: Path) -> list[Path]:
     """Rutas (relativas a la raíz) de los .html que se generan, ordenadas."""
     base = raiz / CARPETA_PLANTILLAS / CARPETA_PAGINAS
@@ -245,6 +301,7 @@ def construir(raiz: Path, destino: Path) -> list[Path]:
     for relativa in listar_paginas(raiz):
         fuente = _leer(carpeta / CARPETA_PAGINAS / relativa.with_suffix(SUFIJO_PAGINA))
         pagina = aplicar_eventos(aplicar_enlaces(generar_pagina(carpeta, fuente), enlaces), relativa)
+        pagina = aplicar_video_lanzamiento(aplicar_cita(pagina, relativa), relativa, raiz)
         datos = pagina.replace(MARCA_VERSION, version).encode("utf-8")
         salida = destino / relativa
         if salida.is_file() and salida.read_bytes() == datos:

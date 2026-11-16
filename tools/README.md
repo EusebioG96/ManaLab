@@ -67,3 +67,17 @@ subir de versión. `tools/test_version_unica.py` falla si alguna página trae un
 ## Comprobaciones
 
 `python3 tools/seo_check.py` y `for t in tools/test_*.py; do python3 "$t"; done`.
+
+### Portada y novedades de la 3.0 (ML-281)
+
+- **Aviso de versión** (`<div class="aviso-version">` arriba de las cuatro portadas): se cambia a mano en `plantillas/paginas/{,es/,pt/,ja/}index.pagina`.
+  pt y ja enlazan a las novedades en inglés (`/novedades/`), porque no hay novedades en su idioma.
+- **Vídeo del lanzamiento**: `tools/construir_web.py` (`VIDEO_LANZAMIENTO`, `POSTER_LANZAMIENTO`). Cuando existan los dos archivos
+  `video/manalab-3.0.mp4` y `video/manalab-3.0-poster.jpg`, las cuatro portadas los usan en el héroe (solo MP4, sin WebM) al regenerar; no hay
+  que tocar plantillas. Mientras falte alguno, se queda el vídeo actual (`video/hero/`). Para activarlo: subir los dos archivos y ejecutar
+  `python3 tools/construir_web.py`.
+- **Cita de Luis Salvatto** (portadas en inglés y español): `MOSTRAR_CITA_SALVATTO` en `tools/construir_web.py`, **apagado**. Apagado no hay
+  ni rastro en el HTML. Para encenderlo: ponerlo en `True`, rellenar `ENLACE_CITA_SALVATTO` con la dirección https de su post (vacío = la
+  firma sale sin enlace) y regenerar.
+- **Conexiones de la app** (`/safety/`, `/es/seguridad/`, `/privacy/`): `tools/test_conexiones_listadas.py` lleva la lista de hosts de la app;
+  si la app habla con un host nuevo, se añade ahí y a las páginas.
