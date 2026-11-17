@@ -80,7 +80,7 @@ _MARCA_CITA = re.compile(r"\{\{CITA_SALVATTO\}\}\n?")  # en la plantilla, en una
 # «Envíame el enlace por correo» en el teléfono (ML-295). El campo lo envía a un servidor propio (Cloudflare Worker, POST /enlace-descarga).
 # Mientras la dirección esté vacía NO se pinta el campo y las portadas se quedan con el bloque de siempre. Cuando el servidor esté
 # desplegado, se pone aquí (https, p. ej. "https://registro-ia.eusebiog76.workers.dev/enlace-descarga") y se regenera la web.
-URL_ENLACE_CORREO = ""
+URL_ENLACE_CORREO = "https://registro-ia.eusebiog76.workers.dev/enlace-descarga"
 # Textos del campo por idioma (W5: no se cambian sin OK de Eusebio; pt y ja, traducidos con el mismo tono y pendientes de su revisión).
 TEXTOS_CORREO = {
     "en": {"txt": "ManaLab runs on your PC. Email yourself the download link.", "boton": "Send", "marcador": "you@example.com",

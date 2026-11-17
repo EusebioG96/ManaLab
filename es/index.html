@@ -669,8 +669,12 @@ html.movil .hero-cta { margin-top: 16px; }
 <p class="nota-descarga">Versión <span data-version>2.3.2</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">otras versiones</a></p>
 <template id="bloque-movil"><div class="movil-caja">
 <h4 class="movil-tit">ManaLab se usa en el ordenador</h4>
-<p class="movil-txt">Envíate el enlace y descárgalo allí.</p>
-<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="compartir-movil-portada-es" data-url="https://manalab.es/es/" type="button"><span>Enviarme el enlace</span></button></p>
+<form class="movil-correo" data-correo-url="https://registro-ia.eusebiog76.workers.dev/enlace-descarga" data-idioma="es" data-evento="correo-movil-portada-es" data-ok="¡Enviado! Revisa tu bandeja de entrada." data-e-correo="Ese correo no parece válido." data-e-limite="Demasiados envíos. Inténtalo de nuevo en unos minutos." data-e-red="No se pudo enviar. Revisa tu conexión e inténtalo de nuevo." novalidate>
+<p class="movil-txt" id="movil-correo-txt">ManaLab funciona en tu PC. Envíate el enlace de descarga por correo.</p>
+<div class="movil-correo-fila"><input aria-labelledby="movil-correo-txt" autocapitalize="off" autocomplete="email" inputmode="email" maxlength="120" name="correo" placeholder="tu@correo.com" required type="email"/><button class="boton prim" type="submit"><span>Enviar</span></button></div>
+<p class="movil-correo-nota">Un solo correo y nada más. No guardamos tu dirección.</p>
+<p aria-live="polite" class="movil-correo-estado" role="status"></p>
+</form>
 <p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.2/ManaLab-2.3.2-portable.zip" download data-descarga data-titulo="descarga-movil-portada-es" rel="noopener">Descargar el ZIP igualmente</a></p>
 <p aria-live="polite" class="movil-estado" role="status"></p>
 </div></template>

@@ -46,13 +46,19 @@ class TestCorreoMovil(unittest.TestCase):
         cls.vacia = _generar("")
         cls.con_url = _generar(URL)
 
-    def test_la_constante_publicada_esta_vacia(self):
-        self.assertEqual(construir_web.URL_ENLACE_CORREO, "")
+    def test_la_constante_publicada_es_la_del_servidor_desplegado(self):
+        self.assertEqual(construir_web.URL_ENLACE_CORREO, URL)   # ML-304: el servidor ya está desplegado
+
+    def test_lo_publicado_en_las_portadas_es_lo_que_genera_la_constante(self):
+        for idioma, ruta in PORTADAS.items():
+            with self.subTest(idioma=idioma):
+                self.assertEqual((self.con_url / ruta).read_bytes(), (RAIZ / ruta).read_bytes())   # web regenerada tras poner la URL
+                self.assertIn('data-correo-url="%s"' % URL, (RAIZ / ruta).read_text(encoding="utf-8"))
 
     def test_con_la_constante_vacia_no_hay_campo_y_queda_el_bloque_de_hoy(self):
         for idioma, ruta in PORTADAS.items():
-            for base in (self.vacia, RAIZ):  # el generado y lo publicado en el repositorio
-                with self.subTest(idioma=idioma, base=base == RAIZ):
+            for base in (self.vacia,):  # el generado con la constante vacía (lo publicado lleva ya la URL: ML-304)
+                with self.subTest(idioma=idioma):
                     html = (base / ruta).read_text(encoding="utf-8")
                     self.assertNotIn("<form", _plantilla(html))
                     self.assertNotIn('class="movil-correo', html.replace("movil-correo-", "").replace(".movil-correo", ""))

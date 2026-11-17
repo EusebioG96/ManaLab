@@ -609,8 +609,12 @@ html.movil .hero-cta { margin-top: 16px; }
 <p class="nota-descarga">バージョン <span data-version>2.3.2</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">他のバージョン</a></p>
 <template id="bloque-movil"><div class="movil-caja">
 <h4 class="movil-tit">ManaLabはパソコンで使います</h4>
-<p class="movil-txt">自分にリンクを送って、パソコンでダウンロードしてください。</p>
-<p><button class="boton prim" data-compartir data-copiado="リンクをコピーしました" data-titulo="compartir-movil-portada-ja" data-url="https://manalab.es/ja/" type="button"><span>リンクを自分に送る</span></button></p>
+<form class="movil-correo" data-correo-url="https://registro-ia.eusebiog76.workers.dev/enlace-descarga" data-idioma="ja" data-evento="correo-movil-portada-ja" data-ok="送信しました。受信トレイをご確認ください。" data-e-correo="メールアドレスが正しくないようです。" data-e-limite="送信回数が多すぎます。数分後にもう一度お試しください。" data-e-red="送信できませんでした。接続を確認して、もう一度お試しください。" novalidate>
+<p class="movil-txt" id="movil-correo-txt">ManaLabはPCで動きます。ダウンロードリンクをメールで送りましょう。</p>
+<div class="movil-correo-fila"><input aria-labelledby="movil-correo-txt" autocapitalize="off" autocomplete="email" inputmode="email" maxlength="120" name="correo" placeholder="you@example.com" required type="email"/><button class="boton prim" type="submit"><span>送信</span></button></div>
+<p class="movil-correo-nota">メールは1通だけ送ります。アドレスは保存しません。</p>
+<p aria-live="polite" class="movil-correo-estado" role="status"></p>
+</form>
 <p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.2/ManaLab-2.3.2-portable.zip" download data-descarga data-titulo="descarga-movil-portada-ja" rel="noopener">それでもZIPをダウンロード</a></p>
 <p aria-live="polite" class="movil-estado" role="status"></p>
 </div></template>

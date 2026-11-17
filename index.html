@@ -670,8 +670,12 @@ html.movil .hero-cta { margin-top: 16px; }
 <p class="nota-descarga">Version <span data-version>2.3.2</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">other versions</a></p>
 <template id="bloque-movil"><div class="movil-caja">
 <h4 class="movil-tit">ManaLab runs on your computer</h4>
-<p class="movil-txt">Send yourself the link and download it there.</p>
-<p><button class="boton prim" data-compartir data-copiado="Link copied" data-titulo="compartir-movil-portada-en" data-url="https://manalab.es/" type="button"><span>Send me the link</span></button></p>
+<form class="movil-correo" data-correo-url="https://registro-ia.eusebiog76.workers.dev/enlace-descarga" data-idioma="en" data-evento="correo-movil-portada-en" data-ok="Sent! Check your inbox." data-e-correo="That email address doesn&#x27;t look right." data-e-limite="Too many requests. Try again in a few minutes." data-e-red="Couldn&#x27;t send it. Check your connection and try again." novalidate>
+<p class="movil-txt" id="movil-correo-txt">ManaLab runs on your PC. Email yourself the download link.</p>
+<div class="movil-correo-fila"><input aria-labelledby="movil-correo-txt" autocapitalize="off" autocomplete="email" inputmode="email" maxlength="120" name="correo" placeholder="you@example.com" required type="email"/><button class="boton prim" type="submit"><span>Send</span></button></div>
+<p class="movil-correo-nota">One email, nothing else. We don&#x27;t keep your address.</p>
+<p aria-live="polite" class="movil-correo-estado" role="status"></p>
+</form>
 <p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v2.3.2/ManaLab-2.3.2-portable.zip" download data-descarga data-titulo="descarga-movil-portada-en" rel="noopener">Download the ZIP anyway</a></p>
 <p aria-live="polite" class="movil-estado" role="status"></p>
 </div></template>
