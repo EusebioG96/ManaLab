@@ -62,6 +62,21 @@ class TestConexionesListadas(unittest.TestCase):
         for idioma in PAGINAS:
             self.assertIn("mdn.metafy.gg", leer(idioma))
 
+    def test_las_cifras_de_los_destacados_se_listan_en_seguridad_y_privacidad(self):
+        """ML-333: la app y la web envían a workers.dev las cifras de los creadores destacados; lo dicen seguridad (es/en) y privacidad (es/en)."""
+        frases = {"en": "send a ManaLab server (<code>workers.dev</code>), at most once an hour, the figures of the featured creators",
+                  "es": "a un servidor de ManaLab (<code>workers.dev</code>), como mucho una vez por hora, las cifras de los creadores destacados"}
+        for idioma, frase in frases.items():
+            seccion = leer(idioma)
+            seccion = seccion[seccion.index('id="conexiones"'):seccion.index('id="comprobar"')]
+            with self.subTest(idioma=idioma):
+                self.assertIn(frase, seccion)
+        privacidad = leer_privacidad()
+        self.assertIn("<strong>Cifras de los creadores destacados:</strong>", privacidad)
+        self.assertIn("<strong>Featured creator figures:</strong>", privacidad)
+        self.assertIn("el servidor no guarda tu IP", privacidad)
+        self.assertIn("the server does not store your IP", privacidad)
+
     def test_no_hay_inicio_de_sesion_con_metafy(self):
         for idioma in PAGINAS:
             seccion = leer(idioma).lower()
