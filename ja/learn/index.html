@@ -96,6 +96,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .cab .menu-caja nav { display: grid; gap: 0; }
 .cab nav a { color: var(--texto2); text-decoration: none; font-size: 15px; }
 .cab nav a:hover { color: var(--texto); }
+/* ML-326: entre el menú de teléfono (900 px) y 1080 px la fila de escritorio de es/en/pt no cabía y desplazaba la página; se aprietan los huecos */
+@media (min-width: 901px) and (max-width: 1079px) { .cab .envoltura { gap: 18px 12px; } .cab nav { gap: 12px; } .cab nav a { font-size: 14px; } .cab .idioma { padding-inline: 8px; } }
 .idioma { border: 1px solid var(--linea2); background: none; color: var(--texto2); border-radius: 4px; min-height: 34px; padding: 0 12px; font: 500 13px var(--f-mono); letter-spacing: 0; cursor: pointer; }
 .idioma:hover { color: var(--texto); border-color: var(--apagado); }
 .boton { display: inline-flex; align-items: center; gap: 10px; border-radius: 4px; min-height: 40px; padding: 0 18px; font: 500 14px var(--f-texto); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .15s, transform .1s; white-space: nowrap; }
