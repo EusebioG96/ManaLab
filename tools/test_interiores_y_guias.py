@@ -104,7 +104,7 @@ class TestInclinacion(unittest.TestCase):
 
 
 class TestHojasInterioresSinRestosViejos(unittest.TestCase):
-    HOJAS = ["css_seguridad.tpl", "css_privacidad.tpl", "css_sorteo.tpl", "css_guia.tpl"]
+    HOJAS = ["css_seguridad.tpl", "css_privacidad.tpl", "css_guia.tpl"]
 
     def test_las_hojas_interiores_no_traen_fuentes_ni_colores_viejos(self):
         for hoja in self.HOJAS:
@@ -113,7 +113,7 @@ class TestHojasInterioresSinRestosViejos(unittest.TestCase):
                     self.assertIsNone(re.search(patron, leer(hoja), re.I))
 
     def test_las_paginas_con_hoja_propia_usan_las_fuentes_nuevas(self):
-        for hoja in ("css_privacidad.tpl", "css_sorteo.tpl", "css_guia.tpl"):
+        for hoja in ("css_privacidad.tpl", "css_guia.tpl"):
             t = leer(hoja)
             self.assertEqual(len(re.findall(r"@font-face", t)), 12, hoja)
             self.assertIn('"Marcellus"', t)
@@ -124,12 +124,11 @@ class TestHojasInterioresSinRestosViejos(unittest.TestCase):
             if "anuncio" not in f.parts:
                 self.assertNotIn("0d0304", f.read_text(encoding="utf-8"), f)
 
-    def test_privacidad_y_sorteo_son_una_columna_de_68_caracteres_con_rombo(self):
-        for hoja in ("css_privacidad.tpl", "css_sorteo.tpl"):
-            t = leer(hoja)
-            self.assertIn("max-width: 68ch", t)
-            self.assertIn("rotate(45deg)", t)
-            self.assertIn(".idiomas a[aria-current] { background: var(--hueso)", t)
+    def test_privacidad_es_una_columna_de_68_caracteres_con_rombo(self):
+        t = leer("css_privacidad.tpl")
+        self.assertIn("max-width: 68ch", t)
+        self.assertIn("rotate(45deg)", t)
+        self.assertIn(".idiomas a[aria-current] { background: var(--hueso)", t)
 
     def test_seguridad_sin_caja_con_rombo_y_disco_hueso(self):
         t = leer("css_seguridad.tpl")

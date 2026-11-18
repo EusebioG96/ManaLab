@@ -10,7 +10,7 @@ Los `.html` del repositorio **no se editan a mano**: salen de `plantillas/` con 
 | Contenido de cada página (cabecera `<head>`, texto, scripts) | `plantillas/paginas/<ruta>.pagina`, que se publica en `<ruta>.html` |
 | Cabecera de la web (`cabecera_en`, `_es`, `_pt`, `_ja`, `_guia`) | `plantillas/cabecera_<idioma>.tpl` |
 | Pie de la web (`pie_en`, `_es`, `_pt`, `_ja`, `_guia`) | `plantillas/pie_<idioma>.tpl` |
-| CSS (`css_sitio`, `css_seguridad`, `css_guia`, `css_sorteo`, `css_privacidad`) | `plantillas/css_<grupo>.tpl` |
+| CSS (`css_sitio`, `css_seguridad`, `css_guia`, `css_privacidad`) | `plantillas/css_<grupo>.tpl` |
 
 Una página inserta una plantilla con `{{> pie_es}}`. Si las páginas de un mismo grupo difieren en alguna
 parte (por ejemplo, el enlace de «Preguntas» del pie, o una regla de CSS propia de la portada), esa parte es un

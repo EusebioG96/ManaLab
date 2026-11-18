@@ -252,11 +252,8 @@ class TestPunto6Faq(unittest.TestCase):
                     self.assertTrue(en_html[q].replace("&#x27;", "'").startswith(a), q)
 
 
-class TestPunto7SorteoYSitemap(unittest.TestCase):
-    def test_sorteo_noindex_y_fuera_del_sitemap(self):
-        for ruta in (RAIZ / "sorteo" / "index.html", RAIZ / "sorteo" / "en" / "index.html"):
-            with self.subTest(pagina=str(ruta.relative_to(RAIZ))):
-                self.assertIn('<meta name="robots" content="noindex, follow">', leer(ruta))
+class TestPunto7Sitemap(unittest.TestCase):
+    def test_sitemap_sin_rutas_de_sorteo(self):
         sitemap = leer(RAIZ / "sitemap.xml")
         self.assertNotIn("/sorteo", sitemap)
         self.assertEqual(sitemap.count("<loc>"), 27)   # 19 + novedades (ML-153) + las portadas ja y pt (ML-156) + 4 páginas de búsquedas (ML-157)

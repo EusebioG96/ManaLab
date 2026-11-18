@@ -8,8 +8,6 @@ import unittest
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
-# El sorteo es un texto legal con el valor del premio en euros: no es el precio de la suscripción.
-EXENTAS = ("sorteo",)
 PRECIO_VIEJO = re.compile(r"5[\s  ]*(€|euros?\b|EUR\b|ユーロ|유로|欧元)|€[\s  ]*5\b|月額5", re.I)
 # formato del precio por idioma (guía) y la frase donde debe aparecer
 PRECIO_POR_IDIOMA = {"es": "6 $ al mes", "en": "$6 per month", "pt": "US$ 6 por mês", "fr": "6 $ par mois",
@@ -17,7 +15,7 @@ PRECIO_POR_IDIOMA = {"es": "6 $ al mes", "en": "$6 per month", "pt": "US$ 6 por 
 
 
 def _paginas():
-    return [p for p in RAIZ.rglob("*.html") if ".git" not in p.parts and p.relative_to(RAIZ).parts[0] not in EXENTAS]
+    return [p for p in RAIZ.rglob("*.html") if ".git" not in p.parts]
 
 
 class TestPrecioDeLaIa(unittest.TestCase):
