@@ -145,7 +145,7 @@ class TestPaginasConAnuncio(unittest.TestCase):
                     self.assertEqual(etiqueta, ETIQUETA[idioma])
                     self.assertIn(f'<span class="hm-eti" aria-hidden="true">{ETIQUETA[idioma]}</span>', cuerpo)
                     self.assertIn('class="hm-caja" data-mdn="auto" data-mdn-theme="dark"', cuerpo)
-                    self.assertIn(f'<a class="hm-casa" href="{RUTA_LEARN[idioma]}">', cuerpo)   # el anuncio de casa lleva a Learn en su idioma
+                    self.assertRegex(cuerpo, rf'<a class="hm-casa" href="{RUTA_LEARN[idioma]}" data-goatcounter-click=')   # el anuncio de casa lleva a Learn en su idioma
 
     def test_ninguno_antes_del_boton_de_descarga_ni_dentro_de_la_primera_seccion(self):
         for ruta in CON_ANUNCIO:
@@ -253,6 +253,36 @@ class TestTextosDePrivacidadYSeguridad(unittest.TestCase):
         self.assertIn("ManaLab sets no cookies on this website.", html)
 
 
+class TestEventoDelAnuncioDeCasa(unittest.TestCase):
+    """ML-329: el clic en el anuncio de casa (el que lleva a Learn cuando MDN no pone nada) cuenta como evento en GoatCounter, con nombre
+    propio por página, idioma y posición del hueco, como los botones de descarga."""
+    PATRON = re.compile(r"anuncio-casa-(portada|coaches|magic-online|overlay|logs|novedades|learn)-(en|es|pt|ja)-([12])")
+
+    def test_cada_anuncio_de_casa_lleva_un_evento_unico_de_su_pagina_e_idioma(self):
+        for ruta in CON_ANUNCIO:
+            html = leer(ruta)
+            enlaces = re.findall(r'<a class="hm-casa"[^>]*>', html)
+            with self.subTest(ruta):
+                self.assertEqual(len(enlaces), CON_ANUNCIO[ruta])
+                nombres = [re.search(r'data-goatcounter-click="([^"]*)"', e) for e in enlaces]
+                self.assertTrue(all(nombres), "un anuncio de casa sin evento de clic")
+                nombres = [n.group(1) for n in nombres]
+                self.assertEqual(len(set(nombres)), len(nombres), "dos huecos de la misma página con el mismo evento")
+                for nombre in nombres:
+                    self.assertRegex(nombre, self.PATRON)
+                    self.assertEqual(nombre.split("-")[-2], idioma_de(ruta), "el evento no dice el idioma de la página")
+                self.assertTrue(all(f'data-goatcounter-title="{n}"' in html for n in nombres))
+
+    def test_las_paginas_con_hueco_cargan_el_contador_de_goatcounter(self):
+        for ruta in CON_ANUNCIO:
+            with self.subTest(ruta):
+                self.assertIn("gc.zgo.at/count.js", leer(ruta))
+
+    def test_los_eventos_no_se_repiten_en_toda_la_web(self):
+        todos = [n for ruta in CON_ANUNCIO for n in re.findall(r'<a class="hm-casa"[^>]*data-goatcounter-click="([^"]*)"', leer(ruta))]
+        self.assertEqual(len(set(todos)), len(todos))
+
+
 class TestAltoReservado(unittest.TestCase):
     """El alto de cada hueco está escrito en la hoja de estilos (así no salta al llegar el anuncio); el navegador lo mide en el otro archivo."""
     CSS = (RAIZ / "plantillas" / "css_sitio.tpl").read_text(encoding="utf-8")
@@ -287,7 +317,8 @@ class TestGenerador(unittest.TestCase):
         self.assertEqual(salida.count("embed.js"), 1)
         self.assertEqual(salida.count("huecos_mdn.js"), 1)
         self.assertEqual(salida.count("<aside"), 2)
-        self.assertNotIn("{{", salida)
+        self.assertNotIn("{{HUECO_MDN", salida)
+        self.assertEqual(re.findall(r"\{\{EVENTO:[^}]*\}\}", salida)[::2], ["{{EVENTO:anuncio-casa:1}}", "{{EVENTO:anuncio-casa:2}}"])  # construir_web los completa
 
     def test_textos_de_los_cuatro_idiomas(self):
         self.assertEqual({i: t["pub"] for i, t in construir_mdn.TEXTOS.items()}, ETIQUETA)

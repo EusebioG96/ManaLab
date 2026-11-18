@@ -55,7 +55,7 @@ _PARAMETRO = re.compile(r'(\w+)="([^"]*)"')
 
 # {{EVENTO:tipo}} o {{EVENTO:tipo:posicion}}: nombre del evento de GoatCounter de un botón (ML-280).
 # Esquema único: <tipo>-<pagina>-<idioma>[-<posicion>]; página e idioma salen de la ruta de la página que se genera.
-TIPOS_EVENTO = ("descarga", "descarga-movil", "compartir-movil", "correo-movil")
+TIPOS_EVENTO = ("descarga", "descarga-movil", "compartir-movil", "correo-movil", "anuncio-casa")
 IDIOMAS_RUTA = ("es", "pt", "ja")  # carpetas de idioma; el resto de rutas son inglés
 _EVENTO = re.compile(r"\{\{EVENTO:([a-z-]+)(?::([a-z0-9]+))?\}\}")
 _PAGINA_DE_RUTA = {"": "portada", "detailed-logs": "logs", "registro-detallado": "logs", "aprender": "learn"}  # lo demás: su carpeta
@@ -364,9 +364,9 @@ def construir(raiz: Path, destino: Path) -> list[Path]:
     for relativa in listar_paginas(raiz):
         fuente = _leer(carpeta / CARPETA_PAGINAS / relativa.with_suffix(SUFIJO_PAGINA))
         expandida = aplicar_learn(generar_pagina(carpeta, fuente), pagina_e_idioma(relativa)[1], raiz)   # ML-324: páginas Learn
-        pagina = aplicar_eventos(aplicar_correo(aplicar_enlaces(expandida, enlaces), relativa), relativa)
-        pagina = aplicar_video_lanzamiento(aplicar_cita(pagina, relativa), relativa, raiz)
-        pagina = aplicar_mdn(pagina, relativa, pagina_e_idioma(relativa)[1])   # ML-325: huecos de anuncio de MDN
+        pagina = aplicar_correo(aplicar_enlaces(expandida, enlaces), relativa)
+        pagina = aplicar_mdn(pagina, relativa, pagina_e_idioma(relativa)[1])   # ML-325: huecos de anuncio de MDN (antes de los eventos: el anuncio de casa lleva el suyo)
+        pagina = aplicar_video_lanzamiento(aplicar_cita(aplicar_eventos(pagina, relativa), relativa), relativa, raiz)
         datos = pagina.replace(MARCA_VERSION, version).encode("utf-8")
         salida = destino / relativa
         if salida.is_file() and salida.read_bytes() == datos:

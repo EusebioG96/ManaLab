@@ -234,6 +234,11 @@
     copia.classList.add("suelto"); copia.removeAttribute("data-propio");
     var caja = copia.querySelector(".hm-caja");
     if (caja) { caja.removeAttribute("data-mdn-state"); caja.removeAttribute("style"); }
+    // el de la rejilla es el hueco 1 y el del paginador el 2: la copia no repite el evento de GoatCounter del anuncio de casa (ML-329)
+    Array.prototype.forEach.call(copia.querySelectorAll("[data-goatcounter-click]"), function (e) {
+      e.setAttribute("data-goatcounter-click", e.getAttribute("data-goatcounter-click").replace(/-2$/, "-1"));
+      e.setAttribute("data-goatcounter-title", e.getAttribute("data-goatcounter-title").replace(/-2$/, "-1"));
+    });
     return copia;
   }
   function apartarHueco() { if (huecoRejilla && huecoRejilla.parentNode) huecoRejilla.remove(); }

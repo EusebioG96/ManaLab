@@ -16,6 +16,7 @@ SCRIPT_MDN = "https://mdn.metafy.gg/embed.js"   # formatos leídos del propio sc
 SITIO_MDN = "mdn_obNMYPWbbmMClWCpy3Pss6JY"      # la misma clave que usa manalab.es/anuncio/ (el hueco de la app)
 SCRIPT_HUECOS = "/huecos_mdn.js"                # lo propio: enseña el anuncio de casa si MDN no llega
 PLAZO_MDN_MS = 6000                             # sin respuesta de MDN en este plazo se enseña el anuncio de casa (MDN abandona a los 4 s)
+EVENTO_CASA = "anuncio-casa"                    # tipo del evento de GoatCounter del clic en el anuncio de casa (nombre completo: anuncio-casa-<página>-<idioma>-<1|2>)
 MAX_HUECOS = 2                                  # por página (WEB-09, punto 4)
 # Páginas sin anuncio (WEB-09, punto 6): las guías, privacidad, seguridad, la 404 y /anuncio/ (que carga el script a su manera).
 PAGINAS_SIN_ANUNCIO = ("404.html", "anuncio/index.html", "privacy/index.html", "safety/index.html", "es/seguridad/index.html")
@@ -42,15 +43,17 @@ def sin_anuncio(relativa: Path) -> bool:
     return ruta in PAGINAS_SIN_ANUNCIO or ruta.startswith(PREFIJO_SIN_ANUNCIO)
 
 
-def html_hueco(idioma: str, suelto: bool = False) -> str:
+def html_hueco(idioma: str, suelto: bool = False, posicion: int = 1) -> str:
     """El ``<aside>`` de un hueco en ``idioma`` (es, en, pt, ja). ``suelto``: dentro de la rejilla de Learn, sin bordes ni salto de línea
-    detrás (en la rejilla un salto sería un nodo de texto que el repintado de learn.js no espera).
+    detrás (en la rejilla un salto sería un nodo de texto que el repintado de learn.js no espera). ``posicion``: 1 o 2, el orden del
+    hueco en la página; da nombre al evento de GoatCounter del anuncio de casa (``{{EVENTO:anuncio-casa:N}}``, que completa construir_web).
 
     Lleva dentro el anuncio de casa (un enlace a Learn); la hoja de estilos lo oculta salvo que MDN marque ``data-mdn-state="empty"``,
     que ``/huecos_mdn.js`` lo pida por plazo agotado o que la página se vea sin JavaScript.
     """
     t = {clave: html.escape(valor, quote=True) for clave, valor in TEXTOS[idioma].items()}
-    casa = (f'<a class="hm-casa" href="{t["ruta"]}"><span class="hm-t"><strong>{t["casa_b"]}</strong><span>{t["casa_s"]}</span></span>'
+    evento = f"{{{{EVENTO:{EVENTO_CASA}:{posicion}}}}}"
+    casa = (f'<a class="hm-casa" href="{t["ruta"]}" data-goatcounter-click="{evento}" data-goatcounter-title="{evento}"><span class="hm-t"><strong>{t["casa_b"]}</strong><span>{t["casa_s"]}</span></span>'
             f'<em>{t["casa_e"]}</em></a>')
     clase = "hueco-mdn suelto" if suelto else "hueco-mdn"
     return (f'<aside class="{clase}" aria-label="{t["pub"]}"><span class="hm-eti" aria-hidden="true">{t["pub"]}</span>'
@@ -79,5 +82,6 @@ def aplicar_mdn(pagina: str, relativa: Path, idioma: str) -> str:
         raise ValueError(f"{nombre}: {len(marcas)} huecos de anuncio; como mucho {MAX_HUECOS}")
     if pagina.count("</body>") != 1:
         raise ValueError(f"{nombre}: no tiene un único </body> donde poner el script de MDN")
-    pagina = _MARCA.sub(lambda m: html_hueco(idioma, suelto=bool(m.group(1))), pagina)
+    posiciones = iter(range(1, MAX_HUECOS + 1))
+    pagina = _MARCA.sub(lambda m: html_hueco(idioma, suelto=bool(m.group(1)), posicion=next(posiciones)), pagina)
     return pagina.replace("</body>", html_scripts() + "</body>")
