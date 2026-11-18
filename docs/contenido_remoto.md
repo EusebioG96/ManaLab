@@ -23,6 +23,9 @@ Contenido inicial:
   - `enlace`: su perfil en Metafy. Empieza por `https://`, es de `metafy.gg` o un subdominio, sin usuario, contraseña ni puerto, y tiene 300 caracteres como máximo.
   - `foto`: opcional. Ver «Fotos» más abajo.
 - `destacados`: los creadores que pagan y **la única lista que se ve en la app** (pantalla Aprender). Opcional. Máximo 10; los de más se ignoran. Cada uno lleva lo mismo que un coach (`nombre`, `linea`, `enlace`, `foto`) y, además, tres enlaces opcionales a Metafy con las mismas reglas que `enlace`: `academia`, `guias` y `sesiones`. Un enlace vacío (`""`) o ausente es «no hay».
+  - `frase`: opcional. Una frase del creador sobre lo que ofrece, en el idioma en que la escriba (no se traduce). Texto plano de 140 caracteres como máximo, sin caracteres de control ni invisibles. Sin frase (o si no vale), el banner sale sin ella.
+  - `fondo`: opcional. Una imagen suya para el banner de «Aprender» (WebP de 1200×430 px, 120 kB como máximo; súbela a `coaches/fondos/<nombre>.webp`). Mismas reglas que `foto`: `https` de `manalab.es`, ruta terminada en `.webp`, `.png` o `.jpg`, sin parámetros. Sin fondo (o si no vale), sale el abanico de cartas.
+  - La web también los usa (página «Learn»): `tools/construir_web.py` escribe el primero en el HTML al generarse y `learn/learn.js` rota todos cada 8 segundos. Con `destacados` vacío, la página no lleva banner ni barra fina. Cambiar la lista exige regenerar la web (`python3 tools/construir_web.py`) y publicarla.
   - Con un solo destacado no hay contador ni rotación.
   - Con varios, rotan cada 8 segundos y el primero cambia en cada apertura de la app.
 - Los textos (`nombre`, `linea`) no pueden llevar caracteres de control, invisibles (ancho cero, por ejemplo) ni marcas que inviertan el sentido del texto. Los enlaces no pueden llevar comillas, ángulos (`<` `>`) ni barra invertida.

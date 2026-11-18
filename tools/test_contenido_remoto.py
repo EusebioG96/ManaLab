@@ -33,6 +33,7 @@ PROHIBIDOS_ENLACE = frozenset("\"'<>\\")  # PROHIBIDOS_ENLACE de la app: comilla
 HOST = re.compile(r"[a-z0-9.-]+")  # HOST de la app
 BIDI = frozenset(chr(c) for c in (*range(0x202A, 0x202F), *range(0x2066, 0x206A), 0x200E, 0x200F, 0x061C))  # BIDI de la app
 EXTRAS_DESTACADO = ("academia", "guias", "sesiones")  # enlaces opcionales de un destacado
+MAX_FRASE = 140  # ML-324 (VIS-23): caracteres de la frase del creador; texto plano
 
 
 def _host_valido(host):
@@ -92,7 +93,7 @@ def _foto_valida(valor):
     return not u.query and not u.fragment and u.path.lower().endswith(EXTENSIONES_FOTO)
 
 
-def _problemas_perfil(e, extras):
+def _problemas_perfil(e, extras):  # `extras` no vacío = es un destacado: además admite frase y fondo
     if not isinstance(e, dict):
         return ["no es un objeto"]
     p = []
@@ -107,6 +108,11 @@ def _problemas_perfil(e, extras):
     for c in extras:
         if e.get(c) not in (None, "") and not _enlace_https(e[c], DOMINIOS_METAFY):
             p.append("%s no válido" % c)
+    if extras:
+        if e.get("frase") not in (None, "") and not _texto_valido(e["frase"], MAX_FRASE):
+            p.append("frase no válida")  # la app enseña el destacado sin frase, pero en el archivo publicado no debe haberla mala
+        if e.get("fondo") not in (None, "") and not _foto_valida(e["fondo"]):
+            p.append("fondo no válido")  # mismas reglas que la foto: https de manalab.es, .webp/.png/.jpg, sin parámetros
     return p
 
 
@@ -274,6 +280,18 @@ class ContenidoRemotoTest(unittest.TestCase):
             self.assertNotEqual(validar(_con(coaches=[malo]), 100), [], malo)
         self.assertNotEqual(validar(_con(coaches=[coach] * 101), 100), [])
         self.assertNotEqual(validar(_con(coaches="x"), 100), [])
+
+    def test_destacados_con_frase_y_fondo(self):
+        """ML-324: `frase` (texto de 140 como mucho) y `fondo` (imagen de manalab.es) son opcionales en un destacado y se validan."""
+        d = {"nombre": "Marta", "linea": "Standard", "enlace": "https://metafy.gg/@m"}
+        buenos = dict(d, frase="Te enseño a jugar contra el meta.", fondo="https://manalab.es/coaches/fondos/marta.webp")
+        self.assertEqual(validar(_con(destacados=[buenos, dict(d, frase="", fondo=None), dict(d, frase="f" * MAX_FRASE)]), 100), [])
+        for malo in ({"frase": "f" * (MAX_FRASE + 1)}, {"frase": "a\u200bb"}, {"frase": "a\nb"}, {"frase": 5},
+                     {"fondo": "https://evil.com/f.webp"}, {"fondo": "http://manalab.es/f.webp"}, {"fondo": "https://manalab.es/f.gif"},
+                     {"fondo": "https://manalab.es/f.webp?x=1"}, {"fondo": "https://manalab.es:8443/f.webp"}):
+            self.assertNotEqual(validar(_con(destacados=[dict(d, **malo)]), 100), [], malo)
+        # en un coach (que la app 3.0 no enseña) no se comprueban: no son campos suyos
+        self.assertEqual(validar(_con(coaches=[dict(d, frase="f" * 500)]), 100), [])
 
     def test_rechaza_destacados_malos(self):
         d = {"nombre": "Marta", "linea": "Standard", "enlace": "https://metafy.gg/@m"}
