@@ -5,6 +5,6 @@ html.movil .hero-cta .boton { display: none; }
 @media (scripting: enabled) and (max-width: 767px) and (pointer: coarse) {
   .aviso-version, .hero-cta .boton { display: none; }
   .hero-cta { margin-top: 16px; }
-  [data-movil-aqui]:empty { min-height: 232px; margin-top: 14px; }
+  .portada p.sub + div:empty { min-height: 232px; margin-top: 14px; }
 }
-@media (scripting: enabled) and (max-width: 480px) and (pointer: coarse) { [data-movil-aqui]:empty { min-height: 300px; } }
+@media (scripting: enabled) and (max-width: 480px) and (pointer: coarse) { .portada p.sub + div:empty { min-height: 300px; } }
