@@ -62,6 +62,8 @@ def construir_temporal(raiz_temporal: Path, con_video: bool) -> Path:
     shutil.copytree(RAIZ / "plantillas", raiz_temporal / "plantillas")
     for nombre in ("version.json", "contenido.json"):
         shutil.copy(RAIZ / nombre, raiz_temporal / nombre)
+    (raiz_temporal / "learn").mkdir()   # las páginas Learn llevan la primera página de guías de esta copia (ML-324)
+    shutil.copy(RAIZ / "learn" / "guias.json", raiz_temporal / "learn" / "guias.json")
     if con_video:
         (raiz_temporal / "video").mkdir()
         (raiz_temporal / construir_web.VIDEO_LANZAMIENTO).write_bytes(b"x")

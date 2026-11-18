@@ -73,13 +73,14 @@ class TestOrdenDeLaPortada(unittest.TestCase):
                 self.assertNotIn("<h3>", ia)
 
     def test_menu(self):
-        esperado = {"en": ["#funciones", "#mtgo", "#coaches", "#empezar", "#preguntas", "#ia"], "es": ["#funciones", "#mtgo", "#coaches", "#empezar", "#preguntas", "#ia"]}
+        esperado = {"en": ["#funciones", "#mtgo", "#coaches", "#empezar", "#preguntas", "#ia", "/learn/"],
+                    "es": ["#funciones", "#mtgo", "#coaches", "#empezar", "#preguntas", "#ia", "/es/aprender/"]}   # ML-324: el último lleva a Learn
         for idioma, ruta in PORTADAS.items():
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 nav = re.search(r'<nav aria-label="Secciones">(.*?)</nav>', html, re.S).group(1)
                 self.assertEqual(re.findall(r'href="([^"]*)"', nav), esperado[idioma])
-                for id_ in esperado[idioma]:
+                for id_ in (e for e in esperado[idioma] if e.startswith("#")):
                     self.assertIn(f'id="{id_[1:]}"', html)
 
 
@@ -251,7 +252,7 @@ class TestPaginaDeNovedades(unittest.TestCase):
                 self.assertIn("https://manalab.es/img/og.jpg", html)
                 self.assertEqual(html.count("<h1>"), 1)
                 self.assertIn(f"<loc>{URL[idioma]}</loc>", sitemap)
-        self.assertEqual(sitemap.count("<loc>"), 27)
+        self.assertEqual(sitemap.count("<loc>"), 31)   # + 4 páginas Learn (ML-324)
 
     def test_titulos_descripciones_y_h1(self):
         esperado = {"en": ("What&#x27;s new in ManaLab 3.0 · Release notes", "What&#x27;s new in ManaLab"),

@@ -74,7 +74,7 @@ class TestPaginas(unittest.TestCase):
 
     def test_sitemap_con_las_cuatro_urls_y_sus_alternates(self):
         sm = leer("sitemap.xml")
-        self.assertEqual(sm.count("<url>"), 27)
+        self.assertEqual(sm.count("<url>"), 31)   # + 4 páginas Learn (ML-324)
         for k, p, _ in self.paginas():
             bloque = re.search(r"<url>\s*<loc>%s%s</loc>.*?</url>" % (SITIO, re.escape(p["url"])), sm, re.S)
             self.assertIsNotNone(bloque)

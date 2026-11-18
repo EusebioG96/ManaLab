@@ -27,6 +27,9 @@ import tempfile
 from pathlib import Path
 from urllib.parse import urlparse
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from construir_learn import aplicar_learn  # noqa: E402
+
 RAIZ = Path(__file__).resolve().parent.parent
 CARPETA_PLANTILLAS = "plantillas"
 CARPETA_PAGINAS = "paginas"
@@ -54,7 +57,7 @@ _PARAMETRO = re.compile(r'(\w+)="([^"]*)"')
 TIPOS_EVENTO = ("descarga", "descarga-movil", "compartir-movil", "correo-movil")
 IDIOMAS_RUTA = ("es", "pt", "ja")  # carpetas de idioma; el resto de rutas son inglés
 _EVENTO = re.compile(r"\{\{EVENTO:([a-z-]+)(?::([a-z0-9]+))?\}\}")
-_PAGINA_DE_RUTA = {"": "portada", "detailed-logs": "logs", "registro-detallado": "logs"}  # lo demás: su carpeta
+_PAGINA_DE_RUTA = {"": "portada", "detailed-logs": "logs", "registro-detallado": "logs", "aprender": "learn"}  # lo demás: su carpeta
 
 # Vídeo del lanzamiento de la 3.0 (ML-281). Cuando existan los dos archivos, las cuatro portadas lo usan en el héroe en lugar del vídeo
 # actual (sin tocar plantillas); mientras falte alguno, se queda el de ahora. Para activarlo basta con subir los dos archivos.
@@ -355,7 +358,8 @@ def construir(raiz: Path, destino: Path) -> list[Path]:
     escritas = []
     for relativa in listar_paginas(raiz):
         fuente = _leer(carpeta / CARPETA_PAGINAS / relativa.with_suffix(SUFIJO_PAGINA))
-        pagina = aplicar_eventos(aplicar_correo(aplicar_enlaces(generar_pagina(carpeta, fuente), enlaces), relativa), relativa)
+        expandida = aplicar_learn(generar_pagina(carpeta, fuente), pagina_e_idioma(relativa)[1], raiz)   # ML-324: páginas Learn
+        pagina = aplicar_eventos(aplicar_correo(aplicar_enlaces(expandida, enlaces), relativa), relativa)
         pagina = aplicar_video_lanzamiento(aplicar_cita(pagina, relativa), relativa, raiz)
         datos = pagina.replace(MARCA_VERSION, version).encode("utf-8")
         salida = destino / relativa

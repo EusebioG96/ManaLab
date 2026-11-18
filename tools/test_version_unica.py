@@ -41,6 +41,8 @@ def _copiar_repositorio(destino: Path) -> None:
     shutil.copytree(RAIZ / construir_web.CARPETA_PLANTILLAS, destino / construir_web.CARPETA_PLANTILLAS)
     shutil.copy(RAIZ / construir_web.ARCHIVO_VERSION, destino / construir_web.ARCHIVO_VERSION)
     shutil.copy(RAIZ / construir_web.ARCHIVO_CONTENIDO, destino / construir_web.ARCHIVO_CONTENIDO)
+    (destino / "learn").mkdir()   # las páginas Learn llevan la primera página de guías de esta copia (ML-324)
+    shutil.copy(RAIZ / "learn" / "guias.json", destino / "learn" / "guias.json")
 
 
 def _generar(raiz: Path, salida: Path) -> dict[Path, bytes]:

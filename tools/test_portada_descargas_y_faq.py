@@ -193,7 +193,7 @@ class TestPunto4Logo(unittest.TestCase):
             for m in re.finditer(r'<a class="marca"[^>]*><img[^>]*src="([^"]*)"', html):
                 usadas += 1
                 self.assertTrue(m.group(1).endswith("img/logo-claro.png"), f"{ruta}: {m.group(1)}")
-        self.assertEqual(usadas, 18)   # 9 páginas + las dos de novedades (ML-153) + la 404 (ML-154) + las portadas ja y pt (ML-156) + 4 páginas de búsquedas (ML-157)
+        self.assertEqual(usadas, 22)   # 4 páginas Learn (ML-324) + 9 páginas + las dos de novedades (ML-153) + la 404 (ML-154) + las portadas ja y pt (ML-156) + 4 páginas de búsquedas (ML-157)
         self.assertTrue((RAIZ / "img" / "logo.png").exists())
 
 
@@ -256,7 +256,7 @@ class TestPunto7Sitemap(unittest.TestCase):
     def test_sitemap_sin_rutas_de_sorteo(self):
         sitemap = leer(RAIZ / "sitemap.xml")
         self.assertNotIn("/sorteo", sitemap)
-        self.assertEqual(sitemap.count("<loc>"), 27)   # 19 + novedades (ML-153) + las portadas ja y pt (ML-156) + 4 páginas de búsquedas (ML-157)
+        self.assertEqual(sitemap.count("<loc>"), 31)   # 4 páginas Learn (ML-324) + 19 + novedades (ML-153) + las portadas ja y pt (ML-156) + 4 páginas de búsquedas (ML-157)
 
     def test_cada_url_del_sitemap_tiene_su_archivo(self):
         import actualizar_sitemap as u

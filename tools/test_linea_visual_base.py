@@ -23,11 +23,12 @@ FUENTES_ESPERADAS = {"Marcellus", "Geist", "Geist Mono"}
 
 
 def cabeceras():
-    """Cada texto de cabecera con su idioma: las variantes de cabecera_<idioma>/1.<v>.txt y cabecera_ja.tpl."""
+    """Cada texto de cabecera con su idioma: las variantes de cabecera_<idioma>/1.<v>.txt y cabecera_ja.tpl y cabecera_ja_learn.tpl."""
     for idioma in CABECERAS_PROPIAS:
         for f in sorted((PLANTILLAS / f"cabecera_{idioma}").glob("1.*.txt")):
             yield idioma, f.relative_to(PLANTILLAS).as_posix(), f.read_text(encoding="utf-8")
-    yield "ja", "cabecera_ja.tpl", (PLANTILLAS / "cabecera_ja.tpl").read_text(encoding="utf-8")
+    for nombre in ("cabecera_ja.tpl", "cabecera_ja_learn.tpl"):   # la de la portada y la de la página Learn (ML-324)
+        yield "ja", nombre, (PLANTILLAS / nombre).read_text(encoding="utf-8")
 
 
 def css_de_plantillas():

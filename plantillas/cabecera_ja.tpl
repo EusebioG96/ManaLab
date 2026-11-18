@@ -7,6 +7,7 @@
 <a href="#empezar">始め方</a>
 <a href="#preguntas">よくある質問</a>
 <a href="#ia">AI分析</a>
+<a href="/ja/learn/">学ぶ</a>
 </nav>
 <a class="idioma" href="/" hreflang="en" id="idioma" lang="en" title="View in English">EN</a>
 <a class="idioma" href="/es/" hreflang="es" lang="es" title="Ver en español">ES</a>
@@ -19,6 +20,7 @@
 <a href="#empezar">始め方</a>
 <a href="#preguntas">よくある質問</a>
 <a href="#ia">AI分析</a>
+<a href="/ja/learn/">学ぶ</a>
 </nav>
 <div class="menu-idiomas">
 <a class="idioma" href="/" hreflang="en" lang="en" title="View in English">EN</a>

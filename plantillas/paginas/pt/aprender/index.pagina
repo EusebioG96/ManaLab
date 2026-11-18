@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Aprender: guias de Magic dos criadores da Metafy · ManaLab</title>
+<meta content="Guias de Magic dos criadores da Metafy, para Arena e Magic Online. Cada guia abre na Metafy." name="description"/>
+<link href="https://manalab.es/pt/aprender/" rel="canonical"/>
+<link href="https://manalab.es/learn/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/aprender/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/pt/aprender/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://manalab.es/ja/learn/" hreflang="ja" rel="alternate"/>
+<link href="https://manalab.es/learn/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d100f" name="theme-color"/>
+<link href="/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="pt_BR" property="og:locale"/>
+<meta content="Aprender: guias de Magic dos criadores da Metafy · ManaLab" property="og:title"/>
+<meta content="Guias de Magic dos criadores da Metafy, para Arena e Magic Online. Cada guia abre na Metafy." property="og:description"/>
+<meta content="https://manalab.es/pt/aprender/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="Aprender: guias de Magic dos criadores da Metafy · ManaLab" name="twitter:title"/>
+<meta content="Guias de Magic dos criadores da Metafy, para Arena e Magic Online. Cada guia abre na Metafy." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/pt/aprender/#webpage", "url": "https://manalab.es/pt/aprender/", "name": "Aprender: guias de Magic dos criadores da Metafy · ManaLab", "description": "Guias de Magic dos criadores da Metafy, para Arena e Magic Online. Cada guia abre na Metafy.", "inLanguage": "pt-BR", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}}]}</script>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>{{> css_sitio}}
+{{> css_learn}}</style></head>
+<body class="ap">
+{{> cabecera_pt 1=c}}
+{{LEARN:barra}}
+<main id="inicio">
+<section class="ap-cab"><div class="envoltura"><div class="eti">Guias da Metafy</div><h1>Aprender</h1><p>Guias de Magic dos criadores da Metafy, para Arena e Magic Online. Cada guia abre na Metafy.</p></div></section>
+{{LEARN:destacado}}
+<section class="ap-bloque"><div class="envoltura"><div class="ap-app"><p><b>No app, “Para você” escolhe guias por você:</b> os dos decks que você joga e os do confronto mais difícil.</p><a class="boton prim" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Baixar grátis</span></a></div></div></section>
+<section class="ap-bloque" id="guias-seccion"><div class="envoltura">
+{{LEARN:filtros}}
+{{LEARN:rejilla}}
+<!-- PENDIENTE-EUSEBIO: nota bajo el paginador sobre las portadas (que vienen de Metafy) y la privacidad (WEB-08, punto 8). La escribe Eusebio, en los cuatro
+     idiomas. Mientras falte, el párrafo siguiente está vacío y oculto. Al ponerla: quita «hidden» y el atributo data-pendiente-eusebio. tools/pendientes_eusebio.py lo vigila. -->
+<p class="ap-nota" data-pendiente-eusebio hidden></p>
+</div></section>
+<section class="seccion" id="descargar"><div class="envoltura"><div class="apoyo uno"><div>
+<div class="eti">Download gratuito</div>
+<h2>Estes guias, dentro do ManaLab</h2>
+<p>O ManaLab salva suas partidas do Arena e do Magic Online e, em “Aprender”, mostra os guias que combinam com o que você joga.</p>
+<p>Requisitos: Windows 10 ou 11. Descompacte o arquivo e abra o ManaLab.exe. Nada para instalar.</p>
+<p style="margin-top:14px"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="{{EVENTO:descarga}}" data-goatcounter-title="{{EVENTO:descarga}}" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Baixar grátis</span></a></p>
+<p class="nota-descarga">Versão <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">outras versões</a></p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">O ManaLab funciona no computador</h4>
+{{CORREO_MOVIL txt="Envie o link para você e baixe por lá."}}
+<p><button class="boton prim" data-compartir data-copiado="Link copiado" data-titulo="{{EVENTO:compartir-movil}}" data-url="https://manalab.es/pt/aprender/" type="button"><span>Enviar o link para mim</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="{{EVENTO:descarga-movil}}" rel="noopener">Baixar o ZIP mesmo assim</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen" data-solo-pc>Antes de descompactar, clique com o botão direito no ZIP › Propriedades › marque <b>Desbloquear</b> › OK. Se ainda aparecer um aviso, clique em <b>Mais informações › Executar assim mesmo</b>.</p>
+<p class="nota-smartscreen"><a href="/safety/">É seguro? Confira você mesmo (em inglês) →</a></p>
+</div></div></div></section>
+</main>
+{{> pie_pt_learn}}
+
+{{LEARN:datos}}
+<script defer="" src="/descarga.js"></script>
+<script defer="" src="/learn/learn.js"></script>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>
