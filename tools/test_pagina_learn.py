@@ -89,17 +89,20 @@ class PaginasPublicadas(unittest.TestCase):
         self.assertEqual(guias_web.serializar(lista), texto, "learn/guias.json debe ser lo que escribe actualizar_guias_web.py")
         self.assertLessEqual(len(texto.encode()), guias_web.MAX_BYTES)
 
-    def test_marca_pendiente_de_eusebio_en_las_cuatro_paginas_y_el_detector_la_ve(self):
+    def test_nota_bajo_el_paginador_visible_en_las_cuatro_paginas_y_sin_marcas_pendientes(self):
+        """ML-327: la nota (portadas de Metafy y privacidad) ya está escrita: visible, con enlace a privacidad y sin marca pendiente."""
+        hallazgos = pendientes_eusebio.buscar()
         for idioma, ruta in PAGINAS.items():
             with self.subTest(idioma):
                 html = leer(ruta)
-                self.assertIn("PENDIENTE-EUSEBIO", html)
-                self.assertIn('<p class="ap-nota" data-pendiente-eusebio hidden></p>', html, "el párrafo vacío y oculto, a la espera del texto")
-        hallazgos = pendientes_eusebio.buscar()
-        for ruta in PAGINAS.values():
-            self.assertTrue(any(h.startswith(ruta + ":") for h in hallazgos), ruta)
+                self.assertNotIn("PENDIENTE-EUSEBIO", html)
+                nota = re.search(r'<p class="ap-nota">(.+?)</p>', html)
+                self.assertIsNotNone(nota, "falta la nota bajo el paginador o sigue oculta")
+                self.assertIn("Metafy", nota.group(1))
+                self.assertIn('href="/privacy/#', nota.group(1))
+                self.assertFalse(any(h.startswith(ruta + ":") for h in hallazgos), ruta)
         self.assertEqual(len([h for h in hallazgos if h.startswith("plantillas/paginas/") and "/aprender/" in h or "plantillas/paginas/learn/" in h
-                              or "plantillas/paginas/ja/learn/" in h]), 4)
+                              or "plantillas/paginas/ja/learn/" in h]), 0)
 
     def test_el_detector_encuentra_la_marca_en_una_raiz_cualquiera_y_no_salta_sin_ella(self):
         with tempfile.TemporaryDirectory() as t:

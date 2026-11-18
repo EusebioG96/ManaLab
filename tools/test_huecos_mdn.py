@@ -228,25 +228,29 @@ class TestPaginasSinAnuncio(unittest.TestCase):
                     construir_mdn.aplicar_mdn("<body>{{HUECO_MDN}}</body>", Path(ruta), "en")
 
 
-class TestTextosPendientesDePrivacidadYSeguridad(unittest.TestCase):
-    """El script de MDN hace que Metafy reciba la visita (IP y navegador). Esos textos los escribe Eusebio: aquí solo está el sitio, oculto y marcado."""
+class TestTextosDePrivacidadYSeguridad(unittest.TestCase):
+    """El script de MDN hace que Metafy reciba la visita (IP y navegador). ML-327: los textos ya están escritos y visibles en cada página."""
     SITIOS = {"privacy/index.html": 2, "safety/index.html": 1, "es/seguridad/index.html": 1}   # privacidad lleva el texto en español y en inglés
 
-    def test_cada_pagina_tiene_su_marca_y_su_parrafo_oculto_y_vacio(self):
+    def test_cada_pagina_explica_el_script_de_mdn_sin_marcas_ni_parrafos_ocultos(self):
         for ruta, esperadas in self.SITIOS.items():
             with self.subTest(ruta):
                 html = leer(ruta)
-                self.assertEqual(html.count("<!-- PENDIENTE-EUSEBIO (ML-325"), esperadas)
-                self.assertEqual(html.count("<p data-pendiente-eusebio hidden></p>"), esperadas)
+                self.assertNotIn("PENDIENTE-EUSEBIO", html)
+                self.assertNotIn("data-pendiente-eusebio", html)
+                parrafos = [p for p in re.findall(r"<p>(.*?)</p>", html, re.S) if "<code>mdn.metafy.gg</code>" in p and "Learn" in p or "Aprender" in p and "mdn.metafy.gg" in p]
+                self.assertEqual(len(parrafos), esperadas, "un párrafo por idioma que cuente el script de MDN y la página Learn")
 
-    def test_el_detector_las_lista_y_la_comprobacion_de_publicar_falla_mientras_falten(self):
-        hallazgos = pendientes_eusebio.buscar()
-        for ruta, esperadas in self.SITIOS.items():
-            with self.subTest(ruta):
-                self.assertEqual(len([h for h in hallazgos if h.startswith(ruta + ":")]), esperadas)
-                plantilla = "plantillas/paginas/" + ruta.replace("index.html", "index.pagina")
-                self.assertEqual(len([h for h in hallazgos if h.startswith(plantilla + ":")]), esperadas)
-        self.assertNotEqual(hallazgos, [], "MANALAB_PUBLICAR=1 debe fallar mientras Eusebio no escriba esos textos")
+    def test_no_queda_ningun_texto_pendiente_y_publicar_no_se_bloquea_por_ellos(self):
+        self.assertEqual(pendientes_eusebio.buscar(), [])
+
+    def test_privacidad_no_promete_que_la_web_no_use_cookies_de_terceros(self):
+        """El script de MDN es de Metafy: solo se afirma que ManaLab no pone cookies."""
+        html = leer("privacy/index.html")
+        self.assertNotIn("La web no usa cookies.", html)
+        self.assertNotIn("This website does not use cookies.", html)
+        self.assertIn("ManaLab no pone cookies en esta web.", html)
+        self.assertIn("ManaLab sets no cookies on this website.", html)
 
 
 class TestAltoReservado(unittest.TestCase):

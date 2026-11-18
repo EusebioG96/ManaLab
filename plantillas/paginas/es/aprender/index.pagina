@@ -42,9 +42,7 @@
 <section class="ap-bloque" id="guias-seccion"><div class="envoltura">
 {{LEARN:filtros}}
 {{LEARN:rejilla}}
-<!-- PENDIENTE-EUSEBIO: nota bajo el paginador sobre las portadas (que vienen de Metafy) y la privacidad (WEB-08, punto 8). La escribe Eusebio, en los cuatro
-     idiomas. Mientras falte, el párrafo siguiente está vacío y oculto. Al ponerla: quita «hidden» y el atributo data-pendiente-eusebio. tools/pendientes_eusebio.py lo vigila. -->
-<p class="ap-nota" data-pendiente-eusebio hidden></p>
+<p class="ap-nota">Las portadas y los datos de las guías vienen de Metafy, y cada guía se abre en su web. Para enseñar esta lista, tu navegador pide la lista de guías a un servidor de ManaLab y las portadas a Metafy; los dos ven la petición como cualquier web (IP y navegador). ManaLab no guarda nada tuyo. Más en la <a href="/privacy/#es">política de privacidad</a>.</p>
 </div></section>
 {{HUECO_MDN}}
 <section class="seccion" id="descargar"><div class="envoltura"><div class="apoyo uno"><div>
