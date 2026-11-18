@@ -184,8 +184,14 @@ class ContenidoRemotoTest(unittest.TestCase):
     def test_valores_iniciales_acordados(self):
         enlaces = {"enlace_apoyo_metafy": "https://metafy.gg/@manalab",  # ML-307: fijados por el dueño el 18/11
                    "enlace_suscripcion_ia": "https://metafy.gg/@manalab/members?membershipId=6696173a-b185-4a9e-ad09-abce63885f73"}
-        self.assertEqual(json.loads(ARCHIVO.read_text(encoding="utf-8")), _con(**enlaces))
-        self.assertEqual(validar(_con(**enlaces), 100), [])
+        destacados = [{"id": "pcpalhares", "nombre": "Professor P. C. Palhares",   # ML-334: primer destacado, decidido por el dueño el 19/11
+                       "linea": "Standard · Pioneer · Modern - Competitive Magic · PT/EN",
+                       "frase": "Professor, jogador competitivo e mentor. Análise de metagame e estratégias para ajudar você a evoluir no Magic!",
+                       "enlace": "https://metafy.gg/@pcpalhares", "foto": "https://manalab.es/img/destacados/pcpalhares.webp",
+                       "fondo": "https://manalab.es/img/destacados/pcpalhares-fondo.webp", "guias": "https://metafy.gg/@pcpalhares/guides"}]
+        esperado = dict(_con(**enlaces), destacados=destacados)
+        self.assertEqual(json.loads(ARCHIVO.read_text(encoding="utf-8")), esperado)
+        self.assertEqual(validar(esperado, 100), [])
 
     def test_no_esta_en_el_sitemap_ni_cuenta_goatcounter(self):
         self.assertNotIn("contenido.json", (RAIZ / "sitemap.xml").read_text(encoding="utf-8"))
