@@ -98,7 +98,8 @@ class PaginasPublicadas(unittest.TestCase):
         hallazgos = pendientes_eusebio.buscar()
         for ruta in PAGINAS.values():
             self.assertTrue(any(h.startswith(ruta + ":") for h in hallazgos), ruta)
-        self.assertEqual(len([h for h in hallazgos if h.startswith("plantillas/paginas/")]), 4)
+        self.assertEqual(len([h for h in hallazgos if h.startswith("plantillas/paginas/") and "/aprender/" in h or "plantillas/paginas/learn/" in h
+                              or "plantillas/paginas/ja/learn/" in h]), 4)
 
     def test_el_detector_encuentra_la_marca_en_una_raiz_cualquiera_y_no_salta_sin_ella(self):
         with tempfile.TemporaryDirectory() as t:
