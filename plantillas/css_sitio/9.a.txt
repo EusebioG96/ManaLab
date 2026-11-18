@@ -1,1 +1,1 @@
-.cab-sec { max-width: 680px; margin-bottom: 36px; }
+.cab-sec { max-width: 760px; margin-bottom: 36px; }

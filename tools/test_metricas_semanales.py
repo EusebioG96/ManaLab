@@ -274,6 +274,15 @@ class PruebasML139(unittest.TestCase):
             self.assertIn(n, c)
         self.assertEqual(len(c), len(set(c)))
 
+    def test_candidatos_incluyen_los_eventos_por_pagina_idioma_y_posicion(self):
+        c = M.eventos_candidatos()
+        for n in ("descarga-portada-es-hero", "descarga-magic-online-en", "descarga-guia-ja-arriba", "compartir-movil-coaches-pt"):   # ML-296: la portada pierde su botón de compartir con el campo de correo activo
+            self.assertIn(n, c)
+
+    def test_eventos_con_posicion_se_agrupan_por_pagina_e_idioma(self):
+        g = M.agrupar_eventos({"descarga-portada-es-hero": 3, "descarga-portada-es-final": 2, "descarga-portada-en-hero": 4})
+        self.assertEqual(g["descarga-portada"], {"total": 9, "idiomas": {"es": 5, "en": 4}})
+
     def test_resumen_eventos_paginas_y_dias(self):
         a = M.foto(R1, date(2026, 10, 23), {"TOTAL": 100}, {"descarga": 10, "descarga-mtgo-es": 1})
         b = M.foto(R2, date(2026, 11, 2), {"TOTAL": 160}, {"descarga": 25, "descarga-mtgo-es": 3, "descarga-mtgo-en": 2, "aviso-sorteo": 0})

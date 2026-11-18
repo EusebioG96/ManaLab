@@ -260,4 +260,40 @@
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://manalab.es/pt/coaches/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/coaches/"/>
   </url>
+  <url>
+    <loc>https://manalab.es/learn/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/learn/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/aprender/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://manalab.es/pt/aprender/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://manalab.es/ja/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/learn/"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/es/aprender/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/learn/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/aprender/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://manalab.es/pt/aprender/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://manalab.es/ja/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/learn/"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/pt/aprender/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/learn/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/aprender/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://manalab.es/pt/aprender/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://manalab.es/ja/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/learn/"/>
+  </url>
+  <url>
+    <loc>https://manalab.es/ja/learn/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/learn/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://manalab.es/es/aprender/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://manalab.es/pt/aprender/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://manalab.es/ja/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/learn/"/>
+  </url>
 </urlset>

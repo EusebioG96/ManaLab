@@ -23,6 +23,7 @@ def leer(ruta):
 def secciones(html):
     """[(clases, id, html de la sección)] de las <section> de <main>."""
     main = html[html.index("<main"):html.index("</main>")]
+    main = re.sub(r'<aside class="hueco-mdn.*?</aside>\n', "", main, flags=re.S)   # los huecos de anuncio (ML-325) no son parte de ninguna sección
     cortes = [m.start() for m in re.finditer(r"<section ", main)] + [len(main)]
     salida = []
     for a, b in zip(cortes, cortes[1:]):
@@ -60,23 +61,27 @@ class TestOrdenDeLaPortada(unittest.TestCase):
                     self.assertNotIn(f'id="{id_}"', html)
                     self.assertNotIn(f'href="#{id_}"', html)
 
-    def test_apoyo_dentro_de_ia_y_con_h3(self):
+    def test_sin_enlace_de_apoyo_no_queda_bloque_de_apoyo(self):
+        """Con contenido.json sin enlace de apoyo, la sección de IA no lleva ningún bloque «Apoya el proyecto» (ni vacío)."""
+        from test_enlaces_metafy import _construir, _contenido  # import local: reutiliza la construcción en carpeta temporal
+        sin_apoyo = _construir(_contenido())
         for idioma, ruta in PORTADAS.items():
             with self.subTest(idioma=idioma):
-                ia = seccion(leer(ruta), "ia")
+                html = leer(sin_apoyo / ruta.relative_to(RAIZ))
+                ia = seccion(html, "ia")
                 self.assertEqual(ia.count("<h2>"), 1)
-                self.assertIn('<div class="apoyo" id="apoyo">', ia)
-                self.assertEqual(len(re.findall(r'id="enlace-donar"', ia)), 1)
-                self.assertRegex(ia[ia.index('id="apoyo"'):], r"<h3>")
+                self.assertNotIn('id="apoyo"', html)
+                self.assertNotIn("<h3>", ia)
 
     def test_menu(self):
-        esperado = {"en": ["#funciones", "#mtgo", "#coaches", "#empezar", "#preguntas", "#ia"], "es": ["#funciones", "#mtgo", "#coaches", "#empezar", "#preguntas", "#ia"]}
+        esperado = {"en": ["#funciones", "#mtgo", "#coaches", "#empezar", "#preguntas", "#ia", "/learn/"],
+                    "es": ["#funciones", "#mtgo", "#coaches", "#empezar", "#preguntas", "#ia", "/es/aprender/"]}   # ML-324: el último lleva a Learn
         for idioma, ruta in PORTADAS.items():
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 nav = re.search(r'<nav aria-label="Secciones">(.*?)</nav>', html, re.S).group(1)
                 self.assertEqual(re.findall(r'href="([^"]*)"', nav), esperado[idioma])
-                for id_ in esperado[idioma]:
+                for id_ in (e for e in esperado[idioma] if e.startswith("#")):
                     self.assertIn(f'id="{id_[1:]}"', html)
 
 
@@ -96,7 +101,7 @@ class TestCabecera(unittest.TestCase):
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 hero = html[html.index('<section class="portada"'):html.index("</section>", html.index('<section class="portada"'))]
-                self.assertNotRegex(hero, r"5 € (al mes|a month|per month)")
+                self.assertNotRegex(hero, r"(6 \$ al mes|\$6 (a|per) month)")
                 self.assertRegex(hero, r'<p class="nota-hero"><span>(Versión|Version) <span data-version>[\d.]+</span> · ZIP · ')
                 self.assertIn('href="%s"' % ("/safety/" if idioma == "en" else "/es/seguridad/"), hero)
                 # columna izquierda: etiqueta, titular, entrada, hueco móvil, botón, nota, ventajas; el vídeo, solo a la derecha
@@ -114,11 +119,11 @@ class TestBotonesDeDescarga(unittest.TestCase):
                 botones = re.findall(r'<a class="boton prim descarga"[^>]*>', html)
                 self.assertEqual(len(botones), 5)
                 titulos = [re.search(r'data-goatcounter-title="([^"]*)"', b).group(1) for b in botones]
-                self.assertEqual(titulos, [f"descarga-{l}-{idioma}" for l in ("cabecera", "hero", "motivos", "funciones", "final")])
+                self.assertEqual(titulos, [f"descarga-portada-{idioma}-{l}" for l in ("cabecera", "hero", "motivos", "funciones", "final")])
                 zips = {re.search(r'href="([^"]*)"', b).group(1) for b in botones}
                 self.assertEqual(len(zips), 1)
                 for b in botones:
-                    for atributo in ("download", "data-a-bloque", "data-descarga", 'data-goatcounter-click="descarga"', 'rel="noopener"'):
+                    for atributo in ("download", "data-a-bloque", "data-descarga", f'data-goatcounter-click="descarga-portada-{idioma}-', 'rel="noopener"'):
                         self.assertIn(atributo, b)
 
     def test_botones_de_motivos_funciones_y_final_en_su_sitio(self):
@@ -126,7 +131,7 @@ class TestBotonesDeDescarga(unittest.TestCase):
             html = leer(ruta)
             for id_, lugar in (("motivos", "motivos"), ("funciones", "funciones"), ("final", "final")):
                 with self.subTest(idioma=idioma, seccion=id_):
-                    self.assertIn(f'data-goatcounter-title="descarga-{lugar}-{idioma}"', seccion(html, id_))
+                    self.assertIn(f'data-goatcounter-title="descarga-portada-{idioma}-{lugar}"', seccion(html, id_))
 
     def test_franja_final(self):
         titulo = {"en": "Start logging your games today", "es": "Empieza a registrar tus partidas hoy"}
@@ -211,7 +216,7 @@ class TestSeccionesMovidas(unittest.TestCase):
                 self.assertIn("Windows 10 u 11" if idioma == "es" else "Windows 10 or 11", s)
                 self.assertIn("destacado", s)
                 self.assertIn("<summary>¿Ya tenías ManaLab?</summary>" if idioma == "es" else "<summary>Already have ManaLab?</summary>", s)
-                self.assertNotRegex(s, r"5 € (al mes|a month|per month)")
+                self.assertNotRegex(s, r"(6 \$ al mes|\$6 (a|per) month)")
                 self.assertNotIn("Ko-fi", s)
 
 
@@ -227,7 +232,7 @@ class TestLegibilidad(unittest.TestCase):
     def test_zonas_tactiles_de_44px_en_telefono(self):
         for ruta in PORTADAS.values():
             css = leer(ruta)
-            bloque = css[css.index("@media (max-width: 767px) {\n  .seccion"):]
+            bloque = css[css.index("@media (max-width: 767px) {\n"):]
             bloque = bloque[:bloque.index("\n}\n")]
             self.assertIn(".movil-zip a { display: inline-flex; align-items: center; min-height: 44px; }", bloque)
             self.assertIn("footer .fila a, footer .guias a { display: inline-flex; align-items: center; min-height: 44px; }", bloque)
@@ -248,24 +253,24 @@ class TestPaginaDeNovedades(unittest.TestCase):
                 self.assertIn("https://manalab.es/img/og.jpg", html)
                 self.assertEqual(html.count("<h1>"), 1)
                 self.assertIn(f"<loc>{URL[idioma]}</loc>", sitemap)
-        self.assertEqual(sitemap.count("<loc>"), 27)
+        self.assertEqual(sitemap.count("<loc>"), 31)   # + 4 páginas Learn (ML-324)
 
     def test_titulos_descripciones_y_h1(self):
-        esperado = {"en": ("What&#x27;s new in ManaLab 2.3 · Release notes", "What&#x27;s new in ManaLab"),
-                    "es": ("Novedades de ManaLab 2.3 · Historial de versiones", "Novedades de ManaLab")}
+        esperado = {"en": ("What&#x27;s new in ManaLab 3.0 · Release notes", "What&#x27;s new in ManaLab"),
+                    "es": ("Novedades de ManaLab 3.0 · Historial de versiones", "Novedades de ManaLab")}
         for idioma, ruta in NOVEDADES.items():
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 self.assertIn(f"<title>{esperado[idioma][0]}</title>", html)
                 self.assertIn(f"<h1>{esperado[idioma][1]}</h1>", html)
-                self.assertRegex(html, r'<meta content="(What changed in ManaLab 2.3 and 2.2|Qué cambió en ManaLab 2.3 y 2.2):[^"]*" name="description"/>')
+                self.assertRegex(html, r'<meta content="(What changed in ManaLab 3\.0|Qué cambió en ManaLab 3\.0):[^"]*" name="description"/>')
 
     def test_contenido_identico_al_de_main_y_boton_arriba(self):
         for idioma, ruta in NOVEDADES.items():
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 self.assertEqual(html.count('class="novedad"'), 6)   # las 2 de Arena y Magic Online + las 4 de la 2.2, también las que siguen en la portada
-                self.assertEqual(html.count('class="funcion"'), 6)
+                self.assertEqual(html.count('class="funcion"'), 13)   # 7 de la 3.0 (test_portada_v3) + 6 de la 2.3
                 self.assertIn('class="mtgo-caja"', html)
                 self.assertIn('id="novedades"', html)
                 self.assertIn('id="anteriores"', html)
@@ -273,7 +278,8 @@ class TestPaginaDeNovedades(unittest.TestCase):
                 self.assertLess(html.index("#descargar", html.index("<h1>")), html.index('id="novedades"'))
                 # ninguna ruta relativa de imagen apunta fuera
                 for src in re.findall(r'src="([^"/][^"]*)"', html):
-                    self.assertTrue((ruta.parent / src).resolve().is_file(), src)
+                    if not src.startswith("https://"):   # el script de MDN (ML-325) es de fuera
+                        self.assertTrue((ruta.parent / src).resolve().is_file(), src)
 
     def test_pie_de_las_portadas_enlaza_a_novedades(self):
         for idioma, ruta in PORTADAS.items():
@@ -292,13 +298,13 @@ class TestPaginaDeNovedades(unittest.TestCase):
 
 
 class TestSinPrecioEnLaCabecera(unittest.TestCase):
-    def test_section_portada_sin_5_euros(self):
+    def test_section_portada_sin_precio(self):
         for idioma, ruta in PORTADAS.items():
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 inicio = html.index('<section class="portada"')
                 hero = html[inicio:html.index("</section>", inicio)]
-                for texto in ("5 € al mes", "5 € per month", "5 € a month"):
+                for texto in ("6 $ al mes", "$6 per month", "$6 a month"):
                     self.assertNotIn(texto, hero)
 
 

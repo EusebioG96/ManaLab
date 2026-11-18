@@ -1,0 +1,20 @@
+{
+  "v": 1,
+  "enlace_apoyo_metafy": "https://metafy.gg/@manalab",
+  "enlace_suscripcion_ia": "https://metafy.gg/@manalab/members?membershipId=6696173a-b185-4a9e-ad09-abce63885f73",
+  "interruptores": {
+    "banner_mdn": true
+  },
+  "destacados": [
+    {
+      "id": "pcpalhares",
+      "nombre": "Professor P. C. Palhares",
+      "linea": "Standard · Pioneer · Modern - Competitive Magic · PT/EN",
+      "frase": "Professor, jogador competitivo e mentor. Análise de metagame e estratégias para ajudar você a evoluir no Magic!",
+      "enlace": "https://metafy.gg/@pcpalhares",
+      "foto": "https://manalab.es/img/destacados/pcpalhares.webp",
+      "fondo": "https://manalab.es/img/destacados/pcpalhares-fondo.webp",
+      "guias": "https://metafy.gg/@pcpalhares/guides"
+    }
+  ]
+}

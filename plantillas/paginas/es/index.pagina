@@ -10,7 +10,7 @@
 <link href="https://manalab.es/pt/" hreflang="pt-BR" rel="alternate"/>
 <link href="https://manalab.es/ja/" hreflang="ja" rel="alternate"/>
 <link href="https://manalab.es/" hreflang="x-default" rel="alternate"/>
-<meta content="#0d0304" name="theme-color"/>
+<meta content="#0d100f" name="theme-color"/>
 <link href="../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="../img/apple-touch-icon.png" rel="apple-touch-icon"/>
@@ -28,14 +28,14 @@
 <meta content="ManaLab: tracker gratis para MTG Arena y Magic Online" name="twitter:title"/>
 <meta content="Tracker gratis para MTG Arena y Magic Online: manos y mulligans con capturas, winrate por matchup, mazo del rival, herramientas de coach." name="twitter:description"/>
 <meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://manalab.es/#website", "name": "ManaLab", "url": "https://manalab.es/", "inLanguage": ["en", "es"], "publisher": {"@id": "https://manalab.es/#org"}}, {"@type": "Organization", "@id": "https://manalab.es/#org", "name": "ManaLab", "url": "https://manalab.es/", "logo": {"@type": "ImageObject", "url": "https://manalab.es/img/icono-192.png", "width": 192, "height": 192}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}, {"@type": "SoftwareApplication", "name": "ManaLab", "url": "https://manalab.es/es/", "description": "Tracker gratis para MTG Arena y Magic Online: manos y mulligans con capturas, winrate por matchup, mazo del rival, herramientas de coach.", "applicationCategory": "GameApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "{{VERSION}}", "downloadUrl": "https://github.com/EusebioG96/ManaLab/releases/latest", "image": "https://manalab.es/img/og.jpg", "screenshot": ["https://manalab.es/img/v22_repeticion.jpg", "https://manalab.es/img/es_panel.jpg", "https://manalab.es/img/es_partida.jpg", "https://manalab.es/img/es_estadisticas.jpg"], "inLanguage": ["en", "es", "fr", "de", "it", "pt-BR", "ja", "ko", "zh"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "@id": "https://manalab.es/es/#app", "isPartOf": {"@id": "https://manalab.es/#website"}, "publisher": {"@id": "https://manalab.es/#org"}, "mainEntityOfPage": "https://manalab.es/es/", "applicationSubCategory": "MTG Arena and Magic Online match tracker"}, {"@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Toca el juego o me da ventaja en la partida?", "acceptedAnswer": {"@type": "Answer", "text": "No, ni en Arena ni en Magic Online. Solo lee los archivos que los juegos escriben en tu PC (el Player.log de Arena; el mtgo.log, los Match_GameLog_*.dat, mtgo_game_history y los archivos de mazo grouping *.xml de Magic Online), sin modificarlos. No modifica Arena ni Magic Online, no lee su memoria y no se conecta a sus servidores. El overlay opcional es una ventana aparte que solo muestra información pública o deducible de lo jugado, nunca información oculta."}}, {"@type": "Question", "name": "¿Qué datos envía?", "acceptedAnswer": {"@type": "Answer", "text": "Tus partidas, capturas y estadísticas se quedan en una carpeta de tu PC. El programa solo descarga las listas actualizadas de mazos del meta, una por formato (cada 3 días), consulta nombres de cartas en Scryfall (también con ids de Magic Online) cuando los necesita, y pregunta a GitHub una vez al día si hay una versión nueva. Las tres cosas se pueden desactivar en Ajustes. Solo envía datos cuando pides algo. El análisis con IA envía los datos de esa partida (resultado, mazo, manos, cartas vistas y cronología), nunca tu nombre ni el del rival. Un reporte de bug envía lo que escribes, tu correo si lo pones, la versión de ManaLab, tu sistema e idioma, si usas Arena o Magic Online, un identificador anónimo de tu equipo y, si lo marcas, las últimas líneas de registro.log sin tu nombre de usuario ni códigos. No envía partidas ni mazos."}}, {"@type": "Question", "name": "Windows dice «Windows protegió su PC». ¿Es seguro?", "acceptedAnswer": {"@type": "Answer", "text": "Ese aviso sale con los programas que no tienen un certificado de firma de pago, algo habitual en herramientas gratuitas pequeñas. Pulsa «Más información» y luego «Ejecutar de todas formas». Solo sale en la primera descarga: las versiones nuevas se instalan con «Actualizar ahora» desde la propia app, sin aviso. Para evitarlo también la primera vez, antes de descomprimir haz botón derecho en el ZIP › Propiedades › marca «Desbloquear» › Aceptar. Cada versión se comprueba en VirusTotal antes de publicarla."}}, {"@type": "Question", "name": "¿Funciona con Magic Online?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, desde la 2.3. ManaLab registra tus partidas de Magic Online (MTGO): manos, mulligans, primero/segundo, mazo del rival, estadísticas, repetición y overlay. No hay que configurar nada: empieza solo cuando abres Magic Online, y puedes importar un archivo mtgo.log. Lo que cambia: Magic Online no envía las fases ni las cartas giradas, así que ManaLab las deduce del registro, y en la repetición lo deducido lleva la marca ≈ porque puede no ser exacto. Magic Online tampoco da a tiempo tu lista tras el banquillo: ManaLab te pide confirmar tus cambios entre partidas con un clic y, hasta entonces, el overlay marca la lista como sin confirmar. El overlay puede mostrar menos que en Arena si el registro no trae el estado de la mesa. Tu mazo toma el nombre con el que lo guardaste en Magic Online cuando la lista coincide exactamente; si no, se nombra por sus colores."}}, {"@type": "Question", "name": "¿Funciona en Mac o en Linux?", "acceptedAnswer": {"@type": "Answer", "text": "De momento es para Windows 10 y 11. No hay versión nativa para Linux y no se ha probado con Wine ni Proton, así que no podemos prometer que funcione."}}, {"@type": "Question", "name": "¿Registra Draft y Sellado (Limitado)?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Registra cualquier partida de Arena o de Magic Online, también de Limitado. El mazo del rival se compara con los mazos del meta del formato de la partida (Standard, Pioneer, Modern, Legacy, Vintage y Pauper); si nada coincide con claridad, como en Limitado, se nombra por sus colores."}}, {"@type": "Question", "name": "¿Es gratis?", "acceptedAnswer": {"@type": "Answer", "text": "El programa es gratis y no necesita cuenta. Lo único de pago es el análisis de derrotas con IA: 5 € al mes, que pagan el servicio de IA que usa. Todas las demás funciones son gratis."}}, {"@type": "Question", "name": "¿Cómo consigo el análisis con IA?", "acceptedAnswer": {"@type": "Answer", "text": "Suscríbete en Ko-fi (5 € al mes). Tras el pago recibes un código de suscripción por correo. Pégalo en Ajustes › Equipo e IA y el análisis aparece en la pestaña Análisis de cada derrota. ¿Quieres probarlo antes? Pide una prueba gratis por correo."}}]}]}</script>
-<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" as="image" href="../video/hero/manalab-hero-es-poster.jpg"><style>{{> css_sitio 1=b 2=b 3=b 4=b 5=b 6=b 7=b 8=b 9=b 10=b 11=b 12=b 13=b 14=b 15=b}}</style></head>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://manalab.es/#website", "name": "ManaLab", "url": "https://manalab.es/", "inLanguage": ["en", "es"], "publisher": {"@id": "https://manalab.es/#org"}}, {"@type": "Organization", "@id": "https://manalab.es/#org", "name": "ManaLab", "url": "https://manalab.es/", "logo": {"@type": "ImageObject", "url": "https://manalab.es/img/icono-192.png", "width": 192, "height": 192}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}, {"@type": "SoftwareApplication", "name": "ManaLab", "url": "https://manalab.es/es/", "description": "Tracker gratis para MTG Arena y Magic Online: manos y mulligans con capturas, winrate por matchup, mazo del rival, herramientas de coach.", "applicationCategory": "GameApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "{{VERSION}}", "downloadUrl": "https://github.com/EusebioG96/ManaLab/releases/latest", "image": "https://manalab.es/img/og.jpg", "screenshot": ["https://manalab.es/img/v22_repeticion.jpg", "https://manalab.es/img/es_panel.jpg", "https://manalab.es/img/es_partida.jpg", "https://manalab.es/img/es_estadisticas.jpg"], "inLanguage": ["en", "es", "fr", "de", "it", "pt-BR", "ja", "ko", "zh"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "@id": "https://manalab.es/es/#app", "isPartOf": {"@id": "https://manalab.es/#website"}, "publisher": {"@id": "https://manalab.es/#org"}, "mainEntityOfPage": "https://manalab.es/es/", "applicationSubCategory": "MTG Arena and Magic Online match tracker"}, {"@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Toca el juego o me da ventaja en la partida?", "acceptedAnswer": {"@type": "Answer", "text": "No, ni en Arena ni en Magic Online. Solo lee los archivos que los juegos escriben en tu PC (el Player.log de Arena; el mtgo.log, los Match_GameLog_*.dat, mtgo_game_history y los archivos de mazo grouping *.xml de Magic Online), sin modificarlos. No modifica Arena ni Magic Online, no lee su memoria y no se conecta a sus servidores. El overlay opcional es una ventana aparte que solo muestra información pública o deducible de lo jugado, nunca información oculta."}}, {"@type": "Question", "name": "¿Qué datos envía?", "acceptedAnswer": {"@type": "Answer", "text": "Tus partidas, capturas y estadísticas se quedan en una carpeta de tu PC. El programa descarga las listas actualizadas de mazos del meta, una por formato (cada 3 días), consulta nombres de cartas en Scryfall (también con ids de Magic Online) cuando los necesita, y pregunta a GitHub una vez al día si hay una versión nueva. Esas tres cosas se pueden desactivar en Ajustes. También descarga un pequeño archivo de contenido de manalab.es (al abrir y cada 6 horas) y muestra un anuncio de Metafy al final del Panel, que puedes quitar con la X o en Ajustes › Datos y acerca de ManaLab. Aprender pide la lista de guías a un servidor de ManaLab y carga portadas de Metafy y fotos de manalab.es, sin enviar nada tuyo salvo la versión de ManaLab; el banner de Metafy carga el script de anuncios de Metafy y se apaga en Ajustes. Las imágenes de cartas que faltan se descargan de Scryfall. Solo envía datos cuando pides algo. El análisis con IA envía los datos de esa partida (resultado, mazo, manos, cartas vistas y cronología), nunca tu nombre ni el del rival. Un reporte de bug envía lo que escribes, tu correo si lo pones, la versión de ManaLab, tu sistema e idioma, si usas Arena o Magic Online, un identificador anónimo de tu equipo y, si lo marcas, las últimas líneas de registro.log sin tu nombre de usuario ni códigos. No envía partidas ni mazos."}}, {"@type": "Question", "name": "Windows dice «Windows protegió su PC». ¿Es seguro?", "acceptedAnswer": {"@type": "Answer", "text": "Ese aviso sale con los programas que no tienen un certificado de firma de pago, algo habitual en herramientas gratuitas pequeñas. Pulsa «Más información» y luego «Ejecutar de todas formas». Solo sale en la primera descarga: las versiones nuevas se instalan con «Actualizar ahora» desde la propia app, sin aviso. Para evitarlo también la primera vez, antes de descomprimir haz botón derecho en el ZIP › Propiedades › marca «Desbloquear» › Aceptar. Cada versión se comprueba en VirusTotal antes de publicarla."}}, {"@type": "Question", "name": "¿Funciona con Magic Online?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, desde la 2.3. ManaLab registra tus partidas de Magic Online (MTGO): manos, mulligans, primero/segundo, mazo del rival, estadísticas, repetición y overlay. No hay que configurar nada: empieza solo cuando abres Magic Online, y puedes importar un archivo mtgo.log. Lo que cambia: Magic Online no envía las fases ni las cartas giradas, así que ManaLab las deduce del registro, y en la repetición lo deducido lleva la marca ≈ porque puede no ser exacto. Magic Online tampoco da a tiempo tu lista tras el banquillo: ManaLab te pide confirmar tus cambios entre partidas con un clic y, hasta entonces, el overlay marca la lista como sin confirmar. El overlay puede mostrar menos que en Arena si el registro no trae el estado de la mesa. Tu mazo toma el nombre con el que lo guardaste en Magic Online cuando la lista coincide exactamente; si no, se nombra por sus colores."}}, {"@type": "Question", "name": "¿Funciona en Mac o en Linux?", "acceptedAnswer": {"@type": "Answer", "text": "De momento es para Windows 10 y 11. No hay versión nativa para Linux y no se ha probado con Wine ni Proton, así que no podemos prometer que funcione."}}, {"@type": "Question", "name": "¿Registra Draft y Sellado (Limitado)?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Registra cualquier partida de Arena o de Magic Online, también de Limitado. El mazo del rival se compara con los mazos del meta del formato de la partida (Standard, Pioneer, Modern, Legacy, Vintage y Pauper); si nada coincide con claridad, como en Limitado, se nombra por sus colores."}}, {"@type": "Question", "name": "¿Es gratis?", "acceptedAnswer": {"@type": "Answer", "text": "El programa es gratis y no necesita cuenta. Lo único de pago es el análisis de derrotas con IA: 6 $ al mes, que pagan el servicio de IA que usa. Todas las demás funciones son gratis."}}, {"@type": "Question", "name": "¿Cómo se mantiene gratis ManaLab?", "acceptedAnswer": {"@type": "Answer", "text": "El tracker es gratis y lo seguirá siendo. Lo único de pago es el análisis opcional de tus derrotas con IA, una membresía en Metafy. En la sección Aprender verás además guías de Metafy."}}, {"@type": "Question", "name": "¿Cómo consigo el análisis con IA?", "acceptedAnswer": {"@type": "Answer", "text": "Suscríbete en Metafy (6 $ al mes). Tras el pago recibes un código de suscripción por correo. Pégalo en Ajustes › Equipo e IA y el análisis aparece en la pestaña Análisis de cada derrota. ¿Quieres probarlo antes? Pide una prueba gratis por correo."}}]}]}</script>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" as="image" href="../video/hero/manalab-hero-es-poster.jpg"><style>{{> css_sitio 1=b 2=b 3=b 4=b 5=b 6=b 7=b 8=b 9=b 10=b 11=b 12=b 13=b 14=b 15=b}}</style></head>
 <body>
 <!-- aviso de la versión nueva: quitar o cambiar en la siguiente release -->
 <div class="aviso-version" role="note">
 <div class="envoltura">
-<span><b>ManaLab 2.3 ya está: ahora para Arena y Magic Online</b></span>
-<a href="/es/novedades/">Ver novedades →</a>
+<span><b>Ya está ManaLab 3.0: tus partidas con un aspecto nuevo.</b></span>
+<a href="/es/novedades/">Mira las novedades →</a>
 </div>
 </div>
 {{> cabecera_es 1=b}}
@@ -48,11 +48,12 @@
 <p class="sub">ManaLab lee el registro de Arena y de Magic Online mientras juegas y guarda tus manos, mulligans y el mazo del rival. Luego te enseña dónde ganas y dónde pierdes.</p>
 <div data-movil-aqui></div>
 <div class="hero-cta">
-<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-hero-es" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a>
+<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:hero}}" data-goatcounter-title="{{EVENTO:descarga:hero}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a>
 <a class="enlace-sec" href="#capturas">Ver la aplicación</a>
 </div>
+{{CITA_SALVATTO}}
 <p class="nota-hero"><span>Versión <span data-version>{{VERSION}}</span> · ZIP · no hace falta instalar nada</span><a href="/es/seguridad/">¿Es seguro? Compruébalo tú mismo →</a></p>
-<div class="nota-desc"><span>La app es gratis. Solo la IA es de pago</span><span>Tus datos se quedan en tu PC salvo que pidas la IA</span><span>App en 9 idiomas</span></div>
+<div class="nota-desc"><span>La app es gratis. Solo la IA es de pago</span><span>App en 9 idiomas</span></div>
 </div>
 <div class="hero-medio">
 <div class="hero-video" id="hero-video">
@@ -108,6 +109,7 @@
 </ul>
 </div>
 </section>
+{{HUECO_MDN}}
 <section class="seccion" id="motivos">
 <div class="envoltura">
 <div class="cab-sec">
@@ -131,7 +133,7 @@
 <p>Revisa la partida turno a turno con las cartas reales y marca los momentos clave.</p></div>
 </div>
 </div>
-<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-motivos-es" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:motivos}}" data-goatcounter-title="{{EVENTO:descarga:motivos}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></div>
 </div>
 </section>
 <section class="seccion franja" id="mtgo">
@@ -181,8 +183,8 @@
 <p>Cada lista que juegas con su winrate. Las variantes de banquillo se agrupan bajo el mismo mazo y puedes renombrarlas. En Magic Online, un mazo toma el nombre con el que lo guardaste cuando la lista coincide exactamente; si no, se nombra por sus colores.</p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path d="M9 10h6M9 13.5h4"></path></svg>
 <h3>Análisis de derrotas con IA (suscriptores)</h3>
-<p>Los suscriptores reciben un análisis con IA de cada derrota: qué salió mal, dónde podías haber jugado mejor y qué probar la próxima vez. Suscripción: 5 € al mes en Ko-fi.</p>
-<p style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 18px"><a href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-funciones-es" rel="noopener" style="font-weight:600" target="_blank"><span>Suscribirme en Ko-fi →</span></a></p></div>
+<p>Los suscriptores reciben un análisis con IA de cada derrota: qué salió mal, dónde podías haber jugado mejor y qué probar la próxima vez. Suscripción: 6 $ al mes en Metafy.</p>
+<p style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 18px">{{SUSCRIPCION_IA clase="" estilo="font-weight:600" medicion="metafy-funciones-es" texto="Suscribirme en Metafy →" pronto="Suscripción en Metafy: muy pronto"}}</p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><rect height="12" rx="2" width="18" x="3" y="4"></rect><path d="M8 20h8M12 16v4"></path><path d="M7 9h5M7 12h8"></path></svg>
 <h3>Overlay mientras juegas</h3>
 <p>Una ventana aparte junto al juego, en Arena o en Magic Online, con las cartas que te quedan por robar, las que has visto del rival y el turno. Solo muestra información pública o deducible de lo jugado. En Magic Online puede mostrar menos si el registro no trae el estado de la mesa.</p>
@@ -194,7 +196,7 @@
 <h3>Coach y equipo</h3>
 <p>Etiquetas de error y notas en cada partida, tablas de matchups e informe para tu coach. El modo equipo comparte partidas, capturas y notas a través de una carpeta común, y tu coach ve cada partida completa, con su repetición.</p></div>
 </div>
-<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-funciones-es" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:funciones}}" data-goatcounter-title="{{EVENTO:descarga:funciones}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></div>
 </div>
 </section>
 <section class="seccion franja" id="capturas">
@@ -203,7 +205,7 @@
 <div class="eti">La aplicación</div>
 <h2>Pensada para revisar, no para rellenar</h2>
 </div>
-<div aria-label="Capturas" class="pestanas" role="tablist">
+<div aria-label="Capturas" class="pestanas" data-raiz="../" data-idioma="es" role="tablist">
 <button aria-selected="true" data-tab="panel" id="t-panel" role="tab">Panel</button>
 <button aria-selected="false" data-tab="partida" id="t-partida" role="tab">Partidas</button>
 <button aria-selected="false" data-tab="estadisticas" id="t-est" role="tab">Estadísticas</button>
@@ -280,13 +282,13 @@
 <div class="pasos">
 <div class="paso"><h3>Descarga y abre</h3>
 <p>Windows 10 u 11. Descomprime el ZIP y abre ManaLab.exe. No hace falta instalar nada.</p>
-<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-portada-es" id="enlace-descarga" rel="noopener"><span>Descargar gratis</span></a></p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="{{EVENTO:descarga:descargar}}" data-goatcounter-title="{{EVENTO:descarga:descargar}}" id="enlace-descarga" rel="noopener"><span>Descargar gratis</span></a></p>
 <p class="nota-descarga">Versión <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">otras versiones</a></p>
 <template id="bloque-movil"><div class="movil-caja">
 <h4 class="movil-tit">ManaLab se usa en el ordenador</h4>
-<p class="movil-txt">Envíate el enlace y descárgalo allí.</p>
-<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="compartir-movil-es" data-url="https://manalab.es/es/" type="button"><span>Enviarme el enlace</span></button></p>
-<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="descarga-movil-es" rel="noopener">Descargar el ZIP igualmente</a></p>
+{{CORREO_MOVIL txt="Envíate el enlace y descárgalo allí."}}
+<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="{{EVENTO:compartir-movil}}" data-url="https://manalab.es/es/" type="button"><span>Enviarme el enlace</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="{{EVENTO:descarga-movil}}" rel="noopener">Descargar el ZIP igualmente</a></p>
 <p aria-live="polite" class="movil-estado" role="status"></p>
 </div></template>
 <p class="nota-smartscreen destacado" data-solo-pc>Antes de descomprimir, botón derecho en el ZIP › Propiedades › marca <b>Desbloquear</b> › Aceptar: así Windows no muestra «Windows protegió su PC» ni bloquea los archivos del programa. Si aun así sale el aviso, pulsa <b>Más información › Ejecutar de todas formas</b>.</p>
@@ -303,6 +305,7 @@
 </div>
 </div>
 </section>
+{{HUECO_MDN}}
 <section class="seccion franja" id="preguntas">
 <div class="envoltura">
 <div class="cab-sec"><div class="eti">Preguntas</div><h2>Antes de empezar</h2></div>
@@ -310,7 +313,7 @@
 <details><summary>¿Toca el juego o me da ventaja en la partida?</summary>
 <p>No, ni en Arena ni en Magic Online. Solo lee los archivos que los juegos escriben en tu PC (el Player.log de Arena; el mtgo.log, los Match_GameLog_*.dat, mtgo_game_history y los archivos de mazo grouping *.xml de Magic Online), sin modificarlos. No modifica Arena ni Magic Online, no lee su memoria y no se conecta a sus servidores. El overlay opcional es una ventana aparte que solo muestra información pública o deducible de lo jugado, nunca información oculta.</p></details>
 <details><summary>¿Qué datos envía?</summary>
-<p>Tus partidas, capturas y estadísticas se quedan en una carpeta de tu PC. El programa solo descarga las listas actualizadas de mazos del meta, una por formato (cada 3 días), consulta nombres de cartas en Scryfall (también con ids de Magic Online) cuando los necesita, y pregunta a GitHub una vez al día si hay una versión nueva. Las tres cosas se pueden desactivar en Ajustes. Solo envía datos cuando pides algo. El análisis con IA envía los datos de esa partida (resultado, mazo, manos, cartas vistas y cronología), nunca tu nombre ni el del rival. Un reporte de bug envía lo que escribes, tu correo si lo pones, la versión de ManaLab, tu sistema e idioma, si usas Arena o Magic Online, un identificador anónimo de tu equipo y, si lo marcas, las últimas líneas de registro.log sin tu nombre de usuario ni códigos. No envía partidas ni mazos.</p>
+<p>Tus partidas, capturas y estadísticas se quedan en una carpeta de tu PC. El programa descarga las listas actualizadas de mazos del meta, una por formato (cada 3 días), consulta nombres de cartas en Scryfall (también con ids de Magic Online) cuando los necesita, y pregunta a GitHub una vez al día si hay una versión nueva. Esas tres cosas se pueden desactivar en Ajustes. También descarga un pequeño archivo de contenido de manalab.es (al abrir y cada 6 horas) y muestra un anuncio de Metafy al final del Panel, que puedes quitar con la X o en Ajustes › Datos y acerca de ManaLab. Aprender pide la lista de guías a un servidor de ManaLab y carga portadas de Metafy y fotos de manalab.es, sin enviar nada tuyo salvo la versión de ManaLab; el banner de Metafy carga el script de anuncios de Metafy y se apaga en Ajustes. Las imágenes de cartas que faltan se descargan de Scryfall. Solo envía datos cuando pides algo. El análisis con IA envía los datos de esa partida (resultado, mazo, manos, cartas vistas y cronología), nunca tu nombre ni el del rival. Un reporte de bug envía lo que escribes, tu correo si lo pones, la versión de ManaLab, tu sistema e idioma, si usas Arena o Magic Online, un identificador anónimo de tu equipo y, si lo marcas, las últimas líneas de registro.log sin tu nombre de usuario ni códigos. No envía partidas ni mazos.</p>
 <p>Más detalles: <a href="/es/seguridad/">¿Es seguro ManaLab?</a></p></details>
 <details><summary>Windows dice «Windows protegió su PC». ¿Es seguro?</summary>
 <p>Ese aviso sale con los programas que no tienen un certificado de firma de pago, algo habitual en herramientas gratuitas pequeñas. Pulsa «Más información» y luego «Ejecutar de todas formas». Solo sale en la primera descarga: las versiones nuevas se instalan con «Actualizar ahora» desde la propia app, sin aviso. Para evitarlo también la primera vez, antes de descomprimir haz botón derecho en el ZIP › Propiedades › marca «Desbloquear» › Aceptar. Cada versión se comprueba en VirusTotal antes de publicarla.</p>
@@ -323,9 +326,11 @@
 <details><summary>¿Registra Draft y Sellado (Limitado)?</summary>
 <p>Sí. Registra cualquier partida de Arena o de Magic Online, también de Limitado. El mazo del rival se compara con los mazos del meta del formato de la partida (Standard, Pioneer, Modern, Legacy, Vintage y Pauper); si nada coincide con claridad, como en Limitado, se nombra por sus colores.</p></details>
 <details><summary>¿Es gratis?</summary>
-<p>El programa es gratis y no necesita cuenta. Lo único de pago es el análisis de derrotas con IA: 5 € al mes, que pagan el servicio de IA que usa. Todas las demás funciones son gratis.</p></details>
+<p>El programa es gratis y no necesita cuenta. Lo único de pago es el análisis de derrotas con IA: 6 $ al mes, que pagan el servicio de IA que usa. Todas las demás funciones son gratis.</p></details>
+<details><summary>¿Cómo se mantiene gratis ManaLab?</summary>
+<p>El tracker es gratis y lo seguirá siendo. Lo único de pago es el análisis opcional de tus derrotas con IA, una membresía en Metafy. En la sección Aprender verás además guías de Metafy.</p></details>
 <details><summary>¿Cómo consigo el análisis con IA?</summary>
-<p>Suscríbete en Ko-fi (5 € al mes). Tras el pago recibes un código de suscripción por correo. Pégalo en Ajustes › Equipo e IA y el análisis aparece en la pestaña Análisis de cada derrota. ¿Quieres probarlo antes? Pide una prueba gratis <a href="mailto:manalab.app@gmail.com">por correo</a>.</p></details>
+<p>Suscríbete en Metafy (6 $ al mes). Tras el pago recibes un código de suscripción por correo. Pégalo en Ajustes › Equipo e IA y el análisis aparece en la pestaña Análisis de cada derrota. ¿Quieres probarlo antes? Pide una prueba gratis <a href="mailto:manalab.app@gmail.com">por correo</a>.</p></details>
 </div>
 </div>
 </section>
@@ -338,30 +343,18 @@
 <p><strong style="color:var(--texto)">La app es gratis. Solo el análisis con IA es de pago.</strong></p>
 <p>Abre cualquier derrota y pregunta a la IA qué salió mal, dónde podías haber jugado mejor y qué probar la próxima vez. Lee los datos de la partida, no tu nombre ni el del rival.</p>
 <p>¿Quieres probarlo antes? Pide una prueba gratis <a href="mailto:manalab.app@gmail.com">por correo</a>.</p>
-<div class="acciones" style="margin-top:24px"><a class="boton prim" href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-ia-es" rel="noopener" target="_blank"><span>Suscribirme en Ko-fi →</span></a></div>
+<div class="acciones" style="margin-top:24px">{{SUSCRIPCION_IA clase="boton prim" estilo="" medicion="metafy-ia-es" texto="Suscribirme en Metafy →" pronto="Suscripción en Metafy: muy pronto"}}</div>
 </div>
 <div>
-<div class="ia-precio">5 € <small>al mes</small></div>
+<div class="ia-precio">6 $ <small>al mes</small></div>
 <div class="ia-lista">
-<p>Hasta 30 análisis al día. Suscríbete con 5 € al mes en Ko-fi y recibes tu código por correo en cuanto te suscribes.</p>
-<p>Cancelas cuando quieras: si no renuevas en Ko-fi, el código caduca solo.</p>
+<p>Hasta 30 análisis al día. Suscríbete con 6 $ al mes en Metafy y recibes tu código por correo en cuanto te suscribes.</p>
+<p>Cancelas cuando quieras: si no renuevas en Metafy, el código caduca solo.</p>
 <p><a href="/privacy/">Política de privacidad</a></p>
 </div>
 </div>
 </div>
-<div class="apoyo" id="apoyo">
-<div>
-<div class="eti">Apoya el proyecto</div>
-<h3>Gratis, con análisis de IA por suscripción</h3>
-<p>ManaLab se hace en ratos libres. El programa sigue siendo gratis. La suscripción (5 € al mes en Ko-fi) paga el servicio de IA; los donativos en Ko-fi ayudan al resto del proyecto.</p>
-<p>¿Quieres probarlo antes? Pide una prueba gratis <a href="mailto:manalab.app@gmail.com">por correo</a>.</p>
-<div class="acciones" style="margin-top:18px"><a class="boton prim" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-apoyo-es" href="https://ko-fi.com/eusebiog96" id="enlace-donar" rel="noopener" target="_blank"><span>Suscribirme o donar en Ko-fi</span></a></div>
-</div>
-<div class="gastos">
-<div class="gasto"><span>Certificado de firma de código</span><span>quita el aviso de Windows</span></div>
-<div class="gasto"><span>Tiempo para funciones nuevas</span><span>consejero de partida, asistente de draft</span></div>
-</div>
-</div>
+{{APOYO_METAFY eti="Apoya el proyecto" titulo="Gratis, con análisis de IA por suscripción" texto="ManaLab se hace en ratos libres. El programa sigue siendo gratis." boton="Apoyar en Metafy" medicion="metafy-apoyo-es"}}
 </div>
 </section>
 <section class="seccion franja" id="final">
@@ -369,7 +362,7 @@
 <div class="cab-sec">
 <h2>Empieza a registrar tus partidas hoy</h2>
 </div>
-<div class="acciones"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-final-es" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></div>
+<div class="acciones"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:final}}" data-goatcounter-title="{{EVENTO:descarga:final}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></div>
 <p class="nota-hero"><span>Versión <span data-version>{{VERSION}}</span> · ZIP · no hace falta instalar nada</span></p>
 </div>
 </section>
@@ -410,7 +403,9 @@
 <script>
 (function () {
   "use strict";
-  var base = "../img/es_";
+  var pestanas = document.querySelector(".pestanas");
+  /* el prefijo se arma aquí: una cadena «img/xx_» suelta en el HTML la toma Googlebot por una URL y da 404 (ML-312) */
+  var base = pestanas.dataset.raiz + "img/" + pestanas.dataset.idioma + "_";
   document.querySelectorAll(".pestanas button").forEach(function (b) {
     b.addEventListener("click", function () {
       document.querySelectorAll(".pestanas button").forEach(function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); });

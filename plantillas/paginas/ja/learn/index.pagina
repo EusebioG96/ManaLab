@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>学ぶ: Metafyのクリエイターによるマジックのガイド · ManaLab</title>
+<meta content="Metafyのクリエイターによるマジックのガイド。アリーナとMagic Onlineに対応。ガイドはMetafyで開きます。" name="description"/>
+<link href="https://manalab.es/ja/learn/" rel="canonical"/>
+<link href="https://manalab.es/learn/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/aprender/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/pt/aprender/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://manalab.es/ja/learn/" hreflang="ja" rel="alternate"/>
+<link href="https://manalab.es/learn/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d100f" name="theme-color"/>
+<link href="/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="学ぶ: Metafyのクリエイターによるマジックのガイド · ManaLab" property="og:title"/>
+<meta content="Metafyのクリエイターによるマジックのガイド。アリーナとMagic Onlineに対応。ガイドはMetafyで開きます。" property="og:description"/>
+<meta content="https://manalab.es/ja/learn/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="学ぶ: Metafyのクリエイターによるマジックのガイド · ManaLab" name="twitter:title"/>
+<meta content="Metafyのクリエイターによるマジックのガイド。アリーナとMagic Onlineに対応。ガイドはMetafyで開きます。" name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/ja/learn/#webpage", "url": "https://manalab.es/ja/learn/", "name": "学ぶ: Metafyのクリエイターによるマジックのガイド · ManaLab", "description": "Metafyのクリエイターによるマジックのガイド。アリーナとMagic Onlineに対応。ガイドはMetafyで開きます。", "inLanguage": "ja", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}}]}</script>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>{{> css_sitio}}
+{{> css_learn}}</style></head>
+<body class="ap">
+{{> cabecera_ja_learn}}
+{{LEARN:barra}}
+<main id="inicio">
+<section class="ap-cab"><div class="envoltura"><div class="eti">Metafyのガイド</div><h1>学ぶ</h1><p>Metafyのクリエイターによるマジックのガイド。アリーナとMagic Onlineに対応。ガイドはMetafyで開きます。</p></div></section>
+{{LEARN:destacado}}
+<section class="ap-bloque"><div class="envoltura"><div class="ap-app"><p><b>アプリの「あなたへ」がガイドを選びます：</b>使っているデッキと、いちばん苦手なマッチアップに合わせて。</p><a class="boton prim" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div></div></section>
+<section class="ap-bloque" id="guias-seccion"><div class="envoltura">
+{{LEARN:filtros}}
+{{LEARN:rejilla}}
+<p class="ap-nota">ガイドの表紙と情報はMetafyのもので、各ガイドはMetafyのサイトで開きます。この一覧を表示するため、ブラウザはManaLabのサーバーにガイドの一覧を、Metafyに表紙を要求します。どちらも一般的なウェブサイトと同じようにリクエスト（IPアドレスとブラウザ）を受け取ります。ManaLabはあなたのデータを保存しません。詳しくは<a href="/privacy/#en">プライバシーポリシー</a>（英語）をご覧ください。</p>
+</div></section>
+{{HUECO_MDN}}
+<section class="seccion" id="descargar"><div class="envoltura"><div class="apoyo uno"><div>
+<div class="eti">無料ダウンロード</div>
+<h2>このガイドをManaLabの中で</h2>
+<p>ManaLabはアリーナとMagic Onlineの対戦を保存し、「学ぶ」で使っているデッキに合うガイドを表示します。</p>
+<p>Windows 10 / 11。ZIPを展開して、ManaLab.exeを開きます。インストールは不要です。</p>
+<p style="margin-top:14px"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="{{EVENTO:descarga}}" data-goatcounter-title="{{EVENTO:descarga}}" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></p>
+<p class="nota-descarga">バージョン <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">他のバージョン</a></p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">ManaLabはパソコンで使います</h4>
+{{CORREO_MOVIL txt="自分にリンクを送って、パソコンでダウンロードしてください。"}}
+<p><button class="boton prim" data-compartir data-copiado="リンクをコピーしました" data-titulo="{{EVENTO:compartir-movil}}" data-url="https://manalab.es/ja/learn/" type="button"><span>リンクを自分に送る</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="{{EVENTO:descarga-movil}}" rel="noopener">それでもZIPをダウンロード</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen" data-solo-pc>展開する前に、ZIPを右クリック › プロパティ › <b>ブロックの解除</b>にチェック › OK。それでも警告が出る場合は、<b>詳細情報 › 実行</b>をクリックしてください。</p>
+<p class="nota-smartscreen"><a href="/safety/">安全ですか？ご自身で確認できます（英語）→</a></p>
+</div></div></div></section>
+</main>
+{{> pie_ja_learn}}
+
+{{LEARN:datos}}
+<script defer="" src="/descarga.js"></script>
+<script defer="" src="/learn/learn.js"></script>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

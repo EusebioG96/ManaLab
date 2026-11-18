@@ -9,7 +9,7 @@
 <link href="https://manalab.es/es/coaches/" hreflang="es" rel="alternate"/>
 <link href="https://manalab.es/pt/coaches/" hreflang="pt-BR" rel="alternate"/>
 <link href="https://manalab.es/coaches/" hreflang="x-default" rel="alternate"/>
-<meta content="#0d0304" name="theme-color"/>
+<meta content="#0d100f" name="theme-color"/>
 <link href="../../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="../../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="../../img/apple-touch-icon.png" rel="apple-touch-icon"/>
@@ -28,7 +28,7 @@
 <meta content="Tu alumno te envía un solo informe con manos, mulligans y momentos clave. Guía gratis para coaches de MTG Arena y Magic Online." name="twitter:description"/>
 <meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/es/coaches/#webpage", "url": "https://manalab.es/es/coaches/", "name": "Cómo revisar a un alumno con ManaLab · Coaches", "description": "Tu alumno te envía un solo informe con manos, mulligans y momentos clave. Guía gratis para coaches de MTG Arena y Magic Online.", "inLanguage": "es", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/coaches_informe_es.jpg"}}, {"@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Cuesta algo?", "acceptedAnswer": {"@type": "Answer", "text": "El programa es gratis. Lo único de pago es el análisis de derrotas con IA, que no hace falta para nada de esta guía."}}, {"@type": "Question", "name": "¿Mi alumno comparte todo su historial?", "acceptedAnswer": {"@type": "Answer", "text": "En el informe y en el archivo .manalab comparte solo lo que elige. En el modo Equipo, ManaLab publica todas sus partidas en vuestra carpeta compartida salvo que deje de compartir; puede ocultar los nombres de los rivales y desactivar que se compartan las capturas."}}, {"@type": "Question", "name": "¿Cuentan sus partidas en mis estadísticas?", "acceptedAnswer": {"@type": "Answer", "text": "No. Las partidas de otro jugador se quedan marcadas y no cuentan en las tuyas."}}, {"@type": "Question", "name": "¿Qué no incluye una partida importada?", "acceptedAnswer": {"@type": "Answer", "text": "Capturas y análisis con IA. Sí trae repetición, manos, mulligans, mazo, notas y etiquetas."}}, {"@type": "Question", "name": "¿Qué necesito?", "acceptedAnswer": {"@type": "Answer", "text": "ManaLab funciona en Windows 10 y 11. Los informes se abren en cualquier navegador, así que para leerlos no necesitas instalar nada."}}, {"@type": "Question", "name": "¿Y si echo algo de menos?", "acceptedAnswer": {"@type": "Answer", "text": "Escribe a manalab.app@gmail.com. Las herramientas para coaches se están construyendo con lo que nos pidáis."}}]}]}</script>
-<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>{{> css_sitio 16=b}}</style></head>
 <body>
 {{> cabecera_es}}
@@ -41,14 +41,14 @@
 <p class="sub">Tu alumno juega como siempre y llega a la clase con sus partidas ya guardadas. Así dedicas la sesión a sus decisiones, no a pedirle capturas ni a reconstruir lo que pasó.</p>
 <div class="nota-desc"><span>El programa es gratis. Solo el análisis con IA es de pago</span><span>Los informes se abren en cualquier navegador</span><span>No hace falta cuenta</span></div>
 <div class="desc-bloque" id="descargar">
-<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-coaches-es" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="{{EVENTO:descarga}}" data-goatcounter-title="{{EVENTO:descarga}}" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></p>
 <p class="nota-descarga">Versión <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">otras versiones</a></p>
 <p class="nota-descarga">Tu alumno necesita ManaLab para crear el informe. Tú no lo necesitas para leerlo.</p>
 <template id="bloque-movil"><div class="movil-caja">
 <h4 class="movil-tit">ManaLab se usa en el ordenador</h4>
 <p class="movil-txt">Envíate el enlace y descárgalo allí.</p>
-<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="compartir-movil-coaches-es" data-url="https://manalab.es/es/coaches/" type="button"><span>Enviarme el enlace</span></button></p>
-<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="descarga-movil-coaches-es" rel="noopener">Descargar el ZIP igualmente</a></p>
+<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="{{EVENTO:compartir-movil}}" data-url="https://manalab.es/es/coaches/" type="button"><span>Enviarme el enlace</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="{{EVENTO:descarga-movil}}" rel="noopener">Descargar el ZIP igualmente</a></p>
 <p aria-live="polite" class="movil-estado" role="status"></p>
 </div></template>
 <p class="nota-smartscreen">Requisitos: Windows 10 u 11. Descomprime el ZIP y abre ManaLab.exe. No hace falta instalar nada.</p>
@@ -63,6 +63,7 @@
 </div>
 </div>
 </section>
+{{HUECO_MDN}}
 <section class="seccion franja" id="que-hace">
 <div class="envoltura">
 <div class="cab-sec"><div class="eti">Para qué sirve</div><h2>Más clase dedicada a las decisiones, menos preparación</h2><p>ManaLab es un tracker gratis para MTG Arena y Magic Online. Guarda solo las manos iniciales, los mulligans, si empezó primero o segundo, el mazo del rival y una repetición de cada partida.</p></div>
@@ -127,6 +128,7 @@
 <div class="mtgo-caja sola"><ul><li><b>Sideboard:</b> el alumno debe confirmar sus cambios entre partidas con un clic («Usar este cambio», «Sin cambios» o «Editar»). Las partidas que nunca se confirman no cuentan en los cambios de sideboard que se ven en Sideboard.</li><li><b>Repetición:</b> las fases y las cartas giradas que no están confirmadas llevan la marca ≈, porque pueden no ser exactas.</li><li><b>Nombres de mazo:</b> un mazo de Magic Online normalmente sale con el nombre que el alumno le puso en Magic Online; si la lista no coincide exactamente, sale por sus colores.</li><li><b>Importaciones:</b> importar un registro no corrige el sideboard de las partidas ya guardadas.</li></ul><p>En Arena hay que activar Opciones › Cuenta › «Detailed Logs (Plugin Support)» una vez y reiniciar el juego. En Magic Online no hay nada que activar.</p></div>
 </div>
 </section>
+{{HUECO_MDN}}
 <section class="seccion franja" id="preguntas">
 <div class="envoltura">
 <div class="cab-sec"><div class="eti">Preguntas</div><h2>Antes de empezar</h2></div>
@@ -146,7 +148,7 @@
 <div>
 <div class="eti">Descarga gratuita</div>
 <h2>El programa es gratis. Solo el análisis con IA es de pago</h2>
-<p>El análisis con IA de tus derrotas cuesta 5 € al mes y paga el servicio de IA que usa. Todo lo demás, incluido todo lo de esta página, es gratis. ¿Quieres probarlo antes? Pide una prueba gratis por <a href="mailto:manalab.app@gmail.com">correo</a>.</p>
+<p>El análisis con IA de tus derrotas cuesta 6 $ al mes y paga el servicio de IA que usa. Todo lo demás, incluido todo lo de esta página, es gratis. ¿Quieres probarlo antes? Pide una prueba gratis por <a href="mailto:manalab.app@gmail.com">correo</a>.</p>
 <div class="acciones" style="margin-top:18px"><a class="boton prim" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a><a class="enlace-sec" href="/es/#ia">Sobre el análisis con IA</a></div>
 </div>
 </div>

@@ -67,15 +67,43 @@
       var url = boton.getAttribute("data-url");
       copiar(url).then(function () { decir(boton.getAttribute("data-copiado")); }, function () { decir(url); });
     }
-    boton.addEventListener("click", function () {
-      contar("compartir-movil", boton.getAttribute("data-titulo"));
+    // con el campo de correo activo el bloque no trae el botón de compartir (ML-296)
+    if (boton) boton.addEventListener("click", function () {
+      contar(boton.getAttribute("data-titulo"), boton.getAttribute("data-titulo"));
       var url = boton.getAttribute("data-url"), p;
       try { p = navigator.share ? navigator.share({ title: "ManaLab", url: url }) : null; } catch (e) { p = Promise.reject(e); }
       if (!p) { copiado(); return; }
       // cancelar el menú de compartir (AbortError) no es un error: ni se copia ni se avisa
       p.then(function () {}, function (e) { if (!e || e.name !== "AbortError") copiado(); });
     });
-    zip.addEventListener("click", function () { contar("descarga-movil", zip.getAttribute("data-titulo")); });
+    zip.addEventListener("click", function () { contar(zip.getAttribute("data-titulo"), zip.getAttribute("data-titulo")); });
+    var formulario = caja.querySelector("form[data-correo-url]");
+    if (formulario) montarCorreo(formulario);
+  }
+
+  // «Envíate el enlace por correo»: el servidor manda un único correo y no guarda la dirección. Aquí la dirección solo viaja en el
+  // cuerpo de esa petición: nunca va a GoatCounter, a la URL ni a ningún registro.
+  var CORREO_VALIDO = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function montarCorreo(f) {
+    var campo = f.querySelector("input"), boton = f.querySelector("button"), estado = f.querySelector(".movil-correo-estado");
+    var enviando = false;
+    function decir(clave, error) {
+      estado.textContent = f.getAttribute(clave);
+      estado.className = "movil-correo-estado" + (error ? " error" : "");
+    }
+    f.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (enviando) return;
+      var correo = campo.value.trim();
+      if (correo.length > 120 || !CORREO_VALIDO.test(correo)) { decir("data-e-correo", true); return; }
+      enviando = true; boton.disabled = true; estado.textContent = ""; estado.className = "movil-correo-estado";
+      var cuerpo = JSON.stringify({ correo: correo, idioma: f.getAttribute("data-idioma") });
+      fetch(f.getAttribute("data-correo-url"), { method: "POST", headers: { "Content-Type": "application/json" }, body: cuerpo,
+        credentials: "omit", referrerPolicy: "no-referrer" }).then(function (r) {
+        if (r.ok) { campo.value = ""; decir("data-ok", false); contar(f.getAttribute("data-evento"), f.getAttribute("data-evento")); }
+        else decir(r.status === 400 ? "data-e-correo" : r.status === 429 ? "data-e-limite" : "data-e-red", true);
+      }, function () { decir("data-e-red", true); }).then(function () { enviando = false; boton.disabled = false; });
+    });
   }
 
   var enlace = document.getElementById("enlace-descarga"), plantilla = document.getElementById("bloque-movil");
@@ -121,6 +149,8 @@
         var a = avisos[i];
         a.setAttribute("data-original", a.getAttribute("href"));
         a.setAttribute("href", "#descargar");
+        // el nombre del evento de cada botón (descarga-<página>-<idioma>-<posición>) se guarda para devolverlo al volver a ordenador
+        a.setAttribute("data-evento-original", a.getAttribute("data-goatcounter-click") || "");
         a.removeAttribute("download"); a.removeAttribute("data-descarga"); a.removeAttribute("data-goatcounter-click");
       }
     } else if (!movil && caja) {
@@ -132,7 +162,8 @@
       for (var j = 0; j < avisos.length; j++) {
         var b = avisos[j];
         b.setAttribute("href", b.getAttribute("data-original")); b.removeAttribute("data-original");
-        b.setAttribute("download", ""); b.setAttribute("data-descarga", ""); b.setAttribute("data-goatcounter-click", "descarga");
+        b.setAttribute("download", ""); b.setAttribute("data-descarga", ""); b.setAttribute("data-goatcounter-click", b.getAttribute("data-evento-original") || b.getAttribute("data-goatcounter-title") || "");
+        b.removeAttribute("data-evento-original");
       }
       aplicar(document);
     }

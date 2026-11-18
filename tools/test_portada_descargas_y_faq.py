@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ML-148, tanda 1 de la auditoría web: comprueba sobre los archivos (sin red) los puntos 1 a 9.
 
-El punto 10 (quitar Patreon) se comprueba en tools/test_apoyo_kofi.py.
+El punto 10 (quitar Patreon y Ko-fi) se comprueba en tools/test_enlaces_metafy.py.
 
 Uso:  python3 tools/test_portada_descargas_y_faq.py
 """
@@ -19,8 +19,6 @@ PORTADAS = {"en": RAIZ / "index.html", "es": RAIZ / "es" / "index.html"}
 IDIOMAS_GUIA = ["en", "es", "fr", "de", "it", "pt", "ja", "ko", "zh"]
 TEXTO_GUIA = {"en": "Download free", "es": "Descargar gratis", "fr": "Télécharger gratuitement", "de": "Kostenlos herunterladen",
               "it": "Scarica gratis", "pt": "Baixar grátis", "ja": "無料ダウンロード", "ko": "무료 다운로드", "zh": "免费下载"}
-KOFI_TIERS = "https://ko-fi.com/eusebiog96/tiers"
-KOFI = "https://ko-fi.com/eusebiog96"
 
 
 def leer(ruta):
@@ -95,8 +93,8 @@ class TestPuntos1y9Descarga(unittest.TestCase):
                     self.assertEqual(a["class"].split(), ["boton", "prim", "descarga"])
                     for atributo in ("download", "data-a-bloque", "data-descarga"):
                         self.assertIn(atributo, a)
-                    self.assertEqual(a.get("data-goatcounter-click"), "descarga")
-                    self.assertEqual(a.get("data-goatcounter-title"), f"descarga-{lugar}-{idioma}")
+                    self.assertEqual(a.get("data-goatcounter-click"), f"descarga-portada-{idioma}-{lugar}")
+                    self.assertEqual(a.get("data-goatcounter-title"), f"descarga-portada-{idioma}-{lugar}")
                     self.assertIn("noopener", a.get("rel", "").split())
 
     def test_el_hero_sigue_teniendo_un_solo_boton(self):
@@ -110,19 +108,6 @@ class TestPuntos1y9Descarga(unittest.TestCase):
         self.assertIn("bajarALosPasos", js)
         self.assertIn("400", js)
         self.assertIn('addEventListener("click", bajarALosPasos)', js)
-
-    def test_kofi_con_medicion(self):
-        esperado = {"kofi-ia": KOFI_TIERS, "kofi-funciones": KOFI_TIERS, "kofi-apoyo": KOFI}
-        for idioma, ruta in PORTADAS.items():
-            todos = [e["attrs"] for e in enlaces(ruta) if e["attrs"].get("href") in (KOFI, KOFI_TIERS)]
-            self.assertEqual(len(todos), 3)
-            for base, href in esperado.items():
-                with self.subTest(idioma=idioma, enlace=base):
-                    a = [x for x in todos if x.get("data-goatcounter-title") == f"{base}-{idioma}"]
-                    self.assertEqual(len(a), 1)
-                    self.assertEqual(a[0]["href"], href)
-                    self.assertEqual(a[0].get("data-goatcounter-click"), "apoyo")
-            self.assertEqual([x.get("id") for x in todos if x.get("id")], ["enlace-donar"])
 
 
 class TestPunto2CajaMovil(unittest.TestCase):
@@ -152,10 +137,10 @@ class TestPunto3Guias(unittest.TestCase):
                 lista = enlaces(RAIZ / "guia" / f"guia_manalab_{idioma}.html")
                 botones = [e for e in lista if "descargar" in e["attrs"].get("class", "").split()]
                 self.assertEqual(len(botones), 2)
-                for e in botones:
+                for sitio, e in zip(("arriba", "abajo"), botones):
                     self.assertEqual(e["attrs"]["href"], {"es": "/es/#descargar", "ja": "/ja/#descargar", "pt": "/pt/#descargar"}.get(idioma, "/#descargar"))
-                    self.assertEqual(e["attrs"].get("data-goatcounter-click"), "guia-descarga")
-                    self.assertEqual(e["attrs"].get("data-goatcounter-title"), f"guia-descarga-{idioma}")
+                    self.assertEqual(e["attrs"].get("data-goatcounter-click"), f"descarga-guia-{idioma}-{sitio}")
+                    self.assertEqual(e["attrs"].get("data-goatcounter-title"), f"descarga-guia-{idioma}-{sitio}")
                     self.assertEqual(e["texto"], TEXTO_GUIA[idioma])
                     self.assertIn("nav.inicio", e["ctx"])
 
@@ -208,7 +193,7 @@ class TestPunto4Logo(unittest.TestCase):
             for m in re.finditer(r'<a class="marca"[^>]*><img[^>]*src="([^"]*)"', html):
                 usadas += 1
                 self.assertTrue(m.group(1).endswith("img/logo-claro.png"), f"{ruta}: {m.group(1)}")
-        self.assertEqual(usadas, 18)   # 9 páginas + las dos de novedades (ML-153) + la 404 (ML-154) + las portadas ja y pt (ML-156) + 4 páginas de búsquedas (ML-157)
+        self.assertEqual(usadas, 22)   # 4 páginas Learn (ML-324) + 9 páginas + las dos de novedades (ML-153) + la 404 (ML-154) + las portadas ja y pt (ML-156) + 4 páginas de búsquedas (ML-157)
         self.assertTrue((RAIZ / "img" / "logo.png").exists())
 
 
@@ -246,7 +231,7 @@ class TestPunto6Faq(unittest.TestCase):
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 en_html, en_json = self.faq_html(html), self.faq_json(html)
-                self.assertEqual(len(en_json), 8)
+                self.assertEqual(len(en_json), 9)
                 for q in self.NUEVAS[idioma]:
                     r_html = [a for n, a in en_html if n == q]
                     r_json = [a for n, a in en_json if n == q]
@@ -267,14 +252,11 @@ class TestPunto6Faq(unittest.TestCase):
                     self.assertTrue(en_html[q].replace("&#x27;", "'").startswith(a), q)
 
 
-class TestPunto7SorteoYSitemap(unittest.TestCase):
-    def test_sorteo_noindex_y_fuera_del_sitemap(self):
-        for ruta in (RAIZ / "sorteo" / "index.html", RAIZ / "sorteo" / "en" / "index.html"):
-            with self.subTest(pagina=str(ruta.relative_to(RAIZ))):
-                self.assertIn('<meta name="robots" content="noindex, follow">', leer(ruta))
+class TestPunto7Sitemap(unittest.TestCase):
+    def test_sitemap_sin_rutas_de_sorteo(self):
         sitemap = leer(RAIZ / "sitemap.xml")
         self.assertNotIn("/sorteo", sitemap)
-        self.assertEqual(sitemap.count("<loc>"), 27)   # 19 + novedades (ML-153) + las portadas ja y pt (ML-156) + 4 páginas de búsquedas (ML-157)
+        self.assertEqual(sitemap.count("<loc>"), 31)   # 4 páginas Learn (ML-324) + 19 + novedades (ML-153) + las portadas ja y pt (ML-156) + 4 páginas de búsquedas (ML-157)
 
     def test_cada_url_del_sitemap_tiene_su_archivo(self):
         import actualizar_sitemap as u
