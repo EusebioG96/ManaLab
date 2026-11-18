@@ -42,7 +42,6 @@
 <section class="ap-bloque" id="guias-seccion"><div class="envoltura">
 {{LEARN:filtros}}
 {{LEARN:rejilla}}
-<p class="ap-nota">ガイドの表紙と情報はMetafyのもので、各ガイドはMetafyのサイトで開きます。この一覧を表示するため、ブラウザはManaLabのサーバーにガイドの一覧を、Metafyに表紙を要求します。どちらも一般的なウェブサイトと同じようにリクエスト（IPアドレスとブラウザ）を受け取ります。ManaLabはあなたのデータを保存しません。詳しくは<a href="/privacy/#en">プライバシーポリシー</a>（英語）をご覧ください。</p>
 </div></section>
 {{HUECO_MDN}}
 <section class="seccion" id="descargar"><div class="envoltura"><div class="apoyo uno"><div>
