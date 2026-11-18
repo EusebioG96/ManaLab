@@ -249,6 +249,26 @@ class TestTextosPendientesDePrivacidadYSeguridad(unittest.TestCase):
         self.assertNotEqual(hallazgos, [], "MANALAB_PUBLICAR=1 debe fallar mientras Eusebio no escriba esos textos")
 
 
+class TestAltoReservado(unittest.TestCase):
+    """El alto de cada hueco está escrito en la hoja de estilos (así no salta al llegar el anuncio); el navegador lo mide en el otro archivo."""
+    CSS = (RAIZ / "plantillas" / "css_sitio.tpl").read_text(encoding="utf-8")
+
+    def test_rectangle_300x250_por_defecto_y_leaderboard_728x90_si_el_hueco_mide_728_o_mas(self):
+        self.assertRegex(self.CSS, r"\.hm-caja \{[^}]*width: 300px; height: 250px;")
+        self.assertRegex(self.CSS, r"@container \(min-width: 728px\) \{ \.hm-caja \{ width: 728px; height: 90px; \} \}")
+
+    def test_etiqueta_en_geist_mono_de_11_px(self):
+        self.assertRegex(self.CSS, r"\.hm-eti \{ font: 500 11px/1 var\(--f-mono\);")
+
+    def test_el_anuncio_de_casa_solo_se_ve_con_mdn_vacio_plazo_agotado_o_sin_javascript(self):
+        self.assertRegex(self.CSS, r"\.hm-casa \{[^}]*visibility: hidden;")
+        self.assertIn('.hm-caja[data-mdn-state="empty"] .hm-casa, .hueco-mdn[data-propio] .hm-casa { visibility: visible; }', self.CSS)
+        self.assertIn("@media (scripting: none) { .hm-casa { visibility: visible; } }", self.CSS)
+
+    def test_con_reducir_movimiento_el_hueco_no_se_anima(self):
+        self.assertIn("@media (prefers-reduced-motion: reduce) { .hueco-mdn, .hueco-mdn * { animation: none !important; transition: none !important; } }", self.CSS)
+
+
 class TestGenerador(unittest.TestCase):
     def test_sin_marcas_no_cambia_nada(self):
         pagina = "<html><body><main>x</main></body></html>"
