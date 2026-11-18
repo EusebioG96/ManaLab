@@ -6,6 +6,9 @@ Protege dos fallos que ya existían: (1) la fila de escritorio de la cabecera no
 
 - Sin desplazamiento horizontal a 360, 390, 768, 1040 y 1366 px, y en una barrido de 901 a 1100 px cada 10 px.
 - CLS (``PerformanceObserver`` de layout-shift) en 390 px, con CPU x4 y red lenta, por debajo de 0,1.
+- ML-326b: en todas las páginas con cabecera (portadas, Learn, coaches, Magic Online, overlay, novedades, registro detallado, seguridad, 404),
+  de 340 a 1400 px cada 10 px: sin desplazamiento horizontal y ningún enlace ni botón visible de la cabecera ocupa más de una línea
+  (si la fila de escritorio no cabe, la cabecera tiene que estar en el menú de teléfono).
 - Con descarga.js bloqueado (así es el primer pintado) en teléfono: el aviso y el botón del héroe ya no se ven y el hueco de la caja guarda su alto.
 
 Uso:  python3 -m pytest tools/test_portada_sin_desborde_ni_saltos.py
@@ -27,6 +30,17 @@ PORTADAS = ("index.html", "es/index.html", "pt/index.html", "ja/index.html")
 ANCHOS = (360, 390, 768, 1040, 1366)
 LIMITE_CLS = 0.1
 ALTO_MINIMO_HUECO = 232   # alto de la caja de móvil más baja (767 px); a 480 px o menos se reservan 300
+ANCHOS_BARRIDO = range(340, 1401, 10)
+# Alto de lo que ocupa el texto visible de cada enlace de la cabecera: una línea de texto mide como mucho esto veces la altura de una caja de texto
+MAX_LINEAS = 1.6
+LINEAS_PARTIDAS = """() => { const partidos = [];
+  document.querySelectorAll('.cab nav a, .cab > .envoltura > .boton, .cab .idioma, .cab .marca').forEach(function (a) {
+    if (!a.checkVisibility({ contentVisibilityAuto: true, visibilityProperty: true })) return;
+    const hojas = document.createTreeWalker(a, NodeFilter.SHOW_TEXT); let caja = 0, arriba = 1e9, abajo = -1e9, n;
+    while ((n = hojas.nextNode())) { if (!n.textContent.trim()) continue; const r = document.createRange(); r.selectNodeContents(n);
+      for (const q of r.getClientRects()) { if (q.width > 0) { caja = Math.max(caja, q.height); arriba = Math.min(arriba, q.top); abajo = Math.max(abajo, q.bottom); } } }
+    if (caja > 0 && (abajo - arriba) > caja * %s) partidos.push(a.textContent.trim().slice(0, 24)); });
+  return partidos; }""" % MAX_LINEAS
 CLS_ENTRADA = """window.__cls = 0; try { new PerformanceObserver(function (l) { l.getEntries().forEach(function (e) {
   if (!e.hadRecentInput) window.__cls += e.value; }); }).observe({ type: "layout-shift", buffered: true }); } catch (e) {}"""
 
@@ -69,6 +83,21 @@ class PortadaSinDesbordeNiSaltos(unittest.TestCase):
                 pagina.goto(f"{self.web.url}/{portada}", wait_until="load")
                 self.assertLessEqual(pagina.evaluate("document.documentElement.scrollWidth"), ancho, f"{portada} a {ancho} px se desplaza en horizontal")
                 contexto.close()
+
+    def paginas_con_cabecera(self):
+        return sorted(p.relative_to(self.raiz).as_posix() for p in self.raiz.rglob("*.html") if '<header class="cab">' in p.read_text(encoding="utf-8"))
+
+    def test_cabecera_sin_desborde_ni_enlaces_partidos_en_todas_las_paginas(self):
+        paginas = self.paginas_con_cabecera()
+        self.assertGreaterEqual(len(paginas), 20, "faltan páginas con cabecera")
+        for ruta in paginas:
+            contexto, pagina = self.pagina(1000)
+            pagina.goto(f"{self.web.url}/{ruta}", wait_until="load")
+            for ancho in ANCHOS_BARRIDO:
+                pagina.set_viewport_size({"width": ancho, "height": 844})
+                self.assertLessEqual(pagina.evaluate("document.documentElement.scrollWidth"), ancho, f"{ruta} a {ancho} px se desplaza en horizontal")
+                self.assertEqual(pagina.evaluate(LINEAS_PARTIDAS), [], f"{ruta} a {ancho} px: enlaces de la cabecera partidos en dos líneas")
+            contexto.close()
 
     def test_cls_en_movil_con_red_lenta(self):
         for portada in PORTADAS:

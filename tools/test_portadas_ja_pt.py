@@ -168,7 +168,7 @@ class TestPunto5SeparacionBajoLaCaja(unittest.TestCase):
                 self.assertIn("html.movil .hero-cta { margin-top: 16px; }", leer(ruta))
 
     def test_logo_de_coaches_pt(self):
-        self.assertIn('<a class="marca" href="/pt/">', leer(RAIZ / "pt" / "coaches" / "index.html"))
+        self.assertRegex(leer(RAIZ / "pt" / "coaches" / "index.html"), r'<a class="marca"[^>]* href="/pt/">')  # puede llevar data-compacta (ML-326b)
 
 
 class TestSitemap(unittest.TestCase):
