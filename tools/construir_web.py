@@ -365,7 +365,7 @@ def construir(raiz: Path, destino: Path) -> list[Path]:
         fuente = _leer(carpeta / CARPETA_PAGINAS / relativa.with_suffix(SUFIJO_PAGINA))
         expandida = aplicar_learn(generar_pagina(carpeta, fuente), pagina_e_idioma(relativa)[1], raiz)   # ML-324: páginas Learn
         pagina = aplicar_correo(aplicar_enlaces(expandida, enlaces), relativa)
-        pagina = aplicar_mdn(pagina, relativa, pagina_e_idioma(relativa)[1])   # ML-325: huecos de anuncio de MDN (antes de los eventos: el anuncio de casa lleva el suyo)
+        pagina = aplicar_mdn(pagina, relativa, pagina_e_idioma(relativa)[1], raiz)   # ML-325: huecos de anuncio de MDN (antes de los eventos: el anuncio de casa lleva el suyo)
         pagina = aplicar_video_lanzamiento(aplicar_cita(aplicar_eventos(pagina, relativa), relativa), relativa, raiz)
         datos = pagina.replace(MARCA_VERSION, version).encode("utf-8")
         salida = destino / relativa

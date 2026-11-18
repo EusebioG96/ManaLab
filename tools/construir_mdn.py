@@ -2,7 +2,7 @@
 
 Una página con anuncio escribe la marca ``{{HUECO_MDN}}`` (o ``{{HUECO_MDN:suelto}}`` dentro de la rejilla de Learn) donde va cada
 hueco. ``aplicar_mdn`` la cambia por el ``<aside class="hueco-mdn">`` en el idioma de la página y, si la página tiene algún hueco,
-añade UNA vez, antes de ``</body>``, el script de MDN (``async``) y el de ``/huecos_mdn.js``. Una página sin marcas no recibe ni
+añade UNA vez, antes de ``</head>``, su hoja de estilos (``plantillas/mdn/huecos.css``) y, antes de ``</body>``, el script de MDN (``async``) y el de ``/huecos_mdn.js``. Una página sin marcas no recibe ni
 hueco ni script. Las páginas sin anuncio (``PAGINAS_SIN_ANUNCIO``) no pueden llevar marcas: si alguien la pone, la construcción falla.
 
 La regla de dónde va cada hueco (WEB-09) está en ``tools/test_huecos_mdn.py`` (estática) y ``tools/test_huecos_mdn_navegador.py``
@@ -11,6 +11,9 @@ La regla de dónde va cada hueco (WEB-09) está en ``tools/test_huecos_mdn.py`` 
 import html
 import re
 from pathlib import Path
+
+RAIZ = Path(__file__).resolve().parent.parent
+CSS_HUECOS = Path("plantillas") / "mdn" / "huecos.css"   # estilos de los huecos: solo los lleva una página que tiene alguno (ML-329)
 
 SCRIPT_MDN = "https://mdn.metafy.gg/embed.js"   # formatos leídos del propio script: leaderboard 728x90 (hueco de 728 px o más) y rectangle 300x250
 SITIO_MDN = "mdn_obNMYPWbbmMClWCpy3Pss6JY"      # la misma clave que usa manalab.es/anuncio/ (el hueco de la app)
@@ -66,11 +69,17 @@ def html_scripts() -> str:
             f'<script async src="{SCRIPT_MDN}" data-mdn-site="{SITIO_MDN}"></script>')
 
 
-def aplicar_mdn(pagina: str, relativa: Path, idioma: str) -> str:
-    """Resuelve las marcas ``{{HUECO_MDN}}`` de una página con sus huecos y le añade, una sola vez, los scripts.
+def html_estilos(raiz: Path) -> str:
+    """La hoja de estilos de los huecos como ``<style>``, leída de ``raiz`` (el repositorio), en una línea propia con su salto."""
+    with open(raiz / CSS_HUECOS, encoding="utf-8", newline="") as f:
+        return "<style>" + f.read().rstrip("\n") + "</style>\n"
 
-    Lanza ``ValueError`` si la página no debe llevar anuncio y tiene marcas, si tiene más de ``MAX_HUECOS`` o si no cierra con ``</body>``.
-    Sin marcas, devuelve ``pagina`` sin tocar.
+
+def aplicar_mdn(pagina: str, relativa: Path, idioma: str, raiz: Path = RAIZ) -> str:
+    """Resuelve las marcas ``{{HUECO_MDN}}`` de una página con sus huecos y le añade, una sola vez, su hoja de estilos y los scripts.
+
+    ``raiz`` es el repositorio del que se lee la hoja de estilos. Lanza ``ValueError`` si la página no debe llevar anuncio y tiene marcas,
+    si tiene más de ``MAX_HUECOS`` o si no cierra con un único ``</body>`` y un único ``</head>``. Sin marcas, devuelve ``pagina`` sin tocar.
     """
     marcas = _MARCA.findall(pagina)
     if not marcas:
@@ -83,5 +92,8 @@ def aplicar_mdn(pagina: str, relativa: Path, idioma: str) -> str:
     if pagina.count("</body>") != 1:
         raise ValueError(f"{nombre}: no tiene un único </body> donde poner el script de MDN")
     posiciones = iter(range(1, MAX_HUECOS + 1))
+    if pagina.count("</head>") != 1:
+        raise ValueError(f"{nombre}: no tiene un único </head> donde poner los estilos de los huecos")
+    pagina = pagina.replace("</head>", html_estilos(raiz) + "</head>")
     pagina = _MARCA.sub(lambda m: html_hueco(idioma, suelto=bool(m.group(1)), posicion=next(posiciones)), pagina)
     return pagina.replace("</body>", html_scripts() + "</body>")

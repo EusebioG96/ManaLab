@@ -423,7 +423,22 @@ footer { padding-block: 28px; }
 /* separación del enlace bajo la caja de móvil */
 html.movil .hero-cta { margin-top: 16px; }
 
-/* huecos de anuncio de MDN (WEB-09). Cada hueco reserva su alto exacto antes de que MDN responda (728x90 si el hueco mide 728 px o más, 300x250 si
+/* ---------------- ML-156: portadas en japonés y portugués */
+.pie-captura-hero { margin: 0; font-size: 13.5px; color: var(--apagado); }
+.ventana .pie-captura { margin: 0; padding: 9px 14px 10px; font-size: 13px; border-top: 1px solid var(--linea); }
+.enlaces-extra { margin-top: 36px; display: grid; gap: 6px; }
+.enlaces-extra p { margin: 0; font-weight: 600; font-size: 16px; }
+.nota-trad { margin: 0; color: var(--texto2); }
+.confianza-lista a { white-space: normal; }
+html[lang="ja"] body { line-break: strict; word-break: auto-phrase; }
+html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3, html[lang="ja"] .confianza-lista b { word-break: keep-all; overflow-wrap: anywhere; line-height: 1.25; }
+html[lang="ja"] .portada h1 { font-size: clamp(32px, 4vw, 48px); line-height: 1.2; }
+html[lang="ja"] .cab-sec h2 { font-size: clamp(26px, 3vw, 36px); }
+html[lang="ja"] .ia-caja h2 { font-size: clamp(26px, 3vw, 36px); }
+html[lang="ja"] .eti { letter-spacing: 1px; }
+html[lang="ja"] .ruta { white-space: normal; }
+html.movil .hero-cta { margin-top: 16px; }
+</style><style>/* huecos de anuncio de MDN (WEB-09). Cada hueco reserva su alto exacto antes de que MDN responda (728x90 si el hueco mide 728 px o más, 300x250 si
    no; MDN elige el formato por el ancho de la caja, y la caja y la consulta miden lo mismo), así que la página no salta al cargar el anuncio */
 .hueco-mdn { container-type: inline-size; display: grid; justify-items: center; gap: 8px; padding: 24px 0; border-block: 1px solid var(--linea); }
 .hm-eti { font: 500 11px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--apagado); }
@@ -441,23 +456,8 @@ html.movil .hero-cta { margin-top: 16px; }
 @media (scripting: none) { .hm-casa { visibility: visible; } }
 @container (max-width: 727.98px) { .hm-casa { flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; } .hm-casa em { margin: 6px 0 0; } }
 @media (prefers-reduced-motion: reduce) { .hueco-mdn, .hueco-mdn * { animation: none !important; transition: none !important; } }
-.hueco-mdn.suelto { grid-column: 1 / -1; border: 0; padding: 0; margin-block: 12px; }
-/* ---------------- ML-156: portadas en japonés y portugués */
-.pie-captura-hero { margin: 0; font-size: 13.5px; color: var(--apagado); }
-.ventana .pie-captura { margin: 0; padding: 9px 14px 10px; font-size: 13px; border-top: 1px solid var(--linea); }
-.enlaces-extra { margin-top: 36px; display: grid; gap: 6px; }
-.enlaces-extra p { margin: 0; font-weight: 600; font-size: 16px; }
-.nota-trad { margin: 0; color: var(--texto2); }
-.confianza-lista a { white-space: normal; }
-html[lang="ja"] body { line-break: strict; word-break: auto-phrase; }
-html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3, html[lang="ja"] .confianza-lista b { word-break: keep-all; overflow-wrap: anywhere; line-height: 1.25; }
-html[lang="ja"] .portada h1 { font-size: clamp(32px, 4vw, 48px); line-height: 1.2; }
-html[lang="ja"] .cab-sec h2 { font-size: clamp(26px, 3vw, 36px); }
-html[lang="ja"] .ia-caja h2 { font-size: clamp(26px, 3vw, 36px); }
-html[lang="ja"] .eti { letter-spacing: 1px; }
-html[lang="ja"] .ruta { white-space: normal; }
-html.movil .hero-cta { margin-top: 16px; }
-</style></head>
+.hueco-mdn.suelto { grid-column: 1 / -1; border: 0; padding: 0; margin-block: 12px; }</style>
+</head>
 <body>
 <!-- aviso de la versión nueva: quitar o cambiar en la siguiente release -->
 <div class="aviso-version" role="note">

@@ -165,7 +165,7 @@ class TestPaginasConAnuncio(unittest.TestCase):
                     self.assertNotIn("details", h["ancestros"])
                     self.assertNotIn("header", h["ancestros"])
                     self.assertNotIn("footer", h["ancestros"])
-        css = (RAIZ / "plantillas" / "css_sitio.tpl").read_text(encoding="utf-8")
+        css = (RAIZ / "plantillas" / "mdn" / "huecos.css").read_text(encoding="utf-8")
         reglas = re.findall(r"\.hueco-mdn[^{]*\{([^}]*)\}", css) + re.findall(r"\.hm-caja[^{]*\{([^}]*)\}", css)
         self.assertTrue(reglas)
         for regla in reglas:
@@ -253,6 +253,34 @@ class TestTextosDePrivacidadYSeguridad(unittest.TestCase):
         self.assertIn("ManaLab sets no cookies on this website.", html)
 
 
+class TestEstilosSoloDondeHayHueco(unittest.TestCase):
+    """ML-329: los estilos de los huecos (``.hm-caja``...) los añade el generador solo a las páginas con hueco; la 404 y el resto no los cargan."""
+
+    def test_las_paginas_sin_hueco_no_llevan_los_estilos(self):
+        for ruta in sorted(p.relative_to(RAIZ).as_posix() for p in RAIZ.rglob("*.html") if not EXCLUIDOS & set(p.relative_to(RAIZ).parts)):
+            if ruta in CON_ANUNCIO:
+                continue
+            with self.subTest(ruta):
+                html = leer(ruta)
+                for selector in (".hm-caja", ".hueco-mdn", ".hm-casa"):
+                    self.assertNotIn(selector, html)
+
+    def test_las_paginas_con_hueco_llevan_los_estilos_una_vez_y_antes_de_cerrar_la_cabecera(self):
+        for ruta in CON_ANUNCIO:
+            with self.subTest(ruta):
+                html = leer(ruta)
+                self.assertEqual(html.count(".hm-caja { width: 300px; height: 250px;"), 1)
+                self.assertLess(html.index(".hm-caja {"), html.index("</head>"))
+
+    def test_sin_marcas_el_generador_no_anade_estilos(self):
+        pagina = "<html><head></head><body><main>x</main></body></html>"
+        self.assertEqual(construir_mdn.aplicar_mdn(pagina, Path("404.html"), "en"), pagina)
+
+    def test_con_marcas_el_generador_anade_los_estilos_en_la_cabecera(self):
+        salida = construir_mdn.aplicar_mdn("<html><head></head><body>{{HUECO_MDN}}</body></html>", Path("index.html"), "en")
+        self.assertRegex(salida, r"<style>[^<]*\.hm-caja \{ width: 300px;[^<]*</style>\n</head>")
+
+
 class TestEventoDelAnuncioDeCasa(unittest.TestCase):
     """ML-329: el clic en el anuncio de casa (el que lleva a Learn cuando MDN no pone nada) cuenta como evento en GoatCounter, con nombre
     propio por página, idioma y posición del hueco, como los botones de descarga."""
@@ -285,7 +313,7 @@ class TestEventoDelAnuncioDeCasa(unittest.TestCase):
 
 class TestAltoReservado(unittest.TestCase):
     """El alto de cada hueco está escrito en la hoja de estilos (así no salta al llegar el anuncio); el navegador lo mide en el otro archivo."""
-    CSS = (RAIZ / "plantillas" / "css_sitio.tpl").read_text(encoding="utf-8")
+    CSS = (RAIZ / "plantillas" / "mdn" / "huecos.css").read_text(encoding="utf-8")   # ML-329: salió de css_sitio.tpl
 
     def test_rectangle_300x250_por_defecto_y_leaderboard_728x90_si_el_hueco_mide_728_o_mas(self):
         self.assertRegex(self.CSS, r"\.hm-caja \{[^}]*width: 300px; height: 250px;")
@@ -313,7 +341,7 @@ class TestGenerador(unittest.TestCase):
             construir_mdn.aplicar_mdn("<body>{{HUECO_MDN}}{{HUECO_MDN}}{{HUECO_MDN}}</body>", Path("index.html"), "en")
 
     def test_un_hueco_lleva_los_dos_scripts_una_sola_vez(self):
-        salida = construir_mdn.aplicar_mdn("<body>\n{{HUECO_MDN}}\n{{HUECO_MDN}}\n</body>", Path("index.html"), "es")
+        salida = construir_mdn.aplicar_mdn("<head></head><body>\n{{HUECO_MDN}}\n{{HUECO_MDN}}\n</body>", Path("index.html"), "es")
         self.assertEqual(salida.count("embed.js"), 1)
         self.assertEqual(salida.count("huecos_mdn.js"), 1)
         self.assertEqual(salida.count("<aside"), 2)
