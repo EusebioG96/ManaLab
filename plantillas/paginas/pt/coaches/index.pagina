@@ -63,6 +63,7 @@
 </div>
 </div>
 </section>
+{{HUECO_MDN}}
 <section class="seccion franja" id="que-hace">
 <div class="envoltura">
 <div class="cab-sec"><div class="eti">Para que serve</div><h2>Mais aula dedicada às decisões, menos preparação</h2><p>O ManaLab é um tracker gratuito para MTG Arena e Magic Online. Ele salva sozinho as mãos iniciais, os mulligans, quem começou, o deck do adversário e um replay de cada partida.</p></div>
@@ -127,6 +128,7 @@
 <div class="mtgo-caja sola"><ul><li><b>Sideboard:</b> o aluno precisa confirmar as mudanças entre as partidas com um clique («Usar esta mudança», «Sem mudanças» ou «Editar»). Partidas nunca confirmadas não contam nas mudanças de sideboard mostradas em Sideboard.</li><li><b>Replay:</b> as fases e as cartas viradas que não estão confirmadas levam a marca ≈, porque podem não ser exatas.</li><li><b>Nomes de deck:</b> um deck do Magic Online normalmente aparece com o nome que o aluno deu a ele no Magic Online; se a lista não combinar exatamente, aparece pelas cores.</li><li><b>Importações:</b> importar um log não corrige o sideboard das partidas já salvas.</li></ul><p>No Arena, ative Opções › Conta › “Detailed Logs (Plugin Support)” uma vez e reinicie o jogo. O Magic Online não precisa de nenhuma configuração.</p></div>
 </div>
 </section>
+{{HUECO_MDN}}
 <section class="seccion franja" id="preguntas">
 <div class="envoltura">
 <div class="cab-sec"><div class="eti">Perguntas</div><h2>Antes de começar</h2></div>

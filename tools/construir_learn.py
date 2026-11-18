@@ -24,6 +24,8 @@ POR_PAGINA = 24                                      # guías por página
 NBSP = " "                                      # el precio no se parte en dos líneas
 ROTAR_MS = 8000                                      # cada cuánto cambia solo el creador destacado (VIS-22)
 MARCAS = ("destacado", "barra", "filtros", "rejilla", "datos")
+GUIAS_ANTES_DEL_HUECO = 8                            # el hueco de anuncio de la rejilla va tras la octava guía (WEB-09)
+MARCA_HUECO_MDN = "{{HUECO_MDN:suelto}}"             # lo resuelve construir_mdn.aplicar_mdn
 
 LIBRO = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5v13c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5zM12 6v13"/></svg>'
 FLECHA = {-1: '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M7.5 2.5 4 6l3.5 3.5"/></svg>',
@@ -199,8 +201,10 @@ def html_rejilla(guias: list, t: dict) -> str:
     if not guias:
         return f'<div class="ap-rej vacia" id="guias">{html_caja_vacia(t)}</div>'
     total = -(-len(guias) // POR_PAGINA)
-    tarjetas = "".join(html_tarjeta(g, t) for g in guias[:POR_PAGINA])
-    return f'<div class="ap-rej" id="guias">{tarjetas}</div>\n{html_paginador(1, total, t)}'
+    tarjetas = [html_tarjeta(g, t) for g in guias[:POR_PAGINA]]
+    if len(tarjetas) > GUIAS_ANTES_DEL_HUECO:   # el hueco de MDN (ML-325) va entre guías, nunca al final de la rejilla
+        tarjetas.insert(GUIAS_ANTES_DEL_HUECO, MARCA_HUECO_MDN)
+    return f'<div class="ap-rej" id="guias">{"".join(tarjetas)}</div>\n{html_paginador(1, total, t)}'
 
 
 def html_filtros(n: int, t: dict) -> str:

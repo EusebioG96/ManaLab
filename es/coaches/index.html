@@ -340,6 +340,25 @@ details[id] { scroll-margin-top: 90px; }
 .apoyo.uno { grid-template-columns: minmax(0, 1fr); }
 @media (max-width: 900px) { .funciones.cinco .funcion:last-child { grid-column: auto; } .desc-bloque { max-width: none; } }
 
+/* huecos de anuncio de MDN (WEB-09). Cada hueco reserva su alto exacto antes de que MDN responda (728x90 si el hueco mide 728 px o más, 300x250 si
+   no; MDN elige el formato por el ancho de la caja, y la caja y la consulta miden lo mismo), así que la página no salta al cargar el anuncio */
+.hueco-mdn { container-type: inline-size; display: grid; justify-items: center; gap: 8px; padding: 24px 0; border-block: 1px solid var(--linea); }
+.hm-eti { font: 500 11px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--apagado); }
+.hm-caja { width: 300px; height: 250px; overflow: hidden; border-radius: 6px; background: var(--panel); }
+@media (min-width: 768px) { .hueco-mdn { padding: 28px 20px; } }
+@container (min-width: 728px) { .hm-caja { width: 728px; height: 90px; } }
+/* el anuncio de casa (un enlace a Learn) está debajo del de MDN: solo se ve si MDN no tiene anuncio, no llega a tiempo o no hay JavaScript */
+.hm-casa { box-sizing: border-box; width: 100%; height: 100%; display: flex; align-items: center; gap: 18px; padding: 0 22px; border: 1px solid var(--linea2); border-radius: 6px; color: var(--texto); text-decoration: none; background: radial-gradient(20em 9em at 88% 50%, rgba(52, 84, 68, .7), transparent 72%) #141917; visibility: hidden; }
+.hm-casa:focus-visible { outline: 2px solid var(--texto); outline-offset: -4px; }
+.hm-t { display: grid; gap: 4px; min-width: 0; }
+.hm-casa strong { font: 400 22px/1.15 var(--f-display); }
+.hm-casa span span { color: var(--texto2); font-size: 14px; line-height: 1.35; }
+.hm-casa em { margin-left: auto; font-style: normal; font-weight: 600; white-space: nowrap; }
+.hm-caja[data-mdn-state="empty"] .hm-casa, .hueco-mdn[data-propio] .hm-casa { visibility: visible; }
+@media (scripting: none) { .hm-casa { visibility: visible; } }
+@container (max-width: 727.98px) { .hm-casa { flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; } .hm-casa em { margin: 6px 0 0; } }
+@media (prefers-reduced-motion: reduce) { .hueco-mdn, .hueco-mdn * { animation: none !important; transition: none !important; } }
+.hueco-mdn.suelto { grid-column: 1 / -1; border: 0; padding: 0; margin-block: 12px; }
 /* ---------------- página de coaches */
 .funciones.cuatro { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .nota-pie { margin: 22px 0 0; color: var(--texto2); font-size: 15.5px; max-width: 78ch; }
@@ -422,6 +441,7 @@ details[id] { scroll-margin-top: 90px; }
 </div>
 </div>
 </section>
+<aside class="hueco-mdn" aria-label="Publicidad"><span class="hm-eti" aria-hidden="true">Publicidad</span><div class="hm-caja" data-mdn="auto" data-mdn-theme="dark"><a class="hm-casa" href="/es/aprender/"><span class="hm-t"><strong>Guías de Magic en Aprender</strong><span>De los creadores de Metafy, para Arena y Magic Online.</span></span><em>Ver las guías →</em></a></div></aside>
 <section class="seccion franja" id="que-hace">
 <div class="envoltura">
 <div class="cab-sec"><div class="eti">Para qué sirve</div><h2>Más clase dedicada a las decisiones, menos preparación</h2><p>ManaLab es un tracker gratis para MTG Arena y Magic Online. Guarda solo las manos iniciales, los mulligans, si empezó primero o segundo, el mazo del rival y una repetición de cada partida.</p></div>
@@ -486,6 +506,7 @@ details[id] { scroll-margin-top: 90px; }
 <div class="mtgo-caja sola"><ul><li><b>Sideboard:</b> el alumno debe confirmar sus cambios entre partidas con un clic («Usar este cambio», «Sin cambios» o «Editar»). Las partidas que nunca se confirman no cuentan en los cambios de sideboard que se ven en Sideboard.</li><li><b>Repetición:</b> las fases y las cartas giradas que no están confirmadas llevan la marca ≈, porque pueden no ser exactas.</li><li><b>Nombres de mazo:</b> un mazo de Magic Online normalmente sale con el nombre que el alumno le puso en Magic Online; si la lista no coincide exactamente, sale por sus colores.</li><li><b>Importaciones:</b> importar un registro no corrige el sideboard de las partidas ya guardadas.</li></ul><p>En Arena hay que activar Opciones › Cuenta › «Detailed Logs (Plugin Support)» una vez y reiniciar el juego. En Magic Online no hay nada que activar.</p></div>
 </div>
 </section>
+<aside class="hueco-mdn" aria-label="Publicidad"><span class="hm-eti" aria-hidden="true">Publicidad</span><div class="hm-caja" data-mdn="auto" data-mdn-theme="dark"><a class="hm-casa" href="/es/aprender/"><span class="hm-t"><strong>Guías de Magic en Aprender</strong><span>De los creadores de Metafy, para Arena y Magic Online.</span></span><em>Ver las guías →</em></a></div></aside>
 <section class="seccion franja" id="preguntas">
 <div class="envoltura">
 <div class="cab-sec"><div class="eti">Preguntas</div><h2>Antes de empezar</h2></div>
@@ -529,5 +550,5 @@ details[id] { scroll-margin-top: 90px; }
 </footer>
 
 <script defer="" src="/descarga.js"></script>
-<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script defer src="/huecos_mdn.js" data-plazo="6000"></script><script async src="https://mdn.metafy.gg/embed.js" data-mdn-site="mdn_obNMYPWbbmMClWCpy3Pss6JY"></script></body>
 </html>

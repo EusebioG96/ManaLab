@@ -23,6 +23,7 @@ def leer(ruta):
 def secciones(html):
     """[(clases, id, html de la sección)] de las <section> de <main>."""
     main = html[html.index("<main"):html.index("</main>")]
+    main = re.sub(r'<aside class="hueco-mdn.*?</aside>\n', "", main, flags=re.S)   # los huecos de anuncio (ML-325) no son parte de ninguna sección
     cortes = [m.start() for m in re.finditer(r"<section ", main)] + [len(main)]
     salida = []
     for a, b in zip(cortes, cortes[1:]):
@@ -277,7 +278,8 @@ class TestPaginaDeNovedades(unittest.TestCase):
                 self.assertLess(html.index("#descargar", html.index("<h1>")), html.index('id="novedades"'))
                 # ninguna ruta relativa de imagen apunta fuera
                 for src in re.findall(r'src="([^"/][^"]*)"', html):
-                    self.assertTrue((ruta.parent / src).resolve().is_file(), src)
+                    if not src.startswith("https://"):   # el script de MDN (ML-325) es de fuera
+                        self.assertTrue((ruta.parent / src).resolve().is_file(), src)
 
     def test_pie_de_las_portadas_enlaza_a_novedades(self):
         for idioma, ruta in PORTADAS.items():

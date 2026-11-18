@@ -109,6 +109,7 @@
 </ul>
 </div>
 </section>
+{{HUECO_MDN}}
 <section class="seccion" id="motivos">
 <div class="envoltura">
 <div class="cab-sec">
@@ -230,6 +231,7 @@
 <p class="enlace-seccion"><a class="enlace-man" href="/guia/guia_manalab_pt.html">Guia de uso completo do ManaLab, em português →</a></p>
 </div>
 </section>
+{{HUECO_MDN}}
 <section class="seccion franja" id="preguntas">
 <div class="envoltura">
 <div class="cab-sec"><div class="eti">Perguntas</div><h2>Antes de começar</h2></div>

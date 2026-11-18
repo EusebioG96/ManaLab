@@ -114,13 +114,13 @@ class PaginasPublicadas(unittest.TestCase):
     def test_para_publicar_no_queda_ningun_texto_pendiente_de_eusebio(self):
         self.assertEqual(pendientes_eusebio.buscar(), [])
 
-    def test_ningun_script_de_otro_dominio_ni_hueco_de_anuncio(self):
+    def test_solo_el_script_de_mdn_es_de_otro_dominio(self):
+        """ML-325 (WEB-09): Learn lleva el script de MDN (y el suyo, huecos_mdn.js) y nada más de fuera; los huecos se prueban en test_huecos_mdn.py."""
         for idioma, ruta in PAGINAS.items():
             html = leer(ruta)
             with self.subTest(idioma):
-                self.assertNotIn("mdn.metafy.gg", html)
-                self.assertNotIn("hueco-mdn", html)   # WEB-09 es otro encargo
-                self.assertEqual(sorted(re.findall(r'<script[^>]*src="([^"]+)"', html)), ["//gc.zgo.at/count.js", "/descarga.js", "/learn/learn.js"])
+                self.assertEqual(sorted(re.findall(r'<script[^>]*src="([^"]+)"', html)),
+                                 ["//gc.zgo.at/count.js", "/descarga.js", "/huecos_mdn.js", "/learn/learn.js", "https://mdn.metafy.gg/embed.js"])
 
     def test_el_cierre_ofrece_la_descarga_con_el_panel_de_siempre(self):
         for idioma, ruta in PAGINAS.items():

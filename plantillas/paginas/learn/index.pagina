@@ -46,6 +46,7 @@
      idiomas. Mientras falte, el párrafo siguiente está vacío y oculto. Al ponerla: quita «hidden» y el atributo data-pendiente-eusebio. tools/pendientes_eusebio.py lo vigila. -->
 <p class="ap-nota" data-pendiente-eusebio hidden></p>
 </div></section>
+{{HUECO_MDN}}
 <section class="seccion" id="descargar"><div class="envoltura"><div class="apoyo uno"><div>
 <div class="eti">Free download</div>
 <h2>These guides, inside ManaLab</h2>

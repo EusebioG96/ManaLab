@@ -223,6 +223,26 @@
   // ---- guías, filtros y paginación
   var estado = { guias: null, tipo: "todas", creador: "", orden: "compradas", busqueda: "", pagina: 1 };
   var rejilla = $("guias"), barra = $("ap-barra"), cuenta = $("ap-cuenta");
+  // Hueco de anuncio de MDN de la rejilla (WEB-09): sale tras la octava guía y solo si hay alguna más después. Es el mismo nodo siempre (se
+  // aparta mientras se repinta y se vuelve a poner), para que MDN no pida un anuncio nuevo con cada filtro o cada página.
+  var GUIAS_ANTES_DEL_HUECO = 8;
+  var huecoRejilla = rejilla.querySelector(".hueco-mdn");
+  function huecoNuevo() {
+    var otro = doc.querySelector(".hueco-mdn:not(.suelto)");   // el de debajo del paginador: se copia sin lo que MDN le puso
+    if (!otro) return null;
+    var copia = otro.cloneNode(true);
+    copia.classList.add("suelto"); copia.removeAttribute("data-propio");
+    var caja = copia.querySelector(".hm-caja");
+    if (caja) { caja.removeAttribute("data-mdn-state"); caja.removeAttribute("style"); }
+    return copia;
+  }
+  function apartarHueco() { if (huecoRejilla && huecoRejilla.parentNode) huecoRejilla.remove(); }
+  function ponerHueco() {
+    var tarjetas = rejilla.querySelectorAll(":scope > a.guia");
+    if (tarjetas.length <= GUIAS_ANTES_DEL_HUECO) return;
+    if (!huecoRejilla) huecoRejilla = huecoNuevo();
+    if (huecoRejilla) tarjetas[GUIAS_ANTES_DEL_HUECO - 1].after(huecoRejilla);
+  }
 
   function paginaDeLaUrl() { var p = parseInt(new URLSearchParams(global.location.search).get("p"), 10); return p >= 1 ? p : 1; }
   function igual(elemento, html) {
@@ -248,7 +268,9 @@
     var vacia = estado.guias.length === 0;
     barra.hidden = vacia;
     rejilla.classList.toggle("vacia", vacia || visibles.length === 0);
+    apartarHueco();
     poner(rejilla, vacia ? htmlCajaVacia(t) : visibles.length === 0 ? htmlCajaSinCoincidencias(t) : htmlRejilla(pagina, t));
+    ponerHueco();
     cuenta.textContent = unoOVarios(t.cuenta, visibles.length);
     var nav = $("ap-pag"), html = vacia || visibles.length === 0 ? "" : htmlPaginador(estado.pagina, total, t);
     if (!html) { if (nav) nav.remove(); return; }
