@@ -52,7 +52,7 @@ class TestPortadasNuevas(unittest.TestCase):
             with self.subTest(c=c):
                 for id_ in ("capturas", "como-funciona", "coaches", "contacto", "apoyo"):
                     self.assertNotIn(f'id="{id_}"', html)
-                self.assertEqual(html.split("</style>")[1].count('class="aviso-version"'), 1)   # el aviso de la 3.0 (RED-06)
+                self.assertEqual(html.split("</head>")[1].count('class="aviso-version"'), 1)   # el aviso de la 3.0 (RED-06)
 
     def test_lang_y_textos_fijados(self):
         for c, ruta in NUEVAS.items():

@@ -1,4 +1,4 @@
-/* ---------------- cabecera (ML-329: única copia; la insertan css_sitio y css_seguridad con {{> css_cabecera}}) */
+/* ---------------- cabecera (ML-329: única copia; la insertan css_sitio y css_seguridad desde su plantilla) */
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(13, 16, 15, 0.94); }
 .cab { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: rgba(13, 16, 15, 0.86); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linea); }
 .cab .envoltura { position: relative; display: flex; align-items: center; gap: 18px 26px; padding-block: 14px; }
