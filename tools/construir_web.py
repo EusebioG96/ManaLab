@@ -16,7 +16,7 @@ Disposición (todo bajo plantillas/, que no es HTML y por eso no se indexa):
     plantillas/<nombre>/<N>.<v>.txt    valor v del hueco N (cada línea termina en salto de línea)
 
 En una página, ``{{> nombre N=v N=v}}`` inserta la plantilla ``nombre``. Los huecos no citados
-toman la variante ``a``. Más detalle en tools/README.md.
+toman la variante ``a``. Una plantilla puede insertar otra con una línea ``{{> otra}}``. Más detalle en tools/README.md.
 """
 import argparse
 import html
@@ -130,6 +130,10 @@ def expandir_plantilla(carpeta: Path, nombre: str, variantes: dict[str, str]) ->
         raise ValueError(f"plantilla inexistente: {nombre}")
     salida: list[str] = []
     for linea in _lineas_con_salto(_leer(ruta)):
+        anidada = _DIRECTIVA.fullmatch(linea)
+        if anidada is not None:  # una plantilla puede insertar otra en una línea propia (ML-329: css_cabecera)
+            salida.append(_expandir_directiva(carpeta, anidada))
+            continue
         hueco = _HUECO.fullmatch(linea)
         if hueco is None:
             salida.append(linea)

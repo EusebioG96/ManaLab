@@ -74,7 +74,6 @@ code { font-family: var(--f-mono); border-radius: 4px; background: var(--panel2)
 .eti { font: 500 13px/1.3 var(--f-texto); letter-spacing: 0.14em; text-transform: uppercase; color: var(--oro); }
 
 /* ---------------- cabecera */
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(13, 16, 15, 0.94); }
 .nota-descarga { margin-top: 10px; font-size: 13px; color: var(--texto2); }
 .nota-descarga a { color: inherit; text-decoration: underline; }
 .nota-smartscreen { margin-top: 12px; font-size: 13px; color: var(--texto2); }
@@ -84,6 +83,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .aviso-version b { color: var(--oro); font-weight: 500; }
 .aviso-version a { color: var(--texto2); font-weight: 400; white-space: nowrap; text-decoration: underline; }
 .aviso-version span a { white-space: normal; }
+/* ---------------- cabecera (ML-329: única copia; la insertan css_sitio y css_seguridad con {{> css_cabecera}}) */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(13, 16, 15, 0.94); }
 .cab { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: rgba(13, 16, 15, 0.86); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linea); }
 .cab .envoltura { position: relative; display: flex; align-items: center; gap: 18px 26px; padding-block: 14px; }
 .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--texto); margin-right: auto; }
@@ -109,15 +110,22 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 /* menú de teléfono (WEB-02): <details> sin JavaScript; solo se ve por debajo de 900 px */
 .menu { display: none; }
-.menu > summary { cursor: pointer; list-style: none; }
 .menu > summary::-webkit-details-marker { display: none; }
 .cab .menu-caja nav a { display: block; padding: 13px 0; border-top: 1px solid var(--linea); font-size: 17px; color: var(--texto); text-decoration: none; }
-.menu > summary { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--linea2); border-radius: 4px; color: var(--texto); }
+.menu > summary { cursor: pointer; list-style: none; width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--linea2); border-radius: 4px; color: var(--texto); }
 .menu > summary svg { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
 .menu[open] > summary { background: var(--hueso); color: var(--fondo); border-color: var(--hueso); }
 .menu-caja { position: absolute; left: 0; right: 0; top: 100%; max-height: calc(100vh - 72px); max-height: calc(100dvh - 72px); overflow-y: auto; overscroll-behavior: contain; padding: 0 20px 18px; background: var(--fondo); border-bottom: 1px solid var(--linea2); box-shadow: 0 30px 40px rgba(0, 0, 0, 0.5); }
 .menu-idiomas { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px solid var(--linea); }
 .menu-idiomas .idioma { display: inline-grid; min-height: 40px; padding: 0 14px; }
+a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
+@media (max-width: 900px) {
+  .cab .envoltura { gap: 10px 12px; }
+  .cab .envoltura > nav, .cab .envoltura > .idioma { display: none; }
+  .menu { display: block; }
+}
+/* a 380 px o menos no cabe el nombre junto a «Descargar» y el menú: queda el logotipo */
+@media (max-width: 380px) { .marca span { display: none; } }
 
 /* ---------------- portada */
 .portada { padding-block: 56px 40px; position: relative; overflow: hidden; }
@@ -245,9 +253,6 @@ footer .guias b { color: var(--texto2); font-weight: 600; }
 footer .legal { max-width: 80ch; line-height: 1.6; }
 
 @media (max-width: 900px) {
-  .cab .envoltura { gap: 10px 12px; }
-  .cab .envoltura > nav, .cab .envoltura > .idioma { display: none; }
-  .menu { display: block; }
   .portada .envoltura, .apoyo, .ia-caja, .conversion { grid-template-columns: minmax(0, 1fr); }
   .flecha-c { justify-self: center; transform: rotate(90deg); }
   .funciones, .pasos { grid-template-columns: minmax(0, 1fr); }
@@ -286,9 +291,6 @@ footer .legal { max-width: 80ch; line-height: 1.6; }
 @media (max-width: 480px) {
   .juegos { margin-left: 0; }
 }
-/* a 380 px o menos no cabe el nombre junto a «Descargar» y el menú: queda el logotipo */
-@media (max-width: 380px) { .marca span { display: none; } }
-a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 
 /* ---------------- teléfono: en lugar del ZIP, «envíate el enlace» (lo monta descarga.js solo en pantalla estrecha y táctil) */
 .movil-caja { scroll-margin-top: 84px; margin-top: 14px; padding: 18px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 8px; }
