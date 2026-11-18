@@ -8,7 +8,9 @@
 .pasos-reg li::before { content: counter(pr); width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--oro-suave); color: var(--oro); font: 600 18px var(--f-mono); }
 .ruta-completa { margin: 16px 0 0; color: var(--texto2); font-size: 15px; }
 .ruta-completa .ruta { white-space: normal; overflow-wrap: anywhere; }
-@media (max-width: 640px) { .ruta, .mtgo-caja ul li code { white-space: normal; overflow-wrap: anywhere; } }
+@media (max-width: 640px) { .ruta { white-space: normal; overflow-wrap: anywhere; } }
+/* la ruta de Player.log es una palabra larga sin espacios: sin esto se desbordaba entre 650 y 670 px (ML-326b) */
+.mtgo-caja ul li code { white-space: normal; overflow-wrap: anywhere; }
 .dos-col { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 40px; align-items: center; }
 .dos-col .ventana.estrecha { justify-self: center; width: 100%; max-width: 380px; }
 .dos-col .ventana img { height: auto; object-fit: contain; }

@@ -1,6 +1,6 @@
 <header class="cab">
 <div class="envoltura">
-<a class="marca" href="#inicio"><img alt="ManaLabのロゴ" height="36" src="/img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
+<a class="marca" data-compacta="1080" href="#inicio"><img alt="ManaLabのロゴ" height="36" src="/img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
 <nav aria-label="セクション">
 <a href="#funciones">機能</a>
 <a href="#mtgo"><span style="white-space:nowrap">Magic Online</span></a>

@@ -1,4 +1,4 @@
-<a class="marca" href="#inicio"><img alt="Logo do ManaLab" height="36" src="/img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
+<a class="marca" data-compacta="1180" href="#inicio"><img alt="Logo do ManaLab" height="36" src="/img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
 <nav aria-label="Seções">
 <a href="#funciones">Recursos</a>
 <a href="#mtgo"><span style="white-space:nowrap">Magic Online</span></a>

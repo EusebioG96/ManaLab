@@ -87,7 +87,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .aviso-version a { color: var(--texto2); font-weight: 400; white-space: nowrap; text-decoration: underline; }
 .aviso-version span a { white-space: normal; }
 .cab { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: rgba(13, 16, 15, 0.86); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linea); }
-.cab .envoltura { display: flex; align-items: center; gap: 18px 26px; padding-block: 14px; }
+.cab .envoltura { position: relative; display: flex; align-items: center; gap: 18px 26px; padding-block: 14px; }
 .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--texto); margin-right: auto; }
 .marca img { width: 36px; height: 36px; }
 .marca b { font: 400 23px/1 var(--f-display); letter-spacing: 0.01em; }
@@ -95,8 +95,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .cab .menu-caja nav { display: grid; gap: 0; }
 .cab nav a { color: var(--texto2); text-decoration: none; font-size: 15px; }
 .cab nav a:hover { color: var(--texto); }
-/* ML-326: entre el menú de teléfono (900 px) y 1080 px la fila de escritorio de es/en/pt no cabía y desplazaba la página; se aprietan los huecos */
-@media (min-width: 901px) and (max-width: 1079px) { .cab .envoltura { gap: 18px 12px; } .cab nav { gap: 12px; } .cab nav a { font-size: 14px; } .cab .idioma { padding-inline: 8px; } }
+/* un enlace del menú de escritorio nunca se parte en dos líneas: si la fila no cabe, la cabecera pasa al menú de teléfono (más abajo) */
+.cab .envoltura > nav a, .cab .idioma { white-space: nowrap; }
 .idioma { border: 1px solid var(--linea2); background: none; color: var(--texto2); border-radius: 4px; min-height: 34px; padding: 0 12px; font: 500 13px var(--f-mono); letter-spacing: 0; cursor: pointer; }
 .idioma:hover { color: var(--texto); border-color: var(--apagado); }
 .boton { display: inline-flex; align-items: center; gap: 10px; border-radius: 4px; min-height: 40px; padding: 0 18px; font: 500 14px var(--f-texto); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .15s, transform .1s; white-space: nowrap; }
@@ -114,6 +114,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .menu > summary { cursor: pointer; list-style: none; }
 .menu > summary::-webkit-details-marker { display: none; }
 .cab .menu-caja nav a { display: block; padding: 13px 0; border-top: 1px solid var(--linea); font-size: 17px; color: var(--texto); text-decoration: none; }
+.menu > summary { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--linea2); border-radius: 4px; color: var(--texto); }
+.menu > summary svg { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.menu[open] > summary { background: var(--hueso); color: var(--fondo); border-color: var(--hueso); }
+.menu-caja { position: absolute; left: 0; right: 0; top: 100%; max-height: calc(100vh - 72px); max-height: calc(100dvh - 72px); overflow-y: auto; overscroll-behavior: contain; padding: 0 20px 18px; background: var(--fondo); border-bottom: 1px solid var(--linea2); box-shadow: 0 30px 40px rgba(0, 0, 0, 0.5); }
 .menu-idiomas { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px solid var(--linea); }
 .menu-idiomas .idioma { display: inline-grid; min-height: 40px; padding: 0 14px; }
 
@@ -243,13 +247,9 @@ footer .guias b { color: var(--texto2); font-weight: 600; }
 footer .legal { max-width: 80ch; line-height: 1.6; }
 
 @media (max-width: 900px) {
-  .cab .envoltura { gap: 10px 12px; position: relative; }
+  .cab .envoltura { gap: 10px 12px; }
   .cab .envoltura > nav, .cab .envoltura > .idioma { display: none; }
   .menu { display: block; }
-  .menu > summary { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--linea2); border-radius: 4px; color: var(--texto); }
-  .menu > summary svg { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
-  .menu[open] > summary { background: var(--hueso); color: var(--fondo); border-color: var(--hueso); }
-  .menu-caja { position: absolute; left: 0; right: 0; top: 100%; max-height: calc(100vh - 72px); max-height: calc(100dvh - 72px); overflow-y: auto; overscroll-behavior: contain; padding: 0 20px 18px; background: var(--fondo); border-bottom: 1px solid var(--linea2); box-shadow: 0 30px 40px rgba(0, 0, 0, 0.5); }
   .portada .envoltura, .apoyo, .ia-caja, .conversion { grid-template-columns: minmax(0, 1fr); }
   .flecha-c { justify-self: center; transform: rotate(90deg); }
   .funciones, .pasos { grid-template-columns: minmax(0, 1fr); }
@@ -258,6 +258,29 @@ footer .legal { max-width: 80ch; line-height: 1.6; }
   .seccion { padding-block: 48px; }
   .cab-sec { margin-bottom: 26px; }
   .ia-caja, .apoyo { padding: 28px 22px; }
+}
+/* ML-326b: la cabecera pasa al menú de teléfono mientras su fila de escritorio no cabe entera en una línea. Cada cabecera dice en
+   data-compacta (en su logotipo) desde qué ancho cabe su fila; en las demás cabe a 900 px. Hay un tramo por valor (mismas tres reglas). */
+@media (max-width: 1079px) {
+  .cab .envoltura:has(> .marca[data-compacta="1080"]) { gap: 10px 12px; }
+  .cab .envoltura:has(> .marca[data-compacta="1080"]) > nav, .cab .envoltura:has(> .marca[data-compacta="1080"]) > .idioma { display: none; }
+  .cab .envoltura:has(> .marca[data-compacta="1080"]) > .menu { display: block; }
+}
+@media (max-width: 1129px) {
+  .cab .envoltura:has(> .marca[data-compacta="1130"]) { gap: 10px 12px; }
+  .cab .envoltura:has(> .marca[data-compacta="1130"]) > nav, .cab .envoltura:has(> .marca[data-compacta="1130"]) > .idioma { display: none; }
+  .cab .envoltura:has(> .marca[data-compacta="1130"]) > .menu { display: block; }
+}
+@media (max-width: 1179px) {
+  .cab .envoltura:has(> .marca[data-compacta="1180"]) { gap: 10px 12px; }
+  .cab .envoltura:has(> .marca[data-compacta="1180"]) > nav, .cab .envoltura:has(> .marca[data-compacta="1180"]) > .idioma { display: none; }
+  .cab .envoltura:has(> .marca[data-compacta="1180"]) > .menu { display: block; }
+}
+/* la cabecera en español de la portada lleva siete enlaces y no cabe en 1180 px con los huecos de siempre: huecos algo menores, la misma letra */
+@media (min-width: 1180px) {
+  .cab .envoltura:has(> .marca[data-denso]) { gap: 18px 20px; }
+  .cab .envoltura:has(> .marca[data-denso]) > nav { gap: 14px; }
+  .cab .envoltura:has(> .marca[data-denso]) > .idioma { padding-inline: 8px; }
 }
 @media (max-width: 560px) {
   .hero-cta .boton, .final-caja .boton, .paso .boton, .movil-caja .boton { width: 100%; justify-content: center; }
@@ -398,7 +421,7 @@ details[id] { scroll-margin-top: 90px; }
 <body>
 <header class="cab">
 <div class="envoltura">
-<a class="marca" href="/pt/"><img alt="Logo do ManaLab" height="36" src="../../img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
+<a class="marca" data-compacta="1080" href="/pt/"><img alt="Logo do ManaLab" height="36" src="../../img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
 <nav aria-label="Seções"><a href="#formas">Formas de trabalhar</a><a href="#antes">Antes da aula</a><a href="#durante">Durante a aula</a><a href="#mtgo">Magic Online</a><a href="#preguntas">Perguntas</a></nav>
 <a class="idioma" href="/coaches/" hreflang="en" id="idioma" lang="en" title="View in English">EN</a>
 <a class="idioma" href="/es/coaches/" hreflang="es" lang="es" title="Ver en español">ES</a>
