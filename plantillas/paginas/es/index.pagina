@@ -204,7 +204,7 @@
 <div class="eti">La aplicación</div>
 <h2>Pensada para revisar, no para rellenar</h2>
 </div>
-<div aria-label="Capturas" class="pestanas" role="tablist">
+<div aria-label="Capturas" class="pestanas" data-raiz="../" data-idioma="es" role="tablist">
 <button aria-selected="true" data-tab="panel" id="t-panel" role="tab">Panel</button>
 <button aria-selected="false" data-tab="partida" id="t-partida" role="tab">Partidas</button>
 <button aria-selected="false" data-tab="estadisticas" id="t-est" role="tab">Estadísticas</button>
@@ -401,7 +401,9 @@
 <script>
 (function () {
   "use strict";
-  var base = "../img/es_";
+  var pestanas = document.querySelector(".pestanas");
+  /* el prefijo se arma aquí: una cadena «img/xx_» suelta en el HTML la toma Googlebot por una URL y da 404 (ML-312) */
+  var base = pestanas.dataset.raiz + "img/" + pestanas.dataset.idioma + "_";
   document.querySelectorAll(".pestanas button").forEach(function (b) {
     b.addEventListener("click", function () {
       document.querySelectorAll(".pestanas button").forEach(function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); });
