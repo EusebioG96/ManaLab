@@ -62,9 +62,11 @@ class TestOrdenDeLaPortada(unittest.TestCase):
 
     def test_sin_enlace_de_apoyo_no_queda_bloque_de_apoyo(self):
         """Con contenido.json sin enlace de apoyo, la sección de IA no lleva ningún bloque «Apoya el proyecto» (ni vacío)."""
+        from test_enlaces_metafy import _construir, _contenido  # import local: reutiliza la construcción en carpeta temporal
+        sin_apoyo = _construir(_contenido())
         for idioma, ruta in PORTADAS.items():
             with self.subTest(idioma=idioma):
-                html = leer(ruta)
+                html = leer(sin_apoyo / ruta.relative_to(RAIZ))
                 ia = seccion(html, "ia")
                 self.assertEqual(ia.count("<h2>"), 1)
                 self.assertNotIn('id="apoyo"', html)
@@ -97,7 +99,7 @@ class TestCabecera(unittest.TestCase):
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 hero = html[html.index('<section class="portada"'):html.index("</section>", html.index('<section class="portada"'))]
-                self.assertNotRegex(hero, r"5 € (al mes|a month|per month)")
+                self.assertNotRegex(hero, r"(6 \$ al mes|\$6 (a|per) month)")
                 self.assertRegex(hero, r'<p class="nota-hero"><span>(Versión|Version) <span data-version>[\d.]+</span> · ZIP · ')
                 self.assertIn('href="%s"' % ("/safety/" if idioma == "en" else "/es/seguridad/"), hero)
                 # columna izquierda: etiqueta, titular, entrada, hueco móvil, botón, nota, ventajas; el vídeo, solo a la derecha
@@ -212,7 +214,7 @@ class TestSeccionesMovidas(unittest.TestCase):
                 self.assertIn("Windows 10 u 11" if idioma == "es" else "Windows 10 or 11", s)
                 self.assertIn("destacado", s)
                 self.assertIn("<summary>¿Ya tenías ManaLab?</summary>" if idioma == "es" else "<summary>Already have ManaLab?</summary>", s)
-                self.assertNotRegex(s, r"5 € (al mes|a month|per month)")
+                self.assertNotRegex(s, r"(6 \$ al mes|\$6 (a|per) month)")
                 self.assertNotIn("Ko-fi", s)
 
 
@@ -293,13 +295,13 @@ class TestPaginaDeNovedades(unittest.TestCase):
 
 
 class TestSinPrecioEnLaCabecera(unittest.TestCase):
-    def test_section_portada_sin_5_euros(self):
+    def test_section_portada_sin_precio(self):
         for idioma, ruta in PORTADAS.items():
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 inicio = html.index('<section class="portada"')
                 hero = html[inicio:html.index("</section>", inicio)]
-                for texto in ("5 € al mes", "5 € per month", "5 € a month"):
+                for texto in ("6 $ al mes", "$6 per month", "$6 a month"):
                     self.assertNotIn(texto, hero)
 
 

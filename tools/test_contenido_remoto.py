@@ -176,7 +176,10 @@ class ContenidoRemotoTest(unittest.TestCase):
         self.assertEqual(validar(json.loads(crudo.decode("utf-8")), len(crudo)), [])
 
     def test_valores_iniciales_acordados(self):
-        self.assertEqual(json.loads(ARCHIVO.read_text(encoding="utf-8")), _con())
+        enlaces = {"enlace_apoyo_metafy": "https://metafy.gg/@manalab",  # ML-307: fijados por el dueño el 18/11
+                   "enlace_suscripcion_ia": "https://metafy.gg/@manalab/members?membershipId=6696173a-b185-4a9e-ad09-abce63885f73"}
+        self.assertEqual(json.loads(ARCHIVO.read_text(encoding="utf-8")), _con(**enlaces))
+        self.assertEqual(validar(_con(**enlaces), 100), [])
 
     def test_no_esta_en_el_sitemap_ni_cuenta_goatcounter(self):
         self.assertNotIn("contenido.json", (RAIZ / "sitemap.xml").read_text(encoding="utf-8"))

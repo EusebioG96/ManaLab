@@ -29,6 +29,8 @@ PAGINAS_CON_FAQ = {**{f"portada-{i}": r for i, r in PORTADAS.items()},
 IDIOMAS_GUIA = ["es", "en", "de", "fr", "it", "pt", "ja", "ko", "zh"]
 ENLACE_IA = "https://metafy.gg/@manalab/ia"
 ENLACE_APOYO = "https://www.metafy.gg/@manalab"
+ENLACE_APOYO_REAL = "https://metafy.gg/@manalab"  # el de contenido.json (ML-307)
+ENLACE_IA_REAL = "https://metafy.gg/@manalab/members?membershipId=6696173a-b185-4a9e-ad09-abce63885f73"
 # texto «muy pronto» de cada portada (los botones de la IA sin enlace)
 PRONTO = {"en": "Subscription on Metafy: coming soon", "es": "Suscripción en Metafy: muy pronto",
           "pt": "Assinatura no Metafy: em breve", "ja": "Metafyでの購読：まもなく開始"}
@@ -99,10 +101,21 @@ class TestSuscripcionIa(unittest.TestCase):
         cls.sin = _construir(_contenido())
         cls.con = _construir(_contenido(enlace_suscripcion_ia=ENLACE_IA))
 
-    def test_contenido_real_no_tiene_enlace_todavia(self):
+    def test_contenido_real_lleva_los_enlaces_acordados(self):
+        """ML-307: los enlaces de Metafy que el dueño fijó el 18/11 están en contenido.json."""
         datos = json.loads(_texto(RAIZ / "contenido.json"))
-        self.assertEqual(datos["enlace_suscripcion_ia"], "")
-        self.assertEqual(datos["enlace_apoyo_metafy"], "")
+        self.assertEqual(datos["enlace_apoyo_metafy"], ENLACE_APOYO_REAL)
+        self.assertEqual(datos["enlace_suscripcion_ia"], ENLACE_IA_REAL)
+
+    def test_portadas_reales_enlazan_la_suscripcion_y_las_de_en_y_es_el_apoyo(self):
+        for idioma, ruta in PORTADAS.items():
+            with self.subTest(idioma=idioma):
+                html = _texto(RAIZ / ruta)
+                self.assertIn(f'href="{ENLACE_IA_REAL}"', html)
+                self.assertEqual(botones_muertos(html), [])
+                self.assertNotIn('class="pronto"', html)
+                if idioma in PORTADAS_CON_APOYO:
+                    self.assertIn(f'href="{ENLACE_APOYO_REAL}"', html)
 
     def test_sin_enlace_sale_el_texto_muy_pronto_y_ningun_enlace_a_metafy(self):
         for idioma, ruta in PORTADAS.items():
@@ -193,7 +206,7 @@ def _respuestas_ia(html: str) -> list[str]:
     """Respuestas del FAQPage (ld+json) que hablan de cómo conseguir el análisis con IA (la que abre con Metafy y el precio)."""
     datos = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', html, re.S).group(1))
     return [q["acceptedAnswer"]["text"] for nodo in datos["@graph"] if nodo["@type"] == "FAQPage"
-            for q in nodo["mainEntity"] if "Metafy" in q["acceptedAnswer"]["text"] and "5" in q["acceptedAnswer"]["text"] and "Metafy" in q["acceptedAnswer"]["text"][:60]]
+            for q in nodo["mainEntity"] if "Metafy" in q["acceptedAnswer"]["text"] and "6" in q["acceptedAnswer"]["text"] and "Metafy" in q["acceptedAnswer"]["text"][:60]]
 
 
 def _texto_plano(html: str) -> str:

@@ -47,7 +47,7 @@
     <p>Las listas del meta, los nombres de cartas y el aviso de versión nueva se pueden desactivar en Ajustes.</p>
 
     <h2>4. Suscripción y código de IA</h2>
-    <p>El análisis con IA se paga con una suscripción de 5 € al mes en Metafy. Metafy recibe tus datos de pago según su política de privacidad; nosotros no los vemos. ManaLab solo recibe tu correo electrónico, y con él generamos un código que te enviamos por correo electrónico. En nuestro servidor (Cloudflare Workers) guardamos:</p>
+    <p>El análisis con IA se paga con una suscripción de 6 $ al mes en Metafy. Metafy recibe tus datos de pago según su política de privacidad; nosotros no los vemos. ManaLab solo recibe tu correo electrónico, y con él generamos un código que te enviamos por correo electrónico. En nuestro servidor (Cloudflare Workers) guardamos:</p>
     <ul>
       <li>La fecha de caducidad de la suscripción.</li>
       <li>El nombre con el que se crea tu código (por ejemplo, el de tu cuenta de Metafy) y la fecha de caducidad de la suscripción.</li>
@@ -124,7 +124,7 @@
     <p>The meta lists, card-name lookups and the new version notice can be turned off in Settings.</p>
 
     <h2>4. Subscription and AI code</h2>
-    <p>The AI analysis is paid with a subscription of 5 € per month on Metafy. Metafy receives your payment details under its privacy policy; we do not see them. ManaLab only receives your email address, and we use it to generate a code that we email to you. On our server (Cloudflare Workers) we store:</p>
+    <p>The AI analysis is paid with a subscription of $6 per month on Metafy. Metafy receives your payment details under its privacy policy; we do not see them. ManaLab only receives your email address, and we use it to generate a code that we email to you. On our server (Cloudflare Workers) we store:</p>
     <ul>
       <li>The expiry date of the subscription.</li>
       <li>The name your code is created with (for example, your Metafy account name) and the subscription's expiry date.</li>
