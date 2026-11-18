@@ -57,12 +57,29 @@ class TestWebGeneradaDesdePlantillas(unittest.TestCase):
     def test_no_quedan_plantillas_ni_variantes_sin_usar(self):
         carpeta = RAIZ / construir_web.CARPETA_PLANTILLAS
         fuentes = "".join(p.read_text(encoding="utf-8") for p in (carpeta / construir_web.CARPETA_PAGINAS).rglob("*.pagina"))
+        fuentes += "".join(p.read_text(encoding="utf-8") for p in carpeta.glob("*.tpl"))  # una plantilla puede insertar otra (ML-329)
         for plantilla in carpeta.glob("*.tpl"):
             self.assertIn("{{> " + plantilla.stem, fuentes, f"plantilla sin usar: {plantilla.name}")
 
     def test_una_plantilla_inexistente_da_error(self):
         with self.assertRaises(ValueError):
             construir_web.generar_pagina(RAIZ / construir_web.CARPETA_PLANTILLAS, "{{> no_existe}}")
+
+    def test_una_plantilla_inserta_otra_desde_una_linea_propia(self):
+        """ML-329: css_cabecera se inserta dentro de css_sitio y css_seguridad con una línea ``{{> css_cabecera}}``."""
+        with tempfile.TemporaryDirectory() as temporal:
+            carpeta = Path(temporal)
+            (carpeta / "interior.tpl").write_text("DENTRO\n", encoding="utf-8")
+            (carpeta / "exterior.tpl").write_text("antes\n{{> interior}}\ndespues\n", encoding="utf-8")
+            self.assertEqual(construir_web.generar_pagina(carpeta, "{{> exterior}}"), "antes\nDENTRO\ndespues")
+
+    def test_las_paginas_de_seguridad_no_copian_el_css_de_la_cabecera(self):
+        """ML-329: la regla de la cabecera sale una sola vez en cada página (viene de css_cabecera)."""
+        for ruta in ("safety/index.html", "es/seguridad/index.html"):
+            html = (RAIZ / ruta).read_text(encoding="utf-8")
+            with self.subTest(ruta):
+                self.assertEqual(html.count(".cab { position: sticky"), 1)
+                self.assertEqual(html.count(".menu > summary {"), 1)
 
 
 if __name__ == "__main__":

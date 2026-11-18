@@ -33,8 +33,9 @@ def cabeceras():
 
 def css_de_plantillas():
     """Las plantillas de CSS de sitio y seguridad con todas sus variantes (los huecos), tal como pueden salir en una página."""
+    cabecera = (PLANTILLAS / "css_cabecera.tpl").read_text(encoding="utf-8")  # ML-329: la cabecera se inserta con {{> css_cabecera}}
     for f in [PLANTILLAS / "css_sitio.tpl", PLANTILLAS / "css_seguridad.tpl", *sorted((PLANTILLAS / "css_sitio").glob("*.txt"))]:
-        yield f.relative_to(PLANTILLAS).as_posix(), f.read_text(encoding="utf-8")
+        yield f.relative_to(PLANTILLAS).as_posix(), f.read_text(encoding="utf-8").replace("{{> css_cabecera}}", cabecera)
 
 
 def paginas_con_cabecera():
