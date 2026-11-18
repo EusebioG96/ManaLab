@@ -140,6 +140,14 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
 html.movil .aviso-version { display: none; }
 html.movil .hero-cta .boton { display: none; }
+/* ML-326: descarga.js pasa la portada a «modo teléfono» después de pintar (aviso fuera, botón fuera, caja de «envíate el enlace»); eso movía toda la portada
+   (CLS 0,35). Con JavaScript, en pantalla estrecha y táctil, se pinta ya en ese estado y el hueco de la caja guarda su alto (232 px; 300 px por debajo de 480). */
+@media (scripting: enabled) and (max-width: 767px) and (pointer: coarse) {
+  .aviso-version, .hero-cta .boton { display: none; }
+  .hero-cta { margin-top: 16px; }
+  [data-movil-aqui]:empty { min-height: 232px; margin-top: 14px; }
+}
+@media (scripting: enabled) and (max-width: 480px) and (pointer: coarse) { [data-movil-aqui]:empty { min-height: 300px; } }
 .enlace-sec { color: var(--texto2); font-size: 14.5px; text-decoration: underline; text-decoration-color: var(--linea2); text-underline-offset: 3px; }
 .enlace-sec:hover { color: var(--texto); text-decoration-color: currentColor; }
 .ventana { border-radius: 10px; border: 1px solid rgba(236, 230, 214, 0.34); background: var(--panel); box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6); overflow: hidden; }
