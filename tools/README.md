@@ -11,6 +11,7 @@ Los `.html` del repositorio **no se editan a mano**: salen de `plantillas/` con 
 | Cabecera de la web (`cabecera_en`, `_es`, `_pt`, `_ja`, `_guia`) | `plantillas/cabecera_<idioma>.tpl` |
 | Pie de la web (`pie_en`, `_es`, `_pt`, `_ja`, `_guia`) | `plantillas/pie_<idioma>.tpl` |
 | CSS (`css_sitio`, `css_seguridad`, `css_guia`, `css_privacidad`) | `plantillas/css_<grupo>.tpl` |
+| CSS de la cabecera (una sola copia; la insertan `css_sitio` y `css_seguridad` con una línea `{{> css_cabecera}}`) | `plantillas/css_cabecera.tpl` |
 
 Una página inserta una plantilla con `{{> pie_es}}`. Si las páginas de un mismo grupo difieren en alguna
 parte (por ejemplo, el enlace de «Preguntas» del pie, o una regla de CSS propia de la portada), esa parte es un
@@ -71,6 +72,33 @@ por el campo `version` de `version.json`. Las menciones a versiones pasadas (his
 las 31 páginas; el workflow hace commit de `version.json` y de los `.html` que cambian. Nunca se editan plantillas para
 subir de versión. `tools/test_version_unica.py` falla si alguna página trae una versión de descarga distinta de la actual.
 
+## Ver la web sin desplegarla (ML-329)
+
+Para ver los cambios en el navegador sin publicar nada:
+
+- **Windows**: doble clic en `tools/ver_web.bat`. Si no hay Python, dice cómo instalarlo y espera una tecla.
+- **Cualquier sistema**: `python3 tools/vista_previa.py` (Python 3.10 o posterior, sin instalar nada más).
+
+Sirve la raíz del repositorio en `http://localhost:8000` (si el puerto está ocupado, el siguiente libre), escribe las direcciones de las páginas
+principales (portadas, Learn en sus cuatro idiomas, privacidad y seguridad) y abre la portada. Para y cierra con Ctrl+C.
+
+| Opción | Qué hace |
+| --- | --- |
+| `--construir` | antes de servir, ejecuta `tools/construir_web.py` (si has tocado plantillas) |
+| `--puerto N` | empieza a buscar puerto por el N |
+| `--sin-abrir` | no abre el navegador |
+
+Se comporta como GitHub Pages: `/carpeta/` da `carpeta/index.html`, `/carpeta` redirige a `/carpeta/` y una ruta que no existe da la 404 de
+`404.html`. Solo escucha en tu equipo y no sirve nada fuera de la carpeta del repositorio ni `.git`.
+
+Dos diferencias con la web publicada:
+
+- **Learn usa la copia `learn/guias.json`**: el servidor de guías solo da permiso (CORS) a `https://manalab.es`, así que desde `localhost`
+  la petición falla y `learn.js` pinta la lista guardada en el repositorio (la que deja `tools/actualizar_guias_web.py`).
+- **MDN puede no servir anuncio en `localhost`**: entonces el hueco enseña el anuncio de casa, el que lleva a Learn, que es lo que verías si MDN no tuviera anuncio.
+
+Lo prueba `tools/test_vista_previa.py`.
+
 ## Comprobaciones
 
 `python3 tools/seo_check.py` y `for t in tools/test_*.py; do python3 "$t"; done`.
@@ -111,6 +139,8 @@ subir de versión. `tools/test_version_unica.py` falla si alguna página trae un
   (tras la franja de datos en las portadas); segundo, solo con 7 secciones o más sin contar la primera, justo antes de «Preguntas». Nunca antes del botón de descarga.
   En Learn, `{{HUECO_MDN}}` tras el paginador y, dentro de la rejilla, uno tras la octava guía que pone `construir_learn.py` (y `learn.js` conserva al repintar, solo si
   hay más de ocho guías en la página).
+- **Estilos**: salen de `plantillas/mdn/huecos.css` y `construir_mdn.py` los añade (en un `<style>` antes de `</head>`) solo a las páginas con hueco; las demás no los cargan.
+- **Evento de clic del anuncio de casa**: `anuncio-casa-<página>-<idioma>-<1|2>` (el número es el orden del hueco en la página), como los botones de descarga.
 - **Sin anuncio** (la construcción falla si llevan la marca): `guia/*`, `/privacy/`, `/safety/`, `/es/seguridad/`, `404.html` y `/anuncio/` (que carga el script a su manera).
 - **Tamaño**: `.hm-caja` reserva 300x250 y, si el hueco mide 728 px o más (`@container`), 728x90; MDN elige `rectangle` o `leaderboard` por ese mismo ancho.
 - **Si MDN no pone nada** (`data-mdn-state="empty"`), no llega (script bloqueado) o no responde en `PLAZO_MDN_MS`, se ve el anuncio de casa; sin JavaScript también.
