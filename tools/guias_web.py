@@ -173,6 +173,8 @@ MAX_NOMBRE_DESTACADO = 60                      # caracteres del nombre
 MAX_LINEA = 80                                 # caracteres de la línea («Standard y Pioneer · ES/EN»)
 MAX_FRASE = 140                                # caracteres de la frase del creador (campo nuevo, VIS-23)
 CASILLAS = ("academia", "guias", "sesiones")   # enlaces opcionales a Metafy
+PATRON_ID = re.compile(r"^[a-z0-9-]{1,40}$")   # identificador de un destacado para contar sus cifras (ML-333); sin él no se cuenta
+PATRON_FECHA = re.compile(r"^\d{4}-\d{2}-\d{2}$")  # «hasta»: AAAA-MM-DD, el día desde el que el destacado ya no se enseña
 
 
 def imagen_valida(enlace: object) -> bool:
@@ -183,9 +185,21 @@ def imagen_valida(enlace: object) -> bool:
     return not partes.query and not partes.fragment and partes.path.lower().endswith(EXTENSIONES_IMAGEN)
 
 
+def fecha_valida(valor: object) -> bool:
+    """¿Es una fecha AAAA-MM-DD que existe en el calendario?"""
+    if not isinstance(valor, str) or not PATRON_FECHA.match(valor):
+        return False
+    try:
+        datetime.strptime(valor, "%Y-%m-%d")
+    except ValueError:
+        return False
+    return True
+
+
 def _destacado(elemento: object) -> dict:
-    """Un destacado normalizado {nombre, linea, enlace, foto, frase, fondo, academia, guias, sesiones} (lo que falta, «»); ValueError si
-    nombre, línea o enlace no valen o una casilla trae un enlace que no es de Metafy. Una foto, una frase o un fondo malos se quedan en «»."""
+    """Un destacado normalizado {nombre, linea, enlace, foto, frase, fondo, academia, guias, sesiones, id, hasta} (lo que falta, «»); ValueError si
+    nombre, línea o enlace no valen, una casilla trae un enlace que no es de Metafy o «hasta» no es una fecha. Una foto, una frase, un fondo o
+    un id malos se quedan en «» (un destacado sin id se enseña pero no se cuenta)."""
     if not isinstance(elemento, dict):
         raise ValueError("no es un objeto")
     if not texto_valido(elemento.get("nombre"), MAX_NOMBRE_DESTACADO) or not texto_valido(elemento.get("linea"), MAX_LINEA):
@@ -203,6 +217,12 @@ def _destacado(elemento: object) -> dict:
         if valor is not None and not enlace_https(valor, DOMINIOS_METAFY):
             raise ValueError(campo)
         salida[campo] = valor or ""
+    identificador = _opcional(elemento, "id")
+    salida["id"] = identificador if isinstance(identificador, str) and PATRON_ID.match(identificador) else ""
+    hasta = _opcional(elemento, "hasta")
+    if hasta is not None and not fecha_valida(hasta):
+        raise ValueError("hasta")
+    salida["hasta"] = hasta or ""
     return salida
 
 

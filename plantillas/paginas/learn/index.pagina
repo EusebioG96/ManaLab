@@ -42,7 +42,6 @@
 <section class="ap-bloque" id="guias-seccion"><div class="envoltura">
 {{LEARN:filtros}}
 {{LEARN:rejilla}}
-<p class="ap-nota">The guide covers and details come from Metafy, and each guide opens on its site. To show this list, your browser asks a ManaLab server for the list of guides and Metafy for the covers; both see the request like any website (IP and browser). ManaLab keeps nothing of yours. More in the <a href="/privacy/#en">privacy policy</a>.</p>
 </div></section>
 {{HUECO_MDN}}
 <section class="seccion" id="descargar"><div class="envoltura"><div class="apoyo uno"><div>
@@ -67,6 +66,6 @@
 
 {{LEARN:datos}}
 <script defer="" src="/descarga.js"></script>
-<script defer="" src="/learn/learn.js"></script>
+<script defer="" src="/learn/learn.js"></script><script defer="" src="/learn/cifras.js"></script>
 <script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
 </html>

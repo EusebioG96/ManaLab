@@ -362,9 +362,35 @@
   }
 
   // ---- creador destacado: rotación y barra fina (VIS-22 y VIS-23)
+  function dosCifras(n) { return (n < 10 ? "0" : "") + n; }
+  function fechaLocal() { var f = new Date(); return f.getFullYear() + "-" + dosCifras(f.getMonth() + 1) + "-" + dosCifras(f.getDate()); }
+
+  /** Quita los destacados cuyo data-hasta (AAAA-MM-DD) ya ha llegado en la fecha local (ML-333; el HTML generado ya los quitó el día de la
+   *  construcción, pero la página puede ser más vieja). Deja la rotación coherente con los que quedan; true si no queda ninguno (y entonces
+   *  quita también el bloque y la barra fina). */
+  function quitarCaducados(d2, fina) {
+    var hoy = fechaLocal(), puntos = d2.querySelectorAll(".d2pun i"), quedan = 0, total = d2.querySelectorAll(".d2c").length;
+    Array.prototype.forEach.call(d2.querySelectorAll(".d2c"), function (c, k) {
+      var hasta = c.getAttribute("data-hasta");
+      if (hasta && hoy >= hasta) { c.remove(); if (puntos[k]) puntos[k].remove(); } else quedan++;
+    });
+    if (quedan === 0) { (d2.closest(".ap-bloque") || d2).remove(); fina.remove(); return true; }
+    if (quedan === total) return false;
+    d2.setAttribute("data-total", String(quedan));
+    Array.prototype.forEach.call(d2.querySelectorAll(".d2c"), function (c, k) {
+      c.setAttribute("data-i", String(k));
+      if (k === 0) { c.classList.add("on"); c.removeAttribute("inert"); c.removeAttribute("aria-hidden"); }
+    });
+    Array.prototype.forEach.call(d2.querySelectorAll(".d2pun i"), function (p, k) { p.classList.toggle("on", k === 0); });
+    if (quedan === 1) { Array.prototype.forEach.call(d2.querySelectorAll(".d2pag, .d2prog, .d2anuncio"), function (e) { e.remove(); }); }
+    else { var etiqueta = d2.querySelector(".d2pun"); if (etiqueta) etiqueta.setAttribute("aria-label", "1 / " + quedan); }
+    return false;
+  }
+
   function iniciarDestacados() {
     var d2 = $("destacado"), fina = $("d2barra");
     if (!d2 || !fina) return;
+    if (quitarCaducados(d2, fina)) return;
     var cuerpos = Array.prototype.slice.call(d2.querySelectorAll(".d2c")), n = cuerpos.length;
     var puntos = d2.querySelectorAll(".d2pun i"), etiquetaPuntos = d2.querySelector(".d2pun"), progreso = d2.querySelector(".d2prog i"), anuncio = d2.querySelector(".d2anuncio");
     var s = { indice: 0, ms: 0, encima: false, dentro: false, manual: false, barra: false, ventana: !doc.hidden, anunciando: 0 };

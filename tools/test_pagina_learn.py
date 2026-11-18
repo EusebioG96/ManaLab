@@ -89,18 +89,16 @@ class PaginasPublicadas(unittest.TestCase):
         self.assertEqual(guias_web.serializar(lista), texto, "learn/guias.json debe ser lo que escribe actualizar_guias_web.py")
         self.assertLessEqual(len(texto.encode()), guias_web.MAX_BYTES)
 
-    def test_nota_bajo_el_paginador_visible_en_las_cuatro_paginas_y_sin_marcas_pendientes(self):
-        """ML-327: la nota (portadas de Metafy y privacidad) ya está escrita: visible, con enlace a privacidad y sin marca pendiente."""
+    def test_no_hay_nota_bajo_el_paginador_en_las_cuatro_paginas_y_sin_marcas_pendientes(self):
+        """ML-333: la nota de Metafy bajo el paginador se quitó (dato del dueño, 18/11): ni el elemento ni su CSS, y sin marca pendiente."""
         hallazgos = pendientes_eusebio.buscar()
         for idioma, ruta in PAGINAS.items():
             with self.subTest(idioma):
                 html = leer(ruta)
                 self.assertNotIn("PENDIENTE-EUSEBIO", html)
-                nota = re.search(r'<p class="ap-nota">(.+?)</p>', html)
-                self.assertIsNotNone(nota, "falta la nota bajo el paginador o sigue oculta")
-                self.assertIn("Metafy", nota.group(1))
-                self.assertIn('href="/privacy/#', nota.group(1))
+                self.assertNotIn("ap-nota", html)
                 self.assertFalse(any(h.startswith(ruta + ":") for h in hallazgos), ruta)
+        self.assertNotIn("ap-nota", leer("plantillas/css_learn.tpl"))
         self.assertEqual(len([h for h in hallazgos if h.startswith("plantillas/paginas/") and "/aprender/" in h or "plantillas/paginas/learn/" in h
                               or "plantillas/paginas/ja/learn/" in h]), 0)
 
@@ -124,7 +122,7 @@ class PaginasPublicadas(unittest.TestCase):
             html = leer(ruta)
             with self.subTest(idioma):
                 self.assertEqual(sorted(re.findall(r'<script[^>]*src="([^"]+)"', html)),
-                                 ["//gc.zgo.at/count.js", "/descarga.js", "/huecos_mdn.js", "/learn/learn.js", "https://mdn.metafy.gg/embed.js"])
+                                 ["//gc.zgo.at/count.js", "/descarga.js", "/huecos_mdn.js", "/learn/cifras.js", "/learn/learn.js", "https://mdn.metafy.gg/embed.js"])
 
     def test_el_cierre_ofrece_la_descarga_con_el_panel_de_siempre(self):
         for idioma, ruta in PAGINAS.items():

@@ -116,5 +116,4 @@ input.ap-campo { flex: 1 1 200px; min-width: 0; }
 .ap-pag { display: flex; justify-content: center; align-items: center; gap: 6px; padding-block: 30px 12px; flex-wrap: wrap; }
 .ap-pag a, .ap-pag > span { min-width: 44px; height: 44px; padding: 0 12px; display: grid; place-items: center; border: 1px solid var(--linea2); border-radius: 4px; font: 500 14px var(--f-mono); text-decoration: none; color: var(--texto); }
 .ap-pag [aria-current] { background: #ece6d6; border-color: #ece6d6; color: #0d100f; } .ap-pag > span { border-color: transparent; color: var(--apagado); min-width: 24px; padding: 0; } .ap-pag .apagado { color: #6f6a5e; border: 1px solid var(--linea); min-width: 44px; }
-.ap-nota { font-size: 14px; color: var(--apagado); text-align: center; margin: 6px 0 0; }
 .ap .apoyo { grid-template-columns: minmax(0, 1fr); }

@@ -131,13 +131,13 @@ class TestPreguntaNueva(unittest.TestCase):
 
 FRASE_DATOS = {
     "en": "The Learn section asks a ManaLab server for the list of guides and loads covers from Metafy and photos from manalab.es, "
-          "sending nothing of yours except the ManaLab version; the Metafy banner loads Metafy's ad script and turns off in Settings.",
+          "sending nothing of yours except the ManaLab version; the Metafy banner loads Metafy's ad script. It also sends, at most once an hour, how many times each featured creator in Learn was seen and clicked, as totals only.",
     "es": "Aprender pide la lista de guías a un servidor de ManaLab y carga portadas de Metafy y fotos de manalab.es, sin enviar nada "
-          "tuyo salvo la versión de ManaLab; el banner de Metafy carga el script de anuncios de Metafy y se apaga en Ajustes.",
+          "tuyo salvo la versión de ManaLab; el banner de Metafy carga el script de anuncios de Metafy. También envía, como mucho una vez por hora, cuántas veces se vio cada creador destacado de Aprender y cuántos clics recibió, solo en totales.",
     "pt": "A seção Aprender pede a lista de guias a um servidor do ManaLab e carrega capas da Metafy e fotos do manalab.es, sem enviar "
-          "nada seu além da versão do ManaLab; o banner da Metafy carrega o script de anúncios da Metafy e se desliga em Configurações.",
+          "nada seu além da versão do ManaLab; o banner da Metafy carrega o script de anúncios da Metafy. Ele também envia, no máximo uma vez por hora, quantas vezes cada criador em destaque do Aprender foi visto e clicado, só em totais.",
     "ja": "「学ぶ」画面は、ガイド一覧をManaLabのサーバーに問い合わせ、Metafyからガイドの表紙を、manalab.esから写真を読み込みますが、"
-          "ManaLabのバージョン以外は何も送信しません。Metafyのバナーは、Metafyの広告スクリプトを読み込み、設定でオフにできます。",
+          "ManaLabのバージョン以外は何も送信しません。Metafyのバナーは、Metafyの広告スクリプトを読み込みます。また、「学ぶ」画面の注目クリエイターが何回表示され、何回クリックされたかを、合計だけ、最大で1時間に1回送信します。",
 }
 PREGUNTA_DATOS = {"en": "What data does it send?", "es": "¿Qué datos envía?", "pt": "Que dados ele envia?", "ja": "どんなデータを送信しますか？"}
 

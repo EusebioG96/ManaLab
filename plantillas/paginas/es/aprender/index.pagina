@@ -42,7 +42,6 @@
 <section class="ap-bloque" id="guias-seccion"><div class="envoltura">
 {{LEARN:filtros}}
 {{LEARN:rejilla}}
-<p class="ap-nota">Las portadas y los datos de las guías vienen de Metafy, y cada guía se abre en su web. Para enseñar esta lista, tu navegador pide la lista de guías a un servidor de ManaLab y las portadas a Metafy; los dos ven la petición como cualquier web (IP y navegador). ManaLab no guarda nada tuyo. Más en la <a href="/privacy/#es">política de privacidad</a>.</p>
 </div></section>
 {{HUECO_MDN}}
 <section class="seccion" id="descargar"><div class="envoltura"><div class="apoyo uno"><div>
@@ -67,6 +66,6 @@
 
 {{LEARN:datos}}
 <script defer="" src="/descarga.js"></script>
-<script defer="" src="/learn/learn.js"></script>
+<script defer="" src="/learn/learn.js"></script><script defer="" src="/learn/cifras.js"></script>
 <script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
 </html>
