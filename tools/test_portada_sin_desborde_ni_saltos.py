@@ -99,6 +99,27 @@ class PortadaSinDesbordeNiSaltos(unittest.TestCase):
                 self.assertEqual(pagina.evaluate(LINEAS_PARTIDAS), [], f"{ruta} a {ancho} px: enlaces de la cabecera partidos en dos líneas")
             contexto.close()
 
+    def caja_del_menu_abierto(self, ruta: str, ancho: int) -> dict:
+        """Ancho de la caja del menú y de la ventana con el menú abierto, y si su borde derecho coincide con el de la cabecera."""
+        contexto, pagina = self.pagina(ancho)
+        pagina.goto(f"{self.web.url}/{ruta}", wait_until="load")
+        pagina.click(".cab .menu > summary")
+        medidas = pagina.evaluate("""() => { const c = document.querySelector('.cab .menu-caja').getBoundingClientRect();
+          const e = document.querySelector('.cab .envoltura').getBoundingClientRect();
+          return { caja: c.width, derecha: Math.abs(c.right - e.right) < 1, envoltura: e.width }; }""")
+        contexto.close()
+        return medidas
+
+    def test_menu_compacto_no_se_estira_de_lado_a_lado_en_escritorio(self):
+        """ML-329: con la cabecera compacta (data-compacta, ML-326b) la caja del menú es una tarjeta a la derecha; en teléfono sigue a todo el ancho."""
+        for ruta in ("es/index.html", "pt/index.html", "ja/index.html", "index.html"):
+            escritorio = self.caja_del_menu_abierto(ruta, 1000)
+            with self.subTest(ruta):
+                self.assertLessEqual(escritorio["caja"], 380, "la caja del menú se estira en escritorio")
+                self.assertTrue(escritorio["derecha"], "la caja no queda pegada a la derecha")
+                telefono = self.caja_del_menu_abierto(ruta, 390)
+                self.assertAlmostEqual(telefono["caja"], telefono["envoltura"], delta=1, msg="en teléfono la caja debe ocupar todo el ancho")
+
     def test_cls_en_movil_con_red_lenta(self):
         for portada in PORTADAS:
             contexto, pagina = self.pagina(390, movil=True)

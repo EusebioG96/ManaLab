@@ -126,6 +126,10 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
   .cab .envoltura > nav, .cab .envoltura > .idioma { display: none; }
   .menu { display: block; }
 }
+/* desde 640 px (tableta y escritorio con el menú compacto) la caja no se estira de lado a lado: ancho de tarjeta, pegada a la derecha, bajo el botón */
+@media (min-width: 640px) {
+  .menu-caja { left: auto; width: 380px; max-width: 100%; border-left: 1px solid var(--linea2); }
+}
 /* a 380 px o menos no cabe el nombre junto a «Descargar» y el menú: queda el logotipo */
 @media (max-width: 380px) { .marca span { display: none; } }
 
