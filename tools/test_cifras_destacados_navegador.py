@@ -36,6 +36,7 @@ ENVOLTURA = """(function(){var f=window.fetch;window.__cifras=[];window.fetch=fu
   tipo:o.headers['Content-Type'],url:String(u)});return f.apply(this,arguments)}})()"""
 OCULTAR = ("Object.defineProperty(document,'visibilityState',{configurable:true,get:()=>'hidden'});"
            "Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'))")
+NACER_OCULTA = OCULTAR.rsplit(";", 1)[0]   # la página nace «oculta» (sin el evento): la cuenta de «visto» no empieza antes de parar el reloj
 MOSTRAR = ("Object.defineProperty(document,'visibilityState',{configurable:true,get:()=>'visible'});"
            "Object.defineProperty(document,'hidden',{configurable:true,get:()=>false});document.dispatchEvent(new Event('visibilitychange'))")
 
@@ -124,12 +125,12 @@ class CifrasNavegador(unittest.TestCase):
             return r.abort()
         p.route("**/*", ruta)
         if reloj is not None:
+            p.add_init_script(NACER_OCULTA)
             p.clock.install(time=reloj) if reloj else p.clock.install()
         p.goto(f"{servidor.url}/es/aprender/", wait_until="load")
         p.wait_for_function("document.documentElement.classList.contains('learn-js') || document.documentElement.classList.contains('learn-sin-lista')")
         if reloj is not None:
-            p.evaluate(OCULTAR)       # oculta mientras se para el reloj: así la cuenta atrás de «visto» empieza con el reloj ya parado
-            p.wait_for_timeout(300)   # y el IntersectionObserver da su primera lectura
+            p.wait_for_timeout(300)   # el IntersectionObserver da su primera lectura (con la página aún «oculta»)
             p.clock.pause_at(datetime.fromtimestamp(p.evaluate("Date.now()") / 1000 + 0.05))
             p.evaluate(MOSTRAR)
         return p
@@ -294,8 +295,9 @@ class CifrasNavegador(unittest.TestCase):
     def test_visto_exige_un_segundo_seguido(self):
         p = self.abrir(self.uno, reloj=0)
         p.clock.run_for(900)
-        self.assertEqual(self.pendiente(p), {}, "con menos de 1 s no hay vista")
+        self.assertEqual(self.vistas(p), 0, "con menos de 1 s no hay vista")
         p.clock.run_for(300)
+        self.assertEqual(self.vistas(p), 1)
         self.enviar(p)
         self.assertEqual(self.cuerpos(p)[0]["dias"][dia_utc()], {"dana-voss": {"visto": 1}})
 
