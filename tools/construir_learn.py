@@ -12,6 +12,7 @@ import html
 import json
 import sys
 import unicodedata
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -234,10 +235,11 @@ def html_creador(indice: int, d: dict, t: dict) -> str:
     activo = indice == 0
     fondo = f'<img class="d2fondo" alt="" decoding="async" referrerpolicy="no-referrer" src="{_esc(d["fondo"])}">' if d["fondo"] else ""
     frase = f'<div class="d2fra">{_esc(d["frase"])}</div>' if d["frase"] else ""
-    casillas = "".join(f'<a class="d2cas" href="{_esc(d[campo])}" rel="sponsored noopener" target="_blank">{_esc(nombre)}</a>'
+    casillas = "".join(f'<a class="d2cas" data-cas="{campo}" href="{_esc(d[campo])}" rel="sponsored noopener" target="_blank">{_esc(nombre)}</a>'
                        for campo, nombre in zip(guias_web.CASILLAS, t["cas"]) if d[campo])
     estado = ' class="d2c on"' if activo else ' class="d2c" inert aria-hidden="true"'
-    return (f'<article{estado} data-i="{indice}"><div class="d2esc" aria-hidden="true">{fondo}<div class="d2zona"><div class="d2aba">'
+    cifras = (f' data-id="{_esc(d["id"])}"' if d["id"] else "") + (f' data-hasta="{_esc(d["hasta"])}"' if d["hasta"] else "")   # learn/cifras.js y learn.js
+    return (f'<article{estado} data-i="{indice}"{cifras}><div class="d2esc" aria-hidden="true">{fondo}<div class="d2zona"><div class="d2aba">'
             f'<i></i><i></i><i></i><i></i><i></i></div></div></div>{html_foto(d["nombre"], d["foto"], "d2foto")}'
             f'<div class="d2txt"><span class="eti">{_esc(t["dest"])}</span><div class="d2nom">{_esc(d["nombre"])}</div>'
             f'<div class="d2lin">{_esc(d["linea"])}</div>{frase}<div class="d2acc"><a class="d2cta" href="{_esc(d["enlace"])}" '
@@ -304,12 +306,18 @@ def leer_destacados(raiz: Path) -> list:
     return guias_web.validar_destacados(datos.get("destacados") if isinstance(datos, dict) else None)
 
 
-def aplicar_learn(fuente: str, idioma: str, raiz: Path) -> str:
-    """Resuelve las marcas ``{{LEARN:...}}`` de una página con los datos de `raiz`. Sin marcas, devuelve `fuente` sin tocar (y sin leer nada)."""
+def vigentes(destacados: list, hoy: date) -> list:
+    """Los destacados cuyo «hasta» (AAAA-MM-DD) aún no ha llegado: desde ese día, en la fecha local, ya no se pintan (ML-333). learn.js hace lo mismo."""
+    return [d for d in destacados if not d["hasta"] or hoy.isoformat() < d["hasta"]]
+
+
+def aplicar_learn(fuente: str, idioma: str, raiz: Path, hoy: date | None = None) -> str:
+    """Resuelve las marcas ``{{LEARN:...}}`` de una página con los datos de `raiz`. Sin marcas, devuelve `fuente` sin tocar (y sin leer nada).
+    `hoy`: la fecha local con la que se descartan los destacados caducados (por defecto, la de la máquina que construye)."""
     if "{{LEARN:" not in fuente:
         return fuente
     t = TEXTOS[idioma]
-    guias, destacados = leer_guias(raiz), leer_destacados(raiz)
+    guias, destacados = leer_guias(raiz), vigentes(leer_destacados(raiz), hoy or date.today())
     valores = {"destacado": html_destacado(destacados, t), "barra": html_barra(destacados, t), "filtros": html_filtros(len(guias), t),
                "rejilla": html_rejilla(guias, t), "datos": html_datos_js(idioma, t)}
     for marca in MARCAS:
