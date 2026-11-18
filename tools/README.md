@@ -101,3 +101,18 @@ subir de versión. `tools/test_version_unica.py` falla si alguna página trae un
   Para publicar, `MANALAB_PUBLICAR=1 python3 -m pytest tools/test_pagina_learn.py` debe pasar.
 - **Pruebas**: `test_pagina_learn.py` (páginas y construcción), `test_pagina_learn_validacion.py` (Python y JS validan igual; necesita `node`),
   `test_pagina_learn_navegador.py` (Chromium con Playwright; se salta si no está).
+
+### Huecos de anuncio de MDN (ML-325, WEB-09)
+
+- **Dónde van**: en la plantilla de cada página con anuncio, la marca `{{HUECO_MDN}}` (en una línea, entre dos `<section>`). `tools/construir_mdn.py` la cambia por el
+  `<aside class="hueco-mdn">` en el idioma de la página (etiqueta Publicidad / Advertisement / Publicidade / 広告 y anuncio de casa que lleva a Learn) y, si la página
+  tiene algún hueco, añade **una vez** antes de `</body>` el script de MDN (`async`) y `/huecos_mdn.js`. Sin marcas no hay ni hueco ni script.
+- **La regla** (portadas y coaches 2, Magic Online, overlay, novedades y registro detallado 1, Learn 2): primer hueco tras la primera sección que termina a 560 px o más
+  (tras la franja de datos en las portadas); segundo, solo con 7 secciones o más sin contar la primera, justo antes de «Preguntas». Nunca antes del botón de descarga.
+  En Learn, `{{HUECO_MDN}}` tras el paginador y, dentro de la rejilla, uno tras la octava guía que pone `construir_learn.py` (y `learn.js` conserva al repintar, solo si
+  hay más de ocho guías en la página).
+- **Sin anuncio** (la construcción falla si llevan la marca): `guia/*`, `/privacy/`, `/safety/`, `/es/seguridad/`, `404.html` y `/anuncio/` (que carga el script a su manera).
+- **Tamaño**: `.hm-caja` reserva 300x250 y, si el hueco mide 728 px o más (`@container`), 728x90; MDN elige `rectangle` o `leaderboard` por ese mismo ancho.
+- **Si MDN no pone nada** (`data-mdn-state="empty"`), no llega (script bloqueado) o no responde en `PLAZO_MDN_MS`, se ve el anuncio de casa; sin JavaScript también.
+- **Pruebas**: `test_huecos_mdn.py` (estática) y `test_huecos_mdn_navegador.py` (Chromium; MDN simulado). Una página nueva debe decidirse en `CON_ANUNCIO` o `SIN_ANUNCIO`.
+- **Textos pendientes de Eusebio**: privacidad y seguridad llevan una marca `PENDIENTE-EUSEBIO` para lo que cuenta que Metafy recibe la visita (IP y navegador).

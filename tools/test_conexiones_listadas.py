@@ -3,8 +3,10 @@
 
 Uso:  python3 tools/test_conexiones_listadas.py
 """
+import re
 import unittest
 from pathlib import Path
+from urllib.parse import urlparse
 
 RAIZ = Path(__file__).resolve().parent.parent
 PAGINAS = {"en": RAIZ / "safety" / "index.html", "es": RAIZ / "es" / "seguridad" / "index.html"}
@@ -18,14 +20,23 @@ HOSTS_DE_LA_APP = (
     "api.scryfall.com",         # nombres de cartas, overlay e imágenes
     "cards.scryfall.io",        # imágenes de las cartas (las direcciones llegan en la respuesta de Scryfall)
     "manalab.es",               # version.json, contenido.json, anuncio/, fotos de los creadores
-    "mdn.metafy.gg",            # script del anuncio (lo carga manalab.es/anuncio/)
+    "mdn.metafy.gg",            # script del anuncio (lo carga manalab.es/anuncio/ y, desde ML-325, las páginas de la web con hueco de anuncio)
     "metafy.gg",                # portadas de las guías de Aprender
     "workers.dev",              # servidor de la IA y de los reportes (manalab_ajustes.URL_IA)
 )
 
 
+# Hosts de los scripts que cargan las páginas de la web (no la app). Un script de otro host obliga a revisar privacidad y seguridad (ML-325, WEB-09).
+HOSTS_DE_SCRIPTS_DE_LA_WEB = {"mdn.metafy.gg", "gc.zgo.at"}   # anuncios de MDN (Metafy) y estadísticas de visitas (GoatCounter)
+PRIVACIDAD = RAIZ / "privacy" / "index.html"
+
+
 def leer(idioma: str) -> str:
     return PAGINAS[idioma].read_text(encoding="utf-8")
+
+
+def leer_privacidad() -> str:
+    return PRIVACIDAD.read_text(encoding="utf-8")
 
 
 class TestConexionesListadas(unittest.TestCase):
@@ -36,6 +47,20 @@ class TestConexionesListadas(unittest.TestCase):
             for host in HOSTS_DE_LA_APP:
                 with self.subTest(idioma=idioma, host=host):
                     self.assertIn(host, seccion)
+
+    def test_los_scripts_de_fuera_de_la_web_son_solo_los_listados(self):
+        vistos = set()
+        for ruta in RAIZ.rglob("*.html"):
+            if {".git", "docs", "plantillas", "tools"} & set(ruta.relative_to(RAIZ).parts):
+                continue
+            for fuente in re.findall(r'<script[^>]*\ssrc="((?:https?:)?//[^"]+)"', ruta.read_text(encoding="utf-8")):
+                vistos.add(urlparse(fuente if not fuente.startswith("//") else "https:" + fuente).hostname)
+        self.assertEqual(vistos, HOSTS_DE_SCRIPTS_DE_LA_WEB)
+
+    def test_el_host_de_mdn_se_nombra_en_privacidad_y_en_seguridad_en_los_dos_idiomas(self):
+        self.assertGreaterEqual(leer_privacidad().count("mdn.metafy.gg"), 2)   # una vez por idioma como mínimo; el texto de los anuncios de la web lo escribe Eusebio
+        for idioma in PAGINAS:
+            self.assertIn("mdn.metafy.gg", leer(idioma))
 
     def test_no_hay_inicio_de_sesion_con_metafy(self):
         for idioma in PAGINAS:
