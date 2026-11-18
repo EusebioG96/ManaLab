@@ -88,3 +88,16 @@ subir de versión. `tools/test_version_unica.py` falla si alguna página trae un
   firma sale sin enlace) y regenerar.
 - **Conexiones de la app** (`/safety/`, `/es/seguridad/`, `/privacy/`): `tools/test_conexiones_listadas.py` lleva la lista de hosts de la app;
   si la app habla con un host nuevo, se añade ahí y a las páginas.
+
+### Página «Learn» (ML-324, WEB-08)
+
+- **Páginas**: `/learn/`, `/es/aprender/`, `/pt/aprender/`, `/ja/learn/` (`plantillas/paginas/.../*.pagina`, textos en `tools/construir_learn.py`).
+- **Lista de guías**: `python3 tools/actualizar_guias_web.py` descarga la del servidor, la valida (`tools/guias_web.py`) y guarda `learn/guias.json`;
+  después `python3 tools/construir_web.py` escribe las 24 primeras en el HTML. `construir_web.py` nunca toca la red. En el navegador,
+  `learn/learn.js` pide la lista al servidor, si falla usa `/learn/guias.json` y, si también falla, deja el HTML.
+- **Destacados**: salen de `contenido.json` (`destacados`, campos `frase` y `fondo` opcionales; ver `docs/contenido_remoto.md`). Sin destacados no hay
+  banner ni barra.
+- **Textos pendientes de Eusebio**: `python3 tools/pendientes_eusebio.py` lista las marcas `PENDIENTE-EUSEBIO`; sale con 1 mientras haya alguna.
+  Para publicar, `MANALAB_PUBLICAR=1 python3 -m pytest tools/test_pagina_learn.py` debe pasar.
+- **Pruebas**: `test_pagina_learn.py` (páginas y construcción), `test_pagina_learn_validacion.py` (Python y JS validan igual; necesita `node`),
+  `test_pagina_learn_navegador.py` (Chromium con Playwright; se salta si no está).
