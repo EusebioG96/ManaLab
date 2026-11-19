@@ -144,13 +144,13 @@
 </div>
 <div class="novedades dos">
 <div class="novedad">
-<div class="ventana"><picture><source srcset="/img/en_mtgo_panel.webp" type="image/webp"><img alt="ManaLabのパネル。アリーナは監視中、Magic Onlineはゲーム中でmtgo.logを読み取っています。最新の対戦にはMTGOのタグが付いています（サンプルデータ）" height="860" loading="lazy" src="/img/en_mtgo_panel.jpg" width="1366"/></picture><p class="pie-captura">画面は英語版です。アプリは日本語に対応しています。</p></div>
+<div class="ventana"><picture><source srcset="/img/en_mtgo_panel.webp" type="image/webp"><img alt="ManaLabのパネル。アリーナは監視中、Magic Onlineはゲーム中でmtgo.logを読み取っています。最新の対戦にはMTGOのタグが付いています" height="860" loading="lazy" src="/img/en_mtgo_panel.jpg" width="1366"/></picture><p class="pie-captura">画面は英語版です。アプリは日本語に対応しています。</p></div>
 <div><div class="eti">パネル</div>
 <h3>アリーナと<span style="white-space:nowrap">Magic Online</span>を並べて表示</h3>
 <p>パネルには各ゲームの状態と最近の対戦が表示されます。<span style="white-space:nowrap">Magic Online</span>で遊んだ対戦には、小さな「MTGO」タグが付きます。</p></div>
 </div>
 <div class="novedad">
-<div class="ventana"><picture><source srcset="/img/en_mtgo_banquillo.webp" type="image/webp"><img alt="Magic Onlineのゲーム間に表示されるManaLabのサイドボード確認パネル。「この変更を使う」「変更なし」「編集」の3つのボタンがあります（サンプルデータ）" height="440" loading="lazy" src="/img/en_mtgo_banquillo.jpg" width="1000"/></picture></div>
+<div class="ventana"><picture><source srcset="/img/en_mtgo_banquillo.webp" type="image/webp"><img alt="Magic Onlineのゲーム間に表示されるManaLabのサイドボード確認パネル。「この変更を使う」「変更なし」「編集」の3つのボタンがあります" height="440" loading="lazy" src="/img/en_mtgo_banquillo.jpg" width="1000"/></picture></div>
 <div><div class="eti">サイドボード</div>
 <h3>サイドボードの確認はワンクリック</h3>
 <p><span style="white-space:nowrap">Magic Online</span>はサイドボード後のリストを間に合うように送ってきません。そのためゲーム間に小さなパネルが表示され、前回の変更を使うか、変更なしにするか、エディターを開くかを選べます。</p></div>

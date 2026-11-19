@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <title>How to Review a Student with ManaLab · Coaches</title>
-<meta content="Your student sends one report with hands, mulligans and key moments. A free guide for MTG Arena and Magic Online coaches." name="description"/>
+<meta content="Your student sends one report with hands, mulligans and key moments. Learn how to review it in this free guide for MTG Arena and Magic Online coaches." name="description"/>
 <link href="https://manalab.es/coaches/" rel="canonical"/>
 <link href="https://manalab.es/coaches/" hreflang="en" rel="alternate"/>
 <link href="https://manalab.es/es/coaches/" hreflang="es" rel="alternate"/>
@@ -17,7 +17,7 @@
 <meta content="ManaLab" property="og:site_name"/>
 <meta content="en_US" property="og:locale"/>
 <meta content="How to Review a Student with ManaLab · Coaches" property="og:title"/>
-<meta content="Your student sends one report with hands, mulligans and key moments. A free guide for MTG Arena and Magic Online coaches." property="og:description"/>
+<meta content="Your student sends one report with hands, mulligans and key moments. Learn how to review it in this free guide for MTG Arena and Magic Online coaches." property="og:description"/>
 <meta content="https://manalab.es/coaches/" property="og:url"/>
 <meta content="https://manalab.es/img/og.jpg" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
@@ -25,9 +25,9 @@
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="@ManaLabApp" name="twitter:site"/>
 <meta content="How to Review a Student with ManaLab · Coaches" name="twitter:title"/>
-<meta content="Your student sends one report with hands, mulligans and key moments. A free guide for MTG Arena and Magic Online coaches." name="twitter:description"/>
+<meta content="Your student sends one report with hands, mulligans and key moments. Learn how to review it in this free guide for MTG Arena and Magic Online coaches." name="twitter:description"/>
 <meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/coaches/#webpage", "url": "https://manalab.es/coaches/", "name": "How to Review a Student with ManaLab · Coaches", "description": "Your student sends one report with hands, mulligans and key moments. A free guide for MTG Arena and Magic Online coaches.", "inLanguage": "en", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/coaches_informe_en.jpg"}}, {"@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Does it cost anything?", "acceptedAnswer": {"@type": "Answer", "text": "The app is free. The only paid part is the AI loss analysis, which you don't need for anything in this guide."}}, {"@type": "Question", "name": "Does my student share their whole history?", "acceptedAnswer": {"@type": "Answer", "text": "With a report or a .manalab file they share only what they choose. In Team mode, ManaLab publishes all their games to your shared folder unless they stop sharing; they can hide opponents' names and turn off screenshot sharing."}}, {"@type": "Question", "name": "Do their games count in my statistics?", "acceptedAnswer": {"@type": "Answer", "text": "No. Games from another player stay marked and don't count in yours."}}, {"@type": "Question", "name": "What does an imported game leave out?", "acceptedAnswer": {"@type": "Answer", "text": "Screenshots and AI analysis. It keeps the replay, hands, mulligans, deck, notes and tags."}}, {"@type": "Question", "name": "What do I need?", "acceptedAnswer": {"@type": "Answer", "text": "ManaLab runs on Windows 10 and 11. Reports open in any browser, so you don't need to install anything to read them."}}, {"@type": "Question", "name": "What if something's missing?", "acceptedAnswer": {"@type": "Answer", "text": "Write to manalab.app@gmail.com. The coaching tools are being built around what you ask for."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/coaches/#webpage", "url": "https://manalab.es/coaches/", "name": "How to Review a Student with ManaLab · Coaches", "description": "Your student sends one report with hands, mulligans and key moments. Learn how to review it in this free guide for MTG Arena and Magic Online coaches.", "inLanguage": "en", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/coaches_informe_en.jpg"}}, {"@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Does it cost anything?", "acceptedAnswer": {"@type": "Answer", "text": "The app is free. The only paid part is the AI loss analysis, which you don't need for anything in this guide."}}, {"@type": "Question", "name": "Does my student share their whole history?", "acceptedAnswer": {"@type": "Answer", "text": "With a report or a .manalab file they share only what they choose. In Team mode, ManaLab publishes all their games to your shared folder unless they stop sharing; they can hide opponents' names and turn off screenshot sharing."}}, {"@type": "Question", "name": "Do their games count in my statistics?", "acceptedAnswer": {"@type": "Answer", "text": "No. Games from another player stay marked and don't count in yours."}}, {"@type": "Question", "name": "What does an imported game leave out?", "acceptedAnswer": {"@type": "Answer", "text": "Screenshots and AI analysis. It keeps the replay, hands, mulligans, deck, notes and tags."}}, {"@type": "Question", "name": "What do I need?", "acceptedAnswer": {"@type": "Answer", "text": "ManaLab runs on Windows 10 and 11. Reports open in any browser, so you don't need to install anything to read them."}}, {"@type": "Question", "name": "What if something's missing?", "acceptedAnswer": {"@type": "Answer", "text": "Write to manalab.app@gmail.com. The coaching tools are being built around what you ask for."}}]}]}</script>
 <link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>{{> css_sitio 16=b}}</style></head>
 <body>
@@ -58,7 +58,7 @@
 <div class="enlaces-video"><span class="enlace-sec">Watch the videos:</span><a href="/guia/guia_manalab_en.html#video-prepare-session">Prepare a session</a><a href="/guia/guia_manalab_en.html#video-coach-tags-trends-team">Coach tags, trends and team</a></div>
 </div>
 <div class="hero-medio">
-<div class="ventana"><picture><source srcset="../img/coaches_informe_en.webp" type="image/webp"><img alt="ManaLab session report opened in a browser: summary, session goal and one lost game with hands, mulligan and sideboard, shown with sample data" height="1153" src="../img/coaches_informe_en.jpg" width="1000"/></picture></div>
+<div class="ventana"><picture><source srcset="../img/coaches_informe_en.webp" type="image/webp"><img alt="ManaLab session report opened in a browser: summary, session goal and one lost game with hands, mulligan and sideboard" height="1153" src="../img/coaches_informe_en.jpg" width="1000"/></picture></div>
 <p class="pie-captura" style="margin:0">Session report with sample data.</p>
 </div>
 </div>
@@ -104,7 +104,7 @@
 <div class="cab-sec"><div class="eti">During the lesson</div><h2>Start with what repeats</h2><p>Then move to specific games. This order works well for a one-hour lesson:</p></div>
 <div class="dos-col">
 <ol class="lista-pasos"><li><b>Trends.</b> Open «What repeats the most» in Statistics and choose one theme to work on.</li><li><b>Matchups.</b> The table separates game 1 from post-sideboard games. An asterisk means fewer than 10 games, so don't draw firm conclusions from those rows.</li><li><b>Hands and mulligans.</b> Review these before the plays: was it a keep?</li><li><b>Replay.</b> Jump to the key moments and discuss the decisions tied to your theme.</li><li><b>Sideboard.</b> Compare their plan with what they really brought in and took out.</li></ol>
-<div><div class="ventana desliza"><picture><source srcset="../img/coaches_tendencias_en.webp" type="image/webp"><img alt="ManaLab Statistics table «What repeats the most»: mistakes with number of games, percentage, decisive ones, trend and source (player or coach), shown with sample data" height="512" loading="lazy" src="../img/coaches_tendencias_en.jpg" width="1400"/></picture></div><p class="pie-captura">«What repeats the most» in Statistics, with sample data.</p></div>
+<div><div class="ventana desliza"><picture><source srcset="../img/coaches_tendencias_en.webp" type="image/webp"><img alt="ManaLab Statistics table «What repeats the most»: mistakes with games, percentage, decisive ones, trend and source" height="512" loading="lazy" src="../img/coaches_tendencias_en.jpg" width="1400"/></picture></div><p class="pie-captura">«What repeats the most» in Statistics, with sample data.</p></div>
 </div>
 <div class="bloque-texto"><p>With Team mode you see each game in the same detail as your student: hands, screenshots with notes (if they share them), replay and the opponent's deck.</p></div>
 </div>

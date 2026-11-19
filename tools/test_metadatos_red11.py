@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """ML-336 (RED-11): título y descripción aprobados de /ja/ y /overlay/ en <title>, meta description, Open Graph, Twitter y JSON-LD.
+ML-341: Eusebio aprobó recortar la descripción de /overlay/ a 157 caracteres (el título y todo /ja/ siguen como estaban).
 
 Uso:  python3 -m pytest tools/test_metadatos_red11.py
 """
@@ -17,7 +18,7 @@ PAGINAS = {
     ),
     "overlay/index.html": (
         "Free MTG Arena Overlay: Library & Draw Odds · ManaLab",
-        "Free overlay for MTG Arena: see the cards left in your library, your odds of drawing each one and what your opponent has "
+        "Free overlay for MTG Arena: see the cards left in your library, your odds of drawing each one and what your opponent "
         "revealed. Magic Online is supported too.",
     ),
 }
