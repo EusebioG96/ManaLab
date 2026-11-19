@@ -30,7 +30,7 @@
     <h2>2. Qué se queda en tu PC</h2>
     <p>ManaLab no tiene cuentas ni registro. Tus partidas, capturas, estadísticas y ajustes se guardan solo en tu ordenador, en la carpeta <code>%LOCALAPPDATA%\ManaLab</code>. Lo único que sale de tu PC es lo que se describe en el apartado 3.</p>
     <p>ManaLab lee el archivo de registro (log) que Arena escribe en tu PC. También lee los archivos de Magic Online (<code>mtgo.log</code> y <code>Match_GameLog_*.dat</code>), sin modificarlos. No modifica Arena ni Magic Online, no lee su memoria y no se conecta a sus servidores.</p>
-    <p>Capturas de pantalla: mientras estén activadas (lo están por defecto), ManaLab guarda en tu PC imágenes de la ventana del juego (o, si no la encuentra y has elegido un monitor de respaldo en Ajustes, de ese monitor), en momentos como la mano inicial, los mulligans y el resultado. Puedes desactivarlas en Ajustes › Juegos, con un interruptor para Arena y otro para Magic Online.</p>
+    <p>Capturas de pantalla: ManaLab no hace capturas por su cuenta. Solo guarda en tu PC una imagen cuando tú pides un momento destacado (con F8, con el botón sobre el juego o con «Capturar momento»): la imagen es de la ventana del juego o, si no la encuentra y has elegido un monitor de respaldo en Ajustes, de ese monitor. Puedes quitar el botón y el atajo en Ajustes.</p>
 
     <h2>3. Conexiones del programa</h2>
     <ul>
@@ -109,7 +109,7 @@
     <h2>2. What stays on your PC</h2>
     <p>ManaLab has no accounts or sign-up. Your matches, screenshots, statistics and settings are stored only on your computer, in <code>%LOCALAPPDATA%\ManaLab</code>. The only data that leaves your PC is described in section 3.</p>
     <p>ManaLab reads the log file that Arena writes on your PC. It also reads the Magic Online files (<code>mtgo.log</code> and <code>Match_GameLog_*.dat</code>), without modifying them. It does not modify Arena or Magic Online, does not read their memory and does not connect to their servers.</p>
-    <p>Screenshots: while they are on (they are on by default), ManaLab saves images of the game window on your PC (or, if it can't find the window and you have picked a fallback monitor in Settings, of that monitor), at moments like your opening hand, mulligans and the result. You can turn them off in Settings › Games, with one switch for Arena and another for Magic Online.</p>
+    <p>Screenshots: ManaLab does not take screenshots on its own. It saves an image on your PC only when you ask for a highlighted moment (with F8, with the button over the game or with “Capture moment”): the image is of the game window or, if it can't find the window and you have picked a fallback monitor in Settings, of that monitor. You can turn off the button and the shortcut in Settings.</p>
 
     <h2>3. Connections made by the program</h2>
     <ul>

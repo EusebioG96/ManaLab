@@ -119,8 +119,8 @@
 <div class="novedades motivos">
 <div class="novedad">
 <div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="../video/funciones/03-opening-hand-mulligans.jpg" aria-label="Cada partida guarda tu mano inicial, la mano que mantienes tras un mulligan y tu sideboard, y las estadísticas de mulligans." title="Cada partida guarda tu mano inicial, la mano que mantienes tras un mulligan y tu sideboard, y las estadísticas de mulligans."><source src="../video/funciones/03-opening-hand-mulligans.mp4" type="video/mp4"><a href="../video/funciones/03-opening-hand-mulligans.mp4">MP4</a></video></figure></div>
-<div><h3>Tu mano inicial y cada mulligan, con captura</h3>
-<p>ManaLab guarda la mano que te dieron, la que te quedaste y una captura de cada decisión. Sin apuntar nada.</p></div>
+<div><h3>Tu mano inicial y cada mulligan</h3>
+<p>ManaLab guarda la mano que te dieron y la que te quedaste. Sin apuntar nada.</p></div>
 </div>
 <div class="novedad">
 <div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="../video/funciones/05-statistics.jpg" aria-label="Estadísticas: porcentajes, rachas y resultados por día, por mulligans, por mazo, por oponente y por matchup." title="Estadísticas: porcentajes, rachas y resultados por día, por mulligans, por mazo, por oponente y por matchup."><source src="../video/funciones/05-statistics.mp4" type="video/mp4"><a href="../video/funciones/05-statistics.mp4">MP4</a></video></figure></div>
@@ -171,7 +171,7 @@
 <p>Cada Bo3 es una fila con su marcador (2-1, 1-2…) que se despliega en sus partidas: si ibas primero o segundo, resultado y mulligans.</p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><circle cx="9" cy="11" r="2"></circle><path d="m21 15-4.5-4.5L8 19"></path></svg>
 <h3>Manos y capturas</h3>
-<p>Tu mano inicial, la que te quedaste y capturas de los momentos clave. Pulsa F8 o el botón sobre el juego para guardar el momento que quieras y añadirle una nota. Las capturas se guardan en tu PC y se pueden desactivar en Ajustes.</p></div>
+<p>Tu mano inicial y la que te quedaste. Pulsa F8 o el botón sobre el juego para guardar una captura del momento que quieras y añadirle una nota. Las capturas se guardan en tu PC.</p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l2.5 2.5"></path></svg>
 <h3>Mazo del rival</h3>
 <p>Compara las cartas del rival con los mazos más jugados del formato de la partida y le pone el que más coincide. Las listas del meta se actualizan cada 3 días.</p></div>

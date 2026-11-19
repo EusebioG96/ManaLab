@@ -114,7 +114,7 @@
 <li><code>grouping *.xml</code>: los archivos de mazo.</li>
 </ul>
 <p>No modifica Magic Online, no lee su memoria y no se conecta a sus servidores. <a href="/es/seguridad/#lee">Qué lee y cómo comprobarlo →</a></p>
-<p>Las capturas de tu mano inicial, los mulligans y el resultado vienen activadas por defecto y se quedan en tu PC. Puedes desactivarlas en Ajustes, con un interruptor propio para Magic Online. Si jugaste con ManaLab cerrado, puedes importar un archivo <code>mtgo.log</code>.</p>
+<p>ManaLab solo hace una captura cuando tú pides un momento destacado (F8 o el botón sobre el juego), y se queda en tu PC. Si jugaste con ManaLab cerrado, puedes importar un archivo <code>mtgo.log</code>.</p>
 </div>
 </div>
 </section>

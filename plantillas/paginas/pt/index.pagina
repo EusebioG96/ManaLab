@@ -119,8 +119,8 @@
 <div class="novedades motivos">
 <div class="novedad">
 <div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="/video/funciones/03-opening-hand-mulligans.jpg" aria-label="Cada partida guarda sua mão inicial, a mão que você mantém após um mulligan e seu sideboard, além das estatísticas de mulligan." title="Cada partida guarda sua mão inicial, a mão que você mantém após um mulligan e seu sideboard, além das estatísticas de mulligan."><source src="/video/funciones/03-opening-hand-mulligans.mp4" type="video/mp4"><a href="/video/funciones/03-opening-hand-mulligans.mp4">MP4</a></video></figure><p class="pie-captura">As imagens mostram o app em inglês. O app está disponível em português.</p></div>
-<div><h3>Sua mão inicial e cada mulligan, com captura</h3>
-<p>O ManaLab guarda a mão que você recebeu, a que você manteve e uma captura de cada decisão. Sem anotar nada.</p></div>
+<div><h3>Sua mão inicial e cada mulligan</h3>
+<p>O ManaLab guarda a mão que você recebeu e a que você manteve. Sem anotar nada.</p></div>
 </div>
 <div class="novedad">
 <div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="/video/funciones/05-statistics.jpg" aria-label="Estatísticas: winrate, sequências e resultados por dia, por mulligans, por deck, por oponente e por matchup." title="Estatísticas: winrate, sequências e resultados por dia, por mulligans, por deck, por oponente e por matchup."><source src="/video/funciones/05-statistics.mp4" type="video/mp4"><a href="/video/funciones/05-statistics.mp4">MP4</a></video></figure></div>
@@ -171,7 +171,7 @@
 <p>Cada Bo3 é uma linha com seu placar (2-1, 1-2…) que se abre e mostra cada partida: se você jogou primeiro ou segundo, o resultado e os mulligans.</p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><circle cx="9" cy="11" r="2"></circle><path d="m21 15-4.5-4.5L8 19"></path></svg>
 <h3>Mãos e capturas</h3>
-<p>Sua mão inicial, a mão que você manteve e capturas dos momentos-chave. Pressione F8 ou o botão sobre o jogo para salvar qualquer momento e adicionar uma nota. As capturas ficam no seu PC e podem ser desativadas em Configurações.</p></div>
+<p>Sua mão inicial e a mão que você manteve. Pressione F8 ou o botão sobre o jogo para salvar uma captura de qualquer momento e adicionar uma nota. As capturas ficam no seu PC.</p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l2.5 2.5"></path></svg>
 <h3>Deck do oponente</h3>
 <p>Ele compara as cartas do oponente com os decks mais jogados do formato da partida e dá o nome do mais parecido. As listas do meta são atualizadas a cada 3 dias.</p></div>

@@ -114,7 +114,7 @@
 <li><code>grouping *.xml</code>: the deck files.</li>
 </ul>
 <p>It doesn't modify Magic Online, doesn't read its memory and doesn't connect to its servers. <a href="/safety/#lee">What it reads and how to check it →</a></p>
-<p>Screenshots of your opening hand, mulligans and result are on by default and stay on your PC. You can turn them off in Settings, with a separate switch for Magic Online. If you played with ManaLab closed, you can import an <code>mtgo.log</code> file.</p>
+<p>ManaLab only takes a screenshot when you ask for a highlighted moment (F8 or the button over the game), and it stays on your PC. If you played with ManaLab closed, you can import an <code>mtgo.log</code> file.</p>
 </div>
 </div>
 </section>
