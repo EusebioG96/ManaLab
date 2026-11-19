@@ -140,7 +140,7 @@
 <div class="envoltura">
 <div class="cab-sec">
 <div class="eti">アリーナと<span style="white-space:nowrap">Magic Online</span></div>
-<h2>アリーナと<span style="white-space:nowrap">Magic Online</span>に<wbr>対応</h2>
+<h2>アリーナと<span style="white-space:nowrap">Magic Online</span>に<wbr>対応した無料トラッカー</h2>
 </div>
 <div class="novedades dos">
 <div class="novedad">
@@ -202,7 +202,7 @@
 <div class="envoltura">
 <div class="cab-sec" id="descargar">
 <div class="eti">始め方</div>
-<h2>最初の一度だけ、<wbr>3ステップ</h2>
+<h2>トラッカーのダウンロードは<wbr>3ステップ</h2>
 </div>
 <div class="pasos">
 <div class="paso"><h3>ダウンロードして開く</h3>
@@ -233,7 +233,7 @@
 {{HUECO_MDN}}
 <section class="seccion franja" id="preguntas">
 <div class="envoltura">
-<div class="cab-sec"><div class="eti">よくある質問</div><h2>始める前に</h2></div>
+<div class="cab-sec"><div class="eti">よくある質問</div><h2>安全ですか？<wbr>ManaLabがPCで読むもの</h2></div>
 <div class="preguntas">
 <details><summary>ゲームに干渉したり、対戦で有利になったりしませんか？</summary>
 <p>いいえ。アリーナにも<span style="white-space:nowrap">Magic Online</span>にも干渉しません。読み取るのは、ゲームがPCに書き出すファイルだけです（アリーナのPlayer.log、<span style="white-space:nowrap">Magic Online</span>のmtgo.log、Match_GameLog_*.dat、mtgo_game_history、デッキファイル（grouping *.xml））。それらを書き換えることもありません。アリーナや<span style="white-space:nowrap">Magic Online</span>を改変せず、メモリを読み取らず、サーバーにも接続しません。任意のオーバーレイは別ウィンドウで、表示するのは公開情報と、プレイ済みの内容から導ける情報だけです。非公開の情報は表示しません。</p></details>

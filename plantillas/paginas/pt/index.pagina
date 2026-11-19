@@ -140,7 +140,7 @@
 <div class="envoltura">
 <div class="cab-sec">
 <div class="eti">Arena e <span style="white-space:nowrap">Magic Online</span></div>
-<h2>Agora para Arena e <span style="white-space:nowrap">Magic Online</span></h2>
+<h2>Tracker grátis para Arena e <span style="white-space:nowrap">Magic Online</span>, lado a lado</h2>
 </div>
 <div class="novedades dos">
 <div class="novedad">
@@ -202,7 +202,7 @@
 <div class="envoltura">
 <div class="cab-sec" id="descargar">
 <div class="eti">Como começar</div>
-<h2>Três passos, uma única vez</h2>
+<h2>Baixe o tracker em três passos</h2>
 </div>
 <div class="pasos">
 <div class="paso"><h3>Baixe e abra</h3>
@@ -234,7 +234,7 @@
 {{HUECO_MDN}}
 <section class="seccion franja" id="preguntas">
 <div class="envoltura">
-<div class="cab-sec"><div class="eti">Perguntas</div><h2>Antes de começar</h2></div>
+<div class="cab-sec"><div class="eti">Perguntas</div><h2>É seguro? O que o ManaLab lê no seu PC</h2></div>
 <div class="preguntas">
 <details><summary>Ele mexe no jogo ou me dá alguma vantagem em uma partida?</summary>
 <p>Não, nem no Arena nem no <span style="white-space:nowrap">Magic Online</span>. Ele só lê os arquivos que os jogos gravam no seu PC (o Player.log do Arena; o mtgo.log, os Match_GameLog_*.dat, o mtgo_game_history e os arquivos de deck grouping *.xml do <span style="white-space:nowrap">Magic Online</span>), sem modificá-los. Ele não modifica o Arena nem o <span style="white-space:nowrap">Magic Online</span>, não lê a memória deles e não se conecta aos servidores. O overlay, que é opcional, é uma janela separada que mostra apenas informações públicas ou o que dá para deduzir do que já foi jogado, nunca informações ocultas.</p></details>

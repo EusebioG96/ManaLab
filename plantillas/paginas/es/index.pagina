@@ -140,7 +140,7 @@
 <div class="envoltura">
 <div class="cab-sec">
 <div class="eti">Arena y Magic Online</div>
-<h2>Ahora para Arena y Magic Online</h2>
+<h2>Tracker gratis para Arena y Magic Online, a la vez</h2>
 </div>
 <div class="novedades dos">
 <div class="novedad">
@@ -277,7 +277,7 @@
 <div class="envoltura">
 <div class="cab-sec" id="descargar">
 <div class="eti">Cómo empezar</div>
-<h2>Tres pasos, una sola vez</h2>
+<h2>Descarga el tracker en tres pasos</h2>
 </div>
 <div class="pasos">
 <div class="paso"><h3>Descarga y abre</h3>
@@ -308,7 +308,7 @@
 {{HUECO_MDN}}
 <section class="seccion franja" id="preguntas">
 <div class="envoltura">
-<div class="cab-sec"><div class="eti">Preguntas</div><h2>Antes de empezar</h2></div>
+<div class="cab-sec"><div class="eti">Preguntas</div><h2>¿Es seguro? Qué lee ManaLab en tu PC</h2></div>
 <div class="preguntas">
 <details><summary>¿Toca el juego o me da ventaja en la partida?</summary>
 <p>No, ni en Arena ni en Magic Online. Solo lee los archivos que los juegos escriben en tu PC (el Player.log de Arena; el mtgo.log, los Match_GameLog_*.dat, mtgo_game_history y los archivos de mazo grouping *.xml de Magic Online), sin modificarlos. No modifica Arena ni Magic Online, no lee su memoria y no se conecta a sus servidores. El overlay opcional es una ventana aparte que solo muestra información pública o deducible de lo jugado, nunca información oculta.</p></details>

@@ -61,6 +61,8 @@ class Pagina(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.lang, self.titulo, self.descripcion, self.robots = "", "", None, ""
         self.alts, self.jsonld, self.videos, self.enlaces_cuerpo = [], [], [], []
+        self.textos_enlace = {}  # href de un enlace del cuerpo -> su texto visible (ML-342, SEO-09)
+        self._href_abierto = None
         self._en_titulo = self._en_ld = False
         self._ld = ""
         self._fuera = 0  # profundidad dentro de header/footer
@@ -86,6 +88,8 @@ class Pagina(HTMLParser):
             self._fuera += 1
         elif tag == "a" and not self._fuera and a.get("href"):
             self.enlaces_cuerpo.append(a["href"])
+            self._href_abierto = a["href"]
+            self.textos_enlace[a["href"]] = ""
 
     def handle_endtag(self, tag):
         if tag == "title":
@@ -95,12 +99,16 @@ class Pagina(HTMLParser):
             self.jsonld.append(self._ld)
         elif tag in ("header", "footer"):
             self._fuera -= 1
+        elif tag == "a":
+            self._href_abierto = None
 
     def handle_data(self, data):
         if self._en_titulo:
             self.titulo += data
         if self._en_ld:
             self._ld += data
+        if self._href_abierto is not None:
+            self.textos_enlace[self._href_abierto] += data
 
 
 def paginas_rastreables() -> dict[str, Pagina]:
@@ -256,6 +264,16 @@ class TestEnlaceAGuia(unittest.TestCase):
                         self.assertIn(f'id="{enlace.split("#")[1]}"', guia, f"el ancla de {enlace} no existe en la guía")
                 self.assertEqual([h for h in pagina.enlaces_cuerpo if h.startswith("/guia/") and not h.startswith(base)], [],
                                  "en el cuerpo solo se enlaza a la guía del idioma de la página")
+
+    def test_el_texto_del_enlace_es_el_de_la_decision_de_eusebio(self):
+        """ML-342: el texto visible del enlace de ML-341 (el de pt no cambia: ya existía)."""
+        textos = {"en": "Full ManaLab guide →", "es": "Guía completa de ManaLab →"}
+        for ruta, idioma, ancla in PAGINAS_CON_ENLACE_A_GUIA:
+            if idioma not in textos:
+                continue
+            pagina = Pagina((RAIZ / ruta).read_text(encoding="utf-8"))
+            with self.subTest(ruta=ruta):
+                self.assertEqual(pagina.textos_enlace[f"/guia/guia_manalab_{idioma}.html#{ancla}"].strip(), textos[idioma])
 
 
 if __name__ == "__main__":
