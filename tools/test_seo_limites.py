@@ -7,7 +7,6 @@ enlace en el cuerpo de las páginas de función a la guía de su idioma.
 
 Uso:  python3 -m pytest -q tools/test_seo_limites.py
 """
-import html
 import json
 import re
 import subprocess
