@@ -34,6 +34,8 @@ NOMBRE_PAGINA = {
     "learn/index.html": "Learn", "es/aprender/index.html": "Aprender", "pt/aprender/index.html": "Aprender",
     "ja/learn/index.html": "学ぶ",
 }
+# Páginas de redirección del sorteo (ML-342): sin migas ni vídeos, no son contenido
+REDIRECCIONES = ("sorteo/index.html", "sorteo/en/index.html", "es/sorteo/index.html")
 IDIOMA_DE_PAGINA = {"privacy/index.html": "es"}  # privacy/ está en español aunque cuelgue de la raíz
 _BLOQUES = {"p", "div", "li", "h1", "h2", "h3", "section", "br"}  # al unir textos, estas etiquetas separan con un espacio
 _VACIAS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
@@ -180,7 +182,7 @@ def videos(relativa: Path, arbol: _Arbol, raiz: Path) -> list[dict]:
 
 def aplicar_datos_estructurados(pagina: str, relativa: Path, raiz: Path) -> str:
     """Inserta, justo antes de ``</head>``, el JSON-LD de migas y vídeos de la página (si le tocan). ``pagina`` es el HTML ya completo."""
-    if "</head>" not in pagina:
+    if "</head>" not in pagina or relativa.as_posix() in REDIRECCIONES:
         return pagina
     arbol = _Arbol()
     arbol.feed(pagina.split("</head>", 1)[1])

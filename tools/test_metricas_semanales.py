@@ -193,8 +193,9 @@ class PruebasML139(unittest.TestCase):
 
     def test_rutas_desde_el_sitemap_completo(self):
         r = M.rutas_visitas(texto=SITEMAP)
-        for esperado in ("/coaches/", "/es/coaches/", "/pt/coaches/", "/sorteo/en/", "/magic-online/", "/sorteo/", "/es/seguridad/"):
+        for esperado in ("/coaches/", "/es/coaches/", "/pt/coaches/", "/sorteo/en/", "/magic-online/", "/es/seguridad/"):
             self.assertIn(esperado, r)
+        self.assertNotIn("/sorteo/", r)  # ML-342: ya no es página principal (solo redirige a novedades)
         self.assertNotIn("/ignorada/", r)  # solo <loc>, no los xhtml:link
         self.assertEqual(r[0], "TOTAL")
         self.assertEqual(len(r), len(set(r)))

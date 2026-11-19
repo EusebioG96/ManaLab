@@ -58,7 +58,7 @@ def leer_releases(fuente="auto"):
 
 SITIO = "https://manalab.es"
 URL_SITEMAP = SITIO + "/sitemap.xml"
-RUTAS_PRINCIPALES = ["/", "/es/", "/safety/", "/es/seguridad/", "/privacy/", "/sorteo/"]
+RUTAS_PRINCIPALES = ["/", "/es/", "/safety/", "/es/seguridad/", "/privacy/"]
 IDIOMAS = ("en", "es", "pt", "fr", "de", "it", "ja", "ko", "zh")
 # «descarga-portada-es-hero»: prefijo «descarga-portada», idioma «es» y, si hay, la posición del botón (ML-280)
 RE_IDIOMA = re.compile(r"^(.+)-(" + "|".join(IDIOMAS) + r")(?:-(?:cabecera|hero|motivos|funciones|descargar|final|arriba|abajo))?$")

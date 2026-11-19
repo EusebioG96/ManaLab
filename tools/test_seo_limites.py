@@ -179,7 +179,7 @@ class TestSitemap(unittest.TestCase):
 
     def test_el_sorteo_no_esta(self):
         urls = urls_del_sitemap()
-        for fuera in (f"{SITIO}/sorteo/", f"{SITIO}/sorteo/en/"):
+        for fuera in (f"{SITIO}/sorteo/", f"{SITIO}/sorteo/en/", f"{SITIO}/es/sorteo/"):  # redirecciones (ML-342)
             self.assertNotIn(fuera, urls)
         self.assertFalse([u for u in urls if "/sorteo" in u])
 

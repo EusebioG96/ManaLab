@@ -15,6 +15,9 @@ SITE = "https://manalab.es"
 NS = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9", "xhtml": "http://www.w3.org/1999/xhtml"}
 DESC_MIN, DESC_MAX = 50, 170
 SKIP_DIRS = {".git", "tools", "node_modules"}
+# ML-342: únicas páginas de redirección permitidas (GitHub Pages no hace 301): ruta -> (destino, idioma). No van en el sitemap.
+REDIRECCIONES = {"sorteo/index.html": ("/novedades/", "en"), "sorteo/en/index.html": ("/novedades/", "en"),
+                 "es/sorteo/index.html": ("/es/novedades/", "es")}
 
 
 class Page(HTMLParser):
@@ -29,6 +32,7 @@ class Page(HTMLParser):
         self.desc = None
         self.robots = None
         self.canonical = []
+        self.refresh = []  # contenido de cada <meta http-equiv="refresh">
         self.alternates = {}
         self.h1 = 0
         self.refs = []   # (tag, attr, value)
@@ -50,6 +54,8 @@ class Page(HTMLParser):
                 self.desc = a.get("content", "")
             elif n == "robots":
                 self.robots = a.get("content", "").lower()
+            if a.get("http-equiv", "").lower() == "refresh":
+                self.refresh.append(a.get("content", ""))
         elif tag == "link":
             rel = a.get("rel", "").lower().split()
             if "canonical" in rel:
@@ -186,9 +192,36 @@ def main():
     if not robots.is_file() or f"Sitemap: {SITE}/sitemap.xml" not in robots.read_text():
         err("robots.txt no referencia el sitemap")
 
+    # ---- redirecciones del sorteo (ML-342): solo las tres permitidas, bien formadas y fuera del sitemap
+    for f, pg in pages.items():
+        n = rel(f)
+        permitida = REDIRECCIONES.get(n)
+        if not pg.refresh:
+            if permitida:
+                err(f"{n}: debe redirigir con <meta http-equiv=refresh>")
+            continue
+        if permitida is None:
+            err(f"{n}: meta refresh no permitido (solo las redirecciones del sorteo)")
+            continue
+        destino, idioma = permitida
+        if pg.refresh != [f"0; url={destino}"]:
+            err(f"{n}: el refresh debe ser '0; url={destino}' (es {pg.refresh})")
+        if pg.canonical != [SITE + destino]:
+            err(f"{n}: el canonical de una redirección debe ser {SITE + destino} (es {pg.canonical})")
+        if (pg.lang or "").lower() != idioma:
+            err(f"{n}: lang debe ser {idioma} (es {pg.lang})")
+        if "noindex" in (pg.robots or ""):
+            err(f"{n}: una redirección no lleva noindex")
+        if file_to_url(root, f) in sm_urls:
+            err(f"{n}: una redirección no va en sitemap.xml")
+        if url_to_file(root, SITE + destino) is None:
+            err(f"{n}: el destino {destino} no existe")
+
     # ---- páginas indexables
     indexable = {}
     for f, pg in pages.items():
+        if pg.refresh:  # redirección: ya comprobada arriba
+            continue
         if "noindex" in (pg.robots or ""):
             continue
         if f.name.startswith("google") and not pg.title:  # fichero de verificación de Search Console
