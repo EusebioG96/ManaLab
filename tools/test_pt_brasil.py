@@ -139,7 +139,7 @@ class TextoBrasil(unittest.TestCase):
         self.assertIn("tela Equipe", coaches)
         self.assertIn("tela Equipe", guia)
         self.assertIn("Coloco", guia)          # pt.json: Meto -> Coloco
-        self.assertIn("Meu plano", guia)       # pt.json: Mi plan -> Meu plano
+        self.assertIn("Escrever o plano à mão", guia)   # pt.json: Escribir el plan a mano (ML-338: «Mi plan» ya no existe en la 3.0)
 
     def test_el_detector_detecta(self):
         malo = ("A Equipa partilha o ficheiro no ecrã do telemóvel. O utilizador clica em definições e vai a transferir "
