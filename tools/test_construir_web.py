@@ -43,6 +43,10 @@ class TestWebGeneradaDesdePlantillas(unittest.TestCase):
             shutil.copytree(RAIZ / construir_web.CARPETA_PLANTILLAS, copia / construir_web.CARPETA_PLANTILLAS)
             shutil.copy(RAIZ / construir_web.ARCHIVO_VERSION, copia / construir_web.ARCHIVO_VERSION)
             shutil.copy(RAIZ / construir_web.ARCHIVO_CONTENIDO, copia / construir_web.ARCHIVO_CONTENIDO)
+            for _lanz in (construir_web.VIDEO_LANZAMIENTO, construir_web.POSTER_LANZAMIENTO):   # el vídeo del lanzamiento decide el héroe de las portadas
+                if (RAIZ / _lanz).is_file():
+                    (copia / _lanz).parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy(RAIZ / _lanz, copia / _lanz)
             plantilla = copia / construir_web.CARPETA_PLANTILLAS / (PIE_ES + ".tpl")
             texto = plantilla.read_text(encoding="utf-8")
             self.assertIn(ENLACE_PRIVACIDAD, texto)

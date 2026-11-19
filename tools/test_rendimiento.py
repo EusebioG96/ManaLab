@@ -73,7 +73,7 @@ class TestHeroTelefono(unittest.TestCase):
             with self.subTest(idioma):
                 t = f.read_text(encoding="utf-8")
                 self.assertIn("(max-width: 767px) and (pointer: coarse)", t)
-                self.assertRegex(t, rf'<link rel="preload" as="image" href="[^"]*video/hero/manalab-hero-{idioma}-poster\.jpg">')
+                self.assertRegex(t, r'<link rel="preload" as="image" href="[^"]*video/manalab-3\.0-poster\.jpg">')   # vídeo del lanzamiento (19/11)
 
 
 class Enlaces(HTMLParser):

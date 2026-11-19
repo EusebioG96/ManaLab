@@ -200,12 +200,14 @@ class TestCitaDeSalvatto(unittest.TestCase):
 
 
 class TestVideoDelLanzamiento(unittest.TestCase):
-    def test_sin_los_archivos_se_queda_el_video_actual(self):
+    def test_el_video_de_la_3_0_ya_esta_y_las_cuatro_portadas_lo_usan(self):
+        """Desde el 19/11 (OK de Eusebio a la versión 2 de Redes) el vídeo del lanzamiento existe: las portadas ya no usan el antiguo."""
+        self.assertTrue(construir_web.hay_video_lanzamiento(RAIZ))
         for idioma, ruta in PORTADAS.items():
             with self.subTest(idioma=idioma):
-                self.assertFalse(construir_web.hay_video_lanzamiento(RAIZ), "ya existe el vídeo de la 3.0: actualiza este test")
-                self.assertIn("video/hero/manalab-hero-", leer(ruta))
-                self.assertNotIn("manalab-3.0", leer(ruta))
+                self.assertIn("video/manalab-3.0.mp4", leer(ruta))
+                self.assertIn("video/manalab-3.0-poster.jpg", leer(ruta))
+                self.assertNotIn("video/hero/manalab-hero-", leer(ruta))
 
     def test_con_los_archivos_las_cuatro_portadas_lo_usan_con_su_prefijo(self):
         prefijo = {"en": "", "es": "../", "pt": "/", "ja": "/"}
