@@ -30,6 +30,7 @@ from urllib.parse import urlparse
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from construir_learn import aplicar_learn  # noqa: E402
 from construir_mdn import aplicar_mdn  # noqa: E402
+from datos_estructurados import aplicar_datos_estructurados  # noqa: E402
 
 RAIZ = Path(__file__).resolve().parent.parent
 CARPETA_PLANTILLAS = "plantillas"
@@ -367,6 +368,7 @@ def construir(raiz: Path, destino: Path) -> list[Path]:
         pagina = aplicar_correo(aplicar_enlaces(expandida, enlaces), relativa)
         pagina = aplicar_mdn(pagina, relativa, pagina_e_idioma(relativa)[1], raiz)   # ML-325: huecos de anuncio de MDN (antes de los eventos: el anuncio de casa lleva el suyo)
         pagina = aplicar_video_lanzamiento(aplicar_cita(aplicar_eventos(pagina, relativa), relativa), relativa, raiz)
+        pagina = aplicar_datos_estructurados(pagina, relativa, raiz)   # ML-341: migas y vídeos en JSON-LD (después del vídeo de lanzamiento)
         datos = pagina.replace(MARCA_VERSION, version).encode("utf-8")
         salida = destino / relativa
         if salida.is_file() and salida.read_bytes() == datos:
