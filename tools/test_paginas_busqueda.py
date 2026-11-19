@@ -19,7 +19,7 @@ PAGINAS = {
                     title="Cómo activar el registro detallado en MTG Arena · ManaLab", h1="Cómo activar el registro detallado en MTG Arena",
                     evento="descarga-logs-es"),
     "overlay-en": dict(ruta="overlay/index.html", lang="en", url="/overlay/", otra="/es/overlay/",
-                       title="Free MTG Arena Overlay and Deck Tracker · ManaLab", h1="A free overlay and deck tracker for MTG Arena",
+                       title="Free MTG Arena Overlay: Library &amp; Draw Odds · ManaLab", h1="A free overlay and deck tracker for MTG Arena",
                        evento="descarga-overlay-en"),
     "overlay-es": dict(ruta="es/overlay/index.html", lang="es", url="/es/overlay/", otra="/overlay/",
                        title="Overlay y deck tracker gratis para MTG Arena · ManaLab", h1="Overlay y deck tracker gratis para MTG Arena",

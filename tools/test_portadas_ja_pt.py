@@ -20,7 +20,7 @@ ORDEN = ["confianza", "motivos", "mtgo", "funciones", "empezar", "preguntas", "i
 HREFLANG = {"en": "https://manalab.es/", "es": "https://manalab.es/es/", "pt-br": "https://manalab.es/pt/",
             "ja": "https://manalab.es/ja/", "x-default": "https://manalab.es/"}
 FIJOS = {
-    "ja": dict(title="ManaLab – MTGアリーナ・Magic Online対応の無料戦績トラッカー", h1="アリーナとMagic Onlineの全対戦を、自動で記録。",
+    "ja": dict(title="MTGアリーナ戦績トラッカー｜勝率・マリガンを自動記録 ManaLab", h1="アリーナとMagic Onlineの全対戦を、自動で記録。",
                boton="無料ダウンロード", req="Windows 10 / 11", nota="翻訳に誤りがあれば、X（@ManaLabApp）までお知らせください。"),
     "pt": dict(title="ManaLab: tracker grátis para MTG Arena e Magic Online", h1="Cada partida de Arena e Magic Online, registrada sozinha.",
                boton="Baixar grátis", req="Windows 10 ou 11", nota="Encontrou um erro de tradução? Avise a gente no X (@ManaLabApp)."),
