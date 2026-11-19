@@ -24,7 +24,8 @@ MAX_TITULO, MAX_TITULO_CJK = 60, 70  # caracteres; en CJK, ancho (carácter de a
 MIN_DESC, MAX_DESC, MIN_DESC_PORTADAS = 70, 160, 130
 CJK = ("ja", "ko", "zh")
 MAX_ALT = 125
-RE_DATOS_DE_EJEMPLO = re.compile(r"sample data|datos de ejemplo|dados de exemplo|サンプルデータ|示例数据|예시 데이터|Beispieldaten", re.I)
+RE_DATOS_DE_EJEMPLO = re.compile(
+    r"sample data|datos de ejemplo|dados de exemplo|サンプルデータ|示例数据|예시 데이터|Beispieldaten", re.I)
 PORTADAS = ("index.html", "es/index.html", "pt/index.html", "ja/index.html")  # sin migas
 CON_DESC_MINIMA = ("coaches/index.html", "es/coaches/index.html", "index.html", "es/index.html")  # SEO-03
 # Páginas de función y el ancla de la guía que habla de su tema (SEO-09): (página, idioma, ancla)
@@ -232,13 +233,14 @@ class TestDatosEstructurados(unittest.TestCase):
 
     def test_las_fechas_de_los_videos_son_las_del_ultimo_commit(self):
         fechas = json.loads((RAIZ / "plantillas/video_fechas.json").read_text(encoding="utf-8"))
-        if subprocess.run(["git", "rev-parse", "--is-shallow-repository"], cwd=RAIZ, capture_output=True, text=True).stdout.strip() != "false":
+        superficial = subprocess.run(["git", "rev-parse", "--is-shallow-repository"], cwd=RAIZ, capture_output=True, text=True)
+        if superficial.stdout.strip() != "false":
             self.skipTest("clon superficial: no hay historial para comprobar las fechas")
         self.assertTrue(fechas)
         for ruta, fecha in fechas.items():
             with self.subTest(video=ruta):
-                real = subprocess.run(["git", "log", "-1", "--format=%cs", "--", ruta], cwd=RAIZ, capture_output=True, text=True).stdout.strip()
-                self.assertEqual(fecha, real)
+                ultimo = subprocess.run(["git", "log", "-1", "--format=%cs", "--", ruta], cwd=RAIZ, capture_output=True, text=True)
+                self.assertEqual(fecha, ultimo.stdout.strip())
 
 
 class TestEnlaceAGuia(unittest.TestCase):
