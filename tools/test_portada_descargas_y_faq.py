@@ -295,7 +295,7 @@ class TestPunto8PrimeroSegundo(unittest.TestCase):
         self.assertIn('<span class="g">Primero</span>', portada)
         self.assertIn('<span class="g">Segundo</span>', portada)
         self.assertIn("minmax(0, 1fr) 66px 74px", portada)
-        self.assertIn("el winrate por matchup y por ir primero o segundo", portada)
+        self.assertIn("el winrate contra cada mazo", portada)
         self.assertIn("en sus partidas: si ibas primero o segundo, resultado y mulligans", portada)
         mo = leer(self.ARCHIVOS[1])
         self.assertIn("<h3>Primero o segundo</h3>", mo)

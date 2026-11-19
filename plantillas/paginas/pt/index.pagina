@@ -56,7 +56,7 @@
 </div>
 <div class="hero-medio">
 <div class="hero-video" id="hero-video">
-<video aria-label="Vídeo de 15 segundos, sem som, do ManaLab com dados de exemplo: a lista de partidas com vitórias e derrotas registradas sozinhas, uma partida com sua mão inicial, mulligans e captura, winrate por matchup e por jogar primeiro ou segundo, e uma repetição passo a passo." autoplay="" height="720" loop="" muted="" playsinline="" poster="/video/hero/manalab-hero-en-poster.jpg" preload="metadata" width="1280">
+<video aria-label="Vídeo de 15 segundos, sem som, do ManaLab com dados de exemplo: o painel com partidas registradas sozinhas, uma mão inicial e um mulligan, o replay passo a passo, o winrate contra cada deck e o overlay com as chances de compra." autoplay="" height="720" loop="" muted="" playsinline="" poster="/video/hero/manalab-hero-en-poster.jpg" preload="metadata" width="1280">
 <source src="/video/hero/manalab-hero-en.webm" type="video/webm"/>
 <source src="/video/hero/manalab-hero-en.mp4" type="video/mp4"/>
 </video>
