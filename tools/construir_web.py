@@ -61,6 +61,17 @@ IDIOMAS_RUTA = ("es", "pt", "ja")  # carpetas de idioma; el resto de rutas son i
 _EVENTO = re.compile(r"\{\{EVENTO:([a-z-]+)(?::([a-z0-9]+))?\}\}")
 _PAGINA_DE_RUTA = {"": "portada", "detailed-logs": "logs", "registro-detallado": "logs", "aprender": "learn"}  # lo demás: su carpeta
 
+# Fecha del primer post del blog «Learn» (ML-345). Se cambia el día del lanzamiento de la 3.0, y solo aquí: de ella salen el texto visible
+# bajo el H1 (``{{FECHA_BLOG_LEARN:texto}}``, en el idioma de la página) y ``datePublished`` y ``dateModified`` (``{{FECHA_BLOG_LEARN}}``).
+FECHA_BLOG_LEARN = "2026-11-20"
+_FECHA_BLOG = re.compile(r"\{\{FECHA_BLOG_LEARN(:texto)?\}\}")
+MESES_BLOG = {
+    "en": ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"),
+    "es": ("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"),
+    "pt": ("janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"),
+}
+FORMATO_FECHA_BLOG = {"en": "{d} {mes} {a}", "es": "{d} de {mes} de {a}", "pt": "{d} de {mes} de {a}", "ja": "{a}年{m}月{d}日"}
+
 # Vídeo del lanzamiento de la 3.0 (ML-281). Cuando existan los dos archivos, las cuatro portadas lo usan en el héroe en lugar del vídeo
 # actual (sin tocar plantillas); mientras falte alguno, se queda el de ahora. Para activarlo basta con subir los dos archivos.
 VIDEO_LANZAMIENTO = "video/manalab-3.0.mp4"
@@ -325,6 +336,19 @@ def bloque_cita(idioma: str, encendida: bool, enlace: str) -> str:
             f'<figcaption style="margin-top:6px;font-size:14px;color:var(--texto2)">{firma}</figcaption></figure>\n')
 
 
+def fecha_blog_legible(iso: str, idioma: str) -> str:
+    """Fecha ISO (AAAA-MM-DD) escrita a la manera de ``idioma`` (en, es, pt o ja): «20 November 2026», «2026年11月20日»…"""
+    anio, mes, dia = (int(parte) for parte in iso.split("-"))
+    nombre = MESES_BLOG[idioma][mes - 1] if idioma in MESES_BLOG else ""
+    return FORMATO_FECHA_BLOG[idioma].format(d=dia, m=mes, a=anio, mes=nombre)
+
+
+def aplicar_fecha_blog(fuente: str, relativa: Path) -> str:
+    """Resuelve ``{{FECHA_BLOG_LEARN}}`` (ISO) y ``{{FECHA_BLOG_LEARN:texto}}`` (en el idioma de la ruta) con ``FECHA_BLOG_LEARN``."""
+    _, idioma = pagina_e_idioma(relativa)
+    return _FECHA_BLOG.sub(lambda m: fecha_blog_legible(FECHA_BLOG_LEARN, idioma) if m.group(1) else FECHA_BLOG_LEARN, fuente)
+
+
 def aplicar_cita(fuente: str, relativa: Path) -> str:
     """Resuelve la marca ``{{CITA_SALVATTO}}`` de una portada: la cita si el interruptor está encendido y, si no, nada."""
     _, idioma = pagina_e_idioma(relativa)
@@ -366,6 +390,7 @@ def construir(raiz: Path, destino: Path) -> list[Path]:
         fuente = _leer(carpeta / CARPETA_PAGINAS / relativa.with_suffix(SUFIJO_PAGINA))
         expandida = aplicar_learn(generar_pagina(carpeta, fuente), pagina_e_idioma(relativa)[1], raiz)   # ML-324: páginas Learn
         pagina = aplicar_correo(aplicar_enlaces(expandida, enlaces), relativa)
+        pagina = aplicar_fecha_blog(pagina, relativa)   # ML-345: fecha única del blog
         pagina = aplicar_mdn(pagina, relativa, pagina_e_idioma(relativa)[1], raiz)   # ML-325: huecos de anuncio de MDN (antes de los eventos: el anuncio de casa lleva el suyo)
         pagina = aplicar_video_lanzamiento(aplicar_cita(aplicar_eventos(pagina, relativa), relativa), relativa, raiz)
         pagina = aplicar_datos_estructurados(pagina, relativa, raiz)   # ML-341: migas y vídeos en JSON-LD (después del vídeo de lanzamiento)

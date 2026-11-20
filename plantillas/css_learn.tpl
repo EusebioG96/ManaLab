@@ -4,6 +4,8 @@ html { scroll-padding-top: calc(var(--alto-cab) + 44px + 12px); }
 .ap-cab { padding-block: 48px 26px; }
 .ap-cab h1 { font-size: clamp(38px, 5.2vw, 60px); line-height: 1.06; margin: 14px 0 12px; }
 .ap-cab p { font-size: 19px; line-height: 1.55; color: #cfc8b6; max-width: 56ch; margin: 0; }
+.ap-cab .enlace-ap { margin-top: 14px; font-size: 16px; }
+.ap-cab .enlace-ap a { font-weight: 500; }
 .ap-bloque { padding-bottom: 28px; }
 /* creador destacado: el banner de VIS-23 con la letra de la web. Todos los creadores comparten la celda: el alto es el del más alto */
 .d2 { --escena: clamp(7em, 21%, 15em); font-size: 16px; position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr);

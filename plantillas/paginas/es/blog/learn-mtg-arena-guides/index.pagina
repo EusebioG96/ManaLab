@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Aprende MTG Arena con guías dentro de ManaLab 3.0</title>
+<meta content="ManaLab 3.0 añade Aprender: guías de Magic de creadores de Metafy junto a tus propias partidas. Descubre qué estudiar tras cada sesión. El tracker sigue siendo gratis." name="description"/>
+<link href="https://manalab.es/es/blog/learn-mtg-arena-guides/" rel="canonical"/>
+<link href="https://manalab.es/blog/learn-mtg-arena-guides/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/blog/learn-mtg-arena-guides/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/pt/blog/learn-mtg-arena-guides/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://manalab.es/ja/blog/learn-mtg-arena-guides/" hreflang="ja" rel="alternate"/>
+<link href="https://manalab.es/blog/learn-mtg-arena-guides/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d100f" name="theme-color"/>
+<link href="/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="article" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="es_ES" property="og:locale"/>
+<meta content="Aprende MTG Arena con guías dentro de ManaLab 3.0" property="og:title"/>
+<meta content="ManaLab 3.0 añade Aprender: guías de Magic de creadores de Metafy junto a tus propias partidas. Descubre qué estudiar tras cada sesión. El tracker sigue siendo gratis." property="og:description"/>
+<meta content="https://manalab.es/es/blog/learn-mtg-arena-guides/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="Aprende MTG Arena con guías dentro de ManaLab 3.0" name="twitter:title"/>
+<meta content="ManaLab 3.0 añade Aprender: guías de Magic de creadores de Metafy junto a tus propias partidas. Descubre qué estudiar tras cada sesión. El tracker sigue siendo gratis." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://manalab.es/es/blog/learn-mtg-arena-guides/#article", "headline": "Aprende MTG Arena con guías dentro de ManaLab 3.0", "description": "ManaLab 3.0 añade Aprender: guías de Magic de creadores de Metafy junto a tus propias partidas. Descubre qué estudiar tras cada sesión. El tracker sigue siendo gratis.", "inLanguage": "es", "mainEntityOfPage": "https://manalab.es/es/blog/learn-mtg-arena-guides/", "datePublished": "{{FECHA_BLOG_LEARN}}", "dateModified": "{{FECHA_BLOG_LEARN}}", "author": {"@id": "https://manalab.es/#org"}, "publisher": {"@id": "https://manalab.es/#org"}, "image": "https://manalab.es/img/og.jpg"}, {"@type": "Organization", "@id": "https://manalab.es/#org", "name": "ManaLab", "url": "https://manalab.es/", "logo": {"@type": "ImageObject", "url": "https://manalab.es/img/icono-192.png", "width": 192, "height": 192}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}]}</script>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=h}}
+{{> css_blog}}</style></head>
+<body>
+{{> cabecera_es 1=j}}
+<main class="guia-log blog-learn" id="inicio">
+<article>
+<section class="portada solo">
+<div class="envoltura">
+<div>
+<h1>Aprende MTG Arena con guías dentro de ManaLab 3.0</h1>
+<p class="autoria"><time datetime="{{FECHA_BLOG_LEARN}}">{{FECHA_BLOG_LEARN:texto}}</time> · ManaLab</p>
+</div>
+</div>
+</section>
+<section class="seccion">
+<div class="envoltura">
+<div class="cuerpo-blog">
+<p>Terminas una sesión y abres tus estadísticas. Hay una fila que destaca: pierdes siempre contra el mismo mazo. El tracker te ha dicho <em>dónde</em> pierdes, pero no <em>cómo arreglarlo</em>.</p>
+<p>ManaLab 3.0 añade una sección para ese siguiente paso. Se llama <strong>Aprender</strong>.</p>
+<h2>De «pierdo contra este mazo» a «así se le gana»</h2>
+<p>ManaLab siempre ha servido para saber qué pasa de verdad en tus partidas: tus manos iniciales, tus mulligans, tus resultados contra cada mazo. Esos datos solo valen si haces algo con ellos.</p>
+<p>Aprender está en la misma aplicación, a un clic de tus estadísticas. Cuando tus números señalan un punto débil, el material de estudio ya está ahí. Sin saltar de pestaña ni buscar esa guía que recuerdas a medias.</p>
+<h2>Qué hay dentro de Aprender</h2>
+<ul>
+<li><strong>Guías de Magic de creadores de Metafy</strong>, para Arena y Magic Online. La lista se actualiza sola, así que las guías nuevas aparecen sin que tengas que hacer nada.</li>
+<li><strong>Creadores destacados</strong>, con una etiqueta visible.</li>
+<li><strong>Sesiones de coaching</strong> con los creadores destacados, si prefieres que una persona revise tu juego en lugar de leer sobre él.</li>
+<li><strong>Portadas cargadas desde Metafy.</strong> Ves lo que el creador ha publicado.</li>
+</ul>
+<!-- CAPTURA-LEARN: pendiente (pantalla Aprender 3.0, datos de ejemplo, sin rivales; alt ≤125) -->
+<h2>Cómo se eligen los creadores destacados</h2>
+<p>Conviene saber por qué se destaca a un creador. Los creadores aparecen como destacados en ManaLab mediante una membresía Featured Creator de Metafy, y la app los marca con una etiqueta. Es una colocación de pago por parte del creador, no un ranking de quién es mejor. Lee la guía, mira al creador y decide.</p>
+<h2>El tracker sigue siendo gratis</h2>
+<p>ManaLab es gratis para descargar y usar. Lo único de pago es el análisis opcional con IA de tus derrotas, una membresía aparte en Metafy de 6 $ al mes. Aprender no cambia eso: ver las guías en ManaLab no cuesta nada.</p>
+<h2>Pruébalo</h2>
+<p>Aprender forma parte de ManaLab 3.0, junto con el nuevo aspecto de la app. Descarga ManaLab gratis, juega unas partidas en Arena o Magic Online y, cuando un matchup se te atragante, abre Aprender y empieza por ahí.</p>
+<p><a class="boton prim" href="/es/#descargar"><strong>Descargar ManaLab gratis →</strong></a></p>
+<p class="antes">Antes de empezar: <a href="/es/registro-detallado/">Registro detallado</a> · <a href="/es/player-log/">Player.log</a> · <a href="/es/seguridad/">¿Es seguro?</a></p>
+</div>
+</div>
+</section>
+</article>
+</main>
+{{> pie_es 2=d}}
+
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

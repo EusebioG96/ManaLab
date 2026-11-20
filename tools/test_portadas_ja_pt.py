@@ -174,7 +174,7 @@ class TestPunto5SeparacionBajoLaCaja(unittest.TestCase):
 class TestSitemap(unittest.TestCase):
     def test_dos_urls_nuevas_con_alternates(self):
         sm = leer(RAIZ / "sitemap.xml")
-        self.assertEqual(sm.count("<url>"), 33)   # + 4 páginas Learn (ML-324) + /player-log/ y /es/player-log/ (ML-343, ML-344)
+        self.assertEqual(sm.count("<url>"), 37)   # + 4 páginas Learn (ML-324) + /player-log/ y /es/player-log/ (ML-343, ML-344) + 4 del blog Learn (ML-345)
         for c in ("ja", "pt"):
             bloque = re.search(r"<url>\s*<loc>https://manalab.es/%s/</loc>.*?</url>" % c, sm, re.S).group(0)
             self.assertEqual(sorted(re.findall(r'hreflang="([^"]*)"', bloque)), sorted(["en", "es", "pt-BR", "ja", "x-default"]))

@@ -36,7 +36,7 @@
 {{> cabecera_pt 1=c}}
 {{LEARN:barra}}
 <main id="inicio">
-<section class="ap-cab"><div class="envoltura"><div class="eti">Guias da Metafy</div><h1>Aprender</h1><p>Guias de Magic dos criadores da Metafy, para Arena e Magic Online. Cada guia abre na Metafy.</p></div></section>
+<section class="ap-cab"><div class="envoltura"><div class="eti">Guias da Metafy</div><h1>Aprender</h1><p>Guias de Magic dos criadores da Metafy, para Arena e Magic Online. Cada guia abre na Metafy.</p><p class="enlace-ap"><a class="enlace-man" href="/pt/blog/learn-mtg-arena-guides/">Mais sobre o Aprender →</a></p></div></section>
 {{LEARN:destacado}}
 <section class="ap-bloque"><div class="envoltura"><div class="ap-app"><p><b>No app, “Para você” escolhe guias por você:</b> os dos decks que você joga e os do confronto mais difícil.</p><a class="boton prim" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Baixar grátis</span></a></div></div></section>
 <section class="ap-bloque" id="guias-seccion"><div class="envoltura">
