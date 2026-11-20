@@ -191,6 +191,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://manalab.es/detailed-logs/"/>
   </url>
   <url>
+    <loc>https://manalab.es/player-log/</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
     <loc>https://manalab.es/overlay/</loc>
     <lastmod>2026-11-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://manalab.es/overlay/"/>

@@ -22,7 +22,7 @@ import construir_web  # noqa: E402
 RAIZ = construir_web.RAIZ
 NO_PUBLICADO = {".git", "plantillas", "docs", "tools"}  # lo publicado es el HTML generado, no sus fuentes
 TIPOS = ("descarga", "descarga-movil", "compartir-movil")
-PAGINAS = ("portada", "magic-online", "overlay", "logs", "coaches", "guia", "novedades", "learn")
+PAGINAS = ("portada", "magic-online", "overlay", "logs", "coaches", "guia", "novedades", "learn", "player-log")
 IDIOMAS = ("en", "es", "pt", "ja", "fr", "de", "it", "ko", "zh")
 POSICIONES = ("cabecera", "hero", "motivos", "funciones", "descargar", "final", "arriba", "abajo")
 PATRON = re.compile(
