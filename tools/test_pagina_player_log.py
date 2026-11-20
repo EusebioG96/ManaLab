@@ -12,7 +12,7 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "tools"))
-from test_enlaces_internos import rotos_de_html  # noqa: E402
+from test_enlaces_internos import rotos_de_html
 
 PAGINA = RAIZ / "player-log" / "index.html"
 URL = "https://manalab.es/player-log/"
@@ -121,7 +121,7 @@ def grafo(lector: Lector) -> list[dict]:
     nodos = []
     for bruto in lector.jsonld:
         dato = json.loads(bruto)
-        nodos += dato["@graph"] if "@graph" in dato else [dato]
+        nodos += dato.get("@graph", [dato])
     return nodos
 
 
@@ -151,7 +151,7 @@ class TestTextos(unittest.TestCase):
             self.assertIn(frase, self.visible)
 
     def test_los_h2_y_su_orden(self):
-        h2 = re.findall(r"<h2>(.*?)</h2>", PAGINA.read_text(encoding="utf-8"), re.S)
+        h2 = re.findall(r"<h2>(.*?)</h2>", PAGINA.read_text(encoding="utf-8"), re.DOTALL)
         self.assertEqual(h2[:5], ["Where to find it", "What Player-prev.log is", "When Player.log is empty or has no games",
                                   "What ManaLab does with it", "Questions"])
 
@@ -220,7 +220,7 @@ class TestSitemapYEnlaces(unittest.TestCase):
     def test_esta_en_el_sitemap_una_vez_y_sin_alternates(self):
         sitemap = (RAIZ / "sitemap.xml").read_text(encoding="utf-8")
         self.assertEqual(sitemap.count(f"<loc>{URL}</loc>"), 1)
-        bloque = re.search(r"<url>\s*<loc>" + re.escape(URL) + r"</loc>.*?</url>", sitemap, re.S).group(0)
+        bloque = re.search(r"<url>\s*<loc>" + re.escape(URL) + r"</loc>.*?</url>", sitemap, re.DOTALL).group(0)
         self.assertNotIn("hreflang", bloque)
 
     def test_todos_sus_enlaces_internos_existen(self):
