@@ -31,7 +31,7 @@ NOMBRE_PAGINA = {
     "novedades/index.html": "What's new", "es/novedades/index.html": "Novedades",
     "safety/index.html": "Safety", "es/seguridad/index.html": "Seguridad", "privacy/index.html": "Privacidad",
     "coaches/index.html": "Guide for coaches", "es/coaches/index.html": "Guía para coaches", "pt/coaches/index.html": "Guia para coaches",
-    "player-log/index.html": "Player.log guide",
+    "player-log/index.html": "Player.log guide", "es/player-log/index.html": "Guía del Player.log",
     "learn/index.html": "Learn", "es/aprender/index.html": "Aprender", "pt/aprender/index.html": "Aprender",
     "ja/learn/index.html": "学ぶ",
 }

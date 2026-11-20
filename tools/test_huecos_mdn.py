@@ -31,7 +31,7 @@ CON_ANUNCIO = {
 }
 SIN_ANUNCIO = ("404.html", "anuncio/index.html", "privacy/index.html", "safety/index.html", "es/seguridad/index.html", "google8d4ac26b3d7a5735.html",
               "sorteo/index.html", "sorteo/en/index.html", "es/sorteo/index.html",
-              "player-log/index.html")  # sorteo: redirecciones (ML-342); player-log: sin anuncio hasta que Eusebio decida (ML-343)
+              "player-log/index.html", "es/player-log/index.html")  # sorteo: redirecciones (ML-342); player-log: sin anuncio, decisión de Eusebio, 20/11 (ML-343)
 ETIQUETA = {"en": "Advertisement", "es": "Publicidad", "pt": "Publicidade", "ja": "広告"}
 RUTA_LEARN = {"en": "/learn/", "es": "/es/aprender/", "pt": "/pt/aprender/", "ja": "/ja/learn/"}
 EXCLUIDOS = {".git", "docs", "plantillas", "tools", "node_modules"}
