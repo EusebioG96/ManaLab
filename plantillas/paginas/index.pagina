@@ -141,7 +141,7 @@
 <div class="envoltura">
 <div class="cab-sec">
 <div class="eti">Arena and Magic Online</div>
-<h2>A free tracker for Arena and Magic Online, side by side</h2>
+<h2>A free tracker for Arena and Magic Online</h2>
 </div>
 <div class="novedades dos">
 <div class="novedad">
@@ -164,7 +164,7 @@
 <div class="envoltura">
 <div class="cab-sec">
 <div class="eti">Features</div>
-<h2>Everything you'd note down after each match, done for you</h2>
+<h2>Your match notes, already written</h2>
 </div>
 <div class="funciones">
 <div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"></path><circle cx="18.5" cy="16.5" r="2.5"></circle></svg>
@@ -309,7 +309,7 @@
 {{HUECO_MDN}}
 <section class="seccion franja" id="preguntas">
 <div class="envoltura">
-<div class="cab-sec"><div class="eti">FAQ</div><h2>Is ManaLab safe? What it reads on your PC</h2></div>
+<div class="cab-sec"><div class="eti">FAQ</div><h2>Before you start</h2></div>
 <div class="preguntas">
 <details><summary>Does it touch the game or give me an advantage in a match?</summary>
 <p>No, neither in Arena nor in Magic Online. It only reads the files the games write on your PC (Arena's Player.log; Magic Online's mtgo.log, Match_GameLog_*.dat, mtgo_game_history and grouping *.xml deck files), without modifying them. It doesn't modify Arena or Magic Online, doesn't read their memory and doesn't connect to their servers. The optional overlay is a separate window that only shows public information or what can be worked out from what has been played, never hidden information.</p></details>
@@ -340,7 +340,7 @@
 <div class="ia-caja">
 <div>
 <div class="eti">New · AI loss analysis</div>
-<h2>Know what went wrong in every lost game</h2>
+<h2>See what went wrong in each loss</h2>
 <p><strong style="color:var(--texto)">The app is free. Only the AI analysis is paid.</strong></p>
 <p>Open any lost game and ask the AI what went wrong, where you could have played better and what to try next time. It reads the game's data, not your name or the opponent's.</p>
 <p>Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com">email</a>.</p>

@@ -114,7 +114,7 @@
 <div class="envoltura">
 <div class="cab-sec">
 <div class="eti">Por que o ManaLab</div>
-<h2>Três coisas que você vai olhar depois de cada sessão</h2>
+<h2>Três coisas para olhar após cada sessão</h2>
 </div>
 <div class="novedades motivos">
 <div class="novedad">
@@ -163,7 +163,7 @@
 <div class="envoltura">
 <div class="cab-sec">
 <div class="eti">Recursos</div>
-<h2>Tudo o que você anotaria depois de cada match, já anotado</h2>
+<h2>Suas notas de cada match, já anotadas</h2>
 </div>
 <div class="funciones">
 <div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"></path><circle cx="18.5" cy="16.5" r="2.5"></circle></svg>
@@ -234,7 +234,7 @@
 {{HUECO_MDN}}
 <section class="seccion franja" id="preguntas">
 <div class="envoltura">
-<div class="cab-sec"><div class="eti">Perguntas</div><h2>É seguro? O que o ManaLab lê no seu PC</h2></div>
+<div class="cab-sec"><div class="eti">Perguntas</div><h2>Antes de começar</h2></div>
 <div class="preguntas">
 <details><summary>Ele mexe no jogo ou me dá alguma vantagem em uma partida?</summary>
 <p>Não, nem no Arena nem no <span style="white-space:nowrap">Magic Online</span>. Ele só lê os arquivos que os jogos gravam no seu PC (o Player.log do Arena; o mtgo.log, os Match_GameLog_*.dat, o mtgo_game_history e os arquivos de deck grouping *.xml do <span style="white-space:nowrap">Magic Online</span>), sem modificá-los. Ele não modifica o Arena nem o <span style="white-space:nowrap">Magic Online</span>, não lê a memória deles e não se conecta aos servidores. O overlay, que é opcional, é uma janela separada que mostra apenas informações públicas ou o que dá para deduzir do que já foi jogado, nunca informações ocultas.</p></details>
@@ -265,7 +265,7 @@
 <div class="ia-caja">
 <div>
 <div class="eti">Novo · Análise de derrotas com IA</div>
-<h2>Saiba o que deu errado em cada partida perdida</h2>
+<h2>Veja o que deu errado em cada derrota</h2>
 <p><strong style="color:var(--texto)">O app é grátis. Só a análise com IA é paga.</strong></p>
 <p>Abra qualquer partida perdida e pergunte à IA o que deu errado, onde você poderia ter jogado melhor e o que tentar na próxima vez. Ela lê os dados da partida, não o seu nome nem o do oponente.</p>
 <p>Quer testar antes? Peça um teste grátis por <a href="mailto:manalab.app@gmail.com">e-mail</a>.</p>

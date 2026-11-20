@@ -278,17 +278,23 @@ class TestEnlaceAGuia(unittest.TestCase):
 
 # SEO-08 (ML-342): los tres H2 nuevos de cada portada (descarga, seguridad, Arena y Magic Online) y los que sustituyen (decisión de Eusebio, 20/11)
 H2_NUEVOS = {
-    "index.html": ("Download the tracker in three steps", "Is ManaLab safe? What it reads on your PC",
-                   "A free tracker for Arena and Magic Online, side by side"),
-    "es/index.html": ("Descarga el tracker en tres pasos", "¿Es seguro? Qué lee ManaLab en tu PC", "Tracker gratis para Arena y Magic Online, a la vez"),
-    "pt/index.html": ("Baixe o tracker em três passos", "É seguro? O que o ManaLab lê no seu PC", "Tracker grátis para Arena e Magic Online, lado a lado"),
-    "ja/index.html": ("トラッカーのダウンロードは3ステップ", "安全ですか？ManaLabがPCで読むもの", "アリーナとMagic Onlineに対応した無料トラッカー"),
+    "index.html": ("Download the tracker in three steps", "A free tracker for Arena and Magic Online", "Before you start",
+                   "Your match notes, already written", "See what went wrong in each loss"),
+    "es/index.html": ("Descarga el tracker en tres pasos", "Tracker gratis para Arena y Magic Online, a la vez", "Antes de empezar",
+                      "Tus notas de cada match, ya apuntadas"),
+    "pt/index.html": ("Baixe o tracker em três passos", "Tracker grátis para Arena e Magic Online, lado a lado", "Antes de começar",
+                      "Três coisas para olhar após cada sessão", "Suas notas de cada match, já anotadas", "Veja o que deu errado em cada derrota"),
+    "ja/index.html": ("トラッカーのダウンロードは3ステップ", "アリーナとMagic Onlineに対応した無料トラッカー", "始める前に", "負けた原因がわかる"),
 }
 H2_VIEJOS = {
-    "index.html": ("Three steps, just once", "Before you start", "Now for Arena and Magic Online"),
-    "es/index.html": ("Tres pasos, una sola vez", "Antes de empezar", "Ahora para Arena y Magic Online"),
-    "pt/index.html": ("Três passos, uma única vez", "Antes de começar", "Agora para Arena e Magic Online"),
-    "ja/index.html": ("最初の一度だけ、3ステップ", "始める前に", "アリーナとMagic Onlineに対応"),
+    "index.html": ("Three steps, just once", "Now for Arena and Magic Online", "Is ManaLab safe? What it reads on your PC",
+                   "Everything you'd note down after each match, done for you", "Know what went wrong in every lost game"),
+    "es/index.html": ("Tres pasos, una sola vez", "Ahora para Arena y Magic Online", "¿Es seguro? Qué lee ManaLab en tu PC",
+                      "Todo lo que apuntarías después de cada match, ya apuntado"),
+    "pt/index.html": ("Três passos, uma única vez", "Agora para Arena e Magic Online", "É seguro? O que o ManaLab lê no seu PC",
+                      "Três coisas que você vai olhar depois de cada sessão", "Tudo o que você anotaria depois de cada match, já anotado",
+                      "Saiba o que deu errado em cada partida perdida"),
+    "ja/index.html": ("最初の一度だけ、3ステップ", "アリーナとMagic Onlineに対応", "安全ですか？ManaLabがPCで読むもの", "負けたゲームで、何が悪かったのかがわかる"),
 }
 
 

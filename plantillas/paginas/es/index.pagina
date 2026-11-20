@@ -163,7 +163,7 @@
 <div class="envoltura">
 <div class="cab-sec">
 <div class="eti">Funciones</div>
-<h2>Todo lo que apuntarías después de cada match, ya apuntado</h2>
+<h2>Tus notas de cada match, ya apuntadas</h2>
 </div>
 <div class="funciones">
 <div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"></path><circle cx="18.5" cy="16.5" r="2.5"></circle></svg>
@@ -308,7 +308,7 @@
 {{HUECO_MDN}}
 <section class="seccion franja" id="preguntas">
 <div class="envoltura">
-<div class="cab-sec"><div class="eti">Preguntas</div><h2>¿Es seguro? Qué lee ManaLab en tu PC</h2></div>
+<div class="cab-sec"><div class="eti">Preguntas</div><h2>Antes de empezar</h2></div>
 <div class="preguntas">
 <details><summary>¿Toca el juego o me da ventaja en la partida?</summary>
 <p>No, ni en Arena ni en Magic Online. Solo lee los archivos que los juegos escriben en tu PC (el Player.log de Arena; el mtgo.log, los Match_GameLog_*.dat, mtgo_game_history y los archivos de mazo grouping *.xml de Magic Online), sin modificarlos. No modifica Arena ni Magic Online, no lee su memoria y no se conecta a sus servidores. El overlay opcional es una ventana aparte que solo muestra información pública o deducible de lo jugado, nunca información oculta.</p></details>
