@@ -89,25 +89,30 @@ class TestTextos(unittest.TestCase):
             self.assertEqual(normal(p.h1), titulo)
 
     def test_limites_de_titulo_y_de_descripcion_en_y_ja(self):
-        """Los límites de test_seo_limites (no se tocan). El título lleva «ManaLab», así que no entra en TITULO_SIN_MARCA."""
+        """Los límites de test_seo_limites (no se tocan), medidos sobre la página publicada. El título lleva «ManaLab»: no entra en TITULO_SIN_MARCA."""
         for idioma in ("en", "ja"):
-            _, _, _, _, titulo, descripcion, *_ = PAGINAS[idioma]
+            p = lector(idioma)
+            titulo, descripcion = normal(p.titulo), p.meta["description"]
             with self.subTest(idioma=idioma):
                 self.assertIn("ManaLab", titulo)
-                self.assertLessEqual(ancho(titulo) if idioma == "ja" else len(titulo), MAX_TITULO_CJK if idioma == "ja" else MAX_TITULO)
-                if idioma == "en":
+                if idioma == "ja":
+                    self.assertLessEqual(ancho(titulo), MAX_TITULO_CJK)
+                else:
+                    self.assertLessEqual(len(titulo), MAX_TITULO)
                     self.assertTrue(MIN_DESC <= len(descripcion) <= MAX_DESC)
                     self.assertRegex(descripcion, r"[.!?)]$")
 
     def test_limites_de_titulo_y_de_descripcion_en_es_y_pt(self):
         """El título cabe en 60. Las descripciones del encargo miden 167 (es) y 162 (pt): pasan de los 160 de test_seo_limites; se avisa en el informe y no se recortan."""
         for idioma in ("es", "pt"):
-            _, _, _, _, titulo, descripcion, *_ = PAGINAS[idioma]
+            p = lector(idioma)
             with self.subTest(idioma=idioma):
-                self.assertLessEqual(len(titulo), MAX_TITULO)
-                self.assertGreaterEqual(len(descripcion), MIN_DESC)
-                self.assertRegex(descripcion, r"[.!?)]$")
-        self.assertEqual((len(PAGINAS["es"][5]), len(PAGINAS["pt"][5])), (167, 162), "si marketing las acorta, quita este aviso y comprueba <= 160")
+                self.assertIn("ManaLab", p.titulo)
+                self.assertLessEqual(len(normal(p.titulo)), MAX_TITULO)
+                self.assertGreaterEqual(len(p.meta["description"]), MIN_DESC)
+                self.assertRegex(p.meta["description"], r"[.!?)]$")
+        self.assertEqual((len(lector("es").meta["description"]), len(lector("pt").meta["description"])), (167, 162),
+                         "si marketing las acorta, quita este aviso y comprueba <= 160")
 
     def test_primer_parrafo_h2_negritas_y_cursivas_exactos(self):
         for idioma, (_, _, _, _, _, _, primero, h2, negritas, *_), p, html in self.por_idioma():
