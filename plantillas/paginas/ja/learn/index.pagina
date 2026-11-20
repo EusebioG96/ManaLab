@@ -36,7 +36,7 @@
 {{> cabecera_ja_learn}}
 {{LEARN:barra}}
 <main id="inicio">
-<section class="ap-cab"><div class="envoltura"><div class="eti">Metafyのガイド</div><h1>学ぶ</h1><p>Metafyのクリエイターによるマジックのガイド。アリーナとMagic Onlineに対応。ガイドはMetafyで開きます。</p></div></section>
+<section class="ap-cab"><div class="envoltura"><div class="eti">Metafyのガイド</div><h1>学ぶ</h1><p>Metafyのクリエイターによるマジックのガイド。アリーナとMagic Onlineに対応。ガイドはMetafyで開きます。</p><p class="enlace-ap"><a class="enlace-man" href="/ja/blog/learn-mtg-arena-guides/">「学ぶ」について詳しく →</a></p></div></section>
 {{LEARN:destacado}}
 <section class="ap-bloque"><div class="envoltura"><div class="ap-app"><p><b>アプリの「あなたへ」がガイドを選びます：</b>使っているデッキと、いちばん苦手なマッチアップに合わせて。</p><a class="boton prim" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div></div></section>
 <section class="ap-bloque" id="guias-seccion"><div class="envoltura">

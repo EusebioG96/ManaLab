@@ -24,7 +24,9 @@ MAX_HUECOS = 2                                  # por página (WEB-09, punto 4)
 # Páginas sin anuncio (WEB-09, punto 6): las guías, privacidad, seguridad, la 404 y /anuncio/ (que carga el script a su manera).
 PAGINAS_SIN_ANUNCIO = ("404.html", "anuncio/index.html", "privacy/index.html", "safety/index.html", "es/seguridad/index.html",
                        "sorteo/index.html", "sorteo/en/index.html", "es/sorteo/index.html",
-                       "player-log/index.html", "es/player-log/index.html")  # sorteo: redirecciones (ML-342); player-log: sin anuncio, decisión de Eusebio, 20/11 (ML-343)
+                       "player-log/index.html", "es/player-log/index.html",
+                       "blog/learn-mtg-arena-guides/index.html", "es/blog/learn-mtg-arena-guides/index.html",
+                       "pt/blog/learn-mtg-arena-guides/index.html", "ja/blog/learn-mtg-arena-guides/index.html")  # blog, decisión del coordinador (ML-345); sorteo: redirecciones (ML-342); player-log: sin anuncio, decisión de Eusebio, 20/11 (ML-343)
 PREFIJO_SIN_ANUNCIO = "guia/"
 
 # Textos por idioma: etiqueta encima del hueco y anuncio de casa (casa_*: los aprobó Eusebio el 18/11/2026; el japonés sin revisar por un nativo).

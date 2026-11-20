@@ -28,6 +28,8 @@ TITULO_SIN_MARCA = ("player-log/index.html", "es/player-log/index.html")
 RE_DATOS_DE_EJEMPLO = re.compile(
     r"sample data|datos de ejemplo|dados de exemplo|サンプルデータ|示例数据|예시 데이터|Beispieldaten", re.I)
 PORTADAS = ("index.html", "es/index.html", "pt/index.html", "ja/index.html")  # sin migas
+# Inicio › Novedades › post: tres migas en vez de dos (ML-345; pt y ja no tienen novedades y llevan dos)
+CON_NOVEDADES_EN_LAS_MIGAS = ("blog/learn-mtg-arena-guides/index.html", "es/blog/learn-mtg-arena-guides/index.html")
 CON_DESC_MINIMA = ("coaches/index.html", "es/coaches/index.html", "index.html", "es/index.html")  # SEO-03
 # Páginas de función y el ancla de la guía que habla de su tema (SEO-09): (página, idioma, ancla)
 PAGINAS_CON_ENLACE_A_GUIA = [
@@ -214,9 +216,9 @@ class TestDatosEstructurados(unittest.TestCase):
                     continue
                 self.assertEqual(len(migas), 1)
                 elementos = migas[0]["itemListElement"]
-                self.assertEqual([e["position"] for e in elementos], [1, 2])
+                self.assertEqual([e["position"] for e in elementos], [1, 2, 3] if ruta in CON_NOVEDADES_EN_LAS_MIGAS else [1, 2])
                 self.assertTrue(all(e["name"].strip() for e in elementos))
-                inicio, actual = elementos[0]["item"], elementos[1]["item"]
+                inicio, actual = elementos[0]["item"], elementos[-1]["item"]
                 self.assertTrue(archivo_de_url(inicio).is_file(), f"el inicio {inicio} no existe")
                 self.assertIn(inicio, urls_del_sitemap(), "el inicio debe ser una portada del sitemap")
                 self.assertEqual(actual, f"{SITIO}/" + ruta.removesuffix("index.html"))

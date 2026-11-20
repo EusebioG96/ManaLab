@@ -35,6 +35,9 @@ NOMBRE_PAGINA = {
     "learn/index.html": "Learn", "es/aprender/index.html": "Aprender", "pt/aprender/index.html": "Aprender",
     "ja/learn/index.html": "学ぶ",
 }
+# Post del blog «Learn» (ML-345): la miga final es su H1 (el título del post) y, entre el inicio y ella, va «Novedades» donde el idioma la tiene
+RUTAS_BLOG = tuple(f"{p}blog/learn-mtg-arena-guides/index.html" for p in ("", "es/", "pt/", "ja/"))
+NOVEDADES_DEL_BLOG = {"en": "novedades/index.html", "es": "es/novedades/index.html"}  # pt y ja no tienen página de novedades
 # Páginas de redirección del sorteo (ML-342): sin migas ni vídeos, no son contenido
 REDIRECCIONES = ("sorteo/index.html", "sorteo/en/index.html", "es/sorteo/index.html")
 IDIOMA_DE_PAGINA = {"privacy/index.html": "es"}  # privacy/ está en español aunque cuelgue de la raíz
@@ -121,8 +124,16 @@ def migas(relativa: Path, arbol: _Arbol, pagina: str) -> dict | None:
         nombre = final.contenido() if final is not None else ""
     else:
         idioma = IDIOMA_DE_PAGINA.get(ruta) or (ruta.split("/")[0] if ruta.split("/")[0] in ("es", "pt", "ja") else "en")
-        inicio, nombre = INICIO[idioma], NOMBRE_PAGINA[ruta]
+        inicio = INICIO[idioma]
+        if ruta in RUTAS_BLOG:
+            final = arbol.raiz.buscar(("h1",))
+            nombre = final.contenido() if final is not None else ""
+        else:
+            nombre = NOMBRE_PAGINA[ruta]
     elementos = [(inicio[0], SITIO + inicio[1]), (nombre, url_de_pagina(relativa))]
+    if ruta in RUTAS_BLOG and idioma in NOVEDADES_DEL_BLOG:
+        novedades = NOVEDADES_DEL_BLOG[idioma]
+        elementos.insert(1, (NOMBRE_PAGINA[novedades], url_de_pagina(Path(novedades))))
     return {"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": n, "name": nombre_miga, "item": url} for n, (nombre_miga, url) in enumerate(elementos, 1)]}
 
