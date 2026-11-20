@@ -23,6 +23,8 @@ MAX_TITULO, MAX_TITULO_CJK = 60, 70  # caracteres; en CJK, ancho (carácter de a
 MIN_DESC, MAX_DESC, MIN_DESC_PORTADAS = 70, 160, 130
 CJK = ("ja", "ko", "zh")
 MAX_ALT = 125
+# Título fijado por marketing (ML-343): con « · ManaLab» pasaría de 60 caracteres (62), así que no lleva la marca; el resto de límites sí se le aplican
+TITULO_SIN_MARCA = ("player-log/index.html",)
 RE_DATOS_DE_EJEMPLO = re.compile(
     r"sample data|datos de ejemplo|dados de exemplo|サンプルデータ|示例数据|예시 데이터|Beispieldaten", re.I)
 PORTADAS = ("index.html", "es/index.html", "pt/index.html", "ja/index.html")  # sin migas
@@ -151,7 +153,8 @@ class TestLimites(unittest.TestCase):
                     self.assertLessEqual(ancho(titulo), MAX_TITULO_CJK)
                 else:
                     self.assertLessEqual(len(titulo), MAX_TITULO)
-                self.assertIn("ManaLab", titulo)
+                if ruta not in TITULO_SIN_MARCA:
+                    self.assertIn("ManaLab", titulo)
 
     def test_descripciones_latinas_de_70_a_160_y_sin_cortar(self):
         for ruta, p in self.paginas.items():

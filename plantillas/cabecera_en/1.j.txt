@@ -1,0 +1,14 @@
+<a class="marca" href="/"><img alt="ManaLab logo" height="36" src="../img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
+<nav aria-label="Sections">
+<a href="#donde">Where to find it</a>
+<a href="#vacio">Empty log</a>
+<a href="#preguntas">Questions</a>
+</nav>
+<a class="boton prim descarga" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download</span></a>
+<details class="menu"><summary aria-label="Menu"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary><div class="menu-caja">
+<nav aria-label="Sections">
+<a href="#donde">Where to find it</a>
+<a href="#vacio">Empty log</a>
+<a href="#preguntas">Questions</a>
+</nav>
+</div></details>
