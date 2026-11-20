@@ -31,13 +31,13 @@ PAGINAS = {
            ["Magic guides from Metafy creators", "Featured creators", "Coaching sessions", "Cover art loaded from Metafy."],
            "Download ManaLab free →", "/#descargar", "20 November 2026"),
     "es": ("es/", "es", "es", "es_ES", "Aprende MTG Arena con guías dentro de ManaLab 3.0",
-           "ManaLab 3.0 añade Aprender: guías de Magic de creadores de Metafy junto a tus propias partidas. Descubre qué estudiar tras cada sesión. El tracker sigue siendo gratis.",
+           "ManaLab 3.0 añade Aprender: guías de Magic de creadores de Metafy junto a tus partidas. Descubre qué estudiar tras cada sesión. El tracker sigue siendo gratis.",
            "Terminas una sesión y abres tus estadísticas. Hay una fila que destaca: pierdes siempre contra el mismo mazo. El tracker te ha dicho dónde pierdes, pero no cómo arreglarlo.",
            ["De «pierdo contra este mazo» a «así se le gana»", "Qué hay dentro de Aprender", "Cómo se eligen los creadores destacados", "El tracker sigue siendo gratis", "Pruébalo"],
            ["Guías de Magic de creadores de Metafy", "Creadores destacados", "Sesiones de coaching", "Portadas cargadas desde Metafy."],
            "Descargar ManaLab gratis →", "/es/#descargar", "20 de noviembre de 2026"),
     "pt": ("pt/", "pt-BR", "pt-BR", "pt_BR", "Aprenda MTG Arena com guias dentro do ManaLab 3.0",
-           "O ManaLab 3.0 traz Aprender: guias de Magic de criadores da Metafy ao lado das suas partidas. Veja o que estudar depois de cada sessão. O tracker continua grátis.",
+           "O ManaLab 3.0 traz Aprender: guias de Magic de criadores da Metafy ao lado das suas partidas. Veja o que estudar após cada sessão. O tracker continua grátis.",
            "Você termina uma sessão e abre suas estatísticas. Uma linha chama a atenção: você perde sempre para o mesmo deck. O tracker mostrou onde você perde, mas não como resolver.",
            ["De «perco para esse deck» a «é assim que se vence»", "O que há dentro do Aprender", "Como os criadores em destaque são escolhidos", "O tracker continua grátis", "Experimente"],
            ["Guias de Magic de criadores da Metafy", "Criadores em destaque", "Sessões de coaching", "Capas carregadas da Metafy."],
@@ -102,7 +102,7 @@ class TestTextos(unittest.TestCase):
                     self.assertRegex(descripcion, r"[.!?)]$")
 
     def test_limites_de_titulo_y_de_descripcion_en_es_y_pt(self):
-        """El título cabe en 60. Las descripciones del encargo miden 167 (es) y 162 (pt): pasan de los 160 de test_seo_limites; se avisa en el informe y no se recortan."""
+        """El título cabe en 60. Las descripciones de es y pt, recortadas por el coordinador (20/11) para caber en 160."""
         for idioma in ("es", "pt"):
             p = lector(idioma)
             with self.subTest(idioma=idioma):
@@ -110,8 +110,8 @@ class TestTextos(unittest.TestCase):
                 self.assertLessEqual(len(normal(p.titulo)), MAX_TITULO)
                 self.assertGreaterEqual(len(p.meta["description"]), MIN_DESC)
                 self.assertRegex(p.meta["description"], r"[.!?)]$")
-        self.assertEqual((len(lector("es").meta["description"]), len(lector("pt").meta["description"])), (167, 162),
-                         "si marketing las acorta, quita este aviso y comprueba <= 160")
+                self.assertLessEqual(len(p.meta["description"]), MAX_DESC)
+
 
     def test_primer_parrafo_h2_negritas_y_cursivas_exactos(self):
         for idioma, (_, _, _, _, _, _, primero, h2, negritas, *_), p, html in self.por_idioma():

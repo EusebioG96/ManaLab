@@ -3,7 +3,7 @@
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <title>Aprenda MTG Arena com guias dentro do ManaLab 3.0</title>
-<meta content="O ManaLab 3.0 traz Aprender: guias de Magic de criadores da Metafy ao lado das suas partidas. Veja o que estudar depois de cada sessão. O tracker continua grátis." name="description"/>
+<meta content="O ManaLab 3.0 traz Aprender: guias de Magic de criadores da Metafy ao lado das suas partidas. Veja o que estudar após cada sessão. O tracker continua grátis." name="description"/>
 <link href="https://manalab.es/pt/blog/learn-mtg-arena-guides/" rel="canonical"/>
 <link href="https://manalab.es/blog/learn-mtg-arena-guides/" hreflang="en" rel="alternate"/>
 <link href="https://manalab.es/es/blog/learn-mtg-arena-guides/" hreflang="es" rel="alternate"/>
@@ -18,7 +18,7 @@
 <meta content="ManaLab" property="og:site_name"/>
 <meta content="pt_BR" property="og:locale"/>
 <meta content="Aprenda MTG Arena com guias dentro do ManaLab 3.0" property="og:title"/>
-<meta content="O ManaLab 3.0 traz Aprender: guias de Magic de criadores da Metafy ao lado das suas partidas. Veja o que estudar depois de cada sessão. O tracker continua grátis." property="og:description"/>
+<meta content="O ManaLab 3.0 traz Aprender: guias de Magic de criadores da Metafy ao lado das suas partidas. Veja o que estudar após cada sessão. O tracker continua grátis." property="og:description"/>
 <meta content="https://manalab.es/pt/blog/learn-mtg-arena-guides/" property="og:url"/>
 <meta content="https://manalab.es/img/og.jpg" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
@@ -26,9 +26,9 @@
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="@ManaLabApp" name="twitter:site"/>
 <meta content="Aprenda MTG Arena com guias dentro do ManaLab 3.0" name="twitter:title"/>
-<meta content="O ManaLab 3.0 traz Aprender: guias de Magic de criadores da Metafy ao lado das suas partidas. Veja o que estudar depois de cada sessão. O tracker continua grátis." name="twitter:description"/>
+<meta content="O ManaLab 3.0 traz Aprender: guias de Magic de criadores da Metafy ao lado das suas partidas. Veja o que estudar após cada sessão. O tracker continua grátis." name="twitter:description"/>
 <meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://manalab.es/pt/blog/learn-mtg-arena-guides/#article", "headline": "Aprenda MTG Arena com guias dentro do ManaLab 3.0", "description": "O ManaLab 3.0 traz Aprender: guias de Magic de criadores da Metafy ao lado das suas partidas. Veja o que estudar depois de cada sessão. O tracker continua grátis.", "inLanguage": "pt-BR", "mainEntityOfPage": "https://manalab.es/pt/blog/learn-mtg-arena-guides/", "datePublished": "{{FECHA_BLOG_LEARN}}", "dateModified": "{{FECHA_BLOG_LEARN}}", "author": {"@id": "https://manalab.es/#org"}, "publisher": {"@id": "https://manalab.es/#org"}, "image": "https://manalab.es/img/og.jpg"}, {"@type": "Organization", "@id": "https://manalab.es/#org", "name": "ManaLab", "url": "https://manalab.es/", "logo": {"@type": "ImageObject", "url": "https://manalab.es/img/icono-192.png", "width": 192, "height": 192}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://manalab.es/pt/blog/learn-mtg-arena-guides/#article", "headline": "Aprenda MTG Arena com guias dentro do ManaLab 3.0", "description": "O ManaLab 3.0 traz Aprender: guias de Magic de criadores da Metafy ao lado das suas partidas. Veja o que estudar após cada sessão. O tracker continua grátis.", "inLanguage": "pt-BR", "mainEntityOfPage": "https://manalab.es/pt/blog/learn-mtg-arena-guides/", "datePublished": "{{FECHA_BLOG_LEARN}}", "dateModified": "{{FECHA_BLOG_LEARN}}", "author": {"@id": "https://manalab.es/#org"}, "publisher": {"@id": "https://manalab.es/#org"}, "image": "https://manalab.es/img/og.jpg"}, {"@type": "Organization", "@id": "https://manalab.es/#org", "name": "ManaLab", "url": "https://manalab.es/", "logo": {"@type": "ImageObject", "url": "https://manalab.es/img/icono-192.png", "width": 192, "height": 192}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}]}</script>
 <link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=h}}
 {{> css_blog}}</style></head>
 <body>
