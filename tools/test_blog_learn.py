@@ -4,7 +4,6 @@ Article y migas, fecha única, enlaces de entrada y de salida y ausencia de anun
 
 Uso:  python3 -m pytest -q tools/test_blog_learn.py
 """
-import json
 import re
 import sys
 import tempfile
@@ -191,7 +190,7 @@ class TestFechaUnica(unittest.TestCase):
 
     def test_la_constante_dice_que_se_cambia_el_dia_del_lanzamiento(self):
         fuente = (RAIZ / "tools" / "construir_web.py").read_text(encoding="utf-8")
-        self.assertEqual(len(re.findall(r'^FECHA_BLOG_LEARN = "\d{4}-\d{2}-\d{2}"$', fuente, re.M)), 1)
+        self.assertEqual(len(re.findall(r'^FECHA_BLOG_LEARN = "\d{4}-\d{2}-\d{2}"$', fuente, re.MULTILINE)), 1)
         self.assertRegex(fuente, r"día del lanzamiento de la 3\.0[^\n]*\n[^\n]*\nFECHA_BLOG_LEARN = ")
 
 
