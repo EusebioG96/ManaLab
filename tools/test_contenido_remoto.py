@@ -188,7 +188,13 @@ class ContenidoRemotoTest(unittest.TestCase):
                        "linea": "Standard · Pioneer · Modern - Competitive Magic · PT/EN",
                        "frase": "Professor, jogador competitivo e mentor. Análise de metagame e estratégias para ajudar você a evoluir no Magic!",
                        "enlace": "https://metafy.gg/@pcpalhares", "foto": "https://manalab.es/img/destacados/pcpalhares.webp",
-                       "fondo": "https://manalab.es/img/destacados/pcpalhares-fondo.webp", "guias": "https://metafy.gg/@pcpalhares/guides"}]
+                       "fondo": "https://manalab.es/img/destacados/pcpalhares-fondo.webp", "guias": "https://metafy.gg/@pcpalhares/guides"},
+                      {"id": "tcgacademy", "nombre": "TCG Academy",   # ML-351: segundo destacado, sin «hasta» (para siempre, decisión del dueño)
+                       "linea": "All Constructed formats · Limited (Draft & Sealed) · EN/ES",
+                       "frase": "A competitive Magic community with on-demand coaching, match reviews, and guides to help you play better and prepare "
+                                "for tournaments.",
+                       "enlace": "https://metafy.gg/@luissalvatto", "foto": "https://manalab.es/img/destacados/tcgacademy.webp",
+                       "fondo": "https://manalab.es/img/destacados/tcgacademy-fondo.webp", "sesiones": "https://metafy.gg/@luissalvatto/sessions"}]
         esperado = dict(_con(**enlaces), destacados=destacados)
         self.assertEqual(json.loads(ARCHIVO.read_text(encoding="utf-8")), esperado)
         self.assertEqual(validar(esperado, 100), [])

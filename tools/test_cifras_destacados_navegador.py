@@ -85,6 +85,7 @@ class CifrasNavegador(unittest.TestCase):
             raise unittest.SkipTest(f"sin Chromium: {error}")
         manana = (date.today() + timedelta(days=1)).isoformat()
         cls.dos = Servidor(sitio([DANA, IKER]))
+        cls.reales = Servidor(sitio(json.loads((RAIZ / "contenido.json").read_text(encoding="utf-8"))["destacados"]))   # ML-351: Palhares y TCG Academy
         cls.uno = Servidor(sitio([DANA]))
         cls.sin_id = Servidor(sitio([{k: v for k, v in DANA.items() if k != "id"}]))
         cls.caduca_uno = Servidor(sitio([dict(DANA, hasta=manana), IKER]))
@@ -92,21 +93,22 @@ class CifrasNavegador(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for s in (cls.dos, cls.uno, cls.sin_id, cls.caduca_uno, cls.caduca_todos):
+        for s in (cls.dos, cls.reales, cls.uno, cls.sin_id, cls.caduca_uno, cls.caduca_todos):
             s.cerrar()
         cls.nav.close()
         cls.pw.stop()
 
-    def abrir(self, servidor, estado=204, reloj=None, ancho=1366):
+    def abrir(self, servidor, estado=204, reloj=None, ancho=1366, azar=0.0):
         """Abre es/aprender/. `estado`: lo que contesta el servidor falso (número) o «caida» para cortar la conexión; se puede cambiar en `p.estado`.
         `reloj`: si no es None, se instala un reloj falso y se detiene al cargar (0 = parte de la hora real; un datetime, de esa hora local), y solo
-        avanza con p.clock.run_for. `p.cifras`: los POST recibidos como (cabeceras, cuerpo)."""
+        avanza con p.clock.run_for. `azar`: lo que devuelve Math.random (0 = empieza el primero). `p.cifras`: los POST recibidos como (cabeceras, cuerpo)."""
         ctx = self.nav.new_context(viewport={"width": ancho, "height": 800}, reduced_motion="reduce")   # sin rotación sola: nada cambia de creador a mitad de prueba
         self.addCleanup(ctx.close)
         p = ctx.new_page()
         p.errores, p.cifras, p.estado = [], [], estado
         p.on("pageerror", lambda e: p.errores.append(str(e)))
         p.add_init_script(ENVOLTURA)
+        p.add_init_script(f"Math.random=()=>{azar}")   # ML-351: el destacado inicial es el primero (azar=0) o el que se pida
 
         def ruta(r):
             url, metodo = r.request.url, r.request.method
@@ -337,6 +339,25 @@ class CifrasNavegador(unittest.TestCase):
         p.wait_for_function("document.getElementById('d2barra').classList.contains('visible')")
         p.clock.run_for(1500)
         self.assertEqual(self.pendiente(p), {})
+
+    # ------------------------------------------------------------------ ML-351: los destacados reales (Palhares y TCG Academy)
+    def test_con_los_dos_destacados_reales_el_visto_es_del_que_se_ve(self):
+        for azar, creador in ((0.0, "pcpalhares"), (0.99, "tcgacademy")):
+            with self.subTest(creador=creador):
+                p = self.abrir(self.reales, reloj=0, azar=azar)
+                self.assertEqual(p.locator("#destacado .d2c.on").get_attribute("data-id"), creador)
+                p.clock.run_for(1300)
+                self.enviar(p)
+                self.assertEqual(self.cuerpos(p)[0]["dias"][dia_utc()], {creador: {"visto": 1}})
+
+    def test_el_clic_en_sesiones_de_tcg_academy_cuenta_sesiones_de_tcgacademy(self):
+        p = self.abrir(self.reales, azar=0.99)
+        self.assertEqual(p.locator("#destacado .d2c.on .d2cas").count(), 1, "TCG Academy solo tiene la casilla de sesiones")
+        self.assertEqual(p.locator("#destacado .d2c.on .d2cas").get_attribute("href"), "https://metafy.gg/@luissalvatto/sessions")
+        self.clic(p, "#destacado .d2c.on .d2cas[data-cas='sesiones']")
+        self.clic(p, "#destacado .d2c.on .d2cta")
+        self.enviar(p)
+        self.assertEqual(self.cuerpos(p)[0]["dias"][dia_utc()], {"tcgacademy": {"sesiones": 1, "metafy": 1}})
 
     # ------------------------------------------------------------------ hasta
     def test_hasta_quita_el_destacado_caducado_en_el_navegador_y_deja_los_demas(self):
