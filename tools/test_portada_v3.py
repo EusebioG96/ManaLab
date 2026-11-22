@@ -163,6 +163,9 @@ class TestPreguntaDeDatos(unittest.TestCase):
                 self.assertEqual(en_html, en_json[0])
 
 
+ENLACES_TCGACADEMY = "metafy.gg/@luissalvatto"   # el perfil del destacado TCG Academy (Learn): lleva «salvatto» en la URL, no es la cita
+
+
 class TestCitaDeSalvatto(unittest.TestCase):
     def test_apagada_no_hay_rastro_en_ningun_html(self):
         self.assertFalse(construir_web.MOSTRAR_CITA_SALVATTO, "el interruptor debe estar apagado hasta que Eusebio lo decida")
@@ -170,7 +173,8 @@ class TestCitaDeSalvatto(unittest.TestCase):
             if ".git" in ruta.parts or "plantillas" in ruta.parts:
                 continue
             with self.subTest(ruta=ruta.relative_to(RAIZ).as_posix()):
-                self.assertNotIn("salvatto", ruta.read_text(encoding="utf-8").lower())
+                texto = ruta.read_text(encoding="utf-8").lower().replace(ENLACES_TCGACADEMY, "")   # ML-351: su perfil de Metafy no es la cita
+                self.assertNotIn("salvatto", texto)
 
     def test_encendida_sale_en_en_y_es_y_solo_ahi(self):
         with mock.patch.object(construir_web, "MOSTRAR_CITA_SALVATTO", True), tempfile.TemporaryDirectory() as tmp:
