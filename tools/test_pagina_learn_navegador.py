@@ -97,12 +97,14 @@ class Navegador(unittest.TestCase):
         cls.nav.close()
         cls.pw.stop()
 
-    def abrir(self, servidor, ruta="es/aprender/", ancho=1366, servidor_ia=None, js=True, reducido=False, reloj=False):
-        """Abre la página. `servidor_ia`: None = responde 503; texto = esa lista; 'copia' = lo que haría el real (la misma copia)."""
+    def abrir(self, servidor, ruta="es/aprender/", ancho=1366, servidor_ia=None, js=True, reducido=False, reloj=False, azar=0.0):
+        """Abre la página. `servidor_ia`: None = responde 503; texto = esa lista; 'copia' = lo que haría el real (la misma copia).
+        `azar`: lo que devuelve Math.random (ML-351: con 0 el destacado inicial es el primero, y las pruebas de la rotación no dependen del dado)."""
         ctx = self.nav.new_context(viewport={"width": ancho, "height": 800}, java_script_enabled=js, reduced_motion="reduce" if reducido else "no-preference")
         self.addCleanup(ctx.close)
         pagina = ctx.new_page()
         pagina.errores = []
+        pagina.add_init_script(f"Math.random=()=>{azar}")
         pagina.on("pageerror", lambda e: pagina.errores.append(str(e)))
         pagina.peticiones_ia = []
 

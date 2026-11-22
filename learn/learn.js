@@ -387,6 +387,10 @@
     return false;
   }
 
+  /** El destacado con el que empieza cada visita: uno al azar, igual de probable cada uno de los `n` que quedan (ML-351: antes salía
+   *  siempre el primero). Con uno solo, el 0 sin tirar el dado. */
+  function indiceInicial(n) { return n > 1 ? Math.min(Math.floor(Math.random() * n), n - 1) : 0; }
+
   function iniciarDestacados() {
     var d2 = $("destacado"), fina = $("d2barra");
     if (!d2 || !fina) return;
@@ -436,6 +440,14 @@
         mostrar(s.indice + parseInt(flecha.getAttribute("data-d2"), 10));
         anunciar();
       });
+    }
+
+    if (n > 1) {   // antes de rotar y de la barra fina, que leen s.indice (sin JS queda el primero); sin fundido: es el estado de partida
+      cuerpos.forEach(function (c) { c.style.transition = "none"; });
+      void d2.offsetWidth;
+      mostrar(indiceInicial(n));
+      void d2.offsetWidth;
+      cuerpos.forEach(function (c) { c.style.removeProperty("transition"); });
     }
 
     // La barra fina: sale cuando el banner se ha ido entero por arriba (bajo la cabecera fija) y se va en cuanto vuelve a verse una parte.
