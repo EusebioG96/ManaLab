@@ -21,10 +21,10 @@ try:
 except ImportError:  # silencio: sin Playwright la prueba se salta
     sync_playwright = None
 
-REALES = json.loads((RAIZ / "contenido.json").read_text(encoding="utf-8"))["destacados"]   # Palhares y TCG Academy
-TRES = REALES + [{"id": "tercero", "nombre": "Tercero Prueba", "linea": "Draft · ES", "enlace": "https://metafy.gg/@tercero"}]
+REALES = json.loads((RAIZ / "contenido.json").read_text(encoding="utf-8"))["destacados"]   # Palhares, TCG Academy y Yuya (ML-354)
+DOS = REALES[:2]   # Palhares y TCG Academy: los casos de reparto con dos
 ACTIVO = "#destacado .d2c.on"
-CARGAS = 100   # cargas de la prueba estadística: con 2 destacados, 50 ± 15 es un margen de más de 3 sigmas
+CARGAS = 100   # cargas de la prueba estadística: con 2 destacados, 50 ± 15 es un margen de más de 3 sigmas; con 3, 33 ± 13 (~2,8 sigmas, sembrado)
 
 
 @unittest.skipIf(sync_playwright is None, "hace falta playwright")
@@ -37,8 +37,8 @@ class RepartoDelDestacadoInicial(unittest.TestCase):
         except Exception as error:  # noqa: BLE001  silencio: sin Chromium instalado la prueba se salta
             cls.pw.stop()
             raise unittest.SkipTest(f"sin Chromium: {error}")
-        cls.dos = Servidor(sitio(REALES))
-        cls.tres = Servidor(sitio(TRES))
+        cls.dos = Servidor(sitio(DOS))
+        cls.tres = Servidor(sitio(REALES))
         cls.uno = Servidor(sitio(REALES[:1]))
 
     @classmethod
@@ -90,8 +90,8 @@ class RepartoDelDestacadoInicial(unittest.TestCase):
                 self.assertEqual(self.activo(p), esperado)
                 self.assertEqual(p.errores, [])
 
-    def test_con_tres_cada_tercio_del_dado_es_un_destacado_distinto(self):
-        for azar, esperado in ((0.1, "pcpalhares"), (0.4, "tcgacademy"), (0.7, "tercero"), (0.999, "tercero")):
+    def test_con_los_tres_reales_cada_tercio_del_dado_es_un_destacado_distinto(self):
+        for azar, esperado in ((0.1, "pcpalhares"), (0.4, "tcgacademy"), (0.7, "yuyan"), (0.999, "yuyan")):
             with self.subTest(azar=azar):
                 self.assertEqual(self.activo(self.abrir(self.tres, azar)), esperado)
 
@@ -105,6 +105,17 @@ class RepartoDelDestacadoInicial(unittest.TestCase):
         self.assertEqual(sum(salidas.values()), CARGAS)
         for creador, veces in salidas.items():
             self.assertTrue(35 <= veces <= 65, f"{creador} salió {veces} de {CARGAS} veces: el reparto no es 50/50 ({salidas})")
+
+    def test_con_los_tres_reales_cada_uno_sale_un_tercio_de_las_veces(self):
+        dado = random.Random(354)   # sembrado: la prueba es repetible
+        salidas = {"pcpalhares": 0, "tcgacademy": 0, "yuyan": 0}
+        for _ in range(CARGAS):
+            p = self.abrir(self.tres, dado.random())
+            salidas[self.activo(p)] += 1
+            p.context.close()
+        self.assertEqual(sum(salidas.values()), CARGAS)
+        for creador, veces in salidas.items():
+            self.assertTrue(20 <= veces <= 47, f"{creador} salió {veces} de {CARGAS} veces: el reparto no es 1/3 ({salidas})")
 
     def test_con_un_solo_destacado_nada_cambia_sea_cual_sea_el_dado(self):
         for azar in (0.0, 0.5, 0.999):
