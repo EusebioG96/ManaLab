@@ -57,12 +57,12 @@ def tarjetas(ruta: str) -> list:
 
 
 class TcgAcademyTest(unittest.TestCase):
-    def test_en_las_cuatro_paginas_van_dos_destacados_y_tcgacademy_es_el_segundo(self):
+    def test_en_las_cuatro_paginas_tcgacademy_es_el_segundo_de_tres(self):
         for ruta in PAGINAS:
             with self.subTest(ruta=ruta):
                 lista = tarjetas(ruta)
-                self.assertEqual([t["attrs"].get("data-id") for t in lista], ["pcpalhares", "tcgacademy"])
-                self.assertIn('data-total="2"', (RAIZ / ruta / "index.html").read_text(encoding="utf-8"))
+                self.assertEqual([t["attrs"].get("data-id") for t in lista], ["pcpalhares", "tcgacademy", "yuyan"])
+                self.assertIn('data-total="3"', (RAIZ / ruta / "index.html").read_text(encoding="utf-8"))
 
     def test_ver_en_metafy_va_al_perfil_y_solo_hay_la_casilla_de_sesiones(self):
         for ruta, texto in PAGINAS.items():
