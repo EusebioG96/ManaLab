@@ -194,7 +194,13 @@ class ContenidoRemotoTest(unittest.TestCase):
                        "frase": "A competitive Magic community with on-demand coaching, match reviews, and guides to help you play better and prepare "
                                 "for tournaments.",
                        "enlace": "https://metafy.gg/@luissalvatto", "foto": "https://manalab.es/img/destacados/tcgacademy.webp",
-                       "fondo": "https://manalab.es/img/destacados/tcgacademy-fondo.webp", "sesiones": "https://metafy.gg/@luissalvatto/sessions"}]
+                       "fondo": "https://manalab.es/img/destacados/tcgacademy-fondo.webp", "sesiones": "https://metafy.gg/@luissalvatto/sessions"},
+                      {"id": "yuyan", "nombre": "Yuya Hosokawa",   # ML-354: tercer destacado, sin «hasta»; «articulos» va en la versión siguiente
+                       "linea": "Deck guides, metagame analyses and more · 2+ updates a week",
+                       "frase": "Members get free access to all articles! There are tons of articles, and more are added every week!",
+                       "enlace": "https://metafy.gg/@yuyan", "foto": "https://manalab.es/img/destacados/yuyan.webp",
+                       "fondo": "https://manalab.es/img/destacados/yuyan-fondo.webp", "guias": "https://metafy.gg/@yuyan/guides",
+                       "articulos": "https://metafy.gg/@yuyan/posts"}]
         esperado = dict(_con(**enlaces), destacados=destacados)
         self.assertEqual(json.loads(ARCHIVO.read_text(encoding="utf-8")), esperado)
         self.assertEqual(validar(esperado, 100), [])
