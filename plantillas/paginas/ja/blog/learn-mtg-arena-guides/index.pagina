@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>ManaLab 3.0で学ぶMTGアリーナ:アプリ内ガイド</title>
+<meta content="ManaLab 3.0の新機能「学ぶ」で、Metafyのクリエイターによる対戦ガイドを自分の戦績のそばで確認。セッション後に何を練習すべきかが分かります。トラッカーは無料のままです。" name="description"/>
+<link href="https://manalab.es/ja/blog/learn-mtg-arena-guides/" rel="canonical"/>
+<link href="https://manalab.es/blog/learn-mtg-arena-guides/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/blog/learn-mtg-arena-guides/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/pt/blog/learn-mtg-arena-guides/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://manalab.es/ja/blog/learn-mtg-arena-guides/" hreflang="ja" rel="alternate"/>
+<link href="https://manalab.es/blog/learn-mtg-arena-guides/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d100f" name="theme-color"/>
+<link href="/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="/img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="article" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="ja_JP" property="og:locale"/>
+<meta content="ManaLab 3.0で学ぶMTGアリーナ:アプリ内ガイド" property="og:title"/>
+<meta content="ManaLab 3.0の新機能「学ぶ」で、Metafyのクリエイターによる対戦ガイドを自分の戦績のそばで確認。セッション後に何を練習すべきかが分かります。トラッカーは無料のままです。" property="og:description"/>
+<meta content="https://manalab.es/ja/blog/learn-mtg-arena-guides/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="ManaLab 3.0で学ぶMTGアリーナ:アプリ内ガイド" name="twitter:title"/>
+<meta content="ManaLab 3.0の新機能「学ぶ」で、Metafyのクリエイターによる対戦ガイドを自分の戦績のそばで確認。セッション後に何を練習すべきかが分かります。トラッカーは無料のままです。" name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://manalab.es/ja/blog/learn-mtg-arena-guides/#article", "headline": "ManaLab 3.0で学ぶMTGアリーナ:アプリ内ガイド", "description": "ManaLab 3.0の新機能「学ぶ」で、Metafyのクリエイターによる対戦ガイドを自分の戦績のそばで確認。セッション後に何を練習すべきかが分かります。トラッカーは無料のままです。", "inLanguage": "ja", "mainEntityOfPage": "https://manalab.es/ja/blog/learn-mtg-arena-guides/", "datePublished": "{{FECHA_BLOG_LEARN}}", "dateModified": "{{FECHA_BLOG_LEARN}}", "author": {"@id": "https://manalab.es/#org"}, "publisher": {"@id": "https://manalab.es/#org"}, "image": "https://manalab.es/img/og.jpg"}, {"@type": "Organization", "@id": "https://manalab.es/#org", "name": "ManaLab", "url": "https://manalab.es/", "logo": {"@type": "ImageObject", "url": "https://manalab.es/img/icono-192.png", "width": 192, "height": 192}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}]}</script>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=h}}
+{{> css_blog}}</style></head>
+<body>
+{{> cabecera_ja_blog}}
+<main class="guia-log blog-learn" id="inicio">
+<article>
+<section class="portada solo">
+<div class="envoltura">
+<div>
+<h1>ManaLab 3.0で学ぶMTGアリーナ:アプリ内ガイド</h1>
+<p class="autoria"><time datetime="{{FECHA_BLOG_LEARN}}">{{FECHA_BLOG_LEARN:texto}}</time> · ManaLab</p>
+</div>
+</div>
+</section>
+<section class="seccion">
+<div class="envoltura">
+<div class="cuerpo-blog">
+<p>セッションを終えて統計を開くと、ある行が目に留まります。毎回同じデッキに負けているのです。トラッカーは「どこで負けるか」を教えてくれますが、「どう直すか」までは教えてくれません。</p>
+<p>ManaLab 3.0には、その次の一歩のための新しいセクションが加わりました。名前は<strong>「学ぶ」</strong>です。</p>
+<h2>「このデッキに勝てない」から「こう戦えばいい」へ</h2>
+<p>ManaLabは、初手やマリガン、各デッキとの勝敗など、対戦で実際に起きたことを知るためのアプリです。そのデータは、活かしてこそ意味があります。</p>
+<p>「学ぶ」は同じアプリの中にあり、統計から1クリックで開けます。数字が弱点を示したとき、学ぶための資料はすでにそこにあります。タブを行き来したり、うろ覚えのガイドを探したりする必要はありません。</p>
+<h2>「学ぶ」の中身</h2>
+<ul>
+<li><strong>Metafyのクリエイターによるマジックのガイド</strong>(アリーナとMagic Online対応)。リストは自動で更新され、新しいガイドは何もしなくても表示されます。</li>
+<li><strong>注目のクリエイター</strong>。はっきり分かるラベルが付きます。</li>
+<li><strong>注目のクリエイターによるコーチングセッション</strong>。読むより、自分のプレイを直接見てもらいたい人向けです。</li>
+<li><strong>Metafyから読み込むカバー画像</strong>。クリエイターが公開したままの姿で表示されます。</li>
+</ul>
+<!-- CAPTURA-LEARN: pendiente (pantalla Aprender 3.0, datos de ejemplo, sin rivales; alt ≤125) -->
+<h2>注目のクリエイターはどう選ばれるか</h2>
+<p>なぜそのクリエイターが目立つのかは、知っておくべきです。ManaLabで注目として表示されるのは、MetafyのFeatured Creatorメンバーシップに加入しているクリエイターで、アプリではラベルで示されます。これはクリエイター側の有料掲載であり、「誰が一番優れているか」のランキングではありません。ガイドを読み、クリエイターを確かめて、ご自身で判断してください。</p>
+<h2>トラッカーは無料のまま</h2>
+<p>ManaLab本体は無料でダウンロードして使えます。有料なのは、敗戦を分析するオプションのAI分析だけで、Metafyの別メンバーシップ(月6ドル)です。「学ぶ」でこれは変わりません。ManaLabでガイドを見るだけなら無料です。</p>
+<h2>試してみる</h2>
+<p>「学ぶ」はManaLab 3.0の一部で、アプリの新しいデザインと一緒に登場します。ManaLabを無料でダウンロードし、アリーナやMagic Onlineで数試合してみてください。苦手な対面が見つかったら、「学ぶ」を開いてそこから始めましょう。</p>
+<p><a class="boton prim" href="/ja/#descargar"><strong>ManaLabを無料でダウンロード →</strong></a></p>
+<p class="antes">始める前に：<a href="/detailed-logs/">詳細ログ（英語）</a> · <a href="/safety/">安全ですか？（英語）</a></p>
+</div>
+</div>
+</section>
+</article>
+</main>
+{{> pie_ja_learn}}
+
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

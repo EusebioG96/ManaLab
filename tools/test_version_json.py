@@ -73,6 +73,13 @@ class TestRegenerarWeb(unittest.TestCase):
         self.addCleanup(shutil.rmtree, self.tmp, True)
         shutil.copytree(RAIZ / "plantillas", self.tmp / "plantillas")
         shutil.copy(RAIZ / "version.json", self.tmp / "version.json")
+        shutil.copy(RAIZ / "contenido.json", self.tmp / "contenido.json")
+        for _lanz in (W.VIDEO_LANZAMIENTO, W.POSTER_LANZAMIENTO):   # el vídeo del lanzamiento decide el héroe de las portadas
+            if (RAIZ / _lanz).is_file():
+                (self.tmp / _lanz).parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy(RAIZ / _lanz, self.tmp / _lanz)
+        (self.tmp / "learn").mkdir()   # las páginas Learn llevan la primera página de guías de esta copia (ML-324)
+        shutil.copy(RAIZ / "learn" / "guias.json", self.tmp / "learn" / "guias.json")
         for n in W.listar_paginas(RAIZ):
             (self.tmp / n).parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(RAIZ / n, self.tmp / n)

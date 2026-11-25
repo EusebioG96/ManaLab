@@ -58,9 +58,10 @@ def leer_releases(fuente="auto"):
 
 SITIO = "https://manalab.es"
 URL_SITEMAP = SITIO + "/sitemap.xml"
-RUTAS_PRINCIPALES = ["/", "/es/", "/safety/", "/es/seguridad/", "/privacy/", "/sorteo/"]
+RUTAS_PRINCIPALES = ["/", "/es/", "/safety/", "/es/seguridad/", "/privacy/"]
 IDIOMAS = ("en", "es", "pt", "fr", "de", "it", "ja", "ko", "zh")
-RE_IDIOMA = re.compile(r"^(.+)-(" + "|".join(IDIOMAS) + r")$")
+# «descarga-portada-es-hero»: prefijo «descarga-portada», idioma «es» y, si hay, la posición del botón (ML-280)
+RE_IDIOMA = re.compile(r"^(.+)-(" + "|".join(IDIOMAS) + r")(?:-(?:cabecera|hero|motivos|funciones|descargar|final|arriba|abajo))?$")
 # Rutas de evento que emite la web hoy (data-goatcounter-click y g.count de descarga.js).
 EVENTOS_RUTA = ["descarga", "compartir-movil", "descarga-movil", "aviso-sorteo"]
 # Prefijos de título/ruta con idioma (descarga-*, compartir-movil*, descarga-mtgo-*, descarga-coaches-*).
@@ -72,11 +73,26 @@ EVENTOS_PREFIJOS = ["descarga-portada", "descarga-aviso", "descarga-mtgo", "desc
 EVENTOS_IDIOMAS = ("en", "es", "pt", "ja")
 
 
+RE_EVENTO_HTML = re.compile(r'(?:data-goatcounter-click|data-titulo)="((?:descarga|compartir-movil)[a-z0-9-]*)"')
+
+
+def eventos_del_sitio(raiz=None):
+    """Nombres de evento de descarga que emiten los .html publicados (descarga-<página>-<idioma>[-<posición>], ML-280)."""
+    raiz = Path(raiz or Path(__file__).resolve().parent.parent)
+    nombres = set()
+    for ruta in raiz.rglob("*.html"):
+        if {".git", "plantillas", "docs", "tools"} & set(ruta.relative_to(raiz).parts):
+            continue
+        nombres.update(RE_EVENTO_HTML.findall(ruta.read_text(encoding="utf-8", errors="replace")))
+    return sorted(nombres)
+
+
 def eventos_candidatos():
-    """Nombres de evento a consultar: rutas conocidas + rejilla prefijo-idioma. Sin duplicados."""
+    """Nombres de evento a consultar: rutas conocidas + rejilla prefijo-idioma (los antiguos siguen con su histórico) + los del sitio actual. Sin duplicados."""
     nombres = list(EVENTOS_RUTA)
     for pref in EVENTOS_PREFIJOS:
         nombres += [f"{pref}-{i}" for i in EVENTOS_IDIOMAS]
+    nombres += eventos_del_sitio()
     return list(dict.fromkeys(nombres))
 
 

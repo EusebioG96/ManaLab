@@ -2,32 +2,32 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
-<title>Free MTG Arena Overlay and Deck Tracker · ManaLab</title>
-<meta content="ManaLab&#x27;s overlay shows what is left in your library and the odds of drawing each card while you play MTG Arena or Magic Online. Free, public information only." name="description"/>
+<title>Free MTG Arena Overlay: Library &amp; Draw Odds · ManaLab</title>
+<meta content="Free overlay for MTG Arena: see the cards left in your library, your odds of drawing each one and what your opponent revealed. Magic Online is supported too." name="description"/>
 <link href="https://manalab.es/overlay/" rel="canonical"/>
 <link href="https://manalab.es/overlay/" hreflang="en" rel="alternate"/>
 <link href="https://manalab.es/es/overlay/" hreflang="es" rel="alternate"/>
 <link href="https://manalab.es/overlay/" hreflang="x-default" rel="alternate"/>
-<meta content="#0d0304" name="theme-color"/>
+<meta content="#0d100f" name="theme-color"/>
 <link href="../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="../img/apple-touch-icon.png" rel="apple-touch-icon"/>
 <meta content="website" property="og:type"/>
 <meta content="ManaLab" property="og:site_name"/>
 <meta content="en_US" property="og:locale"/>
-<meta content="Free MTG Arena Overlay and Deck Tracker · ManaLab" property="og:title"/>
-<meta content="ManaLab&#x27;s overlay shows what is left in your library and the odds of drawing each card while you play MTG Arena or Magic Online. Free, public information only." property="og:description"/>
+<meta content="Free MTG Arena Overlay: Library &amp; Draw Odds · ManaLab" property="og:title"/>
+<meta content="Free overlay for MTG Arena: see the cards left in your library, your odds of drawing each one and what your opponent revealed. Magic Online is supported too." property="og:description"/>
 <meta content="https://manalab.es/overlay/" property="og:url"/>
 <meta content="https://manalab.es/img/v22_overlay.jpg" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="@ManaLabApp" name="twitter:site"/>
-<meta content="Free MTG Arena Overlay and Deck Tracker · ManaLab" name="twitter:title"/>
-<meta content="ManaLab&#x27;s overlay shows what is left in your library and the odds of drawing each card while you play MTG Arena or Magic Online. Free, public information only." name="twitter:description"/>
+<meta content="Free MTG Arena Overlay: Library &amp; Draw Odds · ManaLab" name="twitter:title"/>
+<meta content="Free overlay for MTG Arena: see the cards left in your library, your odds of drawing each one and what your opponent revealed. Magic Online is supported too." name="twitter:description"/>
 <meta content="https://manalab.es/img/v22_overlay.jpg" name="twitter:image"/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/overlay/#webpage", "url": "https://manalab.es/overlay/", "name": "Free MTG Arena Overlay and Deck Tracker · ManaLab", "description": "ManaLab's overlay shows what is left in your library and the odds of drawing each card while you play MTG Arena or Magic Online. Free, public information only.", "inLanguage": "en", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/v22_overlay.jpg"}}]}</script>
-<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=e}}</style></head>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/overlay/#webpage", "url": "https://manalab.es/overlay/", "name": "Free MTG Arena Overlay and Deck Tracker · ManaLab", "description": "Free overlay for MTG Arena: see the cards left in your library, your odds of drawing each one and what your opponent revealed. Magic Online is supported too.", "inLanguage": "en", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/v22_overlay.jpg"}}]}</script>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=e}}</style></head>
 <body>
 {{> cabecera_en 1=g}}
 <main id="inicio">
@@ -37,15 +37,15 @@
 <div class="eti">Free MTG Arena overlay</div>
 <h1>A free overlay and deck tracker for MTG Arena</h1>
 <p class="sub">ManaLab&#x27;s overlay shows what is left in your library and the odds of drawing each card while you play MTG Arena or Magic Online.</p>
-<div class="nota-desc"><span>The app is free. Only the AI analysis is paid</span><span>Your data stays on your PC unless you ask for AI</span><span>Only public information</span></div>
+<div class="nota-desc"><span>The app is free. Only the AI analysis is paid</span><span>Only public information</span></div>
 <div class="desc-bloque" id="descargar">
-<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-overlay-en" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="{{EVENTO:descarga}}" data-goatcounter-title="{{EVENTO:descarga}}" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></p>
 <p class="nota-descarga">Version <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">other versions</a></p>
 <template id="bloque-movil"><div class="movil-caja">
 <h4 class="movil-tit">ManaLab runs on your computer</h4>
 <p class="movil-txt">Send yourself the link and download it there.</p>
-<p><button class="boton prim" data-compartir data-copiado="Link copied" data-titulo="compartir-movil-en" data-url="https://manalab.es/overlay/" type="button"><span>Send me the link</span></button></p>
-<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="descarga-movil-en" rel="noopener">Download the ZIP anyway</a></p>
+<p><button class="boton prim" data-compartir data-copiado="Link copied" data-titulo="{{EVENTO:compartir-movil}}" data-url="https://manalab.es/overlay/" type="button"><span>Send me the link</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="{{EVENTO:descarga-movil}}" rel="noopener">Download the ZIP anyway</a></p>
 <p aria-live="polite" class="movil-estado" role="status"></p>
 </div></template>
 <p class="nota-smartscreen">Requirements: Windows 10 or 11. Unzip the file and open ManaLab.exe. Nothing to install.</p>
@@ -58,6 +58,7 @@
 </div>
 </div>
 </section>
+{{HUECO_MDN}}
 <section class="seccion franja" id="muestra">
 <div class="envoltura">
 <div class="dos-col">
@@ -116,6 +117,7 @@
 <li>In Settings › Overlay you can also set the layout (full, compact or minimalist), the colors (with a colorblind palette) and high contrast; its size, opacity and position; when it is shown (always, or only when the mouse is over a zone); and what to show in each panel, with a switch for every element.</li>
 <li>In Arena, «Detailed Logs» must be on; without it ManaLab cannot read your Arena matches. <a href="/detailed-logs/">How to turn it on, step by step →</a></li>
 </ul></div>
+<p class="enlace-seccion"><a class="enlace-man" href="/guia/guia_manalab_en.html#overlay">Full ManaLab guide →</a></p>
 </div>
 </section>
 <section class="seccion franja" id="apoyo">
@@ -124,7 +126,7 @@
 <div>
 <div class="eti">Free to download</div>
 <h2>The app is free. Only the AI analysis is paid</h2>
-<p>The AI analysis of your lost games costs 5 € a month and pays for the AI service it uses. Everything else, including everything on this page, is free.</p>
+<p>The AI analysis of your lost games costs $6 a month and pays for the AI service it uses. Everything else, including everything on this page, is free.</p>
 <p>Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com">email</a>.</p>
 <div class="acciones" style="margin-top:18px"><a class="boton prim" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a><a class="enlace-sec" href="/#ia">About the AI analysis</a></div>
 </div>

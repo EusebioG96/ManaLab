@@ -62,7 +62,7 @@ class TestTipografias(unittest.TestCase):
     def test_fuentes_pesan_menos_de_400_kb_y_llevan_licencia(self):
         d = RAIZ / "fuentes"
         self.assertLess(sum(x.stat().st_size for x in d.iterdir()), 400_000)
-        self.assertTrue(list(d.glob("OFL-Saira*")) and list(d.glob("OFL-Figtree*")))
+        self.assertTrue(list(d.glob("OFL-Marcellus*")) and list(d.glob("OFL-Geist*")))
 
 
 class TestHeroTelefono(unittest.TestCase):
@@ -73,7 +73,7 @@ class TestHeroTelefono(unittest.TestCase):
             with self.subTest(idioma):
                 t = f.read_text(encoding="utf-8")
                 self.assertIn("(max-width: 767px) and (pointer: coarse)", t)
-                self.assertRegex(t, rf'<link rel="preload" as="image" href="[^"]*video/hero/manalab-hero-{idioma}-poster\.jpg">')
+                self.assertRegex(t, r'<link rel="preload" as="image" href="[^"]*video/manalab-3\.0-poster\.jpg">')   # vídeo del lanzamiento (19/11)
 
 
 class Enlaces(HTMLParser):

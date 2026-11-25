@@ -4,14 +4,14 @@
 <meta content="GzJ4iPxMdrQFikni_faZaWnrT8ExufyXTrwU7Oi0S9E" name="metafy-mdn-verification"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <title>ManaLab: Free MTG Arena &amp; Magic Online Tracker</title>
-<meta content="Free tracker for MTG Arena and Magic Online: opening hands and mulligans with screenshots, win rates by matchup, opponent deck, coach tools." name="description"/>
+<meta content="Free tracker for MTG Arena and Magic Online: opening hands and mulligans, win rates by matchup, opponent deck and coach tools. Download it and start today." name="description"/>
 <link href="https://manalab.es/" rel="canonical"/>
 <link href="https://manalab.es/" hreflang="en" rel="alternate"/>
 <link href="https://manalab.es/es/" hreflang="es" rel="alternate"/>
 <link href="https://manalab.es/pt/" hreflang="pt-BR" rel="alternate"/>
 <link href="https://manalab.es/ja/" hreflang="ja" rel="alternate"/>
 <link href="https://manalab.es/" hreflang="x-default" rel="alternate"/>
-<meta content="#0d0304" name="theme-color"/>
+<meta content="#0d100f" name="theme-color"/>
 <link href="img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="img/apple-touch-icon.png" rel="apple-touch-icon"/>
@@ -19,7 +19,7 @@
 <meta content="ManaLab" property="og:site_name"/>
 <meta content="en_US" property="og:locale"/>
 <meta content="ManaLab: Free MTG Arena &amp; Magic Online Tracker" property="og:title"/>
-<meta content="Free tracker for MTG Arena and Magic Online: opening hands and mulligans with screenshots, win rates by matchup, opponent deck, coach tools." property="og:description"/>
+<meta content="Free tracker for MTG Arena and Magic Online: opening hands and mulligans, win rates by matchup, opponent deck and coach tools. Download it and start today." property="og:description"/>
 <meta content="https://manalab.es/" property="og:url"/>
 <meta content="https://manalab.es/img/og.jpg" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
@@ -27,104 +27,127 @@
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="@ManaLabApp" name="twitter:site"/>
 <meta content="ManaLab: Free MTG Arena &amp; Magic Online Tracker" name="twitter:title"/>
-<meta content="Free tracker for MTG Arena and Magic Online: opening hands and mulligans with screenshots, win rates by matchup, opponent deck, coach tools." name="twitter:description"/>
+<meta content="Free tracker for MTG Arena and Magic Online: opening hands and mulligans, win rates by matchup, opponent deck and coach tools. Download it and start today." name="twitter:description"/>
 <meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://manalab.es/#website", "name": "ManaLab", "url": "https://manalab.es/", "inLanguage": ["en", "es"], "publisher": {"@id": "https://manalab.es/#org"}}, {"@type": "Organization", "@id": "https://manalab.es/#org", "name": "ManaLab", "url": "https://manalab.es/", "logo": {"@type": "ImageObject", "url": "https://manalab.es/img/icono-192.png", "width": 192, "height": 192}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}, {"@type": "SoftwareApplication", "name": "ManaLab", "url": "https://manalab.es/", "description": "Free tracker for MTG Arena and Magic Online: opening hands and mulligans with screenshots, win rates by matchup, opponent deck, coach tools.", "applicationCategory": "GameApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "3.0.0", "downloadUrl": "https://github.com/EusebioG96/ManaLab/releases/latest", "image": "https://manalab.es/img/og.jpg", "screenshot": ["https://manalab.es/img/v22_repeticion.jpg", "https://manalab.es/img/en_panel.jpg", "https://manalab.es/img/en_partida.jpg", "https://manalab.es/img/en_estadisticas.jpg"], "inLanguage": ["en", "es", "fr", "de", "it", "pt-BR", "ja", "ko", "zh"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "@id": "https://manalab.es/#app", "isPartOf": {"@id": "https://manalab.es/#website"}, "publisher": {"@id": "https://manalab.es/#org"}, "mainEntityOfPage": "https://manalab.es/", "applicationSubCategory": "MTG Arena and Magic Online match tracker"}, {"@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Does it touch the game or give me an advantage in a match?", "acceptedAnswer": {"@type": "Answer", "text": "No, neither in Arena nor in Magic Online. It only reads the files the games write on your PC (Arena's Player.log; Magic Online's mtgo.log, Match_GameLog_*.dat, mtgo_game_history and grouping *.xml deck files), without modifying them. It doesn't modify Arena or Magic Online, doesn't read their memory and doesn't connect to their servers. The optional overlay is a separate window that only shows public information or what can be worked out from what has been played, never hidden information."}}, {"@type": "Question", "name": "What data does it send?", "acceptedAnswer": {"@type": "Answer", "text": "Your games, screenshots and statistics stay in a folder on your PC. The program only downloads the updated meta deck lists, one per format (every 3 days), looks up card names on Scryfall (also with Magic Online ids) when it needs them, and asks GitHub once a day whether there's a new version. You can turn all three off in Settings. It sends data out only when you ask for something. The AI analysis sends that game's data (result, deck, hands, cards seen and timeline), never your name or the opponent's. A bug report sends what you write, your email if you add one, the ManaLab version, your system and language, whether you use Arena or Magic Online, an anonymous ID of your PC and, if you tick it, the last lines of registro.log with your user name and codes removed. It sends no games or decks."}}, {"@type": "Question", "name": "Windows says «Windows protected your PC». Is it safe?", "acceptedAnswer": {"@type": "Answer", "text": "That warning appears for programs without a paid code-signing certificate, which is common for small free tools. Click «More info» and then «Run anyway». It only shows on the first download: new versions install with «Update now» from inside the app, with no warning. To avoid it the first time too, before unzipping right-click the ZIP › Properties › tick «Unblock» › OK. Every version is checked on VirusTotal before it's published."}}, {"@type": "Question", "name": "Does it work with Magic Online?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, from 2.3. ManaLab records your Magic Online (MTGO) games: hands, mulligans, play or draw, the opponent's deck, statistics, replay and overlay. There is nothing to set up: it starts by itself when you open Magic Online, and you can import an mtgo.log file. What is different: Magic Online doesn't send turn phases or tapped cards, so ManaLab works them out from the log, and in the replay anything worked out is marked ≈ because it may not be exact. Magic Online doesn't give your sideboarded list in time either: ManaLab asks you to confirm your changes between games with one click, and until you do the overlay shows the list as unconfirmed. The overlay can show less than in Arena when the log has no table state. Your deck takes the name you saved it with in Magic Online when the list matches exactly; otherwise it is named by its colors."}}, {"@type": "Question", "name": "Does it work on Mac or Linux?", "acceptedAnswer": {"@type": "Answer", "text": "For now it's for Windows 10 and 11. There is no native Linux version, and it has not been tested with Wine or Proton, so we can't promise it will work."}}, {"@type": "Question", "name": "Does it log Draft and Sealed (Limited)?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It logs any Arena or Magic Online game, including Limited. The opponent's deck is compared with the meta decks of the game's format (Standard, Pioneer, Modern, Legacy, Vintage and Pauper); if nothing clearly matches, as in Limited, it is named by its colors."}}, {"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "The program is free and needs no account. The only paid part is the AI loss analysis: 5 € per month, which pays for the AI service it uses. Every other feature is free."}}, {"@type": "Question", "name": "How do I get the AI analysis?", "acceptedAnswer": {"@type": "Answer", "text": "Subscribe on Ko-fi (5 € per month). After paying you receive a subscription code by email. Paste it in Settings › Team and AI and the analysis appears in each lost game's Analysis tab. Want to try it first? Ask for a free trial by email."}}]}]}</script>
-<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" as="image" href="video/hero/manalab-hero-en-poster.jpg"><style>
-/* tipografías propias (ML-154): Saira Semi Condensed y Figtree, subconjuntos latin y latin-ext, licencia OFL en /fuentes/ */
-@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Saira Semi Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(/fuentes/saira-semi-condensed-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Figtree';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/figtree-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Figtree';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/figtree-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Figtree';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/figtree-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Figtree';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/figtree-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Figtree';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/figtree-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Figtree';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/figtree-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-/* Concepto: la página es la propia app — paneles oscuros carmesí, el log de Arena convertido en un historial.
-   Un solo mundo visual (oscuro, como el programa), por eso no hay versión clara. */
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://manalab.es/#website", "name": "ManaLab", "url": "https://manalab.es/", "inLanguage": ["en", "es"], "publisher": {"@id": "https://manalab.es/#org"}}, {"@type": "Organization", "@id": "https://manalab.es/#org", "name": "ManaLab", "url": "https://manalab.es/", "logo": {"@type": "ImageObject", "url": "https://manalab.es/img/icono-192.png", "width": 192, "height": 192}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}, {"@type": "SoftwareApplication", "name": "ManaLab", "url": "https://manalab.es/", "description": "Free tracker for MTG Arena and Magic Online: opening hands and mulligans, win rates by matchup, opponent deck and coach tools. Download it and start today.", "applicationCategory": "GameApplication", "operatingSystem": "Windows 10, Windows 11", "softwareVersion": "3.0.0", "downloadUrl": "https://github.com/EusebioG96/ManaLab/releases/latest", "image": "https://manalab.es/img/og.jpg", "screenshot": ["https://manalab.es/img/v22_repeticion.jpg", "https://manalab.es/img/en_panel.jpg", "https://manalab.es/img/en_partida.jpg", "https://manalab.es/img/en_estadisticas.jpg"], "inLanguage": ["en", "es", "fr", "de", "it", "pt-BR", "ja", "ko", "zh"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "@id": "https://manalab.es/#app", "isPartOf": {"@id": "https://manalab.es/#website"}, "publisher": {"@id": "https://manalab.es/#org"}, "mainEntityOfPage": "https://manalab.es/", "applicationSubCategory": "MTG Arena and Magic Online match tracker"}, {"@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Does it touch the game or give me an advantage in a match?", "acceptedAnswer": {"@type": "Answer", "text": "No, neither in Arena nor in Magic Online. It only reads the files the games write on your PC (Arena's Player.log; Magic Online's mtgo.log, Match_GameLog_*.dat, mtgo_game_history and grouping *.xml deck files), without modifying them. It doesn't modify Arena or Magic Online, doesn't read their memory and doesn't connect to their servers. The optional overlay is a separate window that only shows public information or what can be worked out from what has been played, never hidden information."}}, {"@type": "Question", "name": "What data does it send?", "acceptedAnswer": {"@type": "Answer", "text": "Your games, screenshots and statistics stay in a folder on your PC. The program downloads the updated meta deck lists, one per format (every 3 days), looks up card names on Scryfall (also with Magic Online ids) when it needs them, and asks GitHub once a day whether there's a new version. You can turn those three off in Settings. It also downloads a small content file from manalab.es (when it opens and every 6 hours) and shows a Metafy ad at the end of the Dashboard, which you can remove with the X or in Settings › Data and about ManaLab. The Learn section asks a ManaLab server for the list of guides and loads covers from Metafy and photos from manalab.es, sending nothing of yours except the ManaLab version; the Metafy banner loads Metafy's ad script. It also sends, at most once an hour, how many times each featured creator in Learn was seen and clicked, as totals only. Missing card images are downloaded from Scryfall. It sends data out only when you ask for something. The AI analysis sends that game's data (result, deck, hands, cards seen and timeline), never your name or the opponent's. A bug report sends what you write, your email if you add one, the ManaLab version, your system and language, whether you use Arena or Magic Online, an anonymous ID of your PC and, if you tick it, the last lines of registro.log with your user name and codes removed. It sends no games or decks."}}, {"@type": "Question", "name": "Windows says «Windows protected your PC». Is it safe?", "acceptedAnswer": {"@type": "Answer", "text": "That warning appears for programs without a paid code-signing certificate, which is common for small free tools. Click «More info» and then «Run anyway». It only shows on the first download: new versions install with «Update now» from inside the app, with no warning. To avoid it the first time too, before unzipping right-click the ZIP › Properties › tick «Unblock» › OK. Every version is checked on VirusTotal before it's published."}}, {"@type": "Question", "name": "Does it work with Magic Online?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, from 2.3. ManaLab records your Magic Online (MTGO) games: hands, mulligans, play or draw, the opponent's deck, statistics, replay and overlay. There is nothing to set up: it starts by itself when you open Magic Online, and you can import an mtgo.log file. What is different: Magic Online doesn't send turn phases or tapped cards, so ManaLab works them out from the log, and in the replay anything worked out is marked ≈ because it may not be exact. Magic Online doesn't give your sideboarded list in time either: ManaLab asks you to confirm your changes between games with one click, and until you do the overlay shows the list as unconfirmed. The overlay can show less than in Arena when the log has no table state. Your deck takes the name you saved it with in Magic Online when the list matches exactly; otherwise it is named by its colors."}}, {"@type": "Question", "name": "Does it work on Mac or Linux?", "acceptedAnswer": {"@type": "Answer", "text": "For now it's for Windows 10 and 11. There is no native Linux version, and it has not been tested with Wine or Proton, so we can't promise it will work."}}, {"@type": "Question", "name": "Does it log Draft and Sealed (Limited)?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It logs any Arena or Magic Online game, including Limited. The opponent's deck is compared with the meta decks of the game's format (Standard, Pioneer, Modern, Legacy, Vintage and Pauper); if nothing clearly matches, as in Limited, it is named by its colors."}}, {"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "The program is free and needs no account. The only paid part is the AI loss analysis: $6 per month, which pays for the AI service it uses. Every other feature is free."}}, {"@type": "Question", "name": "How is ManaLab free?", "acceptedAnswer": {"@type": "Answer", "text": "The tracker is free and always will be. The only paid part is the optional AI analysis of your losses, a membership on Metafy. In the Learn section you'll also find guides from Metafy."}}, {"@type": "Question", "name": "How do I get the AI analysis?", "acceptedAnswer": {"@type": "Answer", "text": "Subscribe on Metafy ($6 per month). After paying you receive a subscription code by email. Paste it in Settings › Team and AI and the analysis appears in each lost game's Analysis tab. Want to try it first? Ask for a free trial by email."}}]}]}</script>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" as="image" href="video/manalab-3.0-poster.jpg"><style>@font-face{font-family:'Marcellus';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/marcellus-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Marcellus';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/marcellus-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-sans-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Geist';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-sans-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-sans-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Geist';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-sans-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/geist-sans-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Geist';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/geist-sans-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-mono-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Geist Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-mono-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Geist Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Línea visual «La mesa de juego» (ML-272): una mesa oscura verdosa, hueso como color de acción, oro solo en antetítulos y aviso de versión.
+   Fuentes: Marcellus (títulos), Geist (texto) y Geist Mono (idiomas, código, marcadores), servidas desde /fuentes/. */
 :root {
   color-scheme: dark;
-  --fondo: #0d0304;
-  --fondo2: #150608;
-  --panel: #1c0b0e;
-  --panel2: #281215;
-  --linea: rgba(255, 214, 200, 0.09);
-  --linea2: rgba(255, 214, 200, 0.16);
-  --texto: #f3e8e2;
-  --texto2: #cbb6af;
-  --apagado: #957f79;
-  --carmesi: #c2363f;
-  --carmesi-h: #d6454f;
-  --oro: #e9b37f;
-  --oro-suave: rgba(233, 179, 127, 0.13);
-  --ko: #f06b74;
-  --ko-suave: rgba(240, 107, 116, 0.13);
-  --f-display: "Saira Semi Condensed", "Bahnschrift", "Arial Narrow", system-ui, sans-serif;
-  --f-texto: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --f-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
-  --ancho: 1120px;
+  --fondo: #0d100f; --fondo2: #111513; --panel: #141917; --panel2: #1b211e;
+  --linea: rgba(236, 230, 214, 0.12); --linea2: rgba(236, 230, 214, 0.26);
+  --texto: #ece6d6; --texto2: #b9b2a1; --apagado: #9a9484;
+  --hueso: #ece6d6; --hueso-h: #ffffff;
+  --oro: #e2b45c; --oro-suave: rgba(226, 180, 92, 0.12);
+  --ko: #ef9a86; --ko-suave: rgba(239, 154, 134, 0.13);
+  --f-display: "Marcellus", Georgia, "Times New Roman", serif;
+  --f-texto: "Geist", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "Geist Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --ancho: 1180px;
+}
+/* japonés: Marcellus y Geist no tienen esas letras; pila del sistema */
+:root:lang(ja) {
+  --f-display: "Yu Gothic UI", "Hiragino Sans", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans CJK SC", "Malgun Gothic", "Microsoft YaHei", system-ui, sans-serif;
+  --f-texto: "Yu Gothic UI", "Hiragino Sans", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans CJK SC", "Malgun Gothic", "Microsoft YaHei", system-ui, sans-serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
-body { margin: 0; background: var(--fondo); color: var(--texto); font: 16px/1.6 var(--f-texto); -webkit-font-smoothing: antialiased; }
-a { color: var(--oro); }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--oro); outline-offset: 3px; border-radius: 6px; }
+body { margin: 0; background: radial-gradient(1300px 760px at 70% -6%, #22302a 0%, #0d100f 60%) no-repeat var(--fondo); color: var(--texto); font: 16px/1.6 var(--f-texto); -webkit-font-smoothing: antialiased; }
+a { color: var(--texto); text-decoration-color: var(--linea2); text-underline-offset: 3px; }
+a:hover { text-decoration-color: currentColor; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--hueso); outline-offset: 2px; }
 img { max-width: 100%; display: block; }
-.envoltura { max-width: var(--ancho); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-h1, h2, h3 { font-family: var(--f-display); font-weight: 600; letter-spacing: 0.2px; text-wrap: balance; margin: 0; }
-.eti { font: 600 12px/1 var(--f-display); letter-spacing: 2.2px; text-transform: uppercase; color: var(--oro); }
+.envoltura { max-width: var(--ancho); margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; letter-spacing: 0.005em; text-wrap: balance; margin: 0; }
+:lang(ja) h1, :lang(ja) h2, :lang(ja) h3 { font-weight: 600; }
+code { font-family: var(--f-mono); border-radius: 4px; background: var(--panel2); border-color: var(--linea); }
+.eti { font: 500 13px/1.3 var(--f-texto); letter-spacing: 0.14em; text-transform: uppercase; color: var(--oro); }
 
 /* ---------------- cabecera */
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(13, 3, 4, 0.92); }
 .nota-descarga { margin-top: 10px; font-size: 14px; color: var(--texto2); }
 .nota-descarga a { color: inherit; text-decoration: underline; }
 .nota-smartscreen { margin-top: 12px; font-size: 14px; color: var(--texto2); }
 .nota-smartscreen b { color: var(--texto); }
-.aviso-version { background: var(--oro-suave); border-bottom: 1px solid rgba(233, 179, 127, 0.35); font-size: 14px; color: var(--texto); }
+.aviso-version { border-bottom: 1px solid var(--linea); font-size: 14px; color: var(--texto); }
 .aviso-version .envoltura { display: flex; align-items: center; justify-content: space-between; gap: 10px 18px; flex-wrap: wrap; padding-block: 9px; }
-.aviso-version b { color: var(--oro); }
-.aviso-version a { color: var(--oro); font-weight: 600; white-space: nowrap; }
+.aviso-version b { color: var(--oro); font-weight: 500; }
+.aviso-version a { color: var(--texto2); font-weight: 400; white-space: nowrap; text-decoration: underline; }
 .aviso-version span a { white-space: normal; }
-.cab { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: rgba(13, 3, 4, 0.82); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linea); }
-.cab .envoltura { display: flex; align-items: center; gap: 22px; padding-block: 12px; }
+/* ---------------- cabecera (ML-329: única copia; la insertan css_sitio y css_seguridad desde su plantilla) */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(13, 16, 15, 0.94); }
+.cab { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: rgba(13, 16, 15, 0.86); backdrop-filter: blur(12px); border-bottom: 1px solid var(--linea); }
+.cab .envoltura { position: relative; display: flex; align-items: center; gap: 18px 26px; padding-block: 14px; }
 .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--texto); margin-right: auto; }
 .marca img { width: 36px; height: 36px; }
-.marca b { font: 600 19px/1 var(--f-display); letter-spacing: 0.3px; }
-.marca small { display: block; font: 500 10px/1 var(--f-display); letter-spacing: 2.4px; color: var(--apagado); margin-top: 4px; }
+.marca b { font: 400 23px/1 var(--f-display); letter-spacing: 0.01em; }
 .cab nav { display: flex; gap: 22px; }
-.cab nav a { color: var(--texto2); text-decoration: none; font-size: 14.5px; }
+.cab .menu-caja nav { display: grid; gap: 0; }
+.cab nav a { color: var(--texto2); text-decoration: none; font-size: 15px; }
 .cab nav a:hover { color: var(--texto); }
-.idioma { border: 1px solid var(--linea2); background: none; color: var(--texto2); border-radius: 999px; padding: 5px 11px; font: 600 12px var(--f-display); letter-spacing: 1px; cursor: pointer; }
+/* un enlace del menú de escritorio nunca se parte en dos líneas: si la fila no cabe, la cabecera pasa al menú de teléfono (más abajo) */
+.cab .envoltura > nav a, .cab .idioma { white-space: nowrap; }
+.idioma { border: 1px solid var(--linea2); background: none; color: var(--texto2); border-radius: 4px; min-height: 34px; padding: 0 12px; font: 500 13px var(--f-mono); letter-spacing: 0; cursor: pointer; }
 .idioma:hover { color: var(--texto); border-color: var(--apagado); }
-.boton { display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; padding: 11px 22px; font: 600 15px var(--f-texto); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .15s, transform .1s; white-space: nowrap; }
+.boton { display: inline-flex; align-items: center; gap: 10px; border-radius: 4px; min-height: 40px; padding: 0 18px; font: 500 14px var(--f-texto); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background .15s, transform .1s; white-space: nowrap; }
 .boton:active { transform: translateY(1px); }
-.boton.prim { background: var(--carmesi); color: #fff5f0; box-shadow: 0 10px 28px -12px rgba(194, 54, 63, 0.9); }
-.boton.prim:hover { background: var(--carmesi-h); }
-.boton.sec { background: var(--panel2); border-color: var(--linea2); color: var(--texto); }
-.boton.sec:hover { background: #33171b; }
+.boton.prim { background: var(--hueso); color: var(--fondo); }
+.boton.prim:hover { background: var(--hueso-h); }
+.boton.sec { background: transparent; border-color: rgba(236, 230, 214, 0.34); color: var(--texto); }
+.boton.sec:hover { border-color: var(--hueso); }
 .boton svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.cab .boton { padding: 8px 16px; font-size: 14px; }
+.boton.descarga, .hero-cta .boton, .final-caja .boton, .paso .boton { min-height: 48px; padding: 0 26px; font-size: 16px; font-weight: 600; }
+.cab .boton, .cab .boton.descarga { min-height: 40px; padding: 0 16px; font-size: 14px; font-weight: 500; }
+
+/* menú de teléfono (WEB-02): <details> sin JavaScript; solo se ve por debajo de 900 px */
+.menu { display: none; }
+.menu > summary::-webkit-details-marker { display: none; }
+.cab .menu-caja nav a { display: block; padding: 13px 0; border-top: 1px solid var(--linea); font-size: 17px; color: var(--texto); text-decoration: none; }
+.menu > summary { cursor: pointer; list-style: none; width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--linea2); border-radius: 4px; color: var(--texto); }
+.menu > summary svg { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.menu[open] > summary { background: var(--hueso); color: var(--fondo); border-color: var(--hueso); }
+.menu-caja { position: absolute; left: 0; right: 0; top: 100%; max-height: calc(100vh - 72px); max-height: calc(100dvh - 72px); overflow-y: auto; overscroll-behavior: contain; padding: 0 20px 18px; background: var(--fondo); border-bottom: 1px solid var(--linea2); box-shadow: 0 30px 40px rgba(0, 0, 0, 0.5); }
+.menu-idiomas { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px solid var(--linea); }
+.menu-idiomas .idioma { display: inline-grid; min-height: 40px; padding: 0 14px; }
+a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
+@media (max-width: 900px) {
+  .cab .envoltura { gap: 10px 12px; }
+  .cab .envoltura > nav, .cab .envoltura > .idioma { display: none; }
+  .menu { display: block; }
+}
+/* desde 640 px (tableta y escritorio con el menú compacto) la caja no se estira de lado a lado: ancho de tarjeta, pegada a la derecha, bajo el botón */
+@media (min-width: 640px) {
+  .menu-caja { left: auto; width: 380px; max-width: 100%; border-left: 1px solid var(--linea2); }
+}
+/* a 380 px o menos no cabe el nombre junto a «Descargar» y el menú: queda el logotipo */
+@media (max-width: 380px) { .marca span { display: none; } }
 
 /* ---------------- portada */
-.portada { padding-block: 36px 24px; position: relative; overflow: hidden; }
-.portada::before { content: ""; position: absolute; inset: -40% -10% auto 40%; height: 700px; background: radial-gradient(closest-side, rgba(194, 54, 63, 0.22), transparent 70%); pointer-events: none; }
-.portada .envoltura { position: relative; display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 48px; align-items: center; }
-.portada h1 { font-size: clamp(40px, 5vw, 60px); line-height: 1.02; margin: 14px 0 16px; }
-.portada h1 em { font-style: normal; color: var(--oro); }
-.portada p.sub { font-size: 18.5px; color: var(--texto2); max-width: 34em; margin: 0 0 24px; }
+.portada { padding-block: 56px 40px; position: relative; overflow: hidden; }
+.portada .envoltura { position: relative; display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 56px; align-items: center; }
+.portada h1 { font-size: clamp(38px, 5.2vw, 66px); line-height: 1.06; margin: 16px 0 20px; }
+.portada h1 em { font-style: normal; color: inherit; }
+.portada p.sub { font-size: 18.5px; line-height: 1.55; color: var(--texto2); max-width: 34em; margin: 0 0 24px; }
 .acciones { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .nota-desc { margin-top: 16px; font-size: 14px; color: var(--apagado); display: flex; flex-wrap: wrap; gap: 6px 16px; }
-.nota-desc span::before { content: "✓"; color: var(--oro); margin-right: 6px; }
+.nota-desc span::before, .confianza-lista b::before { content: ""; display: inline-block; width: 8px; height: 8px; transform: rotate(45deg); background: var(--hueso); margin-right: 12px; vertical-align: 1px; }
 /* vídeo de cabecera (ML-058): 15 s sin sonido en bucle; con «reducir movimiento» o ahorro de datos solo se ve el póster */
 .hero-medio { display: grid; gap: 18px; justify-items: start; min-width: 0; }
-.hero-video { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; border: 1px solid var(--linea2); background: var(--fondo); box-shadow: 0 40px 90px -40px #000, 0 0 0 6px rgba(255, 214, 200, 0.025); }
+.hero-video { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; border: 1px solid rgba(236, 230, 214, 0.34); background: var(--panel); box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6); }
 .hero-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
-.hero-pausa { position: absolute; right: 8px; top: 8px; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--linea2); background: rgba(13, 3, 4, 0.72); color: var(--texto2); display: grid; place-items: center; cursor: pointer; padding: 0; opacity: 0.75; }
+.hero-pausa { position: absolute; right: 8px; top: 8px; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--linea2); background: rgba(13, 16, 15, 0.72); color: var(--texto2); display: grid; place-items: center; cursor: pointer; padding: 0; opacity: 0.75; }
 .hero-pausa:hover, .hero-pausa:focus-visible { opacity: 1; color: var(--texto); }
 .hero-pausa svg { width: 14px; height: 14px; fill: currentColor; }
 .hero-pausa .ico-play, .hero-pausa.pausado .ico-pausa { display: none; }
@@ -133,143 +156,192 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
 html.movil .aviso-version { display: none; }
 html.movil .hero-cta .boton { display: none; }
+/* ML-326: descarga.js pasa la portada a «modo teléfono» después de pintar (aviso fuera, botón fuera, caja de «envíate el enlace»); eso movía toda la portada
+   (CLS 0,35). Con JavaScript, en pantalla estrecha y táctil, se pinta ya en ese estado y el hueco de la caja guarda su alto (232 px; 300 px por debajo de 480). */
+@media (scripting: enabled) and (max-width: 767px) and (pointer: coarse) {
+  .aviso-version, .hero-cta .boton { display: none; }
+  .hero-cta { margin-top: 16px; }
+  .portada p.sub + div:empty { min-height: 232px; margin-top: 14px; }
+}
+@media (scripting: enabled) and (max-width: 480px) and (pointer: coarse) { .portada p.sub + div:empty { min-height: 300px; } }
 .enlace-sec { color: var(--texto2); font-size: 14.5px; text-decoration: underline; text-decoration-color: var(--linea2); text-underline-offset: 3px; }
 .enlace-sec:hover { color: var(--texto); text-decoration-color: currentColor; }
-.ventana { border-radius: 14px; border: 1px solid var(--linea2); background: var(--panel); box-shadow: 0 40px 90px -40px #000, 0 0 0 6px rgba(255, 214, 200, 0.025); overflow: hidden; }
+.ventana { border-radius: 10px; border: 1px solid rgba(236, 230, 214, 0.34); background: var(--panel); box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6); overflow: hidden; }
 .ventana .barra { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--linea); align-items: center; }
-.ventana .barra i { width: 9px; height: 9px; border-radius: 50%; background: var(--panel2); }
+.ventana .barra i { width: 9px; height: 9px; border-radius: 50%; background: var(--linea2); }
 .ventana .barra span { margin-left: 8px; font: 500 11.5px var(--f-texto); color: var(--apagado); }
 .ventana img { width: 100%; height: auto; object-fit: cover; object-position: top left; }
 .ventana img.cap { aspect-ratio: 1366 / 860; }
 
 /* ---------------- del log al historial */
-.seccion { padding-block: 40px; }
-.seccion.franja { background: var(--fondo2); border-block: 1px solid var(--linea); }
-.cab-sec { max-width: 680px; margin-bottom: 22px; }
-.cab-sec h2 { font-size: clamp(30px, 3.6vw, 42px); line-height: 1.08; margin: 12px 0 12px; }
-.cab-sec p { color: var(--texto2); margin: 0; font-size: 17px; }
+.seccion { padding-block: 72px; }
+.seccion.franja { background: rgba(236, 230, 214, 0.025); border-block: 1px solid var(--linea); }
+.cab-sec { max-width: 760px; margin-bottom: 36px; }
+.cab-sec h2 { font-size: clamp(28px, 3.4vw, 42px); line-height: 1.12; margin: 14px 0 12px; }
+.cab-sec p { color: var(--texto2); margin: 0; font-size: 17px; line-height: 1.6; }
 .conversion { display: grid; grid-template-columns: minmax(0, 1.1fr) auto minmax(0, 1fr); gap: 22px; align-items: center; }
-.log { background: #080102; border: 1px solid var(--linea); border-radius: 14px; padding: 18px 18px 16px; font: 12.5px/1.7 var(--f-mono); color: #a99590; overflow-x: auto; min-width: 0; }
+.log { background: #0a0c0b; border: 1px solid var(--linea); border-radius: 8px; padding: 18px 18px 16px; font: 12.5px/1.7 var(--f-mono); color: var(--apagado); overflow-x: auto; min-width: 0; }
 .log .t { color: var(--apagado); display: block; margin-bottom: 8px; font-family: var(--f-texto); font-size: 12px; }
-.log b { color: var(--oro); font-weight: 500; }
-.log .k { color: #e7a1a6; }
+.log b { color: var(--texto); font-weight: 500; }
+.log .k { color: #cfc8b6; }
 .log pre { margin: 0; white-space: pre; }
-.flecha-c { color: var(--carmesi); }
+.flecha-c { color: var(--apagado); }
 .flecha-c svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.match { background: var(--panel); border: 1px solid var(--linea2); border-radius: 14px; padding: 16px; min-width: 0; }
+.match { background: var(--panel); border: 1px solid var(--linea2); border-radius: 8px; padding: 16px; min-width: 0; }
 .m-cab { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: 12px; align-items: center; }
-.res { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; font: 700 17px var(--f-display); background: var(--oro-suave); color: var(--oro); }
+.res { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font: 600 15px var(--f-mono); background: var(--hueso); color: var(--fondo); }
 .m-nom { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .m-sub { font-size: 13px; color: var(--apagado); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.marcador { font: 600 18px var(--f-display); font-variant-numeric: tabular-nums; display: flex; gap: 10px; align-items: center; }
-.puntos { display: flex; gap: 5px; } .puntos i { width: 9px; height: 9px; border-radius: 50%; background: var(--oro); } .puntos i.d { background: var(--ko); }
+.marcador { font: 500 18px var(--f-mono); font-variant-numeric: tabular-nums; display: flex; gap: 10px; align-items: center; }
+.puntos { display: flex; gap: 5px; } .puntos i { width: 8px; height: 8px; transform: rotate(45deg); background: var(--hueso); } .puntos i.d { background: none; border: 1.5px solid #8c8676; }
 .juegos { margin: 12px 0 0 52px; display: grid; gap: 4px; }
-.juego { display: grid; grid-template-columns: minmax(0, 1fr) 54px 74px; gap: 8px; font-size: 13.5px; padding: 6px 10px; border-radius: 9px; background: rgba(255, 255, 255, 0.022); align-items: center; }
+.juego { display: grid; grid-template-columns: minmax(0, 1fr) 54px 74px; gap: 8px; font-size: 13.5px; padding: 6px 10px; border-radius: 4px; background: rgba(236, 230, 214, 0.04); align-items: center; }
 .juego .g { color: var(--apagado); font-size: 12.5px; }
-.chip { justify-self: start; font: 600 11.5px var(--f-texto); border-radius: 999px; padding: 2px 9px; background: var(--oro-suave); color: var(--oro); }
-.chip.d { background: var(--ko-suave); color: var(--ko); }
+.chip { justify-self: start; font: 500 11.5px var(--f-texto); border-radius: 4px; padding: 2px 9px; background: rgba(236, 230, 214, 0.12); color: var(--texto); }
+.chip.d { background: none; box-shadow: inset 0 0 0 1px #8c8676; color: var(--ko); }
 .mano { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
-.mano span { font-size: 12px; background: var(--panel2); border: 1px solid var(--linea); border-radius: 7px; padding: 3px 8px; }
-.mano span b { color: var(--oro); font-weight: 600; margin-right: 3px; }
+.mano span { font-size: 12px; background: var(--panel2); border: 1px solid var(--linea); border-radius: 4px; padding: 3px 8px; }
+.mano span b { color: var(--texto); font: 600 12px var(--f-mono); margin-right: 3px; }
 
 /* ---------------- funciones */
-.funciones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--linea); border: 1px solid var(--linea); border-radius: 16px; overflow: hidden; }
-.funcion { background: var(--fondo); padding: 26px 24px 28px; }
-.funcion svg { width: 26px; height: 26px; fill: none; stroke: var(--oro); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.funcion h3 { font-size: 20px; margin: 14px 0 8px; }
-.funcion p { margin: 0; color: var(--texto2); font-size: 15px; }
+.funciones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--linea); border: 1px solid var(--linea); border-radius: 8px; overflow: hidden; }
+.funcion { background: #0f1312; padding: 28px 26px 30px; }
+.funcion svg { width: 26px; height: 26px; fill: none; stroke: var(--hueso); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.funcion h3 { font-size: 22px; margin: 14px 0 8px; }
+.funcion p { margin: 0; color: var(--texto2); font-size: 16px; line-height: 1.6; }
 
 /* ---------------- capturas */
 .pestanas { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
-.pestanas button { border: 1px solid var(--linea2); background: none; color: var(--texto2); border-radius: 999px; padding: 7px 16px; font: 600 14px var(--f-texto); cursor: pointer; }
-.pestanas button[aria-selected="true"] { background: rgba(194, 54, 63, 0.16); border-color: rgba(194, 54, 63, 0.5); color: var(--oro); }
+.pestanas button { border: 1px solid var(--linea2); background: none; color: var(--texto2); border-radius: 4px; min-height: 36px; padding: 0 14px; font: 500 13px var(--f-texto); cursor: pointer; }
+.pestanas button[aria-selected="true"] { background: var(--hueso); border-color: var(--hueso); color: var(--fondo); font-weight: 600; }
 .pie-captura { margin-top: 12px; font-size: 14px; color: var(--apagado); }
 
 /* ---------------- pasos */
-.pasos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; counter-reset: paso; }
-.paso { border-top: 2px solid var(--carmesi); padding-top: 18px; }
-.paso::before { counter-increment: paso; content: counter(paso); font: 700 44px/1 var(--f-display); color: var(--panel2); -webkit-text-stroke: 1px var(--linea2); }
-.paso h3 { font-size: 21px; margin: 10px 0 8px; }
-.paso p { margin: 0; color: var(--texto2); font-size: 15px; }
-.ruta { font: 13px var(--f-mono); background: var(--panel); border: 1px solid var(--linea); border-radius: 8px; padding: 2px 7px; color: var(--texto); white-space: nowrap; }
+.pasos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; counter-reset: paso; }
+.paso { border-top: 1px solid var(--linea2); padding-top: 24px; }
+.paso::before { counter-increment: paso; content: counter(paso); display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--hueso); color: var(--fondo); font: 600 18px/1 var(--f-mono); }
+.paso h3 { font-size: 24px; margin: 16px 0 10px; }
+.paso p { margin: 0; color: var(--texto2); font-size: 16px; line-height: 1.6; }
+.ruta { font: 13px var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 4px; padding: 2px 7px; color: var(--texto); white-space: nowrap; }
 
 /* ---------------- preguntas */
-.preguntas { display: grid; gap: 10px; max-width: 820px; }
-details { background: var(--panel); border: 1px solid var(--linea); border-radius: 14px; padding: 4px 20px; }
-details[open] { border-color: var(--linea2); }
-summary { cursor: pointer; list-style: none; padding: 14px 0; font-weight: 600; display: flex; justify-content: space-between; gap: 16px; }
+.preguntas { display: grid; gap: 0; max-width: 820px; border-bottom: 1px solid var(--linea); }
+/* :where(:not(.menu)) deja fuera el menú de teléfono sin subir la especificidad de estas reglas */
+details:where(:not(.menu)) { background: none; border: 0; border-top: 1px solid var(--linea); border-radius: 0; padding: 4px 0; }
+summary { cursor: pointer; list-style: none; }
 summary::-webkit-details-marker { display: none; }
-summary::after { content: "+"; color: var(--oro); font: 600 22px/1 var(--f-display); }
-details[open] summary::after { content: "–"; }
-details p { margin: 0 0 16px; color: var(--texto2); font-size: 15.5px; max-width: 70ch; }
+details:where(:not(.menu)) > summary { padding: 16px 0; font-size: 18px; font-weight: 500; display: flex; justify-content: space-between; gap: 16px; }
+details:where(:not(.menu)) > summary::after { content: "+"; color: var(--texto2); font: 400 22px/1 var(--f-texto); }
+details:where(:not(.menu))[open] > summary::after { content: "–"; }
+details p { margin: 0 0 16px; color: var(--texto2); font-size: 17px; line-height: 1.6; max-width: 70ch; }
 
 /* ---------------- apoyo */
-.apoyo { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: center; background: linear-gradient(135deg, #24090d, #150608 60%); border: 1px solid var(--linea2); border-radius: 22px; padding: 44px; }
-.apoyo h3 { font-size: clamp(28px, 3.2vw, 38px); margin: 12px 0 12px; }
+.apoyo { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: center; background: var(--panel); border: 1px solid var(--linea2); border-radius: 8px; box-shadow: inset 0 0 0 4px var(--panel), inset 0 0 0 5px rgba(236, 230, 214, 0.1); padding: 44px; }
+.apoyo h3 { font-size: clamp(28px, 3.2vw, 38px); line-height: 1.12; margin: 12px 0 12px; }
 .apoyo p { color: var(--texto2); margin: 0 0 12px; }
-.ia-caja { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: center; background: linear-gradient(135deg, #3d0d14, #1a0709 62%); border: 1px solid rgba(194, 54, 63, 0.6); border-radius: 22px; padding: 46px; box-shadow: 0 0 70px rgba(194, 54, 63, 0.2); }
-.ia-caja h2 { font-size: clamp(30px, 3.6vw, 44px); margin: 12px 0; }
+.ia-caja { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: center; background: var(--panel); border: 1px solid var(--linea2); border-radius: 8px; padding: 44px; box-shadow: inset 0 0 0 4px var(--panel), inset 0 0 0 5px rgba(236, 230, 214, 0.1); }
+.final-caja h2 { font-size: clamp(30px, 4vw, 48px); }
+.ia-caja h2 { font-size: clamp(28px, 3.4vw, 42px); line-height: 1.12; margin: 14px 0 12px; }
 .ia-caja p { color: var(--texto2); margin: 0 0 12px; }
-.ia-precio { font: 700 clamp(56px, 7vw, 84px)/1 var(--f-display); color: var(--oro); font-variant-numeric: tabular-nums; }
-.ia-precio small { font-size: 0.3em; color: var(--texto2); font-weight: 500; margin-left: 6px; }
+.ia-precio { font: 400 clamp(56px, 7vw, 84px)/1 var(--f-display); color: var(--texto); font-variant-numeric: tabular-nums; }
+.ia-precio small { font-family: var(--f-texto); font-size: 0.3em; color: var(--texto2); font-weight: 500; margin-left: 6px; }
 .ia-lista { border-top: 1px solid var(--linea2); padding-top: 18px; margin-top: 18px; }
 .ia-lista p { font-size: 15px; }
 .contacto { max-width: 680px; display: grid; gap: 16px; }
 .contacto label { display: grid; gap: 6px; color: var(--texto2); font-size: 15px; }
-.contacto input, .contacto select, .contacto textarea { background: #1a0a0d; color: var(--texto); border: 1px solid var(--linea2); border-radius: 10px; padding: 10px 12px; font: inherit; }
+.contacto input, .contacto select, .contacto textarea { background: rgba(13, 16, 15, 0.7); color: var(--texto); border: 1px solid var(--linea2); border-radius: 4px; min-height: 42px; padding: 10px 12px; font: inherit; }
 .contacto .casilla { display: flex; gap: 10px; align-items: flex-start; }
 .contacto .casilla input { margin-top: 5px; }
 .rejilla-contacto { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 @media (max-width: 600px) { .rejilla-contacto { grid-template-columns: minmax(0, 1fr); } }
-.gastos { display: grid; gap: 10px; }
-.gasto { display: flex; justify-content: space-between; gap: 12px; padding: 12px 16px; border-radius: 12px; background: rgba(0, 0, 0, 0.25); border: 1px solid var(--linea); font-size: 14.5px; }
-.gasto span:last-child { color: var(--apagado); text-align: right; }
+.pronto { color: var(--texto2); font-size: 16px; }
+/* botón de Metafy (VIS-04, punto 4), tamaño grande; solo se genera con enlace en contenido.json */
+.b-metafy { display: inline-flex; align-items: center; gap: 14px; min-height: 56px; padding: 0 24px 0 18px; border-radius: 6px; border: 1.5px solid transparent; background: linear-gradient(#141917, #141917) padding-box, linear-gradient(100deg, #F9CED5, #FFE7B7 53%, #D4F2FE) border-box; color: var(--texto); font: 600 16px var(--f-texto); text-decoration: none; }
+.b-metafy img { height: 30px; width: auto; }
 
 /* ---------------- pie */
 footer { border-top: 1px solid var(--linea); padding-block: 36px; color: var(--apagado); font-size: 13.5px; }
 footer .envoltura { display: grid; gap: 14px; }
 footer .fila { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; }
+footer a { color: var(--texto2); }
 footer .guias { gap: 6px 16px; }
 footer .guias a { color: inherit; }
 footer .guias b { color: var(--texto2); font-weight: 600; }
 footer .legal { max-width: 80ch; line-height: 1.6; }
 
 @media (max-width: 900px) {
-  .cab nav { display: none; }
   .portada .envoltura, .apoyo, .ia-caja, .conversion { grid-template-columns: minmax(0, 1fr); }
   .flecha-c { justify-self: center; transform: rotate(90deg); }
   .funciones, .pasos { grid-template-columns: minmax(0, 1fr); }
-  .portada { padding-block: 44px 24px; }
-  .apoyo { padding: 28px 22px; }
+  .portada { padding-block: 36px 28px; }
+  .portada .envoltura { gap: 32px; }
+  .seccion { padding-block: 48px; }
+  .cab-sec { margin-bottom: 26px; }
+  .ia-caja, .apoyo { padding: 28px 22px; }
+}
+/* ML-326b: la cabecera pasa al menú de teléfono mientras su fila de escritorio no cabe entera en una línea. Cada cabecera dice en
+   data-compacta (en su logotipo) desde qué ancho cabe su fila; en las demás cabe a 900 px. Hay un tramo por valor (mismas tres reglas). */
+@media (max-width: 1079px) {
+  .cab .envoltura:has(> .marca[data-compacta="1080"]) { gap: 10px 12px; }
+  .cab .envoltura:has(> .marca[data-compacta="1080"]) > nav, .cab .envoltura:has(> .marca[data-compacta="1080"]) > .idioma { display: none; }
+  .cab .envoltura:has(> .marca[data-compacta="1080"]) > .menu { display: block; }
+}
+@media (max-width: 1129px) {
+  .cab .envoltura:has(> .marca[data-compacta="1130"]) { gap: 10px 12px; }
+  .cab .envoltura:has(> .marca[data-compacta="1130"]) > nav, .cab .envoltura:has(> .marca[data-compacta="1130"]) > .idioma { display: none; }
+  .cab .envoltura:has(> .marca[data-compacta="1130"]) > .menu { display: block; }
+}
+@media (max-width: 1179px) {
+  .cab .envoltura:has(> .marca[data-compacta="1180"]) { gap: 10px 12px; }
+  .cab .envoltura:has(> .marca[data-compacta="1180"]) > nav, .cab .envoltura:has(> .marca[data-compacta="1180"]) > .idioma { display: none; }
+  .cab .envoltura:has(> .marca[data-compacta="1180"]) > .menu { display: block; }
+}
+/* la cabecera en español de la portada lleva siete enlaces y no cabe en 1180 px con los huecos de siempre: huecos algo menores, la misma letra */
+@media (min-width: 1180px) {
+  .cab .envoltura:has(> .marca[data-denso]) { gap: 18px 20px; }
+  .cab .envoltura:has(> .marca[data-denso]) > nav { gap: 14px; }
+  .cab .envoltura:has(> .marca[data-denso]) > .idioma { padding-inline: 8px; }
+}
+@media (max-width: 560px) {
+  .hero-cta .boton, .final-caja .boton, .paso .boton, .movil-caja .boton { width: 100%; justify-content: center; }
 }
 @media (max-width: 480px) {
-  .cab .boton span { display: none; }
   .juegos { margin-left: 0; }
 }
-a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 
 /* ---------------- teléfono: en lugar del ZIP, «envíate el enlace» (lo monta descarga.js solo en pantalla estrecha y táctil) */
-.movil-caja { scroll-margin-top: 84px; margin-top: 14px; padding: 18px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 14px; }
-.movil-tit { margin: 0 0 6px; font: 600 20px/1.2 var(--f-display); letter-spacing: 0.2px; color: var(--texto); }
+.movil-caja { scroll-margin-top: 84px; margin-top: 14px; padding: 18px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 8px; }
+.movil-tit { margin: 0 0 6px; font: 600 20px/1.2 var(--f-texto); color: var(--texto); }
 .movil-txt { margin: 0 0 14px; color: var(--texto2); font-size: 15px; }
 .movil-caja .boton { white-space: normal; text-align: center; justify-content: center; }
 .movil-zip { margin: 14px 0 0; font-size: 14px; }
 .movil-zip a { color: var(--texto2); text-decoration-color: var(--linea2); text-underline-offset: 3px; }
 .movil-estado { margin: 10px 0 0; font-size: 14px; font-weight: 600; color: var(--oro); overflow-wrap: anywhere; }
 .movil-estado:empty { display: none; }
+/* campo «envíate el enlace por correo» (solo si hay servidor; ML-295): 16 px en el campo para que iOS no amplíe la página al enfocarlo */
+.movil-correo { margin: 0 0 14px; }
+.movil-correo .movil-txt { margin-bottom: 10px; }
+.movil-correo-fila { display: flex; gap: 8px; align-items: stretch; }
+.movil-correo-fila input { flex: 1 1 auto; min-width: 0; font: 16px var(--f-texto); color: var(--texto); background: var(--panel2); border: 1px solid var(--linea2); border-radius: 8px; padding: 10px 12px; }
+.movil-correo-fila input:focus-visible { outline: 2px solid var(--oro); outline-offset: 1px; }
+.movil-caja .movil-correo-fila .boton { width: auto; flex: 0 0 auto; }
+.movil-correo-nota { margin: 8px 0 0; font-size: 13.5px; color: var(--texto2); }
+.movil-correo-estado { margin: 8px 0 0; font-size: 14px; font-weight: 600; color: var(--oro); overflow-wrap: anywhere; }
+.movil-correo-estado.error { color: #ff9b9b; }
+.movil-correo-estado:empty { display: none; }
 
 /* ---------------- Magic Online (2.3) */
-.mtgo-caja { margin-top: 28px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 16px; padding: 28px; }
+.mtgo-caja { margin-top: 28px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 8px; padding: 28px; }
 .mtgo-caja h3 { font-size: 22px; margin: 0 0 14px; }
 .mtgo-caja ul { margin: 0; padding-left: 20px; color: var(--texto2); display: grid; gap: 9px; font-size: 15.5px; max-width: 78ch; }
 .mtgo-caja li b { color: var(--texto); font-weight: 600; }
 .mtgo-caja code { font: 13px var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 6px; padding: 1px 6px; color: var(--texto); }
-.funcion .enlace-man { display: inline-block; margin-top: 10px; font-weight: 600; font-size: 15px; }
+.funcion .enlace-man { display: inline-block; margin-top: 10px; font-weight: 500; font-size: 15px; color: var(--texto); }
 @media (max-width: 480px) { .mtgo-caja { padding: 20px 18px; } }
 
 /* ---------------- novedades 2.2 */
-.novedades { display: grid; gap: 40px; }
-.novedad { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 40px; align-items: center; }
+.novedades { display: grid; gap: 96px; }
+.novedad { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 56px; align-items: center; }
 .novedad:nth-child(even) { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
 .novedad:nth-child(even) .ventana { order: 2; }
 .novedades.mtgo-capturas { margin-top: 28px; }
@@ -278,46 +350,51 @@ details[id] { scroll-margin-top: 90px; }
 /* sin «aspect-ratio: auto»: así el navegador reserva el alto de cada imagen con sus width/height y las imágenes perezosas no desplazan la página al cargar */
 .novedad .ventana img { height: auto; object-fit: contain; }
 .novedad .ventana.estrecha { justify-self: center; width: 100%; max-width: 440px; }
-.novedad h3 { font-size: clamp(24px, 2.6vw, 30px); line-height: 1.12; margin: 12px 0 10px; }
-.novedad p { margin: 0; color: var(--texto2); font-size: 17px; max-width: 34em; }
+.novedad h3 { font-size: 26px; line-height: 1.2; margin: 12px 0 10px; }
+.novedad p { margin: 0; color: var(--texto2); font-size: 17px; line-height: 1.6; max-width: 52ch; }
 @media (max-width: 900px) {
-  .novedades { gap: 44px; }
+  .novedades { gap: 56px; }
   .novedad, .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .novedad:nth-child(even) .ventana { order: 0; }
 }
+
+/* capturas inclinadas (WEB-04): solo imágenes fijas marcadas con .inclinable en bloques alternos, solo con ratón y con sitio; nunca vídeos ni teléfono */
+@media (min-width: 901px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .novedad:has(> .ventana.inclinable) { perspective: 1400px; }
+  .novedad > .ventana.inclinable { transform: rotateY(-14deg) rotateX(5deg); transform-origin: left center; transition: transform .5s ease; }
+  .novedad:nth-child(even) > .ventana.inclinable { transform: rotateY(14deg) rotateX(5deg); transform-origin: right center; }
+  .novedad:hover > .ventana.inclinable, .novedad:focus-within > .ventana.inclinable { transform: none; }
+}
 /* ---------------- tanda 2A (ML-153): portada reordenada */
 .portada .hero-cta { margin-top: 0; }
-.nota-hero { margin-top: 14px; font-size: 14px; color: var(--texto2); display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.nota-hero { margin-top: 14px; font-size: 14px; color: var(--apagado); display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .nota-hero a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-.seccion.confianza { padding-block: 30px; }
+.seccion.confianza { padding-block: 40px; background: none; }
 .confianza-lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px 32px; }
-.confianza-lista b { display: block; font: 600 16px/1.3 var(--f-display); letter-spacing: 0.2px; color: var(--texto); margin-bottom: 4px; }
-.confianza-lista b::before { content: "✓"; color: var(--oro); margin-right: 8px; }
-.confianza-lista span { display: block; font-size: 14px; line-height: 1.5; color: var(--texto2); overflow-wrap: anywhere; }
-.confianza-lista a { color: var(--oro); white-space: nowrap; }
+.confianza-lista b { display: block; font: 600 17px/1.3 var(--f-texto); letter-spacing: 0; color: var(--texto); margin-bottom: 4px; }
+.confianza-lista span { display: block; font-size: 15px; line-height: 1.5; padding-left: 20px; color: var(--texto2); overflow-wrap: anywhere; }
+.confianza-lista a { color: var(--texto2); white-space: nowrap; }
 .novedad .ventana video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; }
 .novedad .ventana figure.video { margin: 0; }
 .enlace-seccion { margin: 36px 0 0; font-weight: 600; font-size: 16px; }
+.enlace-seccion a { color: var(--texto); font-weight: 500; }
 .cta-seccion { margin-top: 40px; }
-.paso .destacado { margin-top: 14px; padding: 12px 14px; border: 1px solid rgba(233, 179, 127, 0.55); border-radius: 12px; background: var(--oro-suave); color: var(--texto); }
-.paso details { margin-top: 14px; padding: 0 14px; border-radius: 12px; }
+.paso .destacado { margin-top: 14px; padding: 12px 14px; border: 1px solid rgba(226, 180, 92, 0.55); border-radius: 12px; background: var(--oro-suave); color: var(--texto); }
+.paso details { margin-top: 14px; }
 .paso details summary { padding: 11px 0; font-size: 15px; }
 .paso details p { font-size: 14px; margin: 0 0 12px; }
 .paso details p:last-child { margin-bottom: 14px; }
 .final-caja .nota-hero { margin-top: 16px; }
-.ia-caja + .apoyo { margin-top: 32px; }
 .paso > p + p { margin-top: 10px; }
 #descargar, .seccion[id] { scroll-margin-top: 76px; }
 .motivos .novedad, .motivos .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .motivos .novedad .ventana { max-width: 470px; }
 .motivos .novedad:nth-child(even) .ventana { justify-self: end; }
-.ia-caja { padding: 38px; }
-.apoyo { padding: 34px; }
-.funcion { padding: 22px 22px 24px; }
 .novedades.dos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; align-items: start; }
 .novedades.dos .novedad, .novedades.dos .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr); gap: 18px; }
 .novedades.dos .novedad:nth-child(even) .ventana { order: 0; }
 .novedades.dos .ventana.estrecha { max-width: 300px; }
+.ia-caja + .apoyo { margin-top: 32px; }
 @media (max-width: 900px) {
   .novedades.dos { grid-template-columns: minmax(0, 1fr); }
   .motivos .novedad, .motivos .novedad:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
@@ -326,51 +403,58 @@ details[id] { scroll-margin-top: 90px; }
 }
 footer { padding-block: 28px; }
 @media (max-width: 767px) {
-  .seccion { padding-block: 30px; }
-  .cab-sec { margin-bottom: 18px; }
-  .portada { padding-block: 28px 16px; }
   .portada p.sub { font-size: 17px; margin-bottom: 18px; }
-  .novedades { gap: 30px; }
   .novedad, .novedad:nth-child(even) { gap: 14px; }
   .novedad h3 { margin: 8px 0 6px; }
-  .novedad p { font-size: 16px; }
   .novedades.dos .ventana.estrecha { max-width: 230px; }
-  .funcion svg { width: 22px; height: 22px; }
-  .funcion h3 { font-size: 19px; margin: 10px 0 5px; }
-  .funcion p { font-size: 14.5px; line-height: 1.5; }
-  details { padding: 2px 16px; }
-  summary { padding: 11px 0; }
   footer { padding-block: 20px; }
   .contacto { gap: 12px; }
-  .preguntas { gap: 8px; }
-  .ia-caja { padding: 26px 20px; gap: 24px; }
-  .apoyo { padding: 24px 20px; }
-  .funcion { padding: 16px 16px 18px; }
+  .ia-caja { gap: 24px; }
+  .funcion svg { width: 22px; height: 22px; }
+  .funcion h3 { margin: 10px 0 5px; }
   .movil-zip a { display: inline-flex; align-items: center; min-height: 44px; }
   footer .fila { gap: 0 20px; }
   footer .fila a, footer .guias a { display: inline-flex; align-items: center; min-height: 44px; }
 }
-
-/* ML-156: selector de idioma con cuatro idiomas (sin empujar el botón de descarga) y separación del enlace bajo la caja de móvil */
-@media (max-width: 600px) {
-  .cab .envoltura { gap: 8px; }
-  .idioma { padding: 5px 9px; }
-  .marca b { font-size: 17px; }
+@media (max-width: 560px) {
+  .confianza-lista { grid-template-columns: minmax(0, 1fr); }
+  .novedades.dos .ventana.estrecha { max-width: 260px; }
 }
-@media (max-width: 380px) { .marca span { display: none; } }
+
+/* separación del enlace bajo la caja de móvil */
 html.movil .hero-cta { margin-top: 16px; }
-</style></head>
+</style><style>/* huecos de anuncio de MDN (WEB-09). Cada hueco reserva su alto exacto antes de que MDN responda (728x90 si el hueco mide 728 px o más, 300x250 si
+   no; MDN elige el formato por el ancho de la caja, y la caja y la consulta miden lo mismo), así que la página no salta al cargar el anuncio */
+.hueco-mdn { container-type: inline-size; display: grid; justify-items: center; gap: 8px; padding: 24px 0; border-block: 1px solid var(--linea); }
+.hm-eti { font: 500 11px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--apagado); }
+.hm-caja { width: 300px; height: 250px; overflow: hidden; border-radius: 6px; background: var(--panel); }
+@media (min-width: 768px) { .hueco-mdn { padding: 28px 20px; } }
+@container (min-width: 728px) { .hm-caja { width: 728px; height: 90px; } }
+/* el anuncio de casa (un enlace a Learn) está debajo del de MDN: solo se ve si MDN no tiene anuncio, no llega a tiempo o no hay JavaScript */
+.hm-casa { box-sizing: border-box; width: 100%; height: 100%; display: flex; align-items: center; gap: 18px; padding: 0 22px; border: 1px solid var(--linea2); border-radius: 6px; color: var(--texto); text-decoration: none; background: radial-gradient(20em 9em at 88% 50%, rgba(52, 84, 68, .7), transparent 72%) #141917; visibility: hidden; }
+.hm-casa:focus-visible { outline: 2px solid var(--texto); outline-offset: -4px; }
+.hm-t { display: grid; gap: 4px; min-width: 0; }
+.hm-casa strong { font: 400 22px/1.15 var(--f-display); }
+.hm-casa span span { color: var(--texto2); font-size: 14px; line-height: 1.35; }
+.hm-casa em { margin-left: auto; font-style: normal; font-weight: 600; white-space: nowrap; }
+.hm-caja[data-mdn-state="empty"] .hm-casa, .hueco-mdn[data-propio] .hm-casa { visibility: visible; }
+@media (scripting: none) { .hm-casa { visibility: visible; } }
+@container (max-width: 727.98px) { .hm-casa { flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; } .hm-casa em { margin: 6px 0 0; } }
+@media (prefers-reduced-motion: reduce) { .hueco-mdn, .hueco-mdn * { animation: none !important; transition: none !important; } }
+.hueco-mdn.suelto { grid-column: 1 / -1; border: 0; padding: 0; margin-block: 12px; }</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "VideoObject", "name": "Every Arena and Magic Online match, logged on its own.", "description": "Silent 15-second video of ManaLab with demo data: the dashboard with matches logged on their own, an opening hand and a mulligan, a step-by-step replay, win rate against each deck and the in-game overlay with draw odds.", "thumbnailUrl": "https://manalab.es/video/manalab-3.0-poster.jpg", "contentUrl": "https://manalab.es/video/manalab-3.0.mp4", "uploadDate": "2026-11-19"}, {"@type": "VideoObject", "name": "Your opening hand and every mulligan", "description": "Every game keeps your opening hand, the hand you keep after a mulligan and your sideboarding, plus mulligan stats.", "thumbnailUrl": "https://manalab.es/video/funciones/03-opening-hand-mulligans.jpg", "contentUrl": "https://manalab.es/video/funciones/03-opening-hand-mulligans.mp4", "uploadDate": "2026-11-19"}, {"@type": "VideoObject", "name": "Where you win and where you lose", "description": "Statistics: win rate, streaks and results by day, by mulligans, by deck, by opponent and by matchup.", "thumbnailUrl": "https://manalab.es/video/funciones/05-statistics.jpg", "contentUrl": "https://manalab.es/video/funciones/05-statistics.mp4", "uploadDate": "2026-11-19"}, {"@type": "VideoObject", "name": "Every game, replayed step by step", "description": "Replay: the game turn by turn, with the real cards and jumps to the key moments.", "thumbnailUrl": "https://manalab.es/video/funciones/02-replay.jpg", "contentUrl": "https://manalab.es/video/funciones/02-replay.mp4", "uploadDate": "2026-11-19"}]}</script>
+</head>
 <body>
 <!-- aviso de la versión nueva: quitar o cambiar en la siguiente release -->
 <div class="aviso-version" role="note">
 <div class="envoltura">
-<span><b>ManaLab 2.3 is out: now for Arena and Magic Online</b></span>
+<span><b>ManaLab 3.0 is out: a new look for your matches.</b></span>
 <a href="/novedades/">See what's new →</a>
 </div>
 </div>
 <header class="cab">
 <div class="envoltura">
-<a class="marca" href="#inicio"><img alt="ManaLab logo" height="36" src="img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
+<a class="marca" data-compacta="1180" href="#inicio"><img alt="ManaLab logo" height="36" src="img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
 <nav aria-label="Secciones">
 <a href="#funciones">Features</a>
 <a href="#mtgo">Magic Online</a>
@@ -378,11 +462,28 @@ html.movil .hero-cta { margin-top: 16px; }
 <a href="#empezar">Get started</a>
 <a href="#preguntas">FAQ</a>
 <a href="#ia">AI analysis</a>
+<a href="/learn/">Learn</a>
 </nav>
 <a class="idioma" href="/es/" hreflang="es" id="idioma" lang="es" title="Ver en español">ES</a>
 <a class="idioma" href="/pt/" hreflang="pt-BR" lang="pt-BR" title="Ver em português">PT</a>
 <a class="idioma" href="/ja/" hreflang="ja" lang="ja" title="日本語で見る">日本語</a>
-<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-cabecera-en" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download</span></a>
+<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga-portada-en-cabecera" data-goatcounter-title="descarga-portada-en-cabecera" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download</span></a>
+<details class="menu"><summary aria-label="Menu"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary><div class="menu-caja">
+<nav aria-label="Secciones">
+<a href="#funciones">Features</a>
+<a href="#mtgo">Magic Online</a>
+<a href="#coaches">Coaches</a>
+<a href="#empezar">Get started</a>
+<a href="#preguntas">FAQ</a>
+<a href="#ia">AI analysis</a>
+<a href="/learn/">Learn</a>
+</nav>
+<div class="menu-idiomas">
+<a class="idioma" href="/es/" hreflang="es" lang="es" title="Ver en español">ES</a>
+<a class="idioma" href="/pt/" hreflang="pt-BR" lang="pt-BR" title="Ver em português">PT</a>
+<a class="idioma" href="/ja/" hreflang="ja" lang="ja" title="日本語で見る">日本語</a>
+</div>
+</div></details>
 </div>
 </header>
 <main id="inicio">
@@ -394,17 +495,16 @@ html.movil .hero-cta { margin-top: 16px; }
 <p class="sub">ManaLab reads the Arena and Magic Online logs while you play and keeps your hands, mulligans and the opponent's deck. Then it shows where you win and lose.</p>
 <div data-movil-aqui></div>
 <div class="hero-cta">
-<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-hero-en" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a>
+<a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga-portada-en-hero" data-goatcounter-title="descarga-portada-en-hero" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a>
 <a class="enlace-sec" href="#capturas">See the app</a>
 </div>
 <p class="nota-hero"><span>Version <span data-version>3.0.0</span> · ZIP · nothing to install</span><a href="/safety/">Is it safe? Check it yourself →</a></p>
-<div class="nota-desc"><span>The app is free. Only the AI is paid</span><span>Your data stays on your PC unless you ask for AI</span><span>App in 9 languages</span></div>
+<div class="nota-desc"><span>The app is free. Only the AI is paid</span><span>App in 9 languages</span></div>
 </div>
 <div class="hero-medio">
 <div class="hero-video" id="hero-video">
-<video aria-label="Silent 15-second video of ManaLab with demo data: the match list with wins and losses logged on their own, a game with its opening hand, mulligans and screenshot, win rate by matchup and play/draw, and a step-by-step replay." autoplay="" height="720" loop="" muted="" playsinline="" poster="video/hero/manalab-hero-en-poster.jpg" preload="metadata" width="1280">
-<source src="video/hero/manalab-hero-en.webm" type="video/webm"/>
-<source src="video/hero/manalab-hero-en.mp4" type="video/mp4"/>
+<video aria-label="Silent 15-second video of ManaLab with demo data: the dashboard with matches logged on their own, an opening hand and a mulligan, a step-by-step replay, win rate against each deck and the in-game overlay with draw odds." autoplay="" height="720" loop="" muted="" playsinline="" poster="video/manalab-3.0-poster.jpg" preload="metadata" width="1280">
+<source src="video/manalab-3.0.mp4" type="video/mp4"/>
 </video>
 <button aria-label="Pause video" class="hero-pausa" data-pausa="Pause video" data-play="Play video" type="button"><svg aria-hidden="true" class="ico-pausa" viewbox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"></path></svg><svg aria-hidden="true" class="ico-play" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></button>
 </div>
@@ -454,6 +554,7 @@ html.movil .hero-cta { margin-top: 16px; }
 </ul>
 </div>
 </section>
+<aside class="hueco-mdn" aria-label="Advertisement"><span class="hm-eti" aria-hidden="true">Advertisement</span><div class="hm-caja" data-mdn="auto" data-mdn-theme="dark"><a class="hm-casa" href="/learn/" data-goatcounter-click="anuncio-casa-portada-en-1" data-goatcounter-title="anuncio-casa-portada-en-1"><span class="hm-t"><strong>Magic guides in Learn</strong><span>From Metafy creators, for Arena and Magic Online.</span></span><em>See the guides →</em></a></div></aside>
 <section class="seccion" id="motivos">
 <div class="envoltura">
 <div class="cab-sec">
@@ -463,8 +564,8 @@ html.movil .hero-cta { margin-top: 16px; }
 <div class="novedades motivos">
 <div class="novedad">
 <div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="video/funciones/03-opening-hand-mulligans.jpg" aria-label="Every game keeps your opening hand, the hand you keep after a mulligan and your sideboarding, plus mulligan stats." title="Every game keeps your opening hand, the hand you keep after a mulligan and your sideboarding, plus mulligan stats."><source src="video/funciones/03-opening-hand-mulligans.mp4" type="video/mp4"><a href="video/funciones/03-opening-hand-mulligans.mp4">MP4</a></video></figure></div>
-<div><h3>Your opening hand and every mulligan, with a screenshot</h3>
-<p>ManaLab keeps the hand you were dealt, the one you kept and a screenshot of each decision. Nothing to write down.</p></div>
+<div><h3>Your opening hand and every mulligan</h3>
+<p>ManaLab keeps the hand you were dealt and the one you kept. Nothing to write down.</p></div>
 </div>
 <div class="novedad">
 <div class="ventana"><figure class="video"><video controls muted playsinline preload="none" width="1280" height="720" poster="video/funciones/05-statistics.jpg" aria-label="Statistics: win rate, streaks and results by day, by mulligans, by deck, by opponent and by matchup." title="Statistics: win rate, streaks and results by day, by mulligans, by deck, by opponent and by matchup."><source src="video/funciones/05-statistics.mp4" type="video/mp4"><a href="video/funciones/05-statistics.mp4">MP4</a></video></figure></div>
@@ -477,24 +578,24 @@ html.movil .hero-cta { margin-top: 16px; }
 <p>Go through the game turn by turn with the real cards and mark the key moments.</p></div>
 </div>
 </div>
-<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-motivos-en" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga-portada-en-motivos" data-goatcounter-title="descarga-portada-en-motivos" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></div>
 </div>
 </section>
 <section class="seccion franja" id="mtgo">
 <div class="envoltura">
 <div class="cab-sec">
 <div class="eti">Arena and Magic Online</div>
-<h2>Now for Arena and Magic Online</h2>
+<h2>A free tracker for Arena and Magic Online</h2>
 </div>
 <div class="novedades dos">
 <div class="novedad">
-<div class="ventana"><picture><source srcset="img/en_mtgo_panel.webp" type="image/webp"><img alt="ManaLab Dashboard with Arena listening and Magic Online in a game, reading mtgo.log, and the latest matches with an MTGO tag, shown with sample data" height="860" loading="lazy" src="img/en_mtgo_panel.jpg" width="1366"/></picture></div>
+<div class="ventana"><picture><source srcset="img/en_mtgo_panel.webp" type="image/webp"><img alt="ManaLab Dashboard with Arena listening and Magic Online in a game, reading mtgo.log, and the latest matches with an MTGO tag" height="860" loading="lazy" src="img/en_mtgo_panel.jpg" width="1366"/></picture></div>
 <div><div class="eti">Dashboard</div>
 <h3>Arena and Magic Online, side by side</h3>
 <p>The Dashboard shows the state of each game and your latest matches, with a small MTGO tag on the ones you played in Magic Online.</p></div>
 </div>
 <div class="novedad">
-<div class="ventana"><picture><source srcset="img/en_mtgo_banquillo.webp" type="image/webp"><img alt="ManaLab sideboard notice over Magic Online between games: «Did you change your sideboard?» with the buttons «Use this change», «No changes» and «Edit», shown with sample data" height="440" loading="lazy" src="img/en_mtgo_banquillo.jpg" width="1000"/></picture></div>
+<div class="ventana"><picture><source srcset="img/en_mtgo_banquillo.webp" type="image/webp"><img alt="ManaLab sideboard notice over Magic Online: «Did you change your sideboard?» with «Use this change», «No changes» and «Edit»" height="440" loading="lazy" src="img/en_mtgo_banquillo.jpg" width="1000"/></picture></div>
 <div><div class="eti">Sideboard</div>
 <h3>Confirm your sideboard in one click</h3>
 <p>Magic Online doesn't send your sideboarded list in time, so between games a small panel asks whether you changed it: use last time's change, say there were none, or open the editor.</p></div>
@@ -507,7 +608,7 @@ html.movil .hero-cta { margin-top: 16px; }
 <div class="envoltura">
 <div class="cab-sec">
 <div class="eti">Features</div>
-<h2>Everything you'd note down after each match, done for you</h2>
+<h2>Your match notes, already written</h2>
 </div>
 <div class="funciones">
 <div class="funcion"><svg viewbox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"></path><circle cx="18.5" cy="16.5" r="2.5"></circle></svg>
@@ -515,7 +616,7 @@ html.movil .hero-cta { margin-top: 16px; }
 <p>Each Bo3 is one row with its score (2-1, 1-2…) that opens to show every game: play or draw, result and mulligans.</p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><circle cx="9" cy="11" r="2"></circle><path d="m21 15-4.5-4.5L8 19"></path></svg>
 <h3>Hands and screenshots</h3>
-<p>Your opening hand, the hand you kept and screenshots of the key moments. Press F8 or the button over the game to save any moment you want and add a note to it. Screenshots are saved on your PC and can be turned off in Settings.</p></div>
+<p>Your opening hand and the hand you kept. Press F8 or the button over the game to save a screenshot of any moment you want and add a note to it. Screenshots are saved on your PC.</p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l2.5 2.5"></path></svg>
 <h3>Opponent's deck</h3>
 <p>It compares the opponent's cards with the most played decks of the game's format and names the closest one. The meta lists update every 3 days.</p></div>
@@ -527,8 +628,8 @@ html.movil .hero-cta { margin-top: 16px; }
 <p>Each list you play with its win rate. Sideboard variants are grouped under the same deck, and you can rename them. In Magic Online, a deck takes the name you saved it with when the list matches exactly; otherwise it is named by its colors.</p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path d="M9 10h6M9 13.5h4"></path></svg>
 <h3>AI loss review (subscribers)</h3>
-<p>Subscribers get an AI analysis of every lost game: what went wrong, where you could have played better and what to try next. Subscription: 5 € per month on Ko-fi.</p>
-<p style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 18px"><a href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-funciones-en" rel="noopener" style="font-weight:600" target="_blank"><span>Subscribe on Ko-fi →</span></a></p></div>
+<p>Subscribers get an AI analysis of every lost game: what went wrong, where you could have played better and what to try next. Subscription: $6 per month on Metafy.</p>
+<p style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 18px"><a href="https://metafy.gg/@manalab/members?membershipId=6696173a-b185-4a9e-ad09-abce63885f73" data-goatcounter-click="apoyo" data-goatcounter-title="metafy-funciones-en" rel="noopener" style="font-weight:600" target="_blank"><span>Subscribe on Metafy →</span></a></p></div>
 <div class="funcion"><svg viewbox="0 0 24 24"><rect height="12" rx="2" width="18" x="3" y="4"></rect><path d="M8 20h8M12 16v4"></path><path d="M7 9h5M7 12h8"></path></svg>
 <h3>Overlay while you play</h3>
 <p>A separate window next to the game, in Arena or Magic Online, with your deck's remaining cards, the opponent's cards seen so far and the turn. It only shows public information or what can be worked out from what has been played. In Magic Online it can show less when the log has no table state.</p>
@@ -540,7 +641,7 @@ html.movil .hero-cta { margin-top: 16px; }
 <h3>Coach and team</h3>
 <p>Error tags and notes on each game, matchup tables and a report for your coach. Team mode shares your games, screenshots and notes through a common folder, and your coach sees each game in full, replay included.</p></div>
 </div>
-<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-funciones-en" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></div>
+<div class="cta-seccion"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga-portada-en-funciones" data-goatcounter-title="descarga-portada-en-funciones" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></div>
 </div>
 </section>
 <section class="seccion franja" id="capturas">
@@ -549,13 +650,13 @@ html.movil .hero-cta { margin-top: 16px; }
 <div class="eti">The app</div>
 <h2>Built to review, not to fill in</h2>
 </div>
-<div aria-label="Capturas" class="pestanas" role="tablist">
+<div aria-label="Capturas" class="pestanas" data-raiz="" data-idioma="en" role="tablist">
 <button aria-selected="true" data-tab="panel" id="t-panel" role="tab">Dashboard</button>
 <button aria-selected="false" data-tab="partida" id="t-partida" role="tab">Games</button>
 <button aria-selected="false" data-tab="estadisticas" id="t-est" role="tab">Statistics</button>
 </div>
 <div class="ventana"><div class="barra"><i></i><i></i><i></i><span>ManaLab</span></div>
-<picture><source srcset="img/en_panel.webp" type="image/webp"><img alt="ManaLab dashboard with the latest matches, shown with Arena sample data" class="cap" data-cap="panel" height="860" id="galeria" loading="lazy" src="img/en_panel.jpg" width="1366"/></picture></div>
+<picture><source srcset="img/en_panel.webp" type="image/webp"><img alt="ManaLab dashboard with the latest matches" class="cap" data-cap="panel" height="860" id="galeria" loading="lazy" src="img/en_panel.jpg" width="1366"/></picture></div>
 <p class="pie-captura">Screenshots with sample data.</p>
 </div>
 </section>
@@ -621,18 +722,22 @@ html.movil .hero-cta { margin-top: 16px; }
 <div class="envoltura">
 <div class="cab-sec" id="descargar">
 <div class="eti">Get started</div>
-<h2>Three steps, just once</h2>
+<h2>Download the tracker in three steps</h2>
 </div>
 <div class="pasos">
 <div class="paso"><h3>Download and open</h3>
 <p>Windows 10 or 11. Unzip the file and open ManaLab.exe. Nothing to install.</p>
-<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-portada-en" id="enlace-descarga" rel="noopener"><span>Download free</span></a></p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-descarga data-goatcounter-click="descarga-portada-en-descargar" data-goatcounter-title="descarga-portada-en-descargar" id="enlace-descarga" rel="noopener"><span>Download free</span></a></p>
 <p class="nota-descarga">Version <span data-version>3.0.0</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">other versions</a></p>
 <template id="bloque-movil"><div class="movil-caja">
 <h4 class="movil-tit">ManaLab runs on your computer</h4>
-<p class="movil-txt">Send yourself the link and download it there.</p>
-<p><button class="boton prim" data-compartir data-copiado="Link copied" data-titulo="compartir-movil-en" data-url="https://manalab.es/" type="button"><span>Send me the link</span></button></p>
-<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-descarga data-titulo="descarga-movil-en" rel="noopener">Download the ZIP anyway</a></p>
+<form class="movil-correo" data-correo-url="https://registro-ia.eusebiog76.workers.dev/enlace-descarga" data-idioma="en" data-evento="correo-movil-portada-en" data-ok="Sent! Check your inbox." data-e-correo="That email address doesn&#x27;t look right." data-e-limite="Too many requests. Try again in a few minutes." data-e-red="Couldn&#x27;t send it. Check your connection and try again." novalidate>
+<p class="movil-txt" id="movil-correo-txt">ManaLab runs on your PC. Email yourself the download link.</p>
+<div class="movil-correo-fila"><input aria-labelledby="movil-correo-txt" autocapitalize="off" autocomplete="email" inputmode="email" maxlength="120" name="correo" placeholder="you@example.com" required type="email"/><button class="boton prim" type="submit"><span>Send</span></button></div>
+<p class="movil-correo-nota">One email, nothing else. We don&#x27;t keep your address.</p>
+<p aria-live="polite" class="movil-correo-estado" role="status"></p>
+</form>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-descarga data-titulo="descarga-movil-portada-en" rel="noopener">Download the ZIP anyway</a></p>
 <p aria-live="polite" class="movil-estado" role="status"></p>
 </div></template>
 <p class="nota-smartscreen destacado" data-solo-pc>Before unzipping, right-click the ZIP › Properties › tick <b>Unblock</b> › OK: that way Windows neither shows «Windows protected your PC» nor blocks the program's files. If the warning still appears, click <b>More info › Run anyway</b>.</p>
@@ -649,6 +754,7 @@ html.movil .hero-cta { margin-top: 16px; }
 </div>
 </div>
 </section>
+<aside class="hueco-mdn" aria-label="Advertisement"><span class="hm-eti" aria-hidden="true">Advertisement</span><div class="hm-caja" data-mdn="auto" data-mdn-theme="dark"><a class="hm-casa" href="/learn/" data-goatcounter-click="anuncio-casa-portada-en-2" data-goatcounter-title="anuncio-casa-portada-en-2"><span class="hm-t"><strong>Magic guides in Learn</strong><span>From Metafy creators, for Arena and Magic Online.</span></span><em>See the guides →</em></a></div></aside>
 <section class="seccion franja" id="preguntas">
 <div class="envoltura">
 <div class="cab-sec"><div class="eti">FAQ</div><h2>Before you start</h2></div>
@@ -656,7 +762,7 @@ html.movil .hero-cta { margin-top: 16px; }
 <details><summary>Does it touch the game or give me an advantage in a match?</summary>
 <p>No, neither in Arena nor in Magic Online. It only reads the files the games write on your PC (Arena's Player.log; Magic Online's mtgo.log, Match_GameLog_*.dat, mtgo_game_history and grouping *.xml deck files), without modifying them. It doesn't modify Arena or Magic Online, doesn't read their memory and doesn't connect to their servers. The optional overlay is a separate window that only shows public information or what can be worked out from what has been played, never hidden information.</p></details>
 <details><summary>What data does it send?</summary>
-<p>Your games, screenshots and statistics stay in a folder on your PC. The program only downloads the updated meta deck lists, one per format (every 3 days), looks up card names on Scryfall (also with Magic Online ids) when it needs them, and asks GitHub once a day whether there's a new version. You can turn all three off in Settings. It sends data out only when you ask for something. The AI analysis sends that game's data (result, deck, hands, cards seen and timeline), never your name or the opponent's. A bug report sends what you write, your email if you add one, the ManaLab version, your system and language, whether you use Arena or Magic Online, an anonymous ID of your PC and, if you tick it, the last lines of registro.log with your user name and codes removed. It sends no games or decks.</p>
+<p>Your games, screenshots and statistics stay in a folder on your PC. The program downloads the updated meta deck lists, one per format (every 3 days), looks up card names on Scryfall (also with Magic Online ids) when it needs them, and asks GitHub once a day whether there's a new version. You can turn those three off in Settings. It also downloads a small content file from manalab.es (when it opens and every 6 hours) and shows a Metafy ad at the end of the Dashboard, which you can remove with the X or in Settings › Data and about ManaLab. The Learn section asks a ManaLab server for the list of guides and loads covers from Metafy and photos from manalab.es, sending nothing of yours except the ManaLab version; the Metafy banner loads Metafy's ad script. It also sends, at most once an hour, how many times each featured creator in Learn was seen and clicked, as totals only. Missing card images are downloaded from Scryfall. It sends data out only when you ask for something. The AI analysis sends that game's data (result, deck, hands, cards seen and timeline), never your name or the opponent's. A bug report sends what you write, your email if you add one, the ManaLab version, your system and language, whether you use Arena or Magic Online, an anonymous ID of your PC and, if you tick it, the last lines of registro.log with your user name and codes removed. It sends no games or decks.</p>
 <p>More details: <a href="/safety/">Is ManaLab safe?</a></p></details>
 <details><summary>Windows says «Windows protected your PC». Is it safe?</summary>
 <p>That warning appears for programs without a paid code-signing certificate, which is common for small free tools. Click «More info» and then «Run anyway». It only shows on the first download: new versions install with «Update now» from inside the app, with no warning. To avoid it the first time too, before unzipping right-click the ZIP › Properties › tick «Unblock» › OK. Every version is checked on VirusTotal before it's published.</p>
@@ -669,9 +775,11 @@ html.movil .hero-cta { margin-top: 16px; }
 <details><summary>Does it log Draft and Sealed (Limited)?</summary>
 <p>Yes. It logs any Arena or Magic Online game, including Limited. The opponent's deck is compared with the meta decks of the game's format (Standard, Pioneer, Modern, Legacy, Vintage and Pauper); if nothing clearly matches, as in Limited, it is named by its colors.</p></details>
 <details><summary>Is it free?</summary>
-<p>The program is free and needs no account. The only paid part is the AI loss analysis: 5 € per month, which pays for the AI service it uses. Every other feature is free.</p></details>
+<p>The program is free and needs no account. The only paid part is the AI loss analysis: $6 per month, which pays for the AI service it uses. Every other feature is free.</p></details>
+<details><summary>How is ManaLab free?</summary>
+<p>The tracker is free and always will be. The only paid part is the optional AI analysis of your losses, a membership on Metafy. In the Learn section you'll also find guides from Metafy.</p></details>
 <details><summary>How do I get the AI analysis?</summary>
-<p>Subscribe on Ko-fi (5 € per month). After paying you receive a subscription code by email. Paste it in Settings › Team and AI and the analysis appears in each lost game's Analysis tab. Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com">email</a>.</p></details>
+<p>Subscribe on Metafy ($6 per month). After paying you receive a subscription code by email. Paste it in Settings › Team and AI and the analysis appears in each lost game's Analysis tab. Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com">email</a>.</p></details>
 </div>
 </div>
 </section>
@@ -680,32 +788,27 @@ html.movil .hero-cta { margin-top: 16px; }
 <div class="ia-caja">
 <div>
 <div class="eti">New · AI loss analysis</div>
-<h2>Know what went wrong in every lost game</h2>
+<h2>See what went wrong in each loss</h2>
 <p><strong style="color:var(--texto)">The app is free. Only the AI analysis is paid.</strong></p>
 <p>Open any lost game and ask the AI what went wrong, where you could have played better and what to try next time. It reads the game's data, not your name or the opponent's.</p>
 <p>Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com">email</a>.</p>
-<div class="acciones" style="margin-top:24px"><a class="boton prim" href="https://ko-fi.com/eusebiog96/tiers" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-ia-en" rel="noopener" target="_blank"><span>Subscribe on Ko-fi →</span></a></div>
+<div class="acciones" style="margin-top:24px"><a class="boton prim" href="https://metafy.gg/@manalab/members?membershipId=6696173a-b185-4a9e-ad09-abce63885f73" data-goatcounter-click="apoyo" data-goatcounter-title="metafy-ia-en" rel="noopener" target="_blank"><span>Subscribe on Metafy →</span></a></div>
 </div>
 <div>
-<div class="ia-precio">5 € <small>per month</small></div>
+<div class="ia-precio">$6 <small>per month</small></div>
 <div class="ia-lista">
-<p>Up to 30 analyses a day. Subscribe with 5 € per month on Ko-fi and you get your code by email as soon as you subscribe.</p>
-<p>Cancel any time: if you don't renew on Ko-fi, the code expires by itself.</p>
+<p>Up to 30 analyses a day. Subscribe with $6 per month on Metafy and you get your code by email as soon as you subscribe.</p>
+<p>Cancel any time: if you don't renew on Metafy, the code expires by itself.</p>
 <p><a href="/privacy/">Privacy policy</a></p>
 </div>
 </div>
 </div>
-<div class="apoyo" id="apoyo">
+<div class="apoyo uno" id="apoyo">
 <div>
 <div class="eti">Support the project</div>
 <h3>Free, with AI analysis by subscription</h3>
-<p>ManaLab is made in spare time. The program stays free. The subscription (5 € per month on Ko-fi) pays for the AI service; donations on Ko-fi help with everything else.</p>
-<p>Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com">email</a>.</p>
-<div class="acciones" style="margin-top:18px"><a class="boton prim" data-goatcounter-click="apoyo" data-goatcounter-title="kofi-apoyo-en" href="https://ko-fi.com/eusebiog96" id="enlace-donar" rel="noopener" target="_blank"><span>Subscribe or donate on Ko-fi</span></a></div>
-</div>
-<div class="gastos">
-<div class="gasto"><span>Code-signing certificate</span><span>removes the Windows warning</span></div>
-<div class="gasto"><span>Time for new features</span><span>game advisor, draft assistant</span></div>
+<p>ManaLab is made in spare time. The program stays free.</p>
+<div class="acciones" style="margin-top:18px"><a class="b-metafy" data-goatcounter-click="apoyo" data-goatcounter-title="metafy-apoyo-en" href="https://metafy.gg/@manalab" rel="noopener" target="_blank"><img src="/img/metafy.svg" alt="" width="39" height="30"/><span>Support on Metafy</span></a></div>
 </div>
 </div>
 </div>
@@ -715,7 +818,7 @@ html.movil .hero-cta { margin-top: 16px; }
 <div class="cab-sec">
 <h2>Start logging your games today</h2>
 </div>
-<div class="acciones"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-final-en" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></div>
+<div class="acciones"><a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.0/ManaLab-3.0.0-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga-portada-en-final" data-goatcounter-title="descarga-portada-en-final" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></div>
 <p class="nota-hero"><span>Version <span data-version>3.0.0</span> · ZIP · nothing to install</span></p>
 </div>
 </section>
@@ -774,7 +877,9 @@ html.movil .hero-cta { margin-top: 16px; }
 <script>
 (function () {
   "use strict";
-  var base = "img/en_";
+  var pestanas = document.querySelector(".pestanas");
+  /* el prefijo se arma aquí: una cadena «img/xx_» suelta en el HTML la toma Googlebot por una URL y da 404 (ML-312) */
+  var base = pestanas.dataset.raiz + "img/" + pestanas.dataset.idioma + "_";
   document.querySelectorAll(".pestanas button").forEach(function (b) {
     b.addEventListener("click", function () {
       document.querySelectorAll(".pestanas button").forEach(function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); });
@@ -800,5 +905,5 @@ html.movil .hero-cta { margin-top: 16px; }
   window.addEventListener("load", abrir);   /* otra vez con las imágenes ya cargadas: el desplazamiento cuadra */
   window.addEventListener("hashchange", abrir);
 })();
-</script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script defer src="/huecos_mdn.js" data-plazo="6000"></script><script async src="https://mdn.metafy.gg/embed.js" data-mdn-site="mdn_obNMYPWbbmMClWCpy3Pss6JY"></script></body>
 </html>

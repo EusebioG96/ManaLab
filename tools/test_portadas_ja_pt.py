@@ -9,6 +9,10 @@ import unittest
 from html.parser import HTMLParser
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import construir_web  # noqa: E402
+
 RAIZ = Path(__file__).resolve().parent.parent
 NUEVAS = {"ja": RAIZ / "ja" / "index.html", "pt": RAIZ / "pt" / "index.html"}
 CUATRO = {"en": RAIZ / "index.html", "es": RAIZ / "es" / "index.html", **NUEVAS}
@@ -16,7 +20,7 @@ ORDEN = ["confianza", "motivos", "mtgo", "funciones", "empezar", "preguntas", "i
 HREFLANG = {"en": "https://manalab.es/", "es": "https://manalab.es/es/", "pt-br": "https://manalab.es/pt/",
             "ja": "https://manalab.es/ja/", "x-default": "https://manalab.es/"}
 FIJOS = {
-    "ja": dict(title="ManaLab – MTGアリーナ・Magic Online対応の無料戦績トラッカー", h1="アリーナとMagic Onlineの全対戦を、自動で記録。",
+    "ja": dict(title="MTGアリーナ戦績トラッカー｜勝率・マリガンを自動記録 ManaLab", h1="アリーナとMagic Onlineの全対戦を、自動で記録。",
                boton="無料ダウンロード", req="Windows 10 / 11", nota="翻訳に誤りがあれば、X（@ManaLabApp）までお知らせください。"),
     "pt": dict(title="ManaLab: tracker grátis para MTG Arena e Magic Online", h1="Cada partida de Arena e Magic Online, registrada sozinha.",
                boton="Baixar grátis", req="Windows 10 ou 11", nota="Encontrou um erro de tradução? Avise a gente no X (@ManaLabApp)."),
@@ -48,7 +52,7 @@ class TestPortadasNuevas(unittest.TestCase):
             with self.subTest(c=c):
                 for id_ in ("capturas", "como-funciona", "coaches", "contacto", "apoyo"):
                     self.assertNotIn(f'id="{id_}"', html)
-                self.assertNotIn("aviso-version", html.split("</style>")[1])
+                self.assertEqual(html.split("</head>")[1].count('class="aviso-version"'), 1)   # el aviso de la 3.0 (RED-06)
 
     def test_lang_y_textos_fijados(self):
         for c, ruta in NUEVAS.items():
@@ -71,8 +75,9 @@ class TestPortadasNuevas(unittest.TestCase):
                 titulos = re.findall(r'data-a-bloque[^>]*data-goatcounter-title="([^"]*)"', html)
                 self.assertEqual(len(titulos), 5)
                 for t in titulos + re.findall(r'data-goatcounter-title="(descarga-portada-[^"]*)"', html):
-                    self.assertTrue(t.endswith(f"-{c}"), t)
-                self.assertIn(f'data-titulo="compartir-movil-{c}"', html)
+                    self.assertTrue(t.startswith(f"descarga-portada-{c}-"), t)
+                if not construir_web.URL_ENLACE_CORREO:   # ML-296: con el campo de correo activo el bloque no trae el botón de compartir
+                    self.assertIn(f'data-titulo="compartir-movil-portada-{c}"', html)
                 self.assertIn('data-movil-aqui', html)
                 self.assertIn('id="bloque-movil"', html)
 
@@ -89,7 +94,9 @@ class TestPortadasNuevas(unittest.TestCase):
             html = leer(ruta)
             with self.subTest(c=c):
                 cab = html[html.index('<header class="cab">'):html.index("</header>")]
-                self.assertEqual(re.findall(r'<a class="idioma"[^>]*>([^<]*)</a>', cab), esperado[c])
+                fila, menu = cab.split('<details class="menu">')  # la fila de escritorio y la copia del menú de teléfono (ML-272)
+                self.assertEqual(re.findall(r'<a class="idioma"[^>]*>([^<]*)</a>', fila), esperado[c])
+                self.assertEqual(re.findall(r'<a class="idioma"[^>]*>([^<]*)</a>', menu), esperado[c])
 
     def test_faq_igual_en_html_y_json_ld(self):
         for c, ruta in NUEVAS.items():
@@ -99,8 +106,8 @@ class TestPortadasNuevas(unittest.TestCase):
                 faq = [x for x in ld["@graph"] if x["@type"] == "FAQPage"][0]
                 self.assertEqual(faq["inLanguage"], "ja" if c == "ja" else "pt-BR")
                 det = re.findall(r"<details[^>]*><summary>(.*?)</summary>\s*<p>(.*?)</p>", html[html.index('id="preguntas"'):], re.S)
-                self.assertEqual(len(det), 8)
-                self.assertEqual(len(faq["mainEntity"]), 8)
+                self.assertEqual(len(det), 9)
+                self.assertEqual(len(faq["mainEntity"]), 9)
                 for (q, a), e in zip(det, faq["mainEntity"]):
                     self.assertEqual(texto(q), e["name"])
                     self.assertEqual(texto(a), e["acceptedAnswer"]["text"])
@@ -133,6 +140,7 @@ class TestPortadasNuevas(unittest.TestCase):
         marca = {"ja": "（英語）", "pt": "(em inglês)"}
         for c, ruta in NUEVAS.items():
             html = leer(ruta)
+            html = html[html.index("<header"):]   # el aviso de la 3.0 (arriba del todo) lleva el texto aprobado del plan de redes, sin la marca
             with self.subTest(c=c):
                 for m in re.finditer(r'<a [^>]*href="(/safety/|/magic-online/|/novedades/|/privacy/|/#contacto|/coaches/)"[^>]*>(.*?)</a>', html, re.S):
                     self.assertIn(marca[c], texto(m.group(2)), m.group(0)[:120])
@@ -160,13 +168,13 @@ class TestPunto5SeparacionBajoLaCaja(unittest.TestCase):
                 self.assertIn("html.movil .hero-cta { margin-top: 16px; }", leer(ruta))
 
     def test_logo_de_coaches_pt(self):
-        self.assertIn('<a class="marca" href="/pt/">', leer(RAIZ / "pt" / "coaches" / "index.html"))
+        self.assertRegex(leer(RAIZ / "pt" / "coaches" / "index.html"), r'<a class="marca"[^>]* href="/pt/">')  # puede llevar data-compacta (ML-326b)
 
 
 class TestSitemap(unittest.TestCase):
     def test_dos_urls_nuevas_con_alternates(self):
         sm = leer(RAIZ / "sitemap.xml")
-        self.assertEqual(sm.count("<url>"), 27)
+        self.assertEqual(sm.count("<url>"), 37)   # + 4 páginas Learn (ML-324) + /player-log/ y /es/player-log/ (ML-343, ML-344) + 4 del blog Learn (ML-345)
         for c in ("ja", "pt"):
             bloque = re.search(r"<url>\s*<loc>https://manalab.es/%s/</loc>.*?</url>" % c, sm, re.S).group(0)
             self.assertEqual(sorted(re.findall(r'hreflang="([^"]*)"', bloque)), sorted(["en", "es", "pt-BR", "ja", "x-default"]))

@@ -1,1 +1,1 @@
-.novedades { display: grid; gap: 40px; }
+.novedades { display: grid; gap: 96px; }

@@ -7,24 +7,52 @@
 <meta name="description" content="Qué datos guarda ManaLab, qué sale de tu PC y cómo funciona la suscripción de IA.">
 <link rel="canonical" href="https://manalab.es/privacy/">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
-<meta name="theme-color" content="#0d0304">
+<meta name="theme-color" content="#0d100f">
 <meta name="robots" content="index, follow">
-<style>
-:root { --fondo:#0d0304; --panel:#1a0a0d; --texto:#f4eae4; --texto2:#c9b8b0; --oro:#e8b07c; --rojo:#c2363f; --linea:#3a1d22; }
-body { margin:0; background:var(--fondo); color:var(--texto); font:16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-main { max-width:760px; margin:0 auto; padding:40px 20px 80px; }
-h1, h2.titulo { font-size:32px; margin:0 0 6px; color:var(--texto); }
-h2 { font-size:22px; margin:36px 0 10px; color:var(--oro); }
-h3 { font-size:17px; margin:22px 0 6px; }
-p, li { color:var(--texto2); }
-a { color:var(--oro); }
-.idiomas { display:flex; gap:14px; margin:14px 0 26px; font-size:14px; }
-.idiomas a { border:1px solid var(--linea); border-radius:999px; padding:4px 12px; text-decoration:none; }
-.aviso { background:var(--panel); border:1px solid var(--linea); border-left:4px solid var(--rojo); border-radius:10px; padding:14px 18px; }
-section[hidden] { display:none; }
-hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
-.volver { display:inline-block; margin-top:36px; font-size:14px; }
-</style>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Marcellus';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/marcellus-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Marcellus';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/marcellus-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-sans-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Geist';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-sans-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-sans-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Geist';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-sans-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/geist-sans-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Geist';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/geist-sans-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-mono-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Geist Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-mono-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Geist Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Misma identidad que la portada: mesa oscura verdosa, hueso como color de acción, oro solo en antetítulos (WEB-06). */
+:root { color-scheme: dark; --fondo: #0d100f; --panel: #141917; --panel2: #1b211e; --linea: rgba(236, 230, 214, 0.12); --linea2: rgba(236, 230, 214, 0.26);
+  --texto: #ece6d6; --texto2: #b9b2a1; --apagado: #9a9484; --hueso: #ece6d6; --oro: #e2b45c;
+  --f-display: "Marcellus", Georgia, "Times New Roman", serif; --f-texto: "Geist", "Segoe UI", system-ui, -apple-system, sans-serif; --f-mono: "Geist Mono", ui-monospace, "Cascadia Mono", Consolas, monospace; }
+:root:lang(ja), :root:lang(zh), :root:lang(ko) { --f-display: "Yu Gothic UI", "Hiragino Sans", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans CJK SC", "Malgun Gothic", "Microsoft YaHei", system-ui, sans-serif; --f-texto: var(--f-display); }
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(1300px 760px at 70% -6%, #22302a 0%, #0d100f 60%) no-repeat var(--fondo); color: var(--texto); font: 17px/1.65 var(--f-texto); -webkit-font-smoothing: antialiased; }
+main { max-width: 68ch; margin: 0 auto; padding: 48px 20px 96px; }
+h1, h2.titulo { font: 400 clamp(32px, 5vw, 46px)/1.1 var(--f-display); margin: 0 0 10px; color: var(--texto); }
+h2 { font: 400 26px/1.2 var(--f-display); margin: 44px 0 12px; color: var(--texto); }
+h3 { font: 600 17px var(--f-texto); margin: 22px 0 6px; color: var(--texto); }
+:lang(ja) h1, :lang(ja) h2 { font-weight: 600; }
+p, li { color: var(--texto2); }
+a { color: var(--texto); text-decoration-color: var(--linea2); text-underline-offset: 3px; }
+a:hover { text-decoration-color: currentColor; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--hueso); outline-offset: 2px; border-radius: 4px; }
+main > p:first-child a { font: 400 23px var(--f-display); text-decoration: none; }
+code { font: 0.88em var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 4px; padding: 1px 6px; color: var(--texto); overflow-wrap: anywhere; }
+.idiomas { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 26px; }
+.idiomas a { border: 1px solid var(--linea2); border-radius: 4px; padding: 6px 12px; font: 500 13px var(--f-mono); color: var(--texto2); text-decoration: none; }
+.idiomas a:hover { color: var(--texto); border-color: var(--apagado); }
+.idiomas a[aria-current] { background: var(--hueso); border-color: var(--hueso); color: var(--fondo); }
+.aviso { background: var(--panel); border: 1px solid var(--linea2); border-radius: 8px; padding: 14px 18px; }
+section[hidden] { display: none; }
+hr { border: 0; border-top: 1px solid var(--linea); margin: 48px 0; }
+.volver { display: inline-block; margin-top: 36px; font-size: 14px; }
+ul { list-style: none; padding-left: 0; }
+ul li { position: relative; padding-left: 26px; margin-bottom: 10px; }
+ul li::before { content: ""; position: absolute; left: 4px; top: 11px; width: 8px; height: 8px; transform: rotate(45deg); background: var(--hueso); }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://manalab.es/es/"}, {"@type": "ListItem", "position": 2, "name": "Privacidad", "item": "https://manalab.es/privacy/"}]}]}</script>
 </head>
 <body>
 <main>
@@ -36,7 +64,7 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
 
   <section lang="es" id="es">
     <h1>Política de privacidad</h1>
-    <p><strong>Última actualización:</strong> 10 de noviembre de 2026</p>
+    <p><strong>Última actualización:</strong> 16 de noviembre de 2026</p>
 
     <h2>1. Quién es el responsable</h2>
     <p>ManaLab es un proyecto personal y gratuito. Para cualquier cuestión sobre privacidad, escribe a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>.</p>
@@ -44,13 +72,17 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     <h2>2. Qué se queda en tu PC</h2>
     <p>ManaLab no tiene cuentas ni registro. Tus partidas, capturas, estadísticas y ajustes se guardan solo en tu ordenador, en la carpeta <code>%LOCALAPPDATA%\ManaLab</code>. Lo único que sale de tu PC es lo que se describe en el apartado 3.</p>
     <p>ManaLab lee el archivo de registro (log) que Arena escribe en tu PC. También lee los archivos de Magic Online (<code>mtgo.log</code> y <code>Match_GameLog_*.dat</code>), sin modificarlos. No modifica Arena ni Magic Online, no lee su memoria y no se conecta a sus servidores.</p>
-    <p>Capturas de pantalla: mientras estén activadas (lo están por defecto), ManaLab guarda en tu PC imágenes de la ventana del juego (o, si no la encuentra y has elegido un monitor de respaldo en Ajustes, de ese monitor), en momentos como la mano inicial, los mulligans y el resultado. Puedes desactivarlas en Ajustes › Juegos, con un interruptor para Arena y otro para Magic Online.</p>
+    <p>Capturas de pantalla: ManaLab no hace capturas por su cuenta. Solo guarda en tu PC una imagen cuando tú pides un momento destacado (con F8, con el botón sobre el juego o con «Capturar momento»): la imagen es de la ventana del juego o, si no la encuentra y has elegido un monitor de respaldo en Ajustes, de ese monitor. Puedes quitar el botón y el atajo en Ajustes.</p>
 
     <h2>3. Conexiones del programa</h2>
     <ul>
       <li><strong>Listas de mazos del meta:</strong> una por formato; cada 3 días se descargan desde GitHub. Como en cualquier descarga, GitHub puede registrar tu dirección IP.</li>
-      <li><strong>Nombres de cartas:</strong> si falta una carta en la base de datos de Arena, se consulta su nombre en Scryfall. En Magic Online la consulta se hace con el id de la carta de Magic Online.</li>
-      <li><strong>Aviso de versión nueva:</strong> al abrir el programa y una vez al día, se pregunta a GitHub cuál es la última versión publicada. Si GitHub no responde, se consulta el archivo <code>manalab.es/version.json</code> de esta web (alojada también en GitHub), sin enviar ningún dato tuyo. Como en cualquier consulta, GitHub puede registrar tu dirección IP.</li>
+      <li><strong>Nombres de cartas:</strong> si falta una carta en la base de datos de Arena, se consulta su nombre en Scryfall. En Magic Online la consulta se hace con el id de la carta de Magic Online. Las imágenes de cartas que faltan también se descargan de Scryfall.</li>
+      <li><strong>Aviso de versión nueva:</strong> al abrir el programa y una vez al día, se pregunta a GitHub cuál es la última versión publicada. Si GitHub no responde, se consulta el archivo <code>manalab.es/version.json</code> de esta web (alojada también en GitHub), sin enviar ningún dato tuyo. Como en cualquier consulta, GitHub puede registrar tu dirección IP. Solo si pulsas «Actualizar ahora», la app descarga además el ZIP de la nueva versión y su huella SHA-256 desde GitHub.</li>
+      <li><strong>Contenido de ManaLab:</strong> al abrir el programa y cada 6 horas, la app descarga un pequeño archivo de manalab.es con datos (como el enlace de apoyo, qué funciones mostrar o los creadores que salen en Aprender). No envía nada tuyo salvo la versión de ManaLab; como en cualquier descarga, el servidor puede registrar tu dirección IP. Este archivo no tiene interruptor propio en Ajustes.</li>
+      <li><strong>Banner de Metafy:</strong> al final del Panel, la app carga <code>manalab.es/anuncio/</code>, que muestra un anuncio de la red de Metafy: esa página carga el script de anuncios de <code>mdn.metafy.gg</code>. Metafy recibe al menos la petición del anuncio, como cualquier web (IP, navegador). ManaLab no le pasa ningún dato de tus partidas ni sabe qué ves o pulsas. Se quita con la X o en Ajustes › Datos.</li>
+      <li><strong>Sección Aprender:</strong> al entrar en ella (y como mucho una vez por hora), la app pide la lista de guías a un servidor de ManaLab, sin enviar nada tuyo salvo la versión de ManaLab. Las portadas de las guías se cargan desde Metafy (<code>metafy.gg</code>) y las fotos de los creadores desde manalab.es, sin enviar de qué página vienen; como en cualquier descarga, esos servidores pueden registrar tu dirección IP. Los enlaces que pulsas (guías, perfiles) se abren en tu navegador y no pasan por ManaLab. Esta sección no tiene interruptor propio en Ajustes.</li>
+      <li><strong>Cifras de los creadores destacados:</strong> la app y la página Learn envían a un servidor de ManaLab (Cloudflare), como mucho una vez por hora, cuántas veces se vio cada creador destacado y cuántos clics recibió, por día y solo en totales, con la versión de ManaLab en el caso de la app. No incluye nada de tus partidas, de tu equipo ni de tu cuenta, y el servidor no guarda tu IP.</li>
       <li><strong>Modo equipo</strong> (solo si lo configuras): tus partidas, notas, cronologías y, si no lo desactivas, tus capturas y sus notas se copian a la carpeta compartida que elijas tú (por ejemplo de Google Drive, Dropbox u OneDrive). No pasan por nuestros servidores: se aplica la política del servicio que uses. Las capturas pueden mostrar el nombre del rival aunque actives «Ocultar el nombre de mis rivales».</li>
       <li><strong>Análisis con IA</strong> (solo si lo pides y tienes suscripción o un código de prueba): se envían a nuestro servidor los datos de la partida que analizas (resultado, mazo, manos, cartas vistas y cronología). No se envían nombres de jugadores ni datos de tu cuenta de Arena o de Magic Online. El servidor reenvía esos datos a <strong>DeepSeek</strong> para generar el análisis. DeepSeek tiene sus servidores en <strong>China</strong>; si no te parece bien, no uses el análisis.</li>
       <li><strong>Reportar un bug</strong> (solo si lo usas, desde Ajustes › Datos y acerca de ManaLab): se envían a nuestro servidor lo que escribes, tu correo si lo pones, la versión de ManaLab, el sistema operativo, el idioma de la interfaz, si hay Arena o Magic Online en uso o configurados, un identificador anónimo de tu equipo y, si lo marcas, las últimas líneas de <code>registro.log</code> (hasta 300), saneadas: sin el nombre de usuario de Windows ni códigos. No se envían partidas ni mazos. El identificador es un número aleatorio que ManaLab crea y guarda en tu PC; no cambia entre sesiones y no caduca en tu equipo. El servidor lo reenvía por correo a nuestra bandeja con <strong>Resend</strong> y no lo guarda: solo guarda contadores por día (usa una huella del identificador para limitar los reportes por equipo; el contador caduca a las 48 horas). Sin conexión, el reporte queda pendiente en tu PC hasta 7 días (hasta 3 reportes a la vez).</li>
@@ -58,11 +90,11 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     <p>Las listas del meta, los nombres de cartas y el aviso de versión nueva se pueden desactivar en Ajustes.</p>
 
     <h2>4. Suscripción y código de IA</h2>
-    <p>La suscripción de IA se paga en <a href="https://ko-fi.com/eusebiog96/tiers" rel="noopener">Ko-fi</a> (5 € al mes). Ko-fi nos avisa de cada pago con el correo y el nombre que aparecen en tu cuenta, y con eso generamos un código que te enviamos por correo electrónico. En nuestro servidor (Cloudflare Workers) guardamos:</p>
+    <p>El análisis con IA se paga con una suscripción de 6 $ al mes en Metafy. Metafy recibe tus datos de pago según su política de privacidad; nosotros no los vemos. ManaLab solo recibe tu correo electrónico, y con él generamos un código que te enviamos por correo electrónico. En nuestro servidor (Cloudflare Workers) guardamos:</p>
     <ul>
-      <li>Tu nombre tal como aparece en Ko-fi y la fecha de caducidad de la suscripción.</li>
-      <li>Si pagas en Ko-fi, tu correo electrónico solo como huella criptográfica (SHA-256). No se guarda en claro.</li>
-      <li>Un registro de cada cobro de Ko-fi ya procesado, para no contarlo dos veces: el identificador de la transacción de Ko-fi o, si el aviso no lo trae, una huella (SHA-256) del correo, la fecha y el importe. Se conserva hasta 400 días.</li>
+      <li>La fecha de caducidad de la suscripción.</li>
+      <li>El nombre con el que se crea tu código (por ejemplo, el de tu cuenta de Metafy) y la fecha de caducidad de la suscripción.</li>
+      <li>Tu correo electrónico, como mucho, solo como huella criptográfica (SHA-256). No se guarda en claro.</li>
       <li>El código solo como huella, más sus 4 últimos caracteres para reconocerlo en nuestro resumen. No podemos leerlo.</li>
       <li>Contadores de uso: cuántos análisis has hecho en el día (caducan a las 48 horas) y el gasto total del mes, sin datos personales.</li>
     </ul>
@@ -71,16 +103,20 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     <p>El código que pegas en ManaLab (Ajustes › Equipo e IA) se guarda en tu PC en el archivo de ajustes, en texto plano. Si compartes tu ordenador, cualquiera con acceso a esa carpeta puede usarlo.</p>
     <h3>Formulario de contacto</h3>
     <p>Si nos escribes desde el formulario de la web, enviamos tu nombre (si lo pones), tu correo y tu mensaje por correo electrónico a nuestra bandeja, con <strong>Resend</strong> como intermediario. El mensaje no se guarda en el servidor. Para evitar abusos, el servidor (Cloudflare) cuenta cuántos mensajes envía cada persona al día usando una huella criptográfica de su IP (SHA-256), que caduca a las 48 horas. Usamos tus datos solo para responderte.</p>
+    <h3>Enlace de descarga por correo</h3>
+    <p>Si en el móvil pides el enlace de descarga por correo, tu dirección se usa solo para ese envío, a través de <strong>Resend</strong>, y no se guarda. Para evitar abusos, el servidor (Cloudflare) guarda durante unos minutos (10 como máximo) una huella anónima de tu conexión (un SHA-256 de tu IP mezclada con una sal que cambia cada día), solo para limitar cuántos correos puede pedir cada conexión. No guardamos tu dirección ni tu IP.</p>
 
     <h2>5. Terceros</h2>
     <ul>
-      <li><strong>Ko-fi:</strong> procesa el pago. Nosotros no vemos datos de tu tarjeta. Se aplica su política de privacidad.</li>
-      <li><strong>Resend:</strong> envía el correo con tu código, los reportes de bug y los mensajes del formulario de contacto.</li>
+      <li><strong>Metafy (suscripción):</strong> procesa el pago de la suscripción y recibe tus datos de pago. Nosotros no vemos datos de tu tarjeta. Se aplica su política de privacidad.</li>
+      <li><strong>Resend:</strong> envía el correo con tu código, los reportes de bug y los mensajes del formulario de contacto y el enlace de descarga que pides por correo.</li>
       <li><strong>Cloudflare:</strong> aloja el servidor y puede registrar datos técnicos de las peticiones (como la IP), según su política.</li>
       <li><strong>DeepSeek:</strong> genera el análisis a partir de los datos de la partida.</li>
       <li><strong>GitHub y Scryfall:</strong> solo en las descargas y consultas del apartado 3.</li>
+      <li><strong>Metafy (anuncio y portadas):</strong> la red de anuncios del banner del apartado 3 (<code>mdn.metafy.gg</code>) y el servidor de las portadas de las guías de Aprender; se aplica su política de privacidad.</li>
     </ul>
-    <p>No vendemos datos ni mostramos publicidad, y la web no usa cookies.</p>
+    <p>No vendemos datos. La app muestra un anuncio de Metafy al final del Panel, que puedes quitar. ManaLab no pone cookies en esta web.</p>
+    <p><strong>Anuncios y Learn en esta web:</strong> algunas páginas muestran un anuncio de la red de Metafy y, para eso, cargan su script (<code>mdn.metafy.gg</code>). Metafy recibe la visita como cualquier web (dirección IP, navegador y la página que abres) y aplica su propia política de privacidad, también a lo que guarde en tu navegador. No le pasamos ningún dato tuyo. Las guías de uso, esta política, la página de seguridad y la de error no llevan anuncio. La página Learn pide la lista de guías a un servidor de ManaLab (Cloudflare) y las portadas a Metafy, sin cookies ni página de origen; Metafy no recibe más que lo de cualquier visita (IP y navegador); el servidor de ManaLab recibe además las cifras de los creadores destacados, solo en totales (ver «Cifras de los creadores destacados» en el apartado 3).</p>
     <p>Estadísticas de visitas: esta web (no la aplicación) usa <a href="https://www.goatcounter.com" rel="noopener">GoatCounter</a> para contar las visitas de forma anónima. No usa cookies ni hace seguimiento entre sitios, y no se recogen datos personales. La aplicación ManaLab no envía estadísticas.</p>
 
     <h2>6. Base legal</h2>
@@ -91,7 +127,7 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     </ul>
 
     <h2>7. Cuánto tiempo guardamos los datos</h2>
-    <p>Los datos de la suscripción se guardan mientras esté activa. Si no renuevas en Ko-fi, el código caduca y deja de funcionar. Si quieres que borremos tus datos del servidor (nombre, huella del correo y contadores), escríbenos a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Lo haremos en un plazo máximo de 30 días.</p>
+    <p>Los datos de la suscripción se guardan mientras esté activa. Si no renuevas en Metafy, el código caduca y deja de funcionar. Si quieres que borremos tus datos del servidor (nombre, huella del correo y contadores), escríbenos a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Lo haremos en un plazo máximo de 30 días.</p>
 
     <h2>8. Tus derechos</h2>
     <p>Puedes pedir acceso, rectificación, supresión, limitación, oposición y portabilidad de tus datos escribiendo a <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. Si consideras que no tratamos tus datos correctamente, puedes presentar una reclamación ante la <a href="https://www.aepd.es" rel="noopener">Agencia Española de Protección de Datos</a>.</p>
@@ -107,7 +143,7 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
 
   <section lang="en" id="en">
     <h2 class="titulo">Privacy policy</h2>
-    <p><strong>Last updated:</strong> 10 November 2026</p>
+    <p><strong>Last updated:</strong> 16 November 2026</p>
 
     <h2>1. Who is responsible</h2>
     <p>ManaLab is a personal, free project. For any privacy question, write to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>.</p>
@@ -115,13 +151,17 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     <h2>2. What stays on your PC</h2>
     <p>ManaLab has no accounts or sign-up. Your matches, screenshots, statistics and settings are stored only on your computer, in <code>%LOCALAPPDATA%\ManaLab</code>. The only data that leaves your PC is described in section 3.</p>
     <p>ManaLab reads the log file that Arena writes on your PC. It also reads the Magic Online files (<code>mtgo.log</code> and <code>Match_GameLog_*.dat</code>), without modifying them. It does not modify Arena or Magic Online, does not read their memory and does not connect to their servers.</p>
-    <p>Screenshots: while they are on (they are on by default), ManaLab saves images of the game window on your PC (or, if it can't find the window and you have picked a fallback monitor in Settings, of that monitor), at moments like your opening hand, mulligans and the result. You can turn them off in Settings › Games, with one switch for Arena and another for Magic Online.</p>
+    <p>Screenshots: ManaLab does not take screenshots on its own. It saves an image on your PC only when you ask for a highlighted moment (with F8, with the button over the game or with “Capture moment”): the image is of the game window or, if it can't find the window and you have picked a fallback monitor in Settings, of that monitor. You can turn off the button and the shortcut in Settings.</p>
 
     <h2>3. Connections made by the program</h2>
     <ul>
       <li><strong>Meta deck lists:</strong> one per format; every 3 days they are downloaded from GitHub. As with any download, GitHub may log your IP address.</li>
-      <li><strong>Card names:</strong> if a card is missing from Arena's database, its name is looked up on Scryfall. In Magic Online the lookup uses the card's Magic Online id.</li>
-      <li><strong>New version notice:</strong> when the program opens and once a day, it asks GitHub for the latest published version. If GitHub doesn't respond, it reads the file <code>manalab.es/version.json</code> from this website (also hosted on GitHub), without sending any of your data. As with any request, GitHub may log your IP address.</li>
+      <li><strong>Card names:</strong> if a card is missing from Arena's database, its name is looked up on Scryfall. In Magic Online the lookup uses the card's Magic Online id. Missing card images are also downloaded from Scryfall.</li>
+      <li><strong>New version notice:</strong> when the program opens and once a day, it asks GitHub for the latest published version. If GitHub doesn't respond, it reads the file <code>manalab.es/version.json</code> from this website (also hosted on GitHub), without sending any of your data. As with any request, GitHub may log your IP address. Only if you press «Update now», the app also downloads the ZIP of the new version and its SHA-256 hash from GitHub.</li>
+      <li><strong>ManaLab content:</strong> when the program opens and every 6 hours, the app downloads a small file from manalab.es with data (such as the support link, which features to show or the creators shown in Learn). It sends nothing of yours except the ManaLab version; as with any download, the server may log your IP address. This file has no switch of its own in Settings.</li>
+      <li><strong>Metafy banner:</strong> at the end of the Dashboard, the app loads <code>manalab.es/anuncio/</code>, which shows an ad from the Metafy network: that page loads the ad script from <code>mdn.metafy.gg</code>. Metafy receives at least the ad request, like any website (IP, browser). ManaLab passes it no data from your games and does not know what you see or click. It is removed with the X or in Settings › Data.</li>
+      <li><strong>Learn section:</strong> when you open it (and at most once an hour), the app asks a ManaLab server for the list of guides, sending nothing of yours except the ManaLab version. The guide covers load from Metafy (<code>metafy.gg</code>) and the creators' photos from manalab.es, without telling them which page they come from; as with any download, those servers may log your IP address. The links you click (guides, profiles) open in your browser and do not go through ManaLab. This section has no switch of its own in Settings.</li>
+      <li><strong>Featured creator figures:</strong> the app and the Learn page send a ManaLab server (Cloudflare), at most once an hour, how many times each featured creator was seen and clicked, per day and as totals only, plus the ManaLab version in the app's case. It includes nothing about your games, your PC or your account, and the server does not store your IP.</li>
       <li><strong>Team mode</strong> (only if you set it up): your games, notes, timelines and, unless you turn it off, your screenshots and their notes are copied to the shared folder you choose (for example on Google Drive, Dropbox or OneDrive). They don't go through our servers: the policy of the service you use applies. Screenshots may show the opponent's name even if you turn on «Hide my opponents' names».</li>
       <li><strong>AI analysis</strong> (only if you request it and have a subscription or a trial code): the data of the game you analyse is sent to our server (result, deck, hands, cards seen and timeline). Player names and your Arena or Magic Online account details are not sent. The server forwards that data to <strong>DeepSeek</strong> to produce the analysis. DeepSeek's servers are in <strong>China</strong>; if that is not acceptable to you, do not use the analysis.</li>
       <li><strong>Report a bug</strong> (only if you use it, from Settings › Data and about ManaLab): our server receives what you write, your email address if you add one, the ManaLab version, the operating system, the interface language, whether Arena or Magic Online are in use or set up, an anonymous ID of your PC and, if you tick it, the last lines of <code>registro.log</code> (up to 300), cleaned: without your Windows username or codes. No games or decks are sent. The ID is a random number that ManaLab creates and stores on your PC; it does not change between sessions and does not expire on your computer. The server forwards the report by email to our inbox with <strong>Resend</strong> and does not store it: it only keeps counters per day (it uses a hash of the ID to limit reports per computer; that counter expires after 48 hours). Without a connection, the report stays pending on your PC for up to 7 days (up to 3 reports at a time).</li>
@@ -129,11 +169,11 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     <p>The meta lists, card-name lookups and the new version notice can be turned off in Settings.</p>
 
     <h2>4. Subscription and AI code</h2>
-    <p>The AI subscription is paid on <a href="https://ko-fi.com/eusebiog96/tiers" rel="noopener">Ko-fi</a> (5 € per month). Ko-fi notifies us of each payment with the email address and the name shown on your account there, and we use them to generate a code that we email to you. On our server (Cloudflare Workers) we store:</p>
+    <p>The AI analysis is paid with a subscription of $6 per month on Metafy. Metafy receives your payment details under its privacy policy; we do not see them. ManaLab only receives your email address, and we use it to generate a code that we email to you. On our server (Cloudflare Workers) we store:</p>
     <ul>
-      <li>Your name as shown on Ko-fi, and the expiry date of the subscription.</li>
-      <li>If you pay on Ko-fi, your email address only as a cryptographic hash (SHA-256). It is not stored in plain text.</li>
-      <li>A record of each Ko-fi payment already processed, so it is not counted twice: the Ko-fi transaction ID or, if the notification does not include one, a hash (SHA-256) of the email, date and amount. It is kept for up to 400 days.</li>
+      <li>The expiry date of the subscription.</li>
+      <li>The name your code is created with (for example, your Metafy account name) and the subscription's expiry date.</li>
+      <li>Your email address, at most, only as a cryptographic hash (SHA-256). It is not stored in plain text.</li>
       <li>The code only as a hash, plus its last 4 characters to recognise it in our overview. We cannot read it.</li>
       <li>Usage counters: how many analyses you ran that day (they expire after 48 hours) and the month's total spend, with no personal data.</li>
     </ul>
@@ -142,16 +182,20 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     <p>The code you paste into ManaLab (Settings › Team and AI) is stored on your PC in the settings file, in plain text. If you share your computer, anyone with access to that folder can use it.</p>
     <h3>Contact form</h3>
     <p>If you write to us through the contact form on the website, we send your name (if you give it), your email address and your message by email to our inbox, with <strong>Resend</strong> as the intermediary. The message is not stored on the server. To prevent abuse, the server (Cloudflare) counts how many messages each person sends per day, using a cryptographic hash of their IP address (SHA-256) that expires after 48 hours. We use your data only to reply to you.</p>
+    <h3>Download link by email</h3>
+    <p>If you ask for the download link by email on your phone, your address is used only for that one email, sent through <strong>Resend</strong>, and it is not stored. To prevent abuse, the server (Cloudflare) keeps an anonymous fingerprint of your connection for a few minutes (10 at most): a SHA-256 of your IP mixed with a salt that changes every day, used only to limit how many emails each connection can request. We do not store your address or your IP.</p>
 
     <h2>5. Third parties</h2>
     <ul>
-      <li><strong>Ko-fi:</strong> processes the payment. We never see your card details. Its privacy policy applies.</li>
-      <li><strong>Resend:</strong> sends the email with your code, bug reports and the messages from the contact form.</li>
+      <li><strong>Metafy (subscription):</strong> processes the subscription payment and receives your payment details. We never see your card details. Its privacy policy applies.</li>
+      <li><strong>Resend:</strong> sends the email with your code, bug reports and the messages from the contact form and the download link you ask for by email.</li>
       <li><strong>Cloudflare:</strong> hosts the server and may log technical request data (such as IP addresses) under its own policy.</li>
       <li><strong>DeepSeek:</strong> produces the analysis from the game data.</li>
       <li><strong>GitHub and Scryfall:</strong> only for the downloads and requests in section 3.</li>
+      <li><strong>Metafy (ad and covers):</strong> the ad network behind the banner in section 3 (<code>mdn.metafy.gg</code>) and the server of the guide covers in Learn; its privacy policy applies.</li>
     </ul>
-    <p>We do not sell data or show advertising, and this website does not use cookies.</p>
+    <p>We do not sell data. The app shows a Metafy ad at the end of the Dashboard, which you can remove. ManaLab sets no cookies on this website.</p>
+    <p><strong>Ads and Learn on this website:</strong> some pages show an ad from the Metafy network and, to do so, load its script (<code>mdn.metafy.gg</code>). Metafy receives the visit like any website (IP address, browser and the page you open) and applies its own privacy policy, including to anything it stores in your browser. We pass it no data of yours. The user guides, this policy, the safety page and the error page do not show ads. The Learn page asks a ManaLab server (Cloudflare) for the list of guides and Metafy for the covers, with no cookies or referrer; Metafy receives no more than any visit does (IP and browser); the ManaLab server also receives the featured creators' figures, as totals only (see “Featured creator figures” in section 3).</p>
     <p>Visit statistics: this website (not the app) uses <a href="https://www.goatcounter.com" rel="noopener">GoatCounter</a> to count visits anonymously. It uses no cookies and does no cross-site tracking, and no personal data is collected. The ManaLab app does not send statistics.</p>
 
     <h2>6. Legal basis</h2>
@@ -162,7 +206,7 @@ hr { border:0; border-top:1px solid var(--linea); margin:48px 0; }
     </ul>
 
     <h2>7. How long we keep data</h2>
-    <p>Subscription data is kept while the subscription is active. If you do not renew on Ko-fi, the code expires and stops working. If you want us to delete your data from the server (name, hash of your email, and counters), write to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. We will do it within 30 days at most.</p>
+    <p>Subscription data is kept while the subscription is active. If you do not renew on Metafy, the code expires and stops working. If you want us to delete your data from the server (name, hash of your email, and counters), write to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. We will do it within 30 days at most.</p>
 
     <h2>8. Your rights</h2>
     <p>You can ask for access, rectification, erasure, restriction, objection and portability of your data by writing to <a href="mailto:manalab.app@gmail.com">manalab.app@gmail.com</a>. If you believe we are not handling your data correctly, you can lodge a complaint with the <a href="https://www.aepd.es" rel="noopener">Spanish Data Protection Agency (AEPD)</a>.</p>

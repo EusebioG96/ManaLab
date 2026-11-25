@@ -8,7 +8,7 @@
 <link href="https://manalab.es/detailed-logs/" hreflang="en" rel="alternate"/>
 <link href="https://manalab.es/es/registro-detallado/" hreflang="es" rel="alternate"/>
 <link href="https://manalab.es/detailed-logs/" hreflang="x-default" rel="alternate"/>
-<meta content="#0d0304" name="theme-color"/>
+<meta content="#0d100f" name="theme-color"/>
 <link href="../../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="../../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="../../img/apple-touch-icon.png" rel="apple-touch-icon"/>
@@ -27,7 +27,7 @@
 <meta content="Activa el registro detallado en MTG Arena en tres pasos para que un tracker pueda guardar tus partidas. Con qué contiene el registro y dónde está." name="twitter:description"/>
 <meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/es/registro-detallado/#webpage", "url": "https://manalab.es/es/registro-detallado/", "name": "Cómo activar el registro detallado en MTG Arena · ManaLab", "description": "Activa el registro detallado en MTG Arena en tres pasos para que un tracker pueda guardar tus partidas. Con qué contiene el registro y dónde está.", "inLanguage": "es", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/og.jpg"}}, {"@type": "HowTo", "@id": "https://manalab.es/es/registro-detallado/#howto", "name": "Cómo activar el registro detallado en MTG Arena", "inLanguage": "es", "description": "Activa el registro detallado en MTG Arena en tres pasos para que un tracker pueda guardar tus partidas. Con qué contiene el registro y dónde está.", "step": [{"@type": "HowToStep", "position": 1, "name": "En Arena, ve a Opciones › Cuenta.", "text": "En Arena, ve a Opciones › Cuenta."}, {"@type": "HowToStep", "position": 2, "name": "Activa «Registro detallado» («Detailed Logs (Plugin Support)», en inglés).", "text": "Activa «Registro detallado» («Detailed Logs (Plugin Support)», en inglés)."}, {"@type": "HowToStep", "position": 3, "name": "Reinicia Arena.", "text": "Reinicia Arena."}]}]}</script>
-<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=c}}</style></head>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=c}}</style></head>
 <body>
 {{> cabecera_es 1=f}}
 <main id="inicio">
@@ -43,9 +43,11 @@
 <li>Reinicia Arena.</li>
 </ol>
 <p class="ruta-completa">La opción está en <span class="ruta">Opciones › Cuenta › Registro detallado</span></p>
+<p class="enlace-seccion"><a class="enlace-man" href="/es/player-log/">¿El log está vacío o no tiene partidas? Mira qué hacer →</a></p>
 </div>
 </div>
 </section>
+{{HUECO_MDN}}
 <section class="seccion franja" id="lee">
 <div class="envoltura">
 <div class="cab-sec">
@@ -79,6 +81,7 @@
 <p>Magic Online no necesita ningún ajuste. Escribe su propio registro, <code>mtgo.log</code>, sin que tengas que activar nada: abre Magic Online y ManaLab lo recoge solo.</p>
 <p><a href="/es/magic-online/">ManaLab para Magic Online: qué guarda y cómo funciona →</a></p>
 </div>
+<p class="enlace-seccion"><a class="enlace-man" href="/guia/guia_manalab_es.html#inicio">Guía completa de ManaLab →</a></p>
 </div>
 </section>
 <section class="seccion franja" id="siguiente">
@@ -90,13 +93,13 @@
 <p>ManaLab guarda en tu PC cada partida que juegas en MTG Arena y Magic Online y te enseña qué funciona: tus porcentajes por mazo, por rival y por matchup, tus mulligans, tus errores y tus cambios de sideboard.</p>
 <p>La app es gratis. Solo el análisis con IA es de pago.</p>
 <div class="desc-bloque" id="descargar">
-<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-logs-es" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="{{EVENTO:descarga}}" data-goatcounter-title="{{EVENTO:descarga}}" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></p>
 <p class="nota-descarga">Versión <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">otras versiones</a></p>
 <template id="bloque-movil"><div class="movil-caja">
 <h4 class="movil-tit">ManaLab se usa en el ordenador</h4>
 <p class="movil-txt">Envíate el enlace y descárgalo allí.</p>
-<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="compartir-movil-es" data-url="https://manalab.es/es/registro-detallado/" type="button"><span>Enviarme el enlace</span></button></p>
-<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="descarga-movil-es" rel="noopener">Descargar el ZIP igualmente</a></p>
+<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="{{EVENTO:compartir-movil}}" data-url="https://manalab.es/es/registro-detallado/" type="button"><span>Enviarme el enlace</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="{{EVENTO:descarga-movil}}" rel="noopener">Descargar el ZIP igualmente</a></p>
 <p aria-live="polite" class="movil-estado" role="status"></p>
 </div></template>
 <p class="nota-smartscreen">Requisitos: Windows 10 u 11. Descomprime el ZIP y abre ManaLab.exe. No hace falta instalar nada.</p>

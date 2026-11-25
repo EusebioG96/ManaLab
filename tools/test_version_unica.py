@@ -40,6 +40,13 @@ def _versiones_de(html: str) -> set[str]:
 def _copiar_repositorio(destino: Path) -> None:
     shutil.copytree(RAIZ / construir_web.CARPETA_PLANTILLAS, destino / construir_web.CARPETA_PLANTILLAS)
     shutil.copy(RAIZ / construir_web.ARCHIVO_VERSION, destino / construir_web.ARCHIVO_VERSION)
+    shutil.copy(RAIZ / construir_web.ARCHIVO_CONTENIDO, destino / construir_web.ARCHIVO_CONTENIDO)
+    for _lanz in (construir_web.VIDEO_LANZAMIENTO, construir_web.POSTER_LANZAMIENTO):   # el vídeo del lanzamiento decide el héroe de las portadas
+        if (RAIZ / _lanz).is_file():
+            (destino / _lanz).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(RAIZ / _lanz, destino / _lanz)
+    (destino / "learn").mkdir()   # las páginas Learn llevan la primera página de guías de esta copia (ML-324)
+    shutil.copy(RAIZ / "learn" / "guias.json", destino / "learn" / "guias.json")
 
 
 def _generar(raiz: Path, salida: Path) -> dict[Path, bytes]:

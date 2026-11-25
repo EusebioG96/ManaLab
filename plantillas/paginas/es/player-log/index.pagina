@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Player.log de MTG Arena: dónde está y por qué está vacío</title>
+<meta content="Encuentra el Player.log de MTG Arena, qué es Player-prev.log y cómo arreglar un log sin partidas. Paso a paso, con el único ajuste que importa." name="description"/>
+<link href="https://manalab.es/es/player-log/" rel="canonical"/>
+<link href="https://manalab.es/player-log/" hreflang="en" rel="alternate"/>
+<link href="https://manalab.es/es/player-log/" hreflang="es" rel="alternate"/>
+<link href="https://manalab.es/player-log/" hreflang="x-default" rel="alternate"/>
+<meta content="#0d100f" name="theme-color"/>
+<link href="../../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="../../img/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="article" property="og:type"/>
+<meta content="ManaLab" property="og:site_name"/>
+<meta content="es_ES" property="og:locale"/>
+<meta content="Player.log de MTG Arena: dónde está y por qué está vacío" property="og:title"/>
+<meta content="Encuentra el Player.log de MTG Arena, qué es Player-prev.log y cómo arreglar un log sin partidas. Paso a paso, con el único ajuste que importa." property="og:description"/>
+<meta content="https://manalab.es/es/player-log/" property="og:url"/>
+<meta content="https://manalab.es/img/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@ManaLabApp" name="twitter:site"/>
+<meta content="Player.log de MTG Arena: dónde está y por qué está vacío" name="twitter:title"/>
+<meta content="Encuentra el Player.log de MTG Arena, qué es Player-prev.log y cómo arreglar un log sin partidas. Paso a paso, con el único ajuste que importa." name="twitter:description"/>
+<meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://manalab.es/es/player-log/#article", "headline": "¿Dónde está el Player.log de MTG Arena y por qué está vacío?", "description": "Encuentra el Player.log de MTG Arena, qué es Player-prev.log y cómo arreglar un log sin partidas. Paso a paso, con el único ajuste que importa.", "inLanguage": "es", "mainEntityOfPage": "https://manalab.es/es/player-log/", "datePublished": "2026-11-20", "dateModified": "2026-11-20", "author": {"@id": "https://manalab.es/#org"}, "publisher": {"@id": "https://manalab.es/#org"}, "image": "https://manalab.es/img/og.jpg"}, {"@type": "Organization", "@id": "https://manalab.es/#org", "name": "ManaLab", "url": "https://manalab.es/", "logo": {"@type": "ImageObject", "url": "https://manalab.es/img/icono-192.png", "width": 192, "height": 192}, "sameAs": ["https://x.com/ManaLabApp", "https://github.com/EusebioG96/ManaLab"]}, {"@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "\u00bfEs seguro abrir Player.log?", "acceptedAnswer": {"@type": "Answer", "text": "S\u00ed. Es un archivo de texto; abrirlo o copiarlo no cambia nada."}}, {"@type": "Question", "name": "\u00bfD\u00f3nde est\u00e1 el registro de Magic Online?", "acceptedAnswer": {"@type": "Answer", "text": "Magic Online escribe mtgo.log sin que tengas que activar nada."}}]}]}</script>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=h}}</style></head>
+<body>
+{{> cabecera_es 1=i}}
+<main class="guia-log" id="inicio">
+<section class="portada solo">
+<div class="envoltura">
+<div>
+<div class="eti">MTG Arena · Player.log</div>
+<h1>¿Dónde está el Player.log de MTG Arena y por qué está vacío?</h1>
+<p class="sub">Arena escribe su registro en un archivo llamado <code>Player.log</code>. En el PC está en <code class="ruta-copiable">C:\Users\&lt;tu usuario&gt;\AppData\LocalLow\Wizards Of The Coast\MTGA\</code>. Si el archivo existe pero no tiene partidas, la causa casi siempre es la misma: Arena solo escribe los datos de tus partidas cuando «Registro detallado» («Detailed Logs (Plugin Support)», en inglés) está activado. Actívalo, reinicia Arena y juega una partida.</p>
+</div>
+</div>
+</section>
+<section class="seccion" id="donde">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Dónde está</div>
+<h2>Dónde encontrarlo</h2>
+</div>
+<ol class="pasos-reg">
+<li><span>Abre el Explorador de archivos.</span></li>
+<li><span>Haz clic en la barra de direcciones, pega <code class="ruta-copiable">%appdata%\..\LocalLow\Wizards Of The Coast\MTGA</code> y pulsa Intro.</span></li>
+<li><span>Verás <code>Player.log</code>. <code>AppData</code> es una carpeta oculta; por eso no la encuentras navegando a mano.</span></li>
+</ol>
+</div>
+</section>
+<section class="seccion franja" id="previo">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Sesión anterior</div>
+<h2>Qué es Player-prev.log</h2>
+</div>
+<div class="mtgo-caja sola">
+<p>Arena guarda tu sesión anterior. Al cerrar y volver a abrir el juego, el registro anterior se guarda como <code>Player-prev.log</code> en la misma carpeta. Si acabas de reiniciar Arena y tu partida no está en <code>Player.log</code>, búscala en <code>Player-prev.log</code>.</p>
+</div>
+</div>
+</section>
+<section class="seccion" id="vacio">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">Solución de problemas</div>
+<h2>Cuando Player.log está vacío o no tiene partidas</h2>
+</div>
+<p>Comprueba esto, en orden:</p>
+<ol class="pasos-reg">
+<li><span><b><a href="/es/registro-detallado/">«Registro detallado»</a> está activado.</b> En Arena: Opciones › Cuenta. Sin él, el registro solo trae información técnica básica y ninguno de los datos de partida que necesita un tracker.</span></li>
+<li><span><b>Reiniciaste Arena después de activarlo.</b> El ajuste se aplica al volver a abrirlo.</span></li>
+<li><span><b>Jugaste una partida después de reiniciar.</b> El archivo solo se llena mientras juegas.</span></li>
+<li><span><b>Estás mirando la carpeta correcta.</b> Dentro de la carpeta de instalación de Arena hay otros archivos <code>.log</code>; el que importa es <code>Player.log</code> en <code>LocalLow</code>, no esos.</span></li>
+</ol>
+<p>Si las cuatro están bien y el archivo sigue vacío, <a href="/es/#contacto">envíanos</a> el archivo y la fecha en que se escribió. Preferimos mirarlo a adivinar.</p>
+</div>
+</section>
+<section class="seccion franja" id="que-hace">
+<div class="envoltura">
+<div class="cab-sec">
+<div class="eti">ManaLab</div>
+<h2>Qué hace ManaLab con él</h2>
+</div>
+<div class="mtgo-caja sola">
+<p>ManaLab lee <code>Player.log</code> y la base de cartas de Arena sin modificarlos. No lee la memoria de Arena ni se conecta a los servidores de Wizards. <a href="/es/seguridad/">Cómo comprobarlo →</a></p>
+</div>
+</div>
+</section>
+<section class="seccion" id="preguntas">
+<div class="envoltura">
+<div class="cab-sec"><div class="eti">Preguntas</div><h2>Preguntas</h2></div>
+<div class="preguntas">
+<details open><summary>¿Es seguro abrir Player.log?</summary>
+<p>Sí. Es un archivo de texto; abrirlo o copiarlo no cambia nada.</p></details>
+<details open><summary>¿Dónde está el registro de Magic Online?</summary>
+<p><a href="/es/magic-online/">Magic Online</a> escribe <code>mtgo.log</code> sin que tengas que activar nada.</p></details>
+</div>
+<p class="actualizado">Actualizado el 20 de noviembre de 2026 · ManaLab</p>
+</div>
+</section>
+<section class="seccion franja" id="siguiente">
+<div class="envoltura">
+<div class="apoyo uno">
+<div>
+<div class="eti">Siguiente paso</div>
+<h2>Deja que ManaLab guarde tus partidas</h2>
+<p>ManaLab guarda en tu PC cada partida que juegas en MTG Arena y Magic Online y te enseña qué funciona: tus porcentajes por mazo, por rival y por matchup, tus mulligans, tus errores y tus cambios de sideboard.</p>
+<p>La app es gratis. Solo el análisis con IA es de pago.</p>
+<div class="desc-bloque" id="descargar">
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="{{EVENTO:descarga}}" data-goatcounter-title="{{EVENTO:descarga}}" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar gratis</span></a></p>
+<p class="nota-descarga">Versión <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">otras versiones</a></p>
+<template id="bloque-movil"><div class="movil-caja">
+<h4 class="movil-tit">ManaLab se usa en el ordenador</h4>
+<p class="movil-txt">Envíate el enlace y descárgalo allí.</p>
+<p><button class="boton prim" data-compartir data-copiado="Enlace copiado" data-titulo="{{EVENTO:compartir-movil}}" data-url="https://manalab.es/es/player-log/" type="button"><span>Enviarme el enlace</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="{{EVENTO:descarga-movil}}" rel="noopener">Descargar el ZIP igualmente</a></p>
+<p aria-live="polite" class="movil-estado" role="status"></p>
+</div></template>
+<p class="nota-smartscreen">Requisitos: Windows 10 u 11. Descomprime el ZIP y abre ManaLab.exe. No hace falta instalar nada.</p>
+<p class="nota-smartscreen" data-solo-pc>Antes de descomprimir, botón derecho en el ZIP › Propiedades › marca <b>Desbloquear</b> › Aceptar. Si aun así sale un aviso, pulsa <b>Más información › Ejecutar de todas formas</b>.</p>
+<p class="nota-smartscreen"><a href="/es/seguridad/">¿Es seguro? Compruébalo tú mismo →</a></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+{{> pie_es 2=b}}
+
+<script defer="" src="/descarga.js"></script>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</html>

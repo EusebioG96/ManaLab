@@ -19,7 +19,7 @@ PAGINAS = {
                     title="Cómo activar el registro detallado en MTG Arena · ManaLab", h1="Cómo activar el registro detallado en MTG Arena",
                     evento="descarga-logs-es"),
     "overlay-en": dict(ruta="overlay/index.html", lang="en", url="/overlay/", otra="/es/overlay/",
-                       title="Free MTG Arena Overlay and Deck Tracker · ManaLab", h1="A free overlay and deck tracker for MTG Arena",
+                       title="Free MTG Arena Overlay: Library &amp; Draw Odds · ManaLab", h1="A free overlay and deck tracker for MTG Arena",
                        evento="descarga-overlay-en"),
     "overlay-es": dict(ruta="es/overlay/index.html", lang="es", url="/es/overlay/", otra="/overlay/",
                        title="Overlay y deck tracker gratis para MTG Arena · ManaLab", h1="Overlay y deck tracker gratis para MTG Arena",
@@ -74,7 +74,7 @@ class TestPaginas(unittest.TestCase):
 
     def test_sitemap_con_las_cuatro_urls_y_sus_alternates(self):
         sm = leer("sitemap.xml")
-        self.assertEqual(sm.count("<url>"), 27)
+        self.assertEqual(sm.count("<url>"), 37)   # + 4 páginas Learn (ML-324) + /player-log/ y /es/player-log/ (ML-343, ML-344) + 4 del blog Learn (ML-345)
         for k, p, _ in self.paginas():
             bloque = re.search(r"<url>\s*<loc>%s%s</loc>.*?</url>" % (SITIO, re.escape(p["url"])), sm, re.S)
             self.assertIsNotNone(bloque)
@@ -82,9 +82,10 @@ class TestPaginas(unittest.TestCase):
 
     def test_un_boton_de_descarga_con_su_titulo_de_goatcounter(self):
         for k, p, html in self.paginas():
-            botones = re.findall(r'<a [^>]*data-goatcounter-click="descarga"[^>]*>', html)
+            botones = re.findall(r'<a [^>]*data-goatcounter-click="descarga-[^"]*"[^>]*>', html)
             self.assertEqual(len(botones), 1)
             self.assertIn('data-goatcounter-title="%s"' % p["evento"], botones[0])
+            self.assertIn('data-goatcounter-click="%s"' % p["evento"], botones[0])
             self.assertIn('id="enlace-descarga"', botones[0])
             self.assertIn("data-descarga", botones[0])
             self.assertIn('<template id="bloque-movil">', html)                       # caja de móvil de descarga.js

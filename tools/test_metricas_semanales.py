@@ -193,8 +193,9 @@ class PruebasML139(unittest.TestCase):
 
     def test_rutas_desde_el_sitemap_completo(self):
         r = M.rutas_visitas(texto=SITEMAP)
-        for esperado in ("/coaches/", "/es/coaches/", "/pt/coaches/", "/sorteo/en/", "/magic-online/", "/sorteo/", "/es/seguridad/"):
+        for esperado in ("/coaches/", "/es/coaches/", "/pt/coaches/", "/sorteo/en/", "/magic-online/", "/es/seguridad/"):
             self.assertIn(esperado, r)
+        self.assertNotIn("/sorteo/", r)  # ML-342: ya no es página principal (solo redirige a novedades)
         self.assertNotIn("/ignorada/", r)  # solo <loc>, no los xhtml:link
         self.assertEqual(r[0], "TOTAL")
         self.assertEqual(len(r), len(set(r)))
@@ -273,6 +274,15 @@ class PruebasML139(unittest.TestCase):
         for n in ("descarga", "compartir-movil", "descarga-movil", "descarga-mtgo-es", "descarga-coaches-pt", "compartir-movil-coaches-en"):
             self.assertIn(n, c)
         self.assertEqual(len(c), len(set(c)))
+
+    def test_candidatos_incluyen_los_eventos_por_pagina_idioma_y_posicion(self):
+        c = M.eventos_candidatos()
+        for n in ("descarga-portada-es-hero", "descarga-magic-online-en", "descarga-guia-ja-arriba", "compartir-movil-coaches-pt"):   # ML-296: la portada pierde su botón de compartir con el campo de correo activo
+            self.assertIn(n, c)
+
+    def test_eventos_con_posicion_se_agrupan_por_pagina_e_idioma(self):
+        g = M.agrupar_eventos({"descarga-portada-es-hero": 3, "descarga-portada-es-final": 2, "descarga-portada-en-hero": 4})
+        self.assertEqual(g["descarga-portada"], {"total": 9, "idiomas": {"es": 5, "en": 4}})
 
     def test_resumen_eventos_paginas_y_dias(self):
         a = M.foto(R1, date(2026, 10, 23), {"TOTAL": 100}, {"descarga": 10, "descarga-mtgo-es": 1})

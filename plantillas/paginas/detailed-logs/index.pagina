@@ -8,7 +8,7 @@
 <link href="https://manalab.es/detailed-logs/" hreflang="en" rel="alternate"/>
 <link href="https://manalab.es/es/registro-detallado/" hreflang="es" rel="alternate"/>
 <link href="https://manalab.es/detailed-logs/" hreflang="x-default" rel="alternate"/>
-<meta content="#0d0304" name="theme-color"/>
+<meta content="#0d100f" name="theme-color"/>
 <link href="../img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="../img/icono-192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="../img/apple-touch-icon.png" rel="apple-touch-icon"/>
@@ -27,7 +27,7 @@
 <meta content="Turn on Detailed Logs (Plugin Support) in MTG Arena in three steps, so a tracker can save your games. With what the log contains and where it is." name="twitter:description"/>
 <meta content="https://manalab.es/img/og.jpg" name="twitter:image"/>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://manalab.es/detailed-logs/#webpage", "url": "https://manalab.es/detailed-logs/", "name": "How to Enable Detailed Logs in MTG Arena · ManaLab", "description": "Turn on Detailed Logs (Plugin Support) in MTG Arena in three steps, so a tracker can save your games. With what the log contains and where it is.", "inLanguage": "en", "isPartOf": {"@id": "https://manalab.es/#website"}, "about": {"@id": "https://manalab.es/#app"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://manalab.es/img/og.jpg"}}, {"@type": "HowTo", "@id": "https://manalab.es/detailed-logs/#howto", "name": "How to enable detailed logs in MTG Arena", "inLanguage": "en", "description": "Turn on Detailed Logs (Plugin Support) in MTG Arena in three steps, so a tracker can save your games. With what the log contains and where it is.", "step": [{"@type": "HowToStep", "position": 1, "name": "In Arena, go to Options › Account.", "text": "In Arena, go to Options › Account."}, {"@type": "HowToStep", "position": 2, "name": "Turn on «Detailed Logs (Plugin Support)».", "text": "Turn on «Detailed Logs (Plugin Support)»."}, {"@type": "HowToStep", "position": 3, "name": "Restart Arena.", "text": "Restart Arena."}]}]}</script>
-<link rel="preload" href="/fuentes/saira-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/figtree-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=c}}</style></head>
+<link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><style>{{> css_sitio 16=c}}</style></head>
 <body>
 {{> cabecera_en 1=c}}
 <main id="inicio">
@@ -43,9 +43,11 @@
 <li>Restart Arena.</li>
 </ol>
 <p class="ruta-completa">The option is at <span class="ruta">Options › Account › Detailed Logs (Plugin Support)</span></p>
+<p class="enlace-seccion"><a class="enlace-man" href="/player-log/">Log empty or no games in it? See what to do →</a></p>
 </div>
 </div>
 </section>
+{{HUECO_MDN}}
 <section class="seccion franja" id="lee">
 <div class="envoltura">
 <div class="cab-sec">
@@ -79,6 +81,7 @@
 <p>Magic Online needs no setting. It writes its own log, <code>mtgo.log</code>, with nothing to turn on: open Magic Online and ManaLab picks it up by itself.</p>
 <p><a href="/magic-online/">ManaLab for Magic Online: what it saves and how it works →</a></p>
 </div>
+<p class="enlace-seccion"><a class="enlace-man" href="/guia/guia_manalab_en.html#inicio">Full ManaLab guide →</a></p>
 </div>
 </section>
 <section class="seccion franja" id="siguiente">
@@ -90,13 +93,13 @@
 <p>ManaLab saves every match you play in MTG Arena and Magic Online on your PC and shows what works: your win rates by deck, by opponent and by matchup, your mulligans, your mistakes and your sideboard changes.</p>
 <p>The app is free. Only the AI analysis is paid.</p>
 <div class="desc-bloque" id="descargar">
-<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="descarga" data-goatcounter-title="descarga-logs-en" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></p>
+<p style="margin-top:14px"><a class="boton prim" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-goatcounter-click="{{EVENTO:descarga}}" data-goatcounter-title="{{EVENTO:descarga}}" id="enlace-descarga" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a></p>
 <p class="nota-descarga">Version <span data-version>{{VERSION}}</span> · ZIP · <a href="https://github.com/EusebioG96/ManaLab/releases" rel="noopener">other versions</a></p>
 <template id="bloque-movil"><div class="movil-caja">
 <h4 class="movil-tit">ManaLab runs on your computer</h4>
 <p class="movil-txt">Send yourself the link and download it there.</p>
-<p><button class="boton prim" data-compartir data-copiado="Link copied" data-titulo="compartir-movil-en" data-url="https://manalab.es/detailed-logs/" type="button"><span>Send me the link</span></button></p>
-<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="descarga-movil-en" rel="noopener">Download the ZIP anyway</a></p>
+<p><button class="boton prim" data-compartir data-copiado="Link copied" data-titulo="{{EVENTO:compartir-movil}}" data-url="https://manalab.es/detailed-logs/" type="button"><span>Send me the link</span></button></p>
+<p class="movil-zip"><a href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-descarga data-titulo="{{EVENTO:descarga-movil}}" rel="noopener">Download the ZIP anyway</a></p>
 <p aria-live="polite" class="movil-estado" role="status"></p>
 </div></template>
 <p class="nota-smartscreen">Requirements: Windows 10 or 11. Unzip the file and open ManaLab.exe. Nothing to install.</p>

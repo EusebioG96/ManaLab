@@ -10,7 +10,8 @@ Los `.html` del repositorio **no se editan a mano**: salen de `plantillas/` con 
 | Contenido de cada página (cabecera `<head>`, texto, scripts) | `plantillas/paginas/<ruta>.pagina`, que se publica en `<ruta>.html` |
 | Cabecera de la web (`cabecera_en`, `_es`, `_pt`, `_ja`, `_guia`) | `plantillas/cabecera_<idioma>.tpl` |
 | Pie de la web (`pie_en`, `_es`, `_pt`, `_ja`, `_guia`) | `plantillas/pie_<idioma>.tpl` |
-| CSS (`css_sitio`, `css_seguridad`, `css_guia`, `css_sorteo`, `css_privacidad`) | `plantillas/css_<grupo>.tpl` |
+| CSS (`css_sitio`, `css_seguridad`, `css_guia`, `css_privacidad`) | `plantillas/css_<grupo>.tpl` |
+| CSS de la cabecera (una sola copia; la insertan `css_sitio` y `css_seguridad` con una línea `{{> css_cabecera}}`) | `plantillas/css_cabecera.tpl` |
 
 Una página inserta una plantilla con `{{> pie_es}}`. Si las páginas de un mismo grupo difieren en alguna
 parte (por ejemplo, el enlace de «Preguntas» del pie, o una regla de CSS propia de la portada), esa parte es un
@@ -27,6 +28,39 @@ la variante con `{{> pie_es 2=b}}` (sin indicar nada, la `a`).
 
 `python3 tools/construir_web.py --comprobar` dice qué páginas están desactualizadas sin escribir nada.
 
+### Cambiar un enlace de la cabecera (ML-272)
+
+La cabecera (`cabecera_es`, `_en`, `_pt`, `_ja`) lleva dos copias de los enlaces de sección y de los botones de idioma:
+la fila de escritorio y, al final, el menú de teléfono `<details class="menu">` (sin JavaScript, solo visible por debajo de
+900 px). Si cambias un enlace, cámbialo en las dos copias de la misma variante; `tools/test_linea_visual_base.py` falla si
+no coinciden. La copia del menú no lleva `id`.
+
+### Enlaces de Metafy (ML-274)
+
+Los enlaces de Metafy salen solo de `contenido.json` (`enlace_suscripcion_ia` y `enlace_apoyo_metafy`; ver `docs/contenido_remoto.md`).
+En una página se escriben como bloques, no como enlaces:
+
+- `{{SUSCRIPCION_IA clase="" estilo="" medicion="metafy-ia-es" texto="…" pronto="…"}}`: con enlace, el botón de suscripción;
+  sin enlace, el texto `pronto` (sin enlace, nunca un botón muerto).
+- `{{APOYO_METAFY eti="…" titulo="…" texto="…" boton="…" medicion="…"}}`: el bloque «Apoya el proyecto» con el botón grande
+  `.b-metafy` y el logotipo `img/metafy.svg`; sin enlace no genera nada.
+
+Para poner un enlace: edita `contenido.json`, ejecuta `python3 tools/construir_web.py` y haz commit de los `.html`.
+
+### Eventos de descarga de GoatCounter (ML-280)
+
+Cada botón de descarga envía un evento propio: `<tipo>-<página>-<idioma>[-<posición>]` (tipo `descarga`, `descarga-movil` o
+`compartir-movil`; p. ej. `descarga-portada-es-hero`, `descarga-magic-online-en`, `compartir-movil-coaches-pt`). En las plantillas no
+se escribe el nombre: se pone `{{EVENTO:descarga}}` o `{{EVENTO:descarga:hero}}` (con posición si la página tiene varios botones) y
+`construir_web.py` lo completa con la página y el idioma de la ruta. `tools/test_eventos_descarga.py` vigila el patrón y que no se repita ningún nombre.
+
+### Enlace por correo en el teléfono (ML-295)
+
+Las cuatro portadas llevan en su `<template id="bloque-movil">` la marca `{{CORREO_MOVIL txt="…"}}`. Con `URL_ENLACE_CORREO = ""` en
+`tools/construir_web.py` (el valor actual) genera el párrafo de siempre; con la dirección del servidor (`POST /enlace-descarga`, ver
+`servidor_ia/LEEME.txt` del repositorio de la app) genera el campo de correo con los textos de `TEXTOS_CORREO`. Para activarlo: pon la
+dirección, `python3 tools/construir_web.py` y commit de los `.html`. Evento: `correo-movil-portada-<idioma>`. Lo vigila `tools/test_correo_movil.py`.
+
 ### Versión y enlaces de descarga
 
 `version.json` es la única fuente de la versión actual. Las plantillas y páginas no llevan números de versión: donde
@@ -38,6 +72,77 @@ por el campo `version` de `version.json`. Las menciones a versiones pasadas (his
 las 31 páginas; el workflow hace commit de `version.json` y de los `.html` que cambian. Nunca se editan plantillas para
 subir de versión. `tools/test_version_unica.py` falla si alguna página trae una versión de descarga distinta de la actual.
 
+## Ver la web sin desplegarla (ML-329)
+
+Para ver los cambios en el navegador sin publicar nada:
+
+- **Windows**: doble clic en `tools/ver_web.bat`. Si no hay Python, dice cómo instalarlo y espera una tecla.
+- **Cualquier sistema**: `python3 tools/vista_previa.py` (Python 3.10 o posterior, sin instalar nada más).
+
+Sirve la raíz del repositorio en `http://localhost:8000` (si el puerto está ocupado, el siguiente libre), escribe las direcciones de las páginas
+principales (portadas, Learn en sus cuatro idiomas, privacidad y seguridad) y abre la portada. Para y cierra con Ctrl+C.
+
+| Opción | Qué hace |
+| --- | --- |
+| `--construir` | antes de servir, ejecuta `tools/construir_web.py` (si has tocado plantillas) |
+| `--puerto N` | empieza a buscar puerto por el N |
+| `--sin-abrir` | no abre el navegador |
+
+Se comporta como GitHub Pages: `/carpeta/` da `carpeta/index.html`, `/carpeta` redirige a `/carpeta/` y una ruta que no existe da la 404 de
+`404.html`. Solo escucha en tu equipo y no sirve nada fuera de la carpeta del repositorio ni `.git`.
+
+Dos diferencias con la web publicada:
+
+- **Learn usa la copia `learn/guias.json`**: el servidor de guías solo da permiso (CORS) a `https://manalab.es`, así que desde `localhost`
+  la petición falla y `learn.js` pinta la lista guardada en el repositorio (la que deja `tools/actualizar_guias_web.py`).
+- **MDN puede no servir anuncio en `localhost`**: entonces el hueco enseña el anuncio de casa, el que lleva a Learn, que es lo que verías si MDN no tuviera anuncio.
+
+Lo prueba `tools/test_vista_previa.py`.
+
 ## Comprobaciones
 
 `python3 tools/seo_check.py` y `for t in tools/test_*.py; do python3 "$t"; done`.
+
+### Portada y novedades de la 3.0 (ML-281)
+
+- **Aviso de versión** (`<div class="aviso-version">` arriba de las cuatro portadas): se cambia a mano en `plantillas/paginas/{,es/,pt/,ja/}index.pagina`.
+  pt y ja enlazan a las novedades en inglés (`/novedades/`), porque no hay novedades en su idioma.
+- **Vídeo del lanzamiento**: `tools/construir_web.py` (`VIDEO_LANZAMIENTO`, `POSTER_LANZAMIENTO`). Cuando existan los dos archivos
+  `video/manalab-3.0.mp4` y `video/manalab-3.0-poster.jpg`, las cuatro portadas los usan en el héroe (solo MP4, sin WebM) al regenerar; no hay
+  que tocar plantillas. Mientras falte alguno, se queda el vídeo actual (`video/hero/`). Para activarlo: subir los dos archivos y ejecutar
+  `python3 tools/construir_web.py`.
+- **Cita de Luis Salvatto** (portadas en inglés y español): `MOSTRAR_CITA_SALVATTO` en `tools/construir_web.py`, **apagado**. Apagado no hay
+  ni rastro en el HTML. Para encenderlo: ponerlo en `True`, rellenar `ENLACE_CITA_SALVATTO` con la dirección https de su post (vacío = la
+  firma sale sin enlace) y regenerar.
+- **Conexiones de la app** (`/safety/`, `/es/seguridad/`, `/privacy/`): `tools/test_conexiones_listadas.py` lleva la lista de hosts de la app;
+  si la app habla con un host nuevo, se añade ahí y a las páginas.
+
+### Página «Learn» (ML-324, WEB-08)
+
+- **Páginas**: `/learn/`, `/es/aprender/`, `/pt/aprender/`, `/ja/learn/` (`plantillas/paginas/.../*.pagina`, textos en `tools/construir_learn.py`).
+- **Lista de guías**: `python3 tools/actualizar_guias_web.py` descarga la del servidor, la valida (`tools/guias_web.py`) y guarda `learn/guias.json`;
+  después `python3 tools/construir_web.py` escribe las 24 primeras en el HTML. `construir_web.py` nunca toca la red. En el navegador,
+  `learn/learn.js` pide la lista al servidor, si falla usa `/learn/guias.json` y, si también falla, deja el HTML.
+- **Destacados**: salen de `contenido.json` (`destacados`, campos `frase` y `fondo` opcionales; ver `docs/contenido_remoto.md`). Sin destacados no hay
+  banner ni barra.
+- **Textos pendientes de Eusebio**: `python3 tools/pendientes_eusebio.py` lista las marcas `PENDIENTE-EUSEBIO`; sale con 1 mientras haya alguna.
+  Para publicar, `MANALAB_PUBLICAR=1 python3 -m pytest tools/test_pagina_learn.py` debe pasar.
+- **Pruebas**: `test_pagina_learn.py` (páginas y construcción), `test_pagina_learn_validacion.py` (Python y JS validan igual; necesita `node`),
+  `test_pagina_learn_navegador.py` (Chromium con Playwright; se salta si no está).
+
+### Huecos de anuncio de MDN (ML-325, WEB-09)
+
+- **Dónde van**: en la plantilla de cada página con anuncio, la marca `{{HUECO_MDN}}` (en una línea, entre dos `<section>`). `tools/construir_mdn.py` la cambia por el
+  `<aside class="hueco-mdn">` en el idioma de la página (etiqueta Publicidad / Advertisement / Publicidade / 広告 y anuncio de casa que lleva a Learn) y, si la página
+  tiene algún hueco, añade **una vez** antes de `</body>` el script de MDN (`async`) y `/huecos_mdn.js`. Sin marcas no hay ni hueco ni script.
+- **La regla** (portadas y coaches 2, Magic Online, overlay, novedades y registro detallado 1, Learn 2): primer hueco tras la primera sección que termina a 560 px o más
+  (tras la franja de datos en las portadas); segundo, solo con 7 secciones o más sin contar la primera, justo antes de «Preguntas». Nunca antes del botón de descarga.
+  En Learn, `{{HUECO_MDN}}` tras el paginador y, dentro de la rejilla, uno tras la octava guía que pone `construir_learn.py` (y `learn.js` conserva al repintar, solo si
+  hay más de ocho guías en la página).
+- **Estilos**: salen de `plantillas/mdn/huecos.css` y `construir_mdn.py` los añade (en un `<style>` antes de `</head>`) solo a las páginas con hueco; las demás no los cargan.
+- **Evento de clic del anuncio de casa**: `anuncio-casa-<página>-<idioma>-<1|2>` (el número es el orden del hueco en la página), como los botones de descarga.
+- **Sin anuncio** (la construcción falla si llevan la marca): `guia/*`, `/privacy/`, `/safety/`, `/es/seguridad/`, `404.html` y `/anuncio/` (que carga el script a su manera).
+- **Tamaño**: `.hm-caja` reserva 300x250 y, si el hueco mide 728 px o más (`@container`), 728x90; MDN elige `rectangle` o `leaderboard` por ese mismo ancho.
+- **Si MDN no pone nada** (`data-mdn-state="empty"`), no llega (script bloqueado) o no responde en `PLAZO_MDN_MS`, se ve el anuncio de casa; sin JavaScript también.
+- **Pruebas**: `test_huecos_mdn.py` (estática) y `test_huecos_mdn_navegador.py` (Chromium; MDN simulado). Una página nueva debe decidirse en `CON_ANUNCIO` o `SIN_ANUNCIO`.
+- **Textos pendientes de Eusebio**: privacidad y seguridad llevan una marca `PENDIENTE-EUSEBIO` para lo que cuenta que Metafy recibe la visita (IP y navegador).

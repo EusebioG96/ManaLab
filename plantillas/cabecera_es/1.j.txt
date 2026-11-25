@@ -1,0 +1,20 @@
+<a class="marca" href="/es/"><img alt="Logo de ManaLab" height="36" src="/img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
+<nav aria-label="Secciones">
+<a href="/es/">Inicio</a>
+<a href="/es/aprender/">Aprender</a>
+</nav>
+<a class="idioma" href="/blog/learn-mtg-arena-guides/" hreflang="en" id="idioma" lang="en" title="View in English">EN</a>
+<a class="idioma" href="/pt/blog/learn-mtg-arena-guides/" hreflang="pt-BR" lang="pt-BR" title="Ver em português">PT</a>
+<a class="idioma" href="/ja/blog/learn-mtg-arena-guides/" hreflang="ja" lang="ja" title="日本語で見る">日本語</a>
+<a class="boton prim descarga" href="/es/#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Descargar</span></a>
+<details class="menu"><summary aria-label="Menú"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary><div class="menu-caja">
+<nav aria-label="Secciones">
+<a href="/es/">Inicio</a>
+<a href="/es/aprender/">Aprender</a>
+</nav>
+<div class="menu-idiomas">
+<a class="idioma" href="/blog/learn-mtg-arena-guides/" hreflang="en" lang="en" title="View in English">EN</a>
+<a class="idioma" href="/pt/blog/learn-mtg-arena-guides/" hreflang="pt-BR" lang="pt-BR" title="Ver em português">PT</a>
+<a class="idioma" href="/ja/blog/learn-mtg-arena-guides/" hreflang="ja" lang="ja" title="日本語で見る">日本語</a>
+</div>
+</div></details>

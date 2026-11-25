@@ -4,3 +4,11 @@
 </nav>
 <a class="idioma" href="/es/seguridad/" hreflang="es" lang="es" title="Ver en español">ES</a>
 <a class="boton prim" href="/#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download</span></a>
+<details class="menu"><summary aria-label="Menu"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary><div class="menu-caja">
+<nav aria-label="Sections">
+<a href="/#funciones">Features</a><a href="/#empezar">Get started</a><a href="/#preguntas">FAQ</a>
+</nav>
+<div class="menu-idiomas">
+<a class="idioma" href="/es/seguridad/" hreflang="es" lang="es" title="Ver en español">ES</a>
+</div>
+</div></details>
