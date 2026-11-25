@@ -14,7 +14,7 @@
       "enlace": "https://metafy.gg/@pcpalhares?utm_source=Manalab",
       "foto": "https://manalab.es/img/destacados/pcpalhares.webp",
       "fondo": "https://manalab.es/img/destacados/pcpalhares-fondo.webp",
-      "guias": "https://metafy.gg/@pcpalhares/guides"
+      "guias": "https://metafy.gg/@pcpalhares/guides?utm_source=Manalab"
     },
     {
       "id": "tcgacademy",
@@ -24,7 +24,7 @@
       "enlace": "https://metafy.gg/@luissalvatto?utm_source=Manalab",
       "foto": "https://manalab.es/img/destacados/tcgacademy.webp",
       "fondo": "https://manalab.es/img/destacados/tcgacademy-fondo.webp",
-      "sesiones": "https://metafy.gg/@luissalvatto/sessions"
+      "sesiones": "https://metafy.gg/@luissalvatto/sessions?utm_source=Manalab"
     },
     {
       "id": "yuyan",
@@ -34,8 +34,8 @@
       "enlace": "https://metafy.gg/@yuyan?utm_source=Manalab",
       "foto": "https://manalab.es/img/destacados/yuyan.webp",
       "fondo": "https://manalab.es/img/destacados/yuyan-fondo.webp",
-      "guias": "https://metafy.gg/@yuyan/guides",
-      "articulos": "https://metafy.gg/@yuyan/posts"
+      "guias": "https://metafy.gg/@yuyan/guides?utm_source=Manalab",
+      "articulos": "https://metafy.gg/@yuyan/posts?utm_source=Manalab"
     }
   ]
 }
