@@ -250,7 +250,7 @@ class TestPaginaDeNovedades(unittest.TestCase):
                 self.assertIn('<link href="https://manalab.es/novedades/" hreflang="x-default" rel="alternate"/>', html)
                 self.assertNotIn("noindex", html)
                 self.assertIn("goatcounter", html)
-                self.assertIn("https://manalab.es/img/og.jpg", html)
+                self.assertIn("https://manalab.es/img/og-3.0.jpg", html)
                 self.assertEqual(html.count("<h1>"), 1)
                 self.assertIn(f"<loc>{URL[idioma]}</loc>", sitemap)
         self.assertEqual(sitemap.count("<loc>"), 37)   # + 4 páginas Learn (ML-324) + /player-log/ y /es/player-log/ (ML-343, ML-344) + 4 del blog Learn (ML-345)

@@ -204,8 +204,8 @@ class TestHreflangYSitemap(unittest.TestCase):
                 self.assertEqual([x["href"] for x in p.links if x.get("rel") == "canonical"], [URL[idioma]])
                 self.assertEqual(p.meta["og:url"], URL[idioma])
                 self.assertEqual(p.meta["og:type"], "article")
-                self.assertEqual(p.meta["og:image"], f"{SITIO}/img/og.jpg")
-                self.assertEqual(p.meta["twitter:image"], f"{SITIO}/img/og.jpg")
+                self.assertEqual(p.meta["og:image"], f"{SITIO}/img/og-3.0.jpg")
+                self.assertEqual(p.meta["twitter:image"], f"{SITIO}/img/og-3.0.jpg")
                 self.assertNotIn("noindex", p.meta.get("robots", ""))
                 otros = [(PAGINAS[o][1], URL[o].removeprefix(SITIO)) for o in IDIOMAS if o != idioma]
                 selector = [(x["hreflang"], x["href"]) for x in p.links_a if "idioma" in x.get("class", "")]
@@ -249,7 +249,7 @@ class TestDatosEstructurados(unittest.TestCase):
                 self.assertEqual(articulo["description"], descripcion)
                 self.assertEqual(articulo["mainEntityOfPage"], URL[idioma])
                 self.assertEqual((articulo["datePublished"], articulo["dateModified"]), (construir_web.FECHA_BLOG_LEARN,) * 2)
-                self.assertEqual(articulo["image"], f"{SITIO}/img/og.jpg")
+                self.assertEqual(articulo["image"], f"{SITIO}/img/og-3.0.jpg")
                 (org,) = [n for n in self.nodos(idioma) if n["@type"] == "Organization"]
                 self.assertEqual((org["@id"], org["name"]), (f"{SITIO}/#org", "ManaLab"))
 
