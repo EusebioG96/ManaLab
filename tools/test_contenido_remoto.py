@@ -182,25 +182,25 @@ class ContenidoRemotoTest(unittest.TestCase):
         self.assertEqual(validar(json.loads(crudo.decode("utf-8")), len(crudo)), [])
 
     def test_valores_iniciales_acordados(self):
-        enlaces = {"enlace_apoyo_metafy": "https://metafy.gg/@manalab",  # ML-307: fijados por el dueño el 18/11
-                   "enlace_suscripcion_ia": "https://metafy.gg/@manalab/members?membershipId=6696173a-b185-4a9e-ad09-abce63885f73"}
+        enlaces = {"enlace_apoyo_metafy": "https://metafy.gg/@manalab?utm_source=Manalab",  # ML-307: fijados por el dueño el 18/11
+                   "enlace_suscripcion_ia": "https://metafy.gg/@manalab/members?membershipId=6696173a-b185-4a9e-ad09-abce63885f73&utm_source=Manalab"}
         destacados = [{"id": "pcpalhares", "nombre": "Professor P. C. Palhares",   # ML-334: primer destacado, decidido por el dueño el 19/11
                        "linea": "Standard · Pioneer · Modern - Competitive Magic · PT/EN",
                        "frase": "Professor, jogador competitivo e mentor. Análise de metagame e estratégias para ajudar você a evoluir no Magic!",
-                       "enlace": "https://metafy.gg/@pcpalhares", "foto": "https://manalab.es/img/destacados/pcpalhares.webp",
-                       "fondo": "https://manalab.es/img/destacados/pcpalhares-fondo.webp", "guias": "https://metafy.gg/@pcpalhares/guides"},
+                       "enlace": "https://metafy.gg/@pcpalhares?utm_source=Manalab", "foto": "https://manalab.es/img/destacados/pcpalhares.webp",
+                       "fondo": "https://manalab.es/img/destacados/pcpalhares-fondo.webp", "guias": "https://metafy.gg/@pcpalhares/guides?utm_source=Manalab"},
                       {"id": "tcgacademy", "nombre": "TCG Academy",   # ML-351: segundo destacado, sin «hasta» (para siempre, decisión del dueño)
                        "linea": "All Constructed formats · Limited (Draft & Sealed) · EN/ES",
                        "frase": "A competitive Magic community with on-demand coaching, match reviews, and guides to help you play better and prepare "
                                 "for tournaments.",
-                       "enlace": "https://metafy.gg/@luissalvatto", "foto": "https://manalab.es/img/destacados/tcgacademy.webp",
-                       "fondo": "https://manalab.es/img/destacados/tcgacademy-fondo.webp", "sesiones": "https://metafy.gg/@luissalvatto/sessions"},
+                       "enlace": "https://metafy.gg/@luissalvatto?utm_source=Manalab", "foto": "https://manalab.es/img/destacados/tcgacademy.webp",
+                       "fondo": "https://manalab.es/img/destacados/tcgacademy-fondo.webp", "sesiones": "https://metafy.gg/@luissalvatto/sessions?utm_source=Manalab"},
                       {"id": "yuyan", "nombre": "Yuya Hosokawa",   # ML-354: tercer destacado, sin «hasta»; «articulos» va en la versión siguiente
                        "linea": "Deck guides, metagame analyses and more · 2+ updates a week",
                        "frase": "Members get free access to all articles! There are tons of articles, and more are added every week!",
-                       "enlace": "https://metafy.gg/@yuyan", "foto": "https://manalab.es/img/destacados/yuyan.webp",
-                       "fondo": "https://manalab.es/img/destacados/yuyan-fondo.webp", "guias": "https://metafy.gg/@yuyan/guides",
-                       "articulos": "https://metafy.gg/@yuyan/posts"}]
+                       "enlace": "https://metafy.gg/@yuyan?utm_source=Manalab", "foto": "https://manalab.es/img/destacados/yuyan.webp",
+                       "fondo": "https://manalab.es/img/destacados/yuyan-fondo.webp", "guias": "https://metafy.gg/@yuyan/guides?utm_source=Manalab",
+                       "articulos": "https://metafy.gg/@yuyan/posts?utm_source=Manalab"}]
         esperado = dict(_con(**enlaces), destacados=destacados)
         self.assertEqual(json.loads(ARCHIVO.read_text(encoding="utf-8")), esperado)
         self.assertEqual(validar(esperado, 100), [])
