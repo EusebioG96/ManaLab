@@ -22,6 +22,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import construir_web  # noqa: E402
 
 RAIZ = construir_web.RAIZ
+
+
+def href(url: str) -> str:
+    """Atributo ``href`` tal como sale en la web: con la UTM de ML-374 y el ``&`` escapado."""
+    escapada = construir_web.url_con_utm(url).replace("&", "&amp;")
+    return f'href="{escapada}"'
 PORTADAS = {"en": "index.html", "es": "es/index.html", "pt": "pt/index.html", "ja": "ja/index.html"}
 PORTADAS_CON_APOYO = ("en", "es")  # el bloque «Apoya el proyecto» solo estaba en inglés y español
 PAGINAS_CON_FAQ = {**{f"portada-{i}": r for i, r in PORTADAS.items()},
@@ -29,8 +35,8 @@ PAGINAS_CON_FAQ = {**{f"portada-{i}": r for i, r in PORTADAS.items()},
 IDIOMAS_GUIA = ["es", "en", "de", "fr", "it", "pt", "ja", "ko", "zh"]
 ENLACE_IA = "https://metafy.gg/@manalab/ia"
 ENLACE_APOYO = "https://www.metafy.gg/@manalab"
-ENLACE_APOYO_REAL = "https://metafy.gg/@manalab"  # el de contenido.json (ML-307)
-ENLACE_IA_REAL = "https://metafy.gg/@manalab/members?membershipId=6696173a-b185-4a9e-ad09-abce63885f73"
+ENLACE_APOYO_REAL = "https://metafy.gg/@manalab?utm_source=Manalab"  # el de contenido.json (ML-307; con la UTM de ML-371)
+ENLACE_IA_REAL = "https://metafy.gg/@manalab/members?membershipId=6696173a-b185-4a9e-ad09-abce63885f73&utm_source=Manalab"
 # texto «muy pronto» de cada portada (los botones de la IA sin enlace)
 PRONTO = {"en": "Subscription on Metafy: coming soon", "es": "Suscripción en Metafy: muy pronto",
           "pt": "Assinatura no Metafy: em breve", "ja": "Metafyでの購読：まもなく開始"}
@@ -111,11 +117,11 @@ class TestSuscripcionIa(unittest.TestCase):
         for idioma, ruta in PORTADAS.items():
             with self.subTest(idioma=idioma):
                 html = _texto(RAIZ / ruta)
-                self.assertIn(f'href="{ENLACE_IA_REAL}"', html)
+                self.assertIn(href(ENLACE_IA_REAL), html)
                 self.assertEqual(botones_muertos(html), [])
                 self.assertNotIn('class="pronto"', html)
                 if idioma in PORTADAS_CON_APOYO:
-                    self.assertIn(f'href="{ENLACE_APOYO_REAL}"', html)
+                    self.assertIn(href(ENLACE_APOYO_REAL), html)
 
     def test_sin_enlace_sale_el_texto_muy_pronto_y_ningun_enlace_a_metafy(self):
         for idioma, ruta in PORTADAS.items():
@@ -130,7 +136,7 @@ class TestSuscripcionIa(unittest.TestCase):
         for idioma, ruta in PORTADAS.items():
             with self.subTest(idioma=idioma):
                 html = _texto(self.con / ruta)
-                botones = [a for a in _anclas(html) if f'href="{ENLACE_IA}"' in a]
+                botones = [a for a in _anclas(html) if href(ENLACE_IA) in a]
                 self.assertEqual(len(botones), 2)
                 titulos = sorted(re.search(r'data-goatcounter-title="([^"]+)"', a).group(1) for a in botones)
                 self.assertEqual(titulos, [f"metafy-funciones-{idioma}", f"metafy-ia-{idioma}"])
@@ -143,7 +149,7 @@ class TestSuscripcionIa(unittest.TestCase):
 
     def test_el_boton_principal_de_la_ia_es_primario(self):
         html = _texto(self.con / "es/index.html")
-        self.assertRegex(html, r'<a class="boton prim" href="' + re.escape(ENLACE_IA) + '"')
+        self.assertRegex(html, r'<a class="boton prim" href="' + re.escape(construir_web.url_con_utm(ENLACE_IA)) + '"')
 
     def test_enlace_no_valido_rompe_la_construccion(self):
         for malo in ("http://metafy.gg/x", "https://evil.com/metafy.gg", "https://user@metafy.gg/x", "https://metafy.gg:8443/x", "javascript:alert(1)"):
@@ -185,7 +191,7 @@ class TestApoyoMetafy(unittest.TestCase):
                 bloque = bloque[:bloque.index("</section>")]
                 botones = re.findall(r'<a class="b-metafy"[^>]*>.*?</a>', bloque, re.S)
                 self.assertEqual(len(botones), 1)
-                self.assertIn(f'href="{ENLACE_APOYO}"', botones[0])
+                self.assertIn(href(ENLACE_APOYO), botones[0])
                 self.assertIn('<img src="/img/metafy.svg" alt=""', botones[0])
                 self.assertEqual(botones_muertos(html), [])
 
@@ -249,3 +255,31 @@ class TestTextosDeLaIa(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestUtmEnLaWeb(unittest.TestCase):
+    """ML-374: Metafy atribuye a ManaLab cada clic que sale de la web."""
+
+    def test_todo_enlace_a_metafy_de_la_web_lleva_la_utm(self):
+        enlace = re.compile(r'href="(https://(?:[\w-]+\.)*metafy\.gg[^"]*)"')
+        total = 0
+        for pagina in construir_web.listar_paginas(RAIZ):
+            for url in enlace.findall(_texto(RAIZ / pagina)):
+                total += 1
+                with self.subTest(pagina=pagina.as_posix(), url=url):
+                    self.assertIn(construir_web.PARAMETRO_UTM, url)
+                    self.assertEqual(url.count("utm_source="), 1)
+        self.assertGreater(total, 100)
+
+    def test_la_utm_respeta_parametros_y_anclas(self):
+        self.assertEqual(construir_web.url_con_utm("https://metafy.gg/@x"), "https://metafy.gg/@x?utm_source=Manalab")
+        self.assertEqual(construir_web.url_con_utm("https://metafy.gg/a?b=1#c"), "https://metafy.gg/a?b=1&utm_source=Manalab#c")
+        self.assertEqual(construir_web.aplicar_utm_metafy('<a href="https://metafy.gg/a?b=1">'),
+                         '<a href="https://metafy.gg/a?b=1&amp;utm_source=Manalab">')
+        self.assertEqual(construir_web.aplicar_utm_metafy('<script src="https://mdn.metafy.gg/embed.js"></script>'),
+                         '<script src="https://mdn.metafy.gg/embed.js"></script>')
+
+    def test_learn_js_pinta_las_guias_con_la_utm(self):
+        js = _texto(RAIZ / "learn/learn.js")
+        self.assertIn('href="\' + esc(conUtm(g.url))', js)
+        self.assertIn(f'PARAMETRO_UTM = "{construir_web.PARAMETRO_UTM}"', js)

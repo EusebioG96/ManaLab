@@ -161,7 +161,7 @@ class Navegador(unittest.TestCase):
         self.assertEqual(self.total_guias(p), 4)
         self.assertIn("4", p.locator("#ap-cuenta").inner_text())
         p.click("button[data-tipo='gratis']")
-        self.assertEqual([x.split("/")[-1] for x in p.locator("#guias a.guia").evaluate_all("els=>els.map(e=>e.href)")], ["n1"])
+        self.assertEqual([x.split("/")[-1] for x in p.locator("#guias a.guia").evaluate_all("els=>els.map(e=>e.href)")], ["n1?utm_source=Manalab"])  # ML-374: learn.js añade la UTM
         self.assertEqual(p.locator("button[data-tipo='gratis']").get_attribute("aria-pressed"), "true")
         p.click("button[data-tipo='suscriptores']")
         self.assertEqual(self.total_guias(p), 1)

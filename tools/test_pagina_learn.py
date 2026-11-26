@@ -79,7 +79,7 @@ class PaginasPublicadas(unittest.TestCase):
                 html = leer(ruta)
                 self.assertEqual(html.count('<a class="guia" '), 24)
                 for g in primeras:
-                    self.assertIn(f'href="{construir_learn._esc(g["url"])}"', html)
+                    self.assertIn(f'href="{construir_learn._esc(construir_web.url_con_utm(g["url"]))}"', html)
                 self.assertIn('data-p="2"', html)
                 self.assertIn(f'data-p="{-(-len(lista["guias"]) // 24)}"', html)
 

@@ -353,7 +353,7 @@ class CifrasNavegador(unittest.TestCase):
     def test_el_clic_en_sesiones_de_tcg_academy_cuenta_sesiones_de_tcgacademy(self):
         p = self.abrir(self.reales, azar=0.5)
         self.assertEqual(p.locator("#destacado .d2c.on .d2cas").count(), 1, "TCG Academy solo tiene la casilla de sesiones")
-        self.assertEqual(p.locator("#destacado .d2c.on .d2cas").get_attribute("href"), "https://metafy.gg/@luissalvatto/sessions")
+        self.assertEqual(p.locator("#destacado .d2c.on .d2cas").get_attribute("href"), "https://metafy.gg/@luissalvatto/sessions?utm_source=Manalab")
         self.clic(p, "#destacado .d2c.on .d2cas[data-cas='sesiones']")
         self.clic(p, "#destacado .d2c.on .d2cta")
         self.enviar(p)
@@ -362,7 +362,7 @@ class CifrasNavegador(unittest.TestCase):
     def test_el_clic_en_guias_de_yuya_cuenta_guias_de_yuyan(self):
         p = self.abrir(self.reales, azar=0.99)
         self.assertEqual(p.locator("#destacado .d2c.on .d2cas").count(), 1, "Yuya solo tiene la casilla de guías (artículos va en la versión siguiente)")
-        self.assertEqual(p.locator("#destacado .d2c.on .d2cas").get_attribute("href"), "https://metafy.gg/@yuyan/guides")
+        self.assertEqual(p.locator("#destacado .d2c.on .d2cas").get_attribute("href"), "https://metafy.gg/@yuyan/guides?utm_source=Manalab")
         self.clic(p, "#destacado .d2c.on .d2cas[data-cas='guias']")
         self.clic(p, "#destacado .d2c.on .d2cta")
         self.enviar(p)

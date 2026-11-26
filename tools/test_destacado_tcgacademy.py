@@ -70,8 +70,8 @@ class TcgAcademyTest(unittest.TestCase):
                 t = tarjetas(ruta)[1]
                 principal = [e for e in t["enlaces"] if "d2cta" in e["clase"]]
                 casillas = [e for e in t["enlaces"] if "d2cas" in e["clase"]]
-                self.assertEqual([e["href"] for e in principal], ["https://metafy.gg/@luissalvatto"])
-                self.assertEqual([(e["cas"], e["href"]) for e in casillas], [("sesiones", "https://metafy.gg/@luissalvatto/sessions")])
+                self.assertEqual([e["href"] for e in principal], ["https://metafy.gg/@luissalvatto?utm_source=Manalab"])
+                self.assertEqual([(e["cas"], e["href"]) for e in casillas], [("sesiones", "https://metafy.gg/@luissalvatto/sessions?utm_source=Manalab")])
                 self.assertEqual(len(t["enlaces"]), 2, "ni guías, ni academia, ni ningún otro enlace")
                 for e in principal + casillas:
                     self.assertIn("sponsored", e["rel"])
@@ -108,7 +108,7 @@ class TcgAcademyTest(unittest.TestCase):
 
     def test_la_entrada_no_cambia_la_de_palhares(self):
         palhares = json.loads((RAIZ / "contenido.json").read_text(encoding="utf-8"))["destacados"][0]
-        self.assertEqual(palhares["guias"], "https://metafy.gg/@pcpalhares/guides")
+        self.assertEqual(palhares["guias"], "https://metafy.gg/@pcpalhares/guides?utm_source=Manalab")
         self.assertEqual(sorted(palhares), ["enlace", "fondo", "foto", "frase", "guias", "id", "linea", "nombre"])
 
 

@@ -152,7 +152,7 @@ class RepartoDelDestacadoInicial(unittest.TestCase):
         self.assertEqual(self.activo(p, tras_cambio=True), "tcgacademy")
 
     def test_la_barra_fina_enseña_el_destacado_que_se_ve(self):
-        esperado = {0.0: ("Professor P. C. Palhares", "https://metafy.gg/@pcpalhares"), 0.9: ("TCG Academy", "https://metafy.gg/@luissalvatto")}
+        esperado = {0.0: ("Professor P. C. Palhares", "https://metafy.gg/@pcpalhares?utm_source=Manalab"), 0.9: ("TCG Academy", "https://metafy.gg/@luissalvatto?utm_source=Manalab")}
         for azar, (nombre, enlace) in esperado.items():
             with self.subTest(azar=azar):
                 p = self.abrir(self.dos, azar)

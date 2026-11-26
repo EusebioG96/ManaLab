@@ -17,7 +17,8 @@ import construir_learn  # noqa: E402
 from test_destacado_tcgacademy import LOCAL, MAX_FONDO, MAX_FOTO, tarjetas  # noqa: E402
 
 IDIOMAS = {"learn/": "en", "es/aprender/": "es", "pt/aprender/": "pt", "ja/learn/": "ja"}
-PERFIL, GUIAS, ARTICULOS = "https://metafy.gg/@yuyan", "https://metafy.gg/@yuyan/guides", "https://metafy.gg/@yuyan/posts"
+UTM = "?utm_source=Manalab"  # ML-371/ML-374: todos los enlaces a Metafy la llevan
+PERFIL, GUIAS, ARTICULOS = "https://metafy.gg/@yuyan" + UTM, "https://metafy.gg/@yuyan/guides" + UTM, "https://metafy.gg/@yuyan/posts" + UTM
 
 
 def entrada() -> dict:
