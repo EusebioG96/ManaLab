@@ -16,6 +16,12 @@
   var MAX_ENLACE = 300, MAX_GUIAS = 2000, MAX_BYTES = 2 * 1024 * 1024, MAX_TITULO = 140, MAX_DESCRIPCION = 600, MAX_NOMBRE = 60, MAX_AUTORES = 5;
   var MAX_CANTIDAD = 10000000, MAX_MINUTOS = 100000, MAX_FECHA = 40, ESQUEMA = 1, MONEDA = "USD";
   var DOMINIOS_METAFY = ["metafy.gg"], HOSTS_PORTADAS = ["metafy.gg"];
+  var PARAMETRO_UTM = "utm_source=Manalab";   // ML-374: Metafy atribuye a ManaLab cada clic (también con la copia local de guias.json)
+  function conUtm(url) {
+    if (url.indexOf("utm_source=") !== -1) return url;
+    var ancla = url.indexOf("#"), base = ancla === -1 ? url : url.slice(0, ancla), resto = ancla === -1 ? "" : url.slice(ancla);
+    return base + (base.indexOf("?") === -1 ? "?" : "&") + PARAMETRO_UTM + resto;
+  }
   var PROHIBIDOS_ENLACE = /["'<>\\\s\u0000-\u001f\u007f]/;   // rompen un atributo HTML o los reinterpreta el navegador
   var INVALIDOS_TEXTO = /[\p{Cc}\p{Cf}\p{Zl}\p{Zp}\p{Cs}\p{Co}\p{Cn}]/u;   // control, invisibles, separadores, sustitutos, privados y sin asignar
   var RESENAS_MIN = 3, POR_PAGINA_DEFECTO = 24;
@@ -177,7 +183,7 @@
     var imagen = g.cover_url ? '<img alt="" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="' + esc(g.cover_url) + '">' : "";
     var autores = g.authors.map(function (a) { return a.name; }).join(", ");
     var de = autores ? '<div class="a">' + esc(t.de.replace("{}", autores)) + "</div>" : "";
-    return '<a class="guia" href="' + esc(g.url) + '" rel="noopener" target="_blank"><div class="port c0">' + LIBRO + imagen + htmlPrecio(g, t) + "</div>" +
+    return '<a class="guia" href="' + esc(conUtm(g.url)) + '" rel="noopener" target="_blank"><div class="port c0">' + LIBRO + imagen + htmlPrecio(g, t) + "</div>" +
       '<div class="cu"><div class="t">' + esc(g.name) + "</div>" + de + '<div class="m">' + htmlDatos(g, t) + "</div></div></a>";
   }
   function htmlPaginador(actual, total, t) {

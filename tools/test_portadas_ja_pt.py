@@ -118,7 +118,7 @@ class TestPortadasNuevas(unittest.TestCase):
         for c, ruta in NUEVAS.items():
             low = leer(ruta).lower()
             with self.subTest(c=c):
-                for mala in ("patreon", "equipa", "ecrã", "partilhar", "utm_", "sin anuncios"):
+                for mala in ("patreon", "equipa", "ecrã", "partilhar", "sin anuncios"):  # utm_ ya se permite: ML-374 la pone en los enlaces a Metafy
                     self.assertNotIn(mala, low)
 
     def test_requisito_windows_en_el_paso_1(self):

@@ -50,6 +50,8 @@ CAMPOS_ENLACE = ("enlace_apoyo_metafy", "enlace_suscripcion_ia")
 HOSTS_ENLACE = ("metafy.gg", "manalab.es")  # el propio host o un subdominio, como valida la app
 MAX_ENLACE = 300  # tope de caracteres de un enlace
 RUTA_LOGO_METAFY = "/img/metafy.svg"  # logotipo de Metafy sin retocar
+PARAMETRO_UTM = "utm_source=Manalab"  # ML-374: Metafy atribuye a ManaLab cada clic que sale de la web
+_ENLACE_METAFY = re.compile(r'href="(https://(?:[\w-]+\.)*metafy\.gg(?:/[^"#]*)?)(#[^"]*)?"')
 # {{SUSCRIPCION_IA clave="valor" ...}} y {{APOYO_METAFY clave="valor" ...}}: bloques que dependen de contenido.json
 _BLOQUE_ENLACE = re.compile(r'\{\{(SUSCRIPCION_IA|APOYO_METAFY)((?: \w+="[^"]*")*)\}\}')
 _PARAMETRO = re.compile(r'(\w+)="([^"]*)"')
@@ -269,6 +271,27 @@ def aplicar_enlaces(fuente: str, enlaces: dict[str, str]) -> str:
     return _BLOQUE_ENLACE.sub(resolver, fuente)
 
 
+def url_con_utm(url: str) -> str:
+    """Devuelve ``url`` (sin escapar) con ``utm_source=Manalab``; si ya lo lleva, igual."""
+    base, almohadilla, ancla = url.partition("#")
+    if "utm_source=" in base:
+        return url
+    return f"{base}{'&' if '?' in base else '?'}{PARAMETRO_UTM}{almohadilla}{ancla}"
+
+
+def _con_utm(coincidencia: re.Match) -> str:
+    url, ancla = coincidencia.group(1), coincidencia.group(2) or ""
+    if "utm_source=" in url:
+        return coincidencia.group(0)
+    separador = "&amp;" if "?" in url else "?"
+    return f'href="{url}{separador}{PARAMETRO_UTM}{ancla}"'
+
+
+def aplicar_utm_metafy(pagina: str) -> str:
+    """Devuelve ``pagina`` con ``utm_source=Manalab`` en cada ``href`` a Metafy que aún no lo lleva."""
+    return _ENLACE_METAFY.sub(_con_utm, pagina)
+
+
 def pagina_e_idioma(relativa: Path) -> tuple[str, str]:
     """(página, idioma) de una ruta generada, p. ej. es/coaches/index.html -> ("coaches", "es"); guia/guia_manalab_ja.html -> ("guia", "ja")."""
     partes = list(relativa.with_suffix("").parts)
@@ -394,6 +417,7 @@ def construir(raiz: Path, destino: Path) -> list[Path]:
         pagina = aplicar_mdn(pagina, relativa, pagina_e_idioma(relativa)[1], raiz)   # ML-325: huecos de anuncio de MDN (antes de los eventos: el anuncio de casa lleva el suyo)
         pagina = aplicar_video_lanzamiento(aplicar_cita(aplicar_eventos(pagina, relativa), relativa), relativa, raiz)
         pagina = aplicar_datos_estructurados(pagina, relativa, raiz)   # ML-341: migas y vídeos en JSON-LD (después del vídeo de lanzamiento)
+        pagina = aplicar_utm_metafy(pagina)   # ML-374: al final, para cubrir los enlaces de todas las piezas
         datos = pagina.replace(MARCA_VERSION, version).encode("utf-8")
         salida = destino / relativa
         if salida.is_file() and salida.read_bytes() == datos:
