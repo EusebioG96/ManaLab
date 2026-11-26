@@ -17,7 +17,7 @@ from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
 SITIO = "https://manalab.es"
-ARCHIVO_FECHAS = "plantillas/video_fechas.json"  # fecha (AAAA-MM-DD) del último commit de cada vídeo, por ruta relativa
+ARCHIVO_FECHAS = "plantillas/video_fechas.json"  # fecha y hora ISO 8601 con zona (Google la exige) del último commit de cada vídeo, por ruta relativa
 PORTADAS = ("index.html", "es/index.html", "pt/index.html", "ja/index.html")  # sin migas: son el inicio de su idioma
 # Inicio de cada idioma de las páginas interiores: (nombre que ya usa la web, ruta)
 INICIO = {"en": ("Home", "/"), "es": ("Inicio", "/es/"), "pt": ("Início", "/pt/"), "ja": ("ホーム", "/ja/")}
@@ -167,7 +167,7 @@ def _fuente_del_video(video: _Nodo) -> str:
 
 
 def leer_fechas(raiz: Path) -> dict[str, str]:
-    """Fechas de subida de los vídeos (ruta relativa -> AAAA-MM-DD) de ``plantillas/video_fechas.json``."""
+    """Fechas de subida de los vídeos (ruta relativa -> ISO 8601 con zona horaria) de ``plantillas/video_fechas.json``."""
     return json.loads((raiz / ARCHIVO_FECHAS).read_text(encoding="utf-8"))
 
 
@@ -205,11 +205,11 @@ def aplicar_datos_estructurados(pagina: str, relativa: Path, raiz: Path) -> str:
 
 
 def actualizar_fechas(raiz: Path) -> None:
-    """Reescribe ``video_fechas.json`` con la fecha del último commit de cada .mp4 de ``video/`` (``git log -1 --format=%cs``)."""
+    """Reescribe ``video_fechas.json`` con la fecha del último commit de cada .mp4 de ``video/`` (``git log -1 --format=%cI``)."""
     fechas = {}
     for mp4 in sorted((raiz / "video").rglob("*.mp4")):
         ruta = mp4.relative_to(raiz).as_posix()
-        fechas[ruta] = subprocess.run(["git", "log", "-1", "--format=%cs", "--", ruta], cwd=raiz, check=True,
+        fechas[ruta] = subprocess.run(["git", "log", "-1", "--format=%cI", "--", ruta], cwd=raiz, check=True,
                                       capture_output=True, text=True).stdout.strip()
     (raiz / ARCHIVO_FECHAS).write_text(json.dumps(fechas, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 
