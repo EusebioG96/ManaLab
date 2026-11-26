@@ -331,7 +331,7 @@
 <details><summary>How is ManaLab free?</summary>
 <p>The tracker is free and always will be. The only paid part is the optional AI analysis of your losses, a membership on Metafy. In the Learn section you'll also find guides from Metafy.</p></details>
 <details><summary>How do I get the AI analysis?</summary>
-<p>Subscribe on Metafy ($6 per month). After paying you receive a subscription code by email. Paste it in Settings › Team and AI and the analysis appears in each lost game's Analysis tab. Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com">email</a>.</p></details>
+<p>Subscribe on Metafy ($6 per month). After paying you receive a subscription code by email. Paste it in Settings › Team and AI and the analysis appears in each lost game's Analysis tab. Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com?subject=Free%20AI%20trial&amp;body=Hi%2C%20I%27d%20like%20to%20try%20ManaLab%27s%20AI%20analysis.">email</a>.</p></details>
 </div>
 </div>
 </section>
@@ -343,7 +343,7 @@
 <h2>See what went wrong in each loss</h2>
 <p><strong style="color:var(--texto)">The app is free. Only the AI analysis is paid.</strong></p>
 <p>Open any lost game and ask the AI what went wrong, where you could have played better and what to try next time. It reads the game's data, not your name or the opponent's.</p>
-<p>Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com">email</a>.</p>
+<p>Want to try it first? Ask for a free trial by <a href="mailto:manalab.app@gmail.com?subject=Free%20AI%20trial&amp;body=Hi%2C%20I%27d%20like%20to%20try%20ManaLab%27s%20AI%20analysis.">email</a>.</p>
 <div class="acciones" style="margin-top:24px">{{SUSCRIPCION_IA clase="boton prim" estilo="" medicion="metafy-ia-en" texto="Subscribe on Metafy →" pronto="Subscription on Metafy: coming soon"}}</div>
 </div>
 <div>
