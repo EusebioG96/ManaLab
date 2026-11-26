@@ -256,7 +256,7 @@
 <details><summary>Como o ManaLab é gratuito?</summary>
 <p>O tracker é gratuito e vai continuar sendo. O único recurso pago é a análise opcional das suas derrotas com IA, uma assinatura na Metafy. Na seção Aprender você também encontra guias da Metafy.</p></details>
 <details><summary>Como consigo a análise com IA?</summary>
-<p>Assine no Metafy (US$ 6 por mês). Depois de pagar, você recebe um código de assinatura por e-mail. Cole-o em Configurações › Equipe e IA e a análise aparece na aba Análise de cada partida perdida. Quer testar antes? Peça um teste grátis por <a href="mailto:manalab.app@gmail.com">e-mail</a>.</p></details>
+<p>Assine no Metafy (US$ 6 por mês). Depois de pagar, você recebe um código de assinatura por e-mail. Cole-o em Configurações › Equipe e IA e a análise aparece na aba Análise de cada partida perdida. Quer testar antes? Peça um teste grátis por <a href="mailto:manalab.app@gmail.com?subject=Free%20AI%20trial&amp;body=Hi%2C%20I%27d%20like%20to%20try%20ManaLab%27s%20AI%20analysis.">e-mail</a>.</p></details>
 </div>
 </div>
 </section>
@@ -268,7 +268,7 @@
 <h2>Veja o que deu errado em cada derrota</h2>
 <p><strong style="color:var(--texto)">O app é grátis. Só a análise com IA é paga.</strong></p>
 <p>Abra qualquer partida perdida e pergunte à IA o que deu errado, onde você poderia ter jogado melhor e o que tentar na próxima vez. Ela lê os dados da partida, não o seu nome nem o do oponente.</p>
-<p>Quer testar antes? Peça um teste grátis por <a href="mailto:manalab.app@gmail.com">e-mail</a>.</p>
+<p>Quer testar antes? Peça um teste grátis por <a href="mailto:manalab.app@gmail.com?subject=Free%20AI%20trial&amp;body=Hi%2C%20I%27d%20like%20to%20try%20ManaLab%27s%20AI%20analysis.">e-mail</a>.</p>
 <div class="acciones" style="margin-top:24px">{{SUSCRIPCION_IA clase="boton prim" estilo="" medicion="metafy-ia-pt" texto="Assinar no Metafy →" pronto="Assinatura no Metafy: em breve"}}</div>
 </div>
 <div>
