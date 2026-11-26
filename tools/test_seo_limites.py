@@ -19,6 +19,7 @@ from urllib.parse import urljoin, urlparse
 
 RAIZ = Path(__file__).resolve().parent.parent
 SITIO = "https://manalab.es"
+FECHA_CON_ZONA = r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(Z|[+-]\d{2}:\d{2})$"  # ISO 8601 completo: Search Console rechaza uploadDate sin hora ni zona
 MAX_TITULO, MAX_TITULO_CJK = 60, 70  # caracteres; en CJK, ancho (carácter de ancho completo = 2)
 MIN_DESC, MAX_DESC, MIN_DESC_PORTADAS = 70, 160, 130
 CJK = ("ja", "ko", "zh")
@@ -239,7 +240,7 @@ class TestDatosEstructurados(unittest.TestCase):
                     for campo in ("thumbnailUrl", "contentUrl"):
                         self.assertTrue(objeto[campo].startswith(SITIO + "/"))
                         self.assertTrue(archivo_de_url(objeto[campo]).is_file(), objeto[campo])
-                    self.assertRegex(objeto["uploadDate"], r"^\d{4}-\d{2}-\d{2}$")
+                    self.assertRegex(objeto["uploadDate"], FECHA_CON_ZONA, "Google exige fecha, hora y zona horaria")
                     self.assertIn(objeto["thumbnailUrl"], [urljoin(url_pagina, v["poster"]) for v in esperados])
         self.assertGreaterEqual(total, 40)
 
@@ -251,7 +252,7 @@ class TestDatosEstructurados(unittest.TestCase):
         self.assertTrue(fechas)
         for ruta, fecha in fechas.items():
             with self.subTest(video=ruta):
-                ultimo = subprocess.run(["git", "log", "-1", "--format=%cs", "--", ruta], cwd=RAIZ, capture_output=True, text=True)
+                ultimo = subprocess.run(["git", "log", "-1", "--format=%cI", "--", ruta], cwd=RAIZ, capture_output=True, text=True)
                 self.assertEqual(fecha, ultimo.stdout.strip())
 
 
