@@ -234,8 +234,8 @@ class TestLegibilidad(unittest.TestCase):
             css = leer(ruta)
             bloque = css[css.index("@media (max-width: 767px) {\n"):]
             bloque = bloque[:bloque.index("\n}\n")]
-            self.assertIn(".movil-zip a { display: inline-flex; align-items: center; min-height: 44px; }", bloque)
-            self.assertIn("footer .fila a, footer .guias a { display: inline-flex; align-items: center; min-height: 44px; }", bloque)
+            self.assertIn(".movil-zip a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 0; margin-block: 0; }", bloque)
+            self.assertIn("footer .fila a, footer .guias a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 0; margin-block: 0; }", bloque)
 
 
 class TestPaginaDeNovedades(unittest.TestCase):

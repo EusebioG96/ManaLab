@@ -214,7 +214,7 @@ class TestHreflangYSitemap(unittest.TestCase):
 
     def test_goatcounter_como_el_resto(self):
         for idioma in IDIOMAS:
-            fuentes = [(s.get("src"), s.get("data-goatcounter")) for s in lector(idioma).scripts if s.get("type") != "application/ld+json" and s.get("src") != "/menu.js"]   # menu.js: menú móvil (ML-412)
+            fuentes = [(s.get("src"), s.get("data-goatcounter")) for s in lector(idioma).scripts if s.get("type") != "application/ld+json" and s.get("src") not in ("/menu.js", "/descarga.js")]   # menu.js: menú móvil (ML-412); descarga.js: enlace del manual en el pie (ML-417)
             with self.subTest(idioma=idioma):
                 self.assertEqual(fuentes, [("//gc.zgo.at/count.js", "https://manalab.goatcounter.com/count")])
 

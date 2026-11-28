@@ -317,7 +317,7 @@ footer .legal { max-width: 80ch; line-height: 1.6; }
 .mtgo-caja ul { margin: 0; padding-left: 20px; color: var(--texto2); display: grid; gap: 9px; font-size: 15.5px; max-width: 78ch; }
 .mtgo-caja li b { color: var(--texto); font-weight: 600; }
 .mtgo-caja code { font: 13px var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 6px; padding: 1px 6px; color: var(--texto); }
-.funcion .enlace-man { display: inline-block; margin-top: 10px; font-weight: 500; font-size: 15px; color: var(--texto); }
+.funcion .enlace-man { display: inline-block; margin-top: 6px; /* 10 px de antes menos los 4 px de relleno de css_toque */  font-weight: 500; font-size: 15px; color: var(--texto); }
 @media (max-width: 480px) { .mtgo-caja { padding: 20px 18px; } }
 
 /* ---------------- novedades 2.2 */
@@ -374,7 +374,18 @@ details[id] { scroll-margin-top: 90px; }
 .p404 ul.enlaces { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 16px; color: var(--apagado); }
 .p404 ul.enlaces a { color: var(--texto2); text-underline-offset: 3px; text-decoration-color: var(--linea2); }
 .p404 ul.enlaces a:hover { color: var(--texto); }
-</style><style>.saltar{position:absolute;left:8px;top:-60px;z-index:100;padding:10px 16px;border-radius:4px;background:#ece6d6;color:#0d100f;font:600 15px/1.3 system-ui,sans-serif;text-decoration:none}.saltar:focus{top:8px}main:focus{outline:none}</style>
+
+/* Objetivos táctiles de 24 px como mínimo (WCAG 2.5.8, ML-417) sin cambiar el aspecto: el relleno vertical agranda el área que se toca
+   y el margen negativo igual lo compensa, así que ni una línea se mueve (en un enlace en línea el margen vertical no cuenta y no estorba).
+   Cada selector es un contexto donde el enlace va solo (pie, índice, barra de la guía, llamadas bajo un texto); los enlaces dentro de una frase
+   quedan fuera porque la norma los exime, y los que tienen clase (botones) ya traen su relleno. :where() deja los selectores sin peso para que
+   cualquier regla propia gane: en móvil el pie y el ZIP ya tienen min-height: 44px y devuelven este relleno a 0.
+   tools/test_objetivos_tactiles_navegador.py recorre todas las páginas y avisa de los que falten. */
+:where(footer a:not([class]), nav.indice li a, nav.inicio a:not([class]), a.enlace-sec, a.enlace-man, a.volver, .movil-zip a, .nota-hero a, .enlaces a, p > a:only-child:not([class])) { padding-block: 4px; margin-block: -4px; }
+:where(p.nota-smartscreen a) { padding-block: 5px; margin-block: -5px; }
+:where(footer a:not([class]), nav.indice li a, nav.inicio a:not([class])) { min-width: 24px; }
+/* en línea el ancho mínimo no cuenta (en coreano un enlace de una sola letra, «덱», medía 16 px): como bloque en línea sí, y la letra se queda donde estaba */
+:where(nav.indice li a) { display: inline-block; vertical-align: top; }</style><style>.saltar{position:absolute;left:8px;top:-60px;z-index:100;padding:10px 16px;border-radius:4px;background:#ece6d6;color:#0d100f;font:600 15px/1.3 system-ui,sans-serif;text-decoration:none}.saltar:focus{top:8px}main:focus{outline:none}</style>
 </head>
 <body>
 <a class="saltar" href="#inicio">Skip to content</a>

@@ -1,15 +1,4 @@
-@font-face{font-family:'Marcellus';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/marcellus-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Marcellus';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/marcellus-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Geist';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-sans-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Geist';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-sans-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Geist';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-sans-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Geist';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-sans-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Geist';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/geist-sans-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Geist';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/geist-sans-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Geist Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-mono-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Geist Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Geist Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-mono-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Geist Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+{{> css_fuentes}}
 :root{--bg:#f7f6f2;--fg:#1d1d22;--muted:#5c5c66;--acc:#6b4fbb;--card:#fff;--line:#e3e1d9}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans CJK JP","Noto Sans CJK KR","Noto Sans CJK SC",sans-serif}
@@ -57,7 +46,7 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:v
 /* WEB-07, «La mesa de juego»: en pantalla las guías son siempre oscuras. La hoja de impresión (arriba) no cambia: el PDF sale claro. Todo lo nuevo, solo en pantalla. */
 @media screen {
   :root { --bg: #0d100f; --fg: #ece6d6; --muted: #9a9484; --acc: #ece6d6; --card: #141917; --line: rgba(236, 230, 214, 0.16); --texto: #ece6d6; --texto2: #b9b2a1; --oro: #e2b45c; --linea2: rgba(236, 230, 214, 0.26);
-    --f-display: "Marcellus", Georgia, "Times New Roman", serif; --f-texto: "Geist", "Segoe UI", system-ui, -apple-system, sans-serif; --f-mono: "Geist Mono", ui-monospace, "Cascadia Mono", Consolas, monospace; color-scheme: dark; }
+    --f-display: "Marcellus", "Marcellus Reserva", Georgia, "Times New Roman", serif; --f-texto: "Geist", "Geist Reserva", "Segoe UI", system-ui, -apple-system, sans-serif; --f-mono: "Geist Mono", "Geist Mono Reserva", ui-monospace, "Cascadia Mono", Consolas, monospace; color-scheme: dark; }
   :root:lang(ja), :root:lang(zh), :root:lang(ko) { --f-display: "Yu Gothic UI", "Hiragino Sans", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans CJK SC", "Malgun Gothic", "Microsoft YaHei", system-ui, sans-serif; --f-texto: var(--f-display); }
   body { background: radial-gradient(1300px 760px at 70% -6%, #22302a 0%, #0d100f 60%) no-repeat #0d100f; font: 17px/1.65 var(--f-texto); -webkit-font-smoothing: antialiased; }
   h1, h2 { font-family: var(--f-display); font-weight: 400; letter-spacing: 0.005em; }
@@ -66,7 +55,9 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:v
   a:hover { text-decoration-color: currentColor; }
   a:focus-visible, summary:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; border-radius: 4px; }
   code { font-family: var(--f-mono); }
-  main { max-width: 68ch; padding: 40px 20px 72px; }
+  /* ancho en em y no en ch: el ch de Geist y el de su tipo de reserva difieren y la columna saltaba al llegar la fuente (ML-417); 45.696em = 68ch de Geist a 17px. El japonés, chino y coreano no usan Geist y conservan los 68ch. */
+  main { max-width: 45.696em; padding: 40px 20px 72px; }
+  :lang(ja) main, :lang(zh) main, :lang(ko) main { max-width: 68ch; }
   header { border-bottom: 1px solid var(--line); padding-bottom: 22px; margin-bottom: 28px; }
   h1 { font-size: clamp(34px, 5vw, 48px); line-height: 1.08; color: var(--texto); margin-bottom: 10px; }
   .sub { color: var(--texto2); font-size: 18px; }
@@ -87,3 +78,4 @@ footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);color:v
   nav.inicio a.descargar:hover { background: #fff; }
 }
 @media screen and (max-width: 560px) { nav.indice ol { columns: 1; } }
+{{> css_toque}}

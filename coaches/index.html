@@ -338,7 +338,7 @@ footer .legal { max-width: 80ch; line-height: 1.6; }
 .mtgo-caja ul { margin: 0; padding-left: 20px; color: var(--texto2); display: grid; gap: 9px; font-size: 15.5px; max-width: 78ch; }
 .mtgo-caja li b { color: var(--texto); font-weight: 600; }
 .mtgo-caja code { font: 13px var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 6px; padding: 1px 6px; color: var(--texto); }
-.funcion .enlace-man { display: inline-block; margin-top: 10px; font-weight: 500; font-size: 15px; color: var(--texto); }
+.funcion .enlace-man { display: inline-block; margin-top: 6px; /* 10 px de antes menos los 4 px de relleno de css_toque */  font-weight: 500; font-size: 15px; color: var(--texto); }
 @media (max-width: 480px) { .mtgo-caja { padding: 20px 18px; } }
 
 /* ---------------- novedades 2.2 */
@@ -417,7 +417,18 @@ details[id] { scroll-margin-top: 90px; }
   .dos-col { gap: 26px; }
 }
 @media (max-width: 480px) { .forma { padding: 18px; } }
-</style><style>/* huecos de anuncio de MDN (WEB-09). Cada hueco reserva su alto exacto antes de que MDN responda (728x90 si el hueco mide 728 px o más, 300x250 si
+
+/* Objetivos táctiles de 24 px como mínimo (WCAG 2.5.8, ML-417) sin cambiar el aspecto: el relleno vertical agranda el área que se toca
+   y el margen negativo igual lo compensa, así que ni una línea se mueve (en un enlace en línea el margen vertical no cuenta y no estorba).
+   Cada selector es un contexto donde el enlace va solo (pie, índice, barra de la guía, llamadas bajo un texto); los enlaces dentro de una frase
+   quedan fuera porque la norma los exime, y los que tienen clase (botones) ya traen su relleno. :where() deja los selectores sin peso para que
+   cualquier regla propia gane: en móvil el pie y el ZIP ya tienen min-height: 44px y devuelven este relleno a 0.
+   tools/test_objetivos_tactiles_navegador.py recorre todas las páginas y avisa de los que falten. */
+:where(footer a:not([class]), nav.indice li a, nav.inicio a:not([class]), a.enlace-sec, a.enlace-man, a.volver, .movil-zip a, .nota-hero a, .enlaces a, p > a:only-child:not([class])) { padding-block: 4px; margin-block: -4px; }
+:where(p.nota-smartscreen a) { padding-block: 5px; margin-block: -5px; }
+:where(footer a:not([class]), nav.indice li a, nav.inicio a:not([class])) { min-width: 24px; }
+/* en línea el ancho mínimo no cuenta (en coreano un enlace de una sola letra, «덱», medía 16 px): como bloque en línea sí, y la letra se queda donde estaba */
+:where(nav.indice li a) { display: inline-block; vertical-align: top; }</style><style>/* huecos de anuncio de MDN (WEB-09). Cada hueco reserva su alto exacto antes de que MDN responda (728x90 si el hueco mide 728 px o más, 300x250 si
    no; MDN elige el formato por el ancho de la caja, y la caja y la consulta miden lo mismo), así que la página no salta al cargar el anuncio */
 .hueco-mdn { container-type: inline-size; display: grid; justify-items: center; gap: 8px; padding: 24px 0; border-block: 1px solid var(--linea); }
 .hm-eti { font: 500 11px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--apagado); }
