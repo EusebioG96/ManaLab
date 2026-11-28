@@ -28,6 +28,8 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from actualizar_sitemap import actualizar as actualizar_lastmod  # noqa: E402
+from construir_accesibilidad import aplicar_saltar_contenido, aplicar_script_menu  # noqa: E402
 from construir_learn import aplicar_learn  # noqa: E402
 from construir_mdn import aplicar_mdn  # noqa: E402
 from datos_estructurados import aplicar_datos_estructurados  # noqa: E402
@@ -417,6 +419,7 @@ def construir(raiz: Path, destino: Path) -> list[Path]:
         pagina = aplicar_mdn(pagina, relativa, pagina_e_idioma(relativa)[1], raiz)   # ML-325: huecos de anuncio de MDN (antes de los eventos: el anuncio de casa lleva el suyo)
         pagina = aplicar_video_lanzamiento(aplicar_cita(aplicar_eventos(pagina, relativa), relativa), relativa, raiz)
         pagina = aplicar_datos_estructurados(pagina, relativa, raiz)   # ML-341: migas y vídeos en JSON-LD (después del vídeo de lanzamiento)
+        pagina = aplicar_script_menu(aplicar_saltar_contenido(pagina))   # ML-412: «Saltar al contenido» y menu.js
         pagina = aplicar_utm_metafy(pagina)   # ML-374: al final, para cubrir los enlaces de todas las piezas
         datos = pagina.replace(MARCA_VERSION, version).encode("utf-8")
         salida = destino / relativa
@@ -427,6 +430,23 @@ def construir(raiz: Path, destino: Path) -> list[Path]:
         salida.write_bytes(datos)
         escritas.append(relativa)
     return escritas
+
+
+def actualizar_sitemap(raiz: Path) -> bool:
+    """Pone al día los <lastmod> de sitemap.xml con la fecha del último commit de cada página (ML-412).
+
+    Devuelve True si reescribió el archivo; si no cambia nada no lo toca, así que ejecutarlo dos veces seguidas no deja cambios.
+    Sin historial de git (copia superficial) no cambia ninguna fecha.
+    """
+    ruta = raiz / "sitemap.xml"
+    texto = _leer(ruta)
+    nuevo, cambios = actualizar_lastmod(texto, raiz)
+    if nuevo == texto:
+        return False
+    ruta.write_bytes(nuevo.encode("utf-8"))
+    for url, antes, despues in cambios:
+        print(f"sitemap: {url}: {antes} -> {despues}")
+    return True
 
 
 def paginas_distintas(raiz: Path, generado: Path) -> list[Path]:
@@ -454,6 +474,8 @@ def principal(argumentos: list[str] | None = None) -> int:
         return 1 if distintas else 0
     escritas = construir(RAIZ, opciones.salida or RAIZ)
     print(f"{len(escritas)} páginas generadas")
+    if opciones.salida is None:
+        actualizar_sitemap(RAIZ)
     return 0
 
 

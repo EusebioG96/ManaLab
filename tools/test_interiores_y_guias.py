@@ -115,9 +115,11 @@ class TestHojasInterioresSinRestosViejos(unittest.TestCase):
     def test_las_paginas_con_hoja_propia_usan_las_fuentes_nuevas(self):
         for hoja in ("css_privacidad.tpl", "css_guia.tpl"):
             t = leer(hoja)
-            self.assertEqual(len(re.findall(r"@font-face", t)), 12, hoja)
+            self.assertIn("{{> css_fuentes}}", t, hoja)   # ML-417: los @font-face (12 web y 4 de reserva) viven en una sola plantilla
+            self.assertEqual(len(re.findall(r"@font-face", t)), 0, hoja)
             self.assertIn('"Marcellus"', t)
             self.assertIn('"Geist"', t)
+        self.assertEqual(len(re.findall(r"@font-face", leer("css_fuentes.tpl"))), 16)
 
     def test_el_color_de_tema_de_las_paginas_ya_no_es_el_viejo(self):
         for f in (PLANTILLAS / "paginas").rglob("*.pagina"):
@@ -146,7 +148,7 @@ class TestGuias(unittest.TestCase):
 
     def test_el_resto_de_la_hoja_base_es_la_de_antes(self):
         css = leer("css_guia.tpl")
-        base = re.sub(r"@font-face\{[^}]*\}\n", "", css[:css.index("\n/* WEB-07")]).strip()
+        base = re.sub(r"@font-face\{[^}]*\}\n|\{\{> css_fuentes\}\}\n", "", css[:css.index("\n/* WEB-07")]).strip()
         self.assertEqual(hashlib.sha256(base.encode()).hexdigest(), HUELLA_BASE_GUIA)
 
     def test_lo_nuevo_va_dentro_de_media_screen_y_no_hay_modo_oscuro_por_sistema(self):

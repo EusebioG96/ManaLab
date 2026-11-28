@@ -21,6 +21,13 @@
 @font-face{font-family:'Geist Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Geist Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-mono-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Geist Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Tipos de reserva con las medidas de cada fuente web (ML-412): al llegar la fuente tarde el texto no cambia de ancho ni de alto y la página no salta.
+   Cubren solo las letras de la fuente web (su mismo unicode-range): flechas y otros signos siguen cayendo en la pila del sistema, como antes.
+   size-adjust: ancho del texto real de la web en la fuente web / en el tipo local (medido con canvas); ascent, descent y line-gap: medidas de la fuente web / size-adjust. */
+@font-face{font-family:'Marcellus Reserva';src:local('Times New Roman'),local('Liberation Serif'),local('Times');size-adjust:110.8%;ascent-override:87.9%;descent-override:25.3%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist Reserva';font-weight:100 599;src:local('Arial'),local('Liberation Sans'),local('Helvetica');size-adjust:103%;ascent-override:89.3%;descent-override:21.4%;line-gap-override:9.7%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist Reserva';font-weight:600 900;src:local('Arial Bold'),local('Liberation Sans Bold'),local('Helvetica Bold');size-adjust:100.7%;ascent-override:91.4%;descent-override:21.8%;line-gap-override:9.9%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist Mono Reserva';src:local('Courier New'),local('Liberation Mono'),local('Courier');size-adjust:100%;ascent-override:100.5%;descent-override:29.5%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 /* Línea visual «La mesa de juego» (ML-272): una mesa oscura verdosa, hueso como color de acción, oro solo en antetítulos y aviso de versión.
    Fuentes: Marcellus (títulos), Geist (texto) y Geist Mono (idiomas, código, marcadores), servidas desde /fuentes/. */
 :root {
@@ -31,9 +38,9 @@
   --hueso: #ece6d6; --hueso-h: #ffffff;
   --oro: #e2b45c; --oro-suave: rgba(226, 180, 92, 0.12);
   --ko: #ef9a86; --ko-suave: rgba(239, 154, 134, 0.13);
-  --f-display: "Marcellus", Georgia, "Times New Roman", serif;
-  --f-texto: "Geist", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --f-mono: "Geist Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --f-display: "Marcellus", "Marcellus Reserva", Georgia, "Times New Roman", serif;
+  --f-texto: "Geist", "Geist Reserva", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "Geist Mono", "Geist Mono Reserva", ui-monospace, "Cascadia Mono", Consolas, monospace;
   --ancho: 1180px;
 }
 /* japonés: Marcellus y Geist no tienen esas letras; pila del sistema */
@@ -124,6 +131,8 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 .nota-desc span::before, .confianza-lista b::before { content: ""; display: inline-block; width: 8px; height: 8px; transform: rotate(45deg); background: var(--hueso); margin-right: 12px; vertical-align: 1px; }
 /* vídeo de cabecera (ML-058): 15 s sin sonido en bucle; con «reducir movimiento» o ahorro de datos solo se ve el póster */
 .hero-medio { display: grid; gap: 18px; justify-items: start; min-width: 0; }
+/* la ventana con captura ocupa todo el ancho de la columna: sin esto, con justify-items:start, mide 2 px hasta que carga la imagen y la página salta (ML-406) */
+.hero-medio .ventana { width: 100%; }
 .hero-video { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; border: 1px solid rgba(236, 230, 214, 0.34); background: var(--panel); box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6); }
 .hero-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .hero-pausa { position: absolute; right: 8px; top: 8px; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--linea2); background: rgba(13, 16, 15, 0.72); color: var(--texto2); display: grid; place-items: center; cursor: pointer; padding: 0; opacity: 0.75; }
@@ -192,6 +201,9 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 .paso h3 { font-size: 24px; margin: 16px 0 10px; }
 .paso p { margin: 0; color: var(--texto2); font-size: 16px; line-height: 1.6; }
 .ruta { font: 13px var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 4px; padding: 2px 7px; color: var(--texto); white-space: nowrap; }
+/* en pantallas estrechas el chip puede partirse por dentro si no cabe: nowrap lo hacía más ancho que la pantalla (ML-409). Como bloque en línea sigue
+   saltando de línea entero cuando cabe en la siguiente, como antes. El japonés ya partía sus chips (regla propia) y no se toca. */
+@media (max-width: 640px) { html:not([lang="ja"]) .ruta { display: inline-block; max-width: 100%; box-sizing: border-box; white-space: normal; overflow-wrap: anywhere; vertical-align: baseline; } }
 
 /* ---------------- preguntas */
 .preguntas { display: grid; gap: 0; max-width: 820px; border-bottom: 1px solid var(--linea); }
@@ -305,7 +317,7 @@ footer .legal { max-width: 80ch; line-height: 1.6; }
 .mtgo-caja ul { margin: 0; padding-left: 20px; color: var(--texto2); display: grid; gap: 9px; font-size: 15.5px; max-width: 78ch; }
 .mtgo-caja li b { color: var(--texto); font-weight: 600; }
 .mtgo-caja code { font: 13px var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 6px; padding: 1px 6px; color: var(--texto); }
-.funcion .enlace-man { display: inline-block; margin-top: 10px; font-weight: 500; font-size: 15px; color: var(--texto); }
+.funcion .enlace-man { display: inline-block; margin-top: 6px; /* 10 px de antes menos los 4 px de relleno de css_toque */  font-weight: 500; font-size: 15px; color: var(--texto); }
 @media (max-width: 480px) { .mtgo-caja { padding: 20px 18px; } }
 
 /* ---------------- novedades 2.2 */
@@ -362,8 +374,21 @@ details[id] { scroll-margin-top: 90px; }
 .p404 ul.enlaces { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 16px; color: var(--apagado); }
 .p404 ul.enlaces a { color: var(--texto2); text-underline-offset: 3px; text-decoration-color: var(--linea2); }
 .p404 ul.enlaces a:hover { color: var(--texto); }
-</style></head>
+
+/* Objetivos táctiles de 24 px como mínimo (WCAG 2.5.8, ML-417) sin cambiar el aspecto: el relleno vertical agranda el área que se toca
+   y el margen negativo igual lo compensa, así que ni una línea se mueve (en un enlace en línea el margen vertical no cuenta y no estorba).
+   Cada selector es un contexto donde el enlace va solo (pie, índice, barra de la guía, llamadas bajo un texto); los enlaces dentro de una frase
+   quedan fuera porque la norma los exime, y los que tienen clase (botones) ya traen su relleno. :where() deja los selectores sin peso para que
+   cualquier regla propia gane: en móvil el pie y el ZIP ya tienen min-height: 44px y devuelven este relleno a 0.
+   tools/test_objetivos_tactiles_navegador.py recorre todas las páginas y avisa de los que falten. */
+:where(footer a:not([class]), nav.indice li a, nav.inicio a:not([class]), a.enlace-sec, a.enlace-man, a.volver, .movil-zip a, .nota-hero a, .enlaces a, p > a:only-child:not([class])) { padding-block: 4px; margin-block: -4px; }
+:where(p.nota-smartscreen a) { padding-block: 5px; margin-block: -5px; }
+:where(footer a:not([class]), nav.indice li a, nav.inicio a:not([class])) { min-width: 24px; }
+/* en línea el ancho mínimo no cuenta (en coreano un enlace de una sola letra, «덱», medía 16 px): como bloque en línea sí, y la letra se queda donde estaba */
+:where(nav.indice li a) { display: inline-block; vertical-align: top; }</style><style>.saltar{position:absolute;left:8px;top:-60px;z-index:100;padding:10px 16px;border-radius:4px;background:#ece6d6;color:#0d100f;font:600 15px/1.3 system-ui,sans-serif;text-decoration:none}.saltar:focus{top:8px}main:focus{outline:none}</style>
+</head>
 <body>
+<a class="saltar" href="#inicio">Skip to content</a>
 <header class="cab">
 <div class="envoltura">
 <a class="marca" href="/"><img alt="ManaLab logo" height="36" src="/img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
@@ -386,7 +411,7 @@ details[id] { scroll-margin-top: 90px; }
 </div></details>
 </div>
 </header>
-<main class="p404" id="inicio">
+<main class="p404" id="inicio" tabindex="-1">
 <div class="envoltura">
 <div aria-hidden="true" class="num">404</div>
 <h1><span>Page not found</span><span lang="es">Esta página no existe</span></h1>
@@ -419,5 +444,6 @@ details[id] { scroll-margin-top: 90px; }
 </div>
 </footer>
 <script defer="" src="/descarga.js"></script>
+<script defer src="/menu.js"></script>
 </body>
 </html>

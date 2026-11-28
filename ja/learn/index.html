@@ -23,6 +23,7 @@
 <meta content="https://manalab.es/img/og-3.0.jpg" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
+<meta content="ManaLabのダッシュボード。今日のセッション、連勝記録、進行中の対戦" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="@ManaLabApp" name="twitter:site"/>
 <meta content="学ぶ: Metafyのクリエイターによるマジックのガイド · ManaLab" name="twitter:title"/>
@@ -42,6 +43,13 @@
 @font-face{font-family:'Geist Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Geist Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-mono-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:'Geist Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Tipos de reserva con las medidas de cada fuente web (ML-412): al llegar la fuente tarde el texto no cambia de ancho ni de alto y la página no salta.
+   Cubren solo las letras de la fuente web (su mismo unicode-range): flechas y otros signos siguen cayendo en la pila del sistema, como antes.
+   size-adjust: ancho del texto real de la web en la fuente web / en el tipo local (medido con canvas); ascent, descent y line-gap: medidas de la fuente web / size-adjust. */
+@font-face{font-family:'Marcellus Reserva';src:local('Times New Roman'),local('Liberation Serif'),local('Times');size-adjust:110.8%;ascent-override:87.9%;descent-override:25.3%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist Reserva';font-weight:100 599;src:local('Arial'),local('Liberation Sans'),local('Helvetica');size-adjust:103%;ascent-override:89.3%;descent-override:21.4%;line-gap-override:9.7%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist Reserva';font-weight:600 900;src:local('Arial Bold'),local('Liberation Sans Bold'),local('Helvetica Bold');size-adjust:100.7%;ascent-override:91.4%;descent-override:21.8%;line-gap-override:9.9%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Geist Mono Reserva';src:local('Courier New'),local('Liberation Mono'),local('Courier');size-adjust:100%;ascent-override:100.5%;descent-override:29.5%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 /* Línea visual «La mesa de juego» (ML-272): una mesa oscura verdosa, hueso como color de acción, oro solo en antetítulos y aviso de versión.
    Fuentes: Marcellus (títulos), Geist (texto) y Geist Mono (idiomas, código, marcadores), servidas desde /fuentes/. */
 :root {
@@ -52,9 +60,9 @@
   --hueso: #ece6d6; --hueso-h: #ffffff;
   --oro: #e2b45c; --oro-suave: rgba(226, 180, 92, 0.12);
   --ko: #ef9a86; --ko-suave: rgba(239, 154, 134, 0.13);
-  --f-display: "Marcellus", Georgia, "Times New Roman", serif;
-  --f-texto: "Geist", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --f-mono: "Geist Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --f-display: "Marcellus", "Marcellus Reserva", Georgia, "Times New Roman", serif;
+  --f-texto: "Geist", "Geist Reserva", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "Geist Mono", "Geist Mono Reserva", ui-monospace, "Cascadia Mono", Consolas, monospace;
   --ancho: 1180px;
 }
 /* japonés: Marcellus y Geist no tienen esas letras; pila del sistema */
@@ -145,6 +153,8 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 .nota-desc span::before, .confianza-lista b::before { content: ""; display: inline-block; width: 8px; height: 8px; transform: rotate(45deg); background: var(--hueso); margin-right: 12px; vertical-align: 1px; }
 /* vídeo de cabecera (ML-058): 15 s sin sonido en bucle; con «reducir movimiento» o ahorro de datos solo se ve el póster */
 .hero-medio { display: grid; gap: 18px; justify-items: start; min-width: 0; }
+/* la ventana con captura ocupa todo el ancho de la columna: sin esto, con justify-items:start, mide 2 px hasta que carga la imagen y la página salta (ML-406) */
+.hero-medio .ventana { width: 100%; }
 .hero-video { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; border: 1px solid rgba(236, 230, 214, 0.34); background: var(--panel); box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6); }
 .hero-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .hero-pausa { position: absolute; right: 8px; top: 8px; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--linea2); background: rgba(13, 16, 15, 0.72); color: var(--texto2); display: grid; place-items: center; cursor: pointer; padding: 0; opacity: 0.75; }
@@ -213,6 +223,9 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 .paso h3 { font-size: 24px; margin: 16px 0 10px; }
 .paso p { margin: 0; color: var(--texto2); font-size: 16px; line-height: 1.6; }
 .ruta { font: 13px var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 4px; padding: 2px 7px; color: var(--texto); white-space: nowrap; }
+/* en pantallas estrechas el chip puede partirse por dentro si no cabe: nowrap lo hacía más ancho que la pantalla (ML-409). Como bloque en línea sigue
+   saltando de línea entero cuando cabe en la siguiente, como antes. El japonés ya partía sus chips (regla propia) y no se toca. */
+@media (max-width: 640px) { html:not([lang="ja"]) .ruta { display: inline-block; max-width: 100%; box-sizing: border-box; white-space: normal; overflow-wrap: anywhere; vertical-align: baseline; } }
 
 /* ---------------- preguntas */
 .preguntas { display: grid; gap: 0; max-width: 820px; border-bottom: 1px solid var(--linea); }
@@ -326,7 +339,7 @@ footer .legal { max-width: 80ch; line-height: 1.6; }
 .mtgo-caja ul { margin: 0; padding-left: 20px; color: var(--texto2); display: grid; gap: 9px; font-size: 15.5px; max-width: 78ch; }
 .mtgo-caja li b { color: var(--texto); font-weight: 600; }
 .mtgo-caja code { font: 13px var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 6px; padding: 1px 6px; color: var(--texto); }
-.funcion .enlace-man { display: inline-block; margin-top: 10px; font-weight: 500; font-size: 15px; color: var(--texto); }
+.funcion .enlace-man { display: inline-block; margin-top: 6px; /* 10 px de antes menos los 4 px de relleno de css_toque */  font-weight: 500; font-size: 15px; color: var(--texto); }
 @media (max-width: 480px) { .mtgo-caja { padding: 20px 18px; } }
 
 /* ---------------- novedades 2.2 */
@@ -372,6 +385,17 @@ details[id] { scroll-margin-top: 90px; }
 .apoyo.uno { grid-template-columns: minmax(0, 1fr); }
 @media (max-width: 900px) { .funciones.cinco .funcion:last-child { grid-column: auto; } .desc-bloque { max-width: none; } }
 
+/* Objetivos táctiles de 24 px como mínimo (WCAG 2.5.8, ML-417) sin cambiar el aspecto: el relleno vertical agranda el área que se toca
+   y el margen negativo igual lo compensa, así que ni una línea se mueve (en un enlace en línea el margen vertical no cuenta y no estorba).
+   Cada selector es un contexto donde el enlace va solo (pie, índice, barra de la guía, llamadas bajo un texto); los enlaces dentro de una frase
+   quedan fuera porque la norma los exime, y los que tienen clase (botones) ya traen su relleno. :where() deja los selectores sin peso para que
+   cualquier regla propia gane: en móvil el pie y el ZIP ya tienen min-height: 44px y devuelven este relleno a 0.
+   tools/test_objetivos_tactiles_navegador.py recorre todas las páginas y avisa de los que falten. */
+:where(footer a:not([class]), nav.indice li a, nav.inicio a:not([class]), a.enlace-sec, a.enlace-man, a.volver, .movil-zip a, .nota-hero a, .enlaces a, p > a:only-child:not([class])) { padding-block: 4px; margin-block: -4px; }
+:where(p.nota-smartscreen a) { padding-block: 5px; margin-block: -5px; }
+:where(footer a:not([class]), nav.indice li a, nav.inicio a:not([class])) { min-width: 24px; }
+/* en línea el ancho mínimo no cuenta (en coreano un enlace de una sola letra, «덱», medía 16 px): como bloque en línea sí, y la letra se queda donde estaba */
+:where(nav.indice li a) { display: inline-block; vertical-align: top; }
 /* ---------------- página Learn (WEB-08, ML-324): las guías de Metafy, el creador destacado y la barra fina */
 :root { --alto-cab: 69px; }
 html { scroll-padding-top: calc(var(--alto-cab) + 44px + 12px); }
@@ -512,8 +536,10 @@ input.ap-campo { flex: 1 1 200px; min-width: 0; }
 @media (prefers-reduced-motion: reduce) { .hueco-mdn, .hueco-mdn * { animation: none !important; transition: none !important; } }
 .hueco-mdn.suelto { grid-column: 1 / -1; border: 0; padding: 0; margin-block: 12px; }</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://manalab.es/ja/"}, {"@type": "ListItem", "position": 2, "name": "学ぶ", "item": "https://manalab.es/ja/learn/"}]}]}</script>
+<style>.saltar{position:absolute;left:8px;top:-60px;z-index:100;padding:10px 16px;border-radius:4px;background:#ece6d6;color:#0d100f;font:600 15px/1.3 system-ui,sans-serif;text-decoration:none}.saltar:focus{top:8px}main:focus{outline:none}</style>
 </head>
 <body class="ap">
+<a class="saltar" href="#inicio">本文へ移動</a>
 <header class="cab">
 <div class="envoltura">
 <a class="marca" href="/ja/"><img alt="ManaLabのロゴ" height="36" src="/img/logo-claro.png" width="36"/><span><b>ManaLab</b></span></a>
@@ -539,7 +565,7 @@ input.ap-campo { flex: 1 1 200px; min-width: 0; }
 </div>
 </header>
 <div class="d2barra" id="d2barra" role="region" aria-label="注目 · コラボ" inert aria-hidden="true"><div class="envoltura"><span class="f" aria-hidden="true"><span class="ini">PP</span><img alt="" decoding="async" referrerpolicy="no-referrer" src="https://manalab.es/img/destacados/pcpalhares.webp"></span><span class="n">Professor P. C. Palhares</span><span class="eti">注目 · コラボ</span><a class="d2cta" href="https://metafy.gg/@pcpalhares?utm_source=Manalab" rel="sponsored noopener" target="_blank">Metafyで見る <b aria-hidden="true">→</b></a></div></div>
-<main id="inicio">
+<main id="inicio" tabindex="-1">
 <section class="ap-cab"><div class="envoltura"><div class="eti">Metafyのガイド</div><h1>学ぶ</h1><p>Metafyのクリエイターによるマジックのガイド。アリーナとMagic Onlineに対応。ガイドはMetafyで開きます。</p><p class="enlace-ap"><a class="enlace-man" href="/ja/blog/learn-mtg-arena-guides/">「学ぶ」について詳しく →</a></p></div></section>
 <section class="ap-bloque"><div class="envoltura"><section class="d2" id="destacado" aria-label="注目 · コラボ" data-total="3"><article class="d2c on" data-i="0" data-id="pcpalhares"><div class="d2esc" aria-hidden="true"><img class="d2fondo" alt="" decoding="async" referrerpolicy="no-referrer" src="https://manalab.es/img/destacados/pcpalhares-fondo.webp"><div class="d2zona"><div class="d2aba"><i></i><i></i><i></i><i></i><i></i></div></div></div><span class="d2foto" aria-hidden="true"><span class="ini">PP</span><img alt="" decoding="async" referrerpolicy="no-referrer" src="https://manalab.es/img/destacados/pcpalhares.webp"></span><div class="d2txt"><span class="eti">注目 · コラボ</span><div class="d2nom">Professor P. C. Palhares</div><div class="d2lin">Standard · Pioneer · Modern - Competitive Magic · PT/EN</div><div class="d2fra">Professor, jogador competitivo e mentor. Análise de metagame e estratégias para ajudar você a evoluir no Magic!</div><div class="d2acc"><a class="d2cta" href="https://metafy.gg/@pcpalhares?utm_source=Manalab" rel="sponsored noopener" target="_blank">Metafyで見る <b aria-hidden="true">→</b></a><a class="d2cas" data-cas="guias" href="https://metafy.gg/@pcpalhares/guides?utm_source=Manalab" rel="sponsored noopener" target="_blank">ガイド</a></div></div></article><article class="d2c" inert aria-hidden="true" data-i="1" data-id="tcgacademy"><div class="d2esc" aria-hidden="true"><img class="d2fondo" alt="" decoding="async" referrerpolicy="no-referrer" src="https://manalab.es/img/destacados/tcgacademy-fondo.webp"><div class="d2zona"><div class="d2aba"><i></i><i></i><i></i><i></i><i></i></div></div></div><span class="d2foto" aria-hidden="true"><span class="ini">TA</span><img alt="" decoding="async" referrerpolicy="no-referrer" src="https://manalab.es/img/destacados/tcgacademy.webp"></span><div class="d2txt"><span class="eti">注目 · コラボ</span><div class="d2nom">TCG Academy</div><div class="d2lin">All Constructed formats · Limited (Draft &amp; Sealed) · EN/ES</div><div class="d2fra">A competitive Magic community with on-demand coaching, match reviews, and guides to help you play better and prepare for tournaments.</div><div class="d2acc"><a class="d2cta" href="https://metafy.gg/@luissalvatto?utm_source=Manalab" rel="sponsored noopener" target="_blank">Metafyで見る <b aria-hidden="true">→</b></a><a class="d2cas" data-cas="sesiones" href="https://metafy.gg/@luissalvatto/sessions?utm_source=Manalab" rel="sponsored noopener" target="_blank">セッション</a></div></div></article><article class="d2c" inert aria-hidden="true" data-i="2" data-id="yuyan"><div class="d2esc" aria-hidden="true"><img class="d2fondo" alt="" decoding="async" referrerpolicy="no-referrer" src="https://manalab.es/img/destacados/yuyan-fondo.webp"><div class="d2zona"><div class="d2aba"><i></i><i></i><i></i><i></i><i></i></div></div></div><span class="d2foto" aria-hidden="true"><span class="ini">YH</span><img alt="" decoding="async" referrerpolicy="no-referrer" src="https://manalab.es/img/destacados/yuyan.webp"></span><div class="d2txt"><span class="eti">注目 · コラボ</span><div class="d2nom">Yuya Hosokawa</div><div class="d2lin">Deck guides, metagame analyses and more · 2+ updates a week</div><div class="d2fra">Members get free access to all articles! There are tons of articles, and more are added every week!</div><div class="d2acc"><a class="d2cta" href="https://metafy.gg/@yuyan?utm_source=Manalab" rel="sponsored noopener" target="_blank">Metafyで見る <b aria-hidden="true">→</b></a><a class="d2cas" data-cas="guias" href="https://metafy.gg/@yuyan/guides?utm_source=Manalab" rel="sponsored noopener" target="_blank">ガイド</a></div></div></article><div class="d2pag"><button type="button" data-d2="-1" aria-label="前へ"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M7.5 2.5 4 6l3.5 3.5"/></svg></button><span class="d2pun" role="img" aria-label="1 / 3"><i class="on"></i><i></i><i></i></span><button type="button" data-d2="1" aria-label="次へ"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6 4.5 9.5"/></svg></button></div><span class="d2prog" aria-hidden="true"><i></i></span><span class="d2anuncio" role="status"></span></section></div></section>
 <section class="ap-bloque"><div class="envoltura"><div class="ap-app"><p><b>アプリの「あなたへ」がガイドを選びます：</b>使っているデッキと、いちばん苦手なマッチアップに合わせて。</p><a class="boton prim" href="#descargar"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a></div></div></section>
@@ -575,7 +601,7 @@ input.ap-campo { flex: 1 1 200px; min-width: 0; }
 <div class="envoltura">
 <div class="fila"><b style="color:var(--texto)">ManaLab</b><span id="version">v<span data-version>3.0.1</span></span>
 <a href="https://github.com/EusebioG96/registro-mtga-meta" rel="noopener" target="_blank">メタデッキ一覧</a>
-<a href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.1/ManaLab-manual-en.pdf" rel="noopener">ユーザーマニュアル（PDF、英語）</a>
+<a data-manual href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.1/ManaLab-manual-en.pdf" rel="noopener">ユーザーマニュアル（PDF、英語）</a>
 <a href="/novedades/">更新情報（英語）</a>
 <a href="/magic-online/"><span style="white-space:nowrap">Magic Online</span>トラッカー（英語）</a>
 <a href="/coaches/">コーチ向けガイド（英語）</a>
@@ -593,5 +619,6 @@ input.ap-campo { flex: 1 1 200px; min-width: 0; }
 <script id="learn-datos" type="application/json">{"idioma":"ja","servidor":"https://registro-ia.eusebiog76.workers.dev/guias.json","copia":"/learn/guias.json","porPagina":24,"rotarMs":8000,"resenasMin":3,"t":{"fil":["すべて","無料","有料","購読者"],"creador":"すべてのクリエイター","buscar":"ガイドを検索","orden":["購入数順","評価の高い順","短い順"],"de":"作成：{}","gratis":"無料","sus":"購読者","cuenta":["1件のガイド","{n}件のガイド"],"res":["1件のレビュー","{n}件のレビュー"],"min":"{n}分","paginas":"ページ","ant":"前へ","sig":"次へ","decimal":".","precio":"${n}","vacio":["まだガイドはありません","Magic 向けの Metafy ガイドは、公開され次第ここに表示されます。"],"ninguna":["一致するガイドはありません","フィルターを解除"],"bajar":"無料ダウンロード"}}</script>
 <script defer="" src="/descarga.js"></script>
 <script defer="" src="/learn/learn.js"></script><script defer="" src="/learn/cifras.js"></script>
-<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script defer src="/huecos_mdn.js" data-plazo="6000"></script><script async src="https://mdn.metafy.gg/embed.js" data-mdn-site="mdn_obNMYPWbbmMClWCpy3Pss6JY"></script></body>
+<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script defer src="/huecos_mdn.js" data-plazo="6000"></script><script async src="https://mdn.metafy.gg/embed.js" data-mdn-site="mdn_obNMYPWbbmMClWCpy3Pss6JY"></script><script defer src="/menu.js"></script>
+</body>
 </html>

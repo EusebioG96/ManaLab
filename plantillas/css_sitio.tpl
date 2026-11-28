@@ -1,15 +1,4 @@
-@font-face{font-family:'Marcellus';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/marcellus-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Marcellus';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/marcellus-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Geist';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-sans-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Geist';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-sans-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Geist';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-sans-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Geist';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-sans-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Geist';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/geist-sans-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Geist';font-style:normal;font-weight:600;font-display:swap;src:url(/fuentes/geist-sans-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Geist Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-mono-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Geist Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fuentes/geist-mono-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Geist Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-mono-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:'Geist Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fuentes/geist-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+{{> css_fuentes}}
 /* Línea visual «La mesa de juego» (ML-272): una mesa oscura verdosa, hueso como color de acción, oro solo en antetítulos y aviso de versión.
    Fuentes: Marcellus (títulos), Geist (texto) y Geist Mono (idiomas, código, marcadores), servidas desde /fuentes/. */
 :root {
@@ -20,9 +9,9 @@
   --hueso: #ece6d6; --hueso-h: #ffffff;
   --oro: #e2b45c; --oro-suave: rgba(226, 180, 92, 0.12);
   --ko: #ef9a86; --ko-suave: rgba(239, 154, 134, 0.13);
-  --f-display: "Marcellus", Georgia, "Times New Roman", serif;
-  --f-texto: "Geist", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --f-mono: "Geist Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --f-display: "Marcellus", "Marcellus Reserva", Georgia, "Times New Roman", serif;
+  --f-texto: "Geist", "Geist Reserva", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "Geist Mono", "Geist Mono Reserva", ui-monospace, "Cascadia Mono", Consolas, monospace;
   --ancho: 1180px;
 }
 /* japonés: Marcellus y Geist no tienen esas letras; pila del sistema */
@@ -67,6 +56,8 @@ code { font-family: var(--f-mono); border-radius: 4px; background: var(--panel2)
 .nota-desc span::before, .confianza-lista b::before { content: ""; display: inline-block; width: 8px; height: 8px; transform: rotate(45deg); background: var(--hueso); margin-right: 12px; vertical-align: 1px; }
 /* vídeo de cabecera (ML-058): 15 s sin sonido en bucle; con «reducir movimiento» o ahorro de datos solo se ve el póster */
 .hero-medio { display: grid; gap: 18px; justify-items: start; min-width: 0; }
+/* la ventana con captura ocupa todo el ancho de la columna: sin esto, con justify-items:start, mide 2 px hasta que carga la imagen y la página salta (ML-406) */
+.hero-medio .ventana { width: 100%; }
 .hero-video { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; border: 1px solid rgba(236, 230, 214, 0.34); background: var(--panel); box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6); }
 .hero-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .hero-pausa { position: absolute; right: 8px; top: 8px; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--linea2); background: rgba(13, 16, 15, 0.72); color: var(--texto2); display: grid; place-items: center; cursor: pointer; padding: 0; opacity: 0.75; }
@@ -136,6 +127,9 @@ code { font-family: var(--f-mono); border-radius: 4px; background: var(--panel2)
 .paso h3 { font-size: 24px; margin: 16px 0 10px; }
 .paso p { margin: 0; color: var(--texto2); font-size: 16px; line-height: 1.6; }
 .ruta { font: 13px var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 4px; padding: 2px 7px; color: var(--texto); white-space: nowrap; }
+/* en pantallas estrechas el chip puede partirse por dentro si no cabe: nowrap lo hacía más ancho que la pantalla (ML-409). Como bloque en línea sigue
+   saltando de línea entero cuando cabe en la siguiente, como antes. El japonés ya partía sus chips (regla propia) y no se toca. */
+@media (max-width: 640px) { html:not([lang="ja"]) .ruta { display: inline-block; max-width: 100%; box-sizing: border-box; white-space: normal; overflow-wrap: anywhere; vertical-align: baseline; } }
 
 /* ---------------- preguntas */
 .preguntas { display: grid; gap: 0; max-width: 820px; border-bottom: 1px solid var(--linea); }
@@ -249,7 +243,7 @@ footer .legal { max-width: 80ch; line-height: 1.6; }
 .mtgo-caja ul { margin: 0; padding-left: 20px; color: var(--texto2); display: grid; gap: 9px; font-size: 15.5px; max-width: 78ch; }
 .mtgo-caja li b { color: var(--texto); font-weight: 600; }
 .mtgo-caja code { font: 13px var(--f-mono); background: var(--panel2); border: 1px solid var(--linea); border-radius: 6px; padding: 1px 6px; color: var(--texto); }
-.funcion .enlace-man { display: inline-block; margin-top: 10px; font-weight: 500; font-size: 15px; color: var(--texto); }
+.funcion .enlace-man { display: inline-block; margin-top: 6px; /* 10 px de antes menos los 4 px de relleno de css_toque */  font-weight: 500; font-size: 15px; color: var(--texto); }
 @media (max-width: 480px) { .mtgo-caja { padding: 20px 18px; } }
 
 /* ---------------- novedades 2.2 */
@@ -283,3 +277,4 @@ details[id] { scroll-margin-top: 90px; }
 {{@15}}
 
 {{@16}}
+{{> css_toque}}

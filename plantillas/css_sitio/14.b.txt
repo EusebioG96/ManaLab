@@ -45,9 +45,9 @@ footer { padding-block: 28px; }
   .ia-caja { gap: 24px; }
   .funcion svg { width: 22px; height: 22px; }
   .funcion h3 { margin: 10px 0 5px; }
-  .movil-zip a { display: inline-flex; align-items: center; min-height: 44px; }
+  .movil-zip a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 0; margin-block: 0; }
   footer .fila { gap: 0 20px; }
-  footer .fila a, footer .guias a { display: inline-flex; align-items: center; min-height: 44px; }
+  footer .fila a, footer .guias a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 0; margin-block: 0; }
 }
 @media (max-width: 560px) {
   .confianza-lista { grid-template-columns: minmax(0, 1fr); }

@@ -23,6 +23,7 @@
 <meta property="og:description" content="MTG Arena와 Magic Online용 무료 트래커 ManaLab 가이드: 시작 손패와 멀리건, 매치업별 통계, 사이드보드, 오버레이, 코치용 내보내기, AI 패배 분석.">
 <meta property="og:url" content="https://manalab.es/guia/guia_manalab_ko.html">
 <meta property="og:image" content="https://manalab.es/img/og-3.0.jpg">
+<meta property="og:image:alt" content="오늘의 세션, 연승 기록, 진행 중인 경기가 표시된 ManaLab 대시보드">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>

@@ -1,14 +1,17 @@
 (function () {
   "use strict";
-  // 1) Mantiene al día el enlace directo al ZIP y la versión leyendo /version.json. Si algo falla, queda el href estático del HTML.
+  // 1) Mantiene al día el enlace directo al ZIP, el del manual (a[data-manual]) y la versión leyendo /version.json. Si algo falla, queda el href estático del HTML.
   // 2) En teléfono (pantalla estrecha Y táctil, sin mirar el agente de usuario) cambia el bloque de descarga por «Envíate el enlace».
   var BASE = "https://github.com/EusebioG96/ManaLab/releases/download/";
+  var MANUAL = "ManaLab-manual-en.pdf";   // el manual en PDF cuelga de la misma release que el ZIP
   var ultima = null;   // {u, v} ya validados, para aplicarlos también a lo que se inserte después
 
   function aplicar(raiz) {
     if (!ultima) return;
     var a = raiz.querySelectorAll("a[data-descarga]");
     for (var i = 0; i < a.length; i++) a[i].setAttribute("href", ultima.u);
+    var m = raiz.querySelectorAll("a[data-manual]");
+    for (var k = 0; k < m.length; k++) m[k].setAttribute("href", BASE + "v" + ultima.v + "/" + MANUAL);
     var t = raiz.querySelectorAll("[data-version]");
     for (var j = 0; j < t.length; j++) t[j].textContent = ultima.v;
   }
