@@ -45,8 +45,8 @@
 <div>
 <div class="eti">MTGアリーナとMagic Onlineの無料トラッカー</div>
 <h1>アリーナと<wbr><span style="white-space:nowrap">Magic Onlineの</span><wbr>全対戦を、<wbr><em>自動で記録。</em></h1>
-<p class="sub">ManaLabはプレイ中にアリーナと<span style="white-space:nowrap">Magic Online</span>のログを読み取り、初手、マリガン、相手のデッキを保存します。どこで勝ち、どこで負けているかがわかります。</p>
 <div data-movil-aqui></div>
+<p class="sub">ManaLabはプレイ中にアリーナと<span style="white-space:nowrap">Magic Online</span>のログを読み取り、初手、マリガン、相手のデッキを保存します。どこで勝ち、どこで負けているかがわかります。</p>
 <div class="hero-cta">
 <a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:hero}}" data-goatcounter-title="{{EVENTO:descarga:hero}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a>
 <a class="enlace-sec" href="#funciones">機能を見る</a>
@@ -310,4 +310,4 @@
   window.addEventListener("load", abrir);   /* otra vez con las imágenes ya cargadas: el desplazamiento cuadra */
   window.addEventListener("hashchange", abrir);
 })();
-</script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</script><script defer src="/origen.js"></script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>

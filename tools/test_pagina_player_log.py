@@ -194,7 +194,7 @@ class TestTextos(unittest.TestCase):
         self.assertEqual(len(re.findall(r'<code class="ruta-copiable">', html)), 2)
         self.assertRegex(html, r"\.ruta-copiable\s*\{[^}]*user-select:\s*all")
         self.assertEqual(sorted(s.get("src", "inline") for s in self.p.scripts if s.get("type") != "application/ld+json"),
-                         ["//gc.zgo.at/count.js", "/descarga.js"])
+                         ["//gc.zgo.at/count.js", "/descarga.js", "/origen.js"])   # origen.js: ML-379
 
     def test_hreflang_reciproco_y_selector_de_idioma(self):
         """La inglesa y la española se declaran la una a la otra, las dos con x-default a la inglesa, y el selector de idioma enlaza al par."""

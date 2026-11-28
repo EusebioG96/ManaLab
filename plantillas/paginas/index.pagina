@@ -46,8 +46,8 @@
 <div>
 <div class="eti">Free tracker for MTG Arena and Magic Online</div>
 <h1>Every Arena and Magic Online match, <em>logged on its own.</em></h1>
-<p class="sub">ManaLab reads the Arena and Magic Online logs while you play and keeps your hands, mulligans and the opponent's deck. Then it shows where you win and lose.</p>
 <div data-movil-aqui></div>
+<p class="sub">ManaLab reads the Arena and Magic Online logs while you play and keeps your hands, mulligans and the opponent's deck. Then it shows where you win and lose.</p>
 <div class="hero-cta">
 <a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v{{VERSION}}/ManaLab-{{VERSION}}-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="{{EVENTO:descarga:hero}}" data-goatcounter-title="{{EVENTO:descarga:hero}}" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>Download free</span></a>
 <a class="enlace-sec" href="#capturas">See the app</a>
@@ -432,5 +432,5 @@
   window.addEventListener("load", abrir);   /* otra vez con las imágenes ya cargadas: el desplazamiento cuadra */
   window.addEventListener("hashchange", abrir);
 })();
-</script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+</script><script defer src="/origen.js"></script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
 </html>

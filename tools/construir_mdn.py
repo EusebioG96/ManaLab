@@ -22,7 +22,7 @@ PLAZO_MDN_MS = 6000                             # sin respuesta de MDN en este p
 EVENTO_CASA = "anuncio-casa"                    # tipo del evento de GoatCounter del clic en el anuncio de casa (nombre completo: anuncio-casa-<página>-<idioma>-<1|2>)
 MAX_HUECOS = 2                                  # por página (WEB-09, punto 4)
 # Páginas sin anuncio (WEB-09, punto 6): las guías, privacidad, seguridad, la 404 y /anuncio/ (que carga el script a su manera).
-PAGINAS_SIN_ANUNCIO = ("404.html", "anuncio/index.html", "privacy/index.html", "safety/index.html", "es/seguridad/index.html",
+PAGINAS_SIN_ANUNCIO = ("404.html", "anuncio/index.html", "no-contar/index.html", "privacy/index.html", "safety/index.html", "es/seguridad/index.html",
                        "sorteo/index.html", "sorteo/en/index.html", "es/sorteo/index.html",
                        "player-log/index.html", "es/player-log/index.html",
                        "blog/learn-mtg-arena-guides/index.html", "es/blog/learn-mtg-arena-guides/index.html",

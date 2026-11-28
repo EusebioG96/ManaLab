@@ -76,5 +76,5 @@
 </div>
 </main>
 {{> pie_es 1=c 2=e 3=c}}
-<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+<script defer src="/origen.js"></script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
 </html>

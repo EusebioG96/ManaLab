@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="noindex, nofollow" name="robots"/>
+<title>No contar mis visitas · ManaLab</title>
+<meta content="#0d100f" name="theme-color"/>
+<style>
+body{margin:0;background:#0d100f;color:#ece6d6;font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:24px;box-sizing:border-box}
+main{max-width:460px;width:100%}
+h1{font-size:24px;line-height:1.25;margin:0 0 12px}
+p{margin:0 0 16px;color:#c9c3b3}
+#estado{font-weight:600;color:#ece6d6}
+button{font:inherit;font-weight:600;padding:12px 20px;border:0;border-radius:8px;background:#ece6d6;color:#0d100f;cursor:pointer;width:100%}
+button:focus-visible{outline:2px solid #e8b84a;outline-offset:2px}
+</style>
+</head>
+<body>
+<!-- Página de uso interno (ML-379, E4): no está enlazada ni en el sitemap. Pone o quita la marca que GoatCounter respeta (localStorage skipgc=t)
+     para que las visitas y las descargas de prueba de Eusebio no cuenten. No carga GoatCounter: ni esta página se cuenta. -->
+<main>
+<h1>No contar mis visitas</h1>
+<p>La marca se guarda solo en este navegador. Hay que ponerla en cada navegador y dispositivo desde los que pruebes la web.</p>
+<p id="estado" aria-live="polite" role="status">Comprobando…</p>
+<p><button id="cambiar" type="button" disabled>…</button></p>
+<p id="nota" hidden>Este navegador no permite guardar la marca (modo privado o almacenamiento bloqueado).</p>
+</main>
+<script>
+(function () {
+  "use strict";
+  var CLAVE = "skipgc", VALOR = "t";   // lo que lee GoatCounter (count.js) antes de contar visitas y eventos
+  var estado = document.getElementById("estado"), boton = document.getElementById("cambiar"), nota = document.getElementById("nota");
+  function excluido() { try { return window.localStorage.getItem(CLAVE) === VALOR; } catch (e) { return null; } }
+  function pintar() {
+    var e = excluido();
+    if (e === null) { estado.textContent = "No se puede guardar la marca."; boton.hidden = true; nota.hidden = false; return; }
+    estado.textContent = e ? "Estado: tus visitas NO se cuentan en este navegador." : "Estado: tus visitas SÍ se cuentan en este navegador.";
+    boton.textContent = e ? "Volver a contar mis visitas" : "No contar mis visitas";
+    boton.disabled = false;
+  }
+  boton.addEventListener("click", function () {
+    try {
+      if (excluido()) window.localStorage.removeItem(CLAVE); else window.localStorage.setItem(CLAVE, VALOR);
+    } catch (e) { /* silencio: pintar() avisa de que no se pudo guardar */ }
+    pintar();
+  });
+  pintar();
+})();
+</script>
+</body>
+</html>

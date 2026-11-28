@@ -114,7 +114,7 @@ def _json_ld(grafo: list[dict]) -> str:
 def migas(relativa: Path, arbol: _Arbol, pagina: str) -> dict | None:
     """BreadcrumbList (Inicio del idioma › página) de una página interior; ``None`` en las portadas y donde no toca."""
     ruta = relativa.as_posix()
-    if ruta in PORTADAS or ruta.startswith("404") or ruta.startswith(("anuncio/", "google")):
+    if ruta in PORTADAS or ruta.startswith("404") or ruta.startswith(("anuncio/", "google", "no-contar/")):
         return None
     if ruta.startswith("guia/"):
         idioma = ruta.removeprefix("guia/guia_manalab_").removesuffix(".html")

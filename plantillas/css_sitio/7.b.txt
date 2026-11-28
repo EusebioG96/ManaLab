@@ -1,10 +1,11 @@
 html.movil .aviso-version { display: none; }
 html.movil .hero-cta .boton { display: none; }
 /* ML-326: descarga.js pasa la portada a «modo teléfono» después de pintar (aviso fuera, botón fuera, caja de «envíate el enlace»); eso movía toda la portada
-   (CLS 0,35). Con JavaScript, en pantalla estrecha y táctil, se pinta ya en ese estado y el hueco de la caja guarda su alto (232 px; 300 px por debajo de 480). */
+   (CLS 0,35). Con JavaScript, en pantalla estrecha y táctil, se pinta ya en ese estado y el hueco de la caja guarda su alto (200 px; 240 px por debajo de 480; ML-379 sin el título de la caja). */
 @media (scripting: enabled) and (max-width: 767px) and (pointer: coarse) {
   .aviso-version, .hero-cta .boton { display: none; }
   .hero-cta { margin-top: 16px; }
-  .portada p.sub + div:empty { min-height: 232px; margin-top: 14px; }
+  .portada h1 + div:empty { min-height: 200px; margin-top: 14px; }
+  .portada h1 + div + p.sub { margin-top: 16px; }
 }
-@media (scripting: enabled) and (max-width: 480px) and (pointer: coarse) { .portada p.sub + div:empty { min-height: 300px; } }
+@media (scripting: enabled) and (max-width: 480px) and (pointer: coarse) { .portada h1 + div:empty { min-height: 240px; } }

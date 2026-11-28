@@ -114,5 +114,5 @@
 {{> pie_en 2=c}}
 
 <script defer="" src="/descarga.js"></script>
-<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+<script defer src="/origen.js"></script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
 </html>

@@ -29,7 +29,7 @@ CON_ANUNCIO = {
                             "novedades/index.html", "es/novedades/index.html", "detailed-logs/index.html", "es/registro-detallado/index.html")},
     **{f"{p}/index.html": 2 for p in ("learn", "es/aprender", "pt/aprender", "ja/learn")},
 }
-SIN_ANUNCIO = ("404.html", "anuncio/index.html", "privacy/index.html", "safety/index.html", "es/seguridad/index.html", "google8d4ac26b3d7a5735.html",
+SIN_ANUNCIO = ("404.html", "anuncio/index.html", "no-contar/index.html", "privacy/index.html", "safety/index.html", "es/seguridad/index.html", "google8d4ac26b3d7a5735.html",
               "sorteo/index.html", "sorteo/en/index.html", "es/sorteo/index.html",
               "player-log/index.html", "es/player-log/index.html",
               "blog/learn-mtg-arena-guides/index.html", "es/blog/learn-mtg-arena-guides/index.html",

@@ -116,7 +116,7 @@ class TestPunto2CajaMovil(unittest.TestCase):
             with self.subTest(idioma=idioma):
                 html = leer(ruta)
                 self.assertEqual(html.count("data-movil-aqui"), 1)
-                self.assertRegex(html, r'<p class="sub">[^<]*</p>\s*<div data-movil-aqui></div>\s*<div class="hero-cta">')
+                self.assertRegex(html, r'<h1>.*?</h1>\s*<div data-movil-aqui></div>\s*<p class="sub">.*?</p>\s*<div class="hero-cta">')
 
     def test_css_y_js(self):
         for idioma, ruta in PORTADAS.items():
