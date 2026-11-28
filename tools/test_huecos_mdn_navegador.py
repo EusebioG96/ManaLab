@@ -27,6 +27,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "tools"))
 import construir_mdn  # noqa: E402
 import construir_web  # noqa: E402
+from navegador_comun import esperar_pagina_estable  # noqa: E402
 from test_huecos_mdn import CON_ANUNCIO, ETIQUETA, RUTA_LEARN, idioma_de  # noqa: E402
 
 try:
@@ -174,7 +175,10 @@ class Navegador(unittest.TestCase):
         if reloj:
             pagina.clock.run_for(50)
         else:
-            pagina.evaluate("document.fonts.ready.then(() => 1)")   # con las tipografías ya puestas, la maqueta no cambia más
+            # Con las tipografías y las imágenes ya puestas la maqueta no cambia más. El CLS que se mide es solo el de lo que ocurre después (la
+            # llegada del anuncio): los saltos de la propia carga de la página, que dependen de lo que tarden las imágenes, no son de este test.
+            esperar_pagina_estable(pagina)
+            pagina.evaluate("window.__cls = 0")
         return pagina
 
     def medir(self, p) -> dict:
@@ -243,7 +247,7 @@ class Navegador(unittest.TestCase):
         p.evaluate(self.RECORRER)
         if modo == "render":
             p.wait_for_function("[...document.querySelectorAll('.hm-caja')].every((c) => c.getAttribute('data-mdn-state') === 'rendered')")
-        p.wait_for_timeout(60)
+        esperar_pagina_estable(p)   # las imágenes perezosas que ha traído la recorrida ya están puestas
         return p, self.medir(p)
 
     def test_al_llegar_el_anuncio_de_mdn_no_salta_nada(self):
@@ -342,6 +346,9 @@ class Navegador(unittest.TestCase):
     def esperar_learn(self, p) -> None:
         p.wait_for_function("document.documentElement.classList.contains('learn-js') || document.documentElement.classList.contains('learn-sin-lista')")
 
+    def esperar_pagina_activa(self, p, numero: str) -> None:
+        p.wait_for_function("n => { const a = document.querySelector('#ap-pag [aria-current=\"page\"]'); return !!a && a.textContent.trim() === n; }", arg=numero)
+
     def hueco_tras_la_octava(self, p) -> bool:
         return p.evaluate("""() => { const g = document.getElementById('guias'), tarjetas = [...g.children].filter((x) => x.matches('a.guia')), h = g.querySelector('.hueco-mdn');
           return !!h && h.previousElementSibling === tarjetas[7] && g.querySelectorAll('.hueco-mdn').length === 1; }""")
@@ -367,7 +374,7 @@ class Navegador(unittest.TestCase):
         p.evaluate("window.__hueco = document.querySelector('#guias .hueco-mdn')")
         for destino in ("2", "3", "1"):
             p.locator(f"#ap-pag a[data-p='{destino}']").first.click()
-            p.wait_for_timeout(200)
+            self.esperar_pagina_activa(p, destino)
             self.assertTrue(self.hueco_tras_la_octava(p), f"página {destino}")
             self.assertTrue(p.evaluate("window.__hueco === document.querySelector('#guias .hueco-mdn')"), "MDN no debe pedir un anuncio nuevo con cada página")
         p.goto(f"{self.web.url}/es/aprender/?p=2", wait_until="load")
@@ -425,9 +432,9 @@ class Navegador(unittest.TestCase):
         self.esperar_learn(p)
         antes = p.evaluate("document.getElementById('guias').outerHTML")
         p.locator("#ap-pag a[data-p='2']").first.click()
-        p.wait_for_timeout(200)
+        self.esperar_pagina_activa(p, "2")
         p.locator("#ap-pag a[data-p='1']").first.click()
-        p.wait_for_timeout(200)
+        self.esperar_pagina_activa(p, "1")
         self.assertEqual(p.evaluate("document.getElementById('guias').outerHTML"), antes)
 
 

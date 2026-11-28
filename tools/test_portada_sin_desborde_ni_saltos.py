@@ -19,6 +19,7 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "tools"))
+from navegador_comun import esperar_pagina_estable  # noqa: E402
 from test_huecos_mdn_navegador import Servidor, sitio  # noqa: E402
 
 try:
@@ -129,7 +130,7 @@ class PortadaSinDesbordeNiSaltos(unittest.TestCase):
             cdp.send("Network.emulateNetworkConditions", {"offline": False, "latency": 150, "downloadThroughput": 1.6 * 1024 * 1024 / 8, "uploadThroughput": 750 * 1024 / 8})
             pagina.add_init_script(CLS_ENTRADA)
             pagina.goto(f"{self.web.url}/{portada}", wait_until="load")
-            pagina.wait_for_timeout(2500)
+            esperar_pagina_estable(pagina, timeout=120000)   # con la red y la CPU frenadas la carga tarda: se mide cuando ya terminó, no a un tiempo fijo
             cls = pagina.evaluate("window.__cls")
             self.assertLess(cls, LIMITE_CLS, f"{portada}: CLS {cls:.3f} en 390 px")
             contexto.close()

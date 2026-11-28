@@ -20,6 +20,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "tools"))
 import construir_web  # noqa: E402
+from navegador_comun import esperar_pagina_estable  # noqa: E402
 
 try:
     from playwright.sync_api import sync_playwright
@@ -125,8 +126,18 @@ class Navegador(unittest.TestCase):
             pagina.clock.install()
         pagina.goto(f"{servidor.url}/{ruta}", wait_until="load")
         if js:
-            pagina.wait_for_function("document.documentElement.classList.contains('learn-js') || document.documentElement.classList.contains('learn-sin-lista') || !document.getElementById('ap-barra') || document.getElementById('ap-barra').hidden")
+            self.esperar_pintada(pagina)
+        if not reloj:
+            esperar_pagina_estable(pagina)   # tipografías e imágenes ya puestas: las medidas no se toman con la maqueta a medio hacer
         return pagina
+
+    def esperar_pintada(self, pagina):
+        """Espera a que learn.js haya pintado la lista (o dicho que no hay)."""
+        pagina.wait_for_function("document.documentElement.classList.contains('learn-js') || document.documentElement.classList.contains('learn-sin-lista') || !document.getElementById('ap-barra') || document.getElementById('ap-barra').hidden")
+
+    def esperar_pagina_activa(self, p, numero: str):
+        """Espera a que el paginador marque la página `numero` (se pinta sin recargar)."""
+        p.wait_for_function("n => { const a = document.querySelector('#ap-pag [aria-current=\"page\"]'); return !!a && a.textContent.trim() === n; }", arg=numero)
 
     def total_guias(self, p) -> int:
         return p.locator("#guias a.guia").count()
@@ -138,7 +149,8 @@ class Navegador(unittest.TestCase):
                 self.assertLessEqual(p.evaluate("document.documentElement.scrollWidth"), ancho)
                 self.assertEqual(p.errores, [])
                 p.goto(f"{self.con.url}/es/aprender/?p=2", wait_until="load")
-                p.wait_for_timeout(300)
+                self.esperar_pintada(p)
+                self.esperar_pagina_activa(p, "2")
                 self.assertLessEqual(p.evaluate("document.documentElement.scrollWidth"), ancho)
 
     def test_pagina_2_por_la_url_y_el_paginador_navega_sin_recargar(self):
@@ -147,11 +159,11 @@ class Navegador(unittest.TestCase):
         primera_p2 = p.locator("#guias a.guia").first.get_attribute("href")
         self.assertEqual(p.locator("#ap-pag [aria-current='page']").inner_text().strip(), "2")
         p.locator("#ap-pag a[data-p='1']").first.click()
-        p.wait_for_timeout(300)
+        self.esperar_pagina_activa(p, "1")
         self.assertNotEqual(p.locator("#guias a.guia").first.get_attribute("href"), primera_p2)
         self.assertNotIn("p=", p.url)
         p.go_back()
-        p.wait_for_timeout(300)
+        self.esperar_pagina_activa(p, "2")
         self.assertEqual(p.locator("#guias a.guia").first.get_attribute("href"), primera_p2)
 
     def test_filtros_tipo_busqueda_creador_y_contador(self):
@@ -187,6 +199,8 @@ class Navegador(unittest.TestCase):
         for _ in range(40):   # con la barra oculta, Tab nunca cae dentro
             p.keyboard.press("Tab")
             self.assertFalse(p.evaluate("!!document.activeElement.closest('#d2barra')"))
+        p.evaluate("window.scrollTo(0, 0)")   # 40 Tab pueden haber bajado la página y haber hecho aparecer la barra: se vuelve arriba y se espera a que se oculte
+        p.wait_for_function("!document.getElementById('d2barra').classList.contains('visible') && document.getElementById('d2barra').hasAttribute('inert')")
         p.evaluate("document.querySelector('#d2barra .d2cta').focus()")
         self.assertFalse(p.evaluate("!!document.activeElement.closest('#d2barra')"), "un elemento inerte no recibe el foco")
         p.evaluate("window.scrollTo(0, 2400)")
@@ -273,7 +287,7 @@ class Navegador(unittest.TestCase):
     def test_el_texto_hostil_de_la_red_se_escapa(self):
         hostil = guia(1, name="<img src=x onerror=window.__roto=1>", authors=[{"name": "<b onmouseover=window.__roto=2>x</b>"}], description="<script>window.__roto=3</script>")
         p = self.abrir(self.con, servidor_ia=lista([hostil]))
-        p.wait_for_timeout(300)
+        p.wait_for_function("document.querySelectorAll('#guias a.guia').length === 1")   # la lista de la red ya sustituyó a la copia
         self.assertEqual(self.total_guias(p), 1)
         self.assertIsNone(p.evaluate("window.__roto"))
         self.assertEqual(p.locator("#guias img[src='x']").count(), 0)
@@ -283,7 +297,7 @@ class Navegador(unittest.TestCase):
 
     def test_portadas_perezosas_y_sin_referrer(self):
         p = self.abrir(self.con, servidor_ia=lista([guia(i, cover_url=f"https://cdn.metafy.gg/c{i}.png") for i in range(1, 4)]))
-        p.wait_for_timeout(300)
+        p.wait_for_function("document.querySelectorAll('#guias a.guia').length === 3")   # la lista de la red ya sustituyó a la copia
         self.assertEqual(p.locator("#guias img").count(), 3)
         self.assertEqual(p.evaluate("[...document.querySelectorAll('#guias img')].map(i=>i.getAttribute('loading')+'/'+i.getAttribute('referrerpolicy'))"),
                          ["lazy/no-referrer"] * 3)
