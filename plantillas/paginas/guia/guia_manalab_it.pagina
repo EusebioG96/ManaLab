@@ -23,6 +23,7 @@
 <meta property="og:description" content="Guida a ManaLab, tracker gratuito per MTG Arena e Magic Online: mani iniziali, mulligan, statistiche per matchup, sideboard, overlay, export coach, analisi IA.">
 <meta property="og:url" content="https://manalab.es/guia/guia_manalab_it.html">
 <meta property="og:image" content="https://manalab.es/img/og-3.0.jpg">
+<meta property="og:image:alt" content="Dashboard di ManaLab con la sessione di oggi, la serie di vittorie e una partita in corso">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>

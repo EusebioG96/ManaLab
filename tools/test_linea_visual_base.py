@@ -90,8 +90,13 @@ class TestMenuDeTelefono(unittest.TestCase):
 class TestFuentesLocales(unittest.TestCase):
     def test_font_face_solo_apuntan_a_fuentes(self):
         for nombre, html in paginas_con_cabecera():
-            caras = re.findall(r"@font-face\s*\{[^}]*\}", html)
+            todas = re.findall(r"@font-face\s*\{[^}]*\}", html)
+            caras = [c for c in todas if "url(" in c]
             with self.subTest(nombre):
+                # ML-412: más las 4 caras «Reserva» (tipo local con las medidas de la fuente web), que no descargan nada
+                reserva = [c for c in todas if "url(" not in c]
+                self.assertIn(len(reserva), (0, 4))   # css_seguridad (safety y seguridad) tiene su copia de la fuente y aún no las lleva
+                self.assertTrue(all("src:local(" in c and "size-adjust" in c for c in reserva))
                 self.assertEqual(len(caras), 12)
                 self.assertEqual({re.search(r"font-family:'([^']+)'", c).group(1) for c in caras}, FUENTES_ESPERADAS)
                 for c in caras:
