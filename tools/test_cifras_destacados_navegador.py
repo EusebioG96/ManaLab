@@ -17,6 +17,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "tools"))
 import construir_learn  # noqa: E402
 import guias_web  # noqa: E402
+from navegador_comun import ESPERA_MAXIMA_MS, esperar_pagina_estable  # noqa: E402
 from test_pagina_learn_navegador import PNG, SERVIDOR_IA, Servidor, sitio  # noqa: E402
 
 try:
@@ -30,10 +31,13 @@ METAFY = "https://metafy.gg/@"
 DANA = {"id": "dana-voss", "nombre": "Dana Voss", "linea": "Standard · ES/EN", "enlace": METAFY + "dana", "academia": METAFY + "dana/academy",
         "guias": METAFY + "dana/guides", "sesiones": METAFY + "dana/sessions"}
 IKER = {"id": "iker", "nombre": "Iker Lasa", "linea": "Draft · ES", "enlace": METAFY + "iker"}
+MARGEN_PAUSA_S = 10   # pause_at falla si la hora ya pasó: con carga entre leer Date.now() y parar pueden pasar segundos; la página está oculta y no cuenta «visto»
 CONTADORES = {"visto", "metafy", "academia", "guias", "sesiones", "barra"}
-ENVOLTURA = """(function(){var f=window.fetch;window.__cifras=[];window.fetch=function(u,o){
-  if(String(u).indexOf('/cifras-destacados')>=0)window.__cifras.push({keepalive:o.keepalive,credentials:o.credentials,referrerPolicy:o.referrerPolicy,method:o.method,
-  tipo:o.headers['Content-Type'],url:String(u)});return f.apply(this,arguments)}})()"""
+ENVOLTURA = """(function(){var f=window.fetch;window.__cifras=[];window.__cifrasFin=0;window.fetch=function(u,o){
+  var cifras=String(u).indexOf('/cifras-destacados')>=0;
+  if(cifras)window.__cifras.push({keepalive:o.keepalive,credentials:o.credentials,referrerPolicy:o.referrerPolicy,method:o.method,
+  tipo:o.headers['Content-Type'],url:String(u)});var r=f.apply(this,arguments);
+  if(cifras){var fin=function(){window.__cifrasFin++};r.then(fin,fin)}return r}})()"""   # __cifrasFin: envíos ya contestados (o caídos): ML-398, para esperar sin tiempos fijos
 OCULTAR = ("Object.defineProperty(document,'visibilityState',{configurable:true,get:()=>'hidden'});"
            "Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'))")
 NACER_OCULTA = OCULTAR.rsplit(";", 1)[0]   # la página nace «oculta» (sin el evento): la cuenta de «visto» no empieza antes de parar el reloj
@@ -100,8 +104,8 @@ class CifrasNavegador(unittest.TestCase):
 
     def abrir(self, servidor, estado=204, reloj=None, ancho=1366, azar=0.0):
         """Abre es/aprender/. `estado`: lo que contesta el servidor falso (número) o «caida» para cortar la conexión; se puede cambiar en `p.estado`.
-        `reloj`: si no es None, se instala un reloj falso y se detiene al cargar (0 = parte de la hora real; un datetime, de esa hora local), y solo
-        avanza con p.clock.run_for. `azar`: lo que devuelve Math.random (0 = empieza el primero). `p.cifras`: los POST recibidos como (cabeceras, cuerpo)."""
+        `reloj`: el reloj de la página se instala falso y se detiene al cargar (None o 0 = parte de la hora real; un datetime, de esa hora local), y solo
+        avanza con p.clock.run_for: así ninguna cuenta de «visto» (1 s seguido) depende de lo que tarde la máquina entre dos pasos de la prueba. `azar`: lo que devuelve Math.random (0 = empieza el primero). `p.cifras`: los POST recibidos como (cabeceras, cuerpo)."""
         ctx = self.nav.new_context(viewport={"width": ancho, "height": 800}, reduced_motion="reduce")   # sin rotación sola: nada cambia de creador a mitad de prueba
         self.addCleanup(ctx.close)
         p = ctx.new_page()
@@ -126,21 +130,30 @@ class CifrasNavegador(unittest.TestCase):
                 return r.fulfill(body=PNG, content_type="image/png")
             return r.abort()
         p.route("**/*", ruta)
-        if reloj is not None:
-            p.add_init_script(NACER_OCULTA)
-            p.clock.install(time=reloj) if reloj else p.clock.install()
+        p.add_init_script(NACER_OCULTA)
+        p.clock.install(time=reloj) if reloj else p.clock.install()
         p.goto(f"{servidor.url}/es/aprender/", wait_until="load")
         p.wait_for_function("document.documentElement.classList.contains('learn-js') || document.documentElement.classList.contains('learn-sin-lista')")
-        if reloj is not None:
-            p.wait_for_timeout(300)   # el IntersectionObserver da su primera lectura (con la página aún «oculta»)
-            p.clock.pause_at(datetime.fromtimestamp(p.evaluate("Date.now()") / 1000 + 0.05))
-            p.evaluate(MOSTRAR)
+        esperar_pagina_estable(p)
+        p.evaluate(self.LECTURA_OBSERVADOR)   # el IntersectionObserver de la página ya dio su primera lectura (con la página aún «oculta»)
+        p.clock.pause_at(datetime.fromtimestamp(p.evaluate("Date.now()") / 1000 + MARGEN_PAUSA_S))
+        p.evaluate(MOSTRAR)
         return p
+
+    # Un observador propio sobre las tarjetas, creado después del de la página: sus avisos llegan en el mismo turno y a continuación de los suyos.
+    LECTURA_OBSERVADOR = """() => new Promise((listo) => { const tarjetas = document.querySelectorAll('#destacado .d2c');
+      if (!tarjetas.length) return listo(0);
+      const io = new IntersectionObserver(() => { io.disconnect(); listo(1); }); tarjetas.forEach((t) => io.observe(t)); })"""
+
+    def esperar_envios(self, p):
+        """Espera a que cada envío de cifras empezado esté contestado (o caído) y a que la página haya tratado la respuesta. Empezar es síncrono,
+        así que también sirve para «no se envió nada»: no hay nada que esperar."""
+        p.wait_for_function("window.__cifrasFin === window.__cifras.length", timeout=ESPERA_MAXIMA_MS)
 
     def enviar(self, p):
         """Oculta la página (lo que dispara el envío) y espera a que termine; la vuelve a mostrar."""
         p.evaluate(OCULTAR)
-        p.wait_for_timeout(250)
+        self.esperar_envios(p)
         p.evaluate(MOSTRAR)
 
     def pendiente(self, p):
@@ -157,7 +170,6 @@ class CifrasNavegador(unittest.TestCase):
 
     def clic(self, p, selector):
         p.locator(selector).first.click()
-        p.wait_for_timeout(50)
 
     # ------------------------------------------------------------------ el contrato
     def test_cuerpo_exacto_y_forma_de_la_peticion(self):
@@ -236,8 +248,8 @@ class CifrasNavegador(unittest.TestCase):
         p = self.abrir(self.dos, reloj=0)
         self.clic(p, "#destacado .d2c.on .d2cta")
         self.assertEqual(p.cifras, [])
-        p.clock.run_for(3600000 + 1000)
-        p.wait_for_timeout(250)
+        p.clock.fast_forward(3600000 + 1000)   # salta la hora de golpe: los temporizadores vencidos se disparan una vez (run_for los repasaba uno a uno, 170 s)
+        self.esperar_envios(p)
         self.assertEqual(len(p.cifras), 1)
         self.assertEqual(self.cuerpos(p)[0]["dias"][dia_utc()]["dana-voss"]["metafy"], 1)
 
@@ -245,7 +257,7 @@ class CifrasNavegador(unittest.TestCase):
         p = self.abrir(self.dos)
         self.clic(p, "#destacado .d2c.on .d2cta")
         p.evaluate("window.dispatchEvent(new Event('pagehide'))")
-        p.wait_for_timeout(250)
+        self.esperar_envios(p)
         self.assertEqual(len(p.cifras), 1)
 
     # ------------------------------------------------------------------ qué se cuenta
@@ -288,7 +300,7 @@ class CifrasNavegador(unittest.TestCase):
         p.evaluate("window.scrollTo(0, 2400)")
         p.wait_for_function("document.getElementById('d2barra').classList.contains('visible')")
         self.clic(p, "#d2barra .d2cta")
-        p.wait_for_timeout(1300)
+        p.clock.run_for(1300)   # más que el segundo de «visto»: aun así no se cuenta nada sin id
         self.enviar(p)
         self.assertEqual(p.cifras, [])
         self.assertEqual(self.pendiente(p), {})
@@ -311,7 +323,7 @@ class CifrasNavegador(unittest.TestCase):
         p.evaluate(MOSTRAR)
         p.clock.run_for(600)
         p.evaluate(OCULTAR)
-        p.wait_for_timeout(250)
+        self.esperar_envios(p)
         self.assertEqual(p.cifras, [])
         p.evaluate(MOSTRAR)
         p.clock.run_for(1200)

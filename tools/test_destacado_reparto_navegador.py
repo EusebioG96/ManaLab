@@ -14,6 +14,7 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "tools"))
+from navegador_comun import esperar_pagina_estable  # noqa: E402
 from test_pagina_learn_navegador import PNG, SERVIDOR_IA, Servidor, sitio  # noqa: E402
 
 try:
@@ -70,13 +71,16 @@ class RepartoDelDestacadoInicial(unittest.TestCase):
             p.clock.install()
         p.goto(f"{servidor.url}/{ruta}", wait_until="load")
         p.wait_for_function("document.documentElement.classList.contains('learn-js') || document.documentElement.classList.contains('learn-sin-lista')")
+        esperar_pagina_estable(p)
         return p
 
     def activo(self, p, tras_cambio: bool = False) -> str:
         """El id del destacado que se ve (el único .on). Falla si hay más de uno visible de verdad. `tras_cambio`: espera a que acabe el
         fundido de 0,4 s de la rotación o la flecha; al cargar no hay fundido (el inicial se pone sin él) y no se espera: eso también se prueba."""
-        if tras_cambio:
-            p.wait_for_timeout(600)
+        if tras_cambio:   # el .on ya está del todo opaco (al empezar el fundido su opacidad es 0) y no queda ninguna transición del destacado en marcha
+            p.wait_for_function("""() => { const on = document.querySelector('#destacado .d2c.on');
+                return !!on && getComputedStyle(on).opacity === '1'
+                  && !document.getAnimations().some((a) => a.playState === 'running' && a.effect && a.effect.target && a.effect.target.closest && a.effect.target.closest('#destacado')); }""")
         visibles = p.evaluate("""() => Array.from(document.querySelectorAll('#destacado .d2c')).filter(c => {
             const e = getComputedStyle(c); return e.visibility === 'visible' && parseFloat(e.opacity) > 0.5; }).map(c => c.getAttribute('data-id'))""")
         self.assertEqual(len(visibles), 1, f"se ve más de un destacado a la vez: {visibles}")
