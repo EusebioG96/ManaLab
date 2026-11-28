@@ -1,1 +1,3 @@
 .apoyo h3 { font-size: clamp(28px, 3.2vw, 38px); line-height: 1.12; margin: 12px 0 12px; }
+/* El bloque de apoyo de la portada lleva una sola columna de contenido: sin esto la mitad de la caja queda vacía. */
+.apoyo.uno { grid-template-columns: minmax(0, 1fr); }
