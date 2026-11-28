@@ -354,7 +354,7 @@
 </div>
 </div>
 </div>
-{{APOYO_METAFY eti="Apoya el proyecto" titulo="Gratis, con análisis de IA por suscripción" texto="ManaLab se hace en ratos libres. El programa sigue siendo gratis." boton="Apoyar en Metafy" medicion="metafy-apoyo-es"}}
+{{APOYO_METAFY eti="Apoya el proyecto" titulo="Ayuda a que ManaLab siga adelante" texto="ManaLab se hace en ratos libres. El programa sigue siendo gratis." boton="Apoyar en Metafy" medicion="metafy-apoyo-es"}}
 </div>
 </section>
 <section class="seccion franja" id="final">

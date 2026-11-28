@@ -355,7 +355,7 @@
 </div>
 </div>
 </div>
-{{APOYO_METAFY eti="Support the project" titulo="Free, with AI analysis by subscription" texto="ManaLab is made in spare time. The program stays free." boton="Support on Metafy" medicion="metafy-apoyo-en"}}
+{{APOYO_METAFY eti="Support the project" titulo="Help keep ManaLab going" texto="ManaLab is made in spare time. The program stays free." boton="Support on Metafy" medicion="metafy-apoyo-en"}}
 </div>
 </section>
 <section class="seccion franja" id="final">
