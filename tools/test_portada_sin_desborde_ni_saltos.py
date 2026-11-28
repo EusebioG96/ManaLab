@@ -19,8 +19,8 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "tools"))
-from navegador_comun import esperar_pagina_estable  # noqa: E402
-from test_huecos_mdn_navegador import Servidor, sitio  # noqa: E402
+from navegador_comun import esperar_pagina_estable
+from test_huecos_mdn_navegador import Servidor, sitio
 
 try:
     from playwright.sync_api import sync_playwright

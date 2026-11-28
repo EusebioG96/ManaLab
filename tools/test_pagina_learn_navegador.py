@@ -19,8 +19,8 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "tools"))
-import construir_web  # noqa: E402
-from navegador_comun import esperar_pagina_estable  # noqa: E402
+import construir_web
+from navegador_comun import esperar_pagina_estable
 
 try:
     from playwright.sync_api import sync_playwright

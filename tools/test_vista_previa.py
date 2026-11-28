@@ -17,8 +17,8 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "tools"))
-import vista_previa  # noqa: E402
-from navegador_comun import esperar_hasta  # noqa: E402
+import vista_previa
+from navegador_comun import esperar_hasta
 
 try:
     from playwright.sync_api import sync_playwright
@@ -198,7 +198,7 @@ class TestEnChromium(unittest.TestCase):
                 if "learn" in ruta or "aprender" in ruta:
                     pagina.wait_for_function("document.querySelectorAll('#guias a.guia').length >= 8")
                     self.assertGreaterEqual(pagina.locator("#guias a.guia").count(), 8)
-                    esperar_hasta(pagina, lambda: any(u.endswith("/learn/guias.json") for u in pagina.pedidas), "learn.js pide la copia local de las guías")
+                    esperar_hasta(pagina, lambda p=pagina: any(u.endswith("/learn/guias.json") for u in p.pedidas), "learn.js pide la copia local de las guías")
                     self.assertTrue(any(u.endswith("/learn/guias.json") for u in pagina.pedidas), "learn.js no pidió la copia local de las guías")
                 pagina.close()
 

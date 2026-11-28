@@ -25,10 +25,10 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "tools"))
-import construir_mdn  # noqa: E402
-import construir_web  # noqa: E402
-from navegador_comun import esperar_pagina_estable  # noqa: E402
-from test_huecos_mdn import CON_ANUNCIO, ETIQUETA, RUTA_LEARN, idioma_de  # noqa: E402
+import construir_mdn
+import construir_web
+from navegador_comun import esperar_pagina_estable
+from test_huecos_mdn import CON_ANUNCIO, ETIQUETA, RUTA_LEARN, idioma_de
 
 try:
     from playwright.sync_api import sync_playwright
