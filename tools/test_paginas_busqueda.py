@@ -67,8 +67,7 @@ class TestPaginas(unittest.TestCase):
             self.assertEqual(hreflangs(html), {"en": SITIO + en, "es": SITIO + es, "x-default": SITIO + en})
             otra = leer(next(q["ruta"] for q in PAGINAS.values() if q["url"] == p["otra"]))
             self.assertEqual(hreflangs(otra), hreflangs(html))                     # reciprocidad
-            self.assertIn('<meta content="%s/img/og-3.0.jpg" property="og:image"/>' % SITIO if k.startswith("logs") else
-                          '<meta content="%s/img/v22_overlay.jpg" property="og:image"/>' % SITIO, html)
+            self.assertIn('<meta content="%s/img/og-3.0.jpg" property="og:image"/>' % SITIO, html)   # 1200x630 (ML-412)
             self.assertIn("https://manalab.goatcounter.com/count", html)
             self.assertNotIn("noindex", html)
 

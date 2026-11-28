@@ -135,7 +135,7 @@ class TestPagina404(unittest.TestCase):
         self.assertTrue(self.p.refs)
         for tag, r in self.p.refs:
             with self.subTest(r):
-                self.assertRegex(r, r"^(/|https?://)", f"ruta no absoluta en <{tag}>: {r}")
+                self.assertRegex(r, r"^(/|https?://|#)", f"ruta no absoluta en <{tag}>: {r}")
         for u in re.findall(r"url\(([^)]+)\)", self.t):
             self.assertTrue(u.strip("'\"").startswith("/"), u)
 

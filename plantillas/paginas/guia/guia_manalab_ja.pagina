@@ -23,6 +23,7 @@
 <meta property="og:description" content="MTG Arena と Magic Online の無料トラッカー ManaLab のガイド：初手とマリガン、マッチアップ別の統計、サイドボード、オーバーレイ、コーチ向け書き出し、AI敗戦分析。">
 <meta property="og:url" content="https://manalab.es/guia/guia_manalab_ja.html">
 <meta property="og:image" content="https://manalab.es/img/og-3.0.jpg">
+<meta property="og:image:alt" content="ManaLabのダッシュボード。今日のセッション、連勝記録、進行中の対戦">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="preload" href="/fuentes/marcellus-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fuentes/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>

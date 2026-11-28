@@ -122,7 +122,7 @@ class PaginasPublicadas(unittest.TestCase):
             html = leer(ruta)
             with self.subTest(idioma):
                 self.assertEqual(sorted(re.findall(r'<script[^>]*src="([^"]+)"', html)),
-                                 ["//gc.zgo.at/count.js", "/descarga.js", "/huecos_mdn.js", "/learn/cifras.js", "/learn/learn.js", "https://mdn.metafy.gg/embed.js"])
+                                 ["//gc.zgo.at/count.js", "/descarga.js", "/huecos_mdn.js", "/learn/cifras.js", "/learn/learn.js", "/menu.js", "https://mdn.metafy.gg/embed.js"])
 
     def test_el_cierre_ofrece_la_descarga_con_el_panel_de_siempre(self):
         for idioma, ruta in PAGINAS.items():
