@@ -67,5 +67,5 @@
 {{LEARN:datos}}
 <script defer="" src="/descarga.js"></script>
 <script defer="" src="/learn/learn.js"></script><script defer="" src="/learn/cifras.js"></script>
-<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
+<script defer src="/origen.js"></script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></body>
 </html>

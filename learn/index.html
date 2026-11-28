@@ -302,6 +302,8 @@ footer .legal { max-width: 80ch; line-height: 1.6; }
 /* ---------------- teléfono: en lugar del ZIP, «envíate el enlace» (lo monta descarga.js solo en pantalla estrecha y táctil) */
 .movil-caja { scroll-margin-top: 84px; margin-top: 14px; padding: 18px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 8px; }
 .movil-tit { margin: 0 0 6px; font: 600 20px/1.2 var(--f-texto); color: var(--texto); }
+/* con el campo de correo el texto del formulario ya dice lo mismo: sin el título la caja cabe en la primera pantalla (ML-379) */
+.movil-tit:has(+ .movil-correo) { display: none; }
 .movil-txt { margin: 0 0 14px; color: var(--texto2); font-size: 15px; }
 .movil-caja .boton { white-space: normal; text-align: center; justify-content: center; }
 .movil-zip { margin: 14px 0 0; font-size: 14px; }
@@ -590,5 +592,5 @@ input.ap-campo { flex: 1 1 200px; min-width: 0; }
 <script id="learn-datos" type="application/json">{"idioma":"en","servidor":"https://registro-ia.eusebiog76.workers.dev/guias.json","copia":"/learn/guias.json","porPagina":24,"rotarMs":8000,"resenasMin":3,"t":{"fil":["All","Free","Paid","Subscribers"],"creador":"All creators","buscar":"Search for a guide","orden":["Most purchased","Top rated","Shortest"],"de":"by {}","gratis":"Free","sus":"Subscribers","cuenta":["1 guide","{n} guides"],"res":["1 review","{n} reviews"],"min":"{n} min","paginas":"Pages","ant":"Previous","sig":"Next","decimal":".","precio":"${n}","vacio":["There are no guides yet","Metafy guides for Magic will show up here as soon as they are published."],"ninguna":["No guide matches","Clear filters"],"bajar":"Download free"}}</script>
 <script defer="" src="/descarga.js"></script>
 <script defer="" src="/learn/learn.js"></script><script defer="" src="/learn/cifras.js"></script>
-<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script defer src="/huecos_mdn.js" data-plazo="6000"></script><script async src="https://mdn.metafy.gg/embed.js" data-mdn-site="mdn_obNMYPWbbmMClWCpy3Pss6JY"></script></body>
+<script defer src="/origen.js"></script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script defer src="/huecos_mdn.js" data-plazo="6000"></script><script async src="https://mdn.metafy.gg/embed.js" data-mdn-site="mdn_obNMYPWbbmMClWCpy3Pss6JY"></script></body>
 </html>

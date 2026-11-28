@@ -216,7 +216,7 @@ class TestHreflangYSitemap(unittest.TestCase):
         for idioma in IDIOMAS:
             fuentes = [(s.get("src"), s.get("data-goatcounter")) for s in lector(idioma).scripts if s.get("type") != "application/ld+json"]
             with self.subTest(idioma=idioma):
-                self.assertEqual(fuentes, [("//gc.zgo.at/count.js", "https://manalab.goatcounter.com/count")])
+                self.assertEqual(fuentes, [("/origen.js", None), ("//gc.zgo.at/count.js", "https://manalab.goatcounter.com/count")])   # origen.js: ML-379
 
     def test_las_cuatro_estan_en_el_sitemap_una_vez_con_alternates(self):
         sitemap = (RAIZ / "sitemap.xml").read_text(encoding="utf-8")

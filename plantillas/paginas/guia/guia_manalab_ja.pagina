@@ -55,6 +55,6 @@
 <nav class="inicio" aria-label="ManaLab"><a class="descargar" href="/ja/#descargar" data-goatcounter-click="{{EVENTO:descarga:abajo}}" data-goatcounter-title="{{EVENTO:descarga:abajo}}">無料ダウンロード</a></nav>
 {{> pie_guia 1=f}}
 </main>
-<script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script defer src="/origen.js"></script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

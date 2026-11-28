@@ -31,7 +31,12 @@
   /* ---------------- teléfono */
   function contar(ruta, titulo) {
     try {
-      var g = window.goatcounter;
+      // quien excluyó su navegador (/no-contar/, ML-379) no cuenta: count.js ya lo respeta; aquí se comprueba antes de armar el nombre
+      if (window.localStorage.getItem("skipgc") === "t") return;
+    } catch (e) {}
+    try {
+      var g = window.goatcounter, o = window.manalabOrigen;   // origen.js añade la campaña o el referente al nombre
+      if (o) { ruta = o.de(ruta); titulo = o.de(titulo); }
       if (g && typeof g.count === "function") g.count({ event: true, path: ruta, title: titulo });
     } catch (e) {}
   }

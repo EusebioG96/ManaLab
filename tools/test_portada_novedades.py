@@ -105,7 +105,7 @@ class TestCabecera(unittest.TestCase):
                 self.assertRegex(hero, r'<p class="nota-hero"><span>(Versión|Version) <span data-version>[\d.]+</span> · ZIP · ')
                 self.assertIn('href="%s"' % ("/safety/" if idioma == "en" else "/es/seguridad/"), hero)
                 # columna izquierda: etiqueta, titular, entrada, hueco móvil, botón, nota, ventajas; el vídeo, solo a la derecha
-                orden = [hero.index(x) for x in ('class="eti"', "<h1>", 'class="sub"', "data-movil-aqui", 'class="hero-cta"', 'class="nota-hero"', 'class="nota-desc"', 'class="hero-medio"')]
+                orden = [hero.index(x) for x in ('class="eti"', "<h1>", "data-movil-aqui", 'class="sub"', 'class="hero-cta"', 'class="nota-hero"', 'class="nota-desc"', 'class="hero-medio"')]
                 self.assertEqual(orden, sorted(orden))
                 self.assertEqual(hero.count('class="hero-cta"'), 1)
                 self.assertLess(hero.index('class="hero-cta"'), hero.index("<video"))

@@ -156,13 +156,14 @@ a.idioma { text-decoration: none; display: inline-grid; place-items: center; }
 html.movil .aviso-version { display: none; }
 html.movil .hero-cta .boton { display: none; }
 /* ML-326: descarga.js pasa la portada a «modo teléfono» después de pintar (aviso fuera, botón fuera, caja de «envíate el enlace»); eso movía toda la portada
-   (CLS 0,35). Con JavaScript, en pantalla estrecha y táctil, se pinta ya en ese estado y el hueco de la caja guarda su alto (232 px; 300 px por debajo de 480). */
+   (CLS 0,35). Con JavaScript, en pantalla estrecha y táctil, se pinta ya en ese estado y el hueco de la caja guarda su alto (200 px; 240 px por debajo de 480; ML-379 sin el título de la caja). */
 @media (scripting: enabled) and (max-width: 767px) and (pointer: coarse) {
   .aviso-version, .hero-cta .boton { display: none; }
   .hero-cta { margin-top: 16px; }
-  .portada p.sub + div:empty { min-height: 232px; margin-top: 14px; }
+  .portada h1 + div:empty { min-height: 200px; margin-top: 14px; }
+  .portada h1 + div + p.sub { margin-top: 16px; }
 }
-@media (scripting: enabled) and (max-width: 480px) and (pointer: coarse) { .portada p.sub + div:empty { min-height: 300px; } }
+@media (scripting: enabled) and (max-width: 480px) and (pointer: coarse) { .portada h1 + div:empty { min-height: 240px; } }
 .enlace-sec { color: var(--texto2); font-size: 14.5px; text-decoration: underline; text-decoration-color: var(--linea2); text-underline-offset: 3px; }
 .enlace-sec:hover { color: var(--texto); text-decoration-color: currentColor; }
 .ventana { border-radius: 10px; border: 1px solid rgba(236, 230, 214, 0.34); background: var(--panel); box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6); overflow: hidden; }
@@ -311,6 +312,8 @@ footer .legal { max-width: 80ch; line-height: 1.6; }
 /* ---------------- teléfono: en lugar del ZIP, «envíate el enlace» (lo monta descarga.js solo en pantalla estrecha y táctil) */
 .movil-caja { scroll-margin-top: 84px; margin-top: 14px; padding: 18px; background: var(--panel); border: 1px solid var(--linea2); border-radius: 8px; }
 .movil-tit { margin: 0 0 6px; font: 600 20px/1.2 var(--f-texto); color: var(--texto); }
+/* con el campo de correo el texto del formulario ya dice lo mismo: sin el título la caja cabe en la primera pantalla (ML-379) */
+.movil-tit:has(+ .movil-correo) { display: none; }
 .movil-txt { margin: 0 0 14px; color: var(--texto2); font-size: 15px; }
 .movil-caja .boton { white-space: normal; text-align: center; justify-content: center; }
 .movil-zip { margin: 14px 0 0; font-size: 14px; }
@@ -505,8 +508,8 @@ html.movil .hero-cta { margin-top: 16px; }
 <div>
 <div class="eti">MTGアリーナとMagic Onlineの無料トラッカー</div>
 <h1>アリーナと<wbr><span style="white-space:nowrap">Magic Onlineの</span><wbr>全対戦を、<wbr><em>自動で記録。</em></h1>
-<p class="sub">ManaLabはプレイ中にアリーナと<span style="white-space:nowrap">Magic Online</span>のログを読み取り、初手、マリガン、相手のデッキを保存します。どこで勝ち、どこで負けているかがわかります。</p>
 <div data-movil-aqui></div>
+<p class="sub">ManaLabはプレイ中にアリーナと<span style="white-space:nowrap">Magic Online</span>のログを読み取り、初手、マリガン、相手のデッキを保存します。どこで勝ち、どこで負けているかがわかります。</p>
 <div class="hero-cta">
 <a class="boton prim descarga" href="https://github.com/EusebioG96/ManaLab/releases/download/v3.0.1/ManaLab-3.0.1-portable.zip" download data-a-bloque data-descarga data-goatcounter-click="descarga-portada-ja-hero" data-goatcounter-title="descarga-portada-ja-hero" rel="noopener"><svg viewbox="0 0 24 24"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"></path></svg><span>無料ダウンロード</span></a>
 <a class="enlace-sec" href="#funciones">機能を見る</a>
@@ -790,4 +793,4 @@ html.movil .hero-cta { margin-top: 16px; }
   window.addEventListener("load", abrir);   /* otra vez con las imágenes ya cargadas: el desplazamiento cuadra */
   window.addEventListener("hashchange", abrir);
 })();
-</script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script defer src="/huecos_mdn.js" data-plazo="6000"></script><script async src="https://mdn.metafy.gg/embed.js" data-mdn-site="mdn_obNMYPWbbmMClWCpy3Pss6JY"></script></body>
+</script><script defer src="/origen.js"></script><script data-goatcounter="https://manalab.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script defer src="/huecos_mdn.js" data-plazo="6000"></script><script async src="https://mdn.metafy.gg/embed.js" data-mdn-site="mdn_obNMYPWbbmMClWCpy3Pss6JY"></script></body>

@@ -29,7 +29,7 @@ except ImportError:  # silencio: sin Playwright la prueba se salta
 PORTADAS = ("index.html", "es/index.html", "pt/index.html", "ja/index.html")
 ANCHOS = (360, 390, 768, 1040, 1366)
 LIMITE_CLS = 0.1
-ALTO_MINIMO_HUECO = 232   # alto de la caja de móvil más baja (767 px); a 480 px o menos se reservan 300
+ALTO_MINIMO_HUECO = 200   # alto de la caja de móvil más baja (767 px); a 480 px o menos se reservan 240 (ML-379: sin el título de la caja)
 ANCHOS_BARRIDO = range(340, 1401, 10)
 # Alto de lo que ocupa el texto visible de cada enlace de la cabecera: una línea de texto mide como mucho esto veces la altura de una caja de texto
 MAX_LINEAS = 1.6
@@ -137,7 +137,7 @@ class PortadaSinDesbordeNiSaltos(unittest.TestCase):
     def test_primer_pintado_en_telefono_ya_reserva_el_espacio(self):
         """Estable aunque el CLS varíe: antes de que corra descarga.js, la portada ya está como quedará."""
         for portada in PORTADAS:
-            for ancho, minimo in ((390, 300), (767, ALTO_MINIMO_HUECO)):
+            for ancho, minimo in ((390, 240), (767, ALTO_MINIMO_HUECO)):
                 contexto, pagina = self.pagina(ancho, movil=True, bloquear="/descarga.js")
                 pagina.goto(f"{self.web.url}/{portada}", wait_until="load")
                 estado = pagina.evaluate("""() => ({
